@@ -138,7 +138,7 @@ const ARCHIVE = [
   { tag:'analytics', title:'An Easier to Understand Guide to wRC+ for Baseball Analytics', excerpt:"A deep dive into one of baseball's most comprehensive offensive metrics — what it measures, why it matters, and how to read it in context.", date:'Aug 4, 2025', paid:true, url:'https://thebaseballnerd.substack.com/p/an-easier-to-understand-guide-to' },
 ];
 
-const RSS_PROXY = 'https://api.rss2json.com/v1/api.json?rss_url=https://thebaseballnerd.substack.com/feed&count=8';
+const RSS_PROXY = '/.netlify/functions/fetch-feed?url=https://thebaseballnerd.substack.com/feed';
 let activeFilter='all', rssItems=[];
 
 function tagLabel(t){ return {analytics:'Analytics',economics:'Economics',rangers:'Rangers',alwest:'AL West',history:'Sunday Stories'}[t]||'The Baseball Nerd'; }
