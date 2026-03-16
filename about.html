@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — The Baseball Nerd</title>
+<meta name="description" content="Pete Dwyer is The Baseball Nerd — analytics-first baseball coverage built on proprietary SPARK and FADE scoring.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--navy:#0a1628;--navy-mid:#112040;--navy-light:#1a2f50;--gold:#c9a84c;--gold-light:#e8c97a;--cream:#f5f0e8;}
+body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--cream);min-height:100vh;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 2rem;background:rgba(10,22,40,0.97);border-bottom:1px solid rgba(201,168,76,0.15);position:sticky;top:0;z-index:100;}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.08em;color:var(--gold);text-decoration:none;}
+.nav-logo span{color:var(--cream);opacity:0.45;}
+.nav-links{display:flex;gap:0;list-style:none;}
+.nav-links a{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.45;text-decoration:none;padding:0.4rem 0.9rem;display:block;transition:opacity 0.15s,color 0.15s;}
+.nav-links a:hover{opacity:1;color:var(--gold);}
+.nav-links a.active{opacity:1;color:var(--gold);border-bottom:1px solid var(--gold);}
+.nav-cta{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1rem;background:var(--gold);color:var(--navy);border:none;cursor:pointer;font-weight:500;text-decoration:none;transition:background 0.2s;}
+.nav-cta:hover{background:var(--gold-light);}
+.about-wrap{background:var(--cream);}
+.about-inner{max-width:1100px;margin:0 auto;padding:4rem 2rem 5rem;display:grid;grid-template-columns:1fr 1.3fr;gap:4.5rem;align-items:start;}
+.about-left-card{background:var(--navy);border:1px solid rgba(201,168,76,0.2);padding:2.5rem;position:relative;}
+.about-left-card::after{content:'';position:absolute;bottom:-10px;right:-10px;width:100%;height:100%;border:1px solid rgba(201,168,76,0.18);z-index:-1;}
+.about-tagline{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;color:var(--gold);line-height:0.92;letter-spacing:0.04em;margin-bottom:1.25rem;}
+.about-card-desc{font-size:0.82rem;color:var(--cream);opacity:0.45;line-height:1.75;margin-bottom:1.5rem;}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding-top:1.5rem;border-top:1px solid rgba(201,168,76,0.12);}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--gold);line-height:1;}
+.stat-lbl{font-family:'IBM Plex Mono',monospace;font-size:0.57rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.32;margin-top:0.2rem;}
+.about-right p{font-size:0.92rem;line-height:1.8;color:#1a1a2e;opacity:0.65;margin-bottom:1.1rem;}
+.about-right strong{color:#1a1a2e;opacity:1;font-weight:500;}
+.about-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:#854F0B;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem;}
+.about-eyebrow::before{content:'';display:inline-block;width:1rem;height:1px;background:#854F0B;}
+.about-head{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;letter-spacing:0.04em;color:#0a1628;line-height:1;margin-bottom:1.5rem;}
+.pillars{display:flex;flex-direction:column;gap:0.55rem;margin:1.25rem 0 1.5rem;}
+.pillar{display:flex;align-items:center;gap:0.7rem;font-family:'IBM Plex Mono',monospace;font-size:0.7rem;letter-spacing:0.06em;color:#1a1a2e;opacity:0.65;}
+.pillar-dot{width:5px;height:5px;background:#c9a84c;flex-shrink:0;}
+.affils{display:flex;gap:6px;flex-wrap:wrap;margin-top:0.75rem;margin-bottom:1.5rem;}
+.affil{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border:1px solid rgba(133,79,11,0.3);color:#854F0B;}
+.btn-gold-sm{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.55rem 1.1rem;background:#c9a84c;color:#0a1628;border:none;cursor:pointer;font-weight:500;text-decoration:none;display:inline-block;transition:background 0.2s;}
+.btn-gold-sm:hover{background:#e8c97a;}
+.btn-outline-sm{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.55rem 1.1rem;border:1px solid rgba(10,22,40,0.2);color:#1a1a2e;background:transparent;cursor:pointer;text-decoration:none;display:inline-block;transition:border-color 0.2s;}
+.btn-outline-sm:hover{border-color:#c9a84c;}
+footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(201,168,76,0.06);}
+.foot-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--gold);}
+.foot-logo span{color:var(--cream);opacity:0.3;}
+.foot-copy{font-family:'IBM Plex Mono',monospace;font-size:0.57rem;letter-spacing:0.08em;color:var(--cream);opacity:0.18;text-transform:uppercase;}
+.foot-links{display:flex;gap:1.25rem;list-style:none;}
+.foot-links a{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.28;text-decoration:none;transition:opacity 0.2s;}
+.foot-links a:hover{opacity:0.75;}
+@media(max-width:700px){.about-inner{grid-template-columns:1fr;gap:3rem;}.about-left-card::after{display:none;}.nav-links{display:none;}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">The Baseball <span>Nerd</span></a>
+  <ul class="nav-links">
+    <li><a href="news.html">News</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="podcasts.html">Podcasts</a></li>
+    <li><a href="vault.html">Vault</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+  </ul>
+  <a class="nav-cta" href="https://thebaseballnerd.substack.com" target="_blank">Subscribe →</a>
+</nav>
+
+<div class="about-wrap">
+  <div class="about-inner">
+    <div>
+      <div class="about-left-card">
+        <div class="about-tagline">Numbers<br>Not<br>Feelings.</div>
+        <div class="about-card-desc">Proprietary analytics built from the ground up. No hot takes. No narrative chasing. Just the data doing the talking.</div>
+        <div class="about-stats">
+          <div><div class="stat-num">1,100+</div><div class="stat-lbl">Subscribers</div></div>
+          <div><div class="stat-num">SPARK</div><div class="stat-lbl">Breakout score</div></div>
+          <div><div class="stat-num">FADE</div><div class="stat-lbl">Decline score</div></div>
+          <div><div class="stat-num">2023</div><div class="stat-lbl">Founded</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="about-right">
+      <div class="about-eyebrow">About</div>
+      <div class="about-head">Pete Dwyer,<br>The Baseball Nerd</div>
+      <p><strong>The Baseball Nerd</strong> is a multi-platform baseball analytics brand built on one belief: the numbers tell a better story than the narrative.</p>
+      <p>Founded in 2023 and affiliated with FanSided and the IBWAA, The Baseball Nerd covers the game through proprietary frameworks — the SPARK Score (breakout prediction) and FADE Score (regression and decline) — built from scratch using FanGraphs, Baseball Savant, and Baseball Prospectus data.</p>
+      <p>Pete Dwyer is the author of a baseball scorekeeping book published via Amazon KDP and a regular contributor to Painting Corners Baseball.</p>
+      <div class="pillars">
+        <div class="pillar"><div class="pillar-dot"></div>Breakout and regression analysis</div>
+        <div class="pillar"><div class="pillar-dot"></div>AL West and Texas Rangers coverage</div>
+        <div class="pillar"><div class="pillar-dot"></div>Free agent and contract evaluation</div>
+        <div class="pillar"><div class="pillar-dot"></div>Sunday Stories — baseball history</div>
+        <div class="pillar"><div class="pillar-dot"></div>Scorekeeping education and book</div>
+      </div>
+      <div class="affils">
+        <div class="affil">FanSided</div>
+        <div class="affil">IBWAA</div>
+        <div class="affil">Painting Corners Baseball</div>
+        <div class="affil">Amazon KDP</div>
+      </div>
+      <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+        <a class="btn-gold-sm" href="https://thebaseballnerd.substack.com" target="_blank">Subscribe on Substack</a>
+        <a class="btn-outline-sm" href="mailto:texasrangersbaseballnerd@gmail.com">Contact Pete</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="foot-logo">The Baseball <span>Nerd</span></div>
+  <div class="foot-copy">© 2026 The Baseball Nerd · Numbers Not Feelings</div>
+  <ul class="foot-links">
+    <li><a href="news.html">News</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="podcasts.html">Podcasts</a></li>
+    <li><a href="vault.html">Vault</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+</footer>
+</body>
+</html>

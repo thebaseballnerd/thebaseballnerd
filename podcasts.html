@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Podcasts — The Baseball Nerd</title>
+<meta name="description" content="The Baseball Nerd podcast — analytics-first baseball audio. Coming soon on Substack.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--navy:#0a1628;--navy-mid:#112040;--navy-light:#1a2f50;--gold:#c9a84c;--gold-light:#e8c97a;--cream:#f5f0e8;}
+body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--cream);min-height:100vh;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 2rem;background:rgba(10,22,40,0.97);border-bottom:1px solid rgba(201,168,76,0.15);position:sticky;top:0;z-index:100;}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.08em;color:var(--gold);text-decoration:none;}
+.nav-logo span{color:var(--cream);opacity:0.45;}
+.nav-links{display:flex;gap:0;list-style:none;}
+.nav-links a{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.45;text-decoration:none;padding:0.4rem 0.9rem;display:block;transition:opacity 0.15s,color 0.15s;}
+.nav-links a:hover{opacity:1;color:var(--gold);}
+.nav-links a.active{opacity:1;color:var(--gold);border-bottom:1px solid var(--gold);}
+.nav-cta{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1rem;background:var(--gold);color:var(--navy);border:none;cursor:pointer;font-weight:500;text-decoration:none;transition:background 0.2s;}
+.nav-cta:hover{background:var(--gold-light);}
+.page-hero-wrap{border-bottom:1px solid rgba(201,168,76,0.08);}
+.page-hero{max-width:1100px;margin:0 auto;padding:2rem 2rem 1.75rem;}
+.page-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;display:flex;align-items:center;gap:0.5rem;}
+.page-eyebrow::before{content:'';display:inline-block;width:1rem;height:1px;background:var(--gold);}
+.page-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);letter-spacing:0.04em;color:var(--cream);line-height:1;}
+.page-desc{font-size:0.88rem;color:var(--cream);opacity:0.45;margin-top:0.65rem;max-width:520px;line-height:1.7;}
+.wrap{max-width:1100px;margin:0 auto;padding:3rem 2rem 5rem;}
+.coming-band{display:flex;align-items:flex-start;gap:1rem;background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.14);border-left:3px solid var(--gold);padding:1rem 1.25rem;margin-bottom:3rem;}
+.coming-label{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);white-space:nowrap;margin-top:1px;}
+.coming-text{font-size:0.82rem;color:var(--cream);opacity:0.5;line-height:1.7;}
+.pod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-bottom:4rem;}
+.pod-card{background:var(--navy-mid);border:1px dashed rgba(201,168,76,0.1);padding:2rem 1.5rem;text-align:center;}
+.pod-glyph{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--gold);opacity:0.1;margin-bottom:0.75rem;}
+.pod-title{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--cream);opacity:0.35;margin-bottom:0.5rem;}
+.pod-desc{font-size:0.76rem;color:var(--cream);opacity:0.22;line-height:1.65;}
+.notify-wrap{max-width:420px;margin:0 auto;text-align:center;}
+.notify-label{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--cream);opacity:0.3;margin-bottom:1rem;}
+.notify-form{display:flex;}
+.notify-input{flex:1;padding:0.75rem 1rem;background:rgba(245,240,232,0.05);border:1px solid rgba(201,168,76,0.18);border-right:none;color:var(--cream);font-family:'Inter',sans-serif;font-size:0.85rem;outline:none;}
+.notify-input::placeholder{color:rgba(245,240,232,0.22);}
+.notify-btn{padding:0.75rem 1.25rem;background:var(--gold);color:var(--navy);border:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;transition:background 0.2s;white-space:nowrap;}
+.notify-btn:hover{background:var(--gold-light);}
+footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(201,168,76,0.06);}
+.foot-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--gold);}
+.foot-logo span{color:var(--cream);opacity:0.3;}
+.foot-copy{font-family:'IBM Plex Mono',monospace;font-size:0.57rem;letter-spacing:0.08em;color:var(--cream);opacity:0.18;text-transform:uppercase;}
+.foot-links{display:flex;gap:1.25rem;list-style:none;}
+.foot-links a{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.28;text-decoration:none;transition:opacity 0.2s;}
+.foot-links a:hover{opacity:0.75;}
+@media(max-width:700px){.nav-links{display:none;}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">The Baseball <span>Nerd</span></a>
+  <ul class="nav-links">
+    <li><a href="news.html">News</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="podcasts.html" class="active">Podcasts</a></li>
+    <li><a href="vault.html">Vault</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a class="nav-cta" href="https://thebaseballnerd.substack.com" target="_blank">Subscribe →</a>
+</nav>
+<div class="page-hero-wrap">
+  <div class="page-hero">
+    <div class="page-eyebrow">Audio</div>
+    <div class="page-title">Podcasts</div>
+    <div class="page-desc">The Baseball Nerd in audio form. Hosted on Substack. Coming soon — paid subscribers get early access.</div>
+  </div>
+</div>
+<div class="wrap">
+  <div class="coming-band">
+    <div class="coming-label">◆ Coming Soon</div>
+    <div class="coming-text">The Baseball Nerd podcast is in production and will be hosted on Substack. Paid subscribers get early access to every episode. Drop your email below to be notified when the first episode drops.</div>
+  </div>
+  <div class="pod-grid">
+    <div class="pod-card">
+      <div class="pod-glyph">◆</div>
+      <div class="pod-title">Numbers Not Feelings</div>
+      <div class="pod-desc">The flagship show. Deep analytics dives, SPARK and FADE breakdowns, weekly through the season.</div>
+    </div>
+    <div class="pod-card">
+      <div class="pod-glyph">◆</div>
+      <div class="pod-title">Sunday Stories Audio</div>
+      <div class="pod-desc">The Sunday Stories series adapted for audio. Baseball history told through the numbers.</div>
+    </div>
+    <div class="pod-card">
+      <div class="pod-glyph">◆</div>
+      <div class="pod-title">AL West Report</div>
+      <div class="pod-desc">Weekly rundown of everything happening across the five AL West rosters. Short, sharp, data-first.</div>
+    </div>
+  </div>
+  <div class="notify-wrap">
+    <div class="notify-label">Get notified when we launch</div>
+    <div class="notify-form">
+      <input class="notify-input" type="email" placeholder="Your email address" id="notify-email">
+      <button class="notify-btn" onclick="window.open('https://thebaseballnerd.substack.com','_blank')">Notify Me</button>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="foot-logo">The Baseball <span>Nerd</span></div>
+  <div class="foot-copy">© 2026 The Baseball Nerd · Numbers Not Feelings</div>
+  <ul class="foot-links">
+    <li><a href="news.html">News</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="podcasts.html">Podcasts</a></li>
+    <li><a href="vault.html">Vault</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+</footer>
+</body>
+</html>
