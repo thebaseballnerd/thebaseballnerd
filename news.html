@@ -155,7 +155,7 @@ const FEEDS = [
   { id:'fg',      name:'FanGraphs',         color:'#5aaccc', rss:'https://www.fangraphs.com/blogs/feed',              count:6 }
 ];
 
-const PROXY = '/netlify/functions/fetch-feed?url=';
+const PROXY = '/.netlify/functions/fetch-feed?url=';
 let allItems={}, activeTab='all', loadedCount=0;
 
 function fmt(d){
