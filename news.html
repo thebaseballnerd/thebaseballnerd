@@ -101,8 +101,8 @@ footer { background:#060e1a; padding:1.75rem 2rem; display:flex; align-items:cen
 </div>
 <div class="wrap">
   <div class="tab-row">
-    <button class="tab-btn active" data-source="all"     onclick="setTab(this)">All Sources</button>
-    <button class="tab-btn"        data-source="mlbtr"   onclick="setTab(this)">MLB Trade Rumors</button>
+    
+   <button class="tab-btn active" data-source="mlbtr" onclick="setTab(this)">MLB Trade Rumors</button>
     <button class="tab-btn"        data-source="rangers" onclick="setTab(this)">Rangers</button>
     <button class="tab-btn"        data-source="espn"    onclick="setTab(this)">ESPN MLB</button>
     <button class="tab-btn"        data-source="fg"      onclick="setTab(this)">FanGraphs</button>
@@ -156,7 +156,7 @@ const FEEDS = [
 ];
 
 const PROXY = '/.netlify/functions/fetch-feed?url=';
-let allItems={}, activeTab='all', loadedCount=0;
+let allItems={}, activeTab='mlbtr', loadedCount=0;
 
 function fmt(d){
   try{
