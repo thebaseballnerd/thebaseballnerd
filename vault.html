@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 <title>Data Vault — The Baseball Nerd</title>
 <meta name="description" content="The Baseball Nerd data vault — every spreadsheet and dataset built over the 2026 season.">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -81,6 +81,7 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
     <button class="tab-btn" onclick="filterVault('fade',this)">FADE</button>
     <button class="tab-btn" onclick="filterVault('team',this)">Team</button>
     <button class="tab-btn" onclick="filterVault('prospect',this)">Prospects</button>
+    <button class="tab-btn" onclick="filterVault('analytics',this)">Analytics</button>
   </div>
   <div class="vault-grid" id="vault-grid"></div>
 </div>
@@ -104,13 +105,8 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
  * ================================================
  */
 const VAULT = [
-  { tag:'spark',    type:'SPARK Score', title:'2026 SPARK Score — Full Position Player Database',  desc:'Every qualified position player ranked by breakout probability. wRC+, xBA, sprint speed delta, and SPARK composite.',  updated:'Mar 16, 2026', rows:'487 players',           num:'01', url:'https://docs.google.com/spreadsheets/REPLACE_WITH_YOUR_LINK' },
-  { tag:'fade',     type:'FADE Score',  title:'2026 FADE Score — Regression Risk Rankings',        desc:'Players whose underlying metrics suggest performance decline. Sorted by composite FADE score with supporting columns.', updated:'Mar 14, 2026', rows:'412 players',           num:'02', url:'https://docs.google.com/spreadsheets/REPLACE_WITH_YOUR_LINK' },
-  { tag:'team',     type:'Team',        title:'AL West Roster Data — 2026 Opening Day',            desc:'Full five-team AL West breakdown. Projected lineups, rotation depth, bullpen construction, and payroll allocation.',   updated:'Mar 10, 2026', rows:'5 teams · 130 players', num:'03', url:'https://docs.google.com/spreadsheets/REPLACE_WITH_YOUR_LINK' },
-  { tag:'spark',    type:'SPARK Score', title:'2026 Pitcher SPARK — Breakout Arm Tracker',         desc:'Starting and relief pitcher breakout candidates. Stuff+, SwStr%, xFIP vs FIP gaps, and workload indicators.',          updated:'Mar 12, 2026', rows:'318 pitchers',          num:'04', url:'https://docs.google.com/spreadsheets/REPLACE_WITH_YOUR_LINK' },
-  { tag:'prospect', type:'Prospects',   title:'2026 Top 100 Prospects — Analytics Overlay',        desc:'Standard rankings cross-referenced with minor league Statcast data, age-adjusted production, and ETA projections.',    updated:'Feb 28, 2026', rows:'100 prospects',         num:'05', url:'https://docs.google.com/spreadsheets/REPLACE_WITH_YOUR_LINK' },
-  { tag:'team',     type:'Team',        title:'Texas Rangers — 2026 Full Season Workbook',         desc:'Full 26-man, depth chart scenarios, Skip Schumaker lineup tendencies, and SPARK/FADE flags by player.',                updated:'Mar 8, 2026',  rows:'Rangers only',          num:'06', url:'https://docs.google.com/spreadsheets/REPLACE_WITH_YOUR_LINK' },
-{ tag:'team', type:'Team', title:'2026 Spring Training Cost-Per-Event Analysis', desc:'A breakdown of cost-per-event metrics across spring training 2026 — evaluating value and performance efficiency heading into the regular season.', updated:'Mar 2026', rows:'2026 Season', num:'07', url:'https://docs.google.com/spreadsheets/d/1N4F0v3sh9YFtYM_XztlszGXOZymw_Vf9liWUulIPBBs/edit?usp=sharing' },
+  { tag:'team',      type:'Team',      title:'2026 Spring Training Cost-Per-Event Analysis', desc:'A breakdown of cost-per-event metrics across spring training 2026 — evaluating value and performance efficiency heading into the regular season.', updated:'Mar 2026',     rows:'2026 Season',    num:'01', url:'https://docs.google.com/spreadsheets/d/1N4F0v3sh9YFtYM_XztlszGXOZymw_Vf9liWUulIPBBs/edit?usp=sharing' },
+  { tag:'analytics', type:'Analytics', title:'World Series WAR Analysis 1999-2025',          desc:'Every MLB team ranked by fWAR, bWAR, and WARP from 1999 through 2025. Cross-referenced with playoff results and World Series winners across 26 seasons.', updated:'Mar 2026', rows:'811 rows · 26 seasons', num:'02', url:'https://docs.google.com/spreadsheets/d/1_yrP3V8LIRErC_QzYemd_gIHdELCZRxH/edit?usp=sharing' },
 ];
 
 function renderVault(f){
