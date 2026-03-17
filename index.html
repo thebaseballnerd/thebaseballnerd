@@ -3,17 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 <title>The Baseball Nerd — Numbers Not Feelings</title>
 <meta name="description" content="Analytics-first baseball coverage. SPARK Score breakouts, FADE Score regression, AL West deep dives, and the numbers the mainstream misses.">
-  <meta name="google-site-verification" content="3Z-Rvkysm2Axs63xWrUHHj97_t3llfrTz1QVylguLFo" />
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root { --navy:#0a1628; --navy-mid:#112040; --navy-light:#1a2f50; --gold:#c9a84c; --gold-light:#e8c97a; --cream:#f5f0e8; --cream-mid:#ede6d6; }
 html { scroll-behavior: smooth; }
 body { font-family:'Inter',sans-serif; background:var(--navy); color:var(--cream); overflow-x:hidden; }
-
+ 
 /* NAV */
 nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:1rem 2rem; background:rgba(10,22,40,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(201,168,76,0.2); }
 .nav-logo { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:0.08em; color:var(--gold); text-decoration:none; }
@@ -23,7 +22,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-i
 .nav-links a:hover { opacity:1; color:var(--gold); }
 .nav-cta { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; padding:0.45rem 1rem; background:var(--gold); color:var(--navy); border:none; cursor:pointer; font-weight:500; text-decoration:none; transition:background 0.2s; }
 .nav-cta:hover { background:var(--gold-light); }
-
+ 
 /* HERO */
 .hero { min-height:100vh; display:flex; align-items:center; position:relative; overflow:hidden; padding:6rem 2rem 4rem; }
 .hero-bg { position:absolute; inset:0; background:radial-gradient(ellipse 60% 50% at 70% 50%, rgba(201,168,76,0.08) 0%, transparent 70%), radial-gradient(ellipse 40% 60% at 20% 80%, rgba(17,32,64,0.9) 0%, transparent 60%); }
@@ -45,14 +44,14 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-i
 .hero-stats { display:flex; gap:2.5rem; margin-top:3rem; padding-top:2rem; border-top:1px solid rgba(201,168,76,0.15); animation:fadeUp 0.9s 0.3s ease both; }
 .hero-stat-num { font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--gold); line-height:1; }
 .hero-stat-label { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--cream); opacity:0.45; margin-top:0.25rem; }
-
+ 
 /* TICKER */
 .ticker { background:var(--gold); padding:0.55rem 0; overflow:hidden; white-space:nowrap; }
 .ticker-inner { display:inline-block; animation:ticker 22s linear infinite; }
 @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 .ticker-item { font-family:'IBM Plex Mono',monospace; font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--navy); font-weight:500; margin-right:3rem; }
 .ticker-item::before { content:'◆ '; }
-
+ 
 /* FEATURED POSTS */
 .section { padding:5rem 2rem; }
 .wrap { max-width:1100px; margin:0 auto; }
@@ -62,7 +61,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-i
 .section-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:2rem; flex-wrap:wrap; gap:0.75rem; }
 .btn-outline-sm { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; padding:0.5rem 1.1rem; border:1px solid rgba(245,240,232,0.2); background:transparent; color:var(--cream); cursor:pointer; text-decoration:none; display:inline-block; transition:border-color 0.2s, color 0.2s; }
 .btn-outline-sm:hover { border-color:var(--gold); color:var(--gold); }
-
+ 
 .posts-grid { display:grid; grid-template-columns:1.6fr 1fr; gap:1.5rem; }
 .post-card { position:relative; background:var(--navy-mid); border:1px solid rgba(201,168,76,0.1); padding:2rem; cursor:pointer; transition:border-color 0.25s, transform 0.2s; overflow:hidden; text-decoration:none; display:block; color:inherit; }
 .post-card:hover { border-color:rgba(201,168,76,0.4); transform:translateY(-3px); }
@@ -80,7 +79,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-i
 .post-read { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; letter-spacing:0.08em; color:var(--gold); opacity:0.6; }
 .side-posts { display:flex; flex-direction:column; gap:1.5rem; }
 .post-num { position:absolute; bottom:0.5rem; right:1rem; font-family:'Bebas Neue',sans-serif; font-size:3rem; color:var(--gold); opacity:0.06; line-height:1; pointer-events:none; }
-
+ 
 /* NEWSLETTER */
 .newsletter-section { background:var(--navy-mid); border-top:1px solid rgba(201,168,76,0.08); border-bottom:1px solid rgba(201,168,76,0.08); padding:5rem 2rem; }
 .newsletter-inner { max-width:640px; margin:0 auto; text-align:center; }
@@ -95,7 +94,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-i
 .newsletter-btn { padding:0.85rem 1.4rem; background:var(--gold); color:var(--navy); border:none; cursor:pointer; font-family:'IBM Plex Mono',monospace; font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; font-weight:500; transition:background 0.2s; white-space:nowrap; }
 .newsletter-btn:hover { background:var(--gold-light); }
 .newsletter-fine { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; letter-spacing:0.1em; color:var(--cream); opacity:0.25; text-transform:uppercase; }
-
+ 
 /* FOOTER */
 footer { background:#060e1a; padding:2rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; border-top:1px solid rgba(201,168,76,0.06); }
 .foot-logo { font-family:'Bebas Neue',sans-serif; font-size:1.1rem; letter-spacing:0.08em; color:var(--gold); }
@@ -104,24 +103,25 @@ footer { background:#060e1a; padding:2rem; display:flex; align-items:center; jus
 .foot-links { display:flex; gap:1.25rem; list-style:none; }
 .foot-links a { font-family:'IBM Plex Mono',monospace; font-size:0.58rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--cream); opacity:0.28; text-decoration:none; transition:opacity 0.2s; }
 .foot-links a:hover { opacity:0.75; }
-
+ 
 @media (max-width:700px) { .posts-grid{grid-template-columns:1fr;} .nav-links{display:none;} .hero-stats{gap:1.5rem;} }
 </style>
 </head>
 <body>
-
+ 
 <nav>
   <a class="nav-logo" href="index.html">The Baseball <span>Nerd</span></a>
   <ul class="nav-links">
     <li><a href="news.html">News</a></li>
     <li><a href="articles.html">Articles</a></li>
+    <li><a href="rosters.html">Rosters</a></li>
     <li><a href="podcasts.html">Podcasts</a></li>
     <li><a href="vault.html">Vault</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
   <a class="nav-cta" href="https://thebaseballnerd.substack.com" target="_blank">Subscribe →</a>
 </nav>
-
+ 
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="diamond-bg"></div>
@@ -135,20 +135,20 @@ footer { background:#060e1a; padding:2rem; display:flex; align-items:center; jus
       <a href="https://thebaseballnerd.substack.com" target="_blank" class="btn-secondary">Subscribe on Substack</a>
     </div>
     <div class="hero-stats">
-      <div><div class="hero-stat-num">1,100+</div><div class="hero-stat-label">Subscribers</div></div>
+      <div><div class="hero-stat-num">1,200+</div><div class="hero-stat-label">Subscribers</div></div>
       <div><div class="hero-stat-num">SPARK</div><div class="hero-stat-label">Breakout Score</div></div>
       <div><div class="hero-stat-num">FADE</div><div class="hero-stat-label">Decline Score</div></div>
     </div>
   </div>
 </section>
-
+ 
 <div class="ticker">
   <div class="ticker-inner">
     <span class="ticker-item">SPARK Score</span><span class="ticker-item">AL West Preview</span><span class="ticker-item">2026 Breakout Candidates</span><span class="ticker-item">FADE Score</span><span class="ticker-item">Texas Rangers Analysis</span><span class="ticker-item">Free Agent Deep Dive</span><span class="ticker-item">Pitching Metrics</span><span class="ticker-item">wRC+ Leaders</span><span class="ticker-item">Numbers Not Feelings</span><span class="ticker-item">SPARK Score</span><span class="ticker-item">AL West Preview</span><span class="ticker-item">2026 Breakout Candidates</span><span class="ticker-item">FADE Score</span><span class="ticker-item">Texas Rangers Analysis</span><span class="ticker-item">Free Agent Deep Dive</span><span class="ticker-item">Pitching Metrics</span><span class="ticker-item">wRC+ Leaders</span><span class="ticker-item">Numbers Not Feelings</span>
   </div>
 </div>
-
-
+ 
+ 
 <section class="section">
   <div class="wrap">
     <div class="section-header">
@@ -185,12 +185,12 @@ footer { background:#060e1a; padding:2rem; display:flex; align-items:center; jus
     </div>
   </div>
 </section>
-
+ 
 <section class="newsletter-section">
   <div class="newsletter-inner">
     <div class="newsletter-glyph">◆</div>
     <div class="newsletter-title">Get The <span class="gold">Edge</span></div>
-    <p class="newsletter-desc">Join 1,100+ readers getting SPARK Score breakdowns, FADE alerts, and the analysis the mainstream misses — straight to their inbox.</p>
+    <p class="newsletter-desc">Join 1,200+ readers getting SPARK Score breakdowns, FADE alerts, and the analysis the mainstream misses — straight to their inbox.</p>
     <div class="newsletter-form">
       <input class="newsletter-input" type="email" placeholder="Your email address">
       <button class="newsletter-btn" onclick="window.open('https://thebaseballnerd.substack.com','_blank')">Subscribe</button>
@@ -198,18 +198,20 @@ footer { background:#060e1a; padding:2rem; display:flex; align-items:center; jus
     <div class="newsletter-fine">No spam. Unsubscribe anytime. Numbers only.</div>
   </div>
 </section>
-
+ 
 <footer>
   <div class="foot-logo">The Baseball <span>Nerd</span></div>
   <div class="foot-copy">© 2026 The Baseball Nerd · Numbers Not Feelings</div>
   <ul class="foot-links">
     <li><a href="news.html">News</a></li>
     <li><a href="articles.html">Articles</a></li>
+    <li><a href="rosters.html">Rosters</a></li>
     <li><a href="podcasts.html">Podcasts</a></li>
     <li><a href="vault.html">Vault</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
 </footer>
-
+ 
 </body>
 </html>
+ 
