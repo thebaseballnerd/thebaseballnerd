@@ -4,15 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="/favicon.png">
-<title>AL West Rosters &amp; Standings — The Baseball Nerd</title>
-<meta name="description" content="AL West active rosters, season stats, and live standings pulled from the MLB Stats API.">
+<title>MLB Rosters, Standings &amp; Boxscores — The Baseball Nerd</title>
+<meta name="description" content="All 30 MLB team rosters, live standings, and boxscores updated live.">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{--navy:#0a1628;--navy-mid:#112040;--navy-light:#1a2f50;--gold:#c9a84c;--gold-light:#e8c97a;--cream:#f5f0e8;}
+:root{--navy:#0a1628;--navy-mid:#112040;--navy-light:#1a2f50;--gold:#c9a84c;--gold-light:#e8c97a;--cream:#f5f0e8;--alw-green:#4ade80;}
 body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--cream);min-height:100vh;}
- 
-/* ── NAV ── */
 nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 2rem;background:rgba(10,22,40,0.97);border-bottom:1px solid rgba(201,168,76,0.15);position:sticky;top:0;z-index:100;}
 .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.08em;color:var(--gold);text-decoration:none;}
 .nav-logo span{color:var(--cream);opacity:0.45;}
@@ -22,35 +20,38 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem
 .nav-links a.active{opacity:1;color:var(--gold);border-bottom:1px solid var(--gold);}
 .nav-cta{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1rem;background:var(--gold);color:var(--navy);border:none;cursor:pointer;font-weight:500;text-decoration:none;transition:background 0.2s;}
 .nav-cta:hover{background:var(--gold-light);}
- 
-/* ── PAGE HERO ── */
 .page-hero-wrap{border-bottom:1px solid rgba(201,168,76,0.08);}
-.page-hero{max-width:1200px;margin:0 auto;padding:2rem 2rem 1.75rem;}
+.page-hero{max-width:1340px;margin:0 auto;padding:2rem 2rem 1.75rem;}
 .page-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;display:flex;align-items:center;gap:0.5rem;}
 .page-eyebrow::before{content:'';display:inline-block;width:1rem;height:1px;background:var(--gold);}
 .page-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);letter-spacing:0.04em;color:var(--cream);line-height:1;}
 .page-desc{font-size:0.88rem;color:var(--cream);opacity:0.45;margin-top:0.65rem;max-width:520px;line-height:1.7;}
- 
-/* ── VIEW SWITCHER (Rosters / Standings) ── */
-.view-switcher{max-width:1200px;margin:0 auto;padding:1.5rem 2rem 0;display:flex;gap:0;border-bottom:1px solid rgba(201,168,76,0.12);}
+.view-switcher{max-width:1340px;margin:0 auto;padding:1.5rem 2rem 0;display:flex;gap:0;border-bottom:1px solid rgba(201,168,76,0.12);}
 .view-tab{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.6rem 1.25rem;background:none;border:none;border-bottom:2px solid transparent;color:var(--cream);opacity:0.4;cursor:pointer;transition:opacity 0.15s,border-color 0.15s,color 0.15s;margin-bottom:-1px;}
 .view-tab:hover{opacity:0.75;}
 .view-tab.active{opacity:1;color:var(--gold);border-bottom-color:var(--gold);}
- 
-/* ── WRAP ── */
-.wrap{max-width:1200px;margin:0 auto;padding:2rem 2rem 5rem;}
- 
-/* ── ROSTER VIEW ── */
-#view-rosters{}
-.team-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.5rem;}
-.team-tab{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;padding:6px 16px;border:1px solid rgba(245,240,232,0.12);background:transparent;color:var(--cream);opacity:0.45;cursor:pointer;transition:all 0.15s;}
-.team-tab:hover:not(.active){opacity:0.75;}
-.team-tab.active{opacity:1;}
+.wrap{max-width:1340px;margin:0 auto;padding:2rem 2rem 5rem;}
+/* ROSTERS */
+.roster-layout{display:grid;grid-template-columns:210px 1fr;gap:2rem;align-items:start;}
+.team-nav{position:sticky;top:80px;max-height:calc(100vh - 100px);overflow-y:auto;padding-right:4px;}
+.team-nav::-webkit-scrollbar{width:3px;}
+.team-nav::-webkit-scrollbar-thumb{background:rgba(201,168,76,0.2);border-radius:2px;}
+.league-block{margin-bottom:1.25rem;}
+.league-heading{font-family:'Bebas Neue',sans-serif;font-size:0.9rem;letter-spacing:0.1em;color:var(--gold);padding:0.35rem 0.65rem;border-left:2px solid var(--gold);margin-bottom:0.35rem;}
+.div-heading{font-family:'IBM Plex Mono',monospace;font-size:0.52rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--cream);opacity:0.28;padding:0.25rem 0.65rem 0.1rem;margin-top:0.35rem;}
+.team-nav-btn{display:block;width:100%;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:0.63rem;letter-spacing:0.05em;color:var(--cream);opacity:0.42;background:none;border:none;padding:0.28rem 0.65rem;cursor:pointer;transition:opacity 0.12s,color 0.12s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.team-nav-btn:hover{opacity:0.85;}
+.team-nav-btn.active{opacity:1;color:var(--gold);}
+.team-nav-btn.alw{opacity:0.75;color:var(--alw-green);}
+.team-nav-btn.alw.active{opacity:1;color:var(--alw-green);}
 .pos-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.5rem;}
 .pos-tab{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;padding:4px 12px;border:1px solid rgba(245,240,232,0.1);background:transparent;color:var(--cream);opacity:0.4;cursor:pointer;transition:all 0.15s;}
 .pos-tab.active{border-color:var(--gold);color:var(--gold);opacity:1;}
 .pos-tab:hover:not(.active){opacity:0.7;}
-.roster-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1rem;}
+.roster-team-header{display:flex;align-items:baseline;gap:0.75rem;margin-bottom:1.25rem;}
+.roster-team-name{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:0.05em;color:var(--cream);}
+.roster-team-div{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);opacity:0.6;}
+.roster-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:1rem;}
 .player-card{background:var(--navy-mid);border:1px solid rgba(201,168,76,0.08);overflow:hidden;transition:border-color 0.2s,transform 0.15s;}
 .player-card:hover{border-color:rgba(201,168,76,0.35);transform:translateY(-2px);}
 .player-photo{width:100%;aspect-ratio:1;object-fit:cover;object-position:top;background:var(--navy-light);display:block;}
@@ -62,69 +63,96 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem
 .stat-pill{font-family:'IBM Plex Mono',monospace;font-size:0.55rem;letter-spacing:0.06em;color:var(--cream);opacity:0.5;}
 .stat-pill span{color:var(--cream);opacity:1;font-weight:500;}
 .updated-row{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.08em;color:var(--cream);opacity:0.22;margin-bottom:1.25rem;}
- 
-/* ── STANDINGS VIEW ── */
-#view-standings{display:none;}
- 
-.div-label{display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;}
-.div-name{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:0.06em;color:var(--gold);}
-.div-badge{font-family:'IBM Plex Mono',monospace;font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;padding:0.18rem 0.5rem;background:var(--gold);color:var(--navy);font-weight:600;}
- 
-/* Featured table (AL West) */
-.standings-featured{margin-bottom:2.5rem;}
-.standings-wrap{overflow-x:auto;border:1px solid rgba(201,168,76,0.12);background:var(--navy-mid);}
- 
-table.stbl{width:100%;border-collapse:collapse;min-width:600px;}
-table.stbl thead tr{background:var(--navy-light);border-bottom:1px solid rgba(201,168,76,0.2);}
-table.stbl th{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--gold);opacity:0.65;padding:0.65rem 1rem;text-align:right;white-space:nowrap;font-weight:500;}
-table.stbl th:first-child{text-align:left;padding-left:1.25rem;}
+/* STANDINGS */
+.standings-leagues{display:flex;flex-direction:column;gap:2.5rem;}
+.standings-league-label{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.06em;color:var(--gold);margin-bottom:1.25rem;border-bottom:1px solid rgba(201,168,76,0.15);padding-bottom:0.5rem;}
+.standings-divs{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.25rem;}
+.div-card{background:var(--navy-mid);border:1px solid rgba(201,168,76,0.1);overflow:hidden;}
+.div-card.featured{border-color:rgba(201,168,76,0.3);}
+.div-card-head{background:var(--navy-light);border-bottom:1px solid rgba(201,168,76,0.12);padding:0.65rem 1rem;display:flex;align-items:center;gap:0.65rem;}
+.div-card-name{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.06em;color:var(--gold);}
+.div-card-badge{font-family:'IBM Plex Mono',monospace;font-size:0.5rem;letter-spacing:0.14em;text-transform:uppercase;padding:0.15rem 0.45rem;background:var(--gold);color:var(--navy);font-weight:600;}
+table.stbl{width:100%;border-collapse:collapse;}
+table.stbl th{font-family:'IBM Plex Mono',monospace;font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);opacity:0.55;padding:0.5rem 0.65rem;text-align:right;font-weight:500;border-bottom:1px solid rgba(201,168,76,0.1);}
+table.stbl th:first-child{text-align:left;padding-left:1rem;}
 table.stbl tbody tr{border-bottom:1px solid rgba(255,255,255,0.04);transition:background 0.12s;}
 table.stbl tbody tr:last-child{border-bottom:none;}
-table.stbl tbody tr:hover{background:rgba(201,168,76,0.05);}
+table.stbl tbody tr:hover{background:rgba(201,168,76,0.04);}
 table.stbl tbody tr.row-first{background:rgba(201,168,76,0.06);}
-table.stbl tbody tr.row-first:hover{background:rgba(201,168,76,0.1);}
-table.stbl td{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--cream);padding:0.8rem 1rem;text-align:right;white-space:nowrap;}
-table.stbl td:first-child{text-align:left;padding-left:1.25rem;}
- 
-.td-team{display:flex;align-items:center;gap:0.6rem;}
-.td-rank{font-size:0.58rem;color:var(--gold);opacity:0.5;width:0.9rem;flex-shrink:0;}
-.td-name{font-family:'Inter',sans-serif;font-size:0.82rem;font-weight:500;color:var(--cream);}
-.td-abbr{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;color:var(--cream);opacity:0.4;margin-left:0.1rem;}
- 
+table.stbl td{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--cream);padding:0.55rem 0.65rem;text-align:right;white-space:nowrap;}
+table.stbl td:first-child{text-align:left;padding-left:1rem;}
+.td-team-cell{display:flex;align-items:center;gap:0.45rem;}
+.td-rank{font-size:0.52rem;color:var(--gold);opacity:0.4;width:0.8rem;flex-shrink:0;}
+.td-tname{font-size:0.72rem;font-weight:500;}
+.td-tname.alw-name{color:var(--alw-green);}
 .td-gb-leader{color:var(--gold);font-weight:600;}
-.td-gb{color:var(--cream);opacity:0.55;}
-.td-split{opacity:0.5;font-size:0.72rem;}
- 
-/* Streak badge */
-.streak{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;font-weight:600;padding:0.12rem 0.35rem;letter-spacing:0.04em;}
+.td-gb{color:var(--cream);opacity:0.5;}
+.td-dim{opacity:0.4;font-size:0.65rem;}
+.streak{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:0.58rem;font-weight:600;padding:0.1rem 0.28rem;letter-spacing:0.04em;}
 .streak-w{background:rgba(45,106,63,0.25);color:#7dd9a0;}
 .streak-l{background:rgba(160,50,50,0.25);color:#e07070;}
- 
-/* Last 10 pips */
 .pip-row{display:inline-flex;gap:2px;vertical-align:middle;}
-.pip{display:inline-block;width:5px;height:11px;border-radius:1px;}
+.pip{display:inline-block;width:4px;height:9px;border-radius:1px;}
 .pip-w{background:#2d6a3f;}
 .pip-l{background:#7a2222;}
-.last10-text{font-size:0.7rem;opacity:0.6;margin-right:0.35rem;}
- 
-/* Other AL divisions */
-.al-others{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.25rem;}
-.div-card{background:var(--navy-mid);border:1px solid rgba(201,168,76,0.08);}
-.div-card-head{background:var(--navy-light);border-bottom:1px solid rgba(201,168,76,0.1);padding:0.65rem 1rem;}
-.div-card-head-name{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.06em;color:var(--gold);}
-table.stbl-sm{width:100%;border-collapse:collapse;}
-table.stbl-sm th{font-family:'IBM Plex Mono',monospace;font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);opacity:0.55;padding:0.5rem 0.75rem;text-align:right;font-weight:500;}
-table.stbl-sm th:first-child{text-align:left;padding-left:1rem;}
-table.stbl-sm td{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--cream);padding:0.55rem 0.75rem;text-align:right;border-bottom:1px solid rgba(255,255,255,0.04);}
-table.stbl-sm td:first-child{text-align:left;padding-left:1rem;}
-table.stbl-sm tr:last-child td{border-bottom:none;}
-table.stbl-sm tr.row-first td{color:var(--gold);}
-table.stbl-sm tr:hover td{background:rgba(201,168,76,0.04);}
- 
-.sdiv-label{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);opacity:0.5;margin-bottom:0.6rem;margin-top:2rem;}
-.sdiv-label:first-child{margin-top:0;}
- 
-/* Loading / error shared */
+.l10txt{font-size:0.62rem;opacity:0.5;margin-right:0.25rem;}
+.s-updated{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.08em;color:var(--cream);opacity:0.22;margin-bottom:1.5rem;}
+/* BOXSCORES */
+.bx-controls{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.75rem;}
+.bx-date-wrap{display:flex;align-items:center;gap:0.5rem;}
+.bx-date-btn{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;background:var(--navy-light);border:1px solid rgba(201,168,76,0.15);color:var(--cream);padding:0.4rem 0.75rem;cursor:pointer;transition:border-color 0.15s,color 0.15s;opacity:0.6;}
+.bx-date-btn:hover{border-color:var(--gold);color:var(--gold);opacity:1;}
+.bx-date-input{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;background:var(--navy-mid);border:1px solid rgba(201,168,76,0.2);color:var(--cream);padding:0.4rem 0.75rem;outline:none;color-scheme:dark;}
+.bx-date-input:focus{border-color:var(--gold);}
+.bx-filter-wrap{display:flex;gap:6px;flex-wrap:wrap;}
+.bx-filter-btn{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;padding:4px 12px;border:1px solid rgba(245,240,232,0.1);background:transparent;color:var(--cream);opacity:0.4;cursor:pointer;transition:all 0.15s;}
+.bx-filter-btn.active{border-color:var(--gold);color:var(--gold);opacity:1;}
+.bx-filter-btn:hover:not(.active){opacity:0.7;}
+.bx-games{display:flex;flex-direction:column;gap:1.25rem;}
+.bx-card{background:var(--navy-mid);border:1px solid rgba(201,168,76,0.1);overflow:hidden;transition:border-color 0.18s;}
+.bx-card:hover{border-color:rgba(201,168,76,0.3);}
+.bx-card.open{border-color:rgba(201,168,76,0.35);}
+.bx-card-head{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 1.25rem;gap:1rem;cursor:pointer;}
+.bx-matchup{display:flex;align-items:center;gap:1.25rem;flex:1;min-width:0;}
+.bx-team-block{display:flex;align-items:center;gap:0.6rem;min-width:0;}
+.bx-team-name{font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:500;color:var(--cream);white-space:nowrap;}
+.bx-team-name.alw-team{color:var(--alw-green);}
+.bx-team-score{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:0.04em;color:var(--cream);min-width:2rem;text-align:right;}
+.bx-team-score.winner{color:var(--gold);}
+.bx-vs{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:var(--cream);opacity:0.25;flex-shrink:0;}
+.bx-meta{display:flex;flex-direction:column;align-items:flex-end;gap:0.2rem;flex-shrink:0;}
+.bx-status{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.7;}
+.bx-status.live{color:#7dd9a0;animation:livepulse 1.5s ease-in-out infinite;}
+@keyframes livepulse{0%,100%{opacity:0.7}50%{opacity:1}}
+.bx-venue{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;color:var(--cream);opacity:0.25;}
+.bx-toggle{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.5;flex-shrink:0;transition:opacity 0.15s;}
+.bx-card:hover .bx-toggle{opacity:1;}
+.bx-linescore-wrap{overflow-x:auto;border-top:1px solid rgba(201,168,76,0.08);background:var(--navy-light);}
+table.bx-line{width:100%;border-collapse:collapse;min-width:480px;}
+table.bx-line th{font-family:'IBM Plex Mono',monospace;font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);opacity:0.45;padding:0.45rem 0.4rem;text-align:center;font-weight:500;border-bottom:1px solid rgba(201,168,76,0.1);}
+table.bx-line th:first-child{text-align:left;padding-left:1.25rem;min-width:110px;}
+table.bx-line td{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--cream);padding:0.5rem 0.4rem;text-align:center;border-bottom:1px solid rgba(255,255,255,0.04);}
+table.bx-line td:first-child{text-align:left;padding-left:1.25rem;font-weight:500;opacity:0.8;}
+table.bx-line td.bx-totals{font-weight:600;color:var(--gold);border-left:1px solid rgba(201,168,76,0.15);}
+table.bx-line td.bx-cur{background:rgba(201,168,76,0.08);}
+table.bx-line tr:last-child td{border-bottom:none;}
+.bx-decisions{display:flex;gap:1.5rem;flex-wrap:wrap;padding:0.75rem 1.25rem;border-top:1px solid rgba(201,168,76,0.08);background:rgba(0,0,0,0.1);}
+.bx-decision{display:flex;gap:0.4rem;align-items:baseline;}
+.bx-dec-label{font-family:'IBM Plex Mono',monospace;font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);opacity:0.5;}
+.bx-dec-name{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--cream);opacity:0.8;}
+.bx-box-wrap{border-top:1px solid rgba(201,168,76,0.08);}
+.bx-box-section{padding:1rem 1.25rem;}
+.bx-box-team-label{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.06em;color:var(--gold);margin-bottom:0.6rem;}
+.bx-box-scroll{overflow-x:auto;}
+table.bx-box{width:100%;border-collapse:collapse;min-width:440px;}
+table.bx-box th{font-family:'IBM Plex Mono',monospace;font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);opacity:0.5;padding:0.35rem 0.4rem;text-align:right;font-weight:500;border-bottom:1px solid rgba(201,168,76,0.1);}
+table.bx-box th:first-child{text-align:left;padding-left:0;min-width:140px;}
+table.bx-box td{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--cream);padding:0.38rem 0.4rem;text-align:right;border-bottom:1px solid rgba(255,255,255,0.03);}
+table.bx-box td:first-child{text-align:left;padding-left:0;opacity:0.85;}
+table.bx-box tr:last-child td{border-bottom:none;}
+table.bx-box tr.totals-row td{border-top:1px solid rgba(201,168,76,0.12);font-weight:600;color:var(--gold);opacity:1;}
+table.bx-box tr:hover td{background:rgba(201,168,76,0.03);}
+.bx-box-divider{height:1px;background:rgba(201,168,76,0.08);margin:0 1.25rem;}
 .loading-wrap{padding:4rem 0;text-align:center;}
 .loading-dots{display:flex;gap:6px;justify-content:center;margin-bottom:1rem;}
 .loading-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);opacity:0.3;animation:dotpulse 1.2s ease-in-out infinite;}
@@ -132,9 +160,7 @@ table.stbl-sm tr:hover td{background:rgba(201,168,76,0.04);}
 .loading-dot:nth-child(3){animation-delay:0.4s;}
 @keyframes dotpulse{0%,100%{opacity:0.3}50%{opacity:1}}
 .loading-text{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--cream);opacity:0.3;}
-.s-updated{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.08em;color:var(--cream);opacity:0.22;margin-bottom:1.5rem;}
- 
-/* Footer */
+.empty-msg{padding:3rem 0;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.25;text-align:center;}
 footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(201,168,76,0.06);}
 .foot-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--gold);}
 .foot-logo span{color:var(--cream);opacity:0.3;}
@@ -142,16 +168,21 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
 .foot-links{display:flex;gap:1.25rem;list-style:none;}
 .foot-links a{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.28;text-decoration:none;transition:opacity 0.2s;}
 .foot-links a:hover{opacity:0.75;}
- 
+@media(max-width:900px){
+  .roster-layout{grid-template-columns:1fr;}
+  .team-nav{position:static;max-height:none;display:flex;flex-wrap:wrap;gap:4px;margin-bottom:1rem;}
+  .league-block{display:contents;}
+  .league-heading,.div-heading{display:none;}
+  .team-nav-btn{padding:0.22rem 0.55rem;font-size:0.57rem;}
+}
 @media(max-width:700px){
   .nav-links{display:none;}
-  .roster-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));}
-  .al-others{grid-template-columns:1fr;}
+  .bx-controls{flex-direction:column;align-items:flex-start;}
+  .standings-divs{grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
- 
 <nav>
   <a class="nav-logo" href="index.html">The Baseball <span>Nerd</span></a>
   <ul class="nav-links">
@@ -164,375 +195,353 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
   </ul>
   <a class="nav-cta" href="https://thebaseballnerd.substack.com" target="_blank">Subscribe →</a>
 </nav>
- 
 <div class="page-hero-wrap">
   <div class="page-hero">
     <div class="page-eyebrow">Live from MLB</div>
-    <div class="page-title">AL West Rosters &amp; Standings</div>
-    <div class="page-desc">Active rosters, season stats, and live standings pulled from the MLB Stats API. Updates automatically on every page load.</div>
+    <div class="page-title">MLB Rosters, Standings &amp; Boxscores</div>
+    <div class="page-desc">All 30 team rosters, live standings across all six divisions, and full boxscores. Dedicated feed from MLB.</div>
   </div>
 </div>
- 
-<!-- VIEW SWITCHER -->
 <div class="view-switcher">
-  <button class="view-tab active" id="tab-rosters" onclick="switchView('rosters')">Rosters</button>
-  <button class="view-tab" id="tab-standings" onclick="switchView('standings')">Standings</button>
+  <button class="view-tab active" id="tab-rosters"  onclick="switchView('rosters')">Rosters</button>
+  <button class="view-tab"        id="tab-standings" onclick="switchView('standings')">Standings</button>
+  <button class="view-tab"        id="tab-boxscores" onclick="switchView('boxscores')">Boxscores</button>
 </div>
- 
 <div class="wrap">
- 
-  <!-- ══ ROSTERS VIEW ══ -->
   <div id="view-rosters">
-    <div class="team-tabs" id="team-tabs"></div>
-    <div class="pos-tabs">
-      <button class="pos-tab active" data-pos="all" onclick="filterPos('all',this)">All</button>
-      <button class="pos-tab" data-pos="P"  onclick="filterPos('P',this)">Pitchers</button>
-      <button class="pos-tab" data-pos="C"  onclick="filterPos('C',this)">Catchers</button>
-      <button class="pos-tab" data-pos="IF" onclick="filterPos('IF',this)">Infield</button>
-      <button class="pos-tab" data-pos="OF" onclick="filterPos('OF',this)">Outfield</button>
-      <button class="pos-tab" data-pos="DH" onclick="filterPos('DH',this)">DH</button>
-    </div>
-    <div class="updated-row" id="updated-row">Loading roster data...</div>
-    <div id="roster-container">
-      <div class="loading-wrap">
-        <div class="loading-dots"><div class="loading-dot"></div><div class="loading-dot"></div><div class="loading-dot"></div></div>
-        <div class="loading-text">Fetching AL West rosters from MLB...</div>
+    <div class="roster-layout">
+      <div class="team-nav" id="team-nav"></div>
+      <div class="roster-main">
+        <div class="pos-tabs">
+          <button class="pos-tab active" onclick="filterPos('all',this)">All</button>
+          <button class="pos-tab" onclick="filterPos('P',this)">Pitchers</button>
+          <button class="pos-tab" onclick="filterPos('C',this)">Catchers</button>
+          <button class="pos-tab" onclick="filterPos('IF',this)">Infield</button>
+          <button class="pos-tab" onclick="filterPos('OF',this)">Outfield</button>
+          <button class="pos-tab" onclick="filterPos('DH',this)">DH</button>
+        </div>
+        <div class="updated-row" id="updated-row">Loading roster data...</div>
+        <div id="roster-header"></div>
+        <div id="roster-container">
+          <div class="loading-wrap"><div class="loading-dots"><div class="loading-dot"></div><div class="loading-dot"></div><div class="loading-dot"></div></div><div class="loading-text">Fetching rosters from MLB...</div></div>
+        </div>
       </div>
     </div>
   </div>
- 
-  <!-- ══ STANDINGS VIEW ══ -->
-  <div id="view-standings">
+  <div id="view-standings" style="display:none;">
     <div class="s-updated" id="s-updated">Loading standings...</div>
- 
-    <!-- AL WEST FEATURED -->
-    <div class="standings-featured">
-      <div class="div-label">
-        <div class="div-name">AL West</div>
-        <div class="div-badge">Featured</div>
-      </div>
-      <div class="standings-wrap">
-        <table class="stbl" id="tbl-alw">
-          <thead>
-            <tr>
-              <th>Team</th>
-              <th>W</th>
-              <th>L</th>
-              <th>PCT</th>
-              <th>GB</th>
-              <th>Home</th>
-              <th>Away</th>
-              <th>Streak</th>
-              <th>L10</th>
-            </tr>
-          </thead>
-          <tbody id="tbody-alw">
-            <tr><td colspan="9"><div class="loading-wrap" style="padding:2rem 0;"><div class="loading-dots"><div class="loading-dot"></div><div class="loading-dot"></div><div class="loading-dot"></div></div><div class="loading-text">Fetching standings...</div></div></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
- 
-    <!-- OTHER AL DIVISIONS -->
-    <div class="sdiv-label">American League — East &amp; Central</div>
-    <div class="al-others">
-      <div class="div-card">
-        <div class="div-card-head"><div class="div-card-head-name">AL East</div></div>
-        <table class="stbl-sm"><thead><tr><th>Team</th><th>W</th><th>L</th><th>GB</th><th>Str</th></tr></thead>
-        <tbody id="tbody-ale"></tbody></table>
-      </div>
-      <div class="div-card">
-        <div class="div-card-head"><div class="div-card-head-name">AL Central</div></div>
-        <table class="stbl-sm"><thead><tr><th>Team</th><th>W</th><th>L</th><th>GB</th><th>Str</th></tr></thead>
-        <tbody id="tbody-alc"></tbody></table>
-      </div>
+    <div class="standings-leagues" id="standings-container">
+      <div class="loading-wrap"><div class="loading-dots"><div class="loading-dot"></div><div class="loading-dot"></div><div class="loading-dot"></div></div><div class="loading-text">Fetching standings...</div></div>
     </div>
   </div>
- 
-</div><!-- /wrap -->
- 
+  <div id="view-boxscores" style="display:none;">
+    <div class="bx-controls">
+      <div class="bx-date-wrap">
+        <button class="bx-date-btn" onclick="bxShiftDate(-1)">&#8592;</button>
+        <input type="date" class="bx-date-input" id="bx-date-input" onchange="bxLoadDate(this.value)">
+        <button class="bx-date-btn" onclick="bxShiftDate(1)">&#8594;</button>
+      </div>
+      <div class="bx-filter-wrap">
+        <button class="bx-filter-btn active" onclick="bxSetFilter('alw',this)">AL West</button>
+        <button class="bx-filter-btn" onclick="bxSetFilter('al',this)">Full AL</button>
+        <button class="bx-filter-btn" onclick="bxSetFilter('all',this)">All MLB</button>
+      </div>
+    </div>
+    <div id="bx-container">
+      <div class="loading-wrap"><div class="loading-dots"><div class="loading-dot"></div><div class="loading-dot"></div><div class="loading-dot"></div></div><div class="loading-text">Loading boxscores...</div></div>
+    </div>
+  </div>
+</div>
 <footer>
   <div class="foot-logo">The Baseball <span>Nerd</span></div>
   <div class="foot-copy">© 2026 The Baseball Nerd · Numbers Not Feelings</div>
   <ul class="foot-links">
-    <li><a href="news.html">News</a></li>
-    <li><a href="articles.html">Articles</a></li>
-    <li><a href="rosters.html">Rosters</a></li>
-    <li><a href="podcasts.html">Podcasts</a></li>
-    <li><a href="vault.html">Vault</a></li>
-    <li><a href="about.html">About</a></li>
+    <li><a href="news.html">News</a></li><li><a href="articles.html">Articles</a></li>
+    <li><a href="rosters.html">Rosters</a></li><li><a href="podcasts.html">Podcasts</a></li>
+    <li><a href="vault.html">Vault</a></li><li><a href="about.html">About</a></li>
   </ul>
 </footer>
- 
 <script>
-/* ─────────────────────────────────────────
-   VIEW SWITCHER
-───────────────────────────────────────── */
-function switchView(v) {
-  document.getElementById('view-rosters').style.display   = v==='rosters'   ? 'block' : 'none';
-  document.getElementById('view-standings').style.display = v==='standings' ? 'block' : 'none';
-  document.getElementById('tab-rosters').classList.toggle('active',   v==='rosters');
-  document.getElementById('tab-standings').classList.toggle('active', v==='standings');
-  // lazy-load standings on first open
-  if (v==='standings' && !standingsLoaded) loadStandings();
+const TEAMS={
+  AL:{
+    West:[{id:140,name:'Texas Rangers',abbr:'TEX'},{id:117,name:'Houston Astros',abbr:'HOU'},{id:136,name:'Seattle Mariners',abbr:'SEA'},{id:133,name:'Athletics',abbr:'OAK'},{id:108,name:'LA Angels',abbr:'LAA'}],
+    East:[{id:147,name:'New York Yankees',abbr:'NYY'},{id:111,name:'Boston Red Sox',abbr:'BOS'},{id:141,name:'Toronto Blue Jays',abbr:'TOR'},{id:110,name:'Baltimore Orioles',abbr:'BAL'},{id:139,name:'Tampa Bay Rays',abbr:'TB'}],
+    Central:[{id:116,name:'Detroit Tigers',abbr:'DET'},{id:142,name:'Minnesota Twins',abbr:'MIN'},{id:118,name:'Kansas City Royals',abbr:'KC'},{id:114,name:'Cleveland Guardians',abbr:'CLE'},{id:145,name:'Chicago White Sox',abbr:'CWS'}]
+  },
+  NL:{
+    West:[{id:119,name:'Los Angeles Dodgers',abbr:'LAD'},{id:109,name:'Arizona D-backs',abbr:'ARI'},{id:137,name:'San Francisco Giants',abbr:'SF'},{id:135,name:'San Diego Padres',abbr:'SD'},{id:115,name:'Colorado Rockies',abbr:'COL'}],
+    East:[{id:121,name:'New York Mets',abbr:'NYM'},{id:143,name:'Philadelphia Phillies',abbr:'PHI'},{id:144,name:'Atlanta Braves',abbr:'ATL'},{id:146,name:'Miami Marlins',abbr:'MIA'},{id:120,name:'Washington Nationals',abbr:'WSH'}],
+    Central:[{id:112,name:'Chicago Cubs',abbr:'CHC'},{id:113,name:'Cincinnati Reds',abbr:'CIN'},{id:158,name:'Milwaukee Brewers',abbr:'MIL'},{id:138,name:'St. Louis Cardinals',abbr:'STL'},{id:134,name:'Pittsburgh Pirates',abbr:'PIT'}]
+  }
+};
+const ALW_IDS=new Set(TEAMS.AL.West.map(t=>t.id));
+const AL_IDS=new Set(Object.values(TEAMS.AL).flat().map(t=>t.id));
+const ALL_TEAMS=Object.values(TEAMS).flatMap(lg=>Object.values(lg).flat());
+function teamById(id){return ALL_TEAMS.find(t=>t.id===id);}
+ 
+/* VIEW SWITCHER */
+function switchView(v){
+  ['rosters','standings','boxscores'].forEach(id=>{
+    document.getElementById('view-'+id).style.display=v===id?'block':'none';
+    document.getElementById('tab-'+id).classList.toggle('active',v===id);
+  });
+  if(v==='standings'&&!standingsLoaded)loadStandings();
+  if(v==='boxscores'&&!bxLoaded)initBoxscores();
 }
  
-/* ─────────────────────────────────────────
-   ROSTERS
-───────────────────────────────────────── */
-const AL_WEST = [
-  { id:140, name:'Texas Rangers',     abbr:'TEX', color:'#003278' },
-  { id:117, name:'Houston Astros',    abbr:'HOU', color:'#EB6E1F' },
-  { id:136, name:'Seattle Mariners',  abbr:'SEA', color:'#0C2C56' },
-  { id:133, name:'Oakland Athletics', abbr:'OAK', color:'#003831' },
-  { id:108, name:'LA Angels',         abbr:'LAA', color:'#BA0021' },
-];
-const IF_POS=['1B','2B','3B','SS'];
-const OF_POS=['LF','CF','RF','OF'];
-let allPlayers={}, activeTeam=140, activePos='all';
+/* ROSTERS */
+const IF=['1B','2B','3B','SS'],OF_POS=['LF','CF','RF','OF'];
+let allPlayers={},activeTeam=140,activePos='all';
+function posGroup(p){if(!p||p==='P')return'P';if(p==='C')return'C';if(p==='DH')return'DH';if(IF.includes(p))return'IF';if(OF_POS.includes(p))return'OF';return'P';}
  
-function posGroup(pos){
-  if(!pos||pos==='P') return 'P';
-  if(pos==='C') return 'C';
-  if(pos==='DH') return 'DH';
-  if(IF_POS.includes(pos)) return 'IF';
-  if(OF_POS.includes(pos)) return 'OF';
-  return 'P';
+function buildTeamNav(){
+  const nav=document.getElementById('team-nav');
+  let html='';
+  ['AL','NL'].forEach(lg=>{
+    html+=`<div class="league-block"><div class="league-heading">${lg}</div>`;
+    ['West','East','Central'].forEach(div=>{
+      html+=`<div class="div-heading">${lg} ${div}</div>`;
+      TEAMS[lg][div].forEach(t=>{
+        const isALW=ALW_IDS.has(t.id);
+        html+=`<button class="team-nav-btn${isALW?' alw':''}${t.id===activeTeam?' active':''}" id="nav-${t.id}" onclick="switchTeam(${t.id})">${t.abbr} — ${t.name}</button>`;
+      });
+    });
+    html+=`</div>`;
+  });
+  nav.innerHTML=html;
 }
  
-function initTabs(){
-  document.getElementById('team-tabs').innerHTML=AL_WEST.map(t=>`
-    <button class="team-tab ${t.id===activeTeam?'active':''}"
-      style="${t.id===activeTeam?`border-color:${t.color};color:${t.color};`:''}"
-      onclick="switchTeam(${t.id},this,'${t.color}')">
-      ${t.abbr}
-    </button>`).join('');
-}
- 
-function switchTeam(id,btn,color){
+function switchTeam(id){
   activeTeam=id;
-  document.querySelectorAll('.team-tab').forEach(b=>{b.classList.remove('active');b.style.borderColor='';b.style.color='';});
-  btn.classList.add('active');
-  btn.style.borderColor=color;
-  btn.style.color=color;
-  renderRoster();
+  document.querySelectorAll('.team-nav-btn').forEach(b=>b.classList.remove('active'));
+  const btn=document.getElementById('nav-'+id);
+  if(btn)btn.classList.add('active');
+  updateRosterHeader();renderRoster();
+  if(!allPlayers[id])loadTeam(teamById(id));
 }
  
 function filterPos(pos,btn){
   activePos=pos;
   document.querySelectorAll('.pos-tab').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  renderRoster();
+  btn.classList.add('active');renderRoster();
+}
+ 
+function updateRosterHeader(){
+  const team=teamById(activeTeam);if(!team)return;
+  let lgName='',divName='';
+  ['AL','NL'].forEach(lg=>['West','East','Central'].forEach(div=>{if(TEAMS[lg][div].find(t=>t.id===activeTeam)){lgName=lg;divName=div;}}));
+  document.getElementById('roster-header').innerHTML=`<div class="roster-team-header"><div class="roster-team-name">${team.name}</div><div class="roster-team-div">${lgName} ${divName}</div></div>`;
 }
  
 function statLine(p,isPitcher){
-  if(isPitcher){
-    const s=p.pitching||{};
-    const era=s.era!=null?parseFloat(s.era).toFixed(2):'-';
-    const whip=s.whip!=null?parseFloat(s.whip).toFixed(2):'-';
-    const k=s.strikeOuts!=null?s.strikeOuts:'-';
-    const w=s.wins!=null?s.wins:'-';
-    return `<div class="stat-pill">ERA <span>${era}</span></div><div class="stat-pill">WHIP <span>${whip}</span></div><div class="stat-pill">K <span>${k}</span></div><div class="stat-pill">W <span>${w}</span></div>`;
-  } else {
-    const s=p.hitting||{};
-    const avg=s.avg!=null?parseFloat(s.avg).toFixed(3).replace('0.','.'):'-';
-    const hr=s.homeRuns!=null?s.homeRuns:'-';
-    const rbi=s.rbi!=null?s.rbi:'-';
-    const ops=s.ops!=null?parseFloat(s.ops).toFixed(3).replace('0.','.'):'-';
-    return `<div class="stat-pill">AVG <span>${avg}</span></div><div class="stat-pill">HR <span>${hr}</span></div><div class="stat-pill">RBI <span>${rbi}</span></div><div class="stat-pill">OPS <span>${ops}</span></div>`;
-  }
+  if(isPitcher){const s=p.pitching||{};return`<div class="stat-pill">ERA <span>${s.era!=null?parseFloat(s.era).toFixed(2):'-'}</span></div><div class="stat-pill">WHIP <span>${s.whip!=null?parseFloat(s.whip).toFixed(2):'-'}</span></div><div class="stat-pill">K <span>${s.strikeOuts??'-'}</span></div><div class="stat-pill">W <span>${s.wins??'-'}</span></div>`;}
+  const s=p.hitting||{};return`<div class="stat-pill">AVG <span>${s.avg!=null?parseFloat(s.avg).toFixed(3).replace('0.','.'):'-'}</span></div><div class="stat-pill">HR <span>${s.homeRuns??'-'}</span></div><div class="stat-pill">RBI <span>${s.rbi??'-'}</span></div><div class="stat-pill">OPS <span>${s.ops!=null?parseFloat(s.ops).toFixed(3).replace('0.','.'):'-'}</span></div>`;
 }
  
 function renderRoster(){
-  const container=document.getElementById('roster-container');
+  const c=document.getElementById('roster-container');
   const players=allPlayers[activeTeam];
-  if(!players){
-    container.innerHTML=`<div class="loading-wrap"><div class="loading-dots"><div class="loading-dot"></div><div class="loading-dot"></div><div class="loading-dot"></div></div><div class="loading-text">Loading...</div></div>`;
-    return;
-  }
+  if(!players){c.innerHTML=`<div class="loading-wrap"><div class="loading-dots"><div class="loading-dot"></div><div class="loading-dot"></div><div class="loading-dot"></div></div><div class="loading-text">Loading...</div></div>`;return;}
+  if(players==='error'){c.innerHTML=`<div style="padding:2rem 0;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;opacity:0.35;">Could not load roster data.</div>`;return;}
   const filtered=activePos==='all'?players:players.filter(p=>posGroup(p.position)===activePos);
-  if(filtered.length===0){
-    container.innerHTML=`<div style="padding:2rem 0;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.25;">No players found for this filter</div>`;
-    return;
-  }
-  container.innerHTML=`<div class="roster-grid">${filtered.map(p=>{
-    const isPitcher=p.position==='P';
-    const initials=p.name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
-    const photoUrl=`https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/${p.id}/headshot/67/current`;
-    return `<div class="player-card">
-      <img class="player-photo" src="${photoUrl}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-      <div class="player-photo-fallback" style="display:none;">${initials}</div>
-      <div class="player-info">
-        <div class="player-name">${p.name}</div>
-        <div class="player-pos">${p.position} · #${p.jersey||'-'}</div>
-        <div class="player-stats">${statLine(p,isPitcher)}</div>
-      </div>
-    </div>`;
+  if(!filtered.length){c.innerHTML=`<div style="padding:2rem 0;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;text-transform:uppercase;color:var(--cream);opacity:0.25;">No players found</div>`;return;}
+  c.innerHTML=`<div class="roster-grid">${filtered.map(p=>{
+    const ip=p.position==='P';
+    const ini=p.name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+    const ph=`https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/${p.id}/headshot/67/current`;
+    return`<div class="player-card"><img class="player-photo" src="${ph}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="player-photo-fallback" style="display:none;">${ini}</div><div class="player-info"><div class="player-name">${p.name}</div><div class="player-pos">${p.position} · #${p.jersey||'-'}</div><div class="player-stats">${statLine(p,ip)}</div></div></div>`;
   }).join('')}</div>`;
 }
  
 async function loadTeam(team){
+  if(!team)return;
   try{
-    const rosterRes=await fetch(`https://statsapi.mlb.com/api/v1/teams/${team.id}/roster?rosterType=active&season=2026`);
-    const rosterData=await rosterRes.json();
-    const roster=rosterData.roster||[];
-    const players=await Promise.all(roster.map(async(r)=>{
+    const rd=await(await fetch(`https://statsapi.mlb.com/api/v1/teams/${team.id}/roster?rosterType=active&season=2026`)).json();
+    const roster=rd.roster||[];
+    const players=await Promise.all(roster.map(async r=>{
       const pid=r.person.id;
       try{
-        const statsRes=await fetch(`https://statsapi.mlb.com/api/v1/people/${pid}/stats?stats=season&season=2026&group=hitting,pitching`);
-        const statsData=await statsRes.json();
-        const hitting=statsData.stats?.find(s=>s.group?.displayName==='hitting')?.splits?.[0]?.stat||null;
-        const pitching=statsData.stats?.find(s=>s.group?.displayName==='pitching')?.splits?.[0]?.stat||null;
-        return{id:pid,name:r.person.fullName,position:r.position?.abbreviation||'',jersey:r.jerseyNumber||'',hitting,pitching};
-      }catch(e){
-        return{id:pid,name:r.person.fullName,position:r.position?.abbreviation||'',jersey:r.jerseyNumber||'',hitting:null,pitching:null};
-      }
+        const sd=await(await fetch(`https://statsapi.mlb.com/api/v1/people/${pid}/stats?stats=season&season=2026&group=hitting,pitching`)).json();
+        return{id:pid,name:r.person.fullName,position:r.position?.abbreviation||'',jersey:r.jerseyNumber||'',
+          hitting:sd.stats?.find(s=>s.group?.displayName==='hitting')?.splits?.[0]?.stat||null,
+          pitching:sd.stats?.find(s=>s.group?.displayName==='pitching')?.splits?.[0]?.stat||null};
+      }catch{return{id:pid,name:r.person.fullName,position:r.position?.abbreviation||'',jersey:r.jerseyNumber||'',hitting:null,pitching:null};}
     }));
-    players.sort((a,b)=>{
-      if(a.position==='P'&&b.position!=='P') return 1;
-      if(a.position!=='P'&&b.position==='P') return -1;
-      return a.name.localeCompare(b.name);
-    });
+    players.sort((a,b)=>{if(a.position==='P'&&b.position!=='P')return 1;if(a.position!=='P'&&b.position==='P')return -1;return a.name.localeCompare(b.name);});
     allPlayers[team.id]=players;
-    if(team.id===activeTeam) renderRoster();
-  }catch(e){
-    allPlayers[team.id]=[];
-    if(team.id===activeTeam){
-      document.getElementById('roster-container').innerHTML=`<div style="padding:2rem 0;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:var(--cream);opacity:0.35;">Could not load roster data. MLB server is temporarily unavailable.</div>`;
-    }
-  }
+    if(team.id===activeTeam)renderRoster();
+  }catch{allPlayers[team.id]='error';if(team.id===activeTeam)renderRoster();}
 }
  
-/* ─────────────────────────────────────────
-   STANDINGS
-───────────────────────────────────────── */
-let standingsLoaded = false;
- 
-// Division IDs in the MLB Stats API
-// AL West=200, AL East=201, AL Central=202
-const DIV_ALW = 200;
-const DIV_ALE = 201;
-const DIV_ALC = 202;
- 
-function pct(w,l){ return (w+l)===0 ? '.000' : (w/(w+l)).toFixed(3).replace(/^0/,''); }
- 
-function streakBadge(s){
-  if(!s) return '<span class="td-split">-</span>';
-  const isW = s.streakCode && s.streakCode.startsWith('W');
-  const cls = isW ? 'streak-w' : 'streak-l';
-  const label = s.streakCode || '-';
-  return `<span class="streak ${cls}">${label}</span>`;
+async function initRosters(){
+  buildTeamNav();updateRosterHeader();
+  await loadTeam(teamById(activeTeam));
+  document.getElementById('updated-row').textContent='Live data from MLB. Click any team to load their roster.';
+  TEAMS.AL.West.filter(t=>t.id!==activeTeam).forEach(t=>loadTeam(t));
 }
  
-function pips(last10){
-  // last10 comes as "6-4" style string; we only know totals not sequence
-  // so we render filled pips in win/loss order (wins first for visual)
-  if(!last10) return '<span class="td-split">-</span>';
-  const parts = last10.split('-');
-  const w = parseInt(parts[0])||0;
-  const l = parseInt(parts[1])||0;
-  const total = w+l;
-  if(total===0) return '<span class="td-split">-</span>';
-  let html = `<span class="last10-text">${last10}</span><span class="pip-row">`;
-  for(let i=0;i<Math.min(total,10);i++){
-    html += `<span class="pip ${i<w?'pip-w':'pip-l'}"></span>`;
-  }
-  html += '</span>';
-  return html;
+/* STANDINGS */
+let standingsLoaded=false;
+const DIV_IDS={AL:{West:200,East:201,Central:202},NL:{West:203,East:204,Central:205}};
+function pct(w,l){return(w+l)===0?'.000':(w/(w+l)).toFixed(3).replace(/^0/,'');}
+function streakBadge(s){if(!s)return'-';const w=s.streakCode?.startsWith('W');return`<span class="streak ${w?'streak-w':'streak-l'}">${s.streakCode||'-'}</span>`;}
+function pips(str){
+  if(!str)return'-';
+  const[w,l]=(str+'-0').split('-').map(Number);
+  const t=Math.min(w+l,10);if(!t)return'-';
+  let h=`<span class="l10txt">${str}</span><span class="pip-row">`;
+  for(let i=0;i<t;i++)h+=`<span class="pip ${i<w?'pip-w':'pip-l'}"></span>`;
+  return h+'</span>';
 }
  
-function renderFeaturedTable(records){
-  const tbody = document.getElementById('tbody-alw');
-  if(!records||records.length===0){
-    tbody.innerHTML='<tr><td colspan="9" style="padding:1.5rem;font-family:\'IBM Plex Mono\',monospace;font-size:0.65rem;opacity:0.35;">No data available.</td></tr>';
-    return;
-  }
-  tbody.innerHTML = records.map((r,i)=>{
-    const t   = r.team;
-    const w   = r.wins;
-    const l   = r.losses;
-    const gb  = i===0 ? '<span class="td-gb-leader">—</span>' : `<span class="td-gb">${r.gamesBack||'-'}</span>`;
-    const home= r.records?.splitRecords?.find(s=>s.type==='home');
-    const away= r.records?.splitRecords?.find(s=>s.type==='away');
-    const homeStr = home ? `${home.wins}-${home.losses}` : '-';
-    const awayStr = away ? `${away.wins}-${away.losses}` : '-';
-    const streak  = streakBadge(r.streak);
-    const l10rec  = r.records?.splitRecords?.find(s=>s.type==='lastTen');
-    const l10str  = l10rec ? `${l10rec.wins}-${l10rec.losses}` : null;
-    const l10html = pips(l10str);
-    return `<tr class="${i===0?'row-first':''}">
-      <td><div class="td-team"><span class="td-rank">${i+1}</span><span class="td-name">${t.name}</span></div></td>
-      <td>${w}</td>
-      <td>${l}</td>
-      <td>${pct(w,l)}</td>
-      <td>${gb}</td>
-      <td class="td-split">${homeStr}</td>
-      <td class="td-split">${awayStr}</td>
-      <td>${streak}</td>
-      <td><div style="display:flex;align-items:center;justify-content:flex-end;">${l10html}</div></td>
-    </tr>`;
+function renderDivCard(records,divLabel,isALW){
+  const rows=records.map((r,i)=>{
+    const w=r.wins,l=r.losses;
+    const gb=i===0?`<span class="td-gb-leader">—</span>`:`<span class="td-gb">${r.gamesBack||'-'}</span>`;
+    const home=r.records?.splitRecords?.find(s=>s.type==='home');
+    const away=r.records?.splitRecords?.find(s=>s.type==='away');
+    const l10=r.records?.splitRecords?.find(s=>s.type==='lastTen');
+    const isALWTeam=ALW_IDS.has(r.team.id);
+    const nc=isALWTeam?'alw-name':'';
+    return`<tr class="${i===0?'row-first':''}"><td><div class="td-team-cell"><span class="td-rank">${i+1}</span><span class="td-tname ${nc}">${r.team.name}</span></div></td><td>${w}</td><td>${l}</td><td>${pct(w,l)}</td><td>${gb}</td><td class="td-dim">${home?home.wins+'-'+home.losses:'-'}</td><td class="td-dim">${away?away.wins+'-'+away.losses:'-'}</td><td>${streakBadge(r.streak)}</td><td><div style="display:flex;align-items:center;justify-content:flex-end;">${pips(l10?l10.wins+'-'+l10.losses:null)}</div></td></tr>`;
   }).join('');
-}
- 
-function renderSmallTable(tbodyId, records){
-  const tbody = document.getElementById(tbodyId);
-  if(!records||records.length===0){
-    tbody.innerHTML='<tr><td colspan="5" style="padding:1rem;font-family:\'IBM Plex Mono\',monospace;font-size:0.62rem;opacity:0.3;">No data.</td></tr>';
-    return;
-  }
-  tbody.innerHTML = records.map((r,i)=>{
-    const gb  = i===0 ? '—' : (r.gamesBack||'-');
-    const streak = r.streak?.streakCode || '-';
-    const isW = streak.startsWith('W');
-    const sCls = isW ? 'streak-w' : 'streak-l';
-    return `<tr class="${i===0?'row-first':''}">
-      <td>${r.team.name}</td>
-      <td>${r.wins}</td>
-      <td>${r.losses}</td>
-      <td>${gb}</td>
-      <td><span class="streak ${sCls}" style="font-size:0.6rem;">${streak}</span></td>
-    </tr>`;
-  }).join('');
+  return`<div class="div-card${isALW?' featured':''}"><div class="div-card-head"><div class="div-card-name">${divLabel}</div>${isALW?'<div class="div-card-badge">Home</div>':''}</div><table class="stbl"><thead><tr><th>Team</th><th>W</th><th>L</th><th>PCT</th><th>GB</th><th>Home</th><th>Away</th><th>Str</th><th>L10</th></tr></thead><tbody>${rows}</tbody></table></div>`;
 }
  
 async function loadStandings(){
-  standingsLoaded = true;
-  try {
-    const res = await fetch(
-      'https://statsapi.mlb.com/api/v1/standings?leagueId=103&season=2026&standingsTypes=regularSeason&hydrate=team,record,streak,standings'
-    );
-    const data = await res.json();
-    const records = data.records || [];
+  standingsLoaded=true;
+  try{
+    const[alData,nlData]=await Promise.all([
+      fetch('https://statsapi.mlb.com/api/v1/standings?leagueId=103&season=2026&standingsTypes=regularSeason&hydrate=team,record,streak,standings').then(r=>r.json()),
+      fetch('https://statsapi.mlb.com/api/v1/standings?leagueId=104&season=2026&standingsTypes=regularSeason&hydrate=team,record,streak,standings').then(r=>r.json()),
+    ]);
+    function getDiv(data,divId){return data.records?.find(d=>d.division?.id===divId)?.teamRecords||[];}
+    let html='';
+    html+=`<div class="standings-league-block"><div class="standings-league-label">American League</div><div class="standings-divs">
+      ${renderDivCard(getDiv(alData,DIV_IDS.AL.West),'AL West',true)}
+      ${renderDivCard(getDiv(alData,DIV_IDS.AL.East),'AL East',false)}
+      ${renderDivCard(getDiv(alData,DIV_IDS.AL.Central),'AL Central',false)}
+    </div></div>`;
+    html+=`<div class="standings-league-block"><div class="standings-league-label">National League</div><div class="standings-divs">
+      ${renderDivCard(getDiv(nlData,DIV_IDS.NL.West),'NL West',false)}
+      ${renderDivCard(getDiv(nlData,DIV_IDS.NL.East),'NL East',false)}
+      ${renderDivCard(getDiv(nlData,DIV_IDS.NL.Central),'NL Central',false)}
+    </div></div>`;
+    document.getElementById('standings-container').innerHTML=html;
+    const now=new Date();
+    document.getElementById('s-updated').textContent=`Live data from MLB · Last loaded ${now.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}`;
+  }catch{document.getElementById('standings-container').innerHTML=`<div class="empty-msg">Could not load standings.</div>`;}
+}
  
-    const alw = records.find(d=>d.division?.id===DIV_ALW)?.teamRecords || [];
-    const ale = records.find(d=>d.division?.id===DIV_ALE)?.teamRecords || [];
-    const alc = records.find(d=>d.division?.id===DIV_ALC)?.teamRecords || [];
+/* BOXSCORES */
+let bxLoaded=false,bxDate='',bxFilter='alw',bxOpen=new Set(),bxCache={};
+function todayStr(){const d=new Date();return`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+function initBoxscores(){bxLoaded=true;bxDate=todayStr();document.getElementById('bx-date-input').value=bxDate;bxLoadDate(bxDate);}
+function bxShiftDate(delta){const d=new Date(bxDate+'T12:00:00');d.setDate(d.getDate()+delta);bxDate=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;document.getElementById('bx-date-input').value=bxDate;bxLoadDate(bxDate);}
+function bxSetFilter(f,btn){bxFilter=f;document.querySelectorAll('.bx-filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');bxLoadDate(bxDate);}
  
-    renderFeaturedTable(alw);
-    renderSmallTable('tbody-ale', ale);
-    renderSmallTable('tbody-alc', alc);
+async function bxLoadDate(date){
+  bxDate=date;bxOpen=new Set();
+  const c=document.getElementById('bx-container');
+  c.innerHTML=`<div class="loading-wrap"><div class="loading-dots"><div class="loading-dot"></div><div class="loading-dot"></div><div class="loading-dot"></div></div><div class="loading-text">Loading ${date}...</div></div>`;
+  try{
+    const data=await(await fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=${date}&hydrate=team,linescore,decisions,probablePitcher`)).json();
+    let games=data.dates?.[0]?.games||[];
+    if(bxFilter==='alw')games=games.filter(g=>ALW_IDS.has(g.teams?.away?.team?.id)||ALW_IDS.has(g.teams?.home?.team?.id));
+    else if(bxFilter==='al')games=games.filter(g=>AL_IDS.has(g.teams?.away?.team?.id)||AL_IDS.has(g.teams?.home?.team?.id));
+    if(!games.length){c.innerHTML=`<div class="empty-msg">No games found for ${date}.</div>`;return;}
+    c.innerHTML='<div class="bx-games" id="bx-list"></div>';
+    const list=document.getElementById('bx-list');
+    games.forEach(g=>list.appendChild(buildCard(g)));
+  }catch{c.innerHTML=`<div class="empty-msg">Could not load schedule.</div>`;}
+}
  
-    const now = new Date();
-    document.getElementById('s-updated').textContent =
-      `Live data from MLB Stats API · Last loaded ${now.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}`;
-  } catch(e) {
-    document.getElementById('tbody-alw').innerHTML =
-      '<tr><td colspan="9" style="padding:1.5rem;font-family:\'IBM Plex Mono\',monospace;font-size:0.65rem;color:#e07070;opacity:0.7;">Could not load standings. MLB API temporarily unavailable.</td></tr>';
-    document.getElementById('s-updated').textContent = 'Standings unavailable — MLB API error.';
+function buildCard(g){
+  const pk=g.gamePk;
+  const away=g.teams.away,home=g.teams.home;
+  const status=g.status?.abstractGameState||'Preview';
+  const detail=g.status?.detailedState||'';
+  const isLive=status==='Live',isFinal=status==='Final',isPrev=status==='Preview';
+  const awayScore=isFinal||isLive?(away.score??''):'-';
+  const homeScore=isFinal||isLive?(home.score??''):'-';
+  const awayALW=ALW_IDS.has(away.team.id),homeALW=ALW_IDS.has(home.team.id);
+  let statusLabel=detail||status;
+  if(isLive&&g.linescore)statusLabel=`${g.linescore.inningHalf||''} ${g.linescore.currentInning||''}`.trim();
+  let probLine='';
+  if(isPrev){const ap=away.probablePitcher?.fullName||'TBD',hp=home.probablePitcher?.fullName||'TBD';probLine=`<div style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;opacity:0.35;margin-top:0.3rem;">${ap} vs ${hp}</div>`;}
+  const card=document.createElement('div');
+  card.className='bx-card';card.dataset.pk=pk;
+  card.innerHTML=`<div class="bx-card-head" onclick="bxToggle(${pk})"><div class="bx-matchup"><div class="bx-team-block"><div class="bx-team-name${awayALW?' alw-team':''}">${away.team.name}</div><div class="bx-team-score ${isFinal&&away.isWinner?'winner':''}">${awayScore}</div></div><div class="bx-vs">@</div><div class="bx-team-block"><div class="bx-team-name${homeALW?' alw-team':''}">${home.team.name}</div><div class="bx-team-score ${isFinal&&home.isWinner?'winner':''}">${homeScore}</div></div></div><div class="bx-meta"><div class="bx-status ${isLive?'live':''}">${statusLabel}</div><div class="bx-venue">${g.venue?.name||''}</div>${probLine}</div><div class="bx-toggle">${isPrev?'Preview ↓':'Boxscore ↓'}</div></div><div class="bx-detail" id="bx-detail-${pk}" style="display:none;"></div>`;
+  return card;
+}
+ 
+async function bxToggle(pk){
+  const detail=document.getElementById('bx-detail-'+pk);
+  const card=detail.closest('.bx-card');
+  if(bxOpen.has(pk)){bxOpen.delete(pk);card.classList.remove('open');detail.style.display='none';return;}
+  bxOpen.add(pk);card.classList.add('open');detail.style.display='block';
+  if(bxCache[pk]){renderBox(pk,bxCache[pk]);return;}
+  detail.innerHTML=`<div class="loading-wrap" style="padding:1.5rem 0;"><div class="loading-dots"><div class="loading-dot"></div><div class="loading-dot"></div><div class="loading-dot"></div></div><div class="loading-text">Loading boxscore...</div></div>`;
+  try{
+    const data=await(await fetch(`https://statsapi.mlb.com/api/v1.1/game/${pk}/feed/live`)).json();
+    bxCache[pk]=data;renderBox(pk,data);
+  }catch{detail.innerHTML=`<div style="padding:1rem 1.25rem;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:#e07070;">Could not load boxscore data.</div>`;}
+}
+ 
+function renderBox(pk,data){
+  const detail=document.getElementById('bx-detail-'+pk);if(!detail)return;
+  const live=data.liveData,gd=data.gameData;
+  const status=gd?.status?.abstractGameState||'Preview';
+  if(status==='Preview'){detail.innerHTML=`<div style="padding:1rem 1.25rem;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;opacity:0.35;">Game has not started yet.</div>`;return;}
+  let html='';
+  const ls=live?.linescore;
+  if(ls){
+    const innings=ls.innings||[];
+    const totalInns=Math.max(innings.length,9);
+    const awayAbbr=gd?.teams?.away?.abbreviation||'AWY',homeAbbr=gd?.teams?.home?.abbreviation||'HME';
+    let awayRow='',homeRow='';
+    for(let i=0;i<totalInns;i++){
+      const inn=innings[i]||{};const cur=(i===innings.length-1)&&status==='Live';
+      awayRow+=`<td class="${cur?'bx-cur':''}">${inn.away?.runs??''}</td>`;
+      homeRow+=`<td class="${cur?'bx-cur':''}">${inn.home?.runs??''}</td>`;
+    }
+    const at=ls.teams?.away||{},ht=ls.teams?.home||{};
+    html+=`<div class="bx-linescore-wrap"><table class="bx-line"><thead><tr><th></th>${[...Array(totalInns)].map((_,i)=>`<th>${i+1}</th>`).join('')}<th class="bx-totals">R</th><th class="bx-totals">H</th><th class="bx-totals">E</th></tr></thead><tbody><tr><td>${awayAbbr}</td>${awayRow}<td class="bx-totals">${at.runs??''}</td><td class="bx-totals">${at.hits??''}</td><td class="bx-totals">${at.errors??''}</td></tr><tr><td>${homeAbbr}</td>${homeRow}<td class="bx-totals">${ht.runs??''}</td><td class="bx-totals">${ht.hits??''}</td><td class="bx-totals">${ht.errors??''}</td></tr></tbody></table></div>`;
   }
+  const dec=live?.decisions;
+  if(dec&&status==='Final'){
+    const parts=[];
+    if(dec.winner)parts.push(`<div class="bx-decision"><span class="bx-dec-label">W</span><span class="bx-dec-name">${dec.winner.fullName}</span></div>`);
+    if(dec.loser)parts.push(`<div class="bx-decision"><span class="bx-dec-label">L</span><span class="bx-dec-name">${dec.loser.fullName}</span></div>`);
+    if(dec.save)parts.push(`<div class="bx-decision"><span class="bx-dec-label">SV</span><span class="bx-dec-name">${dec.save.fullName}</span></div>`);
+    if(parts.length)html+=`<div class="bx-decisions">${parts.join('')}</div>`;
+  }
+  const box=live?.boxscore;
+  if(box){
+    html+=`<div class="bx-box-wrap">`;
+    ['away','home'].forEach(side=>{
+      const tb=box.teams?.[side];if(!tb)return;
+      const tn=gd?.teams?.[side]?.name||side;
+      const batRows=(tb.batters||[]).map(id=>tb.players?.['ID'+id]).filter(Boolean).map(p=>{
+        const s=p.stats?.batting||{};
+        return`<tr><td>${p.position?.abbreviation||''} ${p.person?.fullName||''}</td><td>${s.atBats??'-'}</td><td>${s.runs??'-'}</td><td>${s.hits??'-'}</td><td>${s.rbi??'-'}</td><td>${s.baseOnBalls??'-'}</td><td>${s.strikeOuts??'-'}</td><td>${s.avg!=null?parseFloat(s.avg).toFixed(3).replace('0.','.'):'-'}</td></tr>`;
+      }).join('');
+      const bts=tb.teamStats?.batting||{};
+      const batTot=`<tr class="totals-row"><td>Totals</td><td>${bts.atBats??''}</td><td>${bts.runs??''}</td><td>${bts.hits??''}</td><td>${bts.rbi??''}</td><td>${bts.baseOnBalls??''}</td><td>${bts.strikeOuts??''}</td><td></td></tr>`;
+      const pitchRows=(tb.pitchers||[]).map(id=>tb.players?.['ID'+id]).filter(Boolean).map(p=>{
+        const s=p.stats?.pitching||{};
+        return`<tr><td>${p.person?.fullName||''}</td><td>${s.inningsPitched??'-'}</td><td>${s.hits??'-'}</td><td>${s.runs??'-'}</td><td>${s.earnedRuns??'-'}</td><td>${s.baseOnBalls??'-'}</td><td>${s.strikeOuts??'-'}</td><td>${s.era!=null?parseFloat(s.era).toFixed(2):'-'}</td></tr>`;
+      }).join('');
+      const pts=tb.teamStats?.pitching||{};
+      const pitchTot=`<tr class="totals-row"><td>Totals</td><td>${pts.inningsPitched??''}</td><td>${pts.hits??''}</td><td>${pts.runs??''}</td><td>${pts.earnedRuns??''}</td><td>${pts.baseOnBalls??''}</td><td>${pts.strikeOuts??''}</td><td></td></tr>`;
+      html+=`<div class="bx-box-section"><div class="bx-box-team-label">${tn} — Batting</div><div class="bx-box-scroll"><table class="bx-box"><thead><tr><th>Batter</th><th>AB</th><th>R</th><th>H</th><th>RBI</th><th>BB</th><th>SO</th><th>AVG</th></tr></thead><tbody>${batRows}${batTot}</tbody></table></div><div style="margin-top:1.25rem;"><div class="bx-box-team-label" style="font-size:0.85rem;margin-bottom:0.5rem;">${tn} — Pitching</div><div class="bx-box-scroll"><table class="bx-box"><thead><tr><th>Pitcher</th><th>IP</th><th>H</th><th>R</th><th>ER</th><th>BB</th><th>SO</th><th>ERA</th></tr></thead><tbody>${pitchRows}${pitchTot}</tbody></table></div></div></div><div class="bx-box-divider"></div>`;
+    });
+    html+=`</div>`;
+  }
+  detail.innerHTML=html||`<div style="padding:1rem 1.25rem;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;opacity:0.35;">No boxscore data available.</div>`;
 }
  
-/* ─────────────────────────────────────────
-   INIT
-───────────────────────────────────────── */
-async function init(){
-  initTabs();
-  await loadTeam(AL_WEST[0]);
-  document.getElementById('updated-row').textContent='Live data from MLB. Updated on page load.';
-  AL_WEST.slice(1).forEach(loadTeam);
-}
- 
-init();
+initRosters();
 </script>
 </body>
 </html>
