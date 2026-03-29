@@ -438,7 +438,7 @@ footer{background:#060e1a;padding:2rem;display:flex;align-items:center;justify-c
         <a href="https://thebaseballnerd.substack.com" target="_blank" class="btn-secondary">Subscribe on Substack</a>
       </div>
       <div class="hero-stats">
-        <div><div class="hero-stat-num">2,000+</div><div class="hero-stat-label">Subscribers</div></div>
+        <div><div class="hero-stat-num">1,600+</div><div class="hero-stat-label">Subscribers</div></div>
         <div><div class="hero-stat-num">SPARK</div><div class="hero-stat-label">Breakout Score</div></div>
         <div><div class="hero-stat-num">FADE</div><div class="hero-stat-label">Decline Score</div></div>
         <div><div class="hero-stat-num" id="hero-record">—</div><div class="hero-stat-label">Rangers 2026</div></div>
@@ -568,7 +568,7 @@ footer{background:#060e1a;padding:2rem;display:flex;align-items:center;justify-c
   <div class="newsletter-inner">
     <div class="newsletter-glyph">◆</div>
     <div class="newsletter-title">Get The <span class="gold">Edge</span></div>
-    <p class="newsletter-desc">Join 2,000+ readers getting SPARK Score breakdowns, FADE alerts, and the analysis the mainstream misses — straight to their inbox.</p>
+    <p class="newsletter-desc">Join 1,600+ readers getting SPARK Score breakdowns, FADE alerts, and the analysis the mainstream misses — straight to their inbox.</p>
     <div class="newsletter-form">
       <input class="newsletter-input" type="email" placeholder="Your email address">
       <button class="newsletter-btn" onclick="window.open('https://thebaseballnerd.substack.com','_blank')">Subscribe</button>
@@ -754,36 +754,27 @@ async function loadLatestPosts(){
     const FEED_URL = 'https://thebaseballnerd.substack.com/feed';
     const PROXY    = `/.netlify/functions/fetch-feed?url=${encodeURIComponent(FEED_URL)}`;
     const res  = await fetch(PROXY);
-    const text = await res.text();
-    const parser = new DOMParser();
-    const xml  = parser.parseFromString(text, 'text/xml');
-    const items = Array.from(xml.querySelectorAll('item')).slice(0,3);
+    const json = await res.json();
+ 
+    // Function returns { status: 'ok', items: [...] }
+    const items = (json.items || []).slice(0,3);
     if(!items.length) throw new Error('No items');
  
     const posts = items.map(item=>{
-      const title   = item.querySelector('title')?.textContent?.trim()||'';
-      const link    = item.querySelector('link')?.textContent?.trim()||
-                      item.querySelector('guid')?.textContent?.trim()||'#';
-      const pubDate = item.querySelector('pubDate')?.textContent||'';
-      const desc    = item.querySelector('description')?.textContent||
-                      item.querySelector('summary')?.textContent||'';
-      // Strip HTML from description
+      const title   = item.title || '';
+      const link    = item.link  || '#';
+      const pubDate = item.pubDate || '';
+      // Strip HTML entities and tags from description
       const tmp = document.createElement('div');
-      tmp.innerHTML = desc;
-      const excerpt = (tmp.textContent||tmp.innerText||'').replace(/\s+/g,' ').trim().slice(0,160);
-      // Detect paid: Substack marks paid posts with a paywall notice
-      const isPaid = desc.includes('subscribe') && !desc.includes('class="post-content"') ||
-                     item.querySelector('content\\:encoded')?.textContent?.includes('paywall')||false;
-      // Format date
+      tmp.innerHTML = item.description || '';
+      const excerpt = (tmp.textContent || tmp.innerText || '').replace(/\s+/g,' ').trim().slice(0,160);
       const dateObj = pubDate ? new Date(pubDate) : null;
       const dateStr = dateObj ? dateObj.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) : '';
-      // Extract category from tags if available
-      const cats = Array.from(item.querySelectorAll('category')).map(c=>c.textContent.trim()).filter(Boolean);
-      const tag = cats[0] || 'The Baseball Nerd';
+      // Substack free posts have full description; paid ones are truncated
+      const isPaid = !item.description || item.description.length < 80;
+      const tag = 'The Baseball Nerd';
       return { title, link, dateStr, excerpt, isPaid, tag };
     });
- 
-    if(!posts.length) throw new Error('No posts parsed');
  
     const [p1, p2, p3] = posts;
  
@@ -813,9 +804,8 @@ async function loadLatestPosts(){
       </div>`;
  
   }catch(e){
-    // Fallback: show a link to Substack rather than broken cards
     grid.innerHTML=`
-      <div class="post-card featured" style="pointer-events:none;display:flex;align-items:center;justify-content:center;min-height:200px;">
+      <div class="post-card featured" style="display:flex;align-items:center;justify-content:center;min-height:200px;">
         <div style="text-align:center;">
           <div class="post-tag" style="justify-content:center;">The Baseball Nerd</div>
           <div class="post-title" style="margin-bottom:1rem;">Latest analysis on Substack</div>
