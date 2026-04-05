@@ -9,44 +9,36 @@
   body { font-family: Arial, sans-serif; background: #fff; padding: 8px; }
   .division-label { font-size: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 6px; }
   table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-  col.c-team { width: 32%; }
-  col.c-net   { width: 17%; }
-  col.c-off   { width: 17%; }
-  col.c-opp   { width: 17%; }
-  col.c-rec   { width: 17%; }
+  col.c-rank { width: 10%; }
+  col.c-team { width: 52%; }
+  col.c-pct  { width: 22%; }
+  col.c-rec  { width: 16%; }
   thead tr { background: #0d1f3c; color: #fff; }
-  th { padding: 7px 5px; font-size: 10px; font-weight: bold; letter-spacing: 0.2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center; }
+  th { padding: 8px 6px; font-size: 11px; font-weight: bold; text-align: center; white-space: nowrap; }
   th.left { text-align: left; }
-  td { padding: 6px 5px; border-bottom: 1px solid #eee; font-size: 12px; color: #1a1a1a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center; }
+  td { padding: 7px 6px; border-bottom: 1px solid #eee; font-size: 13px; color: #1a1a1a; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   td.left { text-align: left; font-weight: 600; }
+  td.rank { color: #888; font-size: 11px; }
   tr:last-child td { border-bottom: none; }
   tr:nth-child(even) td { background: #f7f9fc; }
-  .pos { color: #15803d; font-weight: 700; }
-  .neg { color: #b91c1c; font-weight: 700; }
-  .footer { font-size: 9px; color: #bbb; text-align: right; margin-top: 4px; }
+  .hi { color: #15803d; font-weight: 700; }
+  .lo { color: #b91c1c; font-weight: 700; }
+  .footer { font-size: 9px; color: #bbb; text-align: right; margin-top: 5px; }
 </style>
 </head>
 <body>
 <div class="division-label">AL East — ABS Challenge Standings (Through April 5, 2026)</div>
 <table>
-  <colgroup>
-    <col class="c-team"><col class="c-net"><col class="c-off"><col class="c-opp"><col class="c-rec">
-  </colgroup>
+  <colgroup><col class="c-rank"><col class="c-team"><col class="c-pct"><col class="c-rec"></colgroup>
   <thead>
-    <tr>
-      <th class="left">Team</th>
-      <th>Comb. Net</th>
-      <th>Off. OT%</th>
-      <th>Opp. OT%</th>
-      <th>Record</th>
-    </tr>
+    <tr><th>#</th><th class="left">Team</th><th>ABS%</th><th>Record</th></tr>
   </thead>
   <tbody>
-    <tr><td class="left">Boston Red Sox</td><td class="pos">+3.13</td><td>57.1%</td><td>50.0%</td><td>2-6</td></tr>
-    <tr><td class="left">Tampa Bay Rays</td><td class="pos">+3.03</td><td>55.6%</td><td>42.9%</td><td>3-5</td></tr>
-    <tr><td class="left">Baltimore Orioles</td><td class="pos">+2.15</td><td>60.0%</td><td>50.0%</td><td>3-5</td></tr>
-    <tr><td class="left">Toronto Blue Jays</td><td class="neg">-2.41</td><td>37.5%</td><td>58.3%</td><td>4-4</td></tr>
-    <tr><td class="left">New York Yankees</td><td class="neg">-5.44</td><td>57.1%</td><td>73.3%</td><td>7-1</td></tr>
+    <tr><td class="rank">1</td><td class="left">New York Yankees</td><td class="hi">65.5%</td><td>7-1</td></tr>
+    <tr><td class="rank">2</td><td class="left">Baltimore Orioles</td><td class="hi">56.2%</td><td>3-5</td></tr>
+    <tr><td class="rank">3</td><td class="left">Boston Red Sox</td><td class="">53.8%</td><td>2-6</td></tr>
+    <tr><td class="rank">4</td><td class="left">Tampa Bay Rays</td><td class="">50.0%</td><td>3-5</td></tr>
+    <tr><td class="rank">5</td><td class="left">Toronto Blue Jays</td><td class="lo">50.0%</td><td>4-4</td></tr>
   </tbody>
 </table>
 <div class="footer">Data: Baseball Savant | The Baseball Nerd Analytics</div>
