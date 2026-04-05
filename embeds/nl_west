@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NL West ABS Challenge Standings 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; background: #fff; padding: 12px; }
+  .division-label { font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 8px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  thead tr { background: #0d1f3c; color: #fff; }
+  th { padding: 9px 10px; text-align: left; font-size: 12px; font-weight: bold; letter-spacing: 0.3px; white-space: nowrap; }
+  th:not(:first-child) { text-align: center; }
+  td { padding: 8px 10px; border-bottom: 1px solid #eee; color: #1a1a1a; }
+  td:not(:first-child) { text-align: center; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #f7f9fc; }
+  .team-name { font-weight: 600; }
+  .positive { color: #15803d; font-weight: 700; }
+  .negative { color: #b91c1c; font-weight: 700; }
+  .footer { font-size: 10px; color: #bbb; text-align: right; margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="division-label">NL West — ABS Challenge Standings (Through April 5, 2026)</div>
+<table>
+  <thead>
+    <tr>
+      <th>Team</th>
+      <th>Combined Net</th>
+      <th>Off. Overturn %</th>
+      <th>Opp. Overturn %</th>
+      <th>Record</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="team-name">Los Angeles Dodgers</td>
+      <td class="positive">+3.13</td>
+      <td>60.0%</td>
+      <td>50.0%</td>
+      <td>6-2</td>
+    </tr>
+    <tr>
+      <td class="team-name">San Diego Padres</td>
+      <td class="positive">+0.85</td>
+      <td>66.7%</td>
+      <td>33.3%</td>
+      <td>3-5</td>
+    </tr>
+    <tr>
+      <td class="team-name">Arizona Diamondbacks</td>
+      <td class="positive">+0.29</td>
+      <td>75.0%</td>
+      <td>72.7%</td>
+      <td>4-5</td>
+    </tr>
+    <tr>
+      <td class="team-name">San Francisco Giants</td>
+      <td class="negative">-1.36</td>
+      <td>40.0%</td>
+      <td>66.7%</td>
+      <td>3-6</td>
+    </tr>
+    <tr>
+      <td class="team-name">Colorado Rockies</td>
+      <td class="negative">-2.83</td>
+      <td>20.0%</td>
+      <td>50.0%</td>
+      <td>2-6</td>
+    </tr>
+  </tbody>
+</table>
+<div class="footer">Data: Baseball Savant | The Baseball Nerd Analytics</div>
+</body>
+</html>
