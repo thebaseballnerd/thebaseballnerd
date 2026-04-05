@@ -190,6 +190,6 @@ function render(){
 }
 
 render();
-</script>
+<script src="recaps-data.js"></script>
 </body>
 </html>
