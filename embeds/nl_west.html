@@ -6,39 +6,49 @@
 <title>NL West ABS Challenge Standings 2026</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: Arial, sans-serif; background: #fff; padding: 10px; }
-  .division-label { font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 6px; }
-  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  table { width: 100%; min-width: 480px; border-collapse: collapse; font-size: 13px; }
+  body { font-family: Arial, sans-serif; background: #fff; padding: 8px; }
+  .division-label { font-size: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 6px; }
+  table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  col.c-team { width: 32%; }
+  col.c-net   { width: 17%; }
+  col.c-off   { width: 17%; }
+  col.c-opp   { width: 17%; }
+  col.c-rec   { width: 17%; }
   thead tr { background: #0d1f3c; color: #fff; }
-  th { padding: 8px 10px; text-align: left; font-size: 11px; font-weight: bold; letter-spacing: 0.3px; white-space: nowrap; }
-  th:not(:first-child) { text-align: center; }
-  td { padding: 7px 10px; border-bottom: 1px solid #eee; color: #1a1a1a; white-space: nowrap; }
-  td:not(:first-child) { text-align: center; }
+  th { padding: 7px 5px; font-size: 10px; font-weight: bold; letter-spacing: 0.2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center; }
+  th.left { text-align: left; }
+  td { padding: 6px 5px; border-bottom: 1px solid #eee; font-size: 12px; color: #1a1a1a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center; }
+  td.left { text-align: left; font-weight: 600; }
   tr:last-child td { border-bottom: none; }
   tr:nth-child(even) td { background: #f7f9fc; }
-  .team-name { font-weight: 600; }
   .pos { color: #15803d; font-weight: 700; }
   .neg { color: #b91c1c; font-weight: 700; }
-  .footer { font-size: 10px; color: #bbb; text-align: right; margin-top: 5px; }
+  .footer { font-size: 9px; color: #bbb; text-align: right; margin-top: 4px; }
 </style>
 </head>
 <body>
 <div class="division-label">NL West — ABS Challenge Standings (Through April 5, 2026)</div>
-<div class="table-wrap">
 <table>
+  <colgroup>
+    <col class="c-team"><col class="c-net"><col class="c-off"><col class="c-opp"><col class="c-rec">
+  </colgroup>
   <thead>
-    <tr><th>Team</th><th>Combined Net</th><th>Off. OT%</th><th>Opp. OT%</th><th>Record</th></tr>
+    <tr>
+      <th class="left">Team</th>
+      <th>Comb. Net</th>
+      <th>Off. OT%</th>
+      <th>Opp. OT%</th>
+      <th>Record</th>
+    </tr>
   </thead>
   <tbody>
-    <tr><td class="team-name">Los Angeles Dodgers</td><td class="pos">+3.13</td><td>60.0%</td><td>50.0%</td><td>6-2</td></tr>
-    <tr><td class="team-name">San Diego Padres</td><td class="pos">+0.85</td><td>66.7%</td><td>33.3%</td><td>3-5</td></tr>
-    <tr><td class="team-name">Arizona Diamondbacks</td><td class="pos">+0.29</td><td>75.0%</td><td>72.7%</td><td>4-5</td></tr>
-    <tr><td class="team-name">San Francisco Giants</td><td class="neg">-1.36</td><td>40.0%</td><td>66.7%</td><td>3-6</td></tr>
-    <tr><td class="team-name">Colorado Rockies</td><td class="neg">-2.83</td><td>20.0%</td><td>50.0%</td><td>2-6</td></tr>
+    <tr><td class="left">Los Angeles Dodgers</td><td class="pos">+3.13</td><td>60.0%</td><td>50.0%</td><td>6-2</td></tr>
+    <tr><td class="left">San Diego Padres</td><td class="pos">+0.85</td><td>66.7%</td><td>33.3%</td><td>3-5</td></tr>
+    <tr><td class="left">Arizona Diamondbacks</td><td class="pos">+0.29</td><td>75.0%</td><td>72.7%</td><td>4-5</td></tr>
+    <tr><td class="left">San Francisco Giants</td><td class="neg">-1.36</td><td>40.0%</td><td>66.7%</td><td>3-6</td></tr>
+    <tr><td class="left">Colorado Rockies</td><td class="neg">-2.83</td><td>20.0%</td><td>50.0%</td><td>2-6</td></tr>
   </tbody>
 </table>
-</div>
 <div class="footer">Data: Baseball Savant | The Baseball Nerd Analytics</div>
 </body>
 </html>
