@@ -107,6 +107,16 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
 </footer>
 <script>
 const RECAPS=[{
+  id:'4-7-26-mariners',
+  date:'April 7, 2026',
+  opponent:'Seattle Mariners',
+  home:true,
+  result:'win',
+  score:'TEX 3, SEA 2',
+  record:'6-5',
+  preview:"Kyle Higashioka's two-run homer in the fifth turned a 2-0 deficit into a 3-2 lead the Rangers never gave back. Eovaldi earned his first win of the season. Attendance: 22,411.",
+  body:""
+},{
   id:'4-6-26-mariners',
   date:'April 6, 2026',
   opponent:'Seattle Mariners',
@@ -207,7 +217,7 @@ const RECAPS=[{
   preview:"Too little, too late. That cruel baseball cliche played out in vivid detail at Citizens Bank Park as the Rangers mounted a frantic ninth-inning rally that fell just short.",
   body:""
 }];
- 
+
 let activeFilter='all';
 function filterRecaps(f,btn){activeFilter=f;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderRecaps();}
 function renderRecaps(){
@@ -226,4 +236,3 @@ renderRecaps();
 </script>
 </body>
 </html>
- 
