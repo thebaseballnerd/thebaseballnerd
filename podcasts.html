@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" href="/favicon.png">
 <title>Podcasts — The Baseball Nerd</title>
-<meta name="description" content="The Baseball Nerd podcast — analytics-first baseball audio. Coming soon on Substack.">
+<meta name="description" content="The Baseball Nerd podcast — analytics-first baseball audio. New episodes every week.">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -26,22 +26,29 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem
 .page-eyebrow::before{content:'';display:inline-block;width:1rem;height:1px;background:var(--gold);}
 .page-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);letter-spacing:0.04em;color:var(--cream);line-height:1;}
 .page-desc{font-size:0.88rem;color:var(--cream);opacity:0.45;margin-top:0.65rem;max-width:520px;line-height:1.7;}
-.wrap{max-width:1100px;margin:0 auto;padding:3rem 2rem 5rem;}
-.coming-band{display:flex;align-items:flex-start;gap:1rem;background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.14);border-left:3px solid var(--gold);padding:1rem 1.25rem;margin-bottom:3rem;}
-.coming-label{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);white-space:nowrap;margin-top:1px;}
-.coming-text{font-size:0.82rem;color:var(--cream);opacity:0.5;line-height:1.7;}
-.pod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-bottom:4rem;}
-.pod-card{background:var(--navy-mid);border:1px dashed rgba(201,168,76,0.1);padding:2rem 1.5rem;text-align:center;}
-.pod-glyph{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--gold);opacity:0.1;margin-bottom:0.75rem;}
-.pod-title{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--cream);opacity:0.35;margin-bottom:0.5rem;}
-.pod-desc{font-size:0.76rem;color:var(--cream);opacity:0.22;line-height:1.65;}
-.notify-wrap{max-width:420px;margin:0 auto;text-align:center;}
-.notify-label{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--cream);opacity:0.3;margin-bottom:1rem;}
-.notify-form{display:flex;}
-.notify-input{flex:1;padding:0.75rem 1rem;background:rgba(245,240,232,0.05);border:1px solid rgba(201,168,76,0.18);border-right:none;color:var(--cream);font-family:'Inter',sans-serif;font-size:0.85rem;outline:none;}
-.notify-input::placeholder{color:rgba(245,240,232,0.22);}
-.notify-btn{padding:0.75rem 1.25rem;background:var(--gold);color:var(--navy);border:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;transition:background 0.2s;white-space:nowrap;}
-.notify-btn:hover{background:var(--gold-light);}
+.wrap{max-width:800px;margin:0 auto;padding:2rem 2rem 5rem;}
+.episodes-list{display:flex;flex-direction:column;gap:1px;border:1px solid rgba(201,168,76,0.1);}
+.episode-card{background:var(--navy-mid);padding:1.5rem;transition:background 0.15s;position:relative;}
+.episode-card:hover{background:var(--navy-light);}
+.episode-card+.episode-card{border-top:1px solid rgba(201,168,76,0.06);}
+.episode-num{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);opacity:0.6;margin-bottom:0.4rem;}
+.episode-title{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--cream);line-height:1.35;margin-bottom:0.4rem;}
+.episode-date{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;color:var(--cream);opacity:0.3;margin-bottom:0.75rem;}
+.episode-desc{font-size:0.82rem;color:var(--cream);opacity:0.45;line-height:1.7;margin-bottom:1rem;}
+.episode-player{width:100%;height:52px;border:none;border-radius:0;margin-bottom:0.75rem;display:block;}
+.episode-player:not([src]){display:none;}
+.episode-footer{display:flex;align-items:center;gap:1rem;}
+.episode-link{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.6;text-decoration:none;transition:opacity 0.15s;}
+.episode-link:hover{opacity:1;}
+.loading-wrap{padding:4rem 0;text-align:center;}
+.loading-dots{display:flex;gap:6px;justify-content:center;margin-bottom:1rem;}
+.loading-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);opacity:0.3;animation:dotpulse 1.2s ease-in-out infinite;}
+.loading-dot:nth-child(2){animation-delay:0.2s;}
+.loading-dot:nth-child(3){animation-delay:0.4s;}
+@keyframes dotpulse{0%,100%{opacity:0.3}50%{opacity:1}}
+.loading-text{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--cream);opacity:0.3;}
+.feed-error{padding:2rem;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;color:var(--cream);opacity:0.35;}
+.feed-error a{color:var(--gold);text-decoration:none;}
 footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(201,168,76,0.06);}
 .foot-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--gold);}
 .foot-logo span{color:var(--cream);opacity:0.3;}
@@ -57,7 +64,7 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
   <a class="nav-logo" href="index.html">The Baseball <span>Nerd</span></a>
   <ul class="nav-links">
     <li><a href="news.html">News</a></li>
- <li><a href="articles.html">Articles</a></li>
+    <li><a href="articles.html">Articles</a></li>
     <li><a href="recaps.html">Recaps</a></li>
     <li><a href="rosters.html">Rosters</a></li>
     <li><a href="podcasts.html" class="active">Podcasts</a></li>
@@ -70,36 +77,14 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
   <div class="page-hero">
     <div class="page-eyebrow">Audio</div>
     <div class="page-title">Podcasts</div>
-    <div class="page-desc">The Baseball Nerd in audio form. Hosted on Substack. Coming soon — paid subscribers get early access.</div>
+    <div class="page-desc">Analytics-first baseball audio from The Baseball Nerd. New episodes every week.</div>
   </div>
 </div>
 <div class="wrap">
-  <div class="coming-band">
-    <div class="coming-label">◆ Coming Soon</div>
-    <div class="coming-text">The Baseball Nerd podcast is in production and will be hosted on Substack. Paid subscribers get early access to every episode. Drop your email below to be notified when the first episode drops.</div>
-  </div>
-  <div class="pod-grid">
-    <div class="pod-card">
-      <div class="pod-glyph">◆</div>
-      <div class="pod-title">Numbers Not Feelings</div>
-      <div class="pod-desc">The flagship show. Deep analytics dives, SPARK and FADE breakdowns, weekly through the season.</div>
-    </div>
-    <div class="pod-card">
-      <div class="pod-glyph">◆</div>
-      <div class="pod-title">Sunday Stories Audio</div>
-      <div class="pod-desc">The Sunday Stories series adapted for audio. Baseball history told through the numbers.</div>
-    </div>
-    <div class="pod-card">
-      <div class="pod-glyph">◆</div>
-      <div class="pod-title">AL West Report</div>
-      <div class="pod-desc">Weekly rundown of everything happening across the five AL West rosters. Short, sharp, data-first.</div>
-    </div>
-  </div>
-  <div class="notify-wrap">
-    <div class="notify-label">Get notified when we launch</div>
-    <div class="notify-form">
-      <input class="notify-input" type="email" placeholder="Your email address" id="notify-email">
-      <button class="notify-btn" onclick="window.open('https://thebaseballnerd.substack.com','_blank')">Notify Me</button>
+  <div id="episodes-container">
+    <div class="loading-wrap">
+      <div class="loading-dots"><div class="loading-dot"></div><div class="loading-dot"></div><div class="loading-dot"></div></div>
+      <div class="loading-text">Loading episodes...</div>
     </div>
   </div>
 </div>
@@ -111,10 +96,60 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
     <li><a href="articles.html">Articles</a></li>
     <li><a href="recaps.html">Recaps</a></li>
     <li><a href="rosters.html">Rosters</a></li>
-    <li><a href="podcasts.html">Podcasts</a></li>
     <li><a href="vault.html">Vault</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
 </footer>
+<script>
+const PODCAST_RSS = 'https://api.substack.com/feed/podcast/5440521.rss';
+const PROXY = '/.netlify/functions/fetch-feed?url=';
+ 
+function fmt(d){
+  try{
+    return new Date(d).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+  }catch(e){return d;}
+}
+ 
+function stripHtml(html){
+  const tmp=document.createElement('div');
+  tmp.innerHTML=html;
+  return tmp.textContent||tmp.innerText||'';
+}
+ 
+async function loadPodcast(){
+  const container=document.getElementById('episodes-container');
+  try{
+    const res=await fetch(PROXY+encodeURIComponent(PODCAST_RSS));
+    const data=await res.json();
+ 
+    if(!data.items||data.items.length===0){
+      container.innerHTML='<div class="feed-error">No episodes found. <a href="'+PODCAST_RSS+'" target="_blank">View feed directly →</a></div>';
+      return;
+    }
+ 
+    const episodes=data.items;
+    container.innerHTML='<div class="episodes-list">'+episodes.map((ep,i)=>{
+      const audioUrl=ep.enclosure||ep.audio||'';
+      const desc=ep.description?stripHtml(ep.description).slice(0,280)+'...':'';
+      const epNum=episodes.length-i;
+      return `<div class="episode-card">
+        <div class="episode-num">Episode ${epNum}</div>
+        <div class="episode-title">${ep.title||'Untitled Episode'}</div>
+        <div class="episode-date">${fmt(ep.pubDate)}</div>
+        ${desc?`<div class="episode-desc">${desc}</div>`:''}
+        ${audioUrl?`<audio class="episode-player" controls preload="none" src="${audioUrl}"></audio>`:''}
+        <div class="episode-footer">
+          ${ep.link?`<a class="episode-link" href="${ep.link}" target="_blank">View on Substack →</a>`:''}
+        </div>
+      </div>`;
+    }).join('')+'</div>';
+ 
+  }catch(e){
+    container.innerHTML='<div class="feed-error">Could not load episodes. <a href="https://thebaseballnerd.substack.com/podcast" target="_blank">Listen on Substack →</a></div>';
+  }
+}
+ 
+loadPodcast();
+</script>
 </body>
 </html>
