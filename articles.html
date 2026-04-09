@@ -58,6 +58,57 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem
 .loading-text{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.28;}
 .feed-error{padding:1rem 0;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:var(--cream);opacity:0.35;}
 .feed-error a{color:var(--gold);opacity:0.7;text-decoration:none;}
+
+/* ══════════════════════════════════
+   FEATURED ARTICLE — pinned card
+══════════════════════════════════ */
+.featured-article-wrap{margin-bottom:2.5rem;}
+.featured-article-label{
+  font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--gold);opacity:0.7;margin-bottom:0.75rem;
+  display:flex;align-items:center;gap:0.75rem;
+}
+.featured-article-label::after{content:'';flex:1;height:1px;background:rgba(201,168,76,0.1);}
+.featured-card{
+  display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem;
+  background:var(--navy-mid);border:1px solid rgba(201,168,76,0.3);
+  border-left:4px solid var(--gold);padding:2rem;
+  text-decoration:none;color:inherit;position:relative;overflow:hidden;
+  transition:border-color 0.2s,transform 0.18s,background 0.2s;
+}
+.featured-card:hover{border-color:var(--gold);background:rgba(17,32,64,0.98);transform:translateY(-2px);}
+.featured-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(201,168,76,0.05) 0%,transparent 55%);
+  pointer-events:none;
+}
+.featured-card-bg-num{
+  position:absolute;right:1.5rem;bottom:-1rem;
+  font-family:'Bebas Neue',sans-serif;font-size:8rem;color:var(--gold);
+  opacity:0.04;line-height:1;pointer-events:none;user-select:none;
+}
+.fc-left{display:flex;flex-direction:column;gap:0.65rem;}
+.fc-tags{display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;}
+.fc-pin-badge{
+  background:var(--gold);color:var(--navy);font-family:'IBM Plex Mono',monospace;
+  font-size:0.52rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:3px 8px;
+}
+.fc-tag{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);opacity:0.7;}
+.fc-divider{width:1px;height:10px;background:rgba(201,168,76,0.25);}
+.fc-free-badge{font-family:'IBM Plex Mono',monospace;font-size:0.52rem;letter-spacing:0.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;background:rgba(90,180,90,0.1);color:#7acc5a;}
+.fc-title{font-family:'DM Serif Display',serif;font-size:clamp(1.3rem,3vw,1.7rem);color:var(--cream);line-height:1.2;}
+.fc-excerpt{font-size:0.88rem;line-height:1.7;color:var(--cream);opacity:0.5;max-width:600px;}
+.fc-meta{display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;}
+.fc-meta-item{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.08em;color:var(--cream);opacity:0.3;text-transform:uppercase;}
+.fc-right{display:flex;flex-direction:column;align-items:center;gap:0.5rem;flex-shrink:0;}
+.fc-cta-btn{
+  font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;
+  text-transform:uppercase;padding:0.7rem 1.4rem;background:var(--gold);
+  color:var(--navy);font-weight:600;white-space:nowrap;transition:background 0.2s;
+}
+.featured-card:hover .fc-cta-btn{background:var(--gold-light);}
+.fc-native-tag{font-family:'IBM Plex Mono',monospace;font-size:0.52rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.4;white-space:nowrap;}
+@media(max-width:600px){.featured-card{grid-template-columns:1fr;}.fc-right{align-items:flex-start;}}
 footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(201,168,76,0.06);}
 .foot-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--gold);}
 .foot-logo span{color:var(--cream);opacity:0.3;}
@@ -90,6 +141,35 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
   </div>
 </div>
 <div class="wrap">
+
+  <!-- FEATURED / PINNED ARTICLE — always visible, never filtered -->
+  <div class="featured-article-wrap">
+    <div class="featured-article-label">Must Read</div>
+    <a class="featured-card" href="articles/what-is-wrc-plus-in-baseball.html">
+      <div class="fc-left">
+        <div class="fc-tags">
+          <span class="fc-pin-badge">★ Pinned</span>
+          <div class="fc-divider"></div>
+          <span class="fc-tag">Stats Explained</span>
+          <div class="fc-divider"></div>
+          <span class="fc-free-badge">Free</span>
+        </div>
+        <div class="fc-title">What Is wRC+ in Baseball? The Stat Explained.</div>
+        <div class="fc-excerpt">wRC+ packs every offensive event into a single number, adjusts for era and ballpark, and hands you a clean comparison. What it means, how it's calculated, and what a good wRC+ actually looks like.</div>
+        <div class="fc-meta">
+          <span class="fc-meta-item">Pete Dwyer</span>
+          <span class="fc-meta-item">April 2026</span>
+          <span class="fc-meta-item">8 min read</span>
+        </div>
+      </div>
+      <div class="fc-right">
+        <div class="fc-cta-btn">Read the piece →</div>
+        <div class="fc-native-tag">◆ Native article</div>
+      </div>
+      <div class="featured-card-bg-num">wRC+</div>
+    </a>
+  </div>
+
   <div class="tab-row" id="filter-tabs">
     <button class="tab-btn active" onclick="setFilter('all',this)">All</button>
     <button class="tab-btn" onclick="setFilter('analytics',this)">Analytics</button>
@@ -140,7 +220,7 @@ const ARCHIVE = [
   { tag:'economics', title:"The Historical Strength of the MLBPA: Why Baseball Will Never Have a Salary Cap", excerpt:'Part four of the series. How the MLBPA became the strongest union in professional sports and why that changes everything about the next CBA.', date:'Sep 8, 2025', paid:true, url:'https://thebaseballnerd.substack.com/p/the-historical-strength-of-the-mlbpa' },
   { tag:'economics', title:"The Case for Salary Floors: A Better Path to Competitive Balance", excerpt:'The final piece of the series. Why salary floors are the one reform that could actually fix what the CBT never could.', date:'Sep 12, 2025', paid:true, url:'https://thebaseballnerd.substack.com/p/the-case-for-salary-floors-a-better' },
   { tag:'analytics', title:"Understanding WAR: The Casual Fan's Guide to Baseball's Most Important Stat", excerpt:"A simply explained guide that helps decode a convoluted statistic that actually matters — and how to use it to evaluate players the right way.", date:'Jul 29, 2025', paid:true, url:'https://thebaseballnerd.substack.com/p/understanding-war-the-casual-fans' },
-  { tag:'analytics', title:'An Easier to Understand Guide to wRC+ for Baseball Analytics', excerpt:"A deep dive into one of baseball's most comprehensive offensive metrics — what it measures, why it matters, and how to read it in context.", date:'Aug 4, 2025', paid:true, url:'https://thebaseballnerd.substack.com/p/an-easier-to-understand-guide-to' },
+  { tag:'analytics', title:'What Is wRC+ in Baseball? The Stat Explained.', excerpt:"wRC+ packs every offensive event into a single number, adjusts for era and ballpark, and hands you a clean comparison. What it means, how it's calculated, and what separates good from great.", date:'Apr 9, 2026', paid:false, url:'articles/what-is-wrc-plus-in-baseball.html' },
 ];
 
 const RSS_PROXY = '/.netlify/functions/fetch-feed?url=https://thebaseballnerd.substack.com/feed';
@@ -154,7 +234,9 @@ function fmtDate(d){
 }
 
 function buildCard(item){
-  return `<a class="art-card" href="${item.url}" target="_self"><div class="art-tag-row"><div class="art-tag">${item.tag?tagLabel(item.tag):'The Baseball Nerd'}</div><div class="art-badge ${item.paid?'b-paid':'b-free'}">${item.paid?'Paid':'Free'}</div></div><div class="art-title">${item.title}</div><div class="art-excerpt">${item.excerpt}</div><div class="art-footer"><div class="art-date">${item.date}</div><div class="art-cta">Read on Substack →</div></div></a>`;
+  const isNative = !item.url.startsWith('http');
+  const ctaLabel = isNative ? 'Read →' : 'Read on Substack →';
+  return `<a class="art-card" href="${item.url}" target="_self"><div class="art-tag-row"><div class="art-tag">${item.tag?tagLabel(item.tag):'The Baseball Nerd'}</div><div class="art-badge ${item.paid?'b-paid':'b-free'}">${item.paid?'Paid':'Free'}</div></div><div class="art-title">${item.title}</div><div class="art-excerpt">${item.excerpt}</div><div class="art-footer"><div class="art-date">${item.date}</div><div class="art-cta">${ctaLabel}</div></div></a>`;
 }
 
 function renderArchive(f){
