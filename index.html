@@ -399,6 +399,329 @@ footer{background:#060e1a;padding:2rem;display:flex;align-items:center;justify-c
   .hero-stats{gap:1.5rem;}
   .strip-label{display:none;}
 }
+
+/* ══════════════════════════════════
+   MUST READ — hero article tease card
+══════════════════════════════════ */
+.must-read-wrap{
+  margin-top:2rem;
+  animation:fadeUp 0.9s 0.15s ease both;
+}
+.must-read-card{
+  position:relative;
+  background:rgba(17,32,64,0.85);
+  border:1px solid rgba(201,168,76,0.25);
+  border-left:3px solid var(--gold);
+  padding:1.4rem 1.6rem 1.3rem;
+  cursor:pointer;
+  transition:border-color 0.22s, background 0.22s, transform 0.18s;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  gap:0.55rem;
+  backdrop-filter:blur(8px);
+}
+.must-read-card:hover{
+  border-color:var(--gold);
+  background:rgba(17,32,64,0.97);
+  transform:translateY(-2px);
+}
+.must-read-card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg, rgba(201,168,76,0.04) 0%, transparent 60%);
+  pointer-events:none;
+}
+.mr-eyebrow{
+  display:flex;
+  align-items:center;
+  gap:0.6rem;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:0.6rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
+.mr-must-badge{
+  background:var(--gold);
+  color:var(--navy);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:0.52rem;
+  font-weight:700;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  padding:2px 7px;
+  flex-shrink:0;
+}
+.mr-divider{width:1px;height:10px;background:rgba(201,168,76,0.3);}
+.mr-title{
+  font-family:'DM Serif Display',serif;
+  font-size:1.25rem;
+  line-height:1.25;
+  color:var(--cream);
+}
+.mr-excerpt{
+  font-size:0.82rem;
+  line-height:1.65;
+  color:var(--cream);
+  opacity:0.5;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.mr-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:0.2rem;
+}
+.mr-meta{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:0.58rem;
+  letter-spacing:0.08em;
+  color:var(--cream);
+  opacity:0.3;
+}
+.mr-cta{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:0.62rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--gold);
+  display:flex;
+  align-items:center;
+  gap:0.4rem;
+  transition:gap 0.2s;
+}
+.must-read-card:hover .mr-cta{gap:0.65rem;}
+.mr-cta::after{content:'→';}
+
+/* ══════════════════════════════════
+   ARTICLE MODAL — full article overlay
+══════════════════════════════════ */
+.article-modal-overlay{
+  position:fixed;
+  inset:0;
+  z-index:500;
+  background:rgba(6,14,26,0.92);
+  backdrop-filter:blur(12px);
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:2rem 1rem;
+  overflow-y:auto;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.3s;
+}
+.article-modal-overlay.open{
+  opacity:1;
+  pointer-events:all;
+}
+.article-modal{
+  background:var(--navy);
+  border:1px solid rgba(201,168,76,0.2);
+  max-width:760px;
+  width:100%;
+  position:relative;
+  transform:translateY(24px);
+  transition:transform 0.35s cubic-bezier(0.22,1,0.36,1);
+  margin:auto;
+}
+.article-modal-overlay.open .article-modal{
+  transform:translateY(0);
+}
+.article-modal-topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0.85rem 1.5rem;
+  border-bottom:1px solid rgba(201,168,76,0.12);
+  position:sticky;
+  top:0;
+  background:var(--navy);
+  z-index:10;
+}
+.modal-label{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:0.6rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--gold);
+  opacity:0.7;
+}
+.modal-close{
+  background:none;
+  border:1px solid rgba(201,168,76,0.2);
+  color:var(--cream);
+  cursor:pointer;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:0.62rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  padding:0.4rem 0.9rem;
+  transition:border-color 0.2s, color 0.2s;
+  display:flex;
+  align-items:center;
+  gap:0.4rem;
+}
+.modal-close:hover{border-color:var(--gold);color:var(--gold);}
+.modal-close::before{content:'✕';font-size:0.65rem;}
+.article-modal-body{
+  padding:2.5rem clamp(1.5rem,5vw,3rem) 3.5rem;
+  font-family:'Inter',sans-serif;
+}
+
+/* Article content inside modal */
+.modal-article-label{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:0.65rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:1rem;
+  display:flex;
+  align-items:center;
+  gap:0.6rem;
+}
+.modal-article-label::after{content:'';flex:1;height:1px;background:rgba(201,168,76,0.15);max-width:60px;}
+.modal-article-title{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(1.8rem,4vw,2.6rem);
+  line-height:1.15;
+  color:var(--cream);
+  margin-bottom:0.9rem;
+}
+.modal-article-dek{
+  font-size:1rem;
+  color:var(--cream);
+  opacity:0.55;
+  line-height:1.65;
+  margin-bottom:1.2rem;
+}
+.modal-article-meta{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:0.65rem;
+  letter-spacing:0.1em;
+  color:var(--cream);
+  opacity:0.3;
+  text-transform:uppercase;
+  padding-bottom:1.5rem;
+  border-bottom:1px solid rgba(201,168,76,0.1);
+  margin-bottom:2rem;
+}
+.modal-article-meta span{color:var(--gold);opacity:1;}
+.modal-answer-box{
+  background:rgba(201,168,76,0.06);
+  border-left:3px solid var(--gold);
+  padding:1.2rem 1.4rem;
+  margin:0 0 2rem;
+}
+.modal-answer-label{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:0.6rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:0.5rem;
+}
+.modal-answer-box p{font-size:0.95rem;line-height:1.7;color:var(--cream);}
+.modal-body-text h2{
+  font-family:'DM Serif Display',serif;
+  font-size:1.4rem;
+  color:var(--cream);
+  margin:2.5rem 0 0.7rem;
+  line-height:1.25;
+}
+.modal-body-text h3{
+  font-family:'DM Serif Display',serif;
+  font-size:1.1rem;
+  color:var(--gold-light);
+  font-style:italic;
+  margin:1.8rem 0 0.5rem;
+}
+.modal-body-text p{
+  font-size:0.95rem;
+  line-height:1.8;
+  color:var(--cream);
+  opacity:0.75;
+  margin-bottom:1.2rem;
+}
+.modal-body-text strong{color:var(--cream);opacity:1;font-weight:600;}
+.modal-scale-table{
+  width:100%;
+  border-collapse:collapse;
+  margin:1.25rem 0 1.75rem;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:0.8rem;
+}
+.modal-scale-table thead tr{border-bottom:2px solid var(--gold);}
+.modal-scale-table th{
+  padding:0.5rem 0.85rem;
+  text-align:left;
+  color:var(--gold);
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  font-size:0.65rem;
+}
+.modal-scale-table td{
+  padding:0.6rem 0.85rem;
+  border-bottom:1px solid rgba(201,168,76,0.1);
+  color:var(--cream);
+  opacity:0.8;
+}
+.modal-scale-table tr:last-child td{border-bottom:none;}
+.t-elite{color:#f9c74f;font-weight:600;opacity:1!important;}
+.t-great{color:#90be6d;opacity:1!important;}
+.t-below{color:#e07b6b;opacity:1!important;}
+.modal-formula{
+  background:rgba(0,0,0,0.3);
+  border:1px solid rgba(201,168,76,0.12);
+  border-radius:4px;
+  padding:1.2rem 1.4rem;
+  margin:1.25rem 0 1.75rem;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:0.8rem;
+  line-height:1.9;
+  color:var(--cream);
+  opacity:0.8;
+}
+.modal-formula .fl{color:var(--gold);opacity:1;}
+.modal-faq{margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(201,168,76,0.1);}
+.modal-faq h2{
+  font-family:'DM Serif Display',serif;
+  font-size:1.4rem;
+  color:var(--cream);
+  margin-bottom:1.25rem;
+}
+.modal-faq-item{border-top:1px solid rgba(201,168,76,0.08);padding:1rem 0;}
+.modal-faq-item:last-child{border-bottom:1px solid rgba(201,168,76,0.08);}
+.modal-faq-q{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--cream);margin-bottom:0.4rem;}
+.modal-faq-a{font-size:0.88rem;line-height:1.7;color:var(--cream);opacity:0.55;}
+.modal-cta-strip{
+  background:rgba(201,168,76,0.07);
+  border:1px solid rgba(201,168,76,0.15);
+  padding:1.75rem;
+  margin-top:3rem;
+  text-align:center;
+}
+.modal-cta-strip .mcs-label{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:0.6rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:0.6rem;
+}
+.modal-cta-strip h3{
+  font-family:'DM Serif Display',serif;
+  font-size:1.3rem;
+  color:var(--cream);
+  margin-bottom:0.4rem;
+}
+.modal-cta-strip p{font-size:0.85rem;color:var(--cream);opacity:0.45;margin-bottom:1rem;}
 </style>
 </head>
 <body>
@@ -444,6 +767,23 @@ footer{background:#060e1a;padding:2rem;display:flex;align-items:center;justify-c
         <div><div class="hero-stat-num">FADE</div><div class="hero-stat-label">Decline Score</div></div>
         <div><div class="hero-stat-num" id="hero-record">—</div><div class="hero-stat-label">Rangers 2026</div></div>
       </div>
+      <!-- MUST READ article tease -->
+      <div class="must-read-wrap">
+        <div class="must-read-card" onclick="openArticleModal()" role="button" tabindex="0" aria-label="Read: What Is wRC+ in Baseball?">
+          <div class="mr-eyebrow">
+            <span class="mr-must-badge">Must Read</span>
+            <div class="mr-divider"></div>
+            <span>Stats Explained</span>
+          </div>
+          <div class="mr-title">What Is wRC+ in Baseball? The Stat Explained.</div>
+          <div class="mr-excerpt">wRC+ packs every offensive event into a single number, adjusts for era and ballpark, and hands you a clean comparison. Here's what it means, how it works, and what separates good from great.</div>
+          <div class="mr-footer">
+            <span class="mr-meta">Pete Dwyer &nbsp;·&nbsp; April 2026 &nbsp;·&nbsp; 8 min</span>
+            <span class="mr-cta">Read the piece</span>
+          </div>
+        </div>
+      </div>
+
     </div>
  
     <!-- RIGHT: Live AL West data -->
@@ -829,7 +1169,116 @@ function escHtml(str){
 loadStandingsData();
 loadRangersGame();
 loadLatestPosts();
+
+/* ── ARTICLE MODAL ── */
+function openArticleModal(){
+  document.getElementById('article-modal-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeArticleModal(){
+  document.getElementById('article-modal-overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+// Close on overlay click
+document.getElementById('article-modal-overlay').addEventListener('click',function(e){
+  if(e.target===this) closeArticleModal();
+});
+// Close on Escape
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape') closeArticleModal();
+});
+// Keyboard access for the card
+document.querySelector('.must-read-card').addEventListener('keydown',function(e){
+  if(e.key==='Enter'||e.key===' ') openArticleModal();
+});
 </script>
+
+<!-- ARTICLE MODAL -->
+<div class="article-modal-overlay" id="article-modal-overlay" role="dialog" aria-modal="true" aria-label="What Is wRC+ in Baseball?">
+  <div class="article-modal">
+    <div class="article-modal-topbar">
+      <span class="modal-label">Stats Explained &nbsp;·&nbsp; The Baseball Nerd</span>
+      <button class="modal-close" onclick="closeArticleModal()">Close</button>
+    </div>
+    <div class="article-modal-body">
+      <div class="modal-article-label">Stats Explained</div>
+      <h1 class="modal-article-title">What Is wRC+ in Baseball? The Stat Explained.</h1>
+      <p class="modal-article-dek">wRC+ packs every offensive event into a single number, adjusts for era and ballpark, and hands you a clean comparison. Here's exactly what it means, how it works, and what separates good from great.</p>
+      <div class="modal-article-meta">By <span>Pete Dwyer</span> &nbsp;·&nbsp; Updated <span>April 2026</span> &nbsp;·&nbsp; 8 min read</div>
+
+      <div class="modal-answer-box">
+        <div class="modal-answer-label">Quick Answer</div>
+        <p><strong>wRC+ (Weighted Runs Created Plus)</strong> measures a hitter's total offensive value in a single number, adjusted for ballpark and league context, scaled so 100 is always league average. A wRC+ of 120 means the hitter is 20% more productive than the average MLB hitter. A wRC+ of 80 means 20% worse.</p>
+      </div>
+
+      <div class="modal-body-text">
+
+        <h2>What the "Plus" Means</h2>
+        <p>The plus sign in wRC+ follows the same convention as OPS+ and ERA+. It signals two things happened to the raw number: it was <strong>park-adjusted</strong> and <strong>scaled to 100</strong> as the league-average baseline. That scaling is what makes wRC+ useful across eras. A wRC+ of 130 means the same thing in 2026 as it did in 1996: the hitter was 30% better than their peers. No mental math required.</p>
+
+        <h2>What wRC+ Actually Measures</h2>
+        <p>The foundation is <strong>wOBA</strong> (Weighted On-Base Average), which assigns each offensive outcome a run value based on historical play-by-play data. A home run is worth more than a triple, a triple more than a double, each weighted by how many runs that event actually produces on average. wRC takes that wOBA, converts it into runs using a park-adjusted scaling factor, and produces a raw runs-created total. The "plus" version normalizes that to 100.</p>
+
+        <div class="modal-formula">
+          <span class="fl">wRC+</span> = ( wRC / League wRC ) × 100<br>
+          Where <span class="fl">wRC</span> = ( wOBA / wOBA Scale + lgR/PA − BPF × lgR/PA ) × PA
+        </div>
+
+        <h2>What Is a Good wRC+ in Baseball?</h2>
+        <p>Because 100 is always league average by definition, the scale is intuitive:</p>
+
+        <table class="modal-scale-table">
+          <thead><tr><th>wRC+</th><th>Grade</th><th>What it looks like</th></tr></thead>
+          <tbody>
+            <tr><td class="t-elite">160+</td><td class="t-elite">MVP-caliber</td><td>Judge, Trout peak seasons</td></tr>
+            <tr><td class="t-elite">140–159</td><td class="t-elite">All-Star, elite</td><td>Top 10–15 hitters in MLB</td></tr>
+            <tr><td class="t-great">120–139</td><td class="t-great">Above average</td><td>Solid middle-of-order bat</td></tr>
+            <tr><td class="t-great">110–119</td><td class="t-great">Above average</td><td>Productive everyday player</td></tr>
+            <tr><td>95–109</td><td style="opacity:0.5">Average</td><td>League median range</td></tr>
+            <tr><td class="t-below">80–94</td><td class="t-below">Below average</td><td>Acceptable with elite defense</td></tr>
+            <tr><td class="t-below">&lt;80</td><td class="t-below">Poor</td><td>Bench/platoon territory</td></tr>
+          </tbody>
+        </table>
+
+        <h2>wRC+ vs. OPS+: What's the Difference?</h2>
+        <p>Both are park-adjusted, scaled to 100. The difference is methodology. <strong>OPS+</strong> treats on-base percentage and slugging as equal halves, which overweights slugging. <strong>wRC+</strong> uses linear weights derived from actual run values, so every event is calibrated to what it produces. In most analytical contexts, wRC+ is the preferred number.</p>
+
+        <h2>wRC+ vs. Batting Average: Why This Matters More</h2>
+        <p>Batting average ignores walks, ignores extra-base hits beyond their binary value, and gives no credit for how hard a ball was hit. Two hitters can post .280 and have wildly different offensive values. A player hitting .240 with a .370 OBP and 25 home runs might carry a wRC+ of 135. A player hitting .290 with a .320 OBP and 8 home runs might sit at 105. Batting average inverts that picture. wRC+ gets it right.</p>
+
+        <h2>How wRC+ Is Used in Prospect Evaluation</h2>
+        <p>At the minor league level, wRC+ requires extra caution. MiLB run environments vary more dramatically than the majors, and park factors are less reliable with smaller sample sizes. Age-relative wRC+ is particularly useful in prospect work. A 22-year-old posting 130 wRC+ in Triple-A is a very different signal than a 27-year-old doing the same thing.</p>
+      </div>
+
+      <div class="modal-faq">
+        <h2>Common Questions</h2>
+        <div class="modal-faq-item">
+          <p class="modal-faq-q">What does wRC stand for in baseball?</p>
+          <p class="modal-faq-a">Weighted Runs Created. A modernized version of Bill James' Runs Created formula, updated to use linear weights from play-by-play data.</p>
+        </div>
+        <div class="modal-faq-item">
+          <p class="modal-faq-q">What is an average wRC+ in baseball?</p>
+          <p class="modal-faq-a">Exactly 100, always. The stat is scaled each season so league average equals 100 regardless of the overall run environment.</p>
+        </div>
+        <div class="modal-faq-item">
+          <p class="modal-faq-q">Is wRC+ the same as wOBA?</p>
+          <p class="modal-faq-a">No. wOBA is the raw input expressed as a decimal (like .370). wRC+ converts that into a run total, adjusts for park and league, then scales to 100. wRC+ is the more complete and comparable number.</p>
+        </div>
+        <div class="modal-faq-item">
+          <p class="modal-faq-q">Where can I find wRC+ leaderboards?</p>
+          <p class="modal-faq-a">FanGraphs maintains full MLB and MiLB leaderboards. It's their proprietary implementation of the Weighted Runs Created framework.</p>
+        </div>
+      </div>
+
+      <div class="modal-cta-strip">
+        <div class="mcs-label">The Baseball Nerd Analytics Suite</div>
+        <h3>Go Deeper Than the Leaderboard</h3>
+        <p>SPARK Scores, FADE Scores, and full analytical breakdowns. Built on the same framework.</p>
+        <a href="https://thebaseballnerd.substack.com" target="_blank" class="btn-primary">Explore the Suite →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
- 
