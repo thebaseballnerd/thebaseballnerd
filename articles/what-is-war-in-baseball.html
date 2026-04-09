@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MCQ9ZZ2W');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Is WAR in Baseball? Wins Above Replacement Explained | The Baseball Nerd</title>
+  <meta name="description" content="WAR (Wins Above Replacement) measures how many wins a player adds compared to a freely available replacement. Here's exactly what it means, how fWAR, bWAR, and WARP differ, and what a good WAR looks like." />
+  <link rel="canonical" href="https://thebaseballnerd.com/articles/what-is-war-in-baseball" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="What Is WAR in Baseball? Wins Above Replacement Explained" />
+  <meta property="og:description" content="WAR measures how many wins a player adds compared to a freely available replacement. Here's what it means, how it's calculated, and why fWAR, bWAR, and WARP give different answers." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://thebaseballnerd.com/articles/what-is-war-in-baseball" />
+  <meta property="og:site_name" content="The Baseball Nerd" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="What Is WAR in Baseball?" />
+  <meta name="twitter:description" content="WAR measures how many wins a player adds compared to a freely available replacement. fWAR, bWAR, WARP explained." />
+  <meta name="twitter:site" content="@thebaseballnerd" />
+
+  <!-- Schema: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Is WAR in Baseball? Wins Above Replacement Explained",
+    "description": "WAR (Wins Above Replacement) measures how many wins a player adds compared to a freely available replacement. Here's exactly what it means, how fWAR, bWAR, and WARP differ, and what a good WAR looks like.",
+    "author": {
+      "@type": "Person",
+      "name": "Pete Dwyer",
+      "url": "https://thebaseballnerd.com/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Baseball Nerd",
+      "url": "https://thebaseballnerd.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://thebaseballnerd.com/assets/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://thebaseballnerd.com/articles/what-is-war-in-baseball"
+    },
+    "datePublished": "2026-04-09",
+    "dateModified": "2026-04-09",
+    "keywords": ["WAR baseball", "wins above replacement", "fWAR", "bWAR", "WARP", "what is WAR in baseball", "baseball stats", "sabermetrics"],
+    "articleSection": "Stats Explained"
+  }
+  </script>
+
+  <!-- Schema: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is WAR in baseball?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "WAR stands for Wins Above Replacement. It measures how many wins a player added to his team compared to a freely available replacement. That's the kind of player you'd call up from Triple-A or sign off the waiver wire for the league minimum. A WAR of 5 means the player was worth 5 more wins than that replacement-level alternative."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a good WAR in baseball?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For a single season: 0-1 WAR is replacement level, 2 WAR is an average starter, 3-4 WAR is a solid regular, 5-6 WAR is All-Star caliber, 7-8 WAR is MVP conversation, and 8+ WAR is a historic season. For career WAR, 60 is the rough threshold where Hall of Fame discussions get serious."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between fWAR and bWAR?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "fWAR (FanGraphs WAR) uses FIP to measure pitchers, which strips out balls in play and focuses only on what pitchers directly control: strikeouts, walks, and home runs. bWAR (Baseball-Reference WAR) uses RA9, counting all runs allowed regardless of how outs were recorded. A groundball pitcher with elite defense behind him will look better in bWAR. A strikeout pitcher on a bad defensive team will look better in fWAR."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does replacement level mean in baseball?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Replacement level is the baseline performance you'd expect from a freely available player, a Triple-A callup or a waiver wire signing at the league minimum. It's set below average intentionally, because any major league roster spot has value. A player at exactly replacement level has a WAR of 0."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do fWAR and bWAR sometimes give very different numbers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The biggest differences show up for pitchers and defensively complex positions. For pitchers, FIP-based fWAR and RA9-based bWAR diverge most for groundball pitchers with elite defenses (better in bWAR) and strikeout pitchers on poor defenses (better in fWAR). For position players, UZR (used by FanGraphs) and DRS (used by Baseball-Reference) can produce different defensive valuations, especially for catchers and shortstops."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy: #0a1628;
+      --gold: #c9a84c;
+      --gold-light: #dfc278;
+      --gold-dim: rgba(201,168,76,0.15);
+      --cream: #f5f0e8;
+      --cream-dim: rgba(245,240,232,0.06);
+      --text: #e8e2d6;
+      --text-muted: #8a8070;
+      --border: rgba(201,168,76,0.2);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--navy);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    .site-nav {
+      border-bottom: 1px solid var(--border);
+      padding: 0 clamp(1rem, 5vw, 4rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      position: sticky;
+      top: 0;
+      background: rgba(10,22,40,0.97);
+      backdrop-filter: blur(16px);
+      z-index: 100;
+    }
+    .site-nav .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .site-nav .tagline {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ARTICLE */
+    .article-wrapper {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: clamp(2rem, 6vw, 4rem) clamp(1rem, 5vw, 2rem) 6rem;
+    }
+    .article-header {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .article-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 60px; }
+    .article-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15;
+      color: var(--cream);
+      margin-bottom: 1.2rem;
+    }
+    .article-dek { font-size: 1.05rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.5rem; }
+    .article-meta { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
+    .article-meta span { color: var(--gold); }
+
+    /* ANSWER BOX */
+    .answer-box {
+      background: var(--cream-dim);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 6px 6px 0;
+      padding: 1.4rem 1.6rem;
+      margin: 2rem 0;
+    }
+    .answer-box .answer-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+    .answer-box p { font-size: 1rem; line-height: 1.7; color: var(--cream); }
+
+    /* BODY */
+    .article-body h2 { font-family: 'DM Serif Display', serif; font-size: 1.55rem; color: var(--cream); margin: 2.8rem 0 0.8rem; line-height: 1.25; }
+    .article-body h3 { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--gold-light); margin: 2rem 0 0.6rem; font-style: italic; }
+    .article-body p { margin-bottom: 1.3rem; color: var(--text); }
+    .article-body strong { color: var(--cream); font-weight: 600; }
+    .article-body a { color: var(--gold); text-decoration: underline; text-decoration-color: rgba(201,168,76,0.4); text-underline-offset: 3px; transition: text-decoration-color 0.2s; }
+    .article-body a:hover { text-decoration-color: var(--gold); }
+
+    /* SCALE TABLE */
+    .scale-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; }
+    .scale-table thead tr { border-bottom: 2px solid var(--gold); }
+    .scale-table th { padding: 0.6rem 1rem; text-align: left; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.7rem; }
+    .scale-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border); color: var(--text); }
+    .scale-table tr:last-child td { border-bottom: none; }
+    .scale-table tr:hover td { background: var(--cream-dim); }
+    .tier-elite { color: #f9c74f; font-weight: 600; }
+    .tier-great { color: #90be6d; }
+    .tier-avg { color: var(--text-muted); }
+    .tier-below { color: #e07b6b; }
+
+    /* COMPARISON TABLE */
+    .comp-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; }
+    .comp-table thead tr { border-bottom: 2px solid var(--gold); }
+    .comp-table th { padding: 0.6rem 1rem; text-align: left; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.65rem; }
+    .comp-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; line-height: 1.5; }
+    .comp-table tr:last-child td { border-bottom: none; }
+    .comp-table tr:hover td { background: var(--cream-dim); }
+    .comp-table .sys { color: var(--cream); font-weight: 600; }
+
+    /* PLAYER CARD */
+    .player-card {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      padding: 1.25rem 1.4rem;
+      margin: 1.5rem 0;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.82rem;
+    }
+    .player-card .pc-name { color: var(--gold); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.6rem; letter-spacing: 0.06em; }
+    .player-card .pc-stats { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-bottom: 0.6rem; }
+    .player-card .pc-stat { color: var(--cream); opacity: 0.75; }
+    .player-card .pc-stat span { color: var(--gold); font-weight: 600; opacity: 1; }
+    .player-card .pc-note { color: var(--text-muted); font-size: 0.75rem; line-height: 1.6; border-top: 1px solid var(--border); padding-top: 0.6rem; margin-top: 0.4rem; }
+    .pc-warning { border-left-color: #e07b6b; }
+    .pc-warning .pc-name { color: #e07b6b; }
+    .pc-strong { border-left-color: #90be6d; }
+    .pc-strong .pc-name { color: #90be6d; }
+
+    /* PULLQUOTE */
+    .pullquote { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.5rem 0; margin: 2.5rem 0; }
+    .pullquote p { font-family: 'DM Serif Display', serif; font-size: 1.35rem; font-style: italic; color: var(--cream); line-height: 1.4; margin: 0; }
+    .pullquote cite { display: block; margin-top: 0.6rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); font-style: normal; }
+
+    /* FAQ */
+    .faq-section { margin-top: 3rem; }
+    .faq-section h2 { font-family: 'DM Serif Display', serif; font-size: 1.55rem; color: var(--cream); margin-bottom: 1.5rem; }
+    .faq-item { border-top: 1px solid var(--border); padding: 1.2rem 0; }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-q { font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: var(--cream); margin-bottom: 0.5rem; }
+    .faq-a { color: var(--text); font-size: 0.95rem; line-height: 1.7; }
+
+    /* CTA */
+    .article-cta { background: var(--gold-dim); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; margin-top: 3.5rem; text-align: center; }
+    .article-cta .cta-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+    .article-cta h3 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--cream); margin-bottom: 0.6rem; }
+    .article-cta p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.2rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-btn { display: inline-block; background: var(--gold); color: var(--navy); font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.12em; padding: 0.65rem 2rem; border-radius: 3px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+    .cta-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* RELATED */
+    .related-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .related-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
+    .related-links { list-style: none; }
+    .related-links li { margin-bottom: 0.5rem; }
+    .related-links a { color: var(--gold); text-decoration: none; font-size: 0.95rem; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+    .related-links a:hover { border-color: var(--gold); }
+  </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCQ9ZZ2W"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <nav class="site-nav">
+    <a href="https://thebaseballnerd.com" class="logo">The Baseball Nerd</a>
+    <span class="tagline">Numbers Not Feelings</span>
+  </nav>
+
+  <main class="article-wrapper">
+
+    <header class="article-header">
+      <div class="article-label">Stats Explained</div>
+      <h1 class="article-title">What Is WAR in Baseball? Wins Above Replacement Explained.</h1>
+      <p class="article-dek">The stat that appears on every leaderboard, drives half of all arguments online, and somehow still confuses people who've watched baseball for 20 years. Here's what it actually means.</p>
+      <div class="article-meta">
+        By <span>Pete Dwyer</span> &nbsp;|&nbsp; Updated <span>April 2026</span> &nbsp;|&nbsp; 10 min read
+      </div>
+    </header>
+
+    <div class="article-body">
+
+      <div class="answer-box">
+        <div class="answer-label">Quick Answer</div>
+        <p><strong>WAR stands for Wins Above Replacement.</strong> It measures how many wins a player added to his team compared to a freely available replacement. That's the kind of player you'd call up from Triple-A or sign off the waiver wire for the league minimum. A WAR of 5 means the player was worth 5 more wins than that baseline. Roughly 10 runs equals 1 win.</p>
+      </div>
+
+      <h2>What "Replacement" Actually Means</h2>
+      <p>WAR doesn't ask "how good is this player compared to average?" It asks something more useful: "how much better is this player than the guy who would replace him if he went down tomorrow?" That's a lower bar than average, which is why WAR numbers look larger than you might expect.</p>
+      <p>Replacement level is deliberately set below average because any major league roster spot has real value. The player who fills it for the league minimum. The emergency callup, the waiver claim. is the baseline. Every win above that baseline is what WAR counts.</p>
+
+      <h2>What Goes Into the Number</h2>
+      <p>For position players, WAR adds up five things: batting runs, baserunning runs, fielding runs, a positional adjustment, and replacement level credit. Each component is measured in runs, and roughly <strong>10 runs equals one win</strong>, so the math converts everything into a single portable number you can compare across positions and eras.</p>
+      <p>The positional adjustment is the part most fans underestimate. A shortstop and a first baseman can post identical offensive numbers and the shortstop will have a higher WAR, every time. That's because the pool of replacement-level shortstops is far weaker than the pool of replacement-level first basemen. Defense at premium positions is harder to find, so it's worth more in the calculation.</p>
+      <p>For pitchers, the formula shifts entirely. WAR asks: how many runs did this pitcher prevent, relative to what a replacement-level pitcher would have allowed, across his innings pitched? The tricky part is how you measure that and this is where the three main versions of WAR start to diverge.</p>
+
+      <h2>What Counts as a Good WAR?</h2>
+      <p>Because WAR is scaled to wins, the tiers are intuitive once you know them:</p>
+
+      <table class="scale-table">
+        <thead>
+          <tr><th>Single-Season WAR</th><th>Grade</th><th>Context</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="tier-elite">8+</td><td class="tier-elite">Historic MVP level</td><td>Top 1-2 players in baseball</td></tr>
+          <tr><td class="tier-elite">7–8</td><td class="tier-elite">Superstar, MVP conversation</td><td>Perennial All-Star caliber</td></tr>
+          <tr><td class="tier-great">5–6</td><td class="tier-great">All-Star caliber</td><td>Among the best at position</td></tr>
+          <tr><td class="tier-great">3–4</td><td class="tier-great">Solid regular</td><td>Valuable everyday starter</td></tr>
+          <tr><td class="tier-avg">2</td><td class="tier-avg">Average starter</td><td>League median range</td></tr>
+          <tr><td class="tier-below">0–1</td><td class="tier-below">Replacement level</td><td>Bench/roster filler territory</td></tr>
+        </tbody>
+      </table>
+
+      <p>Two context points worth adding. For relief pitchers, the scale compresses significantly. A reliever at 1.5 WAR is having an outstanding season because they simply don't pitch enough innings to accumulate value the way starters do. For career WAR, <strong>60 is the rough threshold where Hall of Fame conversations get serious.</strong> Mike Trout already has 88 career WAR and he's still active.</p>
+
+      <h2>fWAR, bWAR, and WARP: Same Question, Different Math</h2>
+      <p>WAR is not one statistic. It's a framework, and three organizations calculate it three different ways. All three answer the same question. The differences come down to how each one measures pitching and defense.</p>
+
+      <table class="comp-table">
+        <thead>
+          <tr><th>System</th><th>Source</th><th>Pitching Model</th><th>Fielding Model</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="sys">fWAR</td><td>FanGraphs</td><td>FIP</td><td>UZR</td></tr>
+          <tr><td class="sys">bWAR / rWAR</td><td>Baseball-Reference</td><td>RA9</td><td>DRS</td></tr>
+          <tr><td class="sys">WARP</td><td>Baseball Prospectus</td><td>DRA</td><td>FRAA</td></tr>
+        </tbody>
+      </table>
+
+      <p>The biggest difference shows up in pitchers. <strong>FanGraphs uses FIP</strong> (Fielding Independent Pitching), which strips out everything a pitcher doesn't directly control: balls in play, errors, defensive positioning. It focuses only on strikeouts, walks, hit batters, and home runs.</p>
+      <p><strong>Baseball-Reference uses RA9</strong>, which simply counts runs allowed per nine innings regardless of how outs were recorded. A groundball pitcher with elite defense behind him will look much better in bWAR than fWAR. A strikeout pitcher on a bad defensive team will look much better in fWAR.</p>
+      <p><strong>Baseball Prospectus uses DRA</strong> (Deserved Run Average), which goes further and attempts to account for batter handedness, umpire tendencies, and ballpark conditions. It's the most opinionated of the three and relies on proprietary inputs that can't be independently verified.</p>
+      <p>For position players, the systems are closer but still diverge on defense. FanGraphs uses UZR (Ultimate Zone Rating), which incorporates multiple seasons of batted ball data. Baseball-Reference uses DRS (Defensive Runs Saved), which leans more heavily on a single season of data. In any given year a player can look like an elite defender in one system and average in the other, particularly for catchers and shortstops where defensive measurement is most complex.</p>
+      <p>None of them is definitively correct. A player with a 6.2 fWAR and a 5.8 bWAR had a very good season by either measure. The gap only becomes significant at the margins: MVP debates, Hall of Fame cases, players whose value is heavily defensive.</p>
+
+      <div class="pullquote">
+        <p>"WAR doesn't tell you everything. But it tells you more than batting average, RBI, and pitcher wins combined."</p>
+        <cite>The Baseball Nerd</cite>
+      </div>
+
+      <h2>Why The Baseball Nerd Uses fWAR</h2>
+      <p>At TBN, fWAR is the default for a specific reason. Both SPARK and FADE scores are built on process over results. SPARK doesn't care that a pitcher had a 3.20 ERA if his FIP was 4.50 and his BABIP was .240. It cares about underlying contact quality, strikeout trajectory, and walk rate. FIP asks the same question: what did this pitcher actually control?</p>
+      <p>Using bWAR would mean grounding the models in run prevention totals that include defensive variance, bad hops, and bullpen sequencing the pitcher had nothing to do with. fWAR keeps the signal cleaner. When you see WAR referenced on this site, it's fWAR unless stated otherwise.</p>
+
+      <h2>WAR in Practice: Early 2026 Leaderboard</h2>
+      <p>Eight games into 2026, the WAR leaderboard already illustrates exactly why the number needs context. Three players sitting near the top have very different stories underneath the surface.</p>
+
+      <div class="player-card pc-warning">
+        <div class="pc-name">Andy Pages, 0.97 fWAR</div>
+        <div class="pc-stats">
+          <div class="pc-stat">AVG <span>.452</span></div>
+          <div class="pc-stat">BABIP <span>.533</span></div>
+          <div class="pc-stat">wOBA <span>.534</span></div>
+          <div class="pc-stat">xwOBA <span>.404</span></div>
+          <div class="pc-stat">Barrel% <span>9.1%</span></div>
+        </div>
+        <div class="pc-note">Pages leads MLB in fWAR through 8 games. His xwOBA is .404: a 130-point gap between what he's producing and what his batted ball quality says he should be. His barrel rate is 9.1% and average exit velocity is 90.9 mph. He's not hitting the ball particularly hard. He's hitting it where defenders aren't.</div>
+      </div>
+
+      <div class="player-card pc-warning">
+        <div class="pc-name">Chandler Simpson, 0.81 fWAR</div>
+        <div class="pc-stats">
+          <div class="pc-stat">AVG <span>.405</span></div>
+          <div class="pc-stat">BABIP <span>.425</span></div>
+          <div class="pc-stat">wOBA <span>.407</span></div>
+          <div class="pc-stat">xwOBA <span>.312</span></div>
+          <div class="pc-stat">Barrel% <span>0%</span></div>
+        </div>
+        <div class="pc-note">Zero barrels. 80.7 mph exit velocity. His xwOBA of .312 is 95 points below what he's actually producing. Speed and defense are keeping his fWAR afloat. The bat is not.</div>
+      </div>
+
+      <div class="player-card pc-strong">
+        <div class="pc-name">Yordan Alvarez, 0.95 fWAR</div>
+        <div class="pc-stats">
+          <div class="pc-stat">wOBA <span>.511</span></div>
+          <div class="pc-stat">xwOBA <span>.606</span></div>
+          <div class="pc-stat">Barrel% <span>22.6%</span></div>
+          <div class="pc-stat">Hard-Hit% <span>51.6%</span></div>
+          <div class="pc-stat">SPARK <span>84.61</span></div>
+        </div>
+        <div class="pc-note">His xwOBA is 94 points above his actual production. He's been unlucky, not lucky. He has 7 barrels in 31 balls in play. His WAR is about to go up, not down.</div>
+      </div>
+
+      <p>Same WAR range. Completely different trajectories. That's the conversation WAR starts, not ends.</p>
+
+      <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <p class="faq-q">What does WAR stand for in baseball?</p>
+          <p class="faq-a">Wins Above Replacement. The name describes exactly what it measures: how many wins a player added relative to a freely available replacement-level player.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Is a negative WAR possible?</p>
+          <p class="faq-a">Yes. A negative WAR means the player was actually worse than replacement level. A Triple-A callup would have theoretically been better for the team. It's rare for regular starters but happens with injured players forced to play through it or struggling veterans.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Which WAR should I use, fWAR or bWAR:</p>
+          <p class="faq-a">For pitchers, fWAR is generally preferred for process-based analysis because FIP isolates what a pitcher controls. For position players, the two are usually close enough that either works. When they diverge significantly, it's usually a signal to dig into the defensive metrics specifically.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">How much career WAR do you need for the Hall of Fame?</p>
+          <p class="faq-a">There's no official threshold, but 60 career WAR is the informal baseline where serious Hall of Fame discussions begin. Most enshrined position players are above 60. Pitchers are typically lower due to innings limitations. There are exceptions in both directions based on peak value, longevity, and era.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Where can I find WAR leaderboards?</p>
+          <p class="faq-a">FanGraphs maintains fWAR leaderboards for all MLB players and seasons. Baseball-Reference has bWAR. Both are free and searchable by season, career, position, and team.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="article-cta">
+      <div class="cta-label">The Baseball Nerd Analytics Suite</div>
+      <h3>WAR Is Just the Starting Point</h3>
+      <p>SPARK Scores identify breakout candidates before the leaderboard catches up. FADE Scores flag regression before it costs you. Built on the same process-over-results framework.</p>
+      <a href="https://thebaseballnerd.substack.com" class="cta-btn">Explore the Suite</a>
+    </div>
+
+    <div class="related-section">
+      <div class="related-label">Related Articles</div>
+      <ul class="related-links">
+        <li><a href="/articles/what-is-wrc-plus-in-baseball.html">What Is wRC+ in Baseball? The Stat Explained</a></li>
+        <li><a href="/articles/what-is-woba-in-baseball.html">What Is wOBA? The Complete Explanation</a></li>
+        <li><a href="/articles/ops-plus-vs-wrc-plus.html">OPS+ vs. wRC+: Which Stat Should You Trust?</a></li>
+        <li><a href="/articles/spark-score-explained.html">The SPARK Score: How We Grade Offensive Prospects</a></li>
+      </ul>
+    </div>
+
+  </main>
+
+</body>
+</html>
