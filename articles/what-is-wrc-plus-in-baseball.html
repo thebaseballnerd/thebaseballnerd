@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Is wRC+ in Baseball? The Stat Explained | The Baseball Nerd</title>
+  <meta name="description" content="wRC+ (Weighted Runs Created Plus) measures a hitter's total offensive value in a single number, scaled to league average. Here's exactly what it means, how it's calculated, and what a good wRC+ looks like." />
+  <link rel="canonical" href="https://thebaseballnerd.com/articles/what-is-wrc-plus-in-baseball" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="What Is wRC+ in Baseball? The Stat Explained" />
+  <meta property="og:description" content="wRC+ measures a hitter's total offensive value scaled to 100. League average is always 100. Here's everything you need to know." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://thebaseballnerd.com/articles/what-is-wrc-plus-in-baseball" />
+  <meta property="og:site_name" content="The Baseball Nerd" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="What Is wRC+ in Baseball?" />
+  <meta name="twitter:description" content="wRC+ measures a hitter's total offensive value scaled to 100. League average is always 100." />
+  <meta name="twitter:site" content="@thebaseballnerd" />
+
+  <!-- Schema: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Is wRC+ in Baseball? The Stat Explained",
+    "description": "wRC+ (Weighted Runs Created Plus) measures a hitter's total offensive value in a single number, scaled to league average. Here's exactly what it means, how it's calculated, and what a good wRC+ looks like.",
+    "author": {
+      "@type": "Person",
+      "name": "Pete Dwyer",
+      "url": "https://thebaseballnerd.com/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Baseball Nerd",
+      "url": "https://thebaseballnerd.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://thebaseballnerd.com/assets/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://thebaseballnerd.com/articles/what-is-wrc-plus-in-baseball"
+    },
+    "datePublished": "2026-04-09",
+    "dateModified": "2026-04-09",
+    "keywords": ["wRC+", "wRC plus", "wRC+ meaning", "what is wRC+ in baseball", "baseball stats", "sabermetrics"],
+    "articleSection": "Stats Explained"
+  }
+  </script>
+
+  <!-- Schema: FAQ (targets featured snippets for common question queries) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is wRC+ in baseball?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "wRC+ (Weighted Runs Created Plus) is a baseball offensive statistic that measures a hitter's total run-creating value, adjusted for ballpark and league context, and scaled so that 100 is always league average. A wRC+ of 120 means the hitter is 20% better than average; a wRC+ of 80 means 20% worse."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does the plus sign mean in wRC+?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The plus sign means the stat is park- and league-adjusted, then scaled to 100 as the baseline. Any value above 100 is above average; any value below 100 is below average. This is the same convention used in OPS+ and ERA+."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a good wRC+ in baseball?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A wRC+ of 100 is league average. Anything above 115 is above average, 130+ is All-Star caliber, and 160+ represents MVP-level production. A wRC+ below 80 is well below average for a regular starter."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is wRC+ calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "wRC+ starts with wOBA (Weighted On-Base Average), converts it to runs using a run-environment scaling factor, adjusts for ballpark effects, then divides by league average wRC and multiplies by 100. The result is a park- and era-neutral offensive value with 100 always equal to league average."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between wRC+ and OPS+?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both are park-adjusted stats scaled to 100 as league average, but wRC+ is more accurate because it uses linear weights — meaning each offensive event (single, double, walk, etc.) is valued by the actual number of runs it generates on average. OPS+ treats on-base percentage and slugging as equal halves, which overvalues slugging. wRC+ is generally preferred by analysts."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy: #0a1628;
+      --gold: #c9a84c;
+      --gold-light: #dfc278;
+      --gold-dim: rgba(201,168,76,0.15);
+      --cream: #f5f0e8;
+      --cream-dim: rgba(245,240,232,0.06);
+      --text: #e8e2d6;
+      --text-muted: #8a8070;
+      --border: rgba(201,168,76,0.2);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--navy);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .site-nav {
+      border-bottom: 1px solid var(--border);
+      padding: 0 clamp(1rem, 5vw, 4rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .site-nav .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .site-nav .tagline {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ── ARTICLE WRAPPER ── */
+    .article-wrapper {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: clamp(2rem, 6vw, 4rem) clamp(1rem, 5vw, 2rem) 6rem;
+    }
+
+    /* ── HEADER ── */
+    .article-header {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .article-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      max-width: 60px;
+    }
+    .article-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15;
+      color: var(--cream);
+      margin-bottom: 1.2rem;
+    }
+    .article-dek {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+    .article-meta {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .article-meta span { color: var(--gold); }
+
+    /* ── ANSWER BOX (featured snippet target) ── */
+    .answer-box {
+      background: var(--cream-dim);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 6px 6px 0;
+      padding: 1.4rem 1.6rem;
+      margin: 2rem 0;
+    }
+    .answer-box .answer-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+    .answer-box p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--cream);
+    }
+
+    /* ── BODY COPY ── */
+    .article-body h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.55rem;
+      color: var(--cream);
+      margin: 2.8rem 0 0.8rem;
+      line-height: 1.25;
+    }
+    .article-body h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      color: var(--gold-light);
+      margin: 2rem 0 0.6rem;
+      font-style: italic;
+    }
+    .article-body p {
+      margin-bottom: 1.3rem;
+      color: var(--text);
+    }
+    .article-body strong {
+      color: var(--cream);
+      font-weight: 600;
+    }
+    .article-body em {
+      color: var(--gold-light);
+      font-style: italic;
+    }
+    .article-body a {
+      color: var(--gold);
+      text-decoration: underline;
+      text-decoration-color: rgba(201,168,76,0.4);
+      text-underline-offset: 3px;
+      transition: text-decoration-color 0.2s;
+    }
+    .article-body a:hover {
+      text-decoration-color: var(--gold);
+    }
+
+    /* ── SCALE TABLE ── */
+    .scale-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0 2rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.85rem;
+    }
+    .scale-table thead tr {
+      border-bottom: 2px solid var(--gold);
+    }
+    .scale-table th {
+      padding: 0.6rem 1rem;
+      text-align: left;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+    }
+    .scale-table td {
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+    .scale-table tr:last-child td { border-bottom: none; }
+    .scale-table tr:hover td { background: var(--cream-dim); }
+    .tier-elite { color: #f9c74f; font-weight: 600; }
+    .tier-great { color: #90be6d; }
+    .tier-avg { color: var(--text-muted); }
+    .tier-below { color: #e07b6b; }
+
+    /* ── FORMULA BOX ── */
+    .formula-box {
+      background: rgba(0,0,0,0.35);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.4rem 1.6rem;
+      margin: 1.5rem 0;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.85rem;
+      line-height: 1.9;
+      color: var(--cream);
+    }
+    .formula-box .formula-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .formula-highlight { color: var(--gold); }
+
+    /* ── PULLQUOTE ── */
+    .pullquote {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 0;
+      margin: 2.5rem 0;
+    }
+    .pullquote p {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.4;
+      margin: 0;
+    }
+    .pullquote cite {
+      display: block;
+      margin-top: 0.6rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    /* ── FAQ SECTION ── */
+    .faq-section { margin-top: 3rem; }
+    .faq-section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.55rem;
+      color: var(--cream);
+      margin-bottom: 1.5rem;
+    }
+    .faq-item {
+      border-top: 1px solid var(--border);
+      padding: 1.2rem 0;
+    }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.05rem;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+    .faq-a {
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ── CTA ── */
+    .article-cta {
+      background: var(--gold-dim);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+      margin-top: 3.5rem;
+      text-align: center;
+    }
+    .article-cta .cta-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .article-cta h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      color: var(--cream);
+      margin-bottom: 0.6rem;
+    }
+    .article-cta p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      padding: 0.65rem 2rem;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .cta-btn:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    /* ── RELATED ── */
+    .related-section {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .related-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .related-links { list-style: none; }
+    .related-links li { margin-bottom: 0.5rem; }
+    .related-links a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.95rem;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .related-links a:hover { border-color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a href="https://thebaseballnerd.com" class="logo">The Baseball Nerd</a>
+    <span class="tagline">Numbers Not Feelings</span>
+  </nav>
+
+  <main class="article-wrapper">
+
+    <header class="article-header">
+      <div class="article-label">Stats Explained</div>
+      <h1 class="article-title">What Is wRC+ in Baseball? The Stat Explained.</h1>
+      <p class="article-dek">wRC+ packs every offensive event into a single number, adjusts for era and ballpark, and hands you a clean comparison. Here's exactly what it means, how it works, and what separates good from great.</p>
+      <div class="article-meta">
+        By <span>Pete Dwyer</span> &nbsp;|&nbsp; Updated <span>April 2026</span> &nbsp;|&nbsp; 8 min read
+      </div>
+    </header>
+
+    <div class="article-body">
+
+      <!-- FEATURED SNIPPET TARGET -->
+      <div class="answer-box">
+        <div class="answer-label">Quick Answer</div>
+        <p><strong>wRC+ (Weighted Runs Created Plus)</strong> measures a hitter's total offensive value in a single number, adjusted for ballpark and league context, and scaled so that 100 is always league average. A wRC+ of 120 means the hitter is 20% more productive than the average MLB hitter. A wRC+ of 80 means 20% worse.</p>
+      </div>
+
+      <h2>What the "Plus" Means</h2>
+      <p>The plus sign in wRC+ follows the same convention as OPS+ and ERA+. It signals two things happened to the raw number: it was <strong>park-adjusted</strong> (accounting for hitter-friendly or pitcher-friendly environments) and <strong>scaled to 100</strong> as the league-average baseline.</p>
+      <p>That scaling is what makes wRC+ useful across eras. A wRC+ of 130 means the same thing in 2026 as it did in 1996: the hitter was 30% better than their peers. No mental math required. No era adjustments to manually apply.</p>
+
+      <h2>What wRC+ Actually Measures</h2>
+      <p>The foundation is <strong>wOBA</strong> (Weighted On-Base Average), which assigns each offensive outcome a run value based on historical play-by-play data. A home run is worth more than a triple, a triple more than a double, and so on down to the walk, each weighted by how many runs that event actually produces on average.</p>
+      <p>wRC takes that wOBA value, converts it into runs using a park-adjusted scaling factor, and produces a raw runs-created total. The "plus" version then divides that by the league average and multiplies by 100, giving you the final normalized score.</p>
+
+      <div class="formula-box">
+        <div class="formula-label">The Core Formula (Simplified)</div>
+        <span class="formula-highlight">wRC+</span> = ( wRC / League wRC ) × 100<br>
+        <br>
+        Where <span class="formula-highlight">wRC</span> = ( wOBA / wOBA Scale + (lgR/PA - BPF × lgR/PA) ) × PA<br>
+        <br>
+        <span style="color:var(--text-muted); font-size:0.75rem;">BPF = Ballpark Factor &nbsp;|&nbsp; lgR/PA = League Runs per Plate Appearance</span>
+      </div>
+
+      <p>The exact math lives at FanGraphs. What matters for everyday use: the output is always centered on 100, always park-corrected, and always era-neutral.</p>
+
+      <h2>What Is a Good wRC+ in Baseball?</h2>
+      <p>Because 100 is always league average by definition, the scale is intuitive. Here's how analysts generally tier it:</p>
+
+      <table class="scale-table">
+        <thead>
+          <tr>
+            <th>wRC+</th>
+            <th>Grade</th>
+            <th>What it looks like</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="tier-elite">160+</td><td class="tier-elite">MVP-caliber</td><td>Judge, Trout peak seasons</td></tr>
+          <tr><td class="tier-elite">140–159</td><td class="tier-elite">All-Star, elite</td><td>Top 10–15 hitters in MLB</td></tr>
+          <tr><td class="tier-great">120–139</td><td class="tier-great">Above average, quality starter</td><td>Solid middle-of-order bat</td></tr>
+          <tr><td class="tier-great">110–119</td><td class="tier-great">Above average</td><td>Productive everyday player</td></tr>
+          <tr><td class="tier-avg">95–109</td><td class="tier-avg">Average</td><td>League median range</td></tr>
+          <tr><td class="tier-below">80–94</td><td class="tier-below">Below average</td><td>Acceptable with elite defense</td></tr>
+          <tr><td class="tier-below">&lt;80</td><td class="tier-below">Poor</td><td>Bench/platoon territory</td></tr>
+        </tbody>
+      </table>
+
+      <p>Context matters. A 95 wRC+ from a catcher or shortstop is very different from a 95 wRC+ from a corner outfielder. The stat doesn't account for defensive position, which is why it's used alongside positional adjustments in WAR calculations.</p>
+
+      <div class="pullquote">
+        <p>"The best offensive players aren't the ones with the highest batting averages. They're the ones who create the most runs, and wRC+ is the cleanest way to see that."</p>
+        <cite>The Baseball Nerd</cite>
+      </div>
+
+      <h2>wRC+ vs. OPS+: What's the Difference?</h2>
+      <p>Both stats are park-adjusted and scaled to 100. The difference is methodology, and it matters.</p>
+      <p><strong>OPS+</strong> combines on-base percentage and slugging percentage, treating them as equal halves. This overweights slugging, because a single percentage point of slugging is not worth as much as a single percentage point of OBP in run-creation terms.</p>
+      <p><strong>wRC+</strong> uses linear weights derived from actual run values, so each event is calibrated to what it actually produces. The result is a more accurate measure of offensive contribution. In most analytical contexts, wRC+ is the preferred stat.</p>
+
+      <h2>wRC+ vs. Batting Average: Why This Matters More</h2>
+      <p>Batting average ignores walks, ignores extra-base hits beyond their binary hit/out value, and gives no credit for how hard a ball was hit. Two players can hit .280 and have wildly different offensive values. wRC+ captures all of it.</p>
+      <p>A player hitting .240 with a .370 OBP and 25 home runs might carry a wRC+ of 135. A player hitting .290 with a .320 OBP and 8 home runs might sit at 105. Batting average inverts that picture. wRC+ gets it right.</p>
+
+      <h2>How wRC+ Is Used in Prospect Evaluation</h2>
+      <p>At the minor league level, wRC+ requires extra caution. The same formula applies, but MiLB run environments vary more dramatically than the majors, and park factors are less reliable with smaller sample sizes. A Double-A wRC+ of 140 is meaningful, but it needs to be contextualized against the league, the park, and the age of the hitter.</p>
+      <p>Age-relative wRC+ is particularly useful in prospect work. A 22-year-old posting a 130 wRC+ in Triple-A is a very different signal than a 27-year-old doing the same thing.</p>
+
+      <h2>One Number. The Full Picture.</h2>
+      <p>wRC+ doesn't do everything. It doesn't tell you about defense, baserunning, or clutch performance. But for evaluating offensive production in a single, portable number that works across any era and any ballpark, nothing is cleaner. It's the first stat to check when you want to know how a hitter is actually performing.</p>
+
+      <!-- FAQ SECTION -->
+      <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <p class="faq-q">What does wRC stand for in baseball?</p>
+          <p class="faq-a">wRC stands for Weighted Runs Created. It's a modernized version of Bill James' Runs Created formula, updated to use linear weights from play-by-play data rather than component estimates.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">What is an average wRC+ in baseball?</p>
+          <p class="faq-a">By definition, 100 is always league average. The stat is scaled each season so that the league average wRC+ equals exactly 100, regardless of the overall run environment.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Who has the highest career wRC+ in MLB history?</p>
+          <p class="faq-a">Babe Ruth holds the all-time career wRC+ record at approximately 197 or higher, depending on the source and era adjustments applied. Among active players, Mike Trout consistently ranks at the top of the all-time leaderboards.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Is wRC+ the same as wOBA?</p>
+          <p class="faq-a">No. wOBA is the raw input to wRC+. wOBA is expressed as an on-base-style decimal (like .370), while wRC+ converts that into a run total, adjusts for park and league context, and scales the result so 100 is always average. wRC+ is the more complete and comparable number.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Where can I find wRC+ leaderboards?</p>
+          <p class="faq-a">FanGraphs is the primary source for wRC+ data and maintains full leaderboards for MLB and MiLB. The stat is calculated by FanGraphs and is their proprietary implementation of the Weighted Runs Created framework.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="article-cta">
+      <div class="cta-label">The Baseball Nerd Analytics Suite</div>
+      <h3>Go Deeper Than the Leaderboard</h3>
+      <p>SPARK Scores, FADE Scores, and full analytical breakdowns for hitters and prospects. Built on the same framework. Numbers Not Feelings.</p>
+      <a href="https://thebaseballnerd.substack.com" class="cta-btn">Explore the Suite</a>
+    </div>
+
+    <!-- RELATED -->
+    <div class="related-section">
+      <div class="related-label">Related Articles</div>
+      <ul class="related-links">
+        <li><a href="/articles/what-is-woba-in-baseball">What Is wOBA? The Complete Explanation</a></li>
+        <li><a href="/articles/ops-plus-vs-wrc-plus">OPS+ vs. wRC+: Which Stat Should You Trust?</a></li>
+        <li><a href="/articles/what-is-war-in-baseball">What Is WAR in Baseball? A Practical Guide</a></li>
+        <li><a href="/articles/spark-score-explained">The SPARK Score: How We Grade Offensive Prospects</a></li>
+      </ul>
+    </div>
+
+  </main>
+
+</body>
+</html>
