@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MCQ9ZZ2W');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Is wOBA in Baseball? Weighted On-Base Average Explained | The Baseball Nerd</title>
+  <meta name="description" content="wOBA (Weighted On-Base Average) measures a hitter's offensive value by assigning real run values to every way of reaching base. Here's what it means, how it's calculated, and what a good wOBA looks like." />
+  <link rel="canonical" href="https://thebaseballnerd.com/articles/what-is-woba-in-baseball" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="What Is wOBA in Baseball? Weighted On-Base Average Explained" />
+  <meta property="og:description" content="wOBA assigns real run values to every offensive event. A home run isn't worth four singles. Here's why that matters, how wOBA is calculated, and what separates good from great." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://thebaseballnerd.com/articles/what-is-woba-in-baseball" />
+  <meta property="og:site_name" content="The Baseball Nerd" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="What Is wOBA in Baseball?" />
+  <meta name="twitter:description" content="wOBA assigns real run values to every offensive event. Here's what it means and why it matters." />
+  <meta name="twitter:site" content="@thebaseballnerd" />
+
+  <!-- Schema: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Is wOBA in Baseball? Weighted On-Base Average Explained",
+    "description": "wOBA (Weighted On-Base Average) measures a hitter's offensive value by assigning real run values to every way of reaching base. Here's what it means, how it's calculated, and what a good wOBA looks like.",
+    "author": {
+      "@type": "Person",
+      "name": "Pete Dwyer",
+      "url": "https://thebaseballnerd.com/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Baseball Nerd",
+      "url": "https://thebaseballnerd.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://thebaseballnerd.com/assets/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://thebaseballnerd.com/articles/what-is-woba-in-baseball"
+    },
+    "datePublished": "2026-04-09",
+    "dateModified": "2026-04-09",
+    "keywords": ["wOBA", "weighted on-base average", "what is wOBA", "wOBA baseball", "baseball stats", "sabermetrics"],
+    "articleSection": "Stats Explained"
+  }
+  </script>
+
+  <!-- Schema: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is wOBA in baseball?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "wOBA (Weighted On-Base Average) is a baseball offensive statistic that measures a hitter's overall offensive value by assigning empirically derived run values to every way of reaching base. Unlike batting average or OBP, wOBA recognizes that a home run is worth more than a single, and that a walk and a hit-by-pitch have different run values. It's scaled to look like on-base percentage, so league average typically sits around .320."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a good wOBA in baseball?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "League average wOBA is typically around .320. A wOBA of .340 is above average, .370 is great, and .400 or above is elite. Below .300 is poor for a regular starter. The scale is similar to on-base percentage, which makes it readable without any conversion."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is wOBA calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "wOBA is calculated by multiplying each offensive event by its linear weight (derived from historical run expectancy data) and dividing by plate appearances. The formula is approximately: (0.69 × uBB + 0.72 × HBP + 0.89 × 1B + 1.27 × 2B + 1.62 × 3B + 2.10 × HR) divided by (AB + BB - IBB + SF + HBP). The weights are recalibrated every season to reflect the current run-scoring environment."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between wOBA and wRC+?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "wOBA is the raw input: it measures offensive value at the plate without adjusting for ballpark or era. wRC+ takes wOBA, converts it into runs, then adjusts for park factor and league context and scales the result so 100 is always league average. Use wOBA when you want a clean measure of plate performance. Use wRC+ when you want to compare players across different environments or eras."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who created wOBA?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "wOBA was created by sabermetrician Tom Tango and notably used in The Book: Playing the Percentages in Baseball (2006). It has since become one of the foundational offensive metrics in baseball analytics and is the basis for wRC+, which FanGraphs uses as part of their WAR calculation."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy: #0a1628;
+      --gold: #c9a84c;
+      --gold-light: #dfc278;
+      --gold-dim: rgba(201,168,76,0.15);
+      --cream: #f5f0e8;
+      --cream-dim: rgba(245,240,232,0.06);
+      --text: #e8e2d6;
+      --text-muted: #8a8070;
+      --border: rgba(201,168,76,0.2);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--navy); color: var(--text); font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    .site-nav { border-bottom: 1px solid var(--border); padding: 0 clamp(1rem,5vw,4rem); display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; background: rgba(10,22,40,0.97); backdrop-filter: blur(16px); z-index: 100; }
+    .site-nav .logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.05em; color: var(--gold); text-decoration: none; }
+    .site-nav .tagline { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.12em; text-transform: uppercase; }
+
+    /* ARTICLE */
+    .article-wrapper { max-width: 760px; margin: 0 auto; padding: clamp(2rem,6vw,4rem) clamp(1rem,5vw,2rem) 6rem; }
+    .article-header { margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    .article-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+    .article-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 60px; }
+    .article-title { font-family: 'DM Serif Display', serif; font-size: clamp(2rem,5vw,3rem); line-height: 1.15; color: var(--cream); margin-bottom: 1.2rem; }
+    .article-dek { font-size: 1.05rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.5rem; }
+    .article-meta { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
+    .article-meta span { color: var(--gold); }
+
+    /* ANSWER BOX */
+    .answer-box { background: var(--cream-dim); border-left: 3px solid var(--gold); border-radius: 0 6px 6px 0; padding: 1.4rem 1.6rem; margin: 2rem 0; }
+    .answer-box .answer-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+    .answer-box p { font-size: 1rem; line-height: 1.7; color: var(--cream); }
+
+    /* BODY */
+    .article-body h2 { font-family: 'DM Serif Display', serif; font-size: 1.55rem; color: var(--cream); margin: 2.8rem 0 0.8rem; line-height: 1.25; }
+    .article-body h3 { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--gold-light); margin: 2rem 0 0.6rem; font-style: italic; }
+    .article-body p { margin-bottom: 1.3rem; color: var(--text); }
+    .article-body strong { color: var(--cream); font-weight: 600; }
+    .article-body a { color: var(--gold); text-decoration: underline; text-decoration-color: rgba(201,168,76,0.4); text-underline-offset: 3px; transition: text-decoration-color 0.2s; }
+    .article-body a:hover { text-decoration-color: var(--gold); }
+
+    /* WEIGHTS TABLE */
+    .scale-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; }
+    .scale-table thead tr { border-bottom: 2px solid var(--gold); }
+    .scale-table th { padding: 0.6rem 1rem; text-align: left; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.7rem; }
+    .scale-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border); color: var(--text); }
+    .scale-table tr:last-child td { border-bottom: none; }
+    .scale-table tr:hover td { background: var(--cream-dim); }
+    .w-high { color: #f9c74f; font-weight: 600; }
+    .w-mid { color: #90be6d; }
+    .w-low { color: var(--text-muted); }
+    .tier-elite { color: #f9c74f; font-weight: 600; }
+    .tier-great { color: #90be6d; }
+    .tier-avg { color: var(--text-muted); }
+    .tier-below { color: #e07b6b; }
+
+    /* FORMULA BOX */
+    .formula-box { background: rgba(0,0,0,0.35); border: 1px solid var(--border); border-radius: 6px; padding: 1.4rem 1.6rem; margin: 1.5rem 0; font-family: 'IBM Plex Mono', monospace; font-size: 0.82rem; line-height: 2; color: var(--cream); }
+    .formula-box .formula-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.6rem; }
+    .fl { color: var(--gold); }
+
+    /* COMPARISON ROW */
+    .stat-compare { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; margin: 1.5rem 0 2rem; background: var(--border); border: 1px solid var(--border); }
+    .sc-cell { background: var(--navy); padding: 1rem 1.1rem; }
+    .sc-cell.header { background: rgba(201,168,76,0.08); }
+    .sc-cell .sc-stat { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+    .sc-cell .sc-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--cream); line-height: 1; margin-bottom: 0.3rem; }
+    .sc-cell .sc-note { font-size: 0.75rem; color: var(--text-muted); line-height: 1.5; }
+    .sc-cell.good .sc-val { color: #90be6d; }
+    .sc-cell.great .sc-val { color: #f9c74f; }
+    @media(max-width:500px) { .stat-compare { grid-template-columns: 1fr; } }
+
+    /* WORKED EXAMPLE */
+    .example-box { background: rgba(0,0,0,0.25); border: 1px solid var(--border); border-left: 3px solid var(--gold); padding: 1.4rem 1.6rem; margin: 1.5rem 0; }
+    .example-box .ex-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+    .example-box .ex-player { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--cream); margin-bottom: 0.75rem; }
+    .example-box .ex-line { font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; color: var(--text); line-height: 2; }
+    .example-box .ex-result { font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; color: var(--gold); font-weight: 600; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border); }
+
+    /* PULLQUOTE */
+    .pullquote { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.5rem 0; margin: 2.5rem 0; }
+    .pullquote p { font-family: 'DM Serif Display', serif; font-size: 1.35rem; font-style: italic; color: var(--cream); line-height: 1.4; margin: 0; }
+    .pullquote cite { display: block; margin-top: 0.6rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); font-style: normal; }
+
+    /* FAQ */
+    .faq-section { margin-top: 3rem; }
+    .faq-section h2 { font-family: 'DM Serif Display', serif; font-size: 1.55rem; color: var(--cream); margin-bottom: 1.5rem; }
+    .faq-item { border-top: 1px solid var(--border); padding: 1.2rem 0; }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-q { font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: var(--cream); margin-bottom: 0.5rem; }
+    .faq-a { color: var(--text); font-size: 0.95rem; line-height: 1.7; }
+
+    /* CTA */
+    .article-cta { background: var(--gold-dim); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; margin-top: 3.5rem; text-align: center; }
+    .article-cta .cta-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+    .article-cta h3 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--cream); margin-bottom: 0.6rem; }
+    .article-cta p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.2rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-btn { display: inline-block; background: var(--gold); color: var(--navy); font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.12em; padding: 0.65rem 2rem; border-radius: 3px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+    .cta-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* RELATED */
+    .related-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .related-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
+    .related-links { list-style: none; }
+    .related-links li { margin-bottom: 0.5rem; }
+    .related-links a { color: var(--gold); text-decoration: none; font-size: 0.95rem; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+    .related-links a:hover { border-color: var(--gold); }
+  </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCQ9ZZ2W"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <nav class="site-nav">
+    <a href="https://thebaseballnerd.com" class="logo">The Baseball Nerd</a>
+    <span class="tagline">Numbers Not Feelings</span>
+  </nav>
+
+  <main class="article-wrapper">
+
+    <header class="article-header">
+      <div class="article-label">Stats Explained</div>
+      <h1 class="article-title">What Is wOBA in Baseball? Weighted On-Base Average Explained.</h1>
+      <p class="article-dek">Batting average treats all hits the same. On-base percentage treats all ways of reaching base the same. wOBA fixes both problems at once and it's the foundation that the rest of modern offensive analysis is built on.</p>
+      <div class="article-meta">
+        By <span>Pete Dwyer</span> &nbsp;|&nbsp; Updated <span>April 2026</span> &nbsp;|&nbsp; 8 min read
+      </div>
+    </header>
+
+    <div class="article-body">
+
+      <div class="answer-box">
+        <div class="answer-label">Quick Answer</div>
+        <p><strong>wOBA (Weighted On-Base Average)</strong> measures a hitter's offensive value by assigning empirically derived run values to every way of reaching base. A home run is worth roughly 2.10, a double about 1.27, a single about 0.89, and a walk about 0.69. Those aren't guesses, derived from historical data measuring how often each event actually leads to runs. League average wOBA is typically around .320. It's scaled to look like on-base percentage, so the numbers are immediately readable.</p>
+      </div>
+
+      <h2>What's Wrong With the Stats We Already Have</h2>
+      <p>To understand why wOBA exists, you have to understand what the traditional stats get wrong. This isn't about dismissing batting average or OBP. It's about knowing their limits.</p>
+      <p><strong>Batting average</strong> counts only hits and treats them all identically. A bloop single and a 450-foot home run are both just "1." It ignores walks entirely. It has no opinion about doubles versus triples. It's measuring something real, contact, but it's throwing away most of the information in the process.</p>
+      <p><strong>On-base percentage</strong> is better. It adds walks and hit-by-pitches to the picture. But it commits the same mistake batting average does with hits: a walk counts the same as a home run. Both put a runner on base, but they don't produce runs at anything close to the same rate.</p>
+      <p><strong>Slugging percentage</strong> tries to fix the hits problem by using total bases. A single is 1, a double is 2, a triple is 3, a home run is 4. But those multipliers aren't right either. A home run isn't worth exactly four singles in run-production terms. And slugging ignores walks completely.</p>
+      <p><strong>OPS</strong> combines on-base and slugging and gets closer, but it adds two things that aren't measured on the same scale and treats a point of OBP as equal to a point of SLG. That's not accurate. OBP is roughly twice as valuable in run-creation terms.</p>
+      <p>wOBA starts over from scratch and does it right.</p>
+
+      <div class="pullquote">
+        <p>"Not all hits are created equal. wOBA is the stat that finally takes that seriously."</p>
+        <cite>The Baseball Nerd</cite>
+      </div>
+
+      <h2>How wOBA Actually Works</h2>
+      <p>wOBA was created by sabermetrician Tom Tango and introduced in <em>The Book: Playing the Percentages in Baseball</em> (2006). The core idea is straightforward: instead of counting events or weighting them by total bases, assign each offensive event the actual run value it produces based on historical data.</p>
+      <p>Those run values come from something called <strong>run expectancy</strong>: a table built from decades of play-by-play data that shows how many runs a team is expected to score given any combination of base runners and outs. When a batter hits a double with nobody on and one out, the run expectancy changes by a specific amount. That change, averaged across thousands of similar situations, becomes the weight for a double.</p>
+      <p>The result is a set of linear weights that look roughly like this in a typical season:</p>
+
+      <table class="scale-table">
+        <thead>
+          <tr><th>Event</th><th>Weight</th><th>What This Tells You</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Unintentional Walk</td><td class="w-low">~0.69</td><td>Real value, often underrated</td></tr>
+          <tr><td>Hit By Pitch</td><td class="w-low">~0.72</td><td>Slightly more than a walk</td></tr>
+          <tr><td>Single</td><td class="w-mid">~0.89</td><td>Baseline hit value</td></tr>
+          <tr><td>Double</td><td class="w-mid">~1.27</td><td>Not twice a single</td></tr>
+          <tr><td>Triple</td><td class="w-mid">~1.62</td><td>Not three times a single</td></tr>
+          <tr><td>Home Run</td><td class="w-high">~2.10</td><td>Not four times a single</td></tr>
+        </tbody>
+      </table>
+
+      <p>Look at those numbers and a few things jump out. A walk is worth 0.69, not zero. A double is worth 1.27, not 2.00. A home run is worth 2.10, not 4.00. The whole idea that extra-base hits are worth a clean multiple of singles is wrong, and wOBA corrects it.</p>
+      <p>These weights are recalibrated every season. In a high-offense year, home runs are more common, so each individual one is slightly less scarce and worth a little less. In a pitching-dominated year, the home run weight goes up. FanGraphs publishes the exact coefficients for every season going back to 1871.</p>
+
+      <h2>The Formula</h2>
+      <p>Once you understand what the weights represent, the formula is just arithmetic:</p>
+
+      <div class="formula-box">
+        <div class="formula-label">wOBA Formula (approximate typical-season weights)</div>
+        <span class="fl">wOBA</span> = (<span class="fl">0.69</span> × uBB + <span class="fl">0.72</span> × HBP + <span class="fl">0.89</span> × 1B + <span class="fl">1.27</span> × 2B + <span class="fl">1.62</span> × 3B + <span class="fl">2.10</span> × HR)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;÷ (AB + BB − IBB + SF + HBP)<br>
+        <br>
+        <span style="color:var(--text-muted);font-size:0.75rem;">uBB = unintentional walks &nbsp;|&nbsp; IBB = intentional walks (excluded) &nbsp;|&nbsp; SF = sacrifice flies</span>
+      </div>
+
+      <p>Intentional walks are excluded because they're a strategic decision by the defense, not a reflection of what the hitter did. Sacrifice flies are included in the denominator because the hitter used a plate appearance, even if they don't count as an at-bat.</p>
+
+      <h3>A Worked Example</h3>
+      <p>In 2013, Mike Trout had 100 unintentional walks, 9 HBP, 115 singles, 39 doubles, 9 triples, and 27 home runs. Plug those into the formula with that year's weights and you get a wOBA of .423. That's elite by any measure, which lines up with what we know about Trout in 2013.</p>
+
+      <div class="example-box">
+        <div class="ex-label">Worked Example, Mike Trout, 2013</div>
+        <div class="ex-player">Mike Trout, Los Angeles Angels</div>
+        <div class="ex-line">
+          100 uBB × 0.690 = 69.0<br>
+          9 HBP × 0.722 = 6.5<br>
+          115 1B × 0.888 = 102.1<br>
+          39 2B × 1.271 = 49.6<br>
+          9 3B × 1.616 = 14.5<br>
+          27 HR × 2.101 = 56.7<br>
+          Total = 298.4
+        </div>
+        <div class="ex-result">298.4 ÷ 705 PA = .423 wOBA</div>
+      </div>
+
+      <h2>What Is a Good wOBA?</h2>
+      <p>wOBA is deliberately scaled to look like on-base percentage. That means the numbers sit in a familiar range and are immediately readable without conversion.</p>
+
+      <table class="scale-table">
+        <thead>
+          <tr><th>wOBA</th><th>Grade</th><th>Context</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="tier-elite">.400+</td><td class="tier-elite">Elite</td><td>All-Star caliber offensive season</td></tr>
+          <tr><td class="tier-elite">.370–.399</td><td class="tier-elite">Great</td><td>Significantly above average</td></tr>
+          <tr><td class="tier-great">.340–.369</td><td class="tier-great">Above Average</td><td>Solid everyday producer</td></tr>
+          <tr><td class="tier-avg">.320–.339</td><td class="tier-avg">Average</td><td>League median range</td></tr>
+          <tr><td class="tier-below">.300–.319</td><td class="tier-below">Below Average</td><td>Acceptable with elite defense</td></tr>
+          <tr><td class="tier-below">&lt;.300</td><td class="tier-below">Poor</td><td>Difficult to justify a roster spot</td></tr>
+        </tbody>
+      </table>
+
+      <p>League average floats slightly year to year, some seasons it runs a touch above or below .320, but the scale above holds across most modern eras. If you know what a good OBP looks like, you already know how to read wOBA.</p>
+
+      <h2>wOBA vs. wRC+: Which One Should You Use?</h2>
+      <p>This comes up constantly, and the answer is that they're not competing. wOBA is an input into <a href="/articles/what-is-wrc-plus-in-baseball.html">wRC+</a>. They answer slightly different questions.</p>
+
+      <div class="stat-compare">
+        <div class="sc-cell header">
+          <div class="sc-stat">Stat</div>
+          <div class="sc-note">What it does</div>
+        </div>
+        <div class="sc-cell header">
+          <div class="sc-stat">Park Adjusted?</div>
+          <div class="sc-note">Accounts for ballpark effects</div>
+        </div>
+        <div class="sc-cell header">
+          <div class="sc-stat">Best Used For</div>
+          <div class="sc-note">Primary use case</div>
+        </div>
+
+        <div class="sc-cell">
+          <div class="sc-stat">wOBA</div>
+          <div class="sc-note">Measures raw offensive value at the plate using linear run weights</div>
+        </div>
+        <div class="sc-cell">
+          <div class="sc-stat" style="color:var(--text-muted)">No</div>
+          <div class="sc-note">Same .380 wOBA means the same thing at Coors and Petco</div>
+        </div>
+        <div class="sc-cell">
+          <div class="sc-note">Evaluating plate performance in isolation. Input for models.</div>
+        </div>
+
+        <div class="sc-cell good">
+          <div class="sc-stat">wRC+</div>
+          <div class="sc-note">Converts wOBA into runs, adjusts for park and era, scales to 100</div>
+        </div>
+        <div class="sc-cell good">
+          <div class="sc-stat" style="color:#90be6d">Yes</div>
+          <div class="sc-note">A .380 wOBA at Coors gets a downward adjustment. At Petco, upward.</div>
+        </div>
+        <div class="sc-cell good">
+          <div class="sc-note">Comparing hitters across different parks, teams, and eras.</div>
+        </div>
+      </div>
+
+      <p>The practical rule: use wOBA when you want to know how a hitter performed at the plate in a vacuum. Use <a href="/articles/what-is-wrc-plus-in-baseball.html">wRC+</a> when you want to compare that performance to others across different environments. For most everyday analysis, wRC+ is the finished product. wOBA is the engine running underneath it.</p>
+
+      <h2>wOBA's Honest Limitations</h2>
+      <p>No stat does everything, and wOBA is upfront about what it doesn't cover.</p>
+      <p>It doesn't adjust for park or era. That's what wRC+ is for. A .380 wOBA at Coors Field, where the thin air and humidor create a hitter's paradise, is a different achievement than a .380 wOBA at Petco Park. wOBA doesn't know that. wRC+ does.</p>
+      <p>It slightly undervalues elite base stealers. A stolen base doesn't appear in the wOBA formula. A player who hits .260 but steals 60 bases is worth more to his team than wOBA captures.</p>
+      <p>It doesn't account for defensive position. A .330 wOBA from a catcher is a completely different roster asset than a .330 wOBA from a first baseman. wOBA is purely about what happens at the plate.</p>
+      <p>None of these are fatal flaws. They're just reasons why wOBA works best as part of a larger analytical picture. For total player value, <a href="/articles/what-is-war-in-baseball.html">WAR</a> adds baserunning, defense, and positional adjustments on top of the offensive foundation that wOBA provides.</p>
+
+      <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <p class="faq-q">Who created wOBA?</p>
+          <p class="faq-a">wOBA was created by sabermetrician Tom Tango and first published in <em>The Book: Playing the Percentages in Baseball</em> in 2006. It has since become one of the most widely used offensive metrics in baseball analytics and is the foundation for wRC+, which FanGraphs uses in their WAR calculation.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Why do the wOBA weights change every year?</p>
+          <p class="faq-a">The weights are derived from historical run expectancy data and recalibrated annually to reflect the current run-scoring environment. In a high-offense season, home runs are more common and slightly less scarce, so each one carries a marginally lower weight. In a low-offense season, the weights shift accordingly. FanGraphs publishes the exact coefficients for every season on their Guts! page.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Is wOBA better than OPS?</p>
+          <p class="faq-a">More precisely constructed, yes. OPS adds on-base percentage and slugging as equals, but OBP is roughly twice as valuable in run-production terms. wOBA uses actual run weights derived from play-by-play data. The two stats agree most of the time, with a correlation is very high, but wOBA handles edge cases more accurately, particularly for high-walk low-power hitters who tend to be undervalued by OPS.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Does wOBA include stolen bases?</p>
+          <p class="faq-a">No. wOBA measures only events that occur during a plate appearance. Stolen bases and caught stealing happen between plate appearances and aren't part of the formula. This is one of wOBA's acknowledged limitations, elite baserunners are slightly undervalued. Baserunning runs are added separately when calculating WAR.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Where can I find wOBA leaderboards?</p>
+          <p class="faq-a">FanGraphs maintains full MLB and MiLB wOBA leaderboards, searchable by season, career, team, and position. Baseball Savant also publishes wOBA alongside Statcast data including expected wOBA (xwOBA), which adjusts for contact quality on batted balls.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <div class="article-cta">
+      <div class="cta-label">The Baseball Nerd Analytics Suite</div>
+      <h3>wOBA Is the Foundation. SPARK Is the Signal.</h3>
+      <p>The SPARK Score uses wOBA trajectory alongside Statcast contact quality and age curve to find breakout candidates before the leaderboard does. Numbers Not Feelings.</p>
+      <a href="https://thebaseballnerd.substack.com" class="cta-btn">Explore the Suite</a>
+    </div>
+
+    <div class="related-section">
+      <div class="related-label">Related Articles</div>
+      <ul class="related-links">
+        <li><a href="/articles/what-is-wrc-plus-in-baseball.html">What Is wRC+ in Baseball? The Stat Explained</a></li>
+        <li><a href="/articles/ops-plus-vs-wrc-plus.html">wRC+ vs. OPS+: Which Stat Should You Trust?</a></li>
+        <li><a href="/articles/what-is-war-in-baseball.html">What Is WAR in Baseball? Wins Above Replacement Explained</a></li>
+        <li><a href="/articles/spark-score-explained.html">The SPARK Score: How We Grade Offensive Prospects</a></li>
+      </ul>
+    </div>
+
+  </main>
+
+</body>
+</html>
