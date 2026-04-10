@@ -1,125 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SEAGER Score Leaders 2026 | The Baseball Nerd</title>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: #ffffff;
-    color: #1a1a1a;
-    padding: 16px 20px 14px;
-  }
-  .header { margin-bottom: 12px; }
-  .title { font-size: 15px; font-weight: 600; color: #111; }
-  .subtitle { font-size: 12px; color: #666; margin-top: 2px; }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-    table-layout: fixed;
-  }
-  col.col-rank   { width: 28px; }
-  col.col-player { width: auto; }
-  col.col-age    { width: 40px; }
-  col.col-team   { width: 52px; }
-  col.col-seager { width: 68px; }
-  col.col-whiff  { width: 62px; }
-  thead th {
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #888;
-    padding: 5px 6px;
-    border-bottom: 1.5px solid #e0e0e0;
-    text-align: center;
-    white-space: nowrap;
-  }
-  thead th.left { text-align: left; }
-  tbody tr { border-bottom: 0.5px solid #ebebeb; }
-  tbody tr:last-child { border-bottom: none; }
-  tbody tr:hover { background: #f7f9ff; }
-  tbody td {
-    padding: 7px 6px;
-    color: #1a1a1a;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  tbody td.left { text-align: left; }
-  .rank { color: #999; font-size: 12px; }
-  .player { font-weight: 500; font-size: 13px; }
-  .team-badge {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 600;
-    padding: 2px 5px;
-    border-radius: 3px;
-    background: #f0f0f0;
-    color: #555;
-  }
-  .seager-score { font-weight: 700; color: #1a5fa8; font-size: 13px; }
-  tr:first-child .seager-score { font-size: 14px; }
-  .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-    padding-top: 8px;
-    border-top: 0.5px solid #e8e8e8;
-  }
-  .tbn-logo { font-size: 11px; font-weight: 600; color: #999; }
-  .tbn-logo a { color: #1a5fa8; text-decoration: none; }
-  .tbn-logo a:hover { text-decoration: underline; }
-  .min-note { font-size: 11px; color: #aaa; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEAGER Leaders 2026 - Top 10 Young Hitters</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+        }
+        .table-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        th, td {
+            padding: 12px 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .seager {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .player {
+            font-weight: bold;
+        }
+        .caption {
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 <body>
-<div class="header">
-  <div class="title">SEAGER Score Leaders &mdash; 2026 Season</div>
-  <div class="subtitle">Top 10 hitters &bull; As of April 3, 2026</div>
-</div>
- 
-<table>
-  <colgroup>
-    <col class="col-rank">
-    <col class="col-player">
-    <col class="col-age">
-    <col class="col-team">
-    <col class="col-seager">
-    <col class="col-whiff">
-  </colgroup>
-  <thead>
-    <tr>
-      <th class="left">#</th>
-      <th class="left">Player</th>
-      <th>Age</th>
-      <th>Team</th>
-      <th>SEAGER</th>
-      <th>Whiff%</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td class="rank left">1</td><td class="player left">Junior Caminero</td><td>22</td><td><span class="team-badge">TB</span></td><td class="seager-score">36.4</td><td>31.1</td></tr>
-    <tr><td class="rank left">2</td><td class="player left">Nick Kurtz</td><td>23</td><td><span class="team-badge">SAC</span></td><td class="seager-score">29.9</td><td>41.5</td></tr>
-    <tr><td class="rank left">3</td><td class="player left">Luisangel Acu&#241;a</td><td>24</td><td><span class="team-badge">CWS</span></td><td class="seager-score">26.6</td><td>24.0</td></tr>
-    <tr><td class="rank left">4</td><td class="player left">Kevin McGonigle</td><td>21</td><td><span class="team-badge">DET</span></td><td class="seager-score">25.9</td><td>14.3</td></tr>
-    <tr><td class="rank left">5</td><td class="player left">Jordan Lawlar</td><td>23</td><td><span class="team-badge">AZ</span></td><td class="seager-score">25.4</td><td>32.4</td></tr>
-    <tr><td class="rank left">6</td><td class="player left">Evan Carter</td><td>23</td><td><span class="team-badge">TEX</span></td><td class="seager-score">24.5</td><td>24.1</td></tr>
-    <tr><td class="rank left">7</td><td class="player left">Jackson Merrill</td><td>23</td><td><span class="team-badge">SD</span></td><td class="seager-score">24.4</td><td>25.0</td></tr>
-    <tr><td class="rank left">8</td><td class="player left">Mois&#233;s Ballesteros</td><td>22</td><td><span class="team-badge">CHC</span></td><td class="seager-score">22.4</td><td>28.1</td></tr>
-    <tr><td class="rank left">9</td><td class="player left">Francisco Alvarez</td><td>24</td><td><span class="team-badge">NYM</span></td><td class="seager-score">22.3</td><td>42.4</td></tr>
-    <tr><td class="rank left">10</td><td class="player left">Ezequiel Tovar</td><td>24</td><td><span class="team-badge">COL</span></td><td class="seager-score">22.0</td><td>31.5</td></tr>
-  </tbody>
-</table>
- 
-<div class="footer">
-  <div class="tbn-logo"><a href="https://thebaseballnerd.com" target="_blank">The Baseball Nerd</a></div>
-  <div class="min-note">Min. 50 pitches seen</div>
-</div>
+    <div class="table-container">
+        <h2 style="text-align:center; color:#2c3e50;">SEAGER Leaders 2026</h2>
+        <p style="text-align:center; color:#555;">Top 10 Young MLB Hitters in Selective Aggression (as of April 10, 2026)</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    <th>Age</th>
+                    <th>Team</th>
+                    <th>SEAGER</th>
+                    <th>Pitches</th>
+                    <th>O-Swing%</th>
+                    <th>Contact%</th>
+                    <th>Whiff%</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align:center; font-weight:bold;">1</td>
+                    <td class="player">Junior Caminero</td>
+                    <td style="text-align:center;">22</td>
+                    <td style="text-align:center;">TB</td>
+                    <td class="seager" style="text-align:center;">28.2</td>
+                    <td style="text-align:center;">217</td>
+                    <td style="text-align:center;">30.2</td>
+                    <td style="text-align:center;">73.1</td>
+                    <td style="text-align:center;">26.9</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center; font-weight:bold;">2</td>
+                    <td class="player">Nick Kurtz</td>
+                    <td style="text-align:center;">23</td>
+                    <td style="text-align:center;">SAC</td>
+                    <td class="seager" style="text-align:center;">25.0</td>
+                    <td style="text-align:center;">238</td>
+                    <td style="text-align:center;">26.6</td>
+                    <td style="text-align:center;">58.9</td>
+                    <td style="text-align:center;">41.1</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center; font-weight:bold;">3</td>
+                    <td class="player">Kyle Karros</td>
+                    <td style="text-align:center;">23</td>
+                    <td style="text-align:center;">COL</td>
+                    <td class="seager" style="text-align:center;">22.5</td>
+                    <td style="text-align:center;">181</td>
+                    <td style="text-align:center;">24.0</td>
+                    <td style="text-align:center;">67.6</td>
+                    <td style="text-align:center;">32.4</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center; font-weight:bold;">4</td>
+                    <td class="player">Ezequiel Tovar</td>
+                    <td style="text-align:center;">24</td>
+                    <td style="text-align:center;">COL</td>
+                    <td class="seager" style="text-align:center;">20.0</td>
+                    <td style="text-align:center;">185</td>
+                    <td style="text-align:center;">45.6</td>
+                    <td style="text-align:center;">70.2</td>
+                    <td style="text-align:center;">29.8</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center; font-weight:bold;">5</td>
+                    <td class="player">Colson Montgomery</td>
+                    <td style="text-align:center;">24</td>
+                    <td style="text-align:center;">CWS</td>
+                    <td class="seager" style="text-align:center;">18.6</td>
+                    <td style="text-align:center;">205</td>
+                    <td style="text-align:center;">29.2</td>
+                    <td style="text-align:center;">61.5</td>
+                    <td style="text-align:center;">38.5</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center; font-weight:bold;">6</td>
+                    <td class="player">Jackson Merrill</td>
+                    <td style="text-align:center;">23</td>
+                    <td style="text-align:center;">SD</td>
+                    <td class="seager" style="text-align:center;">18.0</td>
+                    <td style="text-align:center;">203</td>
+                    <td style="text-align:center;">40.2</td>
+                    <td style="text-align:center;">72.4</td>
+                    <td style="text-align:center;">27.6</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center; font-weight:bold;">7</td>
+                    <td class="player">Luisangel Acuña</td>
+                    <td style="text-align:center;">24</td>
+                    <td style="text-align:center;">CWS</td>
+                    <td class="seager" style="text-align:center;">17.2</td>
+                    <td style="text-align:center;">153</td>
+                    <td style="text-align:center;">37.4</td>
+                    <td style="text-align:center;">76.0</td>
+                    <td style="text-align:center;">24.0</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center; font-weight:bold;">8</td>
+                    <td class="player">Matt Shaw</td>
+                    <td style="text-align:center;">24</td>
+                    <td style="text-align:center;">CHC</td>
+                    <td class="seager" style="text-align:center;">17.2</td>
+                    <td style="text-align:center;">150</td>
+                    <td style="text-align:center;">39.4</td>
+                    <td style="text-align:center;">81.3</td>
+                    <td style="text-align:center;">18.7</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center; font-weight:bold;">9</td>
+                    <td class="player">Thomas Saggese</td>
+                    <td style="text-align:center;">24</td>
+                    <td style="text-align:center;">STL</td>
+                    <td class="seager" style="text-align:center;">16.6</td>
+                    <td style="text-align:center;">133</td>
+                    <td style="text-align:center;">34.1</td>
+                    <td style="text-align:center;">69.2</td>
+                    <td style="text-align:center;">30.8</td>
+                </tr>
+                <tr>
+                    <td style="text-align:center; font-weight:bold;">10</td>
+                    <td class="player">JJ Wetherholt</td>
+                    <td style="text-align:center;">23</td>
+                    <td style="text-align:center;">STL</td>
+                    <td class="seager" style="text-align:center;">16.1</td>
+                    <td style="text-align:center;">227</td>
+                    <td style="text-align:center;">29.8</td>
+                    <td style="text-align:center;">73.1</td>
+                    <td style="text-align:center;">26.9</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p class="caption">
+            Data as of April 10, 2026 • Minimum ~130 pitches seen • Source: Baseball Prospectus
+        </p>
+    </div>
 </body>
 </html>
