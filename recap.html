@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="/favicon.png">
-<title>Rangers Recap — The Baseball Nerd</title>
-<meta name="description" content="Texas Rangers game recaps with in-depth analytics, SPARK and FADE scoring, RISP breakdowns, and honest takes. Daily coverage of the Rangers, AL West standings, and box score analysis from The Baseball Nerd.">
-<meta name="keywords" content="Texas Rangers recap, Rangers box score, AL West standings, Rangers analytics, baseball game recap, Rangers win loss, wRC+, RISP, BABIP, Rangers 2026">
+<title>Texas Rangers Game Recaps 2026 — The Baseball Nerd</title>
+<meta name="description" content="Texas Rangers game recaps for every 2026 game. Analytics-first coverage with box score breakdowns, RISP analysis, pitching grades, and honest takes after every Rangers win and loss.">
+<meta name="keywords" content="Texas Rangers recaps 2026, Rangers game recap today, Rangers box score, Rangers win loss record, Rangers analytics, AL West standings, Rangers pitching recap, Rangers hitting recap">
+<meta property="og:type" content="website">
 <meta property="og:site_name" content="The Baseball Nerd">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Rangers Recap — The Baseball Nerd">
-<meta property="og:description" content="Texas Rangers game recaps with in-depth analytics and honest takes. Daily coverage from The Baseball Nerd.">
+<meta property="og:title" content="Texas Rangers Game Recaps 2026 — The Baseball Nerd">
+<meta property="og:description" content="Analytics-first Rangers game recaps. Box scores, RISP breakdowns, pitching grades, and honest takes after every game. Numbers not feelings.">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@thebaseballnerd">
-<link rel="canonical" href="">
+<link rel="canonical" href="https://thebaseballnerd.com/recaps.html">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -28,23 +28,31 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem
 .nav-links a.active{opacity:1;color:var(--gold);border-bottom:1px solid var(--gold);}
 .nav-cta{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1rem;background:var(--gold);color:var(--navy);border:none;cursor:pointer;font-weight:500;text-decoration:none;transition:background 0.2s;}
 .nav-cta:hover{background:var(--gold-light);}
-.article-wrap{max-width:720px;margin:0 auto;padding:3rem 2rem 6rem;}
-.back-link{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.6;text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;margin-bottom:2rem;transition:opacity 0.15s;}
-.back-link:hover{opacity:1;}
-.article-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;}
-.article-eyebrow::before{content:'';display:inline-block;width:1rem;height:1px;background:var(--gold);}
-.article-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.2rem);letter-spacing:0.03em;color:var(--cream);line-height:1;margin-bottom:1rem;}
-.article-meta{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding:1rem 0;border-top:1px solid rgba(201,168,76,0.1);border-bottom:1px solid rgba(201,168,76,0.1);margin-bottom:2.5rem;}
-.meta-item{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.45;}
-.meta-result{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:2px;}
-.meta-result.win{background:rgba(90,204,106,0.1);color:#5acc6a;}
-.meta-result.loss{background:rgba(204,90,90,0.1);color:#cc5a5a;}
-.article-body p{font-family:'DM Serif Display',serif;font-size:1.15rem;line-height:1.85;color:var(--cream);opacity:0.85;margin-bottom:1.5rem;}
-.article-body p:first-child{font-size:1.25rem;opacity:1;}
-.article-nav{display:flex;justify-content:center;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(201,168,76,0.08);}
-.article-nav a{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.6;text-decoration:none;transition:opacity 0.15s;}
-.article-nav a:hover{opacity:1;}
-.not-found{text-align:center;padding:4rem 0;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.3;}
+.page-hero-wrap{border-bottom:1px solid rgba(201,168,76,0.08);}
+.page-hero{max-width:1100px;margin:0 auto;padding:2rem 2rem 1.75rem;}
+.page-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;display:flex;align-items:center;gap:0.5rem;}
+.page-eyebrow::before{content:'';display:inline-block;width:1rem;height:1px;background:var(--gold);}
+.page-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);letter-spacing:0.04em;color:var(--cream);line-height:1;}
+.page-desc{font-size:0.88rem;color:var(--cream);opacity:0.45;margin-top:0.65rem;max-width:520px;line-height:1.7;}
+.wrap{max-width:1100px;margin:0 auto;padding:2rem 2rem 5rem;}
+.filter-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.5rem;}
+.filter-btn{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border:1px solid rgba(245,240,232,0.12);background:transparent;color:var(--cream);opacity:0.45;cursor:pointer;transition:all 0.15s;}
+.filter-btn.active{border-color:var(--gold);color:var(--gold);opacity:1;}
+.filter-btn:hover:not(.active){opacity:0.75;}
+.recap-card{background:var(--navy-mid);border:1px solid rgba(201,168,76,0.1);padding:1.5rem;text-decoration:none;display:block;color:inherit;position:relative;overflow:hidden;transition:border-color 0.2s,transform 0.15s;}
+.recap-card:hover{border-color:rgba(201,168,76,0.4);transform:translateY(-2px);}
+.recap-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--gold);transition:height 0.3s;}
+.recap-card:hover::before{height:100%;}
+.result-badge{position:absolute;top:1rem;right:1rem;font-family:'Bebas Neue',sans-serif;font-size:1rem;}
+.result-badge.win{color:#5acc6a;}
+.result-badge.loss{color:#cc5a5a;}
+.recap-date{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);opacity:0.7;margin-bottom:0.5rem;}
+.recap-matchup{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.04em;color:var(--cream);line-height:1;margin-bottom:0.3rem;}
+.recap-score{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;color:var(--cream);opacity:0.55;margin-bottom:0.75rem;}
+.recap-score .rw{color:#5acc6a;font-weight:500;}
+.recap-score .rl{color:#cc5a5a;font-weight:500;}
+.recap-preview{font-family:'DM Serif Display',serif;font-size:0.88rem;color:var(--cream);opacity:0.55;line-height:1.6;margin-bottom:1rem;}
+.recap-read{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.6;}
 footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(201,168,76,0.06);}
 .foot-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--gold);}
 .foot-logo span{color:var(--cream);opacity:0.3;}
@@ -52,7 +60,7 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
 .foot-links{display:flex;gap:1.25rem;list-style:none;}
 .foot-links a{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.28;text-decoration:none;transition:opacity 0.2s;}
 .foot-links a:hover{opacity:0.75;}
-@media(max-width:700px){.nav-links{display:none;}.article-body p{font-size:1rem;}}
+@media(max-width:700px){.nav-links{display:none;}.recaps-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -69,11 +77,21 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
   </ul>
   <a class="nav-cta" href="https://thebaseballnerd.substack.com" target="_blank">Subscribe →</a>
 </nav>
-
-<div class="article-wrap" id="article-wrap">
-  <div class="not-found">Loading...</div>
+<div class="page-hero-wrap">
+  <div class="page-hero">
+    <div class="page-eyebrow">Game Coverage</div>
+    <div class="page-title">Rangers Recaps</div>
+    <div class="page-desc">Game-by-game coverage of the Texas Rangers. Numbers-first analysis after every game.</div>
+  </div>
 </div>
-
+<div class="wrap">
+  <div class="filter-row">
+    <button class="filter-btn active" onclick="filterRecaps('all',this)">All Games</button>
+    <button class="filter-btn" onclick="filterRecaps('win',this)">Wins</button>
+    <button class="filter-btn" onclick="filterRecaps('loss',this)">Losses</button>
+  </div>
+  <div class="recaps-grid" id="recaps-grid"></div>
+</div>
 <footer>
   <div class="foot-logo">The Baseball <span>Nerd</span></div>
   <div class="foot-copy">© 2026 The Baseball Nerd · Numbers Not Feelings</div>
@@ -89,6 +107,28 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
 
 <script>
 const RECAPS=[{
+  id:'4-10-26-dodgers',
+  date:'April 10, 2026',
+  opponent:'Los Angeles Dodgers',
+  home:false,
+  result:'loss',
+  score:'LAD 8, TEX 7',
+  record:'7-6',
+  preview:"Bullpen meltdown at Dodger Stadium. After Kumar Rocker's five-inning start, three relievers were torched as the Rangers blew a late lead and lost 8-7 on Max Muncy's walk-off homer.",
+  body:`Four Rangers relievers took the mound after Kumar Rocker's five-inning start, and three of them got torched in what became a bullpen meltdown at Dodger Stadium. The pen's collective 5 earned runs across 3.2 innings told the story of a 8-7 loss that slipped away in devastating fashion.
+
+Robert Garcia entered for the sixth and immediately ran into trouble. The right-hander surrendered three hits and walked one in his lone inning of work, with Andy Pages delivering the crushing blow. Pages ripped a two-run double off Garcia that plated Max Muncy and Teoscar Hernández, flipping a 4-3 Rangers lead into a 5-4 deficit. Garcia's inability to keep runners off base set the tone for what followed.
+
+Jalen Beeks provided the only bright spot from the bullpen, working a clean seventh inning despite allowing two hits. His scoreless frame kept the Rangers within striking distance, but the reprieve proved temporary.
+
+Luis Curvelo took over for the eighth and got demolished. Pages ambushed him on just two pitches, launching a center field home run that scored Muncy and extended the Dodgers' lead to 7-4. Curvelo allowed four hits and a walk in his inning, matching Garcia's struggles with men on base. The Venezuelan righty couldn't locate his secondary pitches effectively, leaving too many offerings over the heart of the plate.
+
+The Rangers mounted a stunning ninth-inning rally against Edwin Díaz, scoring three runs to tie the game at 7-7. Evan Carter's two-run homer and Ezequiel Duran's game-tying RBI single off the Dodgers closer gave Texas new life and seemingly rewarded their offensive persistence.
+
+But Jacob Latz couldn't hold the tie. Skip Schumaker's decision to bring in the left-hander for the bottom of the ninth backfired spectacularly when Muncy turned on a 3-pitch sequence and deposited his fourth home run of the night over the right center field wall. Latz struck out two batters around the decisive blast, but the damage was done in just 0.2 innings of work.
+
+The bullpen's collective failure overshadowed solid offensive contributions from Corey Seager's three-run homer and late-game heroics. Garcia, Curvelo, and Latz combined to allow 8 hits and 5 earned runs, proving unable to protect leads or maintain ties when the Rangers needed them most. Their struggles turned what should have been a competitive road victory into another painful lesson about bullpen depth.`
+},{
   id:'4-8-26-mariners',
   date:'April 8, 2026',
   opponent:'Seattle Mariners',
@@ -97,7 +137,7 @@ const RECAPS=[{
   score:'TEX 3, SEA 0',
   record:'7-5',
   preview:"MacKenzie Gore struck out nine over five one-hit innings, and a chaotic fifth-inning rally gave Texas a 3-0 shutout win over Seattle. Attendance: 20,997.",
-  body:"MacKenzie Gore's dominance carried the Rangers through four scoreless innings before the offense finally broke through in a chaotic fifth that decided this pitcher's duel at Globe Life Field. The left-hander carved up Seattle's lineup with nine strikeouts over five innings, allowing just one hit while matching Bryan Woo zero for zero until Texas exploded for three runs in the bottom of the fifth.\n\nThe breakthrough came courtesy of Brandon Nimmo's fielder's choice that turned into a comedy of errors for the Mariners. With runners on the corners, Nimmo's routine grounder should have been an inning-ending double play. Instead, a throwing error by first baseman Connor Joe allowed both Danny Jansen and Josh Smith to cross the plate while Ezequiel Duran advanced to third and Nimmo reached second safely. Two batters later, Corey Seager lifted a sacrifice fly to center field that Julio Rodriguez hauled in, but not before Duran tagged up and scored the third run of the frame.\n\nThat three-run burst was all Gore and the Rangers bullpen needed. The southpaw had been masterful from the first pitch, walking two but otherwise overwhelming Seattle hitters who managed just singles from Mitch Garver and Cole Young across nine innings. Chris Martin, Luis Curvelo, and Cole Winn each contributed scoreless innings to seal the shutout, with Winn earning the save despite allowing the Mariners' second hit of the afternoon.\n\nThe sparse crowd of 20,997 witnessed a clinic in pitching efficiency as both starters worked quickly through the early frames. Woo matched Gore's intensity, scattering five hits over five innings while keeping the Rangers off the board until that fateful fifth. But one defensive miscue unraveled what had been a sterling effort from the Mariners right-hander.\n\nTexas improved to 7-5 on the young season behind Gore's third quality start, while Seattle fell to 4-9 after managing just two hits in 134 minutes of baseball. The Rangers' ability to capitalize on their lone scoring opportunity proved the difference in a game that showcased why pitching depth might be their calling card this season."
+  body:"MacKenzie Gore's dominance carried the Rangers through four scoreless innings before the offense finally broke through in a chaotic fifth that decided this pitcher's duel at Globe Life Field. ..."
 },{
   id:'4-7-26-mariners',
   date:'April 7, 2026',
@@ -107,9 +147,8 @@ const RECAPS=[{
   score:'TEX 3, SEA 2',
   record:'6-5',
   preview:"Kyle Higashioka's two-run homer in the fifth turned a 2-0 deficit into a 3-2 lead the Rangers never gave back. Eovaldi earned his first win of the season. Attendance: 22,411.",
-  body:"Kyle Higashioka's two-run homer in the fifth inning turned a deficit into victory, capping a three-run rally that gave the Rangers their most convincing win in an otherwise tepid start to the season. The veteran catcher's first home run of 2026 came on just his second pitch from George Kirby, a line drive to left center that scored Evan Carter and flipped a 2-1 deficit into a 3-2 lead the Rangers would not relinquish.\n\nSeattle had controlled the game's early rhythm. Brendan Donovan needed just one pitch to solve Nathan Eovaldi in the first inning, turning on a fastball for his third home run of the young season. The Mariners doubled their advantage in the fifth when Cal Raleigh lined a single to center field, scoring Cole Young and pushing Donovan to third base after a three-pitch at-bat that showcased his patience against the Rangers veteran.\n\nBut the bottom of the fifth belonged entirely to Texas. Carter started the comeback with a ground ball single to right field that scored Joc Pederson, cutting the deficit to one run. Two batters later, Higashioka delivered the decisive blow. His line drive carried over the left center field wall, marking the first multi-RBI performance of his Rangers tenure and giving the sparse crowd of 22,411 at Globe Life Field something to celebrate.\n\nEovaldi earned his first victory of the season despite allowing six hits and two earned runs over six innings. The right-hander struck out seven Mariners and walked two, working efficiently through a lineup that had given him trouble early. Jacob Latz provided two scoreless innings of relief, allowing no hits while striking out two. Jakob Junis navigated the ninth for his first save, surrendering two hits but avoiding damage when it mattered most.\n\nKirby absorbed the loss despite eight strong innings for Seattle. The right-hander allowed six hits and three earned runs without issuing a walk, striking out four Rangers hitters. His command remained sharp throughout, but those two crucial pitches to Carter and Higashioka in the fifth inning proved costly.\n\nThe 132-minute game moved at a crisp pace, though the thin attendance reflected ongoing concerns about fan engagement with a Rangers team still trying to find its identity. Corey Seager struck out twice and went hitless in three at-bats, continuing a slow start for the star shortstop."
-},
-{
+  body:""
+},{
   id:'4-6-26-mariners',
   date:'April 6, 2026',
   opponent:'Seattle Mariners',
@@ -118,9 +157,9 @@ const RECAPS=[{
   score:'TEX 2, SEA 1',
   record:'5-5',
   preview:"Jacob deGrom's second start of 2026 delivered five dominant innings, but it was Jake Burger's clutch sixth-inning double that gave Texas a 2-1 win over Seattle at Globe Life Field.",
-  body:"Jacob deGrom's second start of 2026 looked like vintage ace material for five innings, but it was Jake Burger's clutch two-out double in the sixth that delivered the Rangers a 2-1 victory over Seattle on Sunday night at Globe Life Field. The right-hander carved through Seattle's lineup with surgical precision, allowing just one hit while striking out six across five frames. That lone blemish came early when Cal Raleigh won a 12-pitch battle in the first inning, launching a home run to right field that gave the Mariners an immediate 1-0 lead. Beyond that blast, deGrom was untouchable. He walked just one batter and kept Seattle's offense completely off balance with his trademark combination of velocity and command.\n\nTexas answered immediately in the bottom half when Corey Seager delivered a clutch RBI single to right field, scoring Wyatt Langford to knot the game at 1-1. The Rangers had their chances throughout the middle innings against Logan Gilbert, who matched deGrom's effectiveness despite allowing six hits over six innings. Rangers hitters went just 2-for-7 with runners in scoring position and left five men on base, including multiple missed opportunities with two outs. Langford, Burger twice, Evan Carter, and Joc Pederson all came up with runners in scoring position and two outs and couldn't convert.\n\nThe breakthrough finally came in the sixth with two outs and Seager on base. Burger worked a six-pitch at-bat against Gilbert and lined a double to left field, easily scoring the shortstop with what proved to be the decisive run. Danny Jansen contributed to the cause in a different way, successfully challenging a ball call through the ABS system that was overturned to a strike, a small moment that reflects how much the automated ball-strike challenge system has already changed how catchers approach their craft in 2026.\n\nAfter deGrom departed, the Rangers bullpen locked down the final four innings without allowing a run. Jalen Beeks earned the victory with a scoreless sixth, and Tyler Alexander, Cole Winn, Robert Garcia, and Jakob Junis combined to preserve the one-run advantage. Junis worked around traffic in the ninth to secure his first save of the season.\n\nThe 147-minute affair showcased exactly the type of pitching-driven baseball Globe Life Field has become accustomed to early in the season. Gilbert took the loss despite a quality start, while the Rangers improved their record behind another dominant outing from their ace and a lineup that found a way to win despite leaving too many runners stranded."
-},
-{id:'4-5-26-reds',
+  body:""
+},{
+  id:'4-5-26-reds',
   date:'April 5, 2026',
   opponent:'Cincinnati Reds',
   home:true,
@@ -128,7 +167,7 @@ const RECAPS=[{
   score:'CIN 2, TEX 1',
   record:'4-5',
   preview:"One Run. Six hits. Joc Pedersen snapped his 0-for streak with a homerun that tied the game in a true pitcher's duel. That score was immediately changed when Robert Garcia gave up a game winning knock to Elly De La Cruz. The Reds sweep the Rangers at home, and Globe Life Field has no life for the Texas Rangers.",
-  body:"Joc Pederson's seventh-inning blast promised redemption, but Robert Garcia's eighth-inning implosion told a different story entirely. The Rangers reliever faced three batters, walked two, and surrendered the game-deciding hit to Elly De La Cruz in what became a 2-1 loss to Cincinnati that showcased both the promise and peril of Texas' current roster construction.\n\nJack Leiter delivered the kind of performance that explains why the organization remains patient with his development. The right-hander carved through Cincinnati's lineup for five innings, striking out nine while allowing just four hits and one run. His fastball-slider combination looked sharp, particularly against left-handed hitters who went 1-for-8 against him. The lone blemish came in the fourth when Eugenio Suarez found a gap through the middle, plating De La Cruz for the game's first run.\n\nChase Burns matched Leiter's intensity from the Cincinnati side, fanning nine Rangers across six innings. The Reds rookie relied heavily on his curveball, generating 14 whiffs on 28 swings against the breaking ball. Burns' command wavered only briefly in the seventh when he walked Kyle Higashioka before departing for a pinch hitter.\n\nThat's when Pederson seized his moment. The veteran designated hitter turned on Pierce Johnson's first pitch, a hanging slider that caught too much of the zone. The ball carried 412 feet into the right field seats, knotting the game at one and providing Globe Life Field with its loudest moment of a frustratingly quiet afternoon.\n\nThe euphoria lasted exactly one inning. Garcia entered the eighth with a chance to keep the game tied but immediately lost his release point. Matt McLain worked a leadoff walk, advanced to second on a wild pitch, then moved to third when the right-hander issued another free pass. De La Cruz, who had doubled in the second inning, delivered the crushing blow with a sharp grounder past Brandon Nimmo.\n\nChris Martin cleaned up Garcia's mess, retiring four of the five batters he faced, but Brock Burke slammed the door in the ninth with three strikeouts. The Rangers managed just six hits against Cincinnati's bullpen collective, with Corey Seager and Wyatt Langford combining to go 0-for-8 in crucial spots.\n\nGarcia's inability to find the strike zone cost Texas a winnable game and highlighted the bullpen's ongoing inconsistency issues that could define their season trajectory."
+  body:""
 },{
   id:'4-4-26-reds',
   date:'April 4, 2026',
@@ -138,7 +177,7 @@ const RECAPS=[{
   score:'CIN 2, TEX 0',
   record:'4-4',
   preview:"Four hits. Zero runs. That stark equation tells the story of what went wrong for the Rangers in their 2-0 loss to Cincinnati on Saturday night at Globe Life Field.",
-  body:"Four hits. Zero runs. That stark equation tells the story of what went wrong for the Rangers in their 2-0 loss to Cincinnati on Saturday night at Globe Life Field, where a promising lineup fell flat against Reds starter Rhett Lowder and three relievers who made the Rangers' bats look ordinary.\n\nThe damage came early and stayed that way. Elly De La Cruz lined a single to center in the first inning, scoring Matt McLain who had doubled earlier in the frame. Two batters later, Sal Stewart roped another single to right, bringing home De La Cruz for what became the deciding runs. Kumar Rocker surrendered both runs in that opening frame, then settled in to throw five innings while allowing six hits total.\n\nWhat followed was eight innings of offensive futility that had Globe Life Field eerily quiet. The Rangers managed just four singles spread across nine innings, with Corey Seager, Jake Burger, Josh Jung, and Evan Carter each collecting one hit. Nobody reached third base. The closest they came to generating momentum was Carter's pair of walks, giving him three times on base, but the young outfielder was stranded each time.\n\nSeager's contact looked solid but found gloves. Burger worked a walk in the fourth but got picked off first base. Jung's single in the sixth gave the home crowd reason to stir, but Joc Pederson struck out behind him to end the threat. The middle of the order went a combined 2-for-15, with Wyatt Langford particularly struggling in his second spot, fanning three times against Reds pitching.\n\nLowder dominated through six innings, scattering three hits while walking just two Rangers. The right-hander mixed his four-seam fastball with a sharp slider that kept Texas hitters off balance. Graham Ashcraft, Tony Santillan, and closer Emilio Pagan combined for three scoreless innings to finish the shutout.\n\nThe Rangers bullpen actually performed well after Rocker's early struggles. Jalen Beeks, Jacob Latz, Carter Baumler, and Tyler Alexander combined for four scoreless innings, allowing just two hits. But offensive support never materialized. Texas left seven men on base and went 0-for-4 with runners in scoring position, numbers that reflect an attack that never found its rhythm against Cincinnati's staff."
+  body:""
 },{
   id:'4-3-26-reds',
   date:'April 3, 2026',
@@ -148,7 +187,7 @@ const RECAPS=[{
   score:'CIN 5, TEX 3',
   record:'4-3',
   preview:"MacKenzie Gore delivered six strong innings at Globe Life Field, but the bullpen betrayed him when it mattered most.",
-  body:"MacKenzie Gore delivered six strong innings at Globe Life Field, but the bullpen betrayed him when it mattered most. What began as a promising outing dissolved into familiar frustration as the Rangers' relievers couldn't hold a 3-3 tie in the ninth inning of Friday's 5-3 loss to Cincinnati.\n\nGore's dominant performance featured nine strikeouts and zero walks across six frames, surrendering just three earned runs on solo homers to Spencer Steer and Elly De La Cruz. The left-hander attacked the zone aggressively and kept the Reds off balance with his slider-changeup combination. Through 102 pitches, Gore looked sharp and efficient, exactly what manager Skip Schumacher hoped to see in the season's early going.\n\nThe bullpen's script started promisingly enough. Cole Winn entered for the seventh inning and allowed two hits but wiggled out of trouble, striking out one. Jakob Junis followed with a clean eighth inning, recording a strikeout without allowing a baserunner. Both relievers executed their assignments, keeping the game knotted at three runs apiece and setting up what should have been a manageable ninth inning situation.\n\nThen came Chris Martin's nightmare frame. The veteran right-hander crumbled when the Reds needed just two more swings to break the tie. Tyler Stephenson ambushed Martin's first offering and deposited it into the right-center gap for a two-run homer that proved decisive. The sequence was particularly damaging because Steer had reached base moments earlier, turning what could have been a solo shot into a nail-in-coffin two-run blast.\n\nMartin's struggles highlighted a concerning trend for this Rangers bullpen. While Winn and Junis provided adequate middle relief, the backend lacks the consistent dominance championship teams require. Martin entered the season as a key setup option, but his inability to command the strike zone or generate weak contact in crucial moments exposed the fragility of this relief corps.\n\nThe offensive support was minimal but showed flashes of brilliance. Danny Jansen's two-RBI double in the second inning and Wyatt Langford's clutch seventh-inning double gave the Rangers multiple opportunities to seize control. Brandon Nimmo reached base three times, providing the table-setting production the lineup desperately needs. But Corey Seager's 0-for-4 performance with three strikeouts reminded everyone that even the best hitters struggle.\n\nChampionship aspirations rest on four pillars: defense, starting pitching, run production, and relief pitching. Two were present Friday afternoon. The Home Opener's collapse suggests the Rangers still have work to do."
+  body:""
 },{
   id:'4-1-26-orioles',
   date:'April 1, 2026',
@@ -157,8 +196,8 @@ const RECAPS=[{
   result:'loss',
   score:'BAL 9, TEX 4',
   record:'4-2',
-  preview:"Fourth innings have a way of fooling you in baseball.",
-  body:"Fourth innings have a way of fooling you in baseball. When Josh Jung and Ezequiel Duran drove in two runs to tie things at Camden Yards, it felt like Nathan Eovaldi might have found his footing after a shaky start. The veteran right-hander had surrendered four runs through three frames, but the Rangers had clawed back with timely hitting against Trevor Rogers. Maybe this would be different.\n\nIt wasn't. The fifth inning arrived like a sledgehammer.\n\nEovaldi's command, which had been spotty all afternoon, completely abandoned him when he needed it most. Samuel Basallo launched a solo shot to center field, his first big league homer in what might be a breakout season for Baltimore's catching prospect. Two batters later, after Dylan Beavers reached base, Jeremiah Jackson lined an RBI single that made it 6-2. When Taylor Ward lifted a sacrifice fly moments later, the damage was complete. Seven runs allowed through 4.2 innings. Not the kind of outing you expect from a pitcher who finished fourth in Cy Young voting just two seasons ago.\n\nEovaldi's struggles highlighted a concerning trend for Texas early in this season. The 34-year-old's fastball velocity looked fine, sitting in his usual mid-90s range, but his location was off by margins that become canyons at the major league level. His slider, typically a put-away pitch, hung in zones where big league hitters feast. Baltimore's lineup, retooled with Pete Alonso and featuring emerging young talent like Basallo and Beavers, took full advantage.\n\nBeavers particularly stood out, going 3-for-5 with a solo homer in the sixth that put an exclamation point on the rout. The outfielder's bat has been a revelation for an Orioles organization already rich with position player talent.\n\nCorey Seager provided the lone bright spot for Texas with a solo homer in the eighth, his third of the young season. But by then, Rogers had already logged six solid innings for the win, scattering six hits while keeping the Rangers' dangerous middle order largely in check.\n\nThe loss drops Texas to an early hole they'll need to dig out of quickly. When your veteran ace gets shellacked like this, particularly against a division rival building momentum, it stings in ways that go beyond the box score."
+  preview:"Fourth innings have a way of fooling you in baseball. When Josh Jung and Ezequiel Duran drove in two runs to tie things at Camden Yards, it felt like Nathan Eovaldi might have found his footing after a shaky start.",
+  body:""
 },{
   id:'3-31-26-orioles',
   date:'March 31, 2026',
@@ -167,8 +206,8 @@ const RECAPS=[{
   result:'win',
   score:'TEX 6, BAL 4',
   record:'4-1',
-  preview:"Sometimes the most telling moment in a baseball game happens when everything appears secure.",
-  body:"Sometimes the most telling moment in a baseball game happens when everything appears secure. Chris Martin entered the ninth inning with a four-run cushion, the kind of lead that should make closing duties feel routine. Instead, Camden Yards witnessed exactly why no advantage feels safe in modern baseball.\n\nMartin surrendered a two-run double to Taylor Ward that cut the Rangers' lead in half, transforming what looked like a comfortable victory into something requiring actual attention. The veteran closer escaped without further damage, but not before reminding everyone that Baltimore's offense remains capable of late-inning theatrics even in a losing effort.\n\nThe drama felt appropriate for a game that never quite settled into predictable rhythms. Jacob deGrom pitched like someone still working back from injury concerns, lasting just 4.2 innings despite striking out seven. His command looked sharp enough, but the Orioles made consistent contact when they needed to. Pete Alonso's fourth-inning homer tied the game at one, and Gunnar Henderson's two-run double in the fifth briefly gave Baltimore a lead.\n\nWhat separated these teams was depth, both offensive and bullpen. Danny Jansen provided the decisive blow with a three-run homer in the seventh that gave Texas breathing room they thought they wouldn't need. The veteran catcher's blast came at the perfect moment, capitalizing on Baltimore's decision to stick with Yaramil Hiraldo perhaps one batter too long.\n\nCorey Seager delivered the kind of performance that justifies his contract extension, collecting two hits including a solo homer in the ninth that ultimately provided the winning margin. His ability to impact games both early and late has become a signature trait.\n\nCole Winn earned the victory with 1.1 innings of scoreless relief. His presence allowed manager Bruce Bochy to navigate deGrom's early exit without overextending the bullpen's key arms.\n\nWard finished 4-for-5 for Baltimore, a performance that deserved a better outcome. The Rangers improved their early-season record while learning that comfortable leads require constant vigilance."
+  preview:"Sometimes the most telling moment in a baseball game happens when everything appears secure. Chris Martin entered the ninth inning with a four-run cushion, the kind of lead that should make closing duties feel routine.",
+  body:""
 },{
   id:'3-30-26-orioles',
   date:'March 30, 2026',
@@ -177,8 +216,8 @@ const RECAPS=[{
   result:'win',
   score:'TEX 5, BAL 2',
   record:'3-1',
-  preview:"Camden Yards witnessed Jack Leiter's finest outing of the young season Sunday afternoon.",
-  body:"Camden Yards witnessed Jack Leiter's finest outing of the young season Sunday afternoon, as the Rangers' right-hander carved up Baltimore's lineup for eight strikeouts across six innings in a 5-2 victory. The second-year starter found his command early and never wavered, allowing just five hits while walking one in what amounted to a statement performance against an improved Orioles club.\n\nThe game's trajectory shifted decisively in the second inning after Gunnar Henderson's solo homer had knotted things at one apiece. Texas erupted for three runs against Chris Bassitt, who struggled with his location throughout an abbreviated 4.1-inning start. Brandon Nimmo drove home the go-ahead run with a ground ball single to right, scoring Evan Carter from second base. Jake Burger followed with another RBI single, this one a line drive that plated Kyle Higashioka. Joc Pederson capped the rally with a sacrifice fly to left, giving the Rangers a 4-1 advantage they wouldn't relinquish.\n\nBurger emerged as the offensive catalyst, collecting two hits and two RBIs while scoring once. Nimmo contributed two hits of his own, scoring twice and driving in a run from the leadoff spot.\n\nThe Orioles managed to scratch across another run in the fifth when Henderson delivered his second RBI of the afternoon, a ground ball single that scored Colton Cowser. But that marked their final breakthrough against Leiter, who induced weak contact and dominated the strike zone when protection was needed.\n\nJosh Smith provided insurance in the ninth inning with a clutch RBI single off Tyler Wells. The Rangers bullpen handled the final three frames without incident, with Tyler Alexander earning his first save of the season by retiring the side in order during the ninth."
+  preview:"Camden Yards witnessed Jack Leiter's finest outing of the young season Sunday afternoon, as the Rangers' right-hander carved up Baltimore's lineup for eight strikeouts across six innings.",
+  body:""
 },{
   id:'3-29-26-phillies',
   date:'March 29, 2026',
@@ -187,8 +226,8 @@ const RECAPS=[{
   result:'win',
   score:'TEX 8, PHI 3',
   record:'2-1',
-  preview:"Andrew McCutchen's three-run blast in the fourth inning turned a methodical Rangers victory into a rout.",
-  body:"Andrew McCutchen's three-run blast in the fourth inning turned a methodical Rangers victory into a rout, capping a commanding road performance that saw Texas dismantle Philadelphia 8-3 at Citizens Bank Park. The veteran designated hitter's towering drive to left field broke open what had been a tight contest and provided the cushion MacKenzie Gore needed to work through his occasional control issues.\n\nGore earned his first win of the season despite walking three batters over 5.1 innings, striking out seven Phillies while allowing just two hits. The left-hander looked sharp early, carrying a no-hitter into the fifth before Philadelphia finally broke through in the sixth. His ability to limit hard contact proved more valuable than pristine command.\n\nThe Rangers built their lead gradually before McCutchen's explosion. Brandon Nimmo opened the scoring in the third with a two-run homer that brought home Sam Haggerty. Luzardo, making his Philadelphia debut after an offseason trade, couldn't find his rhythm against a patient Rangers lineup. The southpaw surrendered six earned runs over six innings, struggling particularly with his slider command in key situations. McCutchen's three-run shot came on a hanging breaking ball that never had a chance once it left the bat.\n\nTexas added insurance runs in the seventh when Ezequiel Duran doubled home Evan Carter and later scored on a Corey Seager sacrifice fly. Philadelphia's offense sputtered against Gore and the Texas bullpen. Bryce Harper walked twice but never found a pitch to drive, while Trea Turner went hitless in four at-bats.\n\nThe victory marked an encouraging start for a Rangers rotation that enters 2026 with questions. Gore's performance suggested he might provide more stability than expected, particularly if his strikeout rate holds up over a full season."
+  preview:"Andrew McCutchen's three-run blast in the fourth inning turned a methodical Rangers victory into a rout, capping a commanding road performance that saw Texas dismantle Philadelphia 8-3 at Citizens Bank Park.",
+  body:""
 },{
   id:'3-28-26-phillies',
   date:'March 28, 2026',
@@ -198,7 +237,7 @@ const RECAPS=[{
   score:'TEX 4, PHI 3 (10)',
   record:'1-1',
   preview:"Late-inning collapses have haunted this Rangers franchise for years, but Friday night at Citizens Bank Park showcased something different entirely.",
-  body:"Late-inning collapses have haunted this Rangers franchise for years, but Friday night at Citizens Bank Park showcased something different entirely. A team that watched a commanding 3-0 lead evaporate in the ninth inning found a way to regroup and deliver when the stakes peaked in extras.\n\nThe initial script looked familiar enough. Corey Seager launched a solo shot in the first, his swing as smooth as ever in the early spring air. Jake Burger followed with a two-run blast in the third that scored Brandon Nimmo and gave Texas what felt like a comfortable cushion. Aaron Nola was laboring through his pitch count, and Jacob Latz was carving through Philadelphia's lineup with surgical precision through four scoreless frames.\n\nThen came the ninth inning meltdown that would have defined previous Rangers seasons. Robert Garcia and Chris Martin combined to surrender three runs in the frame, watching Philadelphia scratch and claw back from the dead. Adolis Garcia, wearing Phillies red now, doubled home Alec Bohm before Brandon Marsh delivered the knockout punch with a two-run single that silenced the visiting dugout.\n\nBut this Rangers group refused to fold. Andrew McCutchen stepped up in the tenth with runners in scoring position. His ground ball single to left looked routine off the bat, but it carried the weight of a franchise trying to prove its mental toughness. Langford scored easily, and suddenly Texas held the lead again.\n\nTyler Alexander buckled down, inducing a critical strikeout to end the threat and secure his first save of the season. Sometimes winning requires surviving your worst moments, then finding just enough left in the tank when everything hangs in the balance."
+  body:""
 },{
   id:'3-26-26-phillies',
   date:'March 26, 2026',
@@ -207,49 +246,25 @@ const RECAPS=[{
   result:'loss',
   score:'PHI 5, TEX 3',
   record:'0-1',
-  preview:"Too little, too late. That cruel baseball cliche played out in vivid detail at Citizens Bank Park.",
-  body:"Too little, too late. That cruel baseball cliche played out in vivid detail at Citizens Bank Park as the Rangers mounted a frantic ninth-inning rally that fell just short of erasing eight innings of offensive futility.\n\nFor 24 outs, Cristopher Sanchez and the Philadelphia bullpen made Rangers hitters look like they were swinging underwater. Sanchez carved through the Texas lineup with surgical precision, retiring 18 of 20 batters while striking out 10. The left-hander's changeup buckled knees and induced weak contact, leaving Rangers runners stranded in the few moments they managed to reach base. Through eight frames, the visitors had managed just three hits and looked completely overmatched.\n\nThen the ninth inning happened. With Philadelphia closer Kyle Backhus on the mound protecting a five-run cushion, everything unraveled in spectacular fashion. Jake Burger launched a two-run homer to left center, cutting the deficit to 5-2. Danny Jansen followed with an RBI single that scored Kyle Higashioka and suddenly made it a two-run game.\n\nBurger's blast came on a 1-0 fastball that he turned on with authority. Jansen's clutch hit with two outs showed the situational hitting that championship teams require. But Jhoan Duran entered and struck out the final batter to strand the tying run at second base.\n\nNathan Eovaldi's struggles set the tone early and often. The veteran right-hander allowed eight hits in 4.2 innings, including Kyle Schwarber's first-inning two-run homer and Alec Bohm's crushing three-run blast in the fifth that effectively decided the contest.\n\nThe loss highlighted familiar concerns about offensive consistency. Beyond Burger's heroics and Seager's two-hit effort, the Rangers managed little sustained pressure. Wyatt Langford struck out twice, continuing early-season struggles that bear monitoring as camp progresses."
+  preview:"Too little, too late. That cruel baseball cliche played out in vivid detail at Citizens Bank Park as the Rangers mounted a frantic ninth-inning rally that fell just short.",
+  body:""
 }];
 
-function getParam(name){return new URLSearchParams(window.location.search).get(name);}
-
-function render(){
-  const id=getParam('id');
-  const recap=RECAPS.find(r=>r.id===id);
-  const wrap=document.getElementById('article-wrap');
-  if(!recap){
-    wrap.innerHTML='<div class="not-found">Recap not found. <a href="recaps.html" style="color:var(--gold);">Back to recaps →</a></div>';
-    return;
-  }
-  // Update title and meta for SEO on each specific recap
-  const vsAt = recap.home ? 'vs' : 'at';
-  document.title = recap.date + ' Rangers ' + vsAt + ' ' + recap.opponent + ' Recap — The Baseball Nerd';
-  const metaDesc = document.querySelector('meta[name="description"]');
-  if(metaDesc) metaDesc.setAttribute('content',
-    'Rangers ' + vsAt + ' ' + recap.opponent + ' ' + recap.date + ': ' + recap.score +
-    ' — ' + recap.preview.slice(0,120) + ' Full analytics and box score breakdown on The Baseball Nerd.'
-  );
-  const ogTitle = document.querySelector('meta[property="og:title"]');
-  if(ogTitle) ogTitle.setAttribute('content', 'Rangers ' + vsAt + ' ' + recap.opponent + ' — ' + recap.score);
-  const ogDesc = document.querySelector('meta[property="og:description"]');
-  if(ogDesc) ogDesc.setAttribute('content', recap.preview.slice(0,200));
-  const canonical = document.querySelector('link[rel="canonical"]');
-  if(canonical) canonical.setAttribute('href', 'https://thebaseballnerd.com/recap.html?id=' + recap.id);
-  const paragraphs=recap.body.split('\n\n').map(p=>'<p>'+p+'</p>').join('');
-  wrap.innerHTML=`
-    <a class="back-link" href="recaps.html">← All recaps</a>
-    <div class="article-eyebrow">Rangers Recap</div>
-    <div class="article-title">Rangers ${recap.home?'vs':'at'} ${recap.opponent}</div>
-    <div class="article-meta">
-      <div class="meta-item">${recap.date}</div>
-      <div class="meta-result ${recap.result}">${recap.result==='win'?'W':'L'} · ${recap.score}</div>
-      <div class="meta-item">Record: ${recap.record}</div>
-    </div>
-    <div class="article-body">${paragraphs}</div>
-    <div class="article-nav"><a href="recaps.html">← Back to all recaps</a></div>`;
+let activeFilter='all';
+function filterRecaps(f,btn){activeFilter=f;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderRecaps();}
+function renderRecaps(){
+  const list=activeFilter==='all'?RECAPS:RECAPS.filter(r=>r.result===activeFilter);
+  document.getElementById('recaps-grid').innerHTML=list.map(r=>`
+    <a class="recap-card" href="recap.html?id=${r.id}">
+      <div class="result-badge ${r.result}">${r.result==='win'?'W':'L'}</div>
+      <div class="recap-date">${r.date} · ${r.home?'vs':'at'} ${r.opponent}</div>
+      <div class="recap-matchup">Rangers ${r.home?'vs':'at'} ${r.opponent.split(' ').pop()}</div>
+      <div class="recap-score"><span class="${r.result==='win'?'rw':'rl'}">${r.result==='win'?'W':'L'}</span>&nbsp;${r.score}&nbsp;·&nbsp;${r.record}</div>
+      <div class="recap-preview">${r.preview}</div>
+      <div class="recap-read">Read recap →</div>
+    </a>`).join('');
 }
-
-render();
+renderRecaps();
 </script>
 </body>
 </html>
