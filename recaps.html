@@ -39,7 +39,6 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem
 .filter-btn{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border:1px solid rgba(245,240,232,0.12);background:transparent;color:var(--cream);opacity:0.45;cursor:pointer;transition:all 0.15s;}
 .filter-btn.active{border-color:var(--gold);color:var(--gold);opacity:1;}
 .filter-btn:hover:not(.active){opacity:0.75;}
-.recaps-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem;}
 .recap-card{background:var(--navy-mid);border:1px solid rgba(201,168,76,0.1);padding:1.5rem;text-decoration:none;display:block;color:inherit;position:relative;overflow:hidden;transition:border-color 0.2s,transform 0.15s;}
 .recap-card:hover{border-color:rgba(201,168,76,0.4);transform:translateY(-2px);}
 .recap-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--gold);transition:height 0.3s;}
@@ -105,8 +104,31 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
     <li><a href="about.html">About</a></li>
   </ul>
 </footer>
+
 <script>
 const RECAPS=[{
+  id:'4-10-26-dodgers',
+  date:'April 10, 2026',
+  opponent:'Los Angeles Dodgers',
+  home:false,
+  result:'loss',
+  score:'LAD 8, TEX 7',
+  record:'7-6',
+  preview:"Bullpen meltdown at Dodger Stadium. After Kumar Rocker's five-inning start, three relievers were torched as the Rangers blew a late lead and lost 8-7 on Max Muncy's walk-off homer.",
+  body:`Four Rangers relievers took the mound after Kumar Rocker's five-inning start, and three of them got torched in what became a bullpen meltdown at Dodger Stadium. The pen's collective 5 earned runs across 3.2 innings told the story of a 8-7 loss that slipped away in devastating fashion.
+
+Robert Garcia entered for the sixth and immediately ran into trouble. The right-hander surrendered three hits and walked one in his lone inning of work, with Andy Pages delivering the crushing blow. Pages ripped a two-run double off Garcia that plated Max Muncy and Teoscar Hernández, flipping a 4-3 Rangers lead into a 5-4 deficit. Garcia's inability to keep runners off base set the tone for what followed.
+
+Jalen Beeks provided the only bright spot from the bullpen, working a clean seventh inning despite allowing two hits. His scoreless frame kept the Rangers within striking distance, but the reprieve proved temporary.
+
+Luis Curvelo took over for the eighth and got demolished. Pages ambushed him on just two pitches, launching a center field home run that scored Muncy and extended the Dodgers' lead to 7-4. Curvelo allowed four hits and a walk in his inning, matching Garcia's struggles with men on base. The Venezuelan righty couldn't locate his secondary pitches effectively, leaving too many offerings over the heart of the plate.
+
+The Rangers mounted a stunning ninth-inning rally against Edwin Díaz, scoring three runs to tie the game at 7-7. Evan Carter's two-run homer and Ezequiel Duran's game-tying RBI single off the Dodgers closer gave Texas new life and seemingly rewarded their offensive persistence.
+
+But Jacob Latz couldn't hold the tie. Skip Schumaker's decision to bring in the left-hander for the bottom of the ninth backfired spectacularly when Muncy turned on a 3-pitch sequence and deposited his fourth home run of the night over the right center field wall. Latz struck out two batters around the decisive blast, but the damage was done in just 0.2 innings of work.
+
+The bullpen's collective failure overshadowed solid offensive contributions from Corey Seager's three-run homer and late-game heroics. Garcia, Curvelo, and Latz combined to allow 8 hits and 5 earned runs, proving unable to protect leads or maintain ties when the Rangers needed them most. Their struggles turned what should have been a competitive road victory into another painful lesson about bullpen depth.`
+},{
   id:'4-8-26-mariners',
   date:'April 8, 2026',
   opponent:'Seattle Mariners',
@@ -115,7 +137,7 @@ const RECAPS=[{
   score:'TEX 3, SEA 0',
   record:'7-5',
   preview:"MacKenzie Gore struck out nine over five one-hit innings, and a chaotic fifth-inning rally gave Texas a 3-0 shutout win over Seattle. Attendance: 20,997.",
-  body:"MacKenzie Gore's dominance carried the Rangers through four scoreless innings before the offense finally broke through in a chaotic fifth that decided this pitcher's duel at Globe Life Field. The left-hander carved up Seattle's lineup with nine strikeouts over five innings, allowing just one hit while matching Bryan Woo zero for zero until Texas exploded for three runs in the bottom of the fifth.\n\nThe breakthrough came courtesy of Brandon Nimmo's fielder's choice that turned into a comedy of errors for the Mariners. With runners on the corners, Nimmo's routine grounder should have been an inning-ending double play. Instead, a throwing error by first baseman Connor Joe allowed both Danny Jansen and Josh Smith to cross the plate while Ezequiel Duran advanced to third and Nimmo reached second safely. Two batters later, Corey Seager lifted a sacrifice fly to center field that Julio Rodriguez hauled in, but not before Duran tagged up and scored the third run of the frame.\n\nThat three-run burst was all Gore and the Rangers bullpen needed. The southpaw had been masterful from the first pitch, walking two but otherwise overwhelming Seattle hitters who managed just singles from Mitch Garver and Cole Young across nine innings. Chris Martin, Luis Curvelo, and Cole Winn each contributed scoreless innings to seal the shutout, with Winn earning the save despite allowing the Mariners' second hit of the afternoon.\n\nThe sparse crowd of 20,997 witnessed a clinic in pitching efficiency as both starters worked quickly through the early frames. Woo matched Gore's intensity, scattering five hits over five innings while keeping the Rangers off the board until that fateful fifth. But one defensive miscue unraveled what had been a sterling effort from the Mariners right-hander.\n\nTexas improved to 7-5 on the young season behind Gore's third quality start, while Seattle fell to 4-9 after managing just two hits in 134 minutes of baseball. The Rangers' ability to capitalize on their lone scoring opportunity proved the difference in a game that showcased why pitching depth might be their calling card this season."
+  body:"MacKenzie Gore's dominance carried the Rangers through four scoreless innings before the offense finally broke through in a chaotic fifth that decided this pitcher's duel at Globe Life Field. ..."
 },{
   id:'4-7-26-mariners',
   date:'April 7, 2026',
