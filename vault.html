@@ -109,21 +109,13 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
  *  updated, rows, and url (Google Sheets share link)
  * ================================================
  */
-const VAULT = [{ 
-  tag:'analytics', 
-  type:'Analytics', 
-  title:'2026 Early Season Pitching Leaders', 
-  desc:'FanGraphs leaderboard analysis through April 12, 2026. Top performers by ERA, WAR, K/BB, and Statcast metrics for qualified starting pitchers.', 
-  updated:'Apr 12, 2026', 
-  rows:'88 pitchers · 10+ IP', 
-  num:'06', 
-  url:'pitching-analysis-2026.html' 
-}
-  { tag:'team',      type:'Team',      title:'2026 Spring Training Cost-Per-Event Analysis', desc:'A breakdown of cost-per-event metrics across spring training 2026 — evaluating value and performance efficiency heading into the regular season.', updated:'Mar 2026',     rows:'2026 Season',    num:'01', url:'https://docs.google.com/spreadsheets/d/1N4F0v3sh9YFtYM_XztlszGXOZymw_Vf9liWUulIPBBs/edit?usp=sharing' },
-  { tag:'analytics', type:'Analytics', title:'World Series WAR Analysis 1999-2025',          desc:'Every MLB team ranked by fWAR, bWAR, and WARP from 1999 through 2025. Cross-referenced with playoff results and World Series winners across 26 seasons.', updated:'Mar 2026', rows:'811 rows · 26 seasons', num:'02', url:'https://docs.google.com/spreadsheets/d/1_yrP3V8LIRErC_QzYemd_gIHdELCZRxH/edit?usp=sharing' },
- { tag:'team',       type:'Team',      title:'2026 Texas Rangers Depth Charts',              desc:'Full 2025 Rangers depth charts across every position — roster construction, lineup projections, and organizational depth at each spot.',                  updated:'2025',     rows:'Rangers only',          num:'03', url:'https://docs.google.com/spreadsheets/d/1laiQpoMrJA0-jtpqGZB6ViZVUqFd_0yF/edit?usp=sharing' },
- { tag:'team', type:'Team', title:'Texas Rangers Box Scores — 2026 Spring Training', desc:'Game-by-game box scores for the Texas Rangers through the 2026 spring training schedule.', updated:'Mar 17, 2026', rows:'2026 Season', num:'04', url:'https://docs.google.com/spreadsheets/d/10-B6iMmjPY3Rz1d7JrXy_Mvgpwg_szVF/edit?usp=sharing' },
-{ tag:'analytics', type:'Analytics', title:'2026 World Baseball Classic Position Player Stats', desc:'Complete position player statistics from the 2026 World Baseball Classic. Full batting lines across all participating countries and tournament rounds.', updated:'Mar 2026', rows:'2026 WBC', num:'05', url:'https://docs.google.com/spreadsheets/d/19MuVVxHLBGhSth31W_NS5YRkm1idHvhE/edit?usp=sharing' },
+const VAULT = [
+  { tag:'analytics', type:'Analytics', title:'2026 Early Season Pitching Leaders', desc:'FanGraphs leaderboard analysis through April 12, 2026. Top performers by ERA, WAR, K/BB, and Statcast metrics for qualified starting pitchers.', updated:'Apr 12, 2026', rows:'88 pitchers · 10+ IP', num:'06', url:'pitching-analysis-2026.html' },
+  { tag:'team', type:'Team', title:'2026 Spring Training Cost-Per-Event Analysis', desc:'A breakdown of cost-per-event metrics across spring training 2026 — evaluating value and performance efficiency heading into the regular season.', updated:'Mar 2026', rows:'2026 Season', num:'01', url:'https://docs.google.com/spreadsheets/d/1N4F0v3sh9YFtYM_XztlszGXOZymw_Vf9liWUulIPBBs/edit?usp=sharing' },
+  { tag:'analytics', type:'Analytics', title:'World Series WAR Analysis 1999-2025', desc:'Every MLB team ranked by fWAR, bWAR, and WARP from 1999 through 2025. Cross-referenced with playoff results and World Series winners across 26 seasons.', updated:'Mar 2026', rows:'811 rows · 26 seasons', num:'02', url:'https://docs.google.com/spreadsheets/d/1_yrP3V8LIRErC_QzYemd_gIHdELCZRxH/edit?usp=sharing' },
+  { tag:'team', type:'Team', title:'2026 Texas Rangers Depth Charts', desc:'Full 2025 Rangers depth charts across every position — roster construction, lineup projections, and organizational depth at each spot.', updated:'2025', rows:'Rangers only', num:'03', url:'https://docs.google.com/spreadsheets/d/1laiQpoMrJA0-jtpqGZB6ViZVUqFd_0yF/edit?usp=sharing' },
+  { tag:'team', type:'Team', title:'Texas Rangers Box Scores — 2026 Spring Training', desc:'Game-by-game box scores for the Texas Rangers through the 2026 spring training schedule.', updated:'Mar 17, 2026', rows:'2026 Season', num:'04', url:'https://docs.google.com/spreadsheets/d/10-B6iMmjPY3Rz1d7JrXy_Mvgpwg_szVF/edit?usp=sharing' },
+  { tag:'analytics', type:'Analytics', title:'2026 World Baseball Classic Position Player Stats', desc:'Complete position player statistics from the 2026 World Baseball Classic. Full batting lines across all participating countries and tournament rounds.', updated:'Mar 2026', rows:'2026 WBC', num:'05', url:'https://docs.google.com/spreadsheets/d/19MuVVxHLBGhSth31W_NS5YRkm1idHvhE/edit?usp=sharing' },
 ];
 
 function renderVault(f){
