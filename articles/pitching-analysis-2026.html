@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/favicon.png">
+<title>2026 Pitching Analysis — The Baseball Nerd</title>
+<meta name="description" content="Early season 2026 MLB pitching leaders and analysis from FanGraphs data.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--navy:#0a1628;--navy-mid:#112040;--navy-light:#1a2f50;--gold:#c9a84c;--gold-light:#e8c97a;--cream:#f5f0e8;}
+body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--cream);min-height:100vh;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 2rem;background:rgba(10,22,40,0.97);border-bottom:1px solid rgba(201,168,76,0.15);position:sticky;top:0;z-index:100;}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.08em;color:var(--gold);text-decoration:none;}
+.nav-logo span{color:var(--cream);opacity:0.45;}
+.nav-links{display:flex;gap:0;list-style:none;}
+.nav-links a{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.45;text-decoration:none;padding:0.4rem 0.9rem;display:block;transition:opacity 0.15s,color 0.15s;}
+.nav-links a:hover{opacity:1;color:var(--gold);}
+.nav-links a.active{opacity:1;color:var(--gold);border-bottom:1px solid var(--gold);}
+.nav-cta{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1rem;background:var(--gold);color:var(--navy);border:none;cursor:pointer;font-weight:500;text-decoration:none;transition:background 0.2s;}
+.nav-cta:hover{background:var(--gold-light);}
+.page-hero-wrap{border-bottom:1px solid rgba(201,168,76,0.08);}
+.page-hero{max-width:1100px;margin:0 auto;padding:2rem 2rem 1.75rem;}
+.page-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;display:flex;align-items:center;gap:0.5rem;}
+.page-eyebrow::before{content:'';display:inline-block;width:1rem;height:1px;background:var(--gold);}
+.page-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);letter-spacing:0.04em;color:var(--cream);line-height:1;}
+.page-desc{font-size:0.88rem;color:var(--cream);opacity:0.45;margin-top:0.65rem;max-width:520px;line-height:1.7;}
+.wrap{max-width:1100px;margin:0 auto;padding:2rem 2rem 3rem;}
+.section{background:var(--navy-mid);border:1px solid rgba(201,168,76,0.1);padding:1.5rem;margin-bottom:1.5rem;position:relative;}
+.section::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);opacity:0.3;}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.05em;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
+.section-title::after{content:'';flex:1;height:1px;background:rgba(201,168,76,0.15);}
+.player-row{display:flex;justify-content:space-between;align-items:center;padding:0.75rem 0;border-bottom:1px solid rgba(245,240,232,0.06);transition:background 0.15s;}
+.player-row:hover{background:rgba(201,168,76,0.03);}
+.player-row:last-child{border-bottom:none;}
+.player-left{display:flex;align-items:center;gap:0.75rem;}
+.player-rank{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--gold);opacity:0.4;min-width:1.5rem;}
+.player-name{font-family:'DM Serif Display',serif;font-size:0.95rem;color:var(--cream);}
+.player-team{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;color:var(--cream);opacity:0.35;letter-spacing:0.05em;}
+.player-right{text-align:right;}
+.player-stat{font-family:'IBM Plex Mono',monospace;font-size:0.9rem;color:var(--gold);font-weight:500;}
+.player-meta{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;color:var(--cream);opacity:0.3;margin-top:0.15rem;}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(480px,1fr));gap:1.5rem;}
+.data-note{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;text-align:center;color:var(--cream);opacity:0.25;margin-top:2rem;letter-spacing:0.05em;}
+footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(201,168,76,0.06);margin-top:3rem;}
+.foot-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--gold);}
+.foot-logo span{color:var(--cream);opacity:0.3;}
+.foot-copy{font-family:'IBM Plex Mono',monospace;font-size:0.57rem;letter-spacing:0.08em;color:var(--cream);opacity:0.18;text-transform:uppercase;}
+.foot-links{display:flex;gap:1.25rem;list-style:none;}
+.foot-links a{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.28;text-decoration:none;transition:opacity 0.2s;}
+.foot-links a:hover{opacity:0.75;}
+@media(max-width:1100px){.grid-2{grid-template-columns:1fr;}}
+@media(max-width:700px){.nav-links{display:none;}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">The Baseball <span>Nerd</span></a>
+  <ul class="nav-links">
+    <li><a href="news.html">News</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="recaps.html">Recaps</a></li>
+    <li><a href="rosters.html">Rosters</a></li>
+    <li><a href="podcasts.html">Podcasts</a></li>
+    <li><a href="vault.html" class="active">Vault</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a class="nav-cta" href="https://thebaseballnerd.substack.com" target="_blank">Subscribe →</a>
+</nav>
+<div class="page-hero-wrap">
+  <div class="page-hero">
+    <div class="page-eyebrow">Data Vault Analysis</div>
+    <div class="page-title">2026 Pitching Leaders</div>
+    <div class="page-desc">Early season analysis through April 12, 2026. Minimum 10 IP for qualified leaders.</div>
+  </div>
+</div>
+<div class="wrap" id="app"></div>
+<footer>
+  <div class="foot-logo">The Baseball <span>Nerd</span></div>
+  <div class="foot-copy">© 2026 The Baseball Nerd · Numbers Not Feelings</div>
+  <ul class="foot-links">
+    <li><a href="news.html">News</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="recaps.html">Recaps</a></li>
+    <li><a href="rosters.html">Rosters</a></li>
+    <li><a href="podcasts.html">Podcasts</a></li>
+    <li><a href="vault.html">Vault</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+</footer>
+<script>
+// EMBEDDED DATA - Just paste your FanGraphs CSV export data here when you update
+// To update: Export from FanGraphs, copy/paste the raw CSV text between the backticks
+
+const PITCHER_DATA = [
+  {name:""Cam Schlittler"",team:""NYY"",ip:16.2,era:1.62,war:1.0,fip:0.48,kbb:22.00,kpct:0.4,bbpct:0.0,hardHit:0.4,barrel:0.1,xERA:1.45},
+  {name:""Sandy Alcantara"",team:""MIA"",ip:24.1,era:0.74,war:0.9,fip:2.26,kbb:4.50,kpct:0.2,bbpct:0.0,hardHit:0.3,barrel:0.0,xERA:1.36},
+  {name:""Max Fried"",team:""NYY"",ip:28,era:1.93,war:0.9,fip:2.44,kbb:4.00,kpct:0.2,bbpct:0.0,hardHit:0.3,barrel:0.0,xERA:2.49},
+  {name:""Cristopher Sánchez"",team:""PHI"",ip:16.1,era:1.65,war:0.8,fip:1.04,kbb:5.75,kpct:0.3,bbpct:0.1,hardHit:0.5,barrel:0.2,xERA:3.14},
+  {name:""Kevin Gausman"",team:""TOR"",ip:17.1,era:2.08,war:0.8,fip:1.22,kbb:13.00,kpct:0.4,bbpct:0.0,hardHit:0.3,barrel:0.1,xERA:1.76},
+  {name:""Taj Bradley"",team:""MIN"",ip:16.2,era:1.08,war:0.7,fip:1.56,kbb:5.50,kpct:0.3,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:3.13},
+  {name:""Braxton Ashcraft"",team:""PIT"",ip:17,era:2.12,war:0.7,fip:1.65,kbb:4.00,kpct:0.3,bbpct:0.1,hardHit:0.4,barrel:0.0,xERA:2.40},
+  {name:""Ryan Weathers"",team:""NYY"",ip:16,era:2.81,war:0.7,fip:1.81,kbb:3.60,kpct:0.3,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:5.05},
+  {name:""Bryan Woo"",team:""SEA"",ip:18,era:1.50,war:0.7,fip:2.06,kbb:4.25,kpct:0.3,bbpct:0.1,hardHit:0.4,barrel:0.0,xERA:1.94},
+  {name:""Jeffrey Springs"",team:""ATH"",ip:18.1,era:1.47,war:0.7,fip:2.46,kbb:2.50,kpct:0.2,bbpct:0.1,hardHit:0.3,barrel:0.0,xERA:2.19},
+  {name:""Joe Ryan"",team:""MIN"",ip:21.1,era:3.80,war:0.6,fip:2.79,kbb:3.67,kpct:0.3,bbpct:0.1,hardHit:0.3,barrel:0.1,xERA:3.05},
+  {name:""Trevor Rogers"",team:""BAL"",ip:19,era:1.89,war:0.6,fip:2.59,kbb:2.80,kpct:0.2,bbpct:0.1,hardHit:0.3,barrel:0.0,xERA:2.36},
+  {name:""Dylan Cease"",team:""TOR"",ip:14.2,era:2.45,war:0.6,fip:1.62,kbb:2.89,kpct:0.4,bbpct:0.1,hardHit:0.2,barrel:0.0,xERA:2.92},
+  {name:""Emerson Hancock"",team:""SEA"",ip:17.2,era:2.04,war:0.6,fip:2.38,kbb:6.33,kpct:0.3,bbpct:0.0,hardHit:0.3,barrel:0.1,xERA:2.37},
+  {name:""Landen Roupp"",team:""SFG"",ip:16.2,era:3.24,war:0.6,fip:1.86,kbb:3.60,kpct:0.3,bbpct:0.1,hardHit:0.3,barrel:0.0,xERA:2.35},
+  {name:""Sean Burke"",team:""CHW"",ip:15,era:3.60,war:0.6,fip:1.92,kbb:5.00,kpct:0.2,bbpct:0.0,hardHit:0.4,barrel:0.0,xERA:3.19},
+  {name:""Shota Imanaga"",team:""CHC"",ip:16,era:2.81,war:0.6,fip:2.18,kbb:5.00,kpct:0.3,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:2.68},
+  {name:""José Soriano"",team:""LAA"",ip:20,era:0.45,war:0.5,fip:2.57,kbb:3.50,kpct:0.3,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:2.85},
+  {name:""Seth Lugo"",team:""KCR"",ip:17.2,era:1.53,war:0.5,fip:2.55,kbb:2.33,kpct:0.2,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:4.83},
+  {name:""Tarik Skubal"",team:""DET"",ip:17.2,era:2.55,war:0.5,fip:2.38,kbb:8.00,kpct:0.2,bbpct:0.0,hardHit:0.4,barrel:0.1,xERA:4.36},
+  {name:""Logan Gilbert"",team:""SEA"",ip:16.2,era:5.40,war:0.5,fip:2.28,kbb:6.00,kpct:0.3,bbpct:0.0,hardHit:0.5,barrel:0.1,xERA:2.31},
+  {name:""Michael Wacha"",team:""KCR"",ip:21,era:0.43,war:0.5,fip:2.98,kbb:3.40,kpct:0.2,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:4.00},
+  {name:""Jesús Luzardo"",team:""PHI"",ip:17.1,era:6.23,war:0.5,fip:2.31,kbb:6.50,kpct:0.4,bbpct:0.1,hardHit:0.2,barrel:0.1,xERA:2.79},
+  {name:""Mitch Keller"",team:""PIT"",ip:18,era:1.00,war:0.5,fip:2.73,kbb:2.20,kpct:0.2,bbpct:0.1,hardHit:0.4,barrel:0.0,xERA:2.73},
+  {name:""Randy Vásquez"",team:""SDP"",ip:17.2,era:1.02,war:0.5,fip:2.55,kbb:4.75,kpct:0.3,bbpct:0.1,hardHit:0.5,barrel:0.1,xERA:4.19},
+  {name:""Tyler Glasnow"",team:""LAD"",ip:18,era:4.00,war:0.5,fip:2.79,kbb:5.50,kpct:0.3,bbpct:0.1,hardHit:0.3,barrel:0.0,xERA:2.57},
+  {name:""Carmen Mlodzinski"",team:""PIT"",ip:14.1,era:2.51,war:0.5,fip:2.28,kbb:2.50,kpct:0.2,bbpct:0.1,hardHit:0.6,barrel:0.0,xERA:3.63},
+  {name:""Parker Messick"",team:""CLE"",ip:17.2,era:0.51,war:0.5,fip:2.89,kbb:3.20,kpct:0.2,bbpct:0.1,hardHit:0.3,barrel:0.0,xERA:2.94},
+  {name:""Garrett Crochet"",team:""BOS"",ip:17.1,era:3.12,war:0.5,fip:2.54,kbb:5.50,kpct:0.3,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:3.66},
+  {name:""Framber Valdez"",team:""DET"",ip:17,era:4.76,war:0.5,fip:2.77,kbb:2.40,kpct:0.2,bbpct:0.1,hardHit:0.4,barrel:0.0,xERA:3.59},
+  {name:""Steven Matz"",team:""TBR"",ip:16,era:3.94,war:0.5,fip:2.93,kbb:3.40,kpct:0.3,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:3.30},
+  {name:""Joe Boyle"",team:""TBR"",ip:15.2,era:5.17,war:0.5,fip:3.06,kbb:2.67,kpct:0.2,bbpct:0.1,hardHit:0.4,barrel:0.0,xERA:4.27},
+  {name:""Logan Webb"",team:""SFG"",ip:24,era:5.25,war:0.4,fip:3.16,kbb:2.33,kpct:0.2,bbpct:0.1,hardHit:0.5,barrel:0.0,xERA:4.15},
+  {name:""Nolan McLean"",team:""NYM"",ip:16.2,era:2.70,war:0.4,fip:2.76,kbb:3.33,kpct:0.3,bbpct:0.1,hardHit:0.2,barrel:0.1,xERA:1.91},
+  {name:""Bryce Elder"",team:""ATL"",ip:17.2,era:1.02,war:0.4,fip:2.89,kbb:3.20,kpct:0.2,bbpct:0.1,hardHit:0.4,barrel:0.0,xERA:2.34},
+  {name:""Michael McGreevy"",team:""STL"",ip:16.2,era:2.16,war:0.4,fip:3.06,kbb:5.00,kpct:0.2,bbpct:0.0,hardHit:0.3,barrel:0.1,xERA:5.62},
+  {name:""MacKenzie Gore"",team:""TEX"",ip:16.1,era:2.76,war:0.4,fip:2.75,kbb:5.00,kpct:0.4,bbpct:0.1,hardHit:0.3,barrel:0.1,xERA:2.64},
+  {name:""Michael Soroka"",team:""ARI"",ip:15.2,era:2.87,war:0.4,fip:2.74,kbb:3.83,kpct:0.3,bbpct:0.1,hardHit:0.5,barrel:0.2,xERA:5.74},
+  {name:""Kris Bubic"",team:""KCR"",ip:18,era:2.50,war:0.4,fip:3.17,kbb:3.29,kpct:0.3,bbpct:0.1,hardHit:0.5,barrel:0.1,xERA:2.76},
+  {name:""Lance McCullers Jr."",team:""HOU"",ip:15.1,era:5.87,war:0.4,fip:2.92,kbb:2.83,kpct:0.3,bbpct:0.1,hardHit:0.6,barrel:0.1,xERA:3.43},
+  {name:""Edward Cabrera"",team:""CHC"",ip:16.2,era:1.62,war:0.4,fip:3.18,kbb:1.44,kpct:0.2,bbpct:0.1,hardHit:0.4,barrel:0.0,xERA:2.39},
+  {name:""Reid Detmers"",team:""LAA"",ip:15.2,era:4.60,war:0.4,fip:3.31,kbb:2.83,kpct:0.2,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:2.50},
+  {name:""Andrew Abbott"",team:""CIN"",ip:17,era:3.18,war:0.3,fip:3.65,kbb:1.83,kpct:0.2,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:4.07},
+  {name:""Jacob Misiorowski"",team:""MIL"",ip:16.1,era:3.31,war:0.3,fip:3.30,kbb:3.11,kpct:0.4,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:3.06},
+  {name:""Davis Martin"",team:""CHW"",ip:18,era:2.50,war:0.3,fip:3.73,kbb:3.75,kpct:0.2,bbpct:0.1,hardHit:0.5,barrel:0.1,xERA:5.02},
+  {name:""Aaron Nola"",team:""PHI"",ip:17.1,era:3.63,war:0.3,fip:3.87,kbb:4.75,kpct:0.3,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:4.18},
+  {name:""Casey Mize"",team:""DET"",ip:16,era:3.94,war:0.3,fip:3.62,kbb:3.00,kpct:0.3,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:5.62},
+  {name:""Yoshinobu Yamamoto"",team:""LAD"",ip:18,era:2.50,war:0.3,fip:3.51,kbb:7.00,kpct:0.2,bbpct:0.0,hardHit:0.3,barrel:0.1,xERA:3.64},
+  {name:""Sonny Gray"",team:""BOS"",ip:16.1,era:2.76,war:0.3,fip:3.24,kbb:3.33,kpct:0.2,bbpct:0.0,hardHit:0.3,barrel:0.1,xERA:4.15},
+  {name:""Eduardo Rodriguez"",team:""ARI"",ip:18,era:0.50,war:0.3,fip:3.45,kbb:2.20,kpct:0.2,bbpct:0.1,hardHit:0.3,barrel:0.0,xERA:3.39},
+  {name:""Rhett Lowder"",team:""CIN"",ip:16.1,era:3.31,war:0.3,fip:3.67,kbb:1.83,kpct:0.2,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:4.21},
+  {name:""Kyle Freeland"",team:""COL"",ip:15.2,era:2.30,war:0.3,fip:3.82,kbb:3.25,kpct:0.2,bbpct:0.1,hardHit:0.4,barrel:0.0,xERA:3.86},
+  {name:""Robbie Ray"",team:""SFG"",ip:17.1,era:2.08,war:0.3,fip:3.58,kbb:3.00,kpct:0.3,bbpct:0.1,hardHit:0.3,barrel:0.1,xERA:3.44},
+  {name:""Freddy Peralta"",team:""NYM"",ip:15,era:4.80,war:0.2,fip:3.52,kbb:3.80,kpct:0.3,bbpct:0.1,hardHit:0.4,barrel:0.0,xERA:2.72},
+  {name:""Janson Junk"",team:""MIA"",ip:16.2,era:4.32,war:0.2,fip:3.96,kbb:3.00,kpct:0.2,bbpct:0.1,hardHit:0.4,barrel:0.0,xERA:2.47},
+  {name:""Jack Kochanowicz"",team:""LAA"",ip:16.2,era:3.24,war:0.2,fip:3.66,kbb:1.09,kpct:0.2,bbpct:0.2,hardHit:0.4,barrel:0.1,xERA:6.01},
+  {name:""Michael King"",team:""SDP"",ip:16.2,era:3.24,war:0.2,fip:3.72,kbb:1.88,kpct:0.2,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:4.66},
+  {name:""Shane Baz"",team:""BAL"",ip:16,era:4.50,war:0.2,fip:3.62,kbb:2.60,kpct:0.2,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:3.97},
+  {name:""Clay Holmes"",team:""NYM"",ip:18,era:1.50,war:0.2,fip:3.84,kbb:1.50,kpct:0.2,bbpct:0.1,hardHit:0.4,barrel:0.0,xERA:3.57},
+  {name:""Grant Holmes"",team:""ATL"",ip:17.2,era:2.55,war:0.2,fip:4.36,kbb:1.75,kpct:0.2,bbpct:0.1,hardHit:0.3,barrel:0.1,xERA:3.21},
+  {name:""Chase Burns"",team:""CIN"",ip:16.1,era:3.31,war:0.2,fip:4.77,kbb:2.25,kpct:0.3,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:4.83},
+  {name:""Zac Gallen"",team:""ARI"",ip:15,era:3.00,war:0.2,fip:3.99,kbb:1.50,kpct:0.1,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:5.57},
+  {name:""Cade Cavalli"",team:""WSN"",ip:14.1,era:2.51,war:0.1,fip:3.89,kbb:1.22,kpct:0.2,bbpct:0.1,hardHit:0.3,barrel:0.1,xERA:4.22},
+  {name:""Kyle Harrison"",team:""MIL"",ip:14.2,era:3.07,war:0.1,fip:4.07,kbb:3.75,kpct:0.3,bbpct:0.1,hardHit:0.3,barrel:0.1,xERA:3.32},
+  {name:""Will Warren"",team:""NYY"",ip:14.2,era:3.07,war:0.1,fip:4.01,kbb:2.80,kpct:0.2,bbpct:0.1,hardHit:0.5,barrel:0.0,xERA:3.55},
+  {name:""Ranger Suarez"",team:""BOS"",ip:14.1,era:5.02,war:0.1,fip:4.44,kbb:2.20,kpct:0.2,bbpct:0.1,hardHit:0.5,barrel:0.1,xERA:8.48},
+  {name:""Erick Fedde"",team:""CHW"",ip:16,era:3.38,war:0.1,fip:4.18,kbb:4.00,kpct:0.2,bbpct:0.0,hardHit:0.4,barrel:0.0,xERA:3.11},
+  {name:""Gavin Williams"",team:""CLE"",ip:17.2,era:2.04,war:0.1,fip:4.14,kbb:1.79,kpct:0.4,bbpct:0.2,hardHit:0.4,barrel:0.1,xERA:3.59},
+  {name:""Jack Leiter"",team:""TEX"",ip:14.2,era:4.91,war:0.1,fip:4.14,kbb:3.50,kpct:0.3,bbpct:0.1,hardHit:0.5,barrel:0.1,xERA:2.35},
+  {name:""Nick Martinez"",team:""TBR"",ip:16.2,era:2.16,war:0.1,fip:4.86,kbb:2.75,kpct:0.2,bbpct:0.1,hardHit:0.4,barrel:0.0,xERA:2.93},
+  {name:""Foster Griffin"",team:""WSN"",ip:15.1,era:1.76,war:0.1,fip:4.62,kbb:2.00,kpct:0.2,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:6.31},
+  {name:""George Kirby"",team:""SEA"",ip:20,era:3.60,war:0.1,fip:4.37,kbb:3.20,kpct:0.2,bbpct:0.1,hardHit:0.5,barrel:0.1,xERA:2.95},
+  {name:""Mike Burrows"",team:""HOU"",ip:16,era:5.63,war:0.0,fip:4.99,kbb:2.50,kpct:0.2,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:4.36},
+  {name:""Simeon Woods Richardson"",team:""MIN"",ip:15.2,era:4.60,war:-0.0,fip:5.35,kbb:2.00,kpct:0.1,bbpct:0.1,hardHit:0.5,barrel:0.1,xERA:4.57},
+  {name:""Jake Irvin"",team:""WSN"",ip:14,era:7.07,war:-0.0,fip:5.33,kbb:2.00,kpct:0.3,bbpct:0.1,hardHit:0.5,barrel:0.2,xERA:5.40},
+  {name:""Tomoyuki Sugano"",team:""COL"",ip:16.2,era:2.16,war:-0.0,fip:5.34,kbb:4.00,kpct:0.2,bbpct:0.0,hardHit:0.5,barrel:0.2,xERA:4.93},
+  {name:""Nathan Eovaldi"",team:""TEX"",ip:14.2,era:7.98,war:-0.0,fip:5.10,kbb:3.80,kpct:0.3,bbpct:0.1,hardHit:0.5,barrel:0.1,xERA:4.04},
+  {name:""Kyle Leahy"",team:""STL"",ip:14,era:5.14,war:-0.0,fip:4.98,kbb:0.88,kpct:0.1,bbpct:0.1,hardHit:0.5,barrel:0.1,xERA:7.21},
+  {name:""Reynaldo López"",team:""ATL"",ip:15.2,era:1.15,war:-0.0,fip:5.10,kbb:2.60,kpct:0.2,bbpct:0.1,hardHit:0.3,barrel:0.1,xERA:3.66},
+  {name:""Chris Sale"",team:""ATL"",ip:16,era:3.94,war:-0.1,fip:5.06,kbb:3.20,kpct:0.3,bbpct:0.1,hardHit:0.3,barrel:0.1,xERA:3.92},
+  {name:""Slade Cecconi"",team:""CLE"",ip:15.2,era:5.74,war:-0.1,fip:5.35,kbb:2.80,kpct:0.2,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:6.06},
+  {name:""Brandon Pfaadt"",team:""ARI"",ip:16.2,era:5.94,war:-0.1,fip:5.40,kbb:1.83,kpct:0.2,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:2.94},
+  {name:""Brandon Williamson"",team:""CIN"",ip:15.1,era:5.28,war:-0.1,fip:6.31,kbb:1.11,kpct:0.1,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:7.76},
+  {name:""Emmet Sheehan"",team:""LAD"",ip:15,era:6.60,war:-0.1,fip:5.92,kbb:2.33,kpct:0.2,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:6.19},
+  {name:""Ryne Nelson"",team:""ARI"",ip:15,era:4.20,war:-0.2,fip:6.19,kbb:2.00,kpct:0.2,bbpct:0.1,hardHit:0.5,barrel:0.1,xERA:5.61},
+  {name:""Matthew Liberatore"",team:""STL"",ip:16,era:3.38,war:-0.2,fip:6.06,kbb:2.00,kpct:0.1,bbpct:0.1,hardHit:0.4,barrel:0.1,xERA:5.50},
+  {name:""Eury Pérez"",team:""MIA"",ip:16,era:5.06,war:-0.2,fip:6.18,kbb:2.00,kpct:0.3,bbpct:0.1,hardHit:0.4,barrel:0.2,xERA:4.98},
+  {name:""Taijuan Walker"",team:""PHI"",ip:14.2,era:7.36,war:-0.2,fip:6.46,kbb:1.71,kpct:0.2,bbpct:0.1,hardHit:0.3,barrel:0.1,xERA:7.33}
+];
+
+function renderPitchers() {
+  const pitchers = SAMPLE_DATA;
+  
+  const topERA = [...pitchers].sort((a,b) => a.era - b.era).slice(0,5);
+  const topWAR = [...pitchers].sort((a,b) => b.war - a.war).slice(0,5);
+  const topKBB = [...pitchers].filter(p => p.kbb > 0).sort((a,b) => b.kbb - a.kbb).slice(0,5);
+  const unlucky = [...pitchers].filter(p => p.xERA > 0).sort((a,b) => (b.era - b.xERA) - (a.era - a.xERA)).slice(0,5);
+  const softContact = [...pitchers].filter(p => p.hardHit > 0).sort((a,b) => a.hardHit - b.hardHit).slice(0,5);
+
+  function section(title, players, stat, label, meta) {
+    return `
+      <div class="section">
+        <div class="section-title">${title}</div>
+        ${players.map((p,i) => `
+          <div class="player-row">
+            <div class="player-left">
+              <div class="player-rank">${i+1}</div>
+              <div>
+                <div class="player-name">${p.name}</div>
+                <div class="player-team">${p.team}</div>
+              </div>
+            </div>
+            <div class="player-right">
+              <div class="player-stat">${p[stat].toFixed(2)} ${label}</div>
+              <div class="player-meta">${meta(p)}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  document.getElementById('app').innerHTML = `
+    ${section('Top 5 by ERA', topERA, 'era', 'ERA', p => `${p.ip.toFixed(1)} IP`)}
+    ${section('Top 5 by WAR', topWAR, 'war', 'WAR', p => `${p.era.toFixed(2)} ERA, ${p.ip.toFixed(1)} IP`)}
+    <div class="grid-2">
+      ${section('Best K/BB Ratios', topKBB, 'kbb', 'K/BB', p => `${p.kpct.toFixed(1)}% K%, ${p.bbpct.toFixed(1)}% BB%`)}
+      ${section('Most Unlucky (ERA vs xERA)', unlucky, 'era', 'ERA', p => `${p.xERA.toFixed(2)} xERA (+${(p.era - p.xERA).toFixed(2)})`)}
+    </div>
+    ${section('Lowest Hard Hit% (Soft Contact)', softContact, 'hardHit', '% Hard', p => `${p.barrel.toFixed(1)}% Barrel`)}
+    <div class="data-note">Data snapshot: April 12, 2026 · Min 10 IP · Update SAMPLE_DATA in source to refresh</div>
+  `;
+}
+
+renderPitchers();
+</script>
+</body>
+</html>
