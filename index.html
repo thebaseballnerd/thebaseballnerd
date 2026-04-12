@@ -773,7 +773,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="https://thebaseballnerd.substack.com" target="_blank" class="btn-secondary">Subscribe on Substack</a>
       </div>
       <div class="hero-stats">
-        <div><div class="hero-stat-num">2,000+</div><div class="hero-stat-label">Subscribers</div></div>
+        <div><div class="hero-stat-num">1,800+</div><div class="hero-stat-label">Subscribers</div></div>
         <div><div class="hero-stat-num">SPARK</div><div class="hero-stat-label">Breakout Score</div></div>
         <div><div class="hero-stat-num">FADE</div><div class="hero-stat-label">Decline Score</div></div>
         <div><div class="hero-stat-num" id="hero-record">—</div><div class="hero-stat-label">Rangers 2026</div></div>
@@ -891,7 +891,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="podcast-badge">Now Airing</div>
         <div class="podcast-show-name">The <span>Division</span><br>Line</div>
         <div class="podcast-show-sub">An AL West Podcast from The Baseball Nerd</div>
-        <p class="podcast-desc">Every Monday. Five teams, one division, and one thesis: will the Rangers be in a position to win it all in Ocotober? Data-first, no filler, no takes that don't hold up.</p>
+        <p class="podcast-desc">Every Monday. Five teams, one division, and one thesis: the Rangers are winning it in September. Data-first, no filler, no takes that don't hold up.</p>
         <div class="podcast-cta-row">
           <a href="podcasts.html" class="podcast-listen-btn">Listen Now</a>
           <a href="podcasts.html" class="btn-outline-sm">All Episodes →</a>
@@ -920,7 +920,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="newsletter-inner">
     <div class="newsletter-glyph">◆</div>
     <div class="newsletter-title">Get The <span class="gold">Edge</span></div>
-    <p class="newsletter-desc">Join 2,000+ readers getting SPARK Score breakdowns, FADE alerts, and the analysis the mainstream misses — straight to their inbox.</p>
+    <p class="newsletter-desc">Join 1,800+ readers getting SPARK Score breakdowns, FADE alerts, and the analysis the mainstream misses — straight to their inbox.</p>
     <div class="newsletter-form">
       <input class="newsletter-input" type="email" placeholder="Your email address">
       <button class="newsletter-btn" onclick="window.open('https://thebaseballnerd.substack.com','_blank')">Subscribe</button>
@@ -1179,61 +1179,58 @@ function escHtml(str){
 /* ── LATEST PODCAST EPISODE ── */
 async function loadLatestEpisode(){
   try{
-    const FEED = 'https://api.substack.com/feed/podcast/5440521.rss';
+    const FEED  = 'https://api.substack.com/feed/podcast/5440521.rss';
     const PROXY = `/.netlify/functions/fetch-feed?url=${encodeURIComponent(FEED)}`;
-    const res = await fetch(PROXY);
-    const text = await res.text();
+    const res   = await fetch(PROXY);
+    const json  = await res.json();
 
-    // Parse XML
-    const parser = new DOMParser();
-    const xml = parser.parseFromString(text, 'text/xml');
-    const item = xml.querySelector('item'); // first = latest
+    // Function returns { status:'ok', items:[...] }
+    const item = (json.items||[])[0];
     if(!item) return;
 
-    const title   = item.querySelector('title')?.textContent?.trim() || '';
-    const link    = item.querySelector('link')?.textContent?.trim() || 'https://thebaseballnerd.substack.com/podcast';
-    const pubDate = item.querySelector('pubDate')?.textContent || '';
-    const durSec  = item.querySelector('duration')?.textContent?.trim() || '';
+    const title   = item.title?.trim() || 'The Division Line';
+    const link    = item.link  || 'https://thebaseballnerd.substack.com/podcast';
+    const pubDate = item.pubDate || '';
 
     // Strip HTML from description
-    const descRaw = item.querySelector('description')?.textContent || '';
     const tmp = document.createElement('div');
-    tmp.innerHTML = descRaw;
-    const desc = (tmp.textContent || tmp.innerText || '').replace(/\s+/g,' ').trim().slice(0,180);
+    tmp.innerHTML = item.description || '';
+    const desc = (tmp.textContent||tmp.innerText||'').replace(/\s+/g,' ').trim().slice(0,180);
 
     // Format date
     const dateStr = pubDate
       ? new Date(pubDate).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})
       : '';
 
-    // Format duration from seconds
-    let durStr = '';
-    const secs = parseInt(durSec);
-    if(secs > 0){
-      const m = Math.floor(secs/60);
-      durStr = `~${m} min`;
-    }
-
-    // Make the card a link to the episode
+    // Make card clickable
     const card = document.getElementById('podcast-latest');
-    if(card && link){
-      card.style.cursor = 'pointer';
-      card.onclick = () => window.open(link,'_blank');
-    }
+    if(card){ card.style.cursor='pointer'; card.onclick=()=>window.open(link,'_blank'); }
 
     const titleEl = document.getElementById('pod-title');
-    if(titleEl){ titleEl.textContent = title; titleEl.style.opacity = '1'; }
+    if(titleEl){ titleEl.textContent=title; titleEl.style.opacity='1'; }
     const descEl = document.getElementById('pod-desc');
-    if(descEl) descEl.textContent = desc + (desc.length >= 180 ? '...' : '');
+    if(descEl) descEl.textContent = desc + (desc.length>=180?'...':'');
     const dateEl = document.getElementById('pod-date');
     if(dateEl) dateEl.textContent = dateStr;
-    const durEl = document.getElementById('pod-duration');
-    if(durEl && durStr) durEl.textContent = durStr;
+    // Duration not available from proxy — fetch raw RSS for it
+    try{
+      const rawRes  = await fetch(FEED);
+      const rawText = await rawRes.text();
+      const parser  = new DOMParser();
+      const xml     = parser.parseFromString(rawText,'text/xml');
+      const durNode = xml.querySelector('item duration');
+      if(durNode){
+        const secs = parseInt(durNode.textContent)||0;
+        if(secs>0){
+          const durEl = document.getElementById('pod-duration');
+          if(durEl) durEl.textContent = `~${Math.round(secs/60)} min`;
+        }
+      }
+    }catch(e2){}
 
   }catch(e){
-    // Fallback — leave loading state, not a critical failure
-    const t = document.getElementById('pod-title');
-    if(t){ t.textContent = 'The Division Line'; t.style.opacity='1'; }
+    const t=document.getElementById('pod-title');
+    if(t){ t.textContent='The Division Line'; t.style.opacity='1'; }
   }
 }
 
