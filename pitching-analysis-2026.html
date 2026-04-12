@@ -28,7 +28,8 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem
 .page-desc{font-size:0.88rem;color:var(--cream);opacity:0.45;margin-top:0.65rem;max-width:520px;line-height:1.7;}
 .wrap{max-width:1100px;margin:0 auto;padding:2rem 2rem 3rem;}
 .loading{text-align:center;padding:3rem;font-family:'IBM Plex Mono',monospace;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.6;}
-.error{text-align:center;padding:3rem;color:#ff6b6b;font-family:'IBM Plex Mono',monospace;font-size:0.8rem;}
+.error{background:var(--navy-mid);border:1px solid rgba(255,107,107,0.3);padding:2rem;margin:2rem 0;color:#ff6b6b;font-family:'IBM Plex Mono',monospace;font-size:0.75rem;line-height:1.6;}
+.error-title{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:#ff6b6b;margin-bottom:0.5rem;}
 .section{background:var(--navy-mid);border:1px solid rgba(201,168,76,0.1);padding:1.5rem;margin-bottom:1.5rem;position:relative;}
 .section::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);opacity:0.3;}
 .section-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.05em;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
@@ -92,74 +93,115 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
     <li><a href="about.html">About</a></li>
   </ul>
 </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 <script>
 const app = document.getElementById('app');
 
 async function loadData() {
   try {
     app.innerHTML = '<div class="loading">Loading pitching data...</div>';
+    
+    console.log('Starting data load...');
 
-    const files = [
-      'fangraphsleaderboards  20260412T101016.282.csv',
-      'fangraphsleaderboards  20260412T101009.622.csv',
-      'fangraphsleaderboards  20260412T101019.956.csv'
+    // Try different possible file paths
+    const basePaths = [
+      '', // same directory
+      './', // explicit same directory
+      'data/', // data subdirectory
+    ];
+    
+    const fileNames = [
+      'fangraphsleaderboards  20260412T101019.956.csv', // main (WAR)
+      'fangraphsleaderboards  20260412T101016.282.csv', // ERA/FIP
+      'fangraphsleaderboards  20260412T101009.622.csv'  // Statcast
     ];
 
-    const [eraFile, statcastFile, mainFile] = await Promise.all(
-      files.map(f => fetch(f).then(r => r.text()))
-    );
+    let mainData, eraData, statcastData;
+    let loadedPath = '';
 
-    function parseCSV(text) {
-      const lines = text.split('\n').filter(l => l.trim());
-      const headers = lines[0].split(',').map(h => h.trim());
-      return lines.slice(1).map(line => {
-        const values = line.split(',');
-        const obj = {};
-        headers.forEach((h, i) => obj[h] = values[i]?.trim() || '');
-        return obj;
-      });
+    // Try to find the files
+    for (const basePath of basePaths) {
+      try {
+        const testResponse = await fetch(basePath + fileNames[0]);
+        if (testResponse.ok) {
+          loadedPath = basePath;
+          console.log('Found files at:', loadedPath);
+          break;
+        }
+      } catch (e) {
+        continue;
+      }
     }
 
-    const mainData = parseCSV(mainFile).filter(p => parseFloat(p.IP) >= 10);
-    const eraData = parseCSV(eraFile);
-    const statcastData = parseCSV(statcastFile);
+    if (!loadedPath) {
+      throw new Error('Could not locate CSV files. Please ensure the files are in the same directory as this HTML file.');
+    }
 
+    // Load files with Papa Parse
+    const loadFile = (path) => new Promise((resolve, reject) => {
+      Papa.parse(path, {
+        download: true,
+        header: true,
+        complete: (results) => resolve(results.data),
+        error: (error) => reject(error)
+      });
+    });
+
+    [mainData, eraData, statcastData] = await Promise.all([
+      loadFile(loadedPath + fileNames[0]),
+      loadFile(loadedPath + fileNames[1]),
+      loadFile(loadedPath + fileNames[2])
+    ]);
+
+    console.log('Files loaded:', mainData.length, eraData.length, statcastData.length);
+
+    // Filter to qualified pitchers (10+ IP)
+    const qualifiedPitchers = mainData.filter(p => parseFloat(p.IP) >= 10);
+    
+    if (qualifiedPitchers.length === 0) {
+      throw new Error('No qualified pitchers found (10+ IP). Check CSV data format.');
+    }
+
+    console.log('Qualified pitchers:', qualifiedPitchers.length);
+
+    // Build lookup maps
     const eraMap = {};
     eraData.forEach(p => {
-      eraMap[p.Name] = {
-        'K/BB': parseFloat(p['K/BB']) || 0,
-        'K%': parseFloat(p['K%']) || 0,
-        'BB%': parseFloat(p['BB%']) || 0,
-        'WHIP': parseFloat(p.WHIP) || 0,
-        'BABIP': parseFloat(p.BABIP) || 0
-      };
+      if (p.Name) eraMap[p.Name] = p;
     });
 
     const statcastMap = {};
     statcastData.forEach(p => {
-      statcastMap[p.Name] = {
-        'HardHit%': parseFloat(p['HardHit%']) || 0,
-        'Barrel%': parseFloat(p['Barrel%']) || 0,
-        'xERA': parseFloat(p.xERA) || 0
+      if (p.Name) statcastMap[p.Name] = p;
+    });
+
+    // Combine data
+    const pitchers = qualifiedPitchers.map(p => {
+      const era = eraMap[p.Name] || {};
+      const sc = statcastMap[p.Name] || {};
+      return {
+        name: p.Name,
+        team: p.Team,
+        ip: parseFloat(p.IP) || 0,
+        era: parseFloat(p.ERA) || 0,
+        fip: parseFloat(p.FIP) || 0,
+        war: parseFloat(p.WAR) || 0,
+        kbb: parseFloat(era['K/BB']) || 0,
+        kpct: parseFloat(era['K%']) || 0,
+        bbpct: parseFloat(era['BB%']) || 0,
+        whip: parseFloat(era.WHIP) || 0,
+        hardHit: parseFloat(sc['HardHit%']) || 0,
+        barrel: parseFloat(sc['Barrel%']) || 0,
+        xERA: parseFloat(sc.xERA) || 0
       };
     });
 
-    const pitchers = mainData.map(p => ({
-      name: p.Name,
-      team: p.Team,
-      ip: parseFloat(p.IP) || 0,
-      era: parseFloat(p.ERA) || 0,
-      fip: parseFloat(p.FIP) || 0,
-      war: parseFloat(p.WAR) || 0,
-      ...(eraMap[p.Name] || {}),
-      ...(statcastMap[p.Name] || {})
-    })).filter(p => p.ip >= 10);
-
+    // Calculate leaderboards
     const topERA = [...pitchers].sort((a, b) => a.era - b.era).slice(0, 5);
     const topWAR = [...pitchers].sort((a, b) => b.war - a.war).slice(0, 5);
-    const topKBB = [...pitchers].filter(p => p['K/BB'] > 0).sort((a, b) => b['K/BB'] - a['K/BB']).slice(0, 5);
+    const topKBB = [...pitchers].filter(p => p.kbb > 0).sort((a, b) => b.kbb - a.kbb).slice(0, 5);
     const unlucky = [...pitchers].filter(p => p.xERA > 0).sort((a, b) => (b.era - b.xERA) - (a.era - a.xERA)).slice(0, 5);
-    const softContact = [...pitchers].filter(p => p['HardHit%'] > 0).sort((a, b) => a['HardHit%'] - b['HardHit%']).slice(0, 5);
+    const softContact = [...pitchers].filter(p => p.hardHit > 0).sort((a, b) => a.hardHit - b.hardHit).slice(0, 5);
 
     function renderSection(title, players, statKey, statLabel, metaFn) {
       return `
@@ -188,14 +230,30 @@ async function loadData() {
       ${renderSection('Top 5 by ERA', topERA, 'era', 'ERA', p => `${p.ip.toFixed(1)} IP`)}
       ${renderSection('Top 5 by WAR', topWAR, 'war', 'WAR', p => `${p.era.toFixed(2)} ERA, ${p.ip.toFixed(1)} IP`)}
       <div class="grid-2">
-        ${renderSection('Best K/BB Ratios', topKBB, 'K/BB', 'K/BB', p => `${p['K%'].toFixed(1)}% K%, ${p['BB%'].toFixed(1)}% BB%`)}
+        ${renderSection('Best K/BB Ratios', topKBB, 'kbb', 'K/BB', p => `${p.kpct.toFixed(1)}% K%, ${p.bbpct.toFixed(1)}% BB%`)}
         ${renderSection('Most Unlucky (ERA vs xERA)', unlucky, 'era', 'ERA', p => `${p.xERA.toFixed(2)} xERA (+${(p.era - p.xERA).toFixed(2)})`)}
       </div>
-      ${renderSection('Lowest Hard Hit% (Soft Contact)', softContact, 'HardHit%', '% Hard', p => `${p['Barrel%'].toFixed(1)}% Barrel`)}
+      ${renderSection('Lowest Hard Hit% (Soft Contact)', softContact, 'hardHit', '% Hard', p => `${p.barrel.toFixed(1)}% Barrel`)}
     `;
 
+    console.log('Data loaded successfully');
+
   } catch (err) {
-    app.innerHTML = `<div class="error">Error loading data: ${err.message}</div>`;
+    console.error('Error:', err);
+    app.innerHTML = `
+      <div class="error">
+        <div class="error-title">⚠ Error Loading Data</div>
+        <div><strong>Message:</strong> ${err.message}</div>
+        <div style="margin-top:1rem;"><strong>Instructions:</strong></div>
+        <div>1. Make sure all CSV files are in the same directory as this HTML file</div>
+        <div>2. Check that filenames match exactly (including spaces)</div>
+        <div>3. Open browser console (F12) for detailed error information</div>
+        <div style="margin-top:1rem;opacity:0.5;">Expected files:<br/>
+        - fangraphsleaderboards  20260412T101019.956.csv<br/>
+        - fangraphsleaderboards  20260412T101016.282.csv<br/>
+        - fangraphsleaderboards  20260412T101009.622.csv</div>
+      </div>
+    `;
   }
 }
 
