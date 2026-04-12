@@ -153,7 +153,7 @@ const PITCHER_DATA = [
 ];
 
 const app=document.getElementById('app');
-const p=DATA.filter(x=>x.ip>=10);
+const p=PITCHER_DATA.filter(x=>x.ip>=10);
 const topERA=[...p].sort((a,b)=>a.era-b.era).slice(0,5);
 const topWAR=[...p].sort((a,b)=>b.war-a.war).slice(0,5);
 const topKBB=[...p].filter(x=>x.kbb>0).sort((a,b)=>b.kbb-a.kbb).slice(0,5);
