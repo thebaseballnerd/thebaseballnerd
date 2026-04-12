@@ -267,8 +267,8 @@ function renderRecaps(){
   document.getElementById('recaps-grid').innerHTML=list.map(r=>`
     <a class="recap-card" href="recap.html?id=${r.id}">
       <div class="result-badge ${r.result}">${r.result==='win'?'W':'L'}</div>
-      <div class="recap-date">${r.date} · ${r.home?'vs':'at'} ${r.opponent}</div>
-      <div class="recap-matchup">Rangers ${r.home?'vs':'at'} ${r.opponent.split(' ').pop()}</div>
+      <div class="recap-date">${r.date} · ${r.home?r.opponent+' vs Rangers':'Rangers vs '+r.opponent}</div>
+      <div class="recap-matchup">${r.home ? r.opponent.split(' ').pop()+' vs Rangers' : 'Rangers vs '+r.opponent.split(' ').pop()}</div>
       <div class="recap-score"><span class="${r.result==='win'?'rw':'rl'}">${r.result==='win'?'W':'L'}</span>&nbsp;${r.score}&nbsp;·&nbsp;${r.record}</div>
       <div class="recap-preview">${r.preview}</div>
       <div class="recap-read">Read recap →</div>
