@@ -3,96 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" href="/favicon.png">
-<title>2026 Pitching Analysis — The Baseball Nerd</title>
-<meta name="description" content="Early season 2026 MLB pitching leaders and analysis from FanGraphs data.">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<title>2026 Pitching Leaders — The Baseball Nerd</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display&family=IBM+Plex+Mono&family=Inter&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{--navy:#0a1628;--navy-mid:#112040;--navy-light:#1a2f50;--gold:#c9a84c;--gold-light:#e8c97a;--cream:#f5f0e8;}
-body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--cream);min-height:100vh;}
-nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 2rem;background:rgba(10,22,40,0.97);border-bottom:1px solid rgba(201,168,76,0.15);position:sticky;top:0;z-index:100;}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.08em;color:var(--gold);text-decoration:none;}
-.nav-logo span{color:var(--cream);opacity:0.45;}
-.nav-links{display:flex;gap:0;list-style:none;}
-.nav-links a{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.45;text-decoration:none;padding:0.4rem 0.9rem;display:block;transition:opacity 0.15s,color 0.15s;}
-.nav-links a:hover{opacity:1;color:var(--gold);}
-.nav-links a.active{opacity:1;color:var(--gold);border-bottom:1px solid var(--gold);}
-.nav-cta{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1rem;background:var(--gold);color:var(--navy);border:none;cursor:pointer;font-weight:500;text-decoration:none;transition:background 0.2s;}
-.nav-cta:hover{background:var(--gold-light);}
-.page-hero-wrap{border-bottom:1px solid rgba(201,168,76,0.08);}
-.page-hero{max-width:1100px;margin:0 auto;padding:2rem 2rem 1.75rem;}
-.page-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;display:flex;align-items:center;gap:0.5rem;}
-.page-eyebrow::before{content:'';display:inline-block;width:1rem;height:1px;background:var(--gold);}
-.page-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);letter-spacing:0.04em;color:var(--cream);line-height:1;}
-.page-desc{font-size:0.88rem;color:var(--cream);opacity:0.45;margin-top:0.65rem;max-width:520px;line-height:1.7;}
-.wrap{max-width:1100px;margin:0 auto;padding:2rem 2rem 3rem;}
-.section{background:var(--navy-mid);border:1px solid rgba(201,168,76,0.1);padding:1.5rem;margin-bottom:1.5rem;position:relative;}
-.section::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);opacity:0.3;}
-.section-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.05em;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
-.section-title::after{content:'';flex:1;height:1px;background:rgba(201,168,76,0.15);}
-.player-row{display:flex;justify-content:space-between;align-items:center;padding:0.75rem 0;border-bottom:1px solid rgba(245,240,232,0.06);transition:background 0.15s;}
-.player-row:hover{background:rgba(201,168,76,0.03);}
-.player-row:last-child{border-bottom:none;}
-.player-left{display:flex;align-items:center;gap:0.75rem;}
-.player-rank{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--gold);opacity:0.4;min-width:1.5rem;}
-.player-name{font-family:'DM Serif Display',serif;font-size:0.95rem;color:var(--cream);}
-.player-team{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;color:var(--cream);opacity:0.35;letter-spacing:0.05em;}
-.player-right{text-align:right;}
-.player-stat{font-family:'IBM Plex Mono',monospace;font-size:0.9rem;color:var(--gold);font-weight:500;}
-.player-meta{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;color:var(--cream);opacity:0.3;margin-top:0.15rem;}
-.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(480px,1fr));gap:1.5rem;}
-.data-note{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;text-align:center;color:var(--cream);opacity:0.25;margin-top:2rem;letter-spacing:0.05em;}
-footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(201,168,76,0.06);margin-top:3rem;}
-.foot-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--gold);}
-.foot-logo span{color:var(--cream);opacity:0.3;}
-.foot-copy{font-family:'IBM Plex Mono',monospace;font-size:0.57rem;letter-spacing:0.08em;color:var(--cream);opacity:0.18;text-transform:uppercase;}
-.foot-links{display:flex;gap:1.25rem;list-style:none;}
-.foot-links a{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.28;text-decoration:none;transition:opacity 0.2s;}
-.foot-links a:hover{opacity:0.75;}
-@media(max-width:1100px){.grid-2{grid-template-columns:1fr;}}
-@media(max-width:700px){.nav-links{display:none;}}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#0a1628;--navy-mid:#112040;--gold:#c9a84c;--cream:#f5f0e8}
+body{font-family:Inter,sans-serif;background:var(--navy);color:var(--cream);min-height:100vh}
+nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 2rem;background:rgba(10,22,40,.97);border-bottom:1px solid rgba(201,168,76,.15);position:sticky;top:0;z-index:100}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.08em;color:var(--gold);text-decoration:none}
+.nav-logo span{color:var(--cream);opacity:.45}
+.nav-links{display:flex;gap:0;list-style:none}
+.nav-links a{font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);opacity:.45;text-decoration:none;padding:.4rem .9rem;display:block}
+.nav-links a:hover{opacity:1;color:var(--gold)}
+.nav-links a.active{opacity:1;color:var(--gold);border-bottom:1px solid var(--gold)}
+.nav-cta{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1rem;background:var(--gold);color:var(--navy);text-decoration:none}
+.page-hero{max-width:1100px;margin:0 auto;padding:2rem 2rem 1.75rem;border-bottom:1px solid rgba(201,168,76,.08)}
+.page-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.page-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.5rem);letter-spacing:.04em;color:var(--cream)}
+.page-desc{font-size:.88rem;color:var(--cream);opacity:.45;margin-top:.65rem;max-width:520px}
+.wrap{max-width:1100px;margin:0 auto;padding:2rem}
+.section{background:var(--navy-mid);border:1px solid rgba(201,168,76,.1);padding:1.5rem;margin-bottom:1.5rem;position:relative}
+.section::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);opacity:.3}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--gold);margin-bottom:1rem}
+.player-row{display:flex;justify-content:space-between;padding:.75rem 0;border-bottom:1px solid rgba(245,240,232,.06)}
+.player-row:last-child{border-bottom:none}
+.player-left{display:flex;gap:.75rem}
+.player-rank{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--gold);opacity:.4;min-width:1.5rem}
+.player-name{font-family:'DM Serif Display',serif;font-size:.95rem}
+.player-team{font-family:'IBM Plex Mono',monospace;font-size:.62rem;opacity:.35}
+.player-stat{font-family:'IBM Plex Mono',monospace;font-size:.9rem;color:var(--gold);font-weight:500}
+.player-meta{font-family:'IBM Plex Mono',monospace;font-size:.62rem;opacity:.3;margin-top:.15rem}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(480px,1fr));gap:1.5rem}
+footer{background:#060e1a;padding:1.75rem 2rem;border-top:1px solid rgba(201,168,76,.06);margin-top:3rem;text-align:center}
+.foot-copy{font-family:'IBM Plex Mono',monospace;font-size:.57rem;color:var(--cream);opacity:.18}
+@media(max-width:1100px){.grid-2{grid-template-columns:1fr}}
+@media(max-width:700px){.nav-links{display:none}}
 </style>
 </head>
 <body>
 <nav>
-  <a class="nav-logo" href="index.html">The Baseball <span>Nerd</span></a>
-  <ul class="nav-links">
-    <li><a href="news.html">News</a></li>
-    <li><a href="articles.html">Articles</a></li>
-    <li><a href="recaps.html">Recaps</a></li>
-    <li><a href="rosters.html">Rosters</a></li>
-    <li><a href="podcasts.html">Podcasts</a></li>
-    <li><a href="vault.html" class="active">Vault</a></li>
-    <li><a href="about.html">About</a></li>
-  </ul>
-  <a class="nav-cta" href="https://thebaseballnerd.substack.com" target="_blank">Subscribe →</a>
+<a class="nav-logo" href="index.html">The Baseball <span>Nerd</span></a>
+<ul class="nav-links">
+<li><a href="news.html">News</a></li>
+<li><a href="articles.html">Articles</a></li>
+<li><a href="vault.html" class="active">Vault</a></li>
+<li><a href="about.html">About</a></li>
+</ul>
+<a class="nav-cta" href="https://thebaseballnerd.substack.com" target="_blank">Subscribe →</a>
 </nav>
-<div class="page-hero-wrap">
-  <div class="page-hero">
-    <div class="page-eyebrow">Data Vault Analysis</div>
-    <div class="page-title">2026 Pitching Leaders</div>
-    <div class="page-desc">Early season analysis through April 12, 2026. Minimum 10 IP for qualified leaders.</div>
-  </div>
+<div class="page-hero">
+<div class="page-eyebrow">— Data Vault Analysis</div>
+<div class="page-title">2026 Pitching Leaders</div>
+<div class="page-desc">Early season analysis through April 12, 2026. Minimum 10 IP for qualified leaders.</div>
 </div>
 <div class="wrap" id="app"></div>
-<footer>
-  <div class="foot-logo">The Baseball <span>Nerd</span></div>
-  <div class="foot-copy">© 2026 The Baseball Nerd · Numbers Not Feelings</div>
-  <ul class="foot-links">
-    <li><a href="news.html">News</a></li>
-    <li><a href="articles.html">Articles</a></li>
-    <li><a href="recaps.html">Recaps</a></li>
-    <li><a href="rosters.html">Rosters</a></li>
-    <li><a href="podcasts.html">Podcasts</a></li>
-    <li><a href="vault.html">Vault</a></li>
-    <li><a href="about.html">About</a></li>
-  </ul>
-</footer>
+<footer><div class="foot-copy">© 2026 The Baseball Nerd · Numbers Not Feelings</div></footer>
 <script>
-// EMBEDDED DATA - Just paste your FanGraphs CSV export data here when you update
-// To update: Export from FanGraphs, copy/paste the raw CSV text between the backticks
-
+// Use the Copy to Clipboard button in the converter above to get your real data
+// Then paste it here to replace this placeholder
 const PITCHER_DATA = [
   {name:""Cam Schlittler"",team:""NYY"",ip:16.2,era:1.62,war:1.0,fip:0.48,kbb:22.00,kpct:0.4,bbpct:0.0,hardHit:0.4,barrel:0.1,xERA:1.45},
   {name:""Sandy Alcantara"",team:""MIA"",ip:24.1,era:0.74,war:0.9,fip:2.26,kbb:4.50,kpct:0.2,bbpct:0.0,hardHit:0.3,barrel:0.0,xERA:1.36},
@@ -184,51 +152,37 @@ const PITCHER_DATA = [
   {name:""Taijuan Walker"",team:""PHI"",ip:14.2,era:7.36,war:-0.2,fip:6.46,kbb:1.71,kpct:0.2,bbpct:0.1,hardHit:0.3,barrel:0.1,xERA:7.33}
 ];
 
-function renderPitchers() {
-  const pitchers = SAMPLE_DATA;
-  
-  const topERA = [...pitchers].sort((a,b) => a.era - b.era).slice(0,5);
-  const topWAR = [...pitchers].sort((a,b) => b.war - a.war).slice(0,5);
-  const topKBB = [...pitchers].filter(p => p.kbb > 0).sort((a,b) => b.kbb - a.kbb).slice(0,5);
-  const unlucky = [...pitchers].filter(p => p.xERA > 0).sort((a,b) => (b.era - b.xERA) - (a.era - a.xERA)).slice(0,5);
-  const softContact = [...pitchers].filter(p => p.hardHit > 0).sort((a,b) => a.hardHit - b.hardHit).slice(0,5);
+const app=document.getElementById('app');
+const p=DATA.filter(x=>x.ip>=10);
+const topERA=[...p].sort((a,b)=>a.era-b.era).slice(0,5);
+const topWAR=[...p].sort((a,b)=>b.war-a.war).slice(0,5);
+const topKBB=[...p].filter(x=>x.kbb>0).sort((a,b)=>b.kbb-a.kbb).slice(0,5);
+const unlucky=[...p].filter(x=>x.xERA>0).sort((a,b)=>(b.era-b.xERA)-(a.era-a.xERA)).slice(0,5);
+const soft=[...p].filter(x=>x.hardHit>0).sort((a,b)=>a.hardHit-b.hardHit).slice(0,5);
 
-  function section(title, players, stat, label, meta) {
-    return `
-      <div class="section">
-        <div class="section-title">${title}</div>
-        ${players.map((p,i) => `
-          <div class="player-row">
-            <div class="player-left">
-              <div class="player-rank">${i+1}</div>
-              <div>
-                <div class="player-name">${p.name}</div>
-                <div class="player-team">${p.team}</div>
-              </div>
-            </div>
-            <div class="player-right">
-              <div class="player-stat">${p[stat].toFixed(2)} ${label}</div>
-              <div class="player-meta">${meta(p)}</div>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    `;
-  }
-
-  document.getElementById('app').innerHTML = `
-    ${section('Top 5 by ERA', topERA, 'era', 'ERA', p => `${p.ip.toFixed(1)} IP`)}
-    ${section('Top 5 by WAR', topWAR, 'war', 'WAR', p => `${p.era.toFixed(2)} ERA, ${p.ip.toFixed(1)} IP`)}
-    <div class="grid-2">
-      ${section('Best K/BB Ratios', topKBB, 'kbb', 'K/BB', p => `${p.kpct.toFixed(1)}% K%, ${p.bbpct.toFixed(1)}% BB%`)}
-      ${section('Most Unlucky (ERA vs xERA)', unlucky, 'era', 'ERA', p => `${p.xERA.toFixed(2)} xERA (+${(p.era - p.xERA).toFixed(2)})`)}
-    </div>
-    ${section('Lowest Hard Hit% (Soft Contact)', softContact, 'hardHit', '% Hard', p => `${p.barrel.toFixed(1)}% Barrel`)}
-    <div class="data-note">Data snapshot: April 12, 2026 · Min 10 IP · Update SAMPLE_DATA in source to refresh</div>
-  `;
+function s(t,d,k,l,m){
+return`<div class="section"><div class="section-title">${t}</div>${d.map((x,i)=>`
+<div class="player-row">
+<div class="player-left">
+<div class="player-rank">${i+1}</div>
+<div><div class="player-name">${x.name}</div><div class="player-team">${x.team}</div></div>
+</div>
+<div style="text-align:right">
+<div class="player-stat">${x[k].toFixed(2)} ${l}</div>
+<div class="player-meta">${m(x)}</div>
+</div>
+</div>`).join('')}</div>`;
 }
 
-renderPitchers();
+app.innerHTML=`
+${s('Top 5 by ERA',topERA,'era','ERA',x=>`${x.ip.toFixed(1)} IP`)}
+${s('Top 5 by WAR',topWAR,'war','WAR',x=>`${x.era.toFixed(2)} ERA, ${x.ip.toFixed(1)} IP`)}
+<div class="grid-2">
+${s('Best K/BB Ratios',topKBB,'kbb','K/BB',x=>`${x.kpct.toFixed(1)}% K%, ${x.bbpct.toFixed(1)}% BB%`)}
+${s('Most Unlucky (ERA vs xERA)',unlucky,'era','ERA',x=>`${x.xERA.toFixed(2)} xERA (+${(x.era-x.xERA).toFixed(2)})`)}
+</div>
+${s('Lowest Hard Hit%',soft,'hardHit','% Hard',x=>`${x.barrel.toFixed(1)}% Barrel`)}
+`;
 </script>
 </body>
 </html>
