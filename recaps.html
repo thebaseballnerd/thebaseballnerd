@@ -6,6 +6,7 @@
 <link rel="icon" type="image/png" href="/favicon.png">
 <title>Texas Rangers Game Recaps 2026 — The Baseball Nerd</title>
 <meta name="description" content="Texas Rangers game recaps for every 2026 game. Analytics-first coverage with box score breakdowns, RISP analysis, pitching grades, and honest takes after every Rangers win and loss.">
+<meta name="robots" content="index, follow">
 <meta name="keywords" content="Texas Rangers recaps 2026, Rangers game recap today, Rangers box score, Rangers win loss record, Rangers analytics, AL West standings, Rangers pitching recap, Rangers hitting recap">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Baseball Nerd">
@@ -14,6 +15,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@thebaseballnerd">
 <link rel="canonical" href="https://thebaseballnerd.com/recaps.html">
+<script id="jsonld-schema" type="application/ld+json"></script>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -53,6 +55,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem
 .recap-score .rl{color:#cc5a5a;font-weight:500;}
 .recap-preview{font-family:'DM Serif Display',serif;font-size:0.88rem;color:var(--cream);opacity:0.55;line-height:1.6;margin-bottom:1rem;}
 .recap-read{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.6;}
+.recaps-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem;}
 footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(201,168,76,0.06);}
 .foot-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--gold);}
 .foot-logo span{color:var(--cream);opacity:0.3;}
@@ -60,6 +63,8 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
 .foot-links{display:flex;gap:1.25rem;list-style:none;}
 .foot-links a{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.28;text-decoration:none;transition:opacity 0.2s;}
 .foot-links a:hover{opacity:0.75;}
+/* Noscript table — hidden when JS loads */
+.noscript-list{display:none;}
 @media(max-width:700px){.nav-links{display:none;}.recaps-grid{grid-template-columns:1fr;}}
 </style>
 </head>
@@ -77,13 +82,32 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
   </ul>
   <a class="nav-cta" href="https://thebaseballnerd.substack.com" target="_blank">Subscribe →</a>
 </nav>
+
 <div class="page-hero-wrap">
   <div class="page-hero">
     <div class="page-eyebrow">Game Coverage</div>
-    <div class="page-title">Rangers Recaps</div>
-    <div class="page-desc">Game-by-game coverage of the Texas Rangers. Numbers-first analysis after every game.</div>
+    <h1 class="page-title">Texas Rangers Recaps 2026</h1>
+    <p class="page-desc">Game-by-game coverage of the Texas Rangers. Numbers-first analysis after every game — box scores, RISP breakdowns, pitching grades, and honest takes.</p>
   </div>
 </div>
+
+<!-- Noscript fallback: full linked list for Googlebot -->
+<noscript>
+  <div style="max-width:1100px;margin:0 auto;padding:2rem;">
+    <h2 style="font-family:Georgia,serif;color:#f5f0e8;margin-bottom:1rem;">2026 Texas Rangers Game Recaps</h2>
+    <ul style="list-style:none;padding:0;" id="noscript-recaps-list">
+      <!-- Populated by inline script in noscript context — see static fallback below -->
+    </ul>
+  </div>
+</noscript>
+
+<!-- Static noscript anchor list — always present in HTML source for crawlers -->
+<div id="static-recap-index" style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+  <!-- This block is intentionally off-screen: it gives Googlebot a linked list
+       of all recap URLs even if JS is not executed. It is NOT hidden via display:none
+       (which Googlebot may discount), but positioned off-canvas. -->
+</div>
+
 <div class="wrap">
   <div class="filter-row">
     <button class="filter-btn active" onclick="filterRecaps('all',this)">All Games</button>
@@ -92,6 +116,7 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
   </div>
   <div class="recaps-grid" id="recaps-grid"></div>
 </div>
+
 <footer>
   <div class="foot-logo">The Baseball <span>Nerd</span></div>
   <div class="foot-copy">© 2026 The Baseball Nerd · Numbers Not Feelings</div>
@@ -105,195 +130,101 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
   </ul>
 </footer>
 
+<script src="recaps-data.js"></script>
 <script>
-const RECAPS=[{
-  id:'4-13-26-athletics',
-  date:'April 13, 2026',
-  opponent:'Athletics',
-  home:false,
-  result:'win',
-  score:'TEX 8, ATH 1',
-  record:'9-7',
-  preview:`Eovaldi threw seven shutout innings and Jake Burger hit two home runs as the Rangers beat the Athletics 8-1 in Sacramento. Texas went 5-for-15 with RISP despite the lopsided score.`,
-  body:``
-},{
-  id:'4-12-26-dodgers',
-  date:'April 12, 2026',
-  opponent:'Los Angeles Dodgers',
-  home:false,
-  result:'win',
-  score:'TEX 5, LAD 2',
-  record:'8-7',
-  preview:`deGrom gave up a first-pitch homer to Ohtani, then struck out nine over six innings to earn the win. Jansen overturned four ABS challenges. Rangers won 5-2 at Dodger Stadium.`,
-  body:``
-},{
-  id:'4-11-26-dodgers',
-  date:'April 11, 2026',
-  opponent:'Los Angeles Dodgers',
-  home:false,
-  result:'loss',
-  score:'LAD 6, TEX 3',
-  record:'7-7',
-  preview:`Jack Leiter allowed four runs in the first inning and couldn't escape the third as the Rangers fell 6-3 at Dodger Stadium. Brandon Nimmo homered twice, accounting for all three Texas runs.`,
-  body:``
-},{
-  id:'4-10-26-dodgers',
-  date:'April 10, 2026',
-  opponent:'Los Angeles Dodgers',
-  home:false,
-  result:'loss',
-  score:'LAD 8, TEX 7',
-  record:'7-6',
-  preview:"Bullpen meltdown at Dodger Stadium. After Kumar Rocker's five-inning start, three relievers were torched as the Rangers blew a late lead and lost 8-7 on Max Muncy's walk-off homer.",
-  body:`Four Rangers relievers took the mound after Kumar Rocker's five-inning start, and three of them got torched in what became a bullpen meltdown at Dodger Stadium. The pen's collective 5 earned runs across 3.2 innings told the story of a 8-7 loss that slipped away in devastating fashion.
+// ── ItemList structured data ──────────────────────────────────────────
+function buildItemListSchema(){
+  const items = RECAPS.map((r, i) => {
+    const matchup = r.home
+      ? r.opponent + ' vs Rangers'
+      : 'Rangers vs ' + r.opponent;
+    return {
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": matchup + ' Recap — ' + r.date + ' (' + r.score + ')',
+      "url": 'https://thebaseballnerd.com/recap.html?id=' + r.id,
+      "description": r.preview
+    };
+  });
 
-Robert Garcia entered for the sixth and immediately ran into trouble. The right-hander surrendered three hits and walked one in his lone inning of work, with Andy Pages delivering the crushing blow. Pages ripped a two-run double off Garcia that plated Max Muncy and Teoscar Hernández, flipping a 4-3 Rangers lead into a 5-4 deficit. Garcia's inability to keep runners off base set the tone for what followed.
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ItemList",
+        "name": "Texas Rangers Game Recaps 2026",
+        "description": "Complete game-by-game Texas Rangers recap coverage for the 2026 MLB season, with analytics-first analysis.",
+        "url": "https://thebaseballnerd.com/recaps.html",
+        "numberOfItems": RECAPS.length,
+        "itemListElement": items
+      },
+      {
+        "@type": "WebPage",
+        "name": "Texas Rangers Game Recaps 2026",
+        "url": "https://thebaseballnerd.com/recaps.html",
+        "description": "Analytics-first Texas Rangers game recaps for every game of the 2026 MLB season.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "The Baseball Nerd",
+          "url": "https://thebaseballnerd.com"
+        },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type":"ListItem","position":1,"name":"The Baseball Nerd","item":"https://thebaseballnerd.com"},
+            {"@type":"ListItem","position":2,"name":"Rangers Recaps 2026","item":"https://thebaseballnerd.com/recaps.html"}
+          ]
+        }
+      }
+    ]
+  };
 
-Jalen Beeks provided the only bright spot from the bullpen, working a clean seventh inning despite allowing two hits. His scoreless frame kept the Rangers within striking distance, but the reprieve proved temporary.
-
-Luis Curvelo took over for the eighth and got demolished. Pages ambushed him on just two pitches, launching a center field home run that scored Muncy and extended the Dodgers' lead to 7-4. Curvelo allowed four hits and a walk in his inning, matching Garcia's struggles with men on base. The Venezuelan righty couldn't locate his secondary pitches effectively, leaving too many offerings over the heart of the plate.
-
-The Rangers mounted a stunning ninth-inning rally against Edwin Díaz, scoring three runs to tie the game at 7-7. Evan Carter's two-run homer and Ezequiel Duran's game-tying RBI single off the Dodgers closer gave Texas new life and seemingly rewarded their offensive persistence.
-
-But Jacob Latz couldn't hold the tie. Skip Schumaker's decision to bring in the left-hander for the bottom of the ninth backfired spectacularly when Muncy turned on a 3-pitch sequence and deposited his fourth home run of the night over the right center field wall. Latz struck out two batters around the decisive blast, but the damage was done in just 0.2 innings of work.
-
-The bullpen's collective failure overshadowed solid offensive contributions from Corey Seager's three-run homer and late-game heroics. Garcia, Curvelo, and Latz combined to allow 8 hits and 5 earned runs, proving unable to protect leads or maintain ties when the Rangers needed them most. Their struggles turned what should have been a competitive road victory into another painful lesson about bullpen depth.`
-},{
-  id:'4-8-26-mariners',
-  date:'April 8, 2026',
-  opponent:'Seattle Mariners',
-  home:true,
-  result:'win',
-  score:'TEX 3, SEA 0',
-  record:'7-5',
-  preview:"MacKenzie Gore struck out nine over five one-hit innings, and a chaotic fifth-inning rally gave Texas a 3-0 shutout win over Seattle. Attendance: 20,997.",
-  body:"MacKenzie Gore's dominance carried the Rangers through four scoreless innings before the offense finally broke through in a chaotic fifth that decided this pitcher's duel at Globe Life Field. ..."
-},{
-  id:'4-7-26-mariners',
-  date:'April 7, 2026',
-  opponent:'Seattle Mariners',
-  home:true,
-  result:'win',
-  score:'TEX 3, SEA 2',
-  record:'6-5',
-  preview:"Kyle Higashioka's two-run homer in the fifth turned a 2-0 deficit into a 3-2 lead the Rangers never gave back. Eovaldi earned his first win of the season. Attendance: 22,411.",
-  body:""
-},{
-  id:'4-6-26-mariners',
-  date:'April 6, 2026',
-  opponent:'Seattle Mariners',
-  home:true,
-  result:'win',
-  score:'TEX 2, SEA 1',
-  record:'5-5',
-  preview:"Jacob deGrom's second start of 2026 delivered five dominant innings, but it was Jake Burger's clutch sixth-inning double that gave Texas a 2-1 win over Seattle at Globe Life Field.",
-  body:""
-},{
-  id:'4-5-26-reds',
-  date:'April 5, 2026',
-  opponent:'Cincinnati Reds',
-  home:true,
-  result:'loss',
-  score:'CIN 2, TEX 1',
-  record:'4-5',
-  preview:"One Run. Six hits. Joc Pedersen snapped his 0-for streak with a homerun that tied the game in a true pitcher's duel. That score was immediately changed when Robert Garcia gave up a game winning knock to Elly De La Cruz. The Reds sweep the Rangers at home, and Globe Life Field has no life for the Texas Rangers.",
-  body:""
-},{
-  id:'4-4-26-reds',
-  date:'April 4, 2026',
-  opponent:'Cincinnati Reds',
-  home:true,
-  result:'loss',
-  score:'CIN 2, TEX 0',
-  record:'4-4',
-  preview:"Four hits. Zero runs. That stark equation tells the story of what went wrong for the Rangers in their 2-0 loss to Cincinnati on Saturday night at Globe Life Field.",
-  body:""
-},{
-  id:'4-3-26-reds',
-  date:'April 3, 2026',
-  opponent:'Cincinnati Reds',
-  home:true,
-  result:'loss',
-  score:'CIN 5, TEX 3',
-  record:'4-3',
-  preview:"MacKenzie Gore delivered six strong innings at Globe Life Field, but the bullpen betrayed him when it mattered most.",
-  body:""
-},{
-  id:'4-1-26-orioles',
-  date:'April 1, 2026',
-  opponent:'Baltimore Orioles',
-  home:false,
-  result:'loss',
-  score:'BAL 9, TEX 4',
-  record:'4-2',
-  preview:"Fourth innings have a way of fooling you in baseball. When Josh Jung and Ezequiel Duran drove in two runs to tie things at Camden Yards, it felt like Nathan Eovaldi might have found his footing after a shaky start.",
-  body:""
-},{
-  id:'3-31-26-orioles',
-  date:'March 31, 2026',
-  opponent:'Baltimore Orioles',
-  home:false,
-  result:'win',
-  score:'TEX 6, BAL 4',
-  record:'4-1',
-  preview:"Sometimes the most telling moment in a baseball game happens when everything appears secure. Chris Martin entered the ninth inning with a four-run cushion, the kind of lead that should make closing duties feel routine.",
-  body:""
-},{
-  id:'3-30-26-orioles',
-  date:'March 30, 2026',
-  opponent:'Baltimore Orioles',
-  home:false,
-  result:'win',
-  score:'TEX 5, BAL 2',
-  record:'3-1',
-  preview:"Camden Yards witnessed Jack Leiter's finest outing of the young season Sunday afternoon, as the Rangers' right-hander carved up Baltimore's lineup for eight strikeouts across six innings.",
-  body:""
-},{
-  id:'3-29-26-phillies',
-  date:'March 29, 2026',
-  opponent:'Philadelphia Phillies',
-  home:false,
-  result:'win',
-  score:'TEX 8, PHI 3',
-  record:'2-1',
-  preview:"Andrew McCutchen's three-run blast in the fourth inning turned a methodical Rangers victory into a rout, capping a commanding road performance that saw Texas dismantle Philadelphia 8-3 at Citizens Bank Park.",
-  body:""
-},{
-  id:'3-28-26-phillies',
-  date:'March 28, 2026',
-  opponent:'Philadelphia Phillies',
-  home:false,
-  result:'win',
-  score:'TEX 4, PHI 3 (10)',
-  record:'1-1',
-  preview:"Late-inning collapses have haunted this Rangers franchise for years, but Friday night at Citizens Bank Park showcased something different entirely.",
-  body:""
-},{
-  id:'3-26-26-phillies',
-  date:'March 26, 2026',
-  opponent:'Philadelphia Phillies',
-  home:false,
-  result:'loss',
-  score:'PHI 5, TEX 3',
-  record:'0-1',
-  preview:"Too little, too late. That cruel baseball cliche played out in vivid detail at Citizens Bank Park as the Rangers mounted a frantic ninth-inning rally that fell just short.",
-  body:""
-}];
-
-let activeFilter='all';
-function filterRecaps(f,btn){activeFilter=f;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderRecaps();}
-function renderRecaps(){
-  const list=activeFilter==='all'?RECAPS:RECAPS.filter(r=>r.result===activeFilter);
-  document.getElementById('recaps-grid').innerHTML=list.map(r=>`
-    <a class="recap-card" href="recap.html?id=${r.id}">
-      <div class="result-badge ${r.result}">${r.result==='win'?'W':'L'}</div>
-      <div class="recap-date">${r.date} · ${r.home?r.opponent+' vs Rangers':'Rangers vs '+r.opponent}</div>
-      <div class="recap-matchup">${r.home ? r.opponent.split(' ').pop()+' vs Rangers' : 'Rangers vs '+r.opponent.split(' ').pop()}</div>
-      <div class="recap-score"><span class="${r.result==='win'?'rw':'rl'}">${r.result==='win'?'W':'L'}</span>&nbsp;${r.score}&nbsp;·&nbsp;${r.record}</div>
-      <div class="recap-preview">${r.preview}</div>
-      <div class="recap-read">Read recap →</div>
-    </a>`).join('');
+  document.getElementById('jsonld-schema').textContent = JSON.stringify(schema, null, 2);
 }
+
+// ── Static off-canvas link list (always in DOM for crawlers) ──────────
+function buildStaticIndex(){
+  const el = document.getElementById('static-recap-index');
+  el.innerHTML = '<ul>' + RECAPS.map(r => {
+    const matchup = r.home
+      ? r.opponent + ' vs Rangers'
+      : 'Rangers vs ' + r.opponent;
+    return `<li><a href="recap.html?id=${r.id}">${matchup} — ${r.date} (${r.score}): ${r.preview}</a></li>`;
+  }).join('') + '</ul>';
+}
+
+// ── Render cards ──────────────────────────────────────────────────────
+let activeFilter = 'all';
+
+function filterRecaps(f, btn){
+  activeFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderRecaps();
+}
+
+function renderRecaps(){
+  const list = activeFilter === 'all' ? RECAPS : RECAPS.filter(r => r.result === activeFilter);
+  document.getElementById('recaps-grid').innerHTML = list.map(r => {
+    const matchup = r.home
+      ? r.opponent.split(' ').pop() + ' vs Rangers'
+      : 'Rangers vs ' + r.opponent.split(' ').pop();
+    const matchupFull = r.home
+      ? r.opponent + ' vs Rangers'
+      : 'Rangers vs ' + r.opponent;
+    return `<a class="recap-card" href="recap.html?id=${r.id}" aria-label="${matchupFull} recap, ${r.date}, ${r.score}">
+      <div class="result-badge ${r.result}">${r.result === 'win' ? 'W' : 'L'}</div>
+      <div class="recap-date"><time datetime="">${r.date}</time> · ${r.home ? r.opponent + ' vs Rangers' : 'Rangers vs ' + r.opponent}</div>
+      <h2 class="recap-matchup">${matchup}</h2>
+      <div class="recap-score"><span class="${r.result === 'win' ? 'rw' : 'rl'}">${r.result === 'win' ? 'W' : 'L'}</span>&nbsp;${r.score}&nbsp;·&nbsp;${r.record}</div>
+      <p class="recap-preview">${r.preview}</p>
+      <div class="recap-read">Read recap →</div>
+    </a>`;
+  }).join('');
+}
+
+buildItemListSchema();
+buildStaticIndex();
 renderRecaps();
 </script>
 </body>
