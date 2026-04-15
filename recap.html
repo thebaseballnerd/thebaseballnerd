@@ -163,7 +163,24 @@ function injectStructuredData(recap, matchupTitle, isoDate){
       "@type": "SportsEvent",
       "name": matchupTitle,
       "startDate": isoDate,
+      "endDate": isoDate,
+      "eventStatus": "https://schema.org/EventScheduled",
       "sport": "Baseball",
+      "location": {
+        "@type": "Place",
+        "name": recap.home ? "Globe Life Field" : recap.opponent + " Ballpark",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": recap.home ? "Arlington" : "",
+          "addressRegion": recap.home ? "TX" : "",
+          "addressCountry": "US"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Major League Baseball",
+        "url": "https://www.mlb.com"
+      },
       "homeTeam": {
         "@type": "SportsTeam",
         "name": homeTeam,
