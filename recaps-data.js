@@ -21,7 +21,29 @@
  * ================================================
  */
 
-const RECAPS = [
+const RECAPS = [{
+  id:'4-14-26-athletics',
+  date:'2026-04-14',
+  opponent:'Athletics',
+  home:false,
+  result:'loss',
+  score:'TEX 1, ATH 2',
+  record:'9-8',  // ← fill in current record
+  preview:"Another lefty, another struggle for a Rangers offense that continues to unravel against southpaw pitching.",
+  body:`Another lefty, another struggle for a Rangers offense that continues to unravel against southpaw pitching. Jeffrey Springs carved through Texas for 6.1 innings in a 2-1 Athletics victory at Sutter Health Park, extending the Rangers' troubling pattern against left-handed starters to 1-3 this season.
+
+The game's cruel irony revealed itself in the third inning. MacKenzie Gore, who had navigated early trouble by stranding runners, finally cracked when Jacob Wilson laced a three-pitch ground ball to left field. The single scored Denzel Clarke and Shea Langeliers, transforming a 1-0 Rangers lead into a 2-1 deficit that would hold for the final six innings.
+
+Texas had seized early momentum when Jake Burger drove home Brandon Nimmo with a line drive single in the first inning, rewarding an encouraging start against Springs. But that offensive burst proved fleeting. The Rangers managed just two more hits over the final eight frames, finishing a dismal 1-for-8 with runners in scoring position.
+
+The numbers tell the story of missed opportunities. Texas stranded six runners, including four in scoring position with two outs. Josh Jung, Burger, Danny Jansen and Nimmo all came to the plate with chances to drive home runs in pressure spots, only to see those moments evaporate.
+
+"Tonight was probably a combination of both approach and facing a good pitcher," manager Skip Schumaker said. "I thought in the first couple innings, our approach was really good. I thought we were going to put up maybe even a crooked number after Nimmo's leadoff double and then couple good at-bats after that. We had a couple good at-bats in the second, third inning, and then kind of lost our approach a little bit, swung outside the zone. Springs was good, too. He's been good."
+
+Gore's command issues surfaced early and often. The left-hander walked six batters in 4.2 innings, constantly pitching from behind in counts. While he struck out five and limited hard contact, the free passes created the traffic that led to Wilson's decisive hit.
+
+Springs, meanwhile, attacked the zone relentlessly. He walked just two Rangers while striking out five, retiring 15 of the final 19 batters he faced. Mark Leiter Jr. secured the save with a perfect ninth inning, striking out two to seal another frustrating night for a Texas offense that continues searching for answers against lefties.`
+},
   {
     id:'4-13-26-athletics',
     date:'April 13, 2026',
