@@ -22,6 +22,22 @@
  */
 
 const RECAPS = [{
+  id:'4-15-26-athletics',
+  date:'2026-04-15',
+  opponent:'Athletics',
+  home:false,
+  result:'loss',
+  score:'TEX 5, ATH 6',
+  record:'9-9',  // ← fill in current record
+  preview:"Skip Schumaker took full responsibility for a loss that felt more like managerial miscalculation than player failure, and his postgame assessment carried the weight of someone who knew exactly when the game slipped away.",
+  body:`Skip Schumaker took full responsibility for a loss that felt more like managerial miscalculation than player failure, and his postgame assessment carried the weight of someone who knew exactly when the game slipped away. "I think this game is solely on me," Schumaker said. "I made a bad strategy move in the middle of the game, and I put this one solely on me. The offense did their job, came back late with the big home run from Jake Burger. I put Cole Winn in a bad situation, and it ultimately cost us the game, in my opinion. So this one's on me."
+
+The decision that haunted Schumaker came in the sixth inning, when he turned to Winn after pulling Jalen Beeks following a single inning of work. What happened next was spectacular in all the wrong ways for Texas. Shea Langeliers launched a four-pitch offering 467 feet to left center field, a moonshot that became the longest home run in Major League Baseball this season and turned a tied game into a two-run deficit. One inning later, Jacob Wilson added insult to injury with his own blast off Winn, extending the Athletics' lead to 6-2.
+
+The conditions at Sutter Health Park practically screamed danger for pitchers willing to challenge hitters in the zone. With 65-degree temperatures and a nine-mph wind blowing out to center field, Kumar Rocker's early struggles made more sense in hindsight. The right-hander walked four batters in 4.2 innings, allowing early runs on Tyler Soderstrom's RBI double and Denzel Clarke's run-scoring single. Rocker either lacked command or was battling something else entirely, but the strategy of avoiding the strike zone proved costly when his replacements couldn't execute either.
+
+The Rangers' offensive approach reflected a troubling trend in their early season work. Of their five hits, two left the ballpark for all five runs. Corey Seager's two-run homer in the third inning tied the game at 2-2, while Burger's three-run blast in the eighth nearly completed an improbable comeback. But with runners in scoring position just four times all night and converting only once, Texas showed little ability to manufacture runs beyond waiting for mistake pitches to drive. That approach left them one swing short when Joel Kuhnel closed out the ninth inning, preserving a 6-5 Athletics victory that felt equal parts preventable and predictable.`
+},{
   id:'4-14-26-athletics',
   date:'2026-04-14',
   opponent:'Athletics',
