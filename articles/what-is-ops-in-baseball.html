@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MCQ9ZZ2W');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Is OPS in Baseball? On-Base Plus Slugging Explained | The Baseball Nerd</title>
+  <meta name="description" content="OPS (On-Base Plus Slugging) is the most widely used hitting stat in baseball coverage. Here's exactly what it means, how it's calculated, why it's flawed, and when to use wRC+ instead." />
+  <link rel="canonical" href="https://thebaseballnerd.com/articles/what-is-ops-in-baseball" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="What Is OPS in Baseball? On-Base Plus Slugging Explained" />
+  <meta property="og:description" content="OPS adds on-base percentage to slugging percentage. It's the most widely used hitting stat in baseball — and it has a structural flaw worth understanding. Here's what it means and when to use something better." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://thebaseballnerd.com/articles/what-is-ops-in-baseball" />
+  <meta property="og:site_name" content="The Baseball Nerd" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="What Is OPS in Baseball?" />
+  <meta name="twitter:description" content="OPS adds on-base percentage to slugging percentage. The most widely used hitting stat — and the most misunderstood flaw in mainstream baseball analysis." />
+  <meta name="twitter:site" content="@thebaseballnerd" />
+
+  <!-- Schema: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Is OPS in Baseball? On-Base Plus Slugging Explained",
+    "description": "OPS (On-Base Plus Slugging) is the most widely used hitting stat in baseball coverage. Here's exactly what it means, how it's calculated, why it's flawed, and when to use wRC+ instead.",
+    "author": {
+      "@type": "Person",
+      "name": "Pete Dwyer",
+      "url": "https://thebaseballnerd.com/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Baseball Nerd",
+      "url": "https://thebaseballnerd.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://thebaseballnerd.com/assets/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://thebaseballnerd.com/articles/what-is-ops-in-baseball"
+    },
+    "datePublished": "2026-04-17",
+    "dateModified": "2026-04-17",
+    "keywords": ["OPS baseball", "on-base plus slugging", "OPS+", "what is OPS in baseball", "baseball stats", "sabermetrics", "wRC+", "slugging percentage"],
+    "articleSection": "Stats Explained"
+  }
+  </script>
+
+  <!-- Schema: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does OPS stand for in baseball?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "OPS stands for On-Base Plus Slugging. It adds a hitter's on-base percentage (how often they reach base) to their slugging percentage (total bases per at-bat). League average sits around .720-.740 in most modern seasons."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a good OPS in baseball?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "League average OPS is roughly .720-.740. An .800 OPS is above average and marks a solid everyday player. A .900 OPS is elite, All-Star caliber. A 1.000 OPS or higher belongs to the best hitters in baseball in a given season."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between OPS and OPS+?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "OPS is a raw number — on-base percentage plus slugging percentage. OPS+ adjusts that number for ballpark and league offense, then scales it so 100 equals league average. OPS+ is more useful for comparing hitters across different parks and eras. It's published by Baseball Reference."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is OPS considered flawed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "OPS adds OBP and SLG as equals, but a point of on-base percentage is worth more in run-production terms than a point of slugging — approximately 1.8 times as much. OPS also uses total bases for slugging, which treats doubles as exactly twice singles. Run-probability data shows that ratio is not accurate. wRC+ fixes both problems."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is better than OPS for evaluating hitters?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "wRC+ (Weighted Runs Created Plus) is the most precisely constructed single-number hitting stat available to the public. It starts from wOBA, which uses empirically derived run weights for every offensive event, then adjusts for park and league. In practice OPS and wRC+ agree about 99% of the time — the gap matters most at the edges for high-walk or high-power hitters."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who created OPS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pete Palmer and John Thorn introduced the concept in their 1984 book The Hidden Game of Baseball. The simplified OBP + SLG version that became standard caught on in the early 2000s alongside the broader sabermetric movement popularized by Moneyball."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy: #0a1628;
+      --gold: #c9a84c;
+      --gold-light: #dfc278;
+      --gold-dim: rgba(201,168,76,0.15);
+      --cream: #f5f0e8;
+      --cream-dim: rgba(245,240,232,0.06);
+      --text: #e8e2d6;
+      --text-muted: #8a8070;
+      --border: rgba(201,168,76,0.2);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--navy);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    .site-nav {
+      border-bottom: 1px solid var(--border);
+      padding: 0 clamp(1rem, 5vw, 4rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      position: sticky;
+      top: 0;
+      background: rgba(10,22,40,0.97);
+      backdrop-filter: blur(16px);
+      z-index: 100;
+    }
+    .site-nav .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .site-nav .tagline {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ARTICLE */
+    .article-wrapper {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: clamp(2rem, 6vw, 4rem) clamp(1rem, 5vw, 2rem) 6rem;
+    }
+    .article-header {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .article-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 60px; }
+    .article-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15;
+      color: var(--cream);
+      margin-bottom: 1.2rem;
+    }
+    .article-dek { font-size: 1.05rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.5rem; }
+    .article-meta { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
+    .article-meta span { color: var(--gold); }
+
+    /* ANSWER BOX */
+    .answer-box {
+      background: var(--cream-dim);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 6px 6px 0;
+      padding: 1.4rem 1.6rem;
+      margin: 2rem 0;
+    }
+    .answer-box .answer-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+    .answer-box p { font-size: 1rem; line-height: 1.7; color: var(--cream); }
+
+    /* BODY */
+    .article-body h2 { font-family: 'DM Serif Display', serif; font-size: 1.55rem; color: var(--cream); margin: 2.8rem 0 0.8rem; line-height: 1.25; }
+    .article-body h3 { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--gold-light); margin: 2rem 0 0.6rem; font-style: italic; }
+    .article-body p { margin-bottom: 1.3rem; color: var(--text); }
+    .article-body strong { color: var(--cream); font-weight: 600; }
+    .article-body a { color: var(--gold); text-decoration: underline; text-decoration-color: rgba(201,168,76,0.4); text-underline-offset: 3px; transition: text-decoration-color 0.2s; }
+    .article-body a:hover { text-decoration-color: var(--gold); }
+
+    /* FORMULA BOX */
+    .formula-box {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+    .formula-box .formula-line { font-size: 1rem; color: var(--cream); margin-bottom: 0.5rem; }
+    .formula-box .formula-line:last-child { margin-bottom: 0; }
+    .formula-box .formula-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.75rem; }
+    .formula-box .formula-note { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.6; }
+
+    /* SCALE TABLE */
+    .scale-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; }
+    .scale-table thead tr { border-bottom: 2px solid var(--gold); }
+    .scale-table th { padding: 0.6rem 1rem; text-align: left; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.7rem; }
+    .scale-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border); color: var(--text); }
+    .scale-table tr:last-child td { border-bottom: none; }
+    .scale-table tr:hover td { background: var(--cream-dim); }
+    .tier-elite { color: #f9c74f; font-weight: 600; }
+    .tier-great { color: #90be6d; }
+    .tier-avg { color: var(--text-muted); }
+    .tier-below { color: #e07b6b; }
+
+    /* COMPARISON TABLE */
+    .comp-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; }
+    .comp-table thead tr { border-bottom: 2px solid var(--gold); }
+    .comp-table th { padding: 0.6rem 1rem; text-align: left; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.65rem; }
+    .comp-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; line-height: 1.5; }
+    .comp-table tr:last-child td { border-bottom: none; }
+    .comp-table tr:hover td { background: var(--cream-dim); }
+    .comp-table .sys { color: var(--cream); font-weight: 600; }
+
+    /* EXAMPLE CARD */
+    .example-card {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      padding: 1.25rem 1.4rem;
+      margin: 1.5rem 0;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.82rem;
+    }
+    .example-card .ec-label { color: var(--gold); font-weight: 600; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .example-card .ec-row { display: flex; justify-content: space-between; padding: 0.35rem 0; border-bottom: 1px solid var(--border); color: var(--text); }
+    .example-card .ec-row:last-of-type { border-bottom: none; }
+    .example-card .ec-name { color: var(--cream); }
+    .example-card .ec-val { color: var(--gold); font-weight: 600; }
+    .example-card .ec-note { color: var(--text-muted); font-size: 0.75rem; margin-top: 0.75rem; padding-top: 0.6rem; border-top: 1px solid var(--border); line-height: 1.6; }
+    .ec-highlight { border-left-color: #90be6d; }
+    .ec-highlight .ec-label { color: #90be6d; }
+
+    /* PULLQUOTE */
+    .pullquote { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.5rem 0; margin: 2.5rem 0; }
+    .pullquote p { font-family: 'DM Serif Display', serif; font-size: 1.35rem; font-style: italic; color: var(--cream); line-height: 1.4; margin: 0; }
+    .pullquote cite { display: block; margin-top: 0.6rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); font-style: normal; }
+
+    /* FAQ */
+    .faq-section { margin-top: 3rem; }
+    .faq-section h2 { font-family: 'DM Serif Display', serif; font-size: 1.55rem; color: var(--cream); margin-bottom: 1.5rem; }
+    .faq-item { border-top: 1px solid var(--border); padding: 1.2rem 0; }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-q { font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: var(--cream); margin-bottom: 0.5rem; }
+    .faq-a { color: var(--text); font-size: 0.95rem; line-height: 1.7; }
+
+    /* SOURCES */
+    .sources-section { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+    .sources-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.75rem; }
+    .sources-list { list-style: none; }
+    .sources-list li { font-size: 0.82rem; color: var(--text-muted); font-family: 'IBM Plex Mono', monospace; padding: 0.4rem 0; border-bottom: 1px solid var(--border); line-height: 1.6; }
+    .sources-list li:last-child { border-bottom: none; }
+    .sources-list a { color: var(--gold); text-decoration: none; }
+    .sources-list a:hover { text-decoration: underline; }
+
+    /* CTA */
+    .article-cta { background: var(--gold-dim); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; margin-top: 3.5rem; text-align: center; }
+    .article-cta .cta-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+    .article-cta h3 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--cream); margin-bottom: 0.6rem; }
+    .article-cta p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.2rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-btn { display: inline-block; background: var(--gold); color: var(--navy); font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.12em; padding: 0.65rem 2rem; border-radius: 3px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+    .cta-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* RELATED */
+    .related-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .related-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
+    .related-links { list-style: none; }
+    .related-links li { margin-bottom: 0.5rem; }
+    .related-links a { color: var(--gold); text-decoration: none; font-size: 0.95rem; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+    .related-links a:hover { border-color: var(--gold); }
+  </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCQ9ZZ2W"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <nav class="site-nav">
+    <a href="https://thebaseballnerd.com" class="logo">The Baseball Nerd</a>
+    <span class="tagline">Numbers Not Feelings</span>
+  </nav>
+
+  <main class="article-wrapper">
+
+    <header class="article-header">
+      <div class="article-label">Stats Explained</div>
+      <h1 class="article-title">What Is OPS in Baseball? On-Base Plus Slugging Explained.</h1>
+      <p class="article-dek">The hitting stat on every broadcast, every box score, and every baseball card. It's useful, it's fast, and it has a structural flaw that matters more the closer you look. Here's the full picture.</p>
+      <div class="article-meta">
+        By <span>Pete Dwyer</span> &nbsp;|&nbsp; Updated <span>April 2026</span> &nbsp;|&nbsp; 8 min read
+      </div>
+    </header>
+
+    <div class="article-body">
+
+      <div class="answer-box">
+        <div class="answer-label">Quick Answer</div>
+        <p><strong>OPS stands for On-Base Plus Slugging.</strong> It adds a hitter's on-base percentage (how often they reach base) to their slugging percentage (total bases per at-bat). League average is roughly .720–.740 in most modern seasons. An .800 OPS is above average. A .900 OPS is elite. A 1.000 OPS belongs to the best hitters in baseball in a given year.</p>
+      </div>
+
+      <h2>How OPS Is Calculated</h2>
+
+      <p>The formula is two stats added together. Both are available on any box score.</p>
+
+      <div class="formula-box">
+        <div class="formula-label">The Formula</div>
+        <div class="formula-line">OPS = On-Base Percentage (OBP) + Slugging Percentage (SLG)</div>
+        <div class="formula-note">
+          OBP = (Hits + Walks + Hit By Pitch) / (At-Bats + Walks + Hit By Pitch + Sacrifice Flies)<br>
+          SLG = Total Bases / At-Bats &nbsp;|&nbsp; Single = 1, Double = 2, Triple = 3, Home Run = 4
+        </div>
+      </div>
+
+      <p><strong>On-base percentage</strong> measures how often a hitter reaches base. Hits, walks, and hit-by-pitches count. Reaching on errors, fielder's choice, and catcher's interference do not.</p>
+      <p><strong>Slugging percentage</strong> measures power output. It counts total bases per at-bat. A home run is four times a single in this framework. That ratio, as you will see, is one of the places where OPS starts to break down.</p>
+
+      <h2>What Is a Good OPS?</h2>
+      <p>Because OPS is the sum of two percentages, its scale runs higher than either component alone. League average has ranged from .700 to .759 over the past two decades. FanGraphs publishes updated league averages each season at <a href="https://www.fangraphs.com/guts.aspx" target="_blank" rel="noopener">fangraphs.com/guts</a>.</p>
+
+      <table class="scale-table">
+        <thead>
+          <tr><th>OPS</th><th>Grade</th><th>Context</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="tier-elite">1.000+</td><td class="tier-elite">Historic</td><td>Top 2–3 hitters in baseball in a given season</td></tr>
+          <tr><td class="tier-elite">.900–.999</td><td class="tier-elite">Elite</td><td>All-Star caliber, clear offensive weapon</td></tr>
+          <tr><td class="tier-great">.800–.899</td><td class="tier-great">Above average</td><td>Solid everyday player, lineup asset</td></tr>
+          <tr><td class="tier-avg">.720–.799</td><td class="tier-avg">Average</td><td>League median range</td></tr>
+          <tr><td class="tier-avg">.650–.719</td><td class="tier-avg">Below average</td><td>Acceptable with elite defense or position scarcity</td></tr>
+          <tr><td class="tier-below">Below .650</td><td class="tier-below">Poor</td><td>Bench or platoon territory</td></tr>
+        </tbody>
+      </table>
+
+      <p>Positional context matters here just as it does with wRC+. A .720 OPS from a Gold Glove shortstop is a completely different roster conversation than a .720 OPS from a first baseman. OPS does not adjust for defensive value or position scarcity. That part is your job as the evaluator.</p>
+
+      <h2>Where OPS Came From</h2>
+      <p>Pete Palmer and John Thorn introduced the concept in their 1984 book <em>The Hidden Game of Baseball</em> (Doubleday, 1984), though their original version was more sophisticated than the simple addition that became standard. The stripped-down OBP + SLG formula caught on because it was fast to calculate and fast to explain.</p>
+      <p>By the early 2000s, Billy Beane and the Oakland Athletics had popularized on-base percentage as a systematically undervalued skill — documented in Michael Lewis's <em>Moneyball</em> (W.W. Norton, 2003). OPS rode that wave into mainstream coverage because it gave broadcasters and writers a single number that captured both plate discipline and power without requiring a spreadsheet.</p>
+      <p>It is now printed on the back of baseball cards, displayed on stadium scoreboards, and referenced in every broadcast. That ubiquity is worth something. A stat nobody uses does not help anyone evaluate a player.</p>
+
+      <h2>The Structural Problem With OPS</h2>
+      <p>OPS adds OBP and SLG directly, treating a point of on-base percentage and a point of slugging percentage as equal. They are not.</p>
+      <p>Research using run expectancy data consistently shows that a point of OBP is worth more in run-production terms than a point of SLG. Tom Tango, Mitchel Lichtman, and Andrew Dolphin documented this in <em>The Book: Playing the Percentages in Baseball</em> (Potomac Books, 2006), the most thorough public treatment of linear weights and run value in baseball research. The gap is approximately 1.8:1: a point of OBP generates roughly 1.8 times as many runs as a point of SLG. OPS treats that ratio as 1:1.</p>
+      <p>The practical consequence: OPS systematically undervalues high-walk, lower-power hitters and overvalues high-power hitters who do not get on base at elite rates.</p>
+
+      <div class="example-card">
+        <div class="ec-label">Same OPS. Different run value.</div>
+        <div class="ec-row"><span class="ec-name">Hitter A</span><span class="ec-val">.380 OBP + .440 SLG = .820 OPS</span></div>
+        <div class="ec-row"><span class="ec-name">Hitter B</span><span class="ec-val">.320 OBP + .500 SLG = .820 OPS</span></div>
+        <div class="ec-note">Hitter A is the more productive offensive player by run expectancy. His higher OBP means more baserunners, more scoring opportunities, and more runs. OPS sees them as identical. wRC+ does not.</div>
+      </div>
+
+      <p>OPS also uses total bases in its slugging component, which means a double is counted as exactly twice a single and a home run as exactly four times a single. The actual run-value differences between those events are not those ratios. The linear weights underlying wOBA measure the real gaps from play-by-play data, and they are smaller between single and double, larger between triple and home run, than total-base arithmetic implies.</p>
+
+      <div class="pullquote">
+        <p>"OPS adjusts two precise-looking numbers that were imprecise to begin with. wRC+ starts from the data."</p>
+        <cite>The Baseball Nerd</cite>
+      </div>
+
+      <h2>OPS+ — The Park-Adjusted Version</h2>
+      <p>Baseball Reference publishes OPS+, which scales OPS to a 100-equals-league-average framework and adjusts for the run-scoring environment of a player's home ballpark. A .820 OPS at Coors Field is not the same achievement as a .820 OPS at Petco Park. OPS+ reflects that. Full methodology and historical data are at <a href="https://www.baseball-reference.com" target="_blank" rel="noopener">baseball-reference.com</a>.</p>
+
+      <table class="scale-table">
+        <thead>
+          <tr><th>OPS+</th><th>Grade</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="tier-elite">160+</td><td class="tier-elite">MVP-caliber</td></tr>
+          <tr><td class="tier-elite">140–159</td><td class="tier-elite">All-Star, elite</td></tr>
+          <tr><td class="tier-great">120–139</td><td class="tier-great">Above average</td></tr>
+          <tr><td class="tier-avg">100–119</td><td class="tier-avg">Average to solid</td></tr>
+          <tr><td class="tier-avg">80–99</td><td class="tier-avg">Below average</td></tr>
+          <tr><td class="tier-below">Below 80</td><td class="tier-below">Poor</td></tr>
+        </tbody>
+      </table>
+
+      <p>The limitation: OPS+ inherits OPS's structural flaw. It park-adjusts a number that was already imprecise. The adjustment improves cross-park and cross-era comparability — it does not fix the OBP/SLG weighting problem.</p>
+
+      <h2>OPS vs. wRC+ and wOBA</h2>
+      <p>If OPS is imprecise, wRC+ and wOBA are what the math actually supports.</p>
+      <p>wOBA (Weighted On-Base Average) assigns empirically derived run values to every offensive event. Not total bases. Not a simple split. Actual historical run-probability weights recalibrated each season from play-by-play data, published on FanGraphs' Guts page. A walk is worth approximately 0.69 runs. A single is approximately 0.89. A home run is approximately 2.10. Those are not equal to what total-base arithmetic implies.</p>
+      <p>wRC+ takes wOBA, adjusts for park and league, and places it on the same 100-equals-average scale as OPS+. The result is the most precisely constructed single-number hitting stat available to the public.</p>
+
+      <table class="comp-table">
+        <thead>
+          <tr><th>Stat</th><th>Park Adjusted</th><th>Weighting</th><th>Best Used For</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="sys">OPS</td><td>No</td><td>OBP = SLG (imprecise)</td><td>Quick reads, same-era comparisons</td></tr>
+          <tr><td class="sys">OPS+</td><td>Yes</td><td>OBP = SLG (still imprecise)</td><td>Cross-park, cross-era comparisons</td></tr>
+          <tr><td class="sys">wOBA</td><td>No</td><td>Linear run weights (precise)</td><td>Contact quality, within same park</td></tr>
+          <tr><td class="sys">wRC+</td><td>Yes</td><td>Linear run weights (precise)</td><td>Full cross-park, cross-era evaluation</td></tr>
+        </tbody>
+      </table>
+
+      <p>In practice, OPS+ and wRC+ agree about 99% of the time. Baseball Prospectus found a 0.992 correlation between them across all batting title qualifiers from 1998 through 2018. For most players, the distinction is academic. At the edges — high-walk hitters, extreme park effects, unusual batted ball profiles — wRC+ is right more often because it started from more accurate inputs.</p>
+      <p>A full comparison is here: <a href="/articles/ops-plus-vs-wrc-plus.html">wRC+ vs. OPS+: Which Stat Should You Trust?</a></p>
+
+      <h2>When OPS Is Still Useful</h2>
+      <p>OPS is useful when you want a quick read on a hitter's overall value, you are working from a box score or broadcast, you are talking to someone who does not track advanced metrics, or you are making a rough comparison within the same era and park.</p>
+      <p>OPS starts to mislead when you are comparing hitters across different parks or eras, evaluating a high-walk hitter against a high-power hitter at the same OPS level, or building a model where precision compounds over time.</p>
+      <p>The stat that replaced OPS in serious analysis is wRC+. The stat that still runs every broadcast is OPS. Knowing both — and knowing when the difference matters — is the actual skill.</p>
+
+      <h2>What OPS Does Not Measure</h2>
+      <p>OPS is strictly a plate-appearance stat. It captures nothing outside the batter's box. It does not measure baserunning, which can be worth 5–10 runs per season for an elite runner. It does not measure defense. It does not adjust for position.</p>
+      <p>For total player value, OPS is one input into WAR calculations. The full picture requires baserunning, fielding, positional adjustment, and a replacement-level baseline. OPS gets you the hitting story. Everything else is separate.</p>
+
+      <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <p class="faq-q">What does OPS stand for in baseball?</p>
+          <p class="faq-a">On-Base Plus Slugging. It adds on-base percentage (how often a hitter reaches base) to slugging percentage (total bases per at-bat).</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">What is a good OPS in baseball?</p>
+          <p class="faq-a">League average is roughly .720–.740 in most modern seasons. An .800 OPS is above average. A .900 OPS is elite, All-Star caliber. Anything above 1.000 belongs to the best hitters in baseball in a given year.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">What is the difference between OPS and OPS+?</p>
+          <p class="faq-a">OPS is a raw number. OPS+ adjusts it for ballpark and league offense and places it on a 100-equals-league-average scale. OPS+ is more useful for comparing hitters across different parks and eras. It's published by Baseball Reference.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Why is OPS considered flawed?</p>
+          <p class="faq-a">OPS adds OBP and SLG as equals, but a point of OBP is worth approximately 1.8 times as many runs as a point of SLG. It also treats doubles as exactly twice singles in the slugging component, which run-probability data does not support. wRC+ fixes both problems.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">What is better than OPS for evaluating hitters?</p>
+          <p class="faq-a">wRC+ (Weighted Runs Created Plus) is the most precisely constructed single-number hitting stat publicly available. It starts from wOBA, which uses empirically derived run weights for every offensive event, then adjusts for park and league. In practice OPS and wRC+ agree about 99% of the time — the gap matters most at the edges.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Who created OPS?</p>
+          <p class="faq-a">Pete Palmer and John Thorn introduced the concept in their 1984 book <em>The Hidden Game of Baseball</em>. The simplified OBP + SLG version that became standard caught on in the early 2000s alongside the broader sabermetric movement.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Is OPS available for minor league players?</p>
+          <p class="faq-a">Yes. Baseball Reference and FanGraphs both publish OPS for MiLB players. Minor league OPS requires extra caution due to variable park factors and run environments across levels. Age-relative comparisons are more useful than raw numbers when evaluating prospects.</p>
+        </div>
+
+      </section>
+
+      <div class="sources-section">
+        <div class="sources-label">Sources</div>
+        <ul class="sources-list">
+          <li>Palmer, Pete and Thorn, John. <em>The Hidden Game of Baseball</em>. Doubleday, 1984. Origin of the OPS concept and early linear weights research.</li>
+          <li>Lewis, Michael. <em>Moneyball: The Art of Winning an Unfair Game</em>. W.W. Norton, 2003. Documents the popularization of OBP as an undervalued metric.</li>
+          <li>Tango, Tom, Lichtman, Mitchel, and Dolphin, Andrew. <em>The Book: Playing the Percentages in Baseball</em>. Potomac Books, 2006. Definitive public treatment of linear weights, run expectancy, and the OBP/SLG weighting problem.</li>
+          <li>FanGraphs Glossary: OPS, wOBA, wRC+, and league constants. <a href="https://www.fangraphs.com/library" target="_blank" rel="noopener">fangraphs.com/library</a> and <a href="https://www.fangraphs.com/guts.aspx" target="_blank" rel="noopener">fangraphs.com/guts</a>.</li>
+          <li>Baseball Reference: OPS+ methodology and historical data. <a href="https://www.baseball-reference.com" target="_blank" rel="noopener">baseball-reference.com</a>.</li>
+          <li>Baseball Prospectus: correlation analysis of OPS+ and wRC+ across batting title qualifiers, 1998–2018. Referenced in <em>wRC+ vs. OPS+: Which Stat Should You Trust?</em>, The Baseball Nerd, April 2026.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="article-cta">
+      <div class="cta-label">The Baseball Nerd Analytics Suite</div>
+      <h3>OPS Is the Starting Point. SPARK Is the Signal.</h3>
+      <p>The SPARK Score uses wRC+ trajectory, xwOBA gap, and Statcast contact quality to identify breakout candidates before the leaderboard catches up. Numbers Not Feelings.</p>
+      <a href="https://thebaseballnerd.substack.com" class="cta-btn">Explore the Suite</a>
+    </div>
+
+    <div class="related-section">
+      <div class="related-label">Related Articles</div>
+      <ul class="related-links">
+        <li><a href="/articles/what-is-wrc-plus-in-baseball.html">What Is wRC+ in Baseball? The Stat Explained</a></li>
+        <li><a href="/articles/ops-plus-vs-wrc-plus.html">wRC+ vs. OPS+: Which Stat Should You Trust?</a></li>
+        <li><a href="/articles/what-is-war-in-baseball.html">What Is WAR in Baseball? Wins Above Replacement Explained</a></li>
+        <li><a href="/articles/what-is-woba-in-baseball.html">What Is wOBA? The Complete Explanation</a></li>
+        <li><a href="/articles/spark-score-explained.html">The SPARK Score: How We Grade Offensive Prospects</a></li>
+      </ul>
+    </div>
+
+  </main>
+
+</body>
+</html>
