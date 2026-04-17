@@ -22,6 +22,28 @@
  */
 
 const RECAPS = [{
+  id:'4-16-26-athletics',
+  date:'2026-04-16',
+  opponent:'Athletics',
+  home:false,
+  result:'win',
+  score:'TEX 9, ATH 6',
+  record:'',  // ← fill in current record
+  preview:"Sometimes a frustrated outfielder throwing water jugs in the dugout provides exactly the spark a team needs.",
+  body:`Sometimes a frustrated outfielder throwing water jugs in the dugout provides exactly the spark a team needs. Wyatt Langford's ninth-inning tantrum became the catalyst for one of the Rangers' most improbable comebacks this season, turning a three-run deficit into a 9-6 victory over the Athletics at Sutter Health Park.
+
+The Rangers entered the ninth trailing 6-3 after Nick Kurtz popped up a wind-aided ball that fell for an improbable double off Jakob Junis in the eighth, erasing what had been a two-run lead built on Josh Jung's seventh-inning homer. That bloop hit landed just in front of Langford. By the time the A's finished their three-run half inning, the mood in the visiting dugout had turned dark.
+
+Between innings, Langford apparently decided the team needed a wake-up call. According to Jung, who spoke with Rangers sideline reporter Laura Stickells after the game, his teammate "threw some water jugs around and got the boys fired up." The display of frustration became a pressure valve for a team that had watched a winnable game slip away.
+
+"I think everybody was kind of like calmed down a little bit," Jung explained with a laugh. "He kind of did it for all of us, probably. We were frustrated, but then we're just laughing. It's like one jug goes, and then the next goes, too."
+
+Whatever the psychological effect, the Rangers immediately went to work against Justin Sterner. Kyle Higashioka reached on a fielder's choice that brought Jake Burger home when Sterner threw wildly, tying the game at six. Joc Pederson followed with a line drive single to center that scored Jung for the lead. Two batters later, Ezequiel Duran capped the four-run rally with a two-run single through the middle.
+
+The comeback overshadowed what had been a grinding afternoon in Sacramento's 64-degree weather with 17-mph winds blowing left to right. Jack Leiter lasted just 5.2 innings in his fourth start, surrendering the lead in the fifth when Jacob Wilson and Carlos Cortes produced back-to-back RBI singles. The Rangers clawed back to even on Josh Smith's RBI double in the sixth, then seized control briefly on Jung's two-run shot in the seventh.
+
+Cal Quantrill earned the victory with a clean ninth inning, but the story belonged to the unlikely rally that followed Langford's dugout dramatics. Sometimes leadership takes unconventional forms.`
+},{
   id:'4-15-26-athletics',
   date:'2026-04-15',
   opponent:'Athletics',
