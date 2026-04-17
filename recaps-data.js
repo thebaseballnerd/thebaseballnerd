@@ -28,7 +28,7 @@ const RECAPS = [{
   home:false,
   result:'win',
   score:'TEX 9, ATH 6',
-  record:'',  // ← fill in current record
+  record:'10-9',  // ← fill in current record
   preview:"Sometimes a frustrated outfielder throwing water jugs in the dugout provides exactly the spark a team needs.",
   body:`Sometimes a frustrated outfielder throwing water jugs in the dugout provides exactly the spark a team needs. Wyatt Langford's ninth-inning tantrum became the catalyst for one of the Rangers' most improbable comebacks this season, turning a three-run deficit into a 9-6 victory over the Athletics at Sutter Health Park.
 
