@@ -43,6 +43,13 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem
 .meta-result.loss{background:rgba(204,90,90,0.1);color:#cc5a5a;}
 .article-body p{font-family:'DM Serif Display',serif;font-size:1.15rem;line-height:1.85;color:var(--cream);opacity:0.85;margin-bottom:1.5rem;}
 .article-body p:first-child{font-size:1.25rem;opacity:1;}
+/* MLB Stories embed */
+.mlb-embed-wrap{margin:2.5rem 0;border:1px solid rgba(201,168,76,0.15);background:rgba(0,0,0,0.2);}
+.mlb-embed-label{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);opacity:0.65;padding:0.65rem 1rem;border-bottom:1px solid rgba(201,168,76,0.1);display:flex;align-items:center;justify-content:space-between;}
+.mlb-embed-label a{font-family:'IBM Plex Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.5;text-decoration:none;transition:opacity 0.15s;}
+.mlb-embed-label a:hover{opacity:1;}
+.mlb-embed-frame{width:100%;height:600px;border:none;display:block;}
+@media(max-width:700px){.mlb-embed-frame{height:480px;}}
 .article-nav{display:flex;justify-content:center;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(201,168,76,0.08);}
 .article-nav a{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.6;text-decoration:none;transition:opacity 0.15s;}
 .article-nav a:hover{opacity:1;}
@@ -271,6 +278,23 @@ function render(){
     next ? `<a href="recap.html?id=${next.id}" style="margin-left:auto;">${next.opponent} (${next.date}) →</a>` : '<span></span>'
   ].join('');
 
+  // MLB Stories embed — only when gamePk exists and body is written
+  const mlbEmbed = (recap.gamePk && recap.body && recap.body.trim())
+    ? `<div class="mlb-embed-wrap">
+        <div class="mlb-embed-label">
+          <span>// Game Highlights · MLB Stories</span>
+          <a href="https://www.mlb.com/stories/game/${recap.gamePk}" target="_blank" rel="noopener">View on MLB.com →</a>
+        </div>
+        <iframe
+          class="mlb-embed-frame"
+          src="https://www.mlb.com/stories/game/${recap.gamePk}?storylocal=gameday-postgame-wrap-game-embed"
+          title="${matchupTitle} highlights"
+          loading="lazy"
+          sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+        </iframe>
+      </div>`
+    : '';
+
   wrap.innerHTML = `
     <a class="back-link" href="recaps.html">← All recaps</a>
     <div class="article-eyebrow">Rangers Recap · 2026 Season</div>
@@ -286,6 +310,7 @@ function render(){
       <meta itemprop="author" content="Pete Dwyer">
       ${bodyContent}
     </article>
+    ${mlbEmbed}
     <div class="article-nav" style="justify-content:space-between;gap:1rem;flex-wrap:wrap;">${navLinks}</div>`;
 }
 
