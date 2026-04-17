@@ -32,7 +32,7 @@ const RECAPS = [{
   preview:"Sometimes a frustrated outfielder throwing water jugs in the dugout provides exactly the spark a team needs.",
   body:`Sometimes a frustrated outfielder throwing water jugs in the dugout provides exactly the spark a team needs. Wyatt Langford's ninth-inning tantrum became the catalyst for one of the Rangers' most improbable comebacks this season, turning a three-run deficit into a 9-6 victory over the Athletics at Sutter Health Park.
 
-The Rangers entered the ninth trailing 6-3 after Nick Kurtz popped up a wind-aided ball that fell for an improbable double off Jakob Junis in the eighth, erasing what had been a two-run lead built on Josh Jung's seventh-inning homer. That bloop hit landed just in front of Langford. By the time the A's finished their three-run half inning, the mood in the visiting dugout had turned dark.
+The Rangers entered the ninth trailing 6-5 after Nick Kurtz popped up a wind-aided ball that fell for an improbable double off Jakob Junis in the eighth, erasing what had been a two-run lead built on Josh Jung's seventh-inning homer. That bloop hit landed just in front of Langford. By the time the A's finished their three-run half inning, the mood in the visiting dugout had turned dark.
 
 Between innings, Langford apparently decided the team needed a wake-up call. According to Jung, who spoke with Rangers sideline reporter Laura Stickells after the game, his teammate "threw some water jugs around and got the boys fired up." The display of frustration became a pressure valve for a team that had watched a winnable game slip away.
 
