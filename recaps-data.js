@@ -22,7 +22,29 @@
  * ================================================
  */
 
-const RECAPS = [
+const RECAPS = [{
+  id:'4-17-26-seattle-mariners',
+  date:'2026-04-17',
+  opponent:'Seattle Mariners',
+  home:false,
+  result:'win',
+  score:'TEX 5, SEA 0',
+  record:'11-9',  // ← fill in current record
+  preview:"Jacob deGrom's return to Seattle turned into a battle of attrition that the Rangers ultimately won through persistence rather than dominance.",
+  body:`Jacob deGrom's return to Seattle turned into a battle of attrition that the Rangers ultimately won through persistence rather than dominance. The ace threw 88 pitches in those four innings, but the 30-pitch first inning was indicative of what Seattle hitters were going to do all night. While he didn't allow any runs, he had traffic and deep counts in every frame.
+
+Brandon Nimmo provided the early fireworks, turning on a Logan Gilbert fastball for a three-pitch home run in the first inning. That quick strike masked what would become a grinding affair that stretched over three hours and eight minutes. Gilbert settled in after that rough start, striking out seven Rangers over 5.1 innings, but the damage accumulated incrementally.
+
+The Mariners made deGrom work harder than his final line suggested. Four hits and two walks across four frames told only part of the story. Josh Naylor collected two hits in two at-bats against the Rangers starter, while Julio Rodríguez and J.P. Crawford each found holes in the Texas defense. DeGrom's pitch count climbed steadily as Seattle hitters fouled off strike three and worked full counts.
+
+Corey Seager became the catalyst for Texas offense after that initial blast. The shortstop reached base in the third inning and scored on Wyatt Langford's line drive single to left field. Seager repeated the pattern in the seventh, coming around to score on Jake Burger's sharp liner to center field that plated the third run against Jose A. Ferrer.
+
+Texas manager Skip Schumaker leaned heavily on his bullpen after deGrom's early exit. Gavin Collyer earned the victory with 1.1 innings of one-hit relief, followed by a parade of arms that held Seattle scoreless through the final five frames. Tyler Alexander, Jalen Beeks, Cole Winn, and Jacob Latz each contributed scoreless innings as the Rangers bullpen combined for five shutout frames.
+
+The ninth inning provided the finishing touches to Seattle's frustration. Andrew McCutchen drove in Langford with a sacrifice fly to right field, then Jung capped the scoring with a sharp double that brought home Burger. Casey Legumina surrendered both runs in his 2.1-inning stint, watching Texas hitters collect four hits against his offerings.
+
+Seattle managed seven hits but couldn't string together the timely hitting necessary to crack Texas pitching. The Mariners left runners stranded throughout the evening, unable to solve the Rangers' bullpen depth in a game that showcased endurance over explosiveness.`
+},
   {
     id:'4-16-26-athletics',
     date:'April 16, 2026',
