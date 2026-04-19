@@ -30,7 +30,6 @@ const RECAPS = [{
   result:'loss',
   score:'TEX 3, SEA 7',
   record:'11-10',  // ← fill in current record
-  gamePk:823151
   preview:"Rangers waste chances in 7-3 loss, stranding 16 runners and exposing a clutch hitting failure that outweighs any pitching or defensive issues.",
   body:`Everything that could go wrong did go wrong for the Rangers in this 7-3 debacle at T-Mobile Park, but the most damning indictment wasn't the final score. It was watching this offense repeatedly fail when it mattered most, stranding 16 runners and going just 1-for-8 with runners in scoring position in a performance that exposed fundamental flaws Skip Schumaker can't ignore.
 
@@ -51,7 +50,6 @@ Texas managed some ninth-inning dignity when Carter drove home Wyatt Langford an
   result:'win',
   score:'TEX 5, SEA 0',
   record:'11-9',  // ← fill in current record
-  gamePk:823152
   preview:"Jacob deGrom's return to Seattle turned into a battle of attrition that the Rangers ultimately won through persistence rather than dominance.",
   body:`Jacob deGrom's return to Seattle turned into a battle of attrition that the Rangers ultimately won through persistence rather than dominance. The ace threw 88 pitches in those four innings, but the 30-pitch first inning was indicative of what Seattle hitters were going to do all night. While he didn't allow any runs, he had traffic and deep counts in every frame.
 
