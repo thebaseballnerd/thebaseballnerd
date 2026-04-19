@@ -30,7 +30,7 @@ const RECAPS = [{
   result:'loss',
   score:'TEX 3, SEA 7',
   record:'11-10',  // ← fill in current record
-  gamePk: 823151
+  gamePk: 823151,
   preview:"Rangers waste chances in 7-3 loss, stranding 16 runners and exposing a clutch hitting failure that outweighs any pitching or defensive issues.",
   body:`Everything that could go wrong did go wrong for the Rangers in this 7-3 debacle at T-Mobile Park, but the most damning indictment wasn't the final score. It was watching this offense repeatedly fail when it mattered most, stranding 16 runners and going just 1-for-8 with runners in scoring position in a performance that exposed fundamental flaws Skip Schumaker can't ignore.
 
