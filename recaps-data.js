@@ -51,6 +51,7 @@ Texas managed some ninth-inning dignity when Carter drove home Wyatt Langford an
   result:'win',
   score:'TEX 5, SEA 0',
   record:'11-9',  // ← fill in current record
+  gamePk: 823152,
   preview:"Jacob deGrom's return to Seattle turned into a battle of attrition that the Rangers ultimately won through persistence rather than dominance.",
   body:`Jacob deGrom's return to Seattle turned into a battle of attrition that the Rangers ultimately won through persistence rather than dominance. The ace threw 88 pitches in those four innings, but the 30-pitch first inning was indicative of what Seattle hitters were going to do all night. While he didn't allow any runs, he had traffic and deep counts in every frame.
 
