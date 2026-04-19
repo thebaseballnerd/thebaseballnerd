@@ -23,6 +23,26 @@
  */
 
 const RECAPS = [{
+  id:'4-18-26-seattle-mariners',
+  date:'2026-04-18',
+  opponent:'Seattle Mariners',
+  home:false,
+  result:'loss',
+  score:'TEX 3, SEA 7',
+  record:'11-10',  // ← fill in current record
+  preview:"Rangers waste chances in 7-3 loss, stranding 16 runners and exposing a clutch hitting failure that outweighs any pitching or defensive issues.",
+  body:`Everything that could go wrong did go wrong for the Rangers in this 7-3 debacle at T-Mobile Park, but the most damning indictment wasn't the final score. It was watching this offense repeatedly fail when it mattered most, stranding 16 runners and going just 1-for-8 with runners in scoring position in a performance that exposed fundamental flaws Skip Schumaker can't ignore.
+
+The Rangers put plenty of men on base, collecting 11 hits and drawing seven walks against Seattle pitching. They just couldn't bring them home when the opportunities presented themselves. Kyle Higashioka left three runners in scoring position with two outs. Brandon Nimmo stranded two more in the same situation. Josh Jung, despite launching his second home run of the season in the sixth inning, also left two runners stranded with two outs. This wasn't bad luck or good Seattle pitching. This was systematic failure in clutch moments.
+
+Nathan Eovaldi's struggles compounded the offensive futility. The veteran right-hander surrendered early damage when Julio Rodríguez drove home J.P. Crawford with a two-pitch single in the first inning, then watched Dominic Canzone deliver the knockout blow in the fourth. Canzone's sharp grounder to center plated both Randy Arozarena and Luke Raley, putting Texas in a 3-0 hole that would prove insurmountable given their inability to capitalize with runners in scoring position.
+
+When Jung finally broke through with his solo shot off George Kirby in the sixth, it felt like momentum might shift. Instead, Raley answered immediately with his fifth home run of the season off Eovaldi, restoring Seattle's three-run cushion and effectively ending any realistic comeback hopes.
+
+The eighth inning became a showcase of defensive incompetence and bullpen meltdown. Cal Quantrill entered with a manageable deficit and promptly imploded. Cole Young's sharp grounder deflected off second baseman Ezequiel Duran, allowing two more runs to score. Leo Rivas then added insult with a sacrifice fly that made it 7-1.
+
+Texas managed some ninth-inning dignity when Carter drove home Wyatt Langford and Duran doubled in Josh Smith, but by then this 3-hour, 13-minute slog had already revealed too much about a team struggling with fundamental execution. The Rangers left the ballpark with plenty of questions about their ability to perform when games hang in the balance.`
+},{
   id:'4-17-26-seattle-mariners',
   date:'2026-04-17',
   opponent:'Seattle Mariners',
