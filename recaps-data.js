@@ -24,7 +24,7 @@
 
 const RECAPS = [{
   id:'4-18-26-seattle-mariners',
-  date:'2026-04-18',
+  date:'April 18, 2026',
   opponent:'Seattle Mariners',
   home:false,
   result:'loss',
@@ -45,7 +45,7 @@ The eighth inning became a showcase of defensive incompetence and bullpen meltdo
 Texas managed some ninth-inning dignity when Carter drove home Wyatt Langford and Duran doubled in Josh Smith, but by then this 3-hour, 13-minute slog had already revealed too much about a team struggling with fundamental execution. The Rangers left the ballpark with plenty of questions about their ability to perform when games hang in the balance.`
 },{
   id:'4-17-26-seattle-mariners',
-  date:'2026-04-17',
+  date:'April 17, 2026',
   opponent:'Seattle Mariners',
   home:false,
   result:'win',
