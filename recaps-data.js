@@ -23,6 +23,29 @@
  */
 
 const RECAPS = [{
+  id:'4-19-26-seattle-mariners',
+  date:'April 19, 2026',
+  opponent:'Seattle Mariners',
+  home:false,
+  result:'loss',
+  score:'TEX 2, SEA 5',
+  record:'11-11',  // ← fill in current record
+  gamePk: 823150,
+  preview:"The Rangers dropped the series finale in Seattle behind another rough outing from MacKenzie Gore.",
+  body:`MacKenzie Gore's fifth start of the season lasted exactly 18 pitches too long. The Rangers lefty surrendered three home runs in his five innings at T-Mobile Park, each one a reminder of why this venue has become such a house of horrors for Texas.
+
+The damage came in waves. Rob Refsnyder needed just one pitch to send Gore's first offering of the game over the left field wall in the bottom of the first. An inning later, J.P. Crawford turned a four-pitch at-bat into a two-run shot to right field, scoring Mitch Garver ahead of him. The knockout blow arrived in the fifth when Randy Arozarena crushed a three-pitch sequence for his second homer of the season, plating Julio Rodríguez and pushing Seattle's lead to 5-0.
+
+Gore's struggles continued a troubling pattern for Rangers starters in Seattle. The southpaw allowed seven hits and five earned runs across his five frames, striking out five but never finding the command to keep Seattle's hitters off balance. Each home run came on a different count, suggesting Gore's location was consistently problematic rather than falling behind hitters.
+
+The Rangers' offense managed just four hits against Bryan Woo, who carved through the Texas lineup with surgical precision. Woo struck out six over seven innings, allowing only two runs in the seventh when Texas finally showed signs of life. Josh Jung drove home Corey Seager with a sacrifice fly to right field, then Evan Carter followed with a sharp double to right that scored Wyatt Langford.
+
+But that seventh-inning rally represented the extent of Texas's offensive output. The Rangers went 1-for-5 with runners in scoring position and left five men on base. Jake Burger struck out three times in four at-bats, emblematic of an approach that generated little pressure against Seattle's pitching staff.
+
+Skip Schumaker's bullpen provided four scoreless innings after Gore's exit, with Tyler Alexander, Jalen Beeks, Gavin Collyer and Jakob Junis combining to keep the deficit manageable. The late-game work offered a glimpse of what might have been possible with earlier offensive production.
+
+Instead, the Rangers fell to 10-40 at T-Mobile Park since 2020, extending their series-winning drought in Seattle to six consecutive visits. Andrés Muñoz struck out the side in the ninth to secure the save, punctuating another frustrating afternoon in the Pacific Northwest.`
+},{
   id:'4-18-26-seattle-mariners',
   date:'April 18, 2026',
   opponent:'Seattle Mariners',
