@@ -23,6 +23,29 @@
  */
 
 const RECAPS = [{
+  id:'4-21-26-pittsburgh-pirates',
+  date:'2026-04-21',
+  opponent:'Pittsburgh Pirates',
+  home:true,
+  result:'win',
+  score:'TEX 5, PIT 1',
+  record:'',  // ← fill in current record
+  gamePk: 822914,  
+  preview:"Another frustrating night with runners in scoring position haunted the Rangers, even in a 5-1 victory over Pittsburgh at Globe Life Field.",
+  body:`Another frustrating night with runners in scoring position haunted the Rangers, even in a 5-1 victory over Pittsburgh at Globe Life Field. Texas managed just three hits in 12 at-bats with runners in scoring position, leaving eight men on base despite pounding Carmen Mlodzinski for five runs in 4.1 innings.
+
+Kumar Rocker earned his first win of the season with six solid innings, surrendering only four hits and one run while striking out five. The right-hander worked around early trouble after Ryan O'Hearn singled home Oneil Cruz in the first inning, settling into a rhythm that kept Pittsburgh's offense quiet the rest of his outing.
+
+The Rangers answered immediately in the second. Evan Carter grounded a single to right field that scored Joc Pederson, and Josh Smith followed with a sacrifice fly to right that brought home Josh Jung for a 2-1 lead. That two-run inning proved to be the turning point, as Texas never trailed again.
+
+Mlodzinski unraveled completely in the fifth inning. Ezequiel Duran doubled down the left field line to score Smith, then Corey Seager lined a single to center that plated Duran. Jung capped the three-run frame with a force out that still managed to score Seager, chasing the Pirates starter from the game.
+
+Duran finished in left field after Wyatt Langford exited early, going 1-for-2 with an RBI and a run scored in his extended role. The lineup managed to generate enough offense despite the persistent struggles with runners in scoring position that have plagued this team early in the season.
+
+Brandon Nimmo endured an 0-for-5 night and left two runners in scoring position with two outs. Danny Jansen also stranded two runners in scoring position during late situations, continuing the maddening trend that nearly cost Texas what should have been a comfortable win.
+
+Cole Winn, Jacob Latz, and Jakob Junis combined for three scoreless innings to close out the victory, with Winn and Latz each striking out two batters in their respective frames. The bullpen work helped Skip Schumaker's club improve their record while highlighting both the promise of their pitching staff and the ongoing concerns with clutch hitting that could define their season.`
+},{
   id:'4-19-26-seattle-mariners',
   date:'April 19, 2026',
   opponent:'Seattle Mariners',
