@@ -29,7 +29,7 @@ const RECAPS = [{
   home:true,
   result:'win',
   score:'TEX 5, PIT 1',
-  record:'',  // ← fill in current record
+  record:'12-11',  // ← fill in current record
   gamePk: 822914,  
   preview:"Another frustrating night with runners in scoring position haunted the Rangers, even in a 5-1 victory over Pittsburgh at Globe Life Field.",
   body:`Another frustrating night with runners in scoring position haunted the Rangers, even in a 5-1 victory over Pittsburgh at Globe Life Field. Texas managed just three hits in 12 at-bats with runners in scoring position, leaving eight men on base despite pounding Carmen Mlodzinski for five runs in 4.1 innings.
