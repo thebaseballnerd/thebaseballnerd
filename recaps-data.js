@@ -23,6 +23,25 @@
  */
 
 const RECAPS = [{
+  id:'4-22-26-pittsburgh-pirates',
+  date:'2026-04-22',
+  opponent:'Pittsburgh Pirates',
+  home:true,
+  result:'loss',
+  score:'TEX 4, PIT 8',
+  record:'12-12',  // ← fill in current record
+  gamePk: 822913,
+  preview:"Again with the bullpen. Just when you think you get out, they climbed right back in, turning what could have been into a nightmare that culminated with a really loud thud from a foul pole.",
+  body:`Relief pitching collapsed in spectacular fashion at Globe Life Field, turning what should have been a routine Rangers win into an eight-run nightmare that left 24,289 fans leaving the ninth inning as disappointed as possible. Cole Winn and Jalen Beeks combined to surrender four runs in the ninth inning alone, transforming a 4-4 tie into Pittsburgh's most decisive victory of the young season.
+
+The meltdown began innocuously enough when Jake Mangum reached on a fielder's choice that scored Nick Gonzales, giving the Pirates a 5-4 lead. Skip Schumaker had seen enough of Winn after just one-third of an inning and summoned Beeks to clean up the mess. Instead, Oneil Cruz launched the first pitch he saw over the right field foul pole, with the ball landing on top of the pole and skipping into the third deck. That three-run bomb essentially ended the contest before most fans realized what happened.
+
+A half inning earleir, the Rangers had clawed back from a 4-2 deficit with Jake Burger's clutch two-out single in the eighth that plated Andrew McCutchen and Brandon Nimmo against Gregory Soto. The hit capped a spirited rally that seemed to validate the club's improved depth, particularly with veteran additions like McCutchen providing late-game production off the bench.
+
+Jack Leiter carried most of the load through five innings but couldn't escape a disastrous fifth that featured consecutive RBI singles from Brandon Lowe and Bryan Reynolds. Reynolds' hit proved especially costly as a throwing error by Nimmo allowed two runs to score, turning a manageable 2-2 tie into a two-run deficit. Leiter's 5.0-inning performance showed promise, striking out five while limiting hard contact through the first four frames.
+
+The Rangers' offensive struggles with runners in scoring position, managing just one hit in seven opportunities, foreshadowed their inability to build substantial leads. Josh Jung's two-run homer in the second provided the evening's lone offensive highlight, but the club's collective failure to capitalize on scoring chances left too much pressure on a bullpen that simply couldn't deliver when it mattered most. Tyler Alexander and Gavin Collyer had bridged the gap admirably through the seventh and eighth, making the ninth-inning collapse all the more deflating for a Rangers squad still searching for consistency in the season's early weeks.`
+},{
   id:'4-21-26-pittsburgh-pirates',
   date:'2026-04-21',
   opponent:'Pittsburgh Pirates',
