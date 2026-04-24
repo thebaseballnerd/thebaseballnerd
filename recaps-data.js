@@ -23,6 +23,27 @@
  */
 
 const RECAPS = [{
+  id:'4-23-26-pittsburgh-pirates',
+  date:'2026-04-23',
+  opponent:'Pittsburgh Pirates',
+  home:true,
+  result:'win',
+  score:'TEX 6, PIT 1',
+  record:'13-12',  // ← fill in current record
+  gamePk: 822912,
+  preview:"Evan Carter thought he hit a homerun. It hit the wall in right center. It was still a homerun. His first inside-the-park home run.",
+  body:`Evan Carter took one look at Bubba Chandler's offering and sent it screaming toward the right-center gap at Globe Life Field, a line drive with enough carry to find the wall. What happened next turned a routine extra-base hit into the highlight of the Rangers' 6-1 victory over Pittsburgh.
+
+Carter's inside-the-park home run in the third inning broke a scoreless tie and provided the signature moment in what became a dominant display by Jacob deGrom and the Texas offense. The center fielder circled the bases as the Pirates scrambled to retrieve the carom, scoring Josh Jung ahead of him for a 2-0 lead that would only grow from there.
+
+The fourth inning belonged to Corey Seager, who launched his sixth home run of the season to right field after Joc Pederson had driven in Josh Smith with a two-pitch single. Seager's three-run blast gave the Rangers a commanding 6-0 advantage and effectively ended Chandler's evening. The Pirates starter surrendered seven hits and six earned runs in just four innings, walking three and striking out four in a performance that never found its rhythm.
+
+DeGrom looked every bit the ace through 5.2 innings, collecting 10 strikeouts while allowing only five hits and one walk. The right-hander's lone blemish came via Oneil Cruz's solo home run to center field in the fifth, a towering shot that briefly interrupted what had been a masterful demonstration of command and velocity. Still, deGrom's dominance set the tone early and often, keeping Pittsburgh's lineup off balance with a mix of fastballs and breaking balls that generated swings and misses throughout his outing.
+
+Skip Schumaker's bullpen handled the final 3.1 innings without allowing a hit, with Jalen Beeks, Jakob Junis, and Peyton Gray each contributing scoreless frames. The Pirates managed just five hits total, with Nick Gonzales accounting for two of them in a losing effort that never threatened after Carter's third-inning heroics.
+
+The victory improved Texas to a strong start in the early season, with deGrom's fifth start of 2026 serving as a reminder of his continued excellence when healthy. But it was Carter's sprint around the bases that provided the defining image of a night when everything clicked for the Rangers at Globe Life Field.`
+},{
   id:'4-22-26-pittsburgh-pirates',
   date:'2026-04-22',
   opponent:'Pittsburgh Pirates',
