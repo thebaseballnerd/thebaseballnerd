@@ -1,485 +1,2267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="/favicon.png">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2026 Early Season Pitching Leaders | The Baseball Nerd</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #0a1628;
-    --gold: #c9a84c;
-    --cream: #f5f0e8;
-    --navy-mid: #132035;
-    --navy-light: #1c2f4a;
-    --gold-dim: #a8893c;
-    --red: #e05252;
-    --green: #4ade80;
-    --muted: #8fa3c0;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    background: var(--navy);
-    color: var(--cream);
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    min-height: 100vh;
-  }
-  /* NAV */
-  .topbar {
-    background: var(--navy);
-    border-bottom: 1px solid rgba(201,168,76,0.25);
-    padding: 14px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky; top: 0; z-index: 100;
-  }
-  .logo { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2px; color: var(--gold); text-decoration: none; }
-  .nav-links { display: flex; gap: 24px; }
-  .nav-links a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.5px; transition: color .2s; }
-  .nav-links a:hover { color: var(--cream); }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 Early Season Pitching Leaders | The Baseball Nerd</title>
+  <meta name="description" content="2026 MLB pitching leaderboard through April 23: xERA, ERA, FIP, SIERA, Statcast metrics across 81 qualified starters. Minimum 14 IP.">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --navy:#0a1628;--navy-mid:#112240;--navy-light:#1a3260;--navy-card:#0f1e3a;
+      --gold:#c9a84c;--gold-light:#e0c070;--cream:#f5f0e8;--cream-dim:#9aabbf;
+      --green:#4caf85;--red:#e05c5c;--white:#ffffff;
+      --mono:'IBM Plex Mono',monospace;--sans:'Inter',sans-serif;--display:'Bebas Neue',sans-serif;
+    }
+    body{background:var(--navy);color:var(--cream);font-family:var(--sans);font-size:14px;min-height:100vh}
 
-  /* HERO */
-  .hero {
-    padding: 52px 32px 36px;
-    border-bottom: 1px solid rgba(201,168,76,0.15);
-  }
-  .hero-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px; }
-  .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 5vw, 58px); letter-spacing: 2px; color: var(--cream); line-height: 1; }
-  .hero-sub { color: var(--muted); font-size: 14px; margin-top: 10px; }
-  .hero-sub span { color: var(--gold); }
+    /* NAV */
+    nav{background:var(--navy);border-bottom:1px solid rgba(201,168,76,0.25);padding:14px 32px;display:flex;align-items:center;gap:32px}
+    .nav-brand{font-family:var(--display);font-size:20px;color:var(--gold);text-decoration:none;letter-spacing:1px}
+    nav a{color:var(--cream-dim);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s}
+    nav a:hover{color:var(--gold)}
+    .nav-links{margin-left:auto;display:flex;gap:28px}
 
-  /* FILTERS / SORT BAR */
-  .controls {
-    padding: 20px 32px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 12px;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    background: var(--navy-mid);
-  }
-  .controls label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
-  .controls select, .controls input {
-    background: var(--navy-light);
-    border: 1px solid rgba(201,168,76,0.2);
-    color: var(--cream);
-    padding: 6px 10px;
-    border-radius: 4px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    cursor: pointer;
-  }
-  .controls select:focus, .controls input:focus { outline: none; border-color: var(--gold); }
-  .pill-group { display: flex; gap: 6px; flex-wrap: wrap; }
-  .pill {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    padding: 5px 12px;
-    border-radius: 20px;
-    border: 1px solid rgba(201,168,76,0.25);
-    background: transparent;
-    color: var(--muted);
-    cursor: pointer;
-    transition: all .15s;
-    letter-spacing: 0.5px;
-  }
-  .pill:hover { border-color: var(--gold); color: var(--cream); }
-  .pill.active { background: var(--gold); color: var(--navy); border-color: var(--gold); font-weight: 600; }
-  .count-badge { margin-left: auto; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+    /* HEADER */
+    .page-header{background:var(--navy-mid);border-bottom:2px solid var(--gold);padding:28px 32px 22px}
+    .breadcrumb{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+    .page-header h1{font-family:var(--display);font-size:52px;color:var(--white);letter-spacing:3px;line-height:1;margin-bottom:10px}
+    .header-sub{font-size:13px;color:var(--cream-dim);letter-spacing:0.3px}
+    .header-sub span{color:var(--gold);font-weight:600}
 
-  /* PANELS */
-  .panels { padding: 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
-  .panel {
-    background: var(--navy-mid);
-    border: 1px solid rgba(201,168,76,0.15);
-    border-radius: 6px;
-    overflow: hidden;
-  }
-  .panel-header {
-    padding: 14px 18px;
-    border-bottom: 1px solid rgba(201,168,76,0.12);
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-  }
-  .panel-title { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 1.5px; color: var(--gold); }
-  .panel-desc { font-size: 11px; color: var(--muted); font-family: 'IBM Plex Mono', monospace; }
-  .panel-rows {}
-  .panel-row {
-    display: flex;
-    align-items: center;
-    padding: 10px 18px;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-    transition: background .1s;
-    gap: 10px;
-  }
-  .panel-row:last-child { border-bottom: none; }
-  .panel-row:hover { background: rgba(255,255,255,0.03); }
-  .rank { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); width: 22px; flex-shrink: 0; }
-  .headshot {
-    width: 36px; height: 36px; border-radius: 50%;
-    background: var(--navy-light);
-    flex-shrink: 0;
-    overflow: hidden;
-    border: 1px solid rgba(201,168,76,0.2);
-  }
-  .headshot img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-  .player-info { flex: 1; min-width: 0; }
-  .player-name { font-weight: 600; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .player-meta { font-size: 11px; color: var(--muted); font-family: 'IBM Plex Mono', monospace; }
-  .stat-val {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 16px;
-    font-weight: 600;
-    text-align: right;
-    min-width: 52px;
-    flex-shrink: 0;
-  }
-  .stat-val.good { color: var(--green); }
-  .stat-val.bad { color: var(--red); }
-  .stat-val.neutral { color: var(--cream); }
-  .stat-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--muted); text-align: right; }
+    /* VIEW CONTROLS */
+    .view-bar{background:var(--navy-mid);border-bottom:1px solid rgba(255,255,255,0.06);padding:14px 32px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+    .view-label{font-family:var(--mono);font-size:11px;color:var(--cream-dim);letter-spacing:1px;text-transform:uppercase}
+    .view-btn{font-family:var(--mono);font-size:12px;padding:6px 16px;border-radius:4px;border:1px solid rgba(201,168,76,0.4);cursor:pointer;transition:all .2s;background:transparent;color:var(--cream-dim)}
+    .view-btn.active{background:var(--gold);color:var(--navy);border-color:var(--gold);font-weight:600}
+    .view-btn:hover:not(.active){border-color:var(--gold);color:var(--gold)}
+    .vbar-sep{width:1px;height:24px;background:rgba(255,255,255,0.1)}
+    .filter-label{font-family:var(--mono);font-size:11px;color:var(--cream-dim);letter-spacing:1px;text-transform:uppercase}
+    select,input[type=text]{background:var(--navy-light);border:1px solid rgba(201,168,76,0.25);color:var(--cream);padding:6px 10px;font-family:var(--mono);font-size:12px;border-radius:3px;outline:none}
+    select:focus,input[type=text]:focus{border-color:var(--gold)}
+    .count-pill{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--gold);background:rgba(201,168,76,0.1);padding:5px 12px;border-radius:20px;border:1px solid rgba(201,168,76,0.2)}
 
-  /* FULL TABLE */
-  .table-section { padding: 0 32px 48px; }
-  .table-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 16px;
-    padding-top: 8px;
-  }
-  .table-title { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 1.5px; color: var(--cream); }
-  .table-wrap { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; min-width: 900px; }
-  thead th {
-    padding: 10px 12px;
-    text-align: left;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-bottom: 1px solid rgba(201,168,76,0.2);
-    cursor: pointer;
-    white-space: nowrap;
-    user-select: none;
-    transition: color .15s;
-  }
-  thead th:hover { color: var(--gold); }
-  thead th.sorted { color: var(--gold); }
-  thead th.sorted::after { content: ' ▼'; font-size: 8px; }
-  thead th.sorted.asc::after { content: ' ▲'; }
-  tbody tr { border-bottom: 1px solid rgba(255,255,255,0.04); transition: background .1s; }
-  tbody tr:hover { background: rgba(255,255,255,0.03); }
-  tbody td { padding: 9px 12px; font-size: 12px; white-space: nowrap; }
-  td.player-cell { display: flex; align-items: center; gap: 8px; min-width: 160px; }
-  td.mono { font-family: 'IBM Plex Mono', monospace; }
-  td.num { font-family: 'IBM Plex Mono', monospace; text-align: right; }
-  td.good { color: var(--green); font-family: 'IBM Plex Mono', monospace; text-align: right; }
-  td.bad { color: var(--red); font-family: 'IBM Plex Mono', monospace; text-align: right; }
-  td.warn { color: #f59e0b; font-family: 'IBM Plex Mono', monospace; text-align: right; }
-  .team-tag {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    background: rgba(201,168,76,0.1);
-    color: var(--gold);
-    padding: 2px 6px;
-    border-radius: 3px;
-    border: 1px solid rgba(201,168,76,0.2);
-  }
-  .diff-bar { display: flex; align-items: center; gap: 6px; justify-content: flex-end; }
-  .diff-num { font-family: 'IBM Plex Mono', monospace; font-size: 12px; min-width: 44px; text-align: right; }
-  .mini-bar { width: 40px; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.08); overflow: hidden; }
-  .mini-bar-fill { height: 100%; border-radius: 2px; }
+    /* VIEWS */
+    #leaderboardView{padding:24px 32px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    #leaderboardView.six-col{grid-template-columns:repeat(3,1fr)}
+    #tableView{display:none;overflow-x:auto;padding-bottom:32px}
 
-  /* FOOTER */
-  footer { padding: 24px 32px; border-top: 1px solid rgba(255,255,255,0.06); color: var(--muted); font-size: 12px; font-family: 'IBM Plex Mono', monospace; display: flex; gap: 20px; flex-wrap: wrap; justify-content: space-between; }
-  footer a { color: var(--gold); text-decoration: none; }
+    /* LEADERBOARD CARD */
+    .lb-card{background:var(--navy-card);border:1px solid rgba(255,255,255,0.07);border-radius:6px;overflow:hidden}
+    .lb-card.wide{grid-column:span 1}
+    .card-header{padding:12px 16px 10px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:baseline;gap:10px}
+    .card-title{font-family:var(--display);font-size:18px;color:var(--gold);letter-spacing:1px}
+    .card-subtitle{font-family:var(--mono);font-size:10px;color:var(--cream-dim);letter-spacing:0.5px;text-transform:uppercase}
+    .card-desc{font-family:var(--mono);font-size:10px;color:var(--cream-dim);margin-left:auto;text-align:right;line-height:1.4;max-width:200px}
 
-  @media (max-width: 640px) {
-    .topbar, .hero, .controls, .panels, .table-section { padding-left: 16px; padding-right: 16px; }
-    .panels { grid-template-columns: 1fr; }
-  }
-</style>
+    /* CARD ROWS */
+    .card-body{padding:8px 0}
+    .card-row{display:flex;align-items:center;gap:10px;padding:8px 14px;transition:background .15s}
+    .card-row:hover{background:rgba(201,168,76,0.05)}
+    .card-rank{font-family:var(--mono);font-size:11px;color:var(--cream-dim);width:16px;text-align:center;flex-shrink:0}
+    .headshot{width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0;background:var(--navy-light);border:1px solid rgba(255,255,255,0.1)}
+    .card-info{flex:1;min-width:0}
+    .card-name{font-size:13px;font-weight:600;color:var(--white);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .card-sub{font-family:var(--mono);font-size:10px;color:var(--cream-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+    .card-val{font-family:var(--mono);font-size:18px;font-weight:500;color:var(--green);text-align:right;flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;line-height:1}
+    .card-val.red{color:var(--red)}
+    .card-val.green{color:var(--green)}
+    .card-label{font-size:9px;color:var(--cream-dim);letter-spacing:0.5px;text-transform:uppercase;margin-top:2px}
+
+    /* LUCKY/UNLUCKY - split card */
+    .split-card{grid-column:span 1;background:var(--navy-card);border:1px solid rgba(255,255,255,0.07);border-radius:6px;overflow:hidden}
+    .split-half{border-bottom:1px solid rgba(255,255,255,0.06)}
+    .split-half:last-child{border-bottom:none}
+
+    /* TABLE */
+    table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:12px;min-width:1500px}
+    thead th{background:var(--navy-mid);color:var(--cream-dim);padding:8px 10px;text-align:right;font-size:11px;cursor:pointer;white-space:nowrap;border-bottom:2px solid rgba(201,168,76,0.4);border-right:1px solid rgba(255,255,255,0.04);user-select:none;transition:color .15s}
+    thead th:hover{color:var(--gold)}
+    thead th.tl{text-align:left}
+    thead th.sort-asc::after{content:' ↑';color:var(--gold)}
+    thead th.sort-desc::after{content:' ↓';color:var(--gold)}
+    tbody tr{border-bottom:1px solid rgba(255,255,255,0.04);transition:background .1s}
+    tbody tr:hover{background:rgba(201,168,76,0.06)}
+    tbody tr:nth-child(even){background:rgba(255,255,255,0.02)}
+    tbody tr:nth-child(even):hover{background:rgba(201,168,76,0.06)}
+    td{padding:7px 10px;text-align:right;border-right:1px solid rgba(255,255,255,0.03);white-space:nowrap}
+    td.tc{text-align:center;color:var(--cream-dim);font-size:11px}
+    td.tl{text-align:left}
+    td.name-col{display:flex;align-items:center;gap:8px;font-weight:600;color:var(--white);min-width:170px}
+    .hs-sm{width:26px;height:26px;border-radius:50%;object-fit:cover;flex-shrink:0;background:var(--navy-light)}
+    .gold-text{color:var(--gold-light)}
+    .green{color:var(--green)}
+    .red{color:var(--red)}
+    tr.hidden{display:none}
+
+    /* FOOTER */
+    .page-footer{padding:20px 32px;border-top:1px solid rgba(255,255,255,0.06);display:flex;gap:20px;align-items:center}
+    .page-footer a{color:var(--gold);text-decoration:none;font-family:var(--mono);font-size:12px}
+    .source-note{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--cream-dim)}
+  </style>
 </head>
 <body>
 
-<nav class="topbar">
-  <a class="logo" href="https://thebaseballnerd.com">The Baseball Nerd</a>
+<nav>
+  <a class="nav-brand" href="https://thebaseballnerd.com">The Baseball Nerd</a>
   <div class="nav-links">
     <a href="https://thebaseballnerd.com/standings.html">Standings</a>
-    <a href="https://thebaseballnerd.com/vault.html">Vault</a>
+    <a href="https://thebaseballnerd.com/vault">Vault</a>
     <a href="https://thebaseballnerd.substack.com">Subscribe</a>
   </div>
 </nav>
 
-<div class="hero">
-  <div class="hero-label">Analytics Vault · April 12, 2026</div>
+<div class="page-header">
+  <div class="breadcrumb">Analytics Vault &middot; April 24, 2026</div>
   <h1>Early Season Pitching Leaders</h1>
-  <p class="hero-sub">FanGraphs leaderboards · <span>88 qualified starters</span> · Minimum 14 IP · Through April 11</p>
+  <div class="header-sub">FanGraphs leaderboards &middot; <span>81 qualified starters</span> &middot; Minimum 14 IP &middot; Through April 23</div>
 </div>
 
-<div class="controls">
-  <label>View</label>
-  <div class="pill-group" id="viewPills">
-    <button class="pill active" data-view="panels">Leaderboards</button>
-    <button class="pill" data-view="table">Full Table</button>
-  </div>
-  <label style="margin-left:16px">Team</label>
-  <select id="teamFilter"><option value="">All Teams</option></select>
-  <label>Search</label>
-  <input type="text" id="search" placeholder="Player name..." style="width:160px">
-  <span class="count-badge" id="countBadge">88 pitchers</span>
+<div class="view-bar">
+  <span class="view-label">View</span>
+  <button class="view-btn active" id="btnLeaderboards" onclick="setView('leaderboards')">Leaderboards</button>
+  <button class="view-btn" id="btnTable" onclick="setView('table')">Full Table</button>
+  <div class="vbar-sep"></div>
+  <span class="filter-label">Team</span>
+  <select id="teamFilter" onchange="applyFilters()"><option value="">All Teams</option><option value="ARI">ARI</option><option value="ATH">ATH</option><option value="ATL">ATL</option><option value="BAL">BAL</option><option value="BOS">BOS</option><option value="CHC">CHC</option><option value="CHW">CHW</option><option value="CIN">CIN</option><option value="CLE">CLE</option><option value="COL">COL</option><option value="DET">DET</option><option value="HOU">HOU</option><option value="KCR">KCR</option><option value="LAA">LAA</option><option value="LAD">LAD</option><option value="MIA">MIA</option><option value="MIL">MIL</option><option value="MIN">MIN</option><option value="NYM">NYM</option><option value="NYY">NYY</option><option value="PHI">PHI</option><option value="PIT">PIT</option><option value="SDP">SDP</option><option value="SEA">SEA</option><option value="SFG">SFG</option><option value="STL">STL</option><option value="TBR">TBR</option><option value="TEX">TEX</option><option value="TOR">TOR</option><option value="WSN">WSN</option></select>
+  <span class="filter-label">Search</span>
+  <input type="text" id="searchBox" placeholder="Player name..." oninput="applyFilters()" style="width:180px">
+  <div class="count-pill" id="countPill">81 pitchers</div>
 </div>
 
-<!-- PANELS VIEW -->
-<div id="panelsView">
-  <div class="panels" id="panelsGrid"></div>
-</div>
+<!-- LEADERBOARD VIEW -->
+<div id="leaderboardView">
 
-<!-- TABLE VIEW -->
-<div id="tableView" style="display:none">
-  <div class="table-section">
-    <div class="table-header">
-      <div class="table-title">Full Leaderboard</div>
+  <!-- ERA Leaders -->
+  <div class="lb-card">
+    <div class="card-header">
+      <div class="card-title">ERA Leaders</div>
+      <div class="card-subtitle">lowest ERA</div>
     </div>
-    <div class="table-wrap">
-      <table id="mainTable">
-        <thead>
-          <tr>
-            <th data-col="name">Pitcher</th>
-            <th data-col="ip" class="sorted">IP</th>
-            <th data-col="era">ERA</th>
-            <th data-col="xera">xERA</th>
-            <th data-col="diff">ERA-xERA</th>
-            <th data-col="fip">FIP</th>
-            <th data-col="xfip">xFIP</th>
-            <th data-col="war">WAR</th>
-            <th data-col="k9">K/9</th>
-            <th data-col="bb9">BB/9</th>
-            <th data-col="kbb">K/BB</th>
-            <th data-col="hr9">HR/9</th>
-            <th data-col="babip">BABIP</th>
-            <th data-col="ev">EV</th>
-            <th data-col="barrel">Barrel%</th>
-            <th data-col="hardpct">HardHit%</th>
-            <th data-col="velo">vFA</th>
-          </tr>
-        </thead>
-        <tbody id="tableBody"></tbody>
-      </table>
+    <div class="card-body"><div class="card-row">
+          <span class="card-rank">1</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/667755/headshot/67/current" alt="José Soriano" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">José Soriano</div>
+            <div class="card-sub">LAA · xERA 2.72 · 37.2 IP</div>
+          </div>
+          <div class="card-val">0.24<span class="card-label">ERA</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">2</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/607625/headshot/67/current" alt="Seth Lugo" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Seth Lugo</div>
+            <div class="card-sub">KCR · xERA 3.93 · 31.1 IP</div>
+          </div>
+          <div class="card-val">1.15<span class="card-label">ERA</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">3</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/693821/headshot/67/current" alt="Bryce Elder" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Bryce Elder</div>
+            <div class="card-sub">ATL · xERA 2.68 · 30.0 IP</div>
+          </div>
+          <div class="card-val">1.50<span class="card-label">ERA</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">4</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/671737/headshot/67/current" alt="Taj Bradley" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Taj Bradley</div>
+            <div class="card-sub">MIN · xERA 3.29 · 27.2 IP</div>
+          </div>
+          <div class="card-val">1.63<span class="card-label">ERA</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">5</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/800048/headshot/67/current" alt="Parker Messick" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Parker Messick</div>
+            <div class="card-sub">CLE · xERA 3.15 · 30.2 IP</div>
+          </div>
+          <div class="card-val">1.76<span class="card-label">ERA</span></div>
+        </div></div>
+  </div>
+
+  <!-- xERA Leaders -->
+  <div class="lb-card">
+    <div class="card-header">
+      <div class="card-title">xERA Leaders</div>
+      <div class="card-subtitle">lowest xERA</div>
+    </div>
+    <div class="card-body"><div class="card-row">
+          <span class="card-rank">1</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/690997/headshot/67/current" alt="Nolan McLean" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Nolan McLean</div>
+            <div class="card-sub">NYM · ERA 2.67 · 30.1 IP</div>
+          </div>
+          <div class="card-val">1.95<span class="card-label">xERA</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">2</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/677952/headshot/67/current" alt="Braxton Ashcraft" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Braxton Ashcraft</div>
+            <div class="card-sub">PIT · ERA 2.43 · 29.2 IP</div>
+          </div>
+          <div class="card-val">2.06<span class="card-label">xERA</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">3</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/607192/headshot/67/current" alt="Tyler Glasnow" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Tyler Glasnow</div>
+            <div class="card-sub">LAD · ERA 2.45 · 33.0 IP</div>
+          </div>
+          <div class="card-val">2.15<span class="card-label">xERA</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">4</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/608331/headshot/67/current" alt="Max Fried" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Max Fried</div>
+            <div class="card-sub">NYY · ERA 2.40 · 41.1 IP</div>
+          </div>
+          <div class="card-val">2.28<span class="card-label">xERA</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">5</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/693645/headshot/67/current" alt="Cam Schlittler" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Cam Schlittler</div>
+            <div class="card-sub">NYY · ERA 1.77 · 35.2 IP</div>
+          </div>
+          <div class="card-val">2.31<span class="card-label">xERA</span></div>
+        </div></div>
+  </div>
+
+  <!-- K/9 -->
+  <div class="lb-card">
+    <div class="card-header">
+      <div class="card-title">Strikeout Rate</div>
+      <div class="card-subtitle">K/9</div>
+    </div>
+    <div class="card-body"><div class="card-row">
+          <span class="card-rank">1</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/656302/headshot/67/current" alt="Dylan Cease" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Dylan Cease</div>
+            <div class="card-sub">TOR · BB/9 4.91 · K/BB 3.1</div>
+          </div>
+          <div class="card-val">15.4<span class="card-label">K/9</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">2</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/694819/headshot/67/current" alt="Jacob Misiorowski" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Jacob Misiorowski</div>
+            <div class="card-sub">MIL · BB/9 4.05 · K/BB 3.5</div>
+          </div>
+          <div class="card-val">14.2<span class="card-label">K/9</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">3</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/594798/headshot/67/current" alt="Jacob deGrom" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Jacob deGrom</div>
+            <div class="card-sub">TEX · BB/9 2.49 · K/BB 5.0</div>
+          </div>
+          <div class="card-val">12.4<span class="card-label">K/9</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">4</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/668909/headshot/67/current" alt="Gavin Williams" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Gavin Williams</div>
+            <div class="card-sub">CLE · BB/9 5.16 · K/BB 2.4</div>
+          </div>
+          <div class="card-val">12.1<span class="card-label">K/9</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">5</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/669022/headshot/67/current" alt="MacKenzie Gore" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">MacKenzie Gore</div>
+            <div class="card-sub">TEX · BB/9 4.15 · K/BB 2.9</div>
+          </div>
+          <div class="card-val">12.1<span class="card-label">K/9</span></div>
+        </div></div>
+  </div>
+
+  <!-- Command -->
+  <div class="lb-card">
+    <div class="card-header">
+      <div class="card-title">Command</div>
+      <div class="card-subtitle">K/BB ratio</div>
+    </div>
+    <div class="card-body"><div class="card-row">
+          <span class="card-rank">1</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/693645/headshot/67/current" alt="Cam Schlittler" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Cam Schlittler</div>
+            <div class="card-sub">NYY · K/9 10.3 · BB/9 1.0</div>
+          </div>
+          <div class="card-val">10.2<span class="card-label">K/BB</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">2</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/676106/headshot/67/current" alt="Emerson Hancock" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Emerson Hancock</div>
+            <div class="card-sub">SEA · K/9 8.8 · BB/9 1.3</div>
+          </div>
+          <div class="card-val">7.0<span class="card-label">K/BB</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">3</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/669373/headshot/67/current" alt="Tarik Skubal" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Tarik Skubal</div>
+            <div class="card-sub">DET · K/9 9.4 · BB/9 1.5</div>
+          </div>
+          <div class="card-val">6.3<span class="card-label">K/BB</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">4</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/592332/headshot/67/current" alt="Kevin Gausman" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Kevin Gausman</div>
+            <div class="card-sub">TOR · K/9 11.1 · BB/9 1.9</div>
+          </div>
+          <div class="card-val">5.8<span class="card-label">K/BB</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">5</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/808967/headshot/67/current" alt="Yoshinobu Yamamoto" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Yoshinobu Yamamoto</div>
+            <div class="card-sub">LAD · K/9 7.7 · BB/9 1.4</div>
+          </div>
+          <div class="card-val">5.6<span class="card-label">K/BB</span></div>
+        </div></div>
+  </div>
+
+  <!-- Soft Contact -->
+  <div class="lb-card">
+    <div class="card-header">
+      <div class="card-title">Soft Contact</div>
+      <div class="card-subtitle">lowest exit velocity</div>
+    </div>
+    <div class="card-body"><div class="card-row">
+          <span class="card-rank">1</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/694738/headshot/67/current" alt="Landen Roupp" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Landen Roupp</div>
+            <div class="card-sub">SFG · Barrel% 0.0% · HH% 23.1%</div>
+          </div>
+          <div class="card-val">85.4<span class="card-label">EV</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">2</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/690997/headshot/67/current" alt="Nolan McLean" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Nolan McLean</div>
+            <div class="card-sub">NYM · Barrel% 6.0% · HH% 29.9%</div>
+          </div>
+          <div class="card-val">85.8<span class="card-label">EV</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">3</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/656605/headshot/67/current" alt="Mitch Keller" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Mitch Keller</div>
+            <div class="card-sub">PIT · Barrel% 2.3% · HH% 38.4%</div>
+          </div>
+          <div class="card-val">86.0<span class="card-label">EV</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">4</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/666200/headshot/67/current" alt="Jesús Luzardo" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Jesús Luzardo</div>
+            <div class="card-sub">PHI · Barrel% 6.3% · HH% 32.9%</div>
+          </div>
+          <div class="card-val">86.2<span class="card-label">EV</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">5</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/608331/headshot/67/current" alt="Max Fried" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Max Fried</div>
+            <div class="card-sub">NYY · Barrel% 2.7% · HH% 30.4%</div>
+          </div>
+          <div class="card-val">86.3<span class="card-label">EV</span></div>
+        </div></div>
+  </div>
+
+  <!-- Lucky / Unlucky -->
+  <div class="lb-card">
+    <div class="card-header">
+      <div class="card-title">ERA vs xERA</div>
+      <div class="card-desc">ERA minus xERA &middot; negative = ERA lower than expected (lucky) &middot; positive = ERA higher (unlucky)</div>
+    </div>
+    <div class="split-half">
+      <div class="card-header" style="border-bottom:none;padding:8px 16px 4px">
+        <div class="card-subtitle" style="color:var(--green)">&#9650; LUCKY &mdash; ERA much lower than xERA</div>
+      </div>
+      <div class="card-body" style="padding-top:0"><div class="card-row">
+          <span class="card-rank">1</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/700241/headshot/67/current" alt="Michael McGreevy" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Michael McGreevy</div>
+            <div class="card-sub">STL · ERA 3.29 · xERA 6.61</div>
+          </div>
+          <div class="card-val green">-3.31<span class="card-label">DIFF</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">2</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/813349/headshot/67/current" alt="Connelly Early" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Connelly Early</div>
+            <div class="card-sub">BOS · ERA 2.88 · xERA 5.69</div>
+          </div>
+          <div class="card-val green">-2.81<span class="card-label">DIFF</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">3</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/607625/headshot/67/current" alt="Seth Lugo" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Seth Lugo</div>
+            <div class="card-sub">KCR · ERA 1.15 · xERA 3.93</div>
+          </div>
+          <div class="card-val green">-2.79<span class="card-label">DIFF</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">4</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/663436/headshot/67/current" alt="Davis Martin" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Davis Martin</div>
+            <div class="card-sub">CHW · ERA 2.01 · xERA 4.64</div>
+          </div>
+          <div class="card-val green">-2.63<span class="card-label">DIFF</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">5</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/608372/headshot/67/current" alt="Tomoyuki Sugano" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Tomoyuki Sugano</div>
+            <div class="card-sub">COL · ERA 3.42 · xERA 6.02</div>
+          </div>
+          <div class="card-val green">-2.60<span class="card-label">DIFF</span></div>
+        </div></div>
+    </div>
+    <div class="split-half">
+      <div class="card-header" style="border-bottom:none;padding:8px 16px 4px">
+        <div class="card-subtitle" style="color:var(--red)">&#9660; UNLUCKY &mdash; ERA much higher than xERA</div>
+      </div>
+      <div class="card-body" style="padding-top:0"><div class="card-row">
+          <span class="card-rank">1</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/666200/headshot/67/current" alt="Jesús Luzardo" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Jesús Luzardo</div>
+            <div class="card-sub">PHI · ERA 6.91 · xERA 4.04</div>
+          </div>
+          <div class="card-val red">+2.87<span class="card-label">DIFF</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">2</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/681347/headshot/67/current" alt="Mike Burrows" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Mike Burrows</div>
+            <div class="card-sub">HOU · ERA 6.75 · xERA 3.91</div>
+          </div>
+          <div class="card-val red">+2.84<span class="card-label">DIFF</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">3</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/669160/headshot/67/current" alt="Dustin May" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Dustin May</div>
+            <div class="card-sub">STL · ERA 5.84 · xERA 4.34</div>
+          </div>
+          <div class="card-val red">+1.50<span class="card-label">DIFF</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">4</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/672282/headshot/67/current" alt="Reid Detmers" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Reid Detmers</div>
+            <div class="card-sub">LAA · ERA 4.08 · xERA 2.74</div>
+          </div>
+          <div class="card-val red">+1.34<span class="card-label">DIFF</span></div>
+        </div><div class="card-row">
+          <span class="card-rank">5</span>
+          <img class="headshot" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/680573/headshot/67/current" alt="Simeon Woods Richardson" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">
+          <div class="card-info">
+            <div class="card-name">Simeon Woods Richardson</div>
+            <div class="card-sub">MIN · ERA 5.96 · xERA 4.64</div>
+          </div>
+          <div class="card-val red">+1.32<span class="card-label">DIFF</span></div>
+        </div></div>
     </div>
   </div>
+
 </div>
 
-<footer>
-  <span>Source: FanGraphs · April 12, 2026</span>
-  <span>Data: Statcast / Hawk-Eye</span>
-  <a href="https://thebaseballnerd.com/vault.html">← Back to Vault</a>
-</footer>
+<!-- FULL TABLE VIEW -->
+<div id="tableView">
+  <table id="mainTable">
+    <thead>
+      <tr>
+        <th class="tc">#</th>
+        <th class="tl" style="min-width:170px">Pitcher</th>
+        <th class="tl">Team</th>
+        <th data-col="3">IP</th>
+        <th data-col="4">ERA</th>
+        <th data-col="5" style="color:var(--gold)">xERA</th>
+        <th data-col="6">ERA-xERA</th>
+        <th data-col="7">FIP</th>
+        <th data-col="8">xFIP</th>
+        <th data-col="9">SIERA</th>
+        <th data-col="10">K/9</th>
+        <th data-col="11">BB/9</th>
+        <th data-col="12">WHIP</th>
+        <th data-col="13">BABIP</th>
+        <th data-col="14">SwStr%</th>
+        <th data-col="15">CSW%</th>
+        <th data-col="16">EV</th>
+        <th data-col="17">Barrel%</th>
+        <th data-col="18">HH%</th>
+        <th data-col="19">vFA</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"><tr>
+        <td class="tc">1</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/690997/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Nolan McLean</td>
+        <td class="gold-text">NYM</td>
+        <td>30.1</td>
+        <td>2.67</td>
+        <td class="gold-text">1.95</td>
+        <td class="red">+0.72</td>
+        <td>2.39</td>
+        <td>2.59</td>
+        <td>2.65</td>
+        <td>11.3</td>
+        <td>2.4</td>
+        <td>0.758</td>
+        <td>0.200</td>
+        <td>10.4%</td>
+        <td>32.3%</td>
+        <td>85.8</td>
+        <td>6.0%</td>
+        <td>29.9%</td>
+        <td>96.5</td>
+      </tr><tr>
+        <td class="tc">2</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/677952/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Braxton Ashcraft</td>
+        <td class="gold-text">PIT</td>
+        <td>29.2</td>
+        <td>2.43</td>
+        <td class="gold-text">2.06</td>
+        <td class="red">+0.36</td>
+        <td>2.44</td>
+        <td>3.32</td>
+        <td>3.29</td>
+        <td>9.7</td>
+        <td>2.7</td>
+        <td>1.011</td>
+        <td>0.274</td>
+        <td>13.3%</td>
+        <td>30.1%</td>
+        <td>89.1</td>
+        <td>4.1%</td>
+        <td>31.1%</td>
+        <td>96.7</td>
+      </tr><tr>
+        <td class="tc">3</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/607192/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Tyler Glasnow</td>
+        <td class="gold-text">LAD</td>
+        <td>33.0</td>
+        <td>2.45</td>
+        <td class="gold-text">2.15</td>
+        <td class="red">+0.30</td>
+        <td>2.27</td>
+        <td>2.75</td>
+        <td>2.71</td>
+        <td>10.4</td>
+        <td>1.9</td>
+        <td>0.697</td>
+        <td>0.192</td>
+        <td>12.3%</td>
+        <td>32.1%</td>
+        <td>90.8</td>
+        <td>5.3%</td>
+        <td>38.7%</td>
+        <td>95.3</td>
+      </tr><tr>
+        <td class="tc">4</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/608331/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Max Fried</td>
+        <td class="gold-text">NYY</td>
+        <td>41.1</td>
+        <td>2.40</td>
+        <td class="gold-text">2.28</td>
+        <td class="red">+0.11</td>
+        <td>2.79</td>
+        <td>3.89</td>
+        <td>3.95</td>
+        <td>7.0</td>
+        <td>2.2</td>
+        <td>0.774</td>
+        <td>0.189</td>
+        <td>9.9%</td>
+        <td>29.3%</td>
+        <td>86.3</td>
+        <td>2.7%</td>
+        <td>30.4%</td>
+        <td>94.6</td>
+      </tr><tr>
+        <td class="tc">5</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/693645/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Cam Schlittler</td>
+        <td class="gold-text">NYY</td>
+        <td>35.2</td>
+        <td>1.77</td>
+        <td class="gold-text">2.31</td>
+        <td class="green">-0.54</td>
+        <td>1.55</td>
+        <td>2.28</td>
+        <td>2.40</td>
+        <td>10.3</td>
+        <td>1.0</td>
+        <td>0.729</td>
+        <td>0.241</td>
+        <td>15.0%</td>
+        <td>27.6%</td>
+        <td>86.8</td>
+        <td>6.8%</td>
+        <td>38.6%</td>
+        <td>97.3</td>
+      </tr><tr>
+        <td class="tc">6</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/684007/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Shota Imanaga</td>
+        <td class="gold-text">CHC</td>
+        <td>29.0</td>
+        <td>2.17</td>
+        <td class="gold-text">2.42</td>
+        <td class="green">-0.24</td>
+        <td>2.91</td>
+        <td>3.20</td>
+        <td>3.02</td>
+        <td>9.9</td>
+        <td>1.9</td>
+        <td>0.724</td>
+        <td>0.179</td>
+        <td>14.6%</td>
+        <td>27.5%</td>
+        <td>89.8</td>
+        <td>7.1%</td>
+        <td>42.9%</td>
+        <td>92.0</td>
+      </tr><tr>
+        <td class="tc">7</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/693433/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Bryan Woo</td>
+        <td class="gold-text">SEA</td>
+        <td>32.0</td>
+        <td>2.25</td>
+        <td class="gold-text">2.48</td>
+        <td class="green">-0.23</td>
+        <td>2.27</td>
+        <td>4.23</td>
+        <td>3.95</td>
+        <td>7.3</td>
+        <td>1.7</td>
+        <td>0.875</td>
+        <td>0.247</td>
+        <td>11.9%</td>
+        <td>25.8%</td>
+        <td>88.0</td>
+        <td>5.6%</td>
+        <td>43.8%</td>
+        <td>95.5</td>
+      </tr><tr>
+        <td class="tc">8</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/694738/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Landen Roupp</td>
+        <td class="gold-text">SFG</td>
+        <td>27.2</td>
+        <td>2.28</td>
+        <td class="gold-text">2.66</td>
+        <td class="green">-0.39</td>
+        <td>2.43</td>
+        <td>3.33</td>
+        <td>3.53</td>
+        <td>10.1</td>
+        <td>3.9</td>
+        <td>1.012</td>
+        <td>0.246</td>
+        <td>9.6%</td>
+        <td>26.9%</td>
+        <td>85.4</td>
+        <td>0.0%</td>
+        <td>23.1%</td>
+        <td>92.8</td>
+      </tr><tr>
+        <td class="tc">9</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/693821/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Bryce Elder</td>
+        <td class="gold-text">ATL</td>
+        <td>30.0</td>
+        <td>1.50</td>
+        <td class="gold-text">2.68</td>
+        <td class="green">-1.18</td>
+        <td>3.18</td>
+        <td>3.66</td>
+        <td>3.64</td>
+        <td>8.7</td>
+        <td>2.7</td>
+        <td>0.967</td>
+        <td>0.237</td>
+        <td>9.4%</td>
+        <td>26.1%</td>
+        <td>89.8</td>
+        <td>3.8%</td>
+        <td>34.6%</td>
+        <td>92.4</td>
+      </tr><tr>
+        <td class="tc">10</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/656302/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Dylan Cease</td>
+        <td class="gold-text">TOR</td>
+        <td>25.2</td>
+        <td>2.10</td>
+        <td class="gold-text">2.69</td>
+        <td class="green">-0.59</td>
+        <td>1.47</td>
+        <td>2.07</td>
+        <td>2.71</td>
+        <td>15.4</td>
+        <td>4.9</td>
+        <td>1.286</td>
+        <td>0.365</td>
+        <td>17.0%</td>
+        <td>31.9%</td>
+        <td>86.5</td>
+        <td>0.0%</td>
+        <td>32.7%</td>
+        <td>98.0</td>
+      </tr><tr>
+        <td class="tc">11</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/667755/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">José Soriano</td>
+        <td class="gold-text">LAA</td>
+        <td>37.2</td>
+        <td>0.24</td>
+        <td class="gold-text">2.72</td>
+        <td class="green">-2.48</td>
+        <td>2.25</td>
+        <td>2.83</td>
+        <td>3.02</td>
+        <td>10.3</td>
+        <td>3.1</td>
+        <td>0.823</td>
+        <td>0.205</td>
+        <td>13.4%</td>
+        <td>32.1%</td>
+        <td>86.7</td>
+        <td>8.3%</td>
+        <td>29.8%</td>
+        <td>97.9</td>
+      </tr><tr>
+        <td class="tc">12</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/672282/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Reid Detmers</td>
+        <td class="gold-text">LAA</td>
+        <td>28.2</td>
+        <td>4.08</td>
+        <td class="gold-text">2.74</td>
+        <td class="red">+1.34</td>
+        <td>3.04</td>
+        <td>3.79</td>
+        <td>3.45</td>
+        <td>9.7</td>
+        <td>2.5</td>
+        <td>1.081</td>
+        <td>0.276</td>
+        <td>13.3%</td>
+        <td>29.5%</td>
+        <td>88.5</td>
+        <td>6.4%</td>
+        <td>35.9%</td>
+        <td>94.1</td>
+      </tr><tr>
+        <td class="tc">13</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/645261/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Sandy Alcantara</td>
+        <td class="gold-text">MIA</td>
+        <td>35.1</td>
+        <td>3.06</td>
+        <td class="gold-text">2.85</td>
+        <td class="red">+0.20</td>
+        <td>4.42</td>
+        <td>4.69</td>
+        <td>4.75</td>
+        <td>5.9</td>
+        <td>3.1</td>
+        <td>1.047</td>
+        <td>0.210</td>
+        <td>11.8%</td>
+        <td>29.0%</td>
+        <td>89.1</td>
+        <td>4.8%</td>
+        <td>37.5%</td>
+        <td>97.2</td>
+      </tr><tr>
+        <td class="tc">14</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/694819/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Jacob Misiorowski</td>
+        <td class="gold-text">MIL</td>
+        <td>26.2</td>
+        <td>3.04</td>
+        <td class="gold-text">2.90</td>
+        <td class="red">+0.14</td>
+        <td>3.64</td>
+        <td>2.78</td>
+        <td>2.70</td>
+        <td>14.2</td>
+        <td>4.1</td>
+        <td>1.088</td>
+        <td>0.260</td>
+        <td>15.9%</td>
+        <td>32.8%</td>
+        <td>87.6</td>
+        <td>5.6%</td>
+        <td>38.9%</td>
+        <td>98.8</td>
+      </tr><tr>
+        <td class="tc">15</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/669923/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">George Kirby</td>
+        <td class="gold-text">SEA</td>
+        <td>33.1</td>
+        <td>2.97</td>
+        <td class="gold-text">2.91</td>
+        <td class="red">+0.06</td>
+        <td>3.90</td>
+        <td>3.51</td>
+        <td>3.50</td>
+        <td>7.3</td>
+        <td>2.2</td>
+        <td>1.050</td>
+        <td>0.258</td>
+        <td>9.2%</td>
+        <td>24.5%</td>
+        <td>91.3</td>
+        <td>5.4%</td>
+        <td>47.3%</td>
+        <td>96.6</td>
+      </tr><tr>
+        <td class="tc">16</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/594798/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Jacob deGrom</td>
+        <td class="gold-text">TEX</td>
+        <td>25.1</td>
+        <td>2.13</td>
+        <td class="gold-text">2.98</td>
+        <td class="green">-0.84</td>
+        <td>3.27</td>
+        <td>3.03</td>
+        <td>2.74</td>
+        <td>12.4</td>
+        <td>2.5</td>
+        <td>1.066</td>
+        <td>0.291</td>
+        <td>16.2%</td>
+        <td>30.7%</td>
+        <td>91.7</td>
+        <td>10.2%</td>
+        <td>39.0%</td>
+        <td>97.1</td>
+      </tr><tr>
+        <td class="tc">17</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/657746/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Joe Ryan</td>
+        <td class="gold-text">MIN</td>
+        <td>32.1</td>
+        <td>3.90</td>
+        <td class="gold-text">2.98</td>
+        <td class="red">+0.92</td>
+        <td>3.24</td>
+        <td>3.89</td>
+        <td>3.56</td>
+        <td>9.2</td>
+        <td>2.2</td>
+        <td>1.021</td>
+        <td>0.256</td>
+        <td>12.0%</td>
+        <td>27.4%</td>
+        <td>88.2</td>
+        <td>11.2%</td>
+        <td>36.0%</td>
+        <td>92.6</td>
+      </tr><tr>
+        <td class="tc">18</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/669373/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Tarik Skubal</td>
+        <td class="gold-text">DET</td>
+        <td>36.1</td>
+        <td>2.72</td>
+        <td class="gold-text">3.01</td>
+        <td class="green">-0.29</td>
+        <td>1.99</td>
+        <td>2.75</td>
+        <td>2.96</td>
+        <td>9.4</td>
+        <td>1.5</td>
+        <td>0.991</td>
+        <td>0.302</td>
+        <td>13.6%</td>
+        <td>29.1%</td>
+        <td>88.8</td>
+        <td>5.2%</td>
+        <td>39.2%</td>
+        <td>96.6</td>
+      </tr><tr>
+        <td class="tc">19</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/605488/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Jeffrey Springs</td>
+        <td class="gold-text">ATH</td>
+        <td>29.2</td>
+        <td>3.34</td>
+        <td class="gold-text">3.06</td>
+        <td class="red">+0.28</td>
+        <td>3.99</td>
+        <td>3.88</td>
+        <td>3.85</td>
+        <td>8.2</td>
+        <td>2.7</td>
+        <td>0.978</td>
+        <td>0.211</td>
+        <td>9.9%</td>
+        <td>30.0%</td>
+        <td>86.3</td>
+        <td>8.8%</td>
+        <td>31.2%</td>
+        <td>91.2</td>
+      </tr><tr>
+        <td class="tc">20</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/592332/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Kevin Gausman</td>
+        <td class="gold-text">TOR</td>
+        <td>28.1</td>
+        <td>2.54</td>
+        <td class="gold-text">3.13</td>
+        <td class="green">-0.58</td>
+        <td>2.23</td>
+        <td>2.54</td>
+        <td>2.70</td>
+        <td>11.1</td>
+        <td>1.9</td>
+        <td>0.953</td>
+        <td>0.271</td>
+        <td>14.8%</td>
+        <td>29.4%</td>
+        <td>87.1</td>
+        <td>9.7%</td>
+        <td>38.9%</td>
+        <td>93.8</td>
+      </tr><tr>
+        <td class="tc">21</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/519242/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Chris Sale</td>
+        <td class="gold-text">ATL</td>
+        <td>29.0</td>
+        <td>2.79</td>
+        <td class="gold-text">3.15</td>
+        <td class="green">-0.35</td>
+        <td>4.42</td>
+        <td>3.72</td>
+        <td>3.43</td>
+        <td>9.0</td>
+        <td>2.2</td>
+        <td>1.000</td>
+        <td>0.239</td>
+        <td>11.8%</td>
+        <td>30.8%</td>
+        <td>87.6</td>
+        <td>7.9%</td>
+        <td>30.3%</td>
+        <td>95.2</td>
+      </tr><tr>
+        <td class="tc">22</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/800048/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Parker Messick</td>
+        <td class="gold-text">CLE</td>
+        <td>30.2</td>
+        <td>1.76</td>
+        <td class="gold-text">3.15</td>
+        <td class="green">-1.39</td>
+        <td>2.56</td>
+        <td>3.23</td>
+        <td>3.36</td>
+        <td>8.5</td>
+        <td>2.3</td>
+        <td>0.880</td>
+        <td>0.243</td>
+        <td>11.2%</td>
+        <td>27.0%</td>
+        <td>86.8</td>
+        <td>2.7%</td>
+        <td>29.3%</td>
+        <td>93.5</td>
+      </tr><tr>
+        <td class="tc">23</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/663554/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Casey Mize</td>
+        <td class="gold-text">DET</td>
+        <td>28.2</td>
+        <td>2.51</td>
+        <td class="gold-text">3.21</td>
+        <td class="green">-0.70</td>
+        <td>2.97</td>
+        <td>3.72</td>
+        <td>3.51</td>
+        <td>10.0</td>
+        <td>3.1</td>
+        <td>1.151</td>
+        <td>0.292</td>
+        <td>11.6%</td>
+        <td>29.4%</td>
+        <td>88.9</td>
+        <td>8.1%</td>
+        <td>44.6%</td>
+        <td>93.3</td>
+      </tr><tr>
+        <td class="tc">24</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/664285/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Framber Valdez</td>
+        <td class="gold-text">DET</td>
+        <td>30.0</td>
+        <td>3.30</td>
+        <td class="gold-text">3.28</td>
+        <td class="red">+0.02</td>
+        <td>3.25</td>
+        <td>4.12</td>
+        <td>4.29</td>
+        <td>6.0</td>
+        <td>2.7</td>
+        <td>1.200</td>
+        <td>0.271</td>
+        <td>7.8%</td>
+        <td>27.4%</td>
+        <td>88.9</td>
+        <td>4.1%</td>
+        <td>41.2%</td>
+        <td>—</td>
+      </tr><tr>
+        <td class="tc">25</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/671737/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Taj Bradley</td>
+        <td class="gold-text">MIN</td>
+        <td>27.2</td>
+        <td>1.63</td>
+        <td class="gold-text">3.29</td>
+        <td class="green">-1.66</td>
+        <td>1.99</td>
+        <td>3.55</td>
+        <td>3.34</td>
+        <td>11.1</td>
+        <td>3.3</td>
+        <td>1.229</td>
+        <td>0.333</td>
+        <td>11.4%</td>
+        <td>27.7%</td>
+        <td>93.6</td>
+        <td>4.2%</td>
+        <td>45.8%</td>
+        <td>96.3</td>
+      </tr><tr>
+        <td class="tc">26</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/650911/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Cristopher Sánchez</td>
+        <td class="gold-text">PHI</td>
+        <td>33.2</td>
+        <td>2.94</td>
+        <td class="gold-text">3.29</td>
+        <td class="green">-0.35</td>
+        <td>2.64</td>
+        <td>2.56</td>
+        <td>2.83</td>
+        <td>11.5</td>
+        <td>2.7</td>
+        <td>1.604</td>
+        <td>0.423</td>
+        <td>14.4%</td>
+        <td>30.9%</td>
+        <td>89.4</td>
+        <td>11.0%</td>
+        <td>42.0%</td>
+        <td>—</td>
+      </tr><tr>
+        <td class="tc">27</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/669432/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Trevor Rogers</td>
+        <td class="gold-text">BAL</td>
+        <td>28.2</td>
+        <td>4.08</td>
+        <td class="gold-text">3.40</td>
+        <td class="red">+0.68</td>
+        <td>3.71</td>
+        <td>4.20</td>
+        <td>4.06</td>
+        <td>7.8</td>
+        <td>2.5</td>
+        <td>1.326</td>
+        <td>0.318</td>
+        <td>12.0%</td>
+        <td>28.9%</td>
+        <td>87.8</td>
+        <td>5.7%</td>
+        <td>28.4%</td>
+        <td>92.5</td>
+      </tr><tr>
+        <td class="tc">28</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/695505/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Chase Burns</td>
+        <td class="gold-text">CIN</td>
+        <td>28.0</td>
+        <td>2.57</td>
+        <td class="gold-text">3.49</td>
+        <td class="green">-0.91</td>
+        <td>4.04</td>
+        <td>3.58</td>
+        <td>3.64</td>
+        <td>9.6</td>
+        <td>3.5</td>
+        <td>1.071</td>
+        <td>0.227</td>
+        <td>14.3%</td>
+        <td>29.5%</td>
+        <td>89.0</td>
+        <td>10.0%</td>
+        <td>41.4%</td>
+        <td>98.1</td>
+      </tr><tr>
+        <td class="tc">29</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/676083/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Janson Junk</td>
+        <td class="gold-text">MIA</td>
+        <td>27.0</td>
+        <td>3.67</td>
+        <td class="gold-text">3.50</td>
+        <td class="red">+0.17</td>
+        <td>3.74</td>
+        <td>4.38</td>
+        <td>4.51</td>
+        <td>5.7</td>
+        <td>2.3</td>
+        <td>1.148</td>
+        <td>0.265</td>
+        <td>8.5%</td>
+        <td>24.4%</td>
+        <td>90.4</td>
+        <td>4.7%</td>
+        <td>40.0%</td>
+        <td>94.2</td>
+      </tr><tr>
+        <td class="tc">30</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/656605/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Mitch Keller</td>
+        <td class="gold-text">PIT</td>
+        <td>29.0</td>
+        <td>2.79</td>
+        <td class="gold-text">3.51</td>
+        <td class="green">-0.72</td>
+        <td>3.32</td>
+        <td>4.27</td>
+        <td>4.61</td>
+        <td>5.9</td>
+        <td>2.8</td>
+        <td>1.103</td>
+        <td>0.259</td>
+        <td>8.6%</td>
+        <td>25.8%</td>
+        <td>86.0</td>
+        <td>2.3%</td>
+        <td>38.4%</td>
+        <td>93.2</td>
+      </tr><tr>
+        <td class="tc">31</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/668909/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Gavin Williams</td>
+        <td class="gold-text">CLE</td>
+        <td>29.2</td>
+        <td>2.12</td>
+        <td class="gold-text">3.51</td>
+        <td class="green">-1.39</td>
+        <td>3.92</td>
+        <td>3.11</td>
+        <td>3.50</td>
+        <td>12.1</td>
+        <td>5.2</td>
+        <td>1.011</td>
+        <td>0.167</td>
+        <td>13.6%</td>
+        <td>31.6%</td>
+        <td>92.5</td>
+        <td>13.8%</td>
+        <td>48.3%</td>
+        <td>96.7</td>
+      </tr><tr>
+        <td class="tc">32</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/656550/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Grant Holmes</td>
+        <td class="gold-text">ATL</td>
+        <td>26.1</td>
+        <td>3.42</td>
+        <td class="gold-text">3.52</td>
+        <td class="green">-0.10</td>
+        <td>4.29</td>
+        <td>4.40</td>
+        <td>4.58</td>
+        <td>7.2</td>
+        <td>3.8</td>
+        <td>1.101</td>
+        <td>0.208</td>
+        <td>13.0%</td>
+        <td>28.0%</td>
+        <td>89.3</td>
+        <td>5.3%</td>
+        <td>40.0%</td>
+        <td>94.7</td>
+      </tr><tr>
+        <td class="tc">33</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/808967/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Yoshinobu Yamamoto</td>
+        <td class="gold-text">LAD</td>
+        <td>32.2</td>
+        <td>2.48</td>
+        <td class="gold-text">3.62</td>
+        <td class="green">-1.14</td>
+        <td>3.18</td>
+        <td>3.61</td>
+        <td>3.53</td>
+        <td>7.7</td>
+        <td>1.4</td>
+        <td>0.888</td>
+        <td>0.244</td>
+        <td>13.2%</td>
+        <td>27.3%</td>
+        <td>88.0</td>
+        <td>9.0%</td>
+        <td>34.8%</td>
+        <td>95.4</td>
+      </tr><tr>
+        <td class="tc">34</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/701542/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Will Warren</td>
+        <td class="gold-text">NYY</td>
+        <td>25.1</td>
+        <td>2.49</td>
+        <td class="gold-text">3.67</td>
+        <td class="green">-1.18</td>
+        <td>3.07</td>
+        <td>2.74</td>
+        <td>2.80</td>
+        <td>11.0</td>
+        <td>2.1</td>
+        <td>1.105</td>
+        <td>0.297</td>
+        <td>9.4%</td>
+        <td>29.5%</td>
+        <td>90.6</td>
+        <td>7.5%</td>
+        <td>44.8%</td>
+        <td>93.9</td>
+      </tr><tr>
+        <td class="tc">35</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/680694/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Kyle Bradish</td>
+        <td class="gold-text">BAL</td>
+        <td>25.0</td>
+        <td>3.96</td>
+        <td class="gold-text">3.69</td>
+        <td class="red">+0.27</td>
+        <td>3.51</td>
+        <td>3.75</td>
+        <td>4.06</td>
+        <td>10.1</td>
+        <td>4.7</td>
+        <td>1.760</td>
+        <td>0.403</td>
+        <td>11.3%</td>
+        <td>27.1%</td>
+        <td>87.1</td>
+        <td>8.1%</td>
+        <td>37.8%</td>
+        <td>93.9</td>
+      </tr><tr>
+        <td class="tc">36</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/665795/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Edward Cabrera</td>
+        <td class="gold-text">CHC</td>
+        <td>29.2</td>
+        <td>2.73</td>
+        <td class="gold-text">3.71</td>
+        <td class="green">-0.98</td>
+        <td>3.65</td>
+        <td>4.19</td>
+        <td>4.54</td>
+        <td>6.7</td>
+        <td>3.3</td>
+        <td>1.180</td>
+        <td>0.262</td>
+        <td>11.1%</td>
+        <td>26.5%</td>
+        <td>91.2</td>
+        <td>10.5%</td>
+        <td>37.2%</td>
+        <td>95.7</td>
+      </tr><tr>
+        <td class="tc">37</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/669302/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Logan Gilbert</td>
+        <td class="gold-text">SEA</td>
+        <td>33.0</td>
+        <td>4.36</td>
+        <td class="gold-text">3.74</td>
+        <td class="red">+0.62</td>
+        <td>3.03</td>
+        <td>3.41</td>
+        <td>3.33</td>
+        <td>9.5</td>
+        <td>1.9</td>
+        <td>1.273</td>
+        <td>0.360</td>
+        <td>12.5%</td>
+        <td>29.6%</td>
+        <td>91.3</td>
+        <td>7.6%</td>
+        <td>46.7%</td>
+        <td>95.5</td>
+      </tr><tr>
+        <td class="tc">38</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/676106/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Emerson Hancock</td>
+        <td class="gold-text">SEA</td>
+        <td>28.2</td>
+        <td>2.83</td>
+        <td class="gold-text">3.85</td>
+        <td class="green">-1.03</td>
+        <td>3.99</td>
+        <td>3.08</td>
+        <td>3.00</td>
+        <td>8.8</td>
+        <td>1.3</td>
+        <td>0.872</td>
+        <td>0.239</td>
+        <td>10.9%</td>
+        <td>23.3%</td>
+        <td>90.2</td>
+        <td>12.5%</td>
+        <td>36.1%</td>
+        <td>94.9</td>
+      </tr><tr>
+        <td class="tc">39</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/642547/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Freddy Peralta</td>
+        <td class="gold-text">NYM</td>
+        <td>26.2</td>
+        <td>4.05</td>
+        <td class="gold-text">3.90</td>
+        <td class="red">+0.15</td>
+        <td>4.35</td>
+        <td>3.81</td>
+        <td>3.77</td>
+        <td>9.5</td>
+        <td>3.4</td>
+        <td>1.088</td>
+        <td>0.221</td>
+        <td>12.7%</td>
+        <td>28.8%</td>
+        <td>88.7</td>
+        <td>6.9%</td>
+        <td>41.7%</td>
+        <td>93.6</td>
+      </tr><tr>
+        <td class="tc">40</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/681347/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Mike Burrows</td>
+        <td class="gold-text">HOU</td>
+        <td>26.2</td>
+        <td>6.75</td>
+        <td class="gold-text">3.91</td>
+        <td class="red">+2.84</td>
+        <td>4.84</td>
+        <td>4.28</td>
+        <td>4.13</td>
+        <td>8.4</td>
+        <td>3.0</td>
+        <td>1.688</td>
+        <td>0.378</td>
+        <td>12.7%</td>
+        <td>29.3%</td>
+        <td>87.2</td>
+        <td>5.7%</td>
+        <td>35.6%</td>
+        <td>95.0</td>
+      </tr><tr>
+        <td class="tc">41</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/641927/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Bailey Ober</td>
+        <td class="gold-text">MIN</td>
+        <td>26.0</td>
+        <td>4.15</td>
+        <td class="gold-text">3.92</td>
+        <td class="red">+0.24</td>
+        <td>3.46</td>
+        <td>4.17</td>
+        <td>4.13</td>
+        <td>8.3</td>
+        <td>3.1</td>
+        <td>1.231</td>
+        <td>0.280</td>
+        <td>10.4%</td>
+        <td>27.4%</td>
+        <td>86.4</td>
+        <td>9.1%</td>
+        <td>33.8%</td>
+        <td>88.8</td>
+      </tr><tr>
+        <td class="tc">42</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/607625/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Seth Lugo</td>
+        <td class="gold-text">KCR</td>
+        <td>31.1</td>
+        <td>1.15</td>
+        <td class="gold-text">3.93</td>
+        <td class="green">-2.79</td>
+        <td>2.32</td>
+        <td>3.61</td>
+        <td>3.83</td>
+        <td>8.0</td>
+        <td>2.9</td>
+        <td>0.926</td>
+        <td>0.244</td>
+        <td>9.6%</td>
+        <td>27.4%</td>
+        <td>90.4</td>
+        <td>9.0%</td>
+        <td>39.7%</td>
+        <td>91.7</td>
+      </tr><tr>
+        <td class="tc">43</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/695076/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Rhett Lowder</td>
+        <td class="gold-text">CIN</td>
+        <td>29.0</td>
+        <td>3.10</td>
+        <td class="gold-text">3.98</td>
+        <td class="green">-0.87</td>
+        <td>3.29</td>
+        <td>4.67</td>
+        <td>4.82</td>
+        <td>5.6</td>
+        <td>2.8</td>
+        <td>1.138</td>
+        <td>0.256</td>
+        <td>8.5%</td>
+        <td>27.1%</td>
+        <td>89.8</td>
+        <td>7.7%</td>
+        <td>34.1%</td>
+        <td>93.0</td>
+      </tr><tr>
+        <td class="tc">44</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/666200/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Jesús Luzardo</td>
+        <td class="gold-text">PHI</td>
+        <td>27.1</td>
+        <td>6.91</td>
+        <td class="gold-text">4.04</td>
+        <td class="red">+2.87</td>
+        <td>3.26</td>
+        <td>2.80</td>
+        <td>3.16</td>
+        <td>10.9</td>
+        <td>3.0</td>
+        <td>1.537</td>
+        <td>0.395</td>
+        <td>14.7%</td>
+        <td>32.0%</td>
+        <td>86.2</td>
+        <td>6.3%</td>
+        <td>32.9%</td>
+        <td>97.2</td>
+      </tr><tr>
+        <td class="tc">45</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/543135/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Nathan Eovaldi</td>
+        <td class="gold-text">TEX</td>
+        <td>26.2</td>
+        <td>5.06</td>
+        <td class="gold-text">4.09</td>
+        <td class="red">+0.97</td>
+        <td>4.42</td>
+        <td>3.35</td>
+        <td>3.42</td>
+        <td>9.8</td>
+        <td>2.7</td>
+        <td>1.538</td>
+        <td>0.354</td>
+        <td>14.8%</td>
+        <td>28.0%</td>
+        <td>91.1</td>
+        <td>7.1%</td>
+        <td>46.4%</td>
+        <td>94.5</td>
+      </tr><tr>
+        <td class="tc">46</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/650644/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Aaron Civale</td>
+        <td class="gold-text">ATH</td>
+        <td>25.2</td>
+        <td>3.86</td>
+        <td class="gold-text">4.16</td>
+        <td class="green">-0.30</td>
+        <td>3.97</td>
+        <td>4.46</td>
+        <td>4.34</td>
+        <td>7.4</td>
+        <td>2.5</td>
+        <td>1.325</td>
+        <td>0.300</td>
+        <td>8.4%</td>
+        <td>26.7%</td>
+        <td>91.5</td>
+        <td>6.0%</td>
+        <td>49.4%</td>
+        <td>91.4</td>
+      </tr><tr>
+        <td class="tc">47</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/605280/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Clay Holmes</td>
+        <td class="gold-text">NYM</td>
+        <td>30.0</td>
+        <td>2.10</td>
+        <td class="gold-text">4.20</td>
+        <td class="green">-2.10</td>
+        <td>4.28</td>
+        <td>4.14</td>
+        <td>4.35</td>
+        <td>5.7</td>
+        <td>3.0</td>
+        <td>1.033</td>
+        <td>0.207</td>
+        <td>10.1%</td>
+        <td>27.7%</td>
+        <td>88.7</td>
+        <td>5.6%</td>
+        <td>42.2%</td>
+        <td>94.6</td>
+      </tr><tr>
+        <td class="tc">48</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/650633/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Michael King</td>
+        <td class="gold-text">SDP</td>
+        <td>27.2</td>
+        <td>2.28</td>
+        <td class="gold-text">4.21</td>
+        <td class="green">-1.93</td>
+        <td>3.69</td>
+        <td>4.58</td>
+        <td>4.44</td>
+        <td>8.5</td>
+        <td>4.6</td>
+        <td>1.120</td>
+        <td>0.239</td>
+        <td>10.3%</td>
+        <td>26.3%</td>
+        <td>89.2</td>
+        <td>10.3%</td>
+        <td>36.8%</td>
+        <td>93.9</td>
+      </tr><tr>
+        <td class="tc">49</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/681190/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Randy Vásquez</td>
+        <td class="gold-text">SDP</td>
+        <td>28.2</td>
+        <td>1.88</td>
+        <td class="gold-text">4.30</td>
+        <td class="green">-2.42</td>
+        <td>2.56</td>
+        <td>3.51</td>
+        <td>3.39</td>
+        <td>9.4</td>
+        <td>2.5</td>
+        <td>1.081</td>
+        <td>0.301</td>
+        <td>13.3%</td>
+        <td>27.8%</td>
+        <td>89.7</td>
+        <td>13.5%</td>
+        <td>41.9%</td>
+        <td>94.9</td>
+      </tr><tr>
+        <td class="tc">50</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/669358/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Shane Baz</td>
+        <td class="gold-text">BAL</td>
+        <td>28.1</td>
+        <td>5.08</td>
+        <td class="gold-text">4.32</td>
+        <td class="red">+0.76</td>
+        <td>3.71</td>
+        <td>4.42</td>
+        <td>4.45</td>
+        <td>7.3</td>
+        <td>3.2</td>
+        <td>1.553</td>
+        <td>0.360</td>
+        <td>9.9%</td>
+        <td>25.8%</td>
+        <td>88.7</td>
+        <td>6.6%</td>
+        <td>38.5%</td>
+        <td>96.8</td>
+      </tr><tr>
+        <td class="tc">51</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/669160/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Dustin May</td>
+        <td class="gold-text">STL</td>
+        <td>24.2</td>
+        <td>5.84</td>
+        <td class="gold-text">4.34</td>
+        <td class="red">+1.50</td>
+        <td>3.96</td>
+        <td>4.02</td>
+        <td>4.00</td>
+        <td>7.3</td>
+        <td>1.8</td>
+        <td>1.541</td>
+        <td>0.395</td>
+        <td>6.5%</td>
+        <td>24.8%</td>
+        <td>89.3</td>
+        <td>6.3%</td>
+        <td>46.8%</td>
+        <td>96.9</td>
+      </tr><tr>
+        <td class="tc">52</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/676974/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Max Meyer</td>
+        <td class="gold-text">MIA</td>
+        <td>25.0</td>
+        <td>3.96</td>
+        <td class="gold-text">4.39</td>
+        <td class="green">-0.43</td>
+        <td>3.51</td>
+        <td>3.81</td>
+        <td>3.82</td>
+        <td>10.1</td>
+        <td>4.0</td>
+        <td>1.240</td>
+        <td>0.265</td>
+        <td>14.4%</td>
+        <td>29.8%</td>
+        <td>89.3</td>
+        <td>8.6%</td>
+        <td>38.6%</td>
+        <td>94.7</td>
+      </tr><tr>
+        <td class="tc">53</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/657277/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Logan Webb</td>
+        <td class="gold-text">SFG</td>
+        <td>37.0</td>
+        <td>4.86</td>
+        <td class="gold-text">4.41</td>
+        <td class="red">+0.45</td>
+        <td>3.34</td>
+        <td>3.54</td>
+        <td>3.73</td>
+        <td>7.8</td>
+        <td>3.2</td>
+        <td>1.378</td>
+        <td>0.321</td>
+        <td>8.5%</td>
+        <td>26.3%</td>
+        <td>91.2</td>
+        <td>6.1%</td>
+        <td>49.1%</td>
+        <td>92.6</td>
+      </tr><tr>
+        <td class="tc">54</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/647336/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Michael Soroka</td>
+        <td class="gold-text">ARI</td>
+        <td>27.2</td>
+        <td>2.60</td>
+        <td class="gold-text">4.59</td>
+        <td class="green">-1.99</td>
+        <td>2.72</td>
+        <td>2.93</td>
+        <td>2.93</td>
+        <td>11.1</td>
+        <td>2.3</td>
+        <td>1.157</td>
+        <td>0.333</td>
+        <td>10.5%</td>
+        <td>27.8%</td>
+        <td>90.7</td>
+        <td>12.7%</td>
+        <td>43.7%</td>
+        <td>93.9</td>
+      </tr><tr>
+        <td class="tc">55</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/608379/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Michael Wacha</td>
+        <td class="gold-text">KCR</td>
+        <td>32.1</td>
+        <td>2.51</td>
+        <td class="gold-text">4.59</td>
+        <td class="green">-2.09</td>
+        <td>3.64</td>
+        <td>4.16</td>
+        <td>4.09</td>
+        <td>7.8</td>
+        <td>2.8</td>
+        <td>0.928</td>
+        <td>0.210</td>
+        <td>10.5%</td>
+        <td>27.9%</td>
+        <td>89.6</td>
+        <td>9.5%</td>
+        <td>45.2%</td>
+        <td>93.0</td>
+      </tr><tr>
+        <td class="tc">56</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/676440/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Tanner Bibee</td>
+        <td class="gold-text">CLE</td>
+        <td>30.1</td>
+        <td>4.45</td>
+        <td class="gold-text">4.60</td>
+        <td class="green">-0.15</td>
+        <td>4.67</td>
+        <td>4.04</td>
+        <td>4.26</td>
+        <td>7.7</td>
+        <td>3.3</td>
+        <td>1.451</td>
+        <td>0.315</td>
+        <td>12.2%</td>
+        <td>28.3%</td>
+        <td>93.1</td>
+        <td>8.5%</td>
+        <td>53.2%</td>
+        <td>94.2</td>
+      </tr><tr>
+        <td class="tc">57</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/656492/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Foster Griffin</td>
+        <td class="gold-text">WSN</td>
+        <td>26.2</td>
+        <td>3.38</td>
+        <td class="gold-text">4.60</td>
+        <td class="green">-1.22</td>
+        <td>4.95</td>
+        <td>4.13</td>
+        <td>4.17</td>
+        <td>7.4</td>
+        <td>2.7</td>
+        <td>1.200</td>
+        <td>0.253</td>
+        <td>9.4%</td>
+        <td>26.0%</td>
+        <td>89.8</td>
+        <td>12.5%</td>
+        <td>40.0%</td>
+        <td>91.5</td>
+      </tr><tr>
+        <td class="tc">58</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/680732/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Sean Burke</td>
+        <td class="gold-text">CHW</td>
+        <td>26.1</td>
+        <td>4.10</td>
+        <td class="gold-text">4.60</td>
+        <td class="green">-0.50</td>
+        <td>4.02</td>
+        <td>4.08</td>
+        <td>4.13</td>
+        <td>6.8</td>
+        <td>2.4</td>
+        <td>1.215</td>
+        <td>0.282</td>
+        <td>7.4%</td>
+        <td>24.5%</td>
+        <td>88.3</td>
+        <td>4.9%</td>
+        <td>38.3%</td>
+        <td>93.9</td>
+      </tr><tr>
+        <td class="tc">59</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/677960/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Ryan Weathers</td>
+        <td class="gold-text">NYY</td>
+        <td>28.1</td>
+        <td>3.18</td>
+        <td class="gold-text">4.63</td>
+        <td class="green">-1.45</td>
+        <td>3.29</td>
+        <td>2.73</td>
+        <td>2.89</td>
+        <td>11.4</td>
+        <td>2.5</td>
+        <td>1.235</td>
+        <td>0.338</td>
+        <td>11.6%</td>
+        <td>32.1%</td>
+        <td>88.2</td>
+        <td>12.5%</td>
+        <td>43.1%</td>
+        <td>95.9</td>
+      </tr><tr>
+        <td class="tc">60</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/607259/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Nick Martinez</td>
+        <td class="gold-text">TBR</td>
+        <td>30.0</td>
+        <td>2.10</td>
+        <td class="gold-text">4.63</td>
+        <td class="green">-2.53</td>
+        <td>3.92</td>
+        <td>4.43</td>
+        <td>4.56</td>
+        <td>6.0</td>
+        <td>2.4</td>
+        <td>1.100</td>
+        <td>0.242</td>
+        <td>7.7%</td>
+        <td>27.0%</td>
+        <td>86.9</td>
+        <td>8.5%</td>
+        <td>33.0%</td>
+        <td>92.8</td>
+      </tr><tr>
+        <td class="tc">61</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/680573/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Simeon Woods Richardson</td>
+        <td class="gold-text">MIN</td>
+        <td>25.2</td>
+        <td>5.96</td>
+        <td class="gold-text">4.64</td>
+        <td class="red">+1.32</td>
+        <td>5.84</td>
+        <td>5.64</td>
+        <td>5.67</td>
+        <td>4.6</td>
+        <td>3.5</td>
+        <td>1.558</td>
+        <td>0.291</td>
+        <td>6.5%</td>
+        <td>22.7%</td>
+        <td>89.9</td>
+        <td>8.8%</td>
+        <td>40.7%</td>
+        <td>92.5</td>
+      </tr><tr>
+        <td class="tc">62</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/663436/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Davis Martin</td>
+        <td class="gold-text">CHW</td>
+        <td>31.1</td>
+        <td>2.01</td>
+        <td class="gold-text">4.64</td>
+        <td class="green">-2.63</td>
+        <td>3.09</td>
+        <td>3.59</td>
+        <td>3.76</td>
+        <td>7.5</td>
+        <td>2.0</td>
+        <td>1.021</td>
+        <td>0.280</td>
+        <td>9.0%</td>
+        <td>27.9%</td>
+        <td>92.0</td>
+        <td>7.1%</td>
+        <td>51.2%</td>
+        <td>93.8</td>
+      </tr><tr>
+        <td class="tc">63</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/592662/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Robbie Ray</td>
+        <td class="gold-text">SFG</td>
+        <td>28.1</td>
+        <td>2.86</td>
+        <td class="gold-text">4.64</td>
+        <td class="green">-1.79</td>
+        <td>4.42</td>
+        <td>4.14</td>
+        <td>3.89</td>
+        <td>9.8</td>
+        <td>3.5</td>
+        <td>1.094</td>
+        <td>0.224</td>
+        <td>12.7%</td>
+        <td>27.2%</td>
+        <td>87.1</td>
+        <td>15.3%</td>
+        <td>33.3%</td>
+        <td>93.5</td>
+      </tr><tr>
+        <td class="tc">64</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/669461/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Matthew Liberatore</td>
+        <td class="gold-text">STL</td>
+        <td>27.0</td>
+        <td>3.67</td>
+        <td class="gold-text">4.69</td>
+        <td class="green">-1.03</td>
+        <td>5.48</td>
+        <td>5.04</td>
+        <td>5.18</td>
+        <td>5.3</td>
+        <td>3.3</td>
+        <td>1.407</td>
+        <td>0.267</td>
+        <td>7.9%</td>
+        <td>23.6%</td>
+        <td>90.7</td>
+        <td>7.7%</td>
+        <td>40.7%</td>
+        <td>94.4</td>
+      </tr><tr>
+        <td class="tc">65</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/605400/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Aaron Nola</td>
+        <td class="gold-text">PHI</td>
+        <td>26.2</td>
+        <td>5.06</td>
+        <td class="gold-text">4.70</td>
+        <td class="red">+0.36</td>
+        <td>4.05</td>
+        <td>3.46</td>
+        <td>3.68</td>
+        <td>9.8</td>
+        <td>3.4</td>
+        <td>1.463</td>
+        <td>0.347</td>
+        <td>10.8%</td>
+        <td>29.2%</td>
+        <td>89.6</td>
+        <td>7.9%</td>
+        <td>42.1%</td>
+        <td>91.7</td>
+      </tr><tr>
+        <td class="tc">66</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/669022/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">MacKenzie Gore</td>
+        <td class="gold-text">TEX</td>
+        <td>26.0</td>
+        <td>4.15</td>
+        <td class="gold-text">4.71</td>
+        <td class="green">-0.56</td>
+        <td>4.46</td>
+        <td>3.08</td>
+        <td>3.25</td>
+        <td>12.1</td>
+        <td>4.2</td>
+        <td>1.192</td>
+        <td>0.255</td>
+        <td>11.5%</td>
+        <td>27.2%</td>
+        <td>89.8</td>
+        <td>16.7%</td>
+        <td>48.3%</td>
+        <td>95.7</td>
+      </tr><tr>
+        <td class="tc">67</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/663460/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Kris Bubic</td>
+        <td class="gold-text">KCR</td>
+        <td>28.2</td>
+        <td>4.08</td>
+        <td class="gold-text">4.74</td>
+        <td class="green">-0.66</td>
+        <td>3.85</td>
+        <td>4.09</td>
+        <td>4.07</td>
+        <td>9.1</td>
+        <td>4.1</td>
+        <td>1.116</td>
+        <td>0.235</td>
+        <td>11.8%</td>
+        <td>27.7%</td>
+        <td>90.2</td>
+        <td>11.3%</td>
+        <td>39.4%</td>
+        <td>91.5</td>
+      </tr><tr>
+        <td class="tc">68</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/691587/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Eury Pérez</td>
+        <td class="gold-text">MIA</td>
+        <td>26.0</td>
+        <td>4.15</td>
+        <td class="gold-text">4.76</td>
+        <td class="green">-0.60</td>
+        <td>4.69</td>
+        <td>4.51</td>
+        <td>4.20</td>
+        <td>9.3</td>
+        <td>4.2</td>
+        <td>1.346</td>
+        <td>0.284</td>
+        <td>14.3%</td>
+        <td>25.9%</td>
+        <td>89.6</td>
+        <td>15.5%</td>
+        <td>45.1%</td>
+        <td>98.2</td>
+      </tr><tr>
+        <td class="tc">69</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/656849/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">David Peterson</td>
+        <td class="gold-text">NYM</td>
+        <td>26.2</td>
+        <td>5.06</td>
+        <td class="gold-text">4.78</td>
+        <td class="red">+0.29</td>
+        <td>3.79</td>
+        <td>3.81</td>
+        <td>3.95</td>
+        <td>8.1</td>
+        <td>3.7</td>
+        <td>1.650</td>
+        <td>0.360</td>
+        <td>9.7%</td>
+        <td>27.0%</td>
+        <td>89.9</td>
+        <td>4.5%</td>
+        <td>47.7%</td>
+        <td>91.8</td>
+      </tr><tr>
+        <td class="tc">70</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/593958/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Eduardo Rodriguez</td>
+        <td class="gold-text">ARI</td>
+        <td>28.0</td>
+        <td>2.89</td>
+        <td class="gold-text">4.94</td>
+        <td class="green">-2.05</td>
+        <td>5.01</td>
+        <td>4.59</td>
+        <td>4.98</td>
+        <td>5.8</td>
+        <td>3.9</td>
+        <td>1.321</td>
+        <td>0.244</td>
+        <td>6.4%</td>
+        <td>27.0%</td>
+        <td>90.0</td>
+        <td>6.7%</td>
+        <td>37.8%</td>
+        <td>91.8</td>
+      </tr><tr>
+        <td class="tc">71</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/683004/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Jack Leiter</td>
+        <td class="gold-text">TEX</td>
+        <td>25.1</td>
+        <td>4.97</td>
+        <td class="gold-text">5.01</td>
+        <td class="green">-0.04</td>
+        <td>3.82</td>
+        <td>3.82</td>
+        <td>3.79</td>
+        <td>10.3</td>
+        <td>3.9</td>
+        <td>1.461</td>
+        <td>0.338</td>
+        <td>14.6%</td>
+        <td>30.3%</td>
+        <td>90.2</td>
+        <td>14.1%</td>
+        <td>46.5%</td>
+        <td>96.8</td>
+      </tr><tr>
+        <td class="tc">72</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/571927/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Steven Matz</td>
+        <td class="gold-text">TBR</td>
+        <td>24.1</td>
+        <td>4.81</td>
+        <td class="gold-text">5.04</td>
+        <td class="green">-0.23</td>
+        <td>5.12</td>
+        <td>4.23</td>
+        <td>4.10</td>
+        <td>9.2</td>
+        <td>3.7</td>
+        <td>1.233</td>
+        <td>0.246</td>
+        <td>10.6%</td>
+        <td>26.1%</td>
+        <td>89.1</td>
+        <td>13.6%</td>
+        <td>40.9%</td>
+        <td>—</td>
+      </tr><tr>
+        <td class="tc">73</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/624133/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Ranger Suarez</td>
+        <td class="gold-text">BOS</td>
+        <td>27.0</td>
+        <td>4.00</td>
+        <td class="gold-text">5.08</td>
+        <td class="green">-1.08</td>
+        <td>4.08</td>
+        <td>3.82</td>
+        <td>4.33</td>
+        <td>6.3</td>
+        <td>2.7</td>
+        <td>1.148</td>
+        <td>0.260</td>
+        <td>7.7%</td>
+        <td>24.7%</td>
+        <td>88.8</td>
+        <td>10.0%</td>
+        <td>42.5%</td>
+        <td>91.9</td>
+      </tr><tr>
+        <td class="tc">74</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/686799/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Jack Kochanowicz</td>
+        <td class="gold-text">LAA</td>
+        <td>29.0</td>
+        <td>3.10</td>
+        <td class="gold-text">5.22</td>
+        <td class="green">-2.12</td>
+        <td>4.15</td>
+        <td>4.85</td>
+        <td>5.24</td>
+        <td>5.9</td>
+        <td>5.3</td>
+        <td>1.241</td>
+        <td>0.214</td>
+        <td>9.8%</td>
+        <td>27.1%</td>
+        <td>91.1</td>
+        <td>8.2%</td>
+        <td>42.4%</td>
+        <td>96.2</td>
+      </tr><tr>
+        <td class="tc">75</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/668678/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Zac Gallen</td>
+        <td class="gold-text">ARI</td>
+        <td>25.2</td>
+        <td>3.51</td>
+        <td class="gold-text">5.33</td>
+        <td class="green">-1.82</td>
+        <td>3.89</td>
+        <td>4.61</td>
+        <td>4.85</td>
+        <td>4.9</td>
+        <td>2.5</td>
+        <td>1.481</td>
+        <td>0.333</td>
+        <td>7.4%</td>
+        <td>23.9%</td>
+        <td>92.2</td>
+        <td>10.1%</td>
+        <td>47.2%</td>
+        <td>93.5</td>
+      </tr><tr>
+        <td class="tc">76</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/681517/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Kyle Leahy</td>
+        <td class="gold-text">STL</td>
+        <td>24.0</td>
+        <td>5.62</td>
+        <td class="gold-text">5.68</td>
+        <td class="green">-0.05</td>
+        <td>5.69</td>
+        <td>4.74</td>
+        <td>4.88</td>
+        <td>5.6</td>
+        <td>4.1</td>
+        <td>1.667</td>
+        <td>0.316</td>
+        <td>6.9%</td>
+        <td>21.7%</td>
+        <td>90.8</td>
+        <td>10.8%</td>
+        <td>49.4%</td>
+        <td>93.5</td>
+      </tr><tr>
+        <td class="tc">77</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/641816/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Tyler Mahle</td>
+        <td class="gold-text">SFG</td>
+        <td>25.2</td>
+        <td>5.26</td>
+        <td class="gold-text">5.68</td>
+        <td class="green">-0.42</td>
+        <td>5.80</td>
+        <td>3.85</td>
+        <td>4.23</td>
+        <td>9.1</td>
+        <td>4.9</td>
+        <td>1.597</td>
+        <td>0.309</td>
+        <td>9.0%</td>
+        <td>29.7%</td>
+        <td>90.4</td>
+        <td>13.5%</td>
+        <td>36.5%</td>
+        <td>92.6</td>
+      </tr><tr>
+        <td class="tc">78</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/813349/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Connelly Early</td>
+        <td class="gold-text">BOS</td>
+        <td>25.0</td>
+        <td>2.88</td>
+        <td class="gold-text">5.69</td>
+        <td class="green">-2.81</td>
+        <td>4.19</td>
+        <td>4.38</td>
+        <td>4.43</td>
+        <td>8.6</td>
+        <td>4.7</td>
+        <td>1.320</td>
+        <td>0.277</td>
+        <td>8.5%</td>
+        <td>27.5%</td>
+        <td>91.6</td>
+        <td>13.4%</td>
+        <td>40.3%</td>
+        <td>93.7</td>
+      </tr><tr>
+        <td class="tc">79</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/608372/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Tomoyuki Sugano</td>
+        <td class="gold-text">COL</td>
+        <td>26.1</td>
+        <td>3.42</td>
+        <td class="gold-text">6.02</td>
+        <td class="green">-2.60</td>
+        <td>4.86</td>
+        <td>4.19</td>
+        <td>4.24</td>
+        <td>6.5</td>
+        <td>2.1</td>
+        <td>1.139</td>
+        <td>0.241</td>
+        <td>9.4%</td>
+        <td>22.8%</td>
+        <td>90.5</td>
+        <td>15.5%</td>
+        <td>46.4%</td>
+        <td>92.3</td>
+      </tr><tr>
+        <td class="tc">80</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/700241/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Michael McGreevy</td>
+        <td class="gold-text">STL</td>
+        <td>27.1</td>
+        <td>3.29</td>
+        <td class="gold-text">6.61</td>
+        <td class="green">-3.31</td>
+        <td>4.50</td>
+        <td>4.33</td>
+        <td>4.59</td>
+        <td>4.9</td>
+        <td>1.6</td>
+        <td>0.915</td>
+        <td>0.198</td>
+        <td>5.4%</td>
+        <td>22.6%</td>
+        <td>87.9</td>
+        <td>14.1%</td>
+        <td>36.5%</td>
+        <td>91.2</td>
+      </tr><tr>
+        <td class="tc">81</td>
+        <td class="tl name-col"><img class="hs-sm" src="https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/682227/headshot/67/current" onerror="this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'">Brandon Williamson</td>
+        <td class="gold-text">CIN</td>
+        <td>25.0</td>
+        <td>5.40</td>
+        <td class="gold-text">6.94</td>
+        <td class="green">-1.54</td>
+        <td>6.31</td>
+        <td>6.35</td>
+        <td>6.12</td>
+        <td>5.4</td>
+        <td>5.8</td>
+        <td>1.520</td>
+        <td>0.243</td>
+        <td>9.1%</td>
+        <td>23.9%</td>
+        <td>88.2</td>
+        <td>10.3%</td>
+        <td>41.0%</td>
+        <td>92.5</td>
+      </tr></tbody>
+  </table>
+</div>
+
+<div class="page-footer">
+  <a href="https://thebaseballnerd.com/vault">&larr; Back to Vault</a>
+  <div class="source-note">FanGraphs &middot; Statcast / Hawk-Eye &middot; Updated April 24, 2026</div>
+</div>
 
 <script>
-const RAW = [{"name": "Cam Schlittler", "team": "NYY", "ip": 16.2, "era": 1.62, "xera": 1.45, "fip": 0.48, "xfip": 1.18, "war": 0.98, "k9": 11.88, "bb9": 0.0, "kbb": 22.0, "hr9": 0.0, "babip": 0.222, "lob": 0.625, "gb": 0.514, "velo": 97.6, "ev": 88.1, "barrel": 0.056, "hardpct": 0.361, "diff": 0.17, "mlbamid": "693645"}, {"name": "Sandy Alcantara", "team": "MIA", "ip": 24.1, "era": 0.74, "xera": 1.36, "fip": 2.26, "xfip": 3.58, "war": 0.92, "k9": 6.66, "bb9": 1.48, "kbb": 4.5, "hr9": 0.0, "babip": 0.159, "lob": 0.8, "gb": 0.492, "velo": 97.0, "ev": 87.0, "barrel": 0.016, "hardpct": 0.286, "diff": -0.62, "mlbamid": "645261"}, {"name": "Max Fried", "team": "NYY", "ip": 28.0, "era": 1.93, "xera": 2.49, "fip": 2.44, "xfip": 3.73, "war": 0.87, "k9": 6.43, "bb9": 1.61, "kbb": 4.0, "hr9": 0.0, "babip": 0.205, "lob": 0.739, "gb": 0.442, "velo": 94.8, "ev": 87.6, "barrel": 0.0, "hardpct": 0.308, "diff": -0.56, "mlbamid": "608331"}, {"name": "Cristopher S\u00e1nchez", "team": "PHI", "ip": 16.1, "era": 1.65, "xera": 3.14, "fip": 1.04, "xfip": 1.98, "war": 0.79, "k9": 12.67, "bb9": 2.2, "kbb": 5.75, "hr9": 0.0, "babip": 0.429, "lob": 0.773, "gb": 0.548, "velo": null, "ev": 92.1, "barrel": 0.167, "hardpct": 0.5, "diff": -1.49, "mlbamid": "650911"}, {"name": "Kevin Gausman", "team": "TOR", "ip": 17.1, "era": 2.08, "xera": 1.76, "fip": 1.22, "xfip": 1.28, "war": 0.78, "k9": 13.5, "bb9": 1.04, "kbb": 13.0, "hr9": 0.52, "babip": 0.229, "lob": 0.729, "gb": 0.514, "velo": 94.4, "ev": 86.3, "barrel": 0.083, "hardpct": 0.333, "diff": 0.32, "mlbamid": "592332"}, {"name": "Taj Bradley", "team": "MIN", "ip": 16.2, "era": 1.08, "xera": 3.13, "fip": 1.56, "xfip": 3.03, "war": 0.73, "k9": 11.88, "bb9": 2.16, "kbb": 5.5, "hr9": 0.0, "babip": 0.333, "lob": 0.9, "gb": 0.333, "velo": 97.7, "ev": 94.1, "barrel": 0.071, "hardpct": 0.429, "diff": -2.05, "mlbamid": "671737"}, {"name": "Braxton Ashcraft", "team": "PIT", "ip": 17.0, "era": 2.12, "xera": 2.4, "fip": 1.65, "xfip": 2.71, "war": 0.73, "k9": 10.59, "bb9": 2.65, "kbb": 4.0, "hr9": 0.0, "babip": 0.293, "lob": 0.765, "gb": 0.512, "velo": 96.8, "ev": 91.4, "barrel": 0.024, "hardpct": 0.39, "diff": -0.28, "mlbamid": "677952"}, {"name": "Ryan Weathers", "team": "NYY", "ip": 16.0, "era": 2.81, "xera": 5.05, "fip": 1.81, "xfip": 2.77, "war": 0.67, "k9": 10.13, "bb9": 2.81, "kbb": 3.6, "hr9": 0.0, "babip": 0.378, "lob": 0.773, "gb": 0.364, "velo": 96.7, "ev": 86.6, "barrel": 0.067, "hardpct": 0.4, "diff": -2.24, "mlbamid": "677960"}, {"name": "Bryan Woo", "team": "SEA", "ip": 18.0, "era": 1.5, "xera": 1.94, "fip": 2.06, "xfip": 4.14, "war": 0.66, "k9": 8.5, "bb9": 2.0, "kbb": 4.25, "hr9": 0.0, "babip": 0.217, "lob": 0.667, "gb": 0.261, "velo": 95.7, "ev": 86.5, "barrel": 0.043, "hardpct": 0.37, "diff": -0.44, "mlbamid": "693433"}, {"name": "Jeffrey Springs", "team": "ATH", "ip": 18.1, "era": 1.47, "xera": 2.19, "fip": 2.46, "xfip": 3.87, "war": 0.66, "k9": 7.36, "bb9": 2.95, "kbb": 2.5, "hr9": 0.0, "babip": 0.17, "lob": 0.786, "gb": 0.426, "velo": 91.5, "ev": 84.6, "barrel": 0.043, "hardpct": 0.298, "diff": -0.72, "mlbamid": "605488"}, {"name": "Joe Ryan", "team": "MIN", "ip": 21.1, "era": 3.8, "xera": 3.05, "fip": 2.79, "xfip": 3.87, "war": 0.61, "k9": 9.28, "bb9": 2.53, "kbb": 3.67, "hr9": 0.42, "babip": 0.259, "lob": 0.602, "gb": 0.315, "velo": 93.4, "ev": 87.5, "barrel": 0.091, "hardpct": 0.327, "diff": 0.75, "mlbamid": "657746"}, {"name": "Trevor Rogers", "team": "BAL", "ip": 19.0, "era": 1.89, "xera": 2.36, "fip": 2.59, "xfip": 4.15, "war": 0.6, "k9": 6.63, "bb9": 2.37, "kbb": 2.8, "hr9": 0.0, "babip": 0.268, "lob": 0.81, "gb": 0.411, "velo": 92.4, "ev": 88.3, "barrel": 0.018, "hardpct": 0.268, "diff": -0.47, "mlbamid": "669432"}, {"name": "Dylan Cease", "team": "TOR", "ip": 14.2, "era": 2.45, "xera": 2.92, "fip": 1.62, "xfip": 2.41, "war": 0.6, "k9": 15.95, "bb9": 5.52, "kbb": 2.89, "hr9": 0.0, "babip": 0.387, "lob": 0.727, "gb": 0.4, "velo": 97.8, "ev": 84.4, "barrel": 0.0, "hardpct": 0.226, "diff": -0.47, "mlbamid": "656302"}, {"name": "Emerson Hancock", "team": "SEA", "ip": 17.2, "era": 2.04, "xera": 2.37, "fip": 2.38, "xfip": 2.74, "war": 0.59, "k9": 9.68, "bb9": 1.53, "kbb": 6.33, "hr9": 0.51, "babip": 0.237, "lob": 0.794, "gb": 0.462, "velo": 94.8, "ev": 89.0, "barrel": 0.051, "hardpct": 0.282, "diff": -0.33, "mlbamid": "676106"}, {"name": "Landen Roupp", "team": "SFG", "ip": 16.2, "era": 3.24, "xera": 2.35, "fip": 1.86, "xfip": 2.63, "war": 0.58, "k9": 9.72, "bb9": 2.7, "kbb": 3.6, "hr9": 0.0, "babip": 0.304, "lob": 0.579, "gb": 0.543, "velo": 93.1, "ev": 84.6, "barrel": 0.0, "hardpct": 0.261, "diff": 0.89, "mlbamid": "694738"}, {"name": "Sean Burke", "team": "CHW", "ip": 15.0, "era": 3.6, "xera": 3.19, "fip": 1.92, "xfip": 3.29, "war": 0.58, "k9": 9.0, "bb9": 1.8, "kbb": 5.0, "hr9": 0.0, "babip": 0.302, "lob": 0.588, "gb": 0.442, "velo": 94.2, "ev": 88.9, "barrel": 0.023, "hardpct": 0.419, "diff": 0.41, "mlbamid": "680732"}, {"name": "Shota Imanaga", "team": "CHC", "ip": 16.0, "era": 2.81, "xera": 2.68, "fip": 2.18, "xfip": 2.82, "war": 0.56, "k9": 11.25, "bb9": 2.25, "kbb": 5.0, "hr9": 0.56, "babip": 0.229, "lob": 0.69, "gb": 0.222, "velo": 92.3, "ev": 90.1, "barrel": 0.083, "hardpct": 0.444, "diff": 0.13, "mlbamid": "684007"}, {"name": "Jos\u00e9 Soriano", "team": "LAA", "ip": 20.0, "era": 0.45, "xera": 2.85, "fip": 2.57, "xfip": 2.63, "war": 0.55, "k9": 9.45, "bb9": 2.7, "kbb": 3.5, "hr9": 0.45, "babip": 0.14, "lob": 1.0, "gb": 0.651, "velo": 98.3, "ev": 88.6, "barrel": 0.114, "hardpct": 0.386, "diff": -2.4, "mlbamid": "667755"}, {"name": "Seth Lugo", "team": "KCR", "ip": 17.2, "era": 1.53, "xera": 4.83, "fip": 2.55, "xfip": 3.57, "war": 0.54, "k9": 7.13, "bb9": 3.06, "kbb": 2.33, "hr9": 0.0, "babip": 0.265, "lob": 0.789, "gb": 0.438, "velo": 92.1, "ev": 90.7, "barrel": 0.102, "hardpct": 0.429, "diff": -3.3, "mlbamid": "607625"}, {"name": "Tarik Skubal", "team": "DET", "ip": 17.2, "era": 2.55, "xera": 4.36, "fip": 2.38, "xfip": 2.6, "war": 0.54, "k9": 8.15, "bb9": 1.02, "kbb": 8.0, "hr9": 0.51, "babip": 0.308, "lob": 0.739, "gb": 0.423, "velo": 97.6, "ev": 87.5, "barrel": 0.094, "hardpct": 0.396, "diff": -1.81, "mlbamid": "669373"}, {"name": "Logan Gilbert", "team": "SEA", "ip": 16.2, "era": 5.4, "xera": 2.31, "fip": 2.28, "xfip": 3.12, "war": 0.53, "k9": 9.72, "bb9": 1.62, "kbb": 6.0, "hr9": 0.54, "babip": 0.378, "lob": 0.561, "gb": 0.326, "velo": 95.5, "ev": 91.7, "barrel": 0.065, "hardpct": 0.457, "diff": 3.09, "mlbamid": "669302"}, {"name": "Michael Wacha", "team": "KCR", "ip": 21.0, "era": 0.43, "xera": 4.0, "fip": 2.98, "xfip": 3.65, "war": 0.53, "k9": 7.29, "bb9": 2.14, "kbb": 3.4, "hr9": 0.43, "babip": 0.18, "lob": 1.0, "gb": 0.367, "velo": 93.2, "ev": 89.2, "barrel": 0.059, "hardpct": 0.431, "diff": -3.57, "mlbamid": "608379"}, {"name": "Jes\u00fas Luzardo", "team": "PHI", "ip": 17.1, "era": 6.23, "xera": 2.79, "fip": 2.31, "xfip": 1.55, "war": 0.53, "k9": 13.5, "bb9": 2.08, "kbb": 6.5, "hr9": 1.04, "babip": 0.359, "lob": 0.465, "gb": 0.525, "velo": 97.4, "ev": 86.2, "barrel": 0.073, "hardpct": 0.244, "diff": 3.44, "mlbamid": "666200"}, {"name": "Mitch Keller", "team": "PIT", "ip": 18.0, "era": 1.0, "xera": 2.73, "fip": 2.73, "xfip": 4.16, "war": 0.52, "k9": 5.5, "bb9": 2.5, "kbb": 2.2, "hr9": 0.0, "babip": 0.226, "lob": 0.882, "gb": 0.377, "velo": 93.3, "ev": 84.8, "barrel": 0.019, "hardpct": 0.377, "diff": -1.73, "mlbamid": "656605"}, {"name": "Randy V\u00e1squez", "team": "SDP", "ip": 17.2, "era": 1.02, "xera": 4.19, "fip": 2.55, "xfip": 2.98, "war": 0.52, "k9": 9.68, "bb9": 2.04, "kbb": 4.75, "hr9": 0.51, "babip": 0.318, "lob": 0.968, "gb": 0.489, "velo": 94.8, "ev": 89.8, "barrel": 0.133, "hardpct": 0.467, "diff": -3.17, "mlbamid": "681190"}, {"name": "Tyler Glasnow", "team": "LAD", "ip": 18.0, "era": 4.0, "xera": 2.57, "fip": 2.79, "xfip": 2.7, "war": 0.51, "k9": 11.0, "bb9": 2.0, "kbb": 5.5, "hr9": 1.0, "babip": 0.256, "lob": 0.634, "gb": 0.378, "velo": 96.1, "ev": 90.4, "barrel": 0.044, "hardpct": 0.333, "diff": 1.43, "mlbamid": "607192"}, {"name": "Carmen Mlodzinski", "team": "PIT", "ip": 14.1, "era": 2.51, "xera": 3.63, "fip": 2.28, "xfip": 3.27, "war": 0.49, "k9": 9.42, "bb9": 3.77, "kbb": 2.5, "hr9": 0.0, "babip": 0.395, "lob": 0.826, "gb": 0.488, "velo": 95.1, "ev": 92.5, "barrel": 0.023, "hardpct": 0.558, "diff": -1.12, "mlbamid": "669387"}, {"name": "Parker Messick", "team": "CLE", "ip": 17.2, "era": 0.51, "xera": 2.94, "fip": 2.89, "xfip": 3.25, "war": 0.49, "k9": 8.15, "bb9": 2.55, "kbb": 3.2, "hr9": 0.51, "babip": 0.227, "lob": 1.0, "gb": 0.477, "velo": 93.5, "ev": 86.4, "barrel": 0.022, "hardpct": 0.289, "diff": -2.43, "mlbamid": "800048"}, {"name": "Garrett Crochet", "team": "BOS", "ip": 17.1, "era": 3.12, "xera": 3.66, "fip": 2.54, "xfip": 2.61, "war": 0.47, "k9": 11.42, "bb9": 2.08, "kbb": 5.5, "hr9": 0.52, "babip": 0.295, "lob": 0.714, "gb": 0.409, "velo": 96.3, "ev": 88.0, "barrel": 0.067, "hardpct": 0.356, "diff": -0.54, "mlbamid": "676979"}, {"name": "Framber Valdez", "team": "DET", "ip": 17.0, "era": 4.76, "xera": 3.59, "fip": 2.77, "xfip": 3.75, "war": 0.46, "k9": 6.35, "bb9": 2.65, "kbb": 2.4, "hr9": 0.0, "babip": 0.333, "lob": 0.615, "gb": 0.533, "velo": null, "ev": 88.4, "barrel": 0.017, "hardpct": 0.367, "diff": 1.17, "mlbamid": "664285"}, {"name": "Steven Matz", "team": "TBR", "ip": 16.0, "era": 3.94, "xera": 3.3, "fip": 2.93, "xfip": 3.65, "war": 0.46, "k9": 9.56, "bb9": 2.81, "kbb": 3.4, "hr9": 0.56, "babip": 0.231, "lob": 0.616, "gb": 0.275, "velo": null, "ev": 88.5, "barrel": 0.075, "hardpct": 0.425, "diff": 0.64, "mlbamid": "571927"}, {"name": "Joe Boyle", "team": "TBR", "ip": 15.2, "era": 5.17, "xera": 4.27, "fip": 3.06, "xfip": 3.79, "war": 0.45, "k9": 9.19, "bb9": 3.45, "kbb": 2.67, "hr9": 0.57, "babip": 0.233, "lob": 0.385, "gb": 0.409, "velo": 97.7, "ev": 87.3, "barrel": 0.045, "hardpct": 0.432, "diff": 0.9, "mlbamid": "671212"}, {"name": "Logan Webb", "team": "SFG", "ip": 24.0, "era": 5.25, "xera": 4.15, "fip": 3.16, "xfip": 3.53, "war": 0.44, "k9": 7.88, "bb9": 3.38, "kbb": 2.33, "hr9": 0.38, "babip": 0.315, "lob": 0.583, "gb": 0.562, "velo": 92.6, "ev": 91.5, "barrel": 0.041, "hardpct": 0.459, "diff": 1.1, "mlbamid": "657277"}, {"name": "Nolan McLean", "team": "NYM", "ip": 16.2, "era": 2.7, "xera": 1.91, "fip": 2.76, "xfip": 2.98, "war": 0.43, "k9": 10.8, "bb9": 3.24, "kbb": 3.33, "hr9": 0.54, "babip": 0.194, "lob": 0.662, "gb": 0.486, "velo": 97.0, "ev": 83.8, "barrel": 0.054, "hardpct": 0.243, "diff": 0.79, "mlbamid": "690997"}, {"name": "Bryce Elder", "team": "ATL", "ip": 17.2, "era": 1.02, "xera": 2.34, "fip": 2.89, "xfip": 3.4, "war": 0.41, "k9": 8.15, "bb9": 2.55, "kbb": 3.2, "hr9": 0.51, "babip": 0.261, "lob": 0.843, "gb": 0.457, "velo": 92.8, "ev": 89.4, "barrel": 0.021, "hardpct": 0.362, "diff": -1.32, "mlbamid": "693821"}, {"name": "Michael McGreevy", "team": "STL", "ip": 16.2, "era": 2.16, "xera": 5.62, "fip": 3.06, "xfip": 3.98, "war": 0.4, "k9": 5.4, "bb9": 1.08, "kbb": 5.0, "hr9": 0.54, "babip": 0.204, "lob": 0.776, "gb": 0.42, "velo": 91.3, "ev": 87.6, "barrel": 0.12, "hardpct": 0.34, "diff": -3.46, "mlbamid": "700241"}, {"name": "MacKenzie Gore", "team": "TEX", "ip": 16.1, "era": 2.76, "xera": 2.64, "fip": 2.75, "xfip": 2.03, "war": 0.4, "k9": 13.78, "bb9": 2.76, "kbb": 5.0, "hr9": 1.1, "babip": 0.233, "lob": 0.82, "gb": 0.438, "velo": 95.9, "ev": 88.1, "barrel": 0.125, "hardpct": 0.344, "diff": 0.12, "mlbamid": "669022"}, {"name": "Michael Soroka", "team": "ARI", "ip": 15.2, "era": 2.87, "xera": 5.74, "fip": 2.74, "xfip": 2.98, "war": 0.39, "k9": 13.21, "bb9": 3.45, "kbb": 3.83, "hr9": 0.57, "babip": 0.353, "lob": 0.825, "gb": 0.4, "velo": 94.2, "ev": 91.9, "barrel": 0.229, "hardpct": 0.514, "diff": -2.87, "mlbamid": "647336"}, {"name": "Kris Bubic", "team": "KCR", "ip": 18.0, "era": 2.5, "xera": 2.76, "fip": 3.17, "xfip": 3.09, "war": 0.37, "k9": 11.5, "bb9": 3.5, "kbb": 3.29, "hr9": 1.0, "babip": 0.167, "lob": 0.82, "gb": 0.421, "velo": 91.9, "ev": 92.1, "barrel": 0.105, "hardpct": 0.474, "diff": -0.26, "mlbamid": "663460"}, {"name": "Lance McCullers Jr.", "team": "HOU", "ip": 15.1, "era": 5.87, "xera": 3.43, "fip": 2.92, "xfip": 3.0, "war": 0.37, "k9": 9.98, "bb9": 3.52, "kbb": 2.83, "hr9": 0.59, "babip": 0.351, "lob": 0.538, "gb": 0.5, "velo": 92.3, "ev": 92.1, "barrel": 0.079, "hardpct": 0.553, "diff": 2.44, "mlbamid": "621121"}, {"name": "Edward Cabrera", "team": "CHC", "ip": 16.2, "era": 1.62, "xera": 2.39, "fip": 3.18, "xfip": 4.34, "war": 0.36, "k9": 7.02, "bb9": 4.86, "kbb": 1.44, "hr9": 0.0, "babip": 0.227, "lob": 0.842, "gb": 0.442, "velo": 95.9, "ev": 90.7, "barrel": 0.023, "hardpct": 0.386, "diff": -0.77, "mlbamid": "665795"}, {"name": "Reid Detmers", "team": "LAA", "ip": 15.2, "era": 4.6, "xera": 2.5, "fip": 3.31, "xfip": 4.29, "war": 0.35, "k9": 9.77, "bb9": 3.45, "kbb": 2.83, "hr9": 0.57, "babip": 0.302, "lob": 0.631, "gb": 0.341, "velo": 94.2, "ev": 86.7, "barrel": 0.068, "hardpct": 0.364, "diff": 2.1, "mlbamid": "672282"}, {"name": "Andrew Abbott", "team": "CIN", "ip": 17.0, "era": 3.18, "xera": 4.07, "fip": 3.65, "xfip": 4.02, "war": 0.34, "k9": 5.82, "bb9": 3.18, "kbb": 1.83, "hr9": 0.53, "babip": 0.315, "lob": 0.796, "gb": 0.574, "velo": 92.7, "ev": 88.2, "barrel": 0.091, "hardpct": 0.364, "diff": -0.89, "mlbamid": "671096"}, {"name": "Jacob Misiorowski", "team": "MIL", "ip": 16.1, "era": 3.31, "xera": 3.06, "fip": 3.3, "xfip": 2.5, "war": 0.33, "k9": 15.43, "bb9": 4.96, "kbb": 3.11, "hr9": 1.1, "babip": 0.231, "lob": 0.802, "gb": 0.536, "velo": 98.9, "ev": 86.0, "barrel": 0.071, "hardpct": 0.429, "diff": 0.25, "mlbamid": "694819"}, {"name": "Davis Martin", "team": "CHW", "ip": 18.0, "era": 2.5, "xera": 5.02, "fip": 3.73, "xfip": 3.79, "war": 0.32, "k9": 7.5, "bb9": 2.0, "kbb": 3.75, "hr9": 1.0, "babip": 0.292, "lob": 0.879, "gb": 0.286, "velo": 94.0, "ev": 93.1, "barrel": 0.06, "hardpct": 0.54, "diff": -2.52, "mlbamid": "663436"}, {"name": "Aaron Nola", "team": "PHI", "ip": 17.1, "era": 3.63, "xera": 4.18, "fip": 3.87, "xfip": 2.96, "war": 0.31, "k9": 9.87, "bb9": 2.08, "kbb": 4.75, "hr9": 1.56, "babip": 0.273, "lob": 0.811, "gb": 0.426, "velo": 92.0, "ev": 87.8, "barrel": 0.106, "hardpct": 0.426, "diff": -0.55, "mlbamid": "605400"}, {"name": "Casey Mize", "team": "DET", "ip": 16.0, "era": 3.94, "xera": 5.62, "fip": 3.62, "xfip": 3.69, "war": 0.31, "k9": 10.13, "bb9": 3.38, "kbb": 3.0, "hr9": 1.13, "babip": 0.333, "lob": 0.792, "gb": 0.34, "velo": 93.8, "ev": 88.3, "barrel": 0.064, "hardpct": 0.447, "diff": -1.68, "mlbamid": "663554"}, {"name": "Yoshinobu Yamamoto", "team": "LAD", "ip": 18.0, "era": 2.5, "xera": 3.64, "fip": 3.51, "xfip": 3.78, "war": 0.31, "k9": 7.0, "bb9": 1.0, "kbb": 7.0, "hr9": 1.0, "babip": 0.25, "lob": 0.845, "gb": 0.388, "velo": 95.8, "ev": 87.5, "barrel": 0.08, "hardpct": 0.3, "diff": -1.14, "mlbamid": "808967"}, {"name": "Sonny Gray", "team": "BOS", "ip": 16.1, "era": 2.76, "xera": 4.15, "fip": 3.24, "xfip": 3.71, "war": 0.3, "k9": 5.51, "bb9": 1.65, "kbb": 3.33, "hr9": 0.55, "babip": 0.231, "lob": 0.685, "gb": 0.566, "velo": 92.2, "ev": 87.6, "barrel": 0.094, "hardpct": 0.34, "diff": -1.39, "mlbamid": "543243"}, {"name": "Eduardo Rodriguez", "team": "ARI", "ip": 18.0, "era": 0.5, "xera": 3.39, "fip": 3.45, "xfip": 3.95, "war": 0.29, "k9": 5.5, "bb9": 2.5, "kbb": 2.2, "hr9": 0.5, "babip": 0.222, "lob": 0.964, "gb": 0.509, "velo": 91.7, "ev": 87.4, "barrel": 0.036, "hardpct": 0.309, "diff": -2.89, "mlbamid": "593958"}, {"name": "Rhett Lowder", "team": "CIN", "ip": 16.1, "era": 3.31, "xera": 4.21, "fip": 3.67, "xfip": 4.77, "war": 0.27, "k9": 6.06, "bb9": 3.31, "kbb": 1.83, "hr9": 0.55, "babip": 0.255, "lob": 0.699, "gb": 0.365, "velo": 93.1, "ev": 91.6, "barrel": 0.115, "hardpct": 0.404, "diff": -0.9, "mlbamid": "695076"}, {"name": "Kyle Freeland", "team": "COL", "ip": 15.2, "era": 2.3, "xera": 3.86, "fip": 3.82, "xfip": 4.06, "war": 0.27, "k9": 7.47, "bb9": 2.3, "kbb": 3.25, "hr9": 0.57, "babip": 0.267, "lob": 0.867, "gb": 0.5, "velo": 92.2, "ev": 89.0, "barrel": 0.022, "hardpct": 0.413, "diff": -1.56, "mlbamid": "607536"}, {"name": "Robbie Ray", "team": "SFG", "ip": 17.1, "era": 2.08, "xera": 3.44, "fip": 3.58, "xfip": 3.87, "war": 0.26, "k9": 9.35, "bb9": 3.12, "kbb": 3.0, "hr9": 1.04, "babip": 0.209, "lob": 0.915, "gb": 0.267, "velo": 93.9, "ev": 87.2, "barrel": 0.111, "hardpct": 0.311, "diff": -1.36, "mlbamid": "592662"}, {"name": "Freddy Peralta", "team": "NYM", "ip": 15.0, "era": 4.8, "xera": 2.72, "fip": 3.52, "xfip": 2.56, "war": 0.24, "k9": 11.4, "bb9": 3.0, "kbb": 3.8, "hr9": 1.2, "babip": 0.27, "lob": 0.658, "gb": 0.514, "velo": 94.1, "ev": 87.4, "barrel": 0.026, "hardpct": 0.359, "diff": 2.08, "mlbamid": "642547"}, {"name": "Janson Junk", "team": "MIA", "ip": 16.2, "era": 4.32, "xera": 2.47, "fip": 3.96, "xfip": 3.95, "war": 0.24, "k9": 6.48, "bb9": 2.16, "kbb": 3.0, "hr9": 1.08, "babip": 0.294, "lob": 0.659, "gb": 0.46, "velo": 94.5, "ev": 91.3, "barrel": 0.019, "hardpct": 0.415, "diff": 1.85, "mlbamid": "676083"}, {"name": "Jack Kochanowicz", "team": "LAA", "ip": 16.2, "era": 3.24, "xera": 6.01, "fip": 3.66, "xfip": 4.9, "war": 0.23, "k9": 6.48, "bb9": 5.94, "kbb": 1.09, "hr9": 0.0, "babip": 0.204, "lob": 0.667, "gb": 0.551, "velo": 96.4, "ev": 91.0, "barrel": 0.122, "hardpct": 0.408, "diff": -2.77, "mlbamid": "686799"}, {"name": "Michael King", "team": "SDP", "ip": 16.2, "era": 3.24, "xera": 4.66, "fip": 3.72, "xfip": 4.33, "war": 0.22, "k9": 8.1, "bb9": 4.32, "kbb": 1.88, "hr9": 0.54, "babip": 0.256, "lob": 0.714, "gb": 0.395, "velo": 93.8, "ev": 89.9, "barrel": 0.136, "hardpct": 0.386, "diff": -1.42, "mlbamid": "650633"}, {"name": "Shane Baz", "team": "BAL", "ip": 16.0, "era": 4.5, "xera": 3.97, "fip": 3.62, "xfip": 4.34, "war": 0.21, "k9": 7.31, "bb9": 2.81, "kbb": 2.6, "hr9": 0.56, "babip": 0.38, "lob": 0.742, "gb": 0.333, "velo": 97.0, "ev": 89.2, "barrel": 0.098, "hardpct": 0.353, "diff": 0.53, "mlbamid": "669358"}, {"name": "Clay Holmes", "team": "NYM", "ip": 18.0, "era": 1.5, "xera": 3.57, "fip": 3.84, "xfip": 3.91, "war": 0.19, "k9": 6.0, "bb9": 4.0, "kbb": 1.5, "hr9": 0.5, "babip": 0.216, "lob": 0.914, "gb": 0.615, "velo": 94.8, "ev": 85.9, "barrel": 0.038, "hardpct": 0.365, "diff": -2.07, "mlbamid": "605280"}, {"name": "Grant Holmes", "team": "ATL", "ip": 17.2, "era": 2.55, "xera": 3.21, "fip": 4.36, "xfip": 4.57, "war": 0.19, "k9": 7.13, "bb9": 4.08, "kbb": 1.75, "hr9": 1.02, "babip": 0.191, "lob": 0.864, "gb": 0.327, "velo": 94.8, "ev": 86.7, "barrel": 0.061, "hardpct": 0.286, "diff": -0.66, "mlbamid": "656550"}, {"name": "Chase Burns", "team": "CIN", "ip": 16.1, "era": 3.31, "xera": 4.83, "fip": 4.77, "xfip": 3.88, "war": 0.18, "k9": 9.92, "bb9": 4.41, "kbb": 2.25, "hr9": 1.65, "babip": 0.244, "lob": 0.893, "gb": 0.409, "velo": 98.6, "ev": 87.4, "barrel": 0.136, "hardpct": 0.432, "diff": -1.52, "mlbamid": "695505"}, {"name": "Zac Gallen", "team": "ARI", "ip": 15.0, "era": 3.0, "xera": 5.57, "fip": 3.99, "xfip": 4.67, "war": 0.16, "k9": 5.4, "bb9": 3.6, "kbb": 1.5, "hr9": 0.6, "babip": 0.277, "lob": 0.753, "gb": 0.458, "velo": 94.1, "ev": 91.7, "barrel": 0.125, "hardpct": 0.396, "diff": -2.57, "mlbamid": "668678"}, {"name": "Cade Cavalli", "team": "WSN", "ip": 14.1, "era": 2.51, "xera": 4.22, "fip": 3.89, "xfip": 5.06, "war": 0.15, "k9": 6.91, "bb9": 5.65, "kbb": 1.22, "hr9": 0.0, "babip": 0.3, "lob": 0.739, "gb": 0.5, "velo": 96.4, "ev": 86.5, "barrel": 0.05, "hardpct": 0.325, "diff": -1.71, "mlbamid": "676917"}, {"name": "Kyle Harrison", "team": "MIL", "ip": 14.2, "era": 3.07, "xera": 3.32, "fip": 4.07, "xfip": 3.53, "war": 0.15, "k9": 9.2, "bb9": 2.45, "kbb": 3.75, "hr9": 1.23, "babip": 0.243, "lob": 0.845, "gb": 0.297, "velo": 94.9, "ev": 89.4, "barrel": 0.051, "hardpct": 0.308, "diff": -0.25, "mlbamid": "690986"}, {"name": "Will Warren", "team": "NYY", "ip": 14.2, "era": 3.07, "xera": 3.55, "fip": 4.01, "xfip": 3.46, "war": 0.14, "k9": 8.59, "bb9": 3.07, "kbb": 2.8, "hr9": 1.23, "babip": 0.286, "lob": 0.864, "gb": 0.545, "velo": 94.0, "ev": 90.7, "barrel": 0.045, "hardpct": 0.455, "diff": -0.48, "mlbamid": "701542"}, {"name": "Ranger Suarez", "team": "BOS", "ip": 14.1, "era": 5.02, "xera": 8.48, "fip": 4.44, "xfip": 3.62, "war": 0.13, "k9": 6.91, "bb9": 3.14, "kbb": 2.2, "hr9": 1.26, "babip": 0.333, "lob": 0.714, "gb": 0.455, "velo": 91.7, "ev": 89.7, "barrel": 0.091, "hardpct": 0.455, "diff": -3.46, "mlbamid": "624133"}, {"name": "Erick Fedde", "team": "CHW", "ip": 16.0, "era": 3.38, "xera": 3.11, "fip": 4.18, "xfip": 4.17, "war": 0.12, "k9": 6.75, "bb9": 1.69, "kbb": 4.0, "hr9": 1.12, "babip": 0.267, "lob": 0.741, "gb": 0.426, "velo": 92.9, "ev": 89.6, "barrel": 0.043, "hardpct": 0.404, "diff": 0.27, "mlbamid": "607200"}, {"name": "Gavin Williams", "team": "CLE", "ip": 17.2, "era": 2.04, "xera": 3.59, "fip": 4.14, "xfip": 3.47, "war": 0.12, "k9": 12.74, "bb9": 7.13, "kbb": 1.79, "hr9": 1.02, "babip": 0.115, "lob": 0.926, "gb": 0.5, "velo": 96.9, "ev": 89.0, "barrel": 0.143, "hardpct": 0.357, "diff": -1.55, "mlbamid": "668909"}, {"name": "Jack Leiter", "team": "TEX", "ip": 14.2, "era": 4.91, "xera": 2.35, "fip": 4.14, "xfip": 2.89, "war": 0.11, "k9": 12.89, "bb9": 3.68, "kbb": 3.5, "hr9": 1.84, "babip": 0.333, "lob": 0.759, "gb": 0.417, "velo": 97.4, "ev": 90.6, "barrel": 0.083, "hardpct": 0.5, "diff": 2.56, "mlbamid": "683004"}, {"name": "Nick Martinez", "team": "TBR", "ip": 16.2, "era": 2.16, "xera": 2.93, "fip": 4.86, "xfip": 4.3, "war": 0.07, "k9": 5.94, "bb9": 2.16, "kbb": 2.75, "hr9": 1.62, "babip": 0.188, "lob": 1.0, "gb": 0.431, "velo": 93.4, "ev": 88.9, "barrel": 0.039, "hardpct": 0.353, "diff": -0.77, "mlbamid": "607259"}, {"name": "Foster Griffin", "team": "WSN", "ip": 15.1, "era": 1.76, "xera": 6.31, "fip": 4.62, "xfip": 4.35, "war": 0.06, "k9": 7.04, "bb9": 3.52, "kbb": 2.0, "hr9": 1.17, "babip": 0.214, "lob": 0.987, "gb": 0.364, "velo": 92.0, "ev": 88.7, "barrel": 0.091, "hardpct": 0.386, "diff": -4.55, "mlbamid": "656492"}, {"name": "George Kirby", "team": "SEA", "ip": 20.0, "era": 3.6, "xera": 2.95, "fip": 4.37, "xfip": 3.45, "war": 0.05, "k9": 7.2, "bb9": 2.25, "kbb": 3.2, "hr9": 1.35, "babip": 0.204, "lob": 0.743, "gb": 0.596, "velo": 96.8, "ev": 91.2, "barrel": 0.058, "hardpct": 0.519, "diff": 0.65, "mlbamid": "669923"}, {"name": "Mike Burrows", "team": "HOU", "ip": 16.0, "era": 5.63, "xera": 4.36, "fip": 4.99, "xfip": 4.33, "war": 0.04, "k9": 8.44, "bb9": 3.38, "kbb": 2.5, "hr9": 1.69, "babip": 0.396, "lob": 0.766, "gb": 0.373, "velo": 94.8, "ev": 88.3, "barrel": 0.078, "hardpct": 0.373, "diff": 1.27, "mlbamid": "681347"}, {"name": "Simeon Woods Richardson", "team": "MIN", "ip": 15.2, "era": 4.6, "xera": 4.57, "fip": 5.35, "xfip": 5.0, "war": -0.0, "k9": 4.6, "bb9": 2.3, "kbb": 2.0, "hr9": 1.72, "babip": 0.26, "lob": 0.759, "gb": 0.321, "velo": 92.7, "ev": 90.8, "barrel": 0.113, "hardpct": 0.453, "diff": 0.03, "mlbamid": "680573"}, {"name": "Jake Irvin", "team": "WSN", "ip": 14.0, "era": 7.07, "xera": 5.4, "fip": 5.33, "xfip": 4.57, "war": -0.01, "k9": 10.29, "bb9": 5.14, "kbb": 2.0, "hr9": 1.93, "babip": 0.27, "lob": 0.595, "gb": 0.225, "velo": 93.1, "ev": 91.5, "barrel": 0.2, "hardpct": 0.525, "diff": 1.67, "mlbamid": "663623"}, {"name": "Tomoyuki Sugano", "team": "COL", "ip": 16.2, "era": 2.16, "xera": 4.93, "fip": 5.34, "xfip": 3.92, "war": -0.01, "k9": 6.48, "bb9": 1.62, "kbb": 4.0, "hr9": 2.16, "babip": 0.136, "lob": 1.0, "gb": 0.479, "velo": 92.8, "ev": 90.2, "barrel": 0.167, "hardpct": 0.458, "diff": -2.77, "mlbamid": "608372"}, {"name": "Nathan Eovaldi", "team": "TEX", "ip": 14.2, "era": 7.98, "xera": 4.04, "fip": 5.1, "xfip": 3.13, "war": -0.03, "k9": 11.66, "bb9": 3.07, "kbb": 3.8, "hr9": 2.45, "babip": 0.419, "lob": 0.654, "gb": 0.468, "velo": 94.7, "ev": 92.2, "barrel": 0.085, "hardpct": 0.489, "diff": 3.94, "mlbamid": "543135"}, {"name": "Kyle Leahy", "team": "STL", "ip": 14.0, "era": 5.14, "xera": 7.21, "fip": 4.98, "xfip": 5.34, "war": -0.03, "k9": 4.5, "bb9": 5.14, "kbb": 0.88, "hr9": 0.64, "babip": 0.319, "lob": 0.72, "gb": 0.5, "velo": 94.0, "ev": 93.0, "barrel": 0.104, "hardpct": 0.542, "diff": -2.07, "mlbamid": "681517"}, {"name": "Reynaldo L\u00f3pez", "team": "ATL", "ip": 15.2, "era": 1.15, "xera": 3.66, "fip": 5.1, "xfip": 4.42, "war": -0.04, "k9": 7.47, "bb9": 2.87, "kbb": 2.6, "hr9": 1.72, "babip": 0.171, "lob": 1.0, "gb": 0.386, "velo": 94.3, "ev": 86.0, "barrel": 0.068, "hardpct": 0.341, "diff": -2.51, "mlbamid": "625643"}, {"name": "Chris Sale", "team": "ATL", "ip": 16.0, "era": 3.94, "xera": 3.92, "fip": 5.06, "xfip": 3.83, "war": -0.05, "k9": 9.0, "bb9": 2.81, "kbb": 3.2, "hr9": 1.69, "babip": 0.167, "lob": 0.781, "gb": 0.462, "velo": 95.0, "ev": 89.6, "barrel": 0.077, "hardpct": 0.333, "diff": 0.02, "mlbamid": "519242"}, {"name": "Slade Cecconi", "team": "CLE", "ip": 15.2, "era": 5.74, "xera": 6.06, "fip": 5.35, "xfip": 4.1, "war": -0.08, "k9": 8.04, "bb9": 2.87, "kbb": 2.8, "hr9": 1.72, "babip": 0.256, "lob": 0.618, "gb": 0.5, "velo": 93.3, "ev": 87.0, "barrel": 0.13, "hardpct": 0.37, "diff": -0.32, "mlbamid": "677944"}, {"name": "Brandon Pfaadt", "team": "ARI", "ip": 16.2, "era": 5.94, "xera": 2.94, "fip": 5.4, "xfip": 4.68, "war": -0.11, "k9": 5.94, "bb9": 3.24, "kbb": 1.83, "hr9": 1.62, "babip": 0.269, "lob": 0.606, "gb": 0.527, "velo": 93.1, "ev": 88.7, "barrel": 0.055, "hardpct": 0.364, "diff": 3.0, "mlbamid": "694297"}, {"name": "Brandon Williamson", "team": "CIN", "ip": 15.1, "era": 5.28, "xera": 7.76, "fip": 6.31, "xfip": 5.7, "war": -0.14, "k9": 5.87, "bb9": 5.28, "kbb": 1.11, "hr9": 1.76, "babip": 0.205, "lob": 0.73, "gb": 0.298, "velo": 92.7, "ev": 89.5, "barrel": 0.106, "hardpct": 0.426, "diff": -2.48, "mlbamid": "682227"}, {"name": "Emmet Sheehan", "team": "LAD", "ip": 15.0, "era": 6.6, "xera": 6.19, "fip": 5.92, "xfip": 3.57, "war": -0.14, "k9": 8.4, "bb9": 3.6, "kbb": 2.33, "hr9": 2.4, "babip": 0.293, "lob": 0.671, "gb": 0.467, "velo": 94.7, "ev": 87.6, "barrel": 0.067, "hardpct": 0.422, "diff": 0.41, "mlbamid": "686218"}, {"name": "Ryne Nelson", "team": "ARI", "ip": 15.0, "era": 4.2, "xera": 5.61, "fip": 6.19, "xfip": 4.87, "war": -0.15, "k9": 7.2, "bb9": 3.6, "kbb": 2.0, "hr9": 2.4, "babip": 0.143, "lob": 0.385, "gb": 0.304, "velo": 96.3, "ev": 91.8, "barrel": 0.13, "hardpct": 0.522, "diff": -1.41, "mlbamid": "669194"}, {"name": "Matthew Liberatore", "team": "STL", "ip": 16.0, "era": 3.38, "xera": 5.5, "fip": 6.06, "xfip": 4.66, "war": -0.19, "k9": 5.62, "bb9": 2.81, "kbb": 2.0, "hr9": 2.25, "babip": 0.288, "lob": 0.978, "gb": 0.382, "velo": 94.3, "ev": 89.8, "barrel": 0.089, "hardpct": 0.357, "diff": -2.12, "mlbamid": "669461"}, {"name": "Eury P\u00e9rez", "team": "MIA", "ip": 16.0, "era": 5.06, "xera": 4.98, "fip": 6.18, "xfip": 4.62, "war": -0.2, "k9": 10.12, "bb9": 5.06, "kbb": 2.0, "hr9": 2.25, "babip": 0.237, "lob": 0.707, "gb": 0.366, "velo": 98.1, "ev": 88.3, "barrel": 0.167, "hardpct": 0.429, "diff": 0.08, "mlbamid": "691587"}, {"name": "Taijuan Walker", "team": "PHI", "ip": 14.2, "era": 7.36, "xera": 7.33, "fip": 6.46, "xfip": 4.23, "war": -0.21, "k9": 7.36, "bb9": 4.3, "kbb": 1.71, "hr9": 2.45, "babip": 0.354, "lob": 0.67, "gb": 0.5, "velo": 91.8, "ev": 86.3, "barrel": 0.058, "hardpct": 0.308, "diff": 0.03, "mlbamid": "592836"}];
+  let currentView = 'leaderboards';
 
-let DATA = [...RAW];
-let sortCol = 'ip';
-let sortDir = 'desc';
-let teamFilter = '';
-let searchVal = '';
-let currentView = 'panels';
+  function setView(v) {
+    currentView = v;
+    document.getElementById('leaderboardView').style.display = v === 'leaderboards' ? 'grid' : 'none';
+    document.getElementById('tableView').style.display = v === 'table' ? 'block' : 'none';
+    document.getElementById('btnLeaderboards').classList.toggle('active', v === 'leaderboards');
+    document.getElementById('btnTable').classList.toggle('active', v === 'table');
+  }
 
-// Populate team dropdown
-const teams = [...new Set(RAW.map(p => p.team))].sort();
-const teamSel = document.getElementById('teamFilter');
-teams.forEach(t => {
-  const o = document.createElement('option');
-  o.value = t; o.textContent = t;
-  teamSel.appendChild(o);
-});
+  function applyFilters() {
+    const search = document.getElementById('searchBox').value.toLowerCase();
+    const team = document.getElementById('teamFilter').value;
+    let count = 0;
+    document.querySelectorAll('#tableBody tr').forEach(row => {
+      const name = row.cells[1].textContent.toLowerCase();
+      const rowTeam = row.cells[2].textContent.trim();
+      const ms = !search || name.includes(search) || rowTeam.toLowerCase().includes(search);
+      const mt = !team || rowTeam === team;
+      if (ms && mt) { row.classList.remove('hidden'); count++; }
+      else { row.classList.add('hidden'); }
+    });
+    document.getElementById('countPill').textContent = count + ' pitcher' + (count !== 1 ? 's' : '');
+  }
 
-function headshot(mlbamid) {
-  return `https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/${mlbamid}/headshot/67/current`;
-}
-
-function fmt(v, d=2) {
-  if (v === null || v === undefined) return '—';
-  return Number(v).toFixed(d);
-}
-
-function pct(v) {
-  if (v === null || v === undefined) return '—';
-  return (v * 100).toFixed(1) + '%';
-}
-
-function eraClass(v) {
-  if (v === null) return 'neutral';
-  if (v < 2.5) return 'good';
-  if (v > 5.0) return 'bad';
-  return 'neutral';
-}
-
-function diffClass(v) {
-  if (v === null) return 'neutral';
-  if (v < -1.5) return 'good';  // ERA much lower than xERA = lucky (regress down)
-  if (v > 1.5) return 'bad';   // ERA much higher than xERA = unlucky (should improve)
-  return 'neutral';
-}
-
-function getFiltered() {
-  return RAW.filter(p => {
-    if (teamFilter && p.team !== teamFilter) return false;
-    if (searchVal && !p.name.toLowerCase().includes(searchVal.toLowerCase())) return false;
-    return true;
+  // Sortable table columns
+  let sortCol = null, sortDir = 1;
+  document.querySelectorAll('th[data-col]').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = parseInt(th.dataset.col);
+      sortDir = sortCol === col ? sortDir * -1 : 1;
+      sortCol = col;
+      document.querySelectorAll('th[data-col]').forEach(t => t.classList.remove('sort-asc','sort-desc'));
+      th.classList.add(sortDir === 1 ? 'sort-asc' : 'sort-desc');
+      const tbody = document.getElementById('tableBody');
+      const rows = [...tbody.querySelectorAll('tr')];
+      rows.sort((a, b) => {
+        const av = parseFloat(a.cells[col].textContent.replace('%','').replace('—','9999').replace('+','')) || 9999;
+        const bv = parseFloat(b.cells[col].textContent.replace('%','').replace('—','9999').replace('+','')) || 9999;
+        return (av - bv) * sortDir;
+      });
+      rows.forEach((r, i) => { tbody.appendChild(r); r.cells[0].textContent = i+1; });
+    });
   });
-}
-
-function getSorted(arr, col, dir) {
-  return [...arr].sort((a, b) => {
-    const av = a[col], bv = b[col];
-    if (av === null && bv === null) return 0;
-    if (av === null) return 1;
-    if (bv === null) return -1;
-    return dir === 'desc' ? bv - av : av - bv;
-  });
-}
-
-// ---- PANELS ----
-function buildPanels(filtered) {
-  const grid = document.getElementById('panelsGrid');
-  const configs = [
-    { title: 'WAR Leaders', desc: 'by fWAR', col: 'war', dir: 'desc', fmt: v => fmt(v, 2), cls: v => v >= 0.7 ? 'good' : v < 0 ? 'bad' : 'neutral', sub: p => `${p.ip} IP · ERA ${fmt(p.era)}` },
-    { title: 'ERA Leaders', desc: 'lowest ERA', col: 'era', dir: 'asc', fmt: v => fmt(v, 2), cls: eraClass, sub: p => `xERA ${fmt(p.xera)} · ${p.ip} IP` },
-    { title: 'Strikeout Rate', desc: 'K/9', col: 'k9', dir: 'desc', fmt: v => fmt(v, 1), cls: v => v >= 11 ? 'good' : v < 7 ? 'bad' : 'neutral', sub: p => `BB/9 ${fmt(p.bb9, 1)} · K/BB ${fmt(p.kbb, 1)}` },
-    { title: 'Command', desc: 'K/BB ratio', col: 'kbb', dir: 'desc', fmt: v => fmt(v, 1), cls: v => v >= 6 ? 'good' : v < 2 ? 'bad' : 'neutral', sub: p => `K/9 ${fmt(p.k9, 1)} · BB/9 ${fmt(p.bb9, 1)}` },
-    { title: 'Lucky? Unlucky?', desc: 'ERA minus xERA · positive = ERA higher than expected', col: 'diff', dir: 'desc', top5fn: (arr) => {
-        const sorted = getSorted(arr, 'diff', 'desc');
-        return [sorted[0], sorted[1], sorted[2], sorted[arr.length-1], sorted[arr.length-2]];
-      }, fmt: v => (v > 0 ? '+' : '') + fmt(v, 2), cls: v => v > 1.5 ? 'bad' : v < -1.5 ? 'good' : 'neutral', sub: p => `ERA ${fmt(p.era)} · xERA ${fmt(p.xera)}` },
-    { title: 'Soft Contact', desc: 'lowest exit velocity allowed', col: 'ev', dir: 'asc', fmt: v => fmt(v, 1), cls: v => v <= 85 ? 'good' : v >= 92 ? 'bad' : 'neutral', sub: p => `Barrel% ${pct(p.barrel)} · HH% ${pct(p.hardpct)}` },
-  ];
-
-  grid.innerHTML = '';
-  configs.forEach(cfg => {
-    const arr = filtered.filter(p => p[cfg.col] !== null);
-    let top5;
-    if (cfg.top5fn) {
-      top5 = cfg.top5fn(arr).filter(Boolean);
-    } else {
-      top5 = getSorted(arr, cfg.col, cfg.dir).slice(0, 5);
-    }
-
-    const panel = document.createElement('div');
-    panel.className = 'panel';
-    panel.innerHTML = `
-      <div class="panel-header">
-        <span class="panel-title">${cfg.title}</span>
-        <span class="panel-desc">${cfg.desc}</span>
-      </div>
-      <div class="panel-rows">
-        ${top5.map((p, i) => `
-          <div class="panel-row">
-            <span class="rank">${i+1}</span>
-            <div class="headshot"><img src="${headshot(p.mlbamid)}" alt="${p.name}" loading="lazy"></div>
-            <div class="player-info">
-              <div class="player-name">${p.name}</div>
-              <div class="player-meta">${p.team} · ${cfg.sub(p)}</div>
-            </div>
-            <div>
-              <div class="stat-val ${cfg.cls(p[cfg.col])}">${cfg.fmt(p[cfg.col])}</div>
-              <div class="stat-label">${cfg.col.toUpperCase()}</div>
-            </div>
-          </div>`).join('')}
-      </div>`;
-    grid.appendChild(panel);
-  });
-}
-
-// ---- TABLE ----
-function buildTable(filtered) {
-  const sorted = getSorted(filtered, sortCol, sortDir);
-  const tbody = document.getElementById('tableBody');
-  tbody.innerHTML = sorted.map(p => {
-    const diff = p.diff;
-    const diffCls = diff > 1.5 ? 'bad' : diff < -1.5 ? 'good' : 'warn';
-    const diffStr = diff !== null ? (diff > 0 ? '+' : '') + fmt(diff, 2) : '—';
-    return `<tr>
-      <td>
-        <div style="display:flex;align-items:center;gap:8px">
-          <div class="headshot" style="width:28px;height:28px"><img src="${headshot(p.mlbamid)}" alt="${p.name}" loading="lazy"></div>
-          <div>
-            <div style="font-weight:600;font-size:12px">${p.name}</div>
-            <span class="team-tag">${p.team}</span>
-          </div>
-        </div>
-      </td>
-      <td class="num">${fmt(p.ip, 1)}</td>
-      <td class="${eraClass(p.era)} num">${fmt(p.era)}</td>
-      <td class="num">${fmt(p.xera)}</td>
-      <td class="${diffCls}">${diffStr}</td>
-      <td class="num">${fmt(p.fip)}</td>
-      <td class="num">${fmt(p.xfip)}</td>
-      <td class="${p.war >= 0.5 ? 'good' : p.war < 0 ? 'bad' : 'warn'}">${fmt(p.war, 2)}</td>
-      <td class="${p.k9 >= 11 ? 'good' : p.k9 < 7 ? 'bad' : 'warn'}">${fmt(p.k9, 1)}</td>
-      <td class="${p.bb9 <= 2 ? 'good' : p.bb9 >= 4 ? 'bad' : 'warn'}">${fmt(p.bb9, 1)}</td>
-      <td class="${p.kbb >= 5 ? 'good' : p.kbb < 2 ? 'bad' : 'warn'}">${fmt(p.kbb, 1)}</td>
-      <td class="${p.hr9 <= 0.5 ? 'good' : p.hr9 >= 1.5 ? 'bad' : 'warn'}">${fmt(p.hr9, 2)}</td>
-      <td class="${p.babip <= 0.22 ? 'good' : p.babip >= 0.34 ? 'bad' : 'warn'}">${p.babip !== null ? p.babip.toFixed(3) : '—'}</td>
-      <td class="${p.ev <= 86 ? 'good' : p.ev >= 91 ? 'bad' : 'warn'}">${fmt(p.ev, 1)}</td>
-      <td class="${p.barrel <= 0.04 ? 'good' : p.barrel >= 0.10 ? 'bad' : 'warn'}">${pct(p.barrel)}</td>
-      <td class="${p.hardpct <= 0.30 ? 'good' : p.hardpct >= 0.45 ? 'bad' : 'warn'}">${pct(p.hardpct)}</td>
-      <td class="num">${p.velo !== null ? fmt(p.velo, 1) : '—'}</td>
-    </tr>`;
-  }).join('');
-
-  // Update sort indicators
-  document.querySelectorAll('thead th').forEach(th => {
-    th.classList.remove('sorted', 'asc');
-    if (th.dataset.col === sortCol) {
-      th.classList.add('sorted');
-      if (sortDir === 'asc') th.classList.add('asc');
-    }
-  });
-}
-
-function render() {
-  const filtered = getFiltered();
-  document.getElementById('countBadge').textContent = `${filtered.length} pitcher${filtered.length !== 1 ? 's' : ''}`;
-  if (currentView === 'panels') buildPanels(filtered);
-  else buildTable(filtered);
-}
-
-// Table header sort
-document.querySelectorAll('thead th').forEach(th => {
-  th.addEventListener('click', () => {
-    const col = th.dataset.col;
-    if (!col) return;
-    if (sortCol === col) sortDir = sortDir === 'desc' ? 'asc' : 'desc';
-    else { sortCol = col; sortDir = col === 'era' || col === 'xera' || col === 'fip' || col === 'xfip' || col === 'bb9' || col === 'ev' || col === 'hr9' || col === 'barrel' || col === 'hardpct' ? 'asc' : 'desc'; }
-    buildTable(getFiltered());
-  });
-});
-
-// View pills
-document.querySelectorAll('#viewPills .pill').forEach(p => {
-  p.addEventListener('click', () => {
-    document.querySelectorAll('#viewPills .pill').forEach(x => x.classList.remove('active'));
-    p.classList.add('active');
-    currentView = p.dataset.view;
-    document.getElementById('panelsView').style.display = currentView === 'panels' ? '' : 'none';
-    document.getElementById('tableView').style.display = currentView === 'table' ? '' : 'none';
-    render();
-  });
-});
-
-// Filters
-document.getElementById('teamFilter').addEventListener('change', e => { teamFilter = e.target.value; render(); });
-document.getElementById('search').addEventListener('input', e => { searchVal = e.target.value; render(); });
-
-render();
 </script>
 </body>
 </html>
