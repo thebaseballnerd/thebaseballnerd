@@ -23,6 +23,27 @@
  */
 
 const RECAPS = [{
+  id:'4-24-26-athletics',
+  date:'2026-04-24',
+  opponent:'Athletics',
+  home:true,
+  result:'loss',
+  score:'TEX 1, ATH 8',
+  record:'13-13',  // ← fill in current record
+  gamePk: 822909,
+  preview:"If the Rangers really expect to play baseball in October, they might want to start doing it in April.",
+  body:`Five home runs surrendered. Seven runners stranded. A .167 batting average with runners in scoring position that turned what should have been a competitive game into an embarrassing 8-1 loss to Oakland at Globe Life Field.
+
+The carnage started immediately against Nathan Eovaldi, who faced a nightmare first inning that epitomized everything wrong with this Rangers performance. Nick Kurtz needed just one pitch to launch a leadoff homer to right field. Two batters later, Carlos Cortes followed with another blast to right center on a three-pitch sequence. Then Tyler Soderstrom made it three home runs on three swings, crushing a center field shot on the very first offering he saw.
+
+Three batters, three homers, three runs, and suddenly the Rangers faced a mountain they never seriously threatened to climb. This against Luis Severino, a pitcher who entered the game sporting an ERA north of 5.00 and looking every bit the part of someone the Rangers should have feasted upon. Instead, Severino carved through the Rangers lineup like a Cy Young candidate, working 6.2 innings while allowing just one run.
+
+That lone run came in the fourth when Josh Jung drove home Corey Seager with a ground-rule double to left field, providing the only moment of offensive competence in what became a clinic on how not to execute with runners in scoring position. The Rangers managed six hits but converted just once in six chances with runners in scoring position, leaving runners stranded in scoring position with two outs on three separate occasions.
+
+Eovaldi, making his sixth start of the season, couldn't recover from that disastrous opening frame. He surrendered six runs through six innings, including another three-run homer to Cortes in the fifth that effectively ended any hope of a comeback. The veteran right-hander allowed four total home runs, watching Oakland's hitters turn routine at-bats into batting practice swings.
+
+Cal Quantrill couldn't stem the bleeding in relief, surrendering a ninth-inning, two-run homer to Zack Gelof that capped the embarrassment. For a Rangers team harboring October aspirations, this performance exposed fundamental flaws that won't disappear against better competition. You cannot survive giving up four home runs while failing to capitalize on scoring opportunities against struggling pitching.`
+},{
   id:'4-23-26-pittsburgh-pirates',
   date:'2026-04-23',
   opponent:'Pittsburgh Pirates',
