@@ -22,17 +22,18 @@
  * ================================================
  */
 
-const RECAPS = [{
-  id:'4-24-26-athletics',
-  date:'2026-04-24',
-  opponent:'Athletics',
-  home:true,
-  result:'loss',
-  score:'TEX 1, ATH 8',
-  record:'13-13',  // ← fill in current record
-  gamePk: 822909,
-  preview:"If the Rangers really expect to play baseball in October, they might want to start doing it in April.",
-  body:`Five home runs surrendered. Seven runners stranded. A .167 batting average with runners in scoring position that turned what should have been a competitive game into an embarrassing 8-1 loss to Oakland at Globe Life Field.
+const RECAPS = [
+  {
+    id:'4-24-26-athletics',
+    date:'April 24, 2026',
+    opponent:'Athletics',
+    home:true,
+    result:'loss',
+    score:'TEX 1, ATH 8',
+    record:'13-13',
+    gamePk:822909,
+    preview:"If the Rangers really expect to play baseball in October, they might want to start doing it in April.",
+    body:`Five home runs surrendered. Seven runners stranded. A .167 batting average with runners in scoring position that turned what should have been a competitive game into an embarrassing 8-1 loss to the Athletics at Globe Life Field.
 
 The carnage started immediately against Nathan Eovaldi, who faced a nightmare first inning that epitomized everything wrong with this Rangers performance. Nick Kurtz needed just one pitch to launch a leadoff homer to right field. Two batters later, Carlos Cortes followed with another blast to right center on a three-pitch sequence. Then Tyler Soderstrom made it three home runs on three swings, crushing a center field shot on the very first offering he saw.
 
@@ -40,20 +41,21 @@ Three batters, three homers, three runs, and suddenly the Rangers faced a mounta
 
 That lone run came in the fourth when Josh Jung drove home Corey Seager with a ground-rule double to left field, providing the only moment of offensive competence in what became a clinic on how not to execute with runners in scoring position. The Rangers managed six hits but converted just once in six chances with runners in scoring position, leaving runners stranded in scoring position with two outs on three separate occasions.
 
-Eovaldi, making his sixth start of the season, couldn't recover from that disastrous opening frame. He surrendered six runs through six innings, including another three-run homer to Cortes in the fifth that effectively ended any hope of a comeback. The veteran right-hander allowed four total home runs, watching Oakland's hitters turn routine at-bats into batting practice swings.
+Eovaldi, making his sixth start of the season, couldn't recover from that disastrous opening frame. He surrendered six runs through six innings, including another three-run homer to Cortes in the fifth that effectively ended any hope of a comeback. The veteran right-hander allowed four total home runs, watching the Athletics' hitters turn routine at-bats into batting practice swings.
 
 Cal Quantrill couldn't stem the bleeding in relief, surrendering a ninth-inning, two-run homer to Zack Gelof that capped the embarrassment. For a Rangers team harboring October aspirations, this performance exposed fundamental flaws that won't disappear against better competition. You cannot survive giving up four home runs while failing to capitalize on scoring opportunities against struggling pitching.`
-},{
-  id:'4-23-26-pittsburgh-pirates',
-  date:'2026-04-23',
-  opponent:'Pittsburgh Pirates',
-  home:true,
-  result:'win',
-  score:'TEX 6, PIT 1',
-  record:'13-12',  // ← fill in current record
-  gamePk: 822912,
-  preview:"Evan Carter thought he hit a homerun. It hit the wall in right center. It was still a homerun. His first inside-the-park home run.",
-  body:`Evan Carter took one look at Bubba Chandler's offering and sent it screaming toward the right-center gap at Globe Life Field, a line drive with enough carry to find the wall. What happened next turned a routine extra-base hit into the highlight of the Rangers' 6-1 victory over Pittsburgh.
+  },
+  {
+    id:'4-23-26-pittsburgh-pirates',
+    date:'April 23, 2026',
+    opponent:'Pittsburgh Pirates',
+    home:true,
+    result:'win',
+    score:'TEX 6, PIT 1',
+    record:'13-12',
+    gamePk:822912,
+    preview:"Evan Carter thought he hit a homerun. It hit the wall in right center. It was still a homerun. His first inside-the-park home run.",
+    body:`Evan Carter took one look at Bubba Chandler's offering and sent it screaming toward the right-center gap at Globe Life Field, a line drive with enough carry to find the wall. What happened next turned a routine extra-base hit into the highlight of the Rangers' 6-1 victory over Pittsburgh.
 
 Carter's inside-the-park home run in the third inning broke a scoreless tie and provided the signature moment in what became a dominant display by Jacob deGrom and the Texas offense. The center fielder circled the bases as the Pirates scrambled to retrieve the carom, scoring Josh Jung ahead of him for a 2-0 lead that would only grow from there.
 
@@ -64,36 +66,38 @@ DeGrom looked every bit the ace through 5.2 innings, collecting 10 strikeouts wh
 Skip Schumaker's bullpen handled the final 3.1 innings without allowing a hit, with Jalen Beeks, Jakob Junis, and Peyton Gray each contributing scoreless frames. The Pirates managed just five hits total, with Nick Gonzales accounting for two of them in a losing effort that never threatened after Carter's third-inning heroics.
 
 The victory improved Texas to a strong start in the early season, with deGrom's fifth start of 2026 serving as a reminder of his continued excellence when healthy. But it was Carter's sprint around the bases that provided the defining image of a night when everything clicked for the Rangers at Globe Life Field.`
-},{
-  id:'4-22-26-pittsburgh-pirates',
-  date:'2026-04-22',
-  opponent:'Pittsburgh Pirates',
-  home:true,
-  result:'loss',
-  score:'TEX 4, PIT 8',
-  record:'12-12',  // ← fill in current record
-  gamePk: 822913,
-  preview:"Again with the bullpen. Just when you think you get out, they climbed right back in, turning what could have been into a nightmare that culminated with a really loud thud from a foul pole.",
-  body:`Relief pitching collapsed in spectacular fashion at Globe Life Field, turning what should have been a routine Rangers win into an eight-run nightmare that left 24,289 fans leaving the ninth inning as disappointed as possible. Cole Winn and Jalen Beeks combined to surrender four runs in the ninth inning alone, transforming a 4-4 tie into Pittsburgh's most decisive victory of the young season.
+  },
+  {
+    id:'4-22-26-pittsburgh-pirates',
+    date:'April 22, 2026',
+    opponent:'Pittsburgh Pirates',
+    home:true,
+    result:'loss',
+    score:'TEX 4, PIT 8',
+    record:'12-12',
+    gamePk:822913,
+    preview:"Again with the bullpen. Just when you think you get out, they climbed right back in, turning what could have been into a nightmare that culminated with a really loud thud from a foul pole.",
+    body:`Relief pitching collapsed in spectacular fashion at Globe Life Field, turning what should have been a routine Rangers win into an eight-run nightmare that left 24,289 fans leaving the ninth inning as disappointed as possible. Cole Winn and Jalen Beeks combined to surrender four runs in the ninth inning alone, transforming a 4-4 tie into Pittsburgh's most decisive victory of the young season.
 
 The meltdown began innocuously enough when Jake Mangum reached on a fielder's choice that scored Nick Gonzales, giving the Pirates a 5-4 lead. Skip Schumaker had seen enough of Winn after just one-third of an inning and summoned Beeks to clean up the mess. Instead, Oneil Cruz launched the first pitch he saw over the right field foul pole, with the ball landing on top of the pole and skipping into the third deck. That three-run bomb essentially ended the contest before most fans realized what happened.
 
-A half inning earleir, the Rangers had clawed back from a 4-2 deficit with Jake Burger's clutch two-out single in the eighth that plated Andrew McCutchen and Brandon Nimmo against Gregory Soto. The hit capped a spirited rally that seemed to validate the club's improved depth, particularly with veteran additions like McCutchen providing late-game production off the bench.
+A half inning earlier, the Rangers had clawed back from a 4-2 deficit with Jake Burger's clutch two-out single in the eighth that plated Andrew McCutchen and Brandon Nimmo against Gregory Soto. The hit capped a spirited rally that seemed to validate the club's improved depth, particularly with veteran additions like McCutchen providing late-game production off the bench.
 
 Jack Leiter carried most of the load through five innings but couldn't escape a disastrous fifth that featured consecutive RBI singles from Brandon Lowe and Bryan Reynolds. Reynolds' hit proved especially costly as a throwing error by Nimmo allowed two runs to score, turning a manageable 2-2 tie into a two-run deficit. Leiter's 5.0-inning performance showed promise, striking out five while limiting hard contact through the first four frames.
 
 The Rangers' offensive struggles with runners in scoring position, managing just one hit in seven opportunities, foreshadowed their inability to build substantial leads. Josh Jung's two-run homer in the second provided the evening's lone offensive highlight, but the club's collective failure to capitalize on scoring chances left too much pressure on a bullpen that simply couldn't deliver when it mattered most. Tyler Alexander and Gavin Collyer had bridged the gap admirably through the seventh and eighth, making the ninth-inning collapse all the more deflating for a Rangers squad still searching for consistency in the season's early weeks.`
-},{
-  id:'4-21-26-pittsburgh-pirates',
-  date:'2026-04-21',
-  opponent:'Pittsburgh Pirates',
-  home:true,
-  result:'win',
-  score:'TEX 5, PIT 1',
-  record:'12-11',  // ← fill in current record
-  gamePk: 822914,  
-  preview:"Another frustrating night with runners in scoring position haunted the Rangers, even in a 5-1 victory over Pittsburgh at Globe Life Field.",
-  body:`Another frustrating night with runners in scoring position haunted the Rangers, even in a 5-1 victory over Pittsburgh at Globe Life Field. Texas managed just three hits in 12 at-bats with runners in scoring position, leaving eight men on base despite pounding Carmen Mlodzinski for five runs in 4.1 innings.
+  },
+  {
+    id:'4-21-26-pittsburgh-pirates',
+    date:'April 21, 2026',
+    opponent:'Pittsburgh Pirates',
+    home:true,
+    result:'win',
+    score:'TEX 5, PIT 1',
+    record:'12-11',
+    gamePk:822914,
+    preview:"Another frustrating night with runners in scoring position haunted the Rangers, even in a 5-1 victory over Pittsburgh at Globe Life Field.",
+    body:`Another frustrating night with runners in scoring position haunted the Rangers, even in a 5-1 victory over Pittsburgh at Globe Life Field. Texas managed just three hits in 12 at-bats with runners in scoring position, leaving eight men on base despite pounding Carmen Mlodzinski for five runs in 4.1 innings.
 
 Kumar Rocker earned his first win of the season with six solid innings, surrendering only four hits and one run while striking out five. The right-hander worked around early trouble after Ryan O'Hearn singled home Oneil Cruz in the first inning, settling into a rhythm that kept Pittsburgh's offense quiet the rest of his outing.
 
@@ -106,17 +110,18 @@ Duran finished in left field after Wyatt Langford exited early, going 1-for-2 wi
 Brandon Nimmo endured an 0-for-5 night and left two runners in scoring position with two outs. Danny Jansen also stranded two runners in scoring position during late situations, continuing the maddening trend that nearly cost Texas what should have been a comfortable win.
 
 Cole Winn, Jacob Latz, and Jakob Junis combined for three scoreless innings to close out the victory, with Winn and Latz each striking out two batters in their respective frames. The bullpen work helped Skip Schumaker's club improve their record while highlighting both the promise of their pitching staff and the ongoing concerns with clutch hitting that could define their season.`
-},{
-  id:'4-19-26-seattle-mariners',
-  date:'April 19, 2026',
-  opponent:'Seattle Mariners',
-  home:false,
-  result:'loss',
-  score:'TEX 2, SEA 5',
-  record:'11-11',  // ← fill in current record
-  gamePk: 823150,
-  preview:"The Rangers dropped the series finale in Seattle behind another rough outing from MacKenzie Gore.",
-  body:`MacKenzie Gore's fifth start of the season lasted exactly 18 pitches too long. The Rangers lefty surrendered three home runs in his five innings at T-Mobile Park, each one a reminder of why this venue has become such a house of horrors for Texas.
+  },
+  {
+    id:'4-19-26-seattle-mariners',
+    date:'April 19, 2026',
+    opponent:'Seattle Mariners',
+    home:false,
+    result:'loss',
+    score:'TEX 2, SEA 5',
+    record:'11-11',
+    gamePk:823150,
+    preview:"The Rangers dropped the series finale in Seattle behind another rough outing from MacKenzie Gore.",
+    body:`MacKenzie Gore's fifth start of the season lasted exactly 18 pitches too long. The Rangers lefty surrendered three home runs in his five innings at T-Mobile Park, each one a reminder of why this venue has become such a house of horrors for Texas.
 
 The damage came in waves. Rob Refsnyder needed just one pitch to send Gore's first offering of the game over the left field wall in the bottom of the first. An inning later, J.P. Crawford turned a four-pitch at-bat into a two-run shot to right field, scoring Mitch Garver ahead of him. The knockout blow arrived in the fifth when Randy Arozarena crushed a three-pitch sequence for his second homer of the season, plating Julio Rodríguez and pushing Seattle's lead to 5-0.
 
@@ -129,17 +134,18 @@ But that seventh-inning rally represented the extent of Texas's offensive output
 Skip Schumaker's bullpen provided four scoreless innings after Gore's exit, with Tyler Alexander, Jalen Beeks, Gavin Collyer and Jakob Junis combining to keep the deficit manageable. The late-game work offered a glimpse of what might have been possible with earlier offensive production.
 
 Instead, the Rangers fell to 10-40 at T-Mobile Park since 2020, extending their series-winning drought in Seattle to six consecutive visits. Andrés Muñoz struck out the side in the ninth to secure the save, punctuating another frustrating afternoon in the Pacific Northwest.`
-},{
-  id:'4-18-26-seattle-mariners',
-  date:'April 18, 2026',
-  opponent:'Seattle Mariners',
-  home:false,
-  result:'loss',
-  score:'TEX 3, SEA 7',
-  record:'11-10',  // ← fill in current record
-  gamePk: 823151,
-  preview:"Rangers waste chances in 7-3 loss, stranding 16 runners and exposing a clutch hitting failure that outweighs any pitching or defensive issues.",
-  body:`Everything that could go wrong did go wrong for the Rangers in this 7-3 debacle at T-Mobile Park, but the most damning indictment wasn't the final score. It was watching this offense repeatedly fail when it mattered most, stranding 16 runners and going just 1-for-8 with runners in scoring position in a performance that exposed fundamental flaws Skip Schumaker can't ignore.
+  },
+  {
+    id:'4-18-26-seattle-mariners',
+    date:'April 18, 2026',
+    opponent:'Seattle Mariners',
+    home:false,
+    result:'loss',
+    score:'TEX 3, SEA 7',
+    record:'11-10',
+    gamePk:823151,
+    preview:"Rangers waste chances in 7-3 loss, stranding 16 runners and exposing a clutch hitting failure that outweighs any pitching or defensive issues.",
+    body:`Everything that could go wrong did go wrong for the Rangers in this 7-3 debacle at T-Mobile Park, but the most damning indictment wasn't the final score. It was watching this offense repeatedly fail when it mattered most, stranding 16 runners and going just 1-for-8 with runners in scoring position in a performance that exposed fundamental flaws Skip Schumaker can't ignore.
 
 The Rangers put plenty of men on base, collecting 11 hits and drawing seven walks against Seattle pitching. They just couldn't bring them home when the opportunities presented themselves. Kyle Higashioka left three runners in scoring position with two outs. Brandon Nimmo stranded two more in the same situation. Josh Jung, despite launching his second home run of the season in the sixth inning, also left two runners stranded with two outs. This wasn't bad luck or good Seattle pitching. This was systematic failure in clutch moments.
 
@@ -150,17 +156,18 @@ When Jung finally broke through with his solo shot off George Kirby in the sixth
 The eighth inning became a showcase of defensive incompetence and bullpen meltdown. Cal Quantrill entered with a manageable deficit and promptly imploded. Cole Young's sharp grounder deflected off second baseman Ezequiel Duran, allowing two more runs to score. Leo Rivas then added insult with a sacrifice fly that made it 7-1.
 
 Texas managed some ninth-inning dignity when Carter drove home Wyatt Langford and Duran doubled in Josh Smith, but by then this 3-hour, 13-minute slog had already revealed too much about a team struggling with fundamental execution. The Rangers left the ballpark with plenty of questions about their ability to perform when games hang in the balance.`
-},{
-  id:'4-17-26-seattle-mariners',
-  date:'April 17, 2026',
-  opponent:'Seattle Mariners',
-  home:false,
-  result:'win',
-  score:'TEX 5, SEA 0',
-  record:'11-9',  // ← fill in current record
-  gamePk: 823152,
-  preview:"Jacob deGrom's return to Seattle turned into a battle of attrition that the Rangers ultimately won through persistence rather than dominance.",
-  body:`Jacob deGrom's return to Seattle turned into a battle of attrition that the Rangers ultimately won through persistence rather than dominance. The ace threw 88 pitches in those four innings, but the 30-pitch first inning was indicative of what Seattle hitters were going to do all night. While he didn't allow any runs, he had traffic and deep counts in every frame.
+  },
+  {
+    id:'4-17-26-seattle-mariners',
+    date:'April 17, 2026',
+    opponent:'Seattle Mariners',
+    home:false,
+    result:'win',
+    score:'TEX 5, SEA 0',
+    record:'11-9',
+    gamePk:823152,
+    preview:"Jacob deGrom's return to Seattle turned into a battle of attrition that the Rangers ultimately won through persistence rather than dominance.",
+    body:`Jacob deGrom's return to Seattle turned into a battle of attrition that the Rangers ultimately won through persistence rather than dominance. The ace threw 88 pitches in those four innings, but the 30-pitch first inning was indicative of what Seattle hitters were going to do all night. While he didn't allow any runs, he had traffic and deep counts in every frame.
 
 Brandon Nimmo provided the early fireworks, turning on a Logan Gilbert fastball for a three-pitch home run in the first inning. That quick strike masked what would become a grinding affair that stretched over three hours and eight minutes. Gilbert settled in after that rough start, striking out seven Rangers over 5.1 innings, but the damage accumulated incrementally.
 
@@ -168,12 +175,12 @@ The Mariners made deGrom work harder than his final line suggested. Four hits an
 
 Corey Seager became the catalyst for Texas offense after that initial blast. The shortstop reached base in the third inning and scored on Wyatt Langford's line drive single to left field. Seager repeated the pattern in the seventh, coming around to score on Jake Burger's sharp liner to center field that plated the third run against Jose A. Ferrer.
 
-Texas manager Skip Schumaker leaned heavily on his bullpen after deGrom's early exit. Gavin Collyer earned the victory with 1.1 innings of one-hit relief, followed by a parade of arms that held Seattle scoreless through the final five frames. Tyler Alexander, Jalen Beeks, Cole Winn, and Jacob Latz each contributed scoreless innings as the Rangers bullpen combined for five shutout frames.
+Skip Schumaker leaned heavily on his bullpen after deGrom's early exit. Gavin Collyer earned the victory with 1.1 innings of one-hit relief, followed by a parade of arms that held Seattle scoreless through the final five frames. Tyler Alexander, Jalen Beeks, Cole Winn, and Jacob Latz each contributed scoreless innings as the Rangers bullpen combined for five shutout frames.
 
 The ninth inning provided the finishing touches to Seattle's frustration. Andrew McCutchen drove in Langford with a sacrifice fly to right field, then Jung capped the scoring with a sharp double that brought home Burger. Casey Legumina surrendered both runs in his 2.1-inning stint, watching Texas hitters collect four hits against his offerings.
 
 Seattle managed seven hits but couldn't string together the timely hitting necessary to crack Texas pitching. The Mariners left runners stranded throughout the evening, unable to solve the Rangers' bullpen depth in a game that showcased endurance over explosiveness.`
-},
+  },
   {
     id:'4-16-26-athletics',
     date:'April 16, 2026',
@@ -378,7 +385,7 @@ Kirby deserved better than the loss. The Seattle starter went eight full innings
     record:'5-5',
     gamePk:822918,
     preview:"Jacob deGrom's second start of 2026 delivered five dominant innings, but it was Jake Burger's clutch sixth-inning double that gave Texas a 2-1 win over Seattle at Globe Life Field.",
-    body:`Fifth-inning perfection from Jacob deGrom masked what became a grinding test of Texas bullpen depth. The Rangers ace delivered vintage deGrom through five innings, surrendering just one hit after Cal Raleigh's first-inning homer, but manager Bruce Bochy faced an increasingly delicate calculus as his rotation anchor exited after 83 pitches in his second start of 2026.
+    body:`Fifth-inning perfection from Jacob deGrom masked what became a grinding test of Texas bullpen depth. The Rangers ace delivered vintage deGrom through five innings, surrendering just one hit after Cal Raleigh's first-inning homer, and Skip Schumaker faced an increasingly delicate calculus as his rotation anchor exited after 83 pitches in his second start of 2026.
 
 What followed was a masterclass in bullpen management. Six strikeouts against one walk suggested deGrom's trademark command remained sharp, but the Rangers needed four relievers to navigate the final four frames of a 2-1 victory over Seattle. Jalen Beeks earned the win with a scoreless sixth, though Tyler Alexander and Cole Winn combined for just one out in the eighth before Robert Garcia steadied the ship.
 
@@ -476,7 +483,7 @@ The Rangers managed just three hits with runners in scoring position, stranding 
     record:'4-1',
     gamePk:824861,
     preview:"Sometimes the most telling moment in a baseball game happens when everything appears secure. Chris Martin entered the ninth inning with a four-run cushion, the kind of lead that should make closing duties feel routine.",
-    body:"Sometimes the most telling moment in a baseball game happens when everything appears secure. Chris Martin entered the ninth inning with a four-run cushion, the kind of lead that should make closing duties feel routine. Instead, Camden Yards witnessed exactly why no advantage feels safe in modern baseball.\n\nMartin surrendered a two-run double to Taylor Ward that cut the Rangers' lead in half, transforming what looked like a comfortable victory into something requiring actual attention. The veteran closer escaped without further damage, but not before reminding everyone that Baltimore's offense remains capable of late-inning theatrics even in a losing effort.\n\nThe drama felt appropriate for a game that never quite settled into predictable rhythms. Jacob deGrom pitched like someone still working back from injury concerns, lasting just 4.2 innings despite striking out seven. His command looked sharp enough, but the Orioles made consistent contact when they needed to. Pete Alonso's fourth-inning homer tied the game at one, and Gunnar Henderson's two-run double in the fifth briefly gave Baltimore a lead.\n\nWhat separated these teams was depth, both offensive and bullpen. Danny Jansen provided the decisive blow with a three-run homer in the seventh that gave Texas breathing room they thought they wouldn't need. The veteran catcher's blast came at the perfect moment, capitalizing on Baltimore's decision to stick with Yaramil Hiraldo perhaps one batter too long.\n\nCorey Seager delivered the kind of performance that justifies his contract extension, collecting two hits including a solo homer in the ninth that ultimately provided the winning margin. His ability to impact games both early and late has become a signature trait, and Tuesday's effort showcased exactly why the Rangers view him as irreplaceable.\n\nCole Winn earned the victory with 1.1 innings of scoreless relief, the kind of middle-innings contribution that often determines close games. His presence allowed manager Bruce Bochy to navigate deGrom's early exit without overextending the bullpen's key arms.\n\nWard finished 4-for-5 for Baltimore, a performance that deserved a better outcome. His late rally attempt highlighted how dangerous the Orioles can be even when trailing significantly.\n\nThe Rangers improved their early-season record while learning that comfortable leads require constant vigilance. Martin's ninth-inning scare served as a useful reminder that every out matters, regardless of the scoreboard situation."
+    body:"Sometimes the most telling moment in a baseball game happens when everything appears secure. Chris Martin entered the ninth inning with a four-run cushion, the kind of lead that should make closing duties feel routine. Instead, Camden Yards witnessed exactly why no advantage feels safe in modern baseball.\n\nMartin surrendered a two-run double to Taylor Ward that cut the Rangers' lead in half, transforming what looked like a comfortable victory into something requiring actual attention. The veteran closer escaped without further damage, but not before reminding everyone that Baltimore's offense remains capable of late-inning theatrics even in a losing effort.\n\nThe drama felt appropriate for a game that never quite settled into predictable rhythms. Jacob deGrom pitched like someone still working back from injury concerns, lasting just 4.2 innings despite striking out seven. His command looked sharp enough, but the Orioles made consistent contact when they needed to. Pete Alonso's fourth-inning homer tied the game at one, and Gunnar Henderson's two-run double in the fifth briefly gave Baltimore a lead.\n\nWhat separated these teams was depth, both offensive and bullpen. Danny Jansen provided the decisive blow with a three-run homer in the seventh that gave Texas breathing room they thought they wouldn't need. The veteran catcher's blast came at the perfect moment, capitalizing on Baltimore's decision to stick with Yaramil Hiraldo perhaps one batter too long.\n\nCorey Seager delivered the kind of performance that justifies his contract extension, collecting two hits including a solo homer in the ninth that ultimately provided the winning margin. His ability to impact games both early and late has become a signature trait, and Tuesday's effort showcased exactly why the Rangers view him as irreplaceable.\n\nCole Winn earned the victory with 1.1 innings of scoreless relief, the kind of middle-innings contribution that often determines close games. His presence allowed Skip Schumaker to navigate deGrom's early exit without overextending the bullpen's key arms.\n\nWard finished 4-for-5 for Baltimore, a performance that deserved a better outcome. His late rally attempt highlighted how dangerous the Orioles can be even when trailing significantly.\n\nThe Rangers improved their early-season record while learning that comfortable leads require constant vigilance. Martin's ninth-inning scare served as a useful reminder that every out matters, regardless of the scoreboard situation."
   },
   {
     id:'3-30-26-orioles',
