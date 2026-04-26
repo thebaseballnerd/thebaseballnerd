@@ -68,13 +68,93 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://thebaseballnerd.com/articles/what-is-ops-in-baseball</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://thebaseballnerd.com/articles/spark-score-explained</loc>
     <lastmod>2026-04-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
+  <!-- Data Vault Pages -->
+  <url>
+    <loc>https://thebaseballnerd.com/pitching-analysis-2026.html</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Rangers Game Recaps 2026 -->
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=4-25-26-athletics</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=4-24-26-athletics</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=4-23-26-pittsburgh-pirates</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=4-22-26-pittsburgh-pirates</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=4-21-26-pittsburgh-pirates</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=4-19-26-seattle-mariners</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=4-18-26-seattle-mariners</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=4-17-26-seattle-mariners</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=4-16-26-athletics</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=4-15-26-athletics</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=4-14-26-athletics</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=4-13-26-athletics</loc>
     <lastmod>2026-04-13</lastmod>
