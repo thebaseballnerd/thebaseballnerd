@@ -22,7 +22,30 @@
  * ================================================
  */
 
-const RECAPS = [
+const RECAPS = [{
+  id:'4-25-26-athletics',
+  date:'April 25, 2026',
+  opponent:'Athletics',
+  home:true,
+  result:'win',
+  score:'TEX 4, ATH 3',
+  record:'14-13',  // ← fill in current record
+  gamePk:822910,
+  preview:"Josh Jung belted a sixth inning home run to cap a dramatic comeback as the Rangers rallied from a 3-0 deficit to beat the Athletics 4-3 at Globe Life Field on Friday night.",
+  body:`Josh Jung's two-run homer in the sixth inning capped a dramatic comeback as the Rangers rallied from a 3-0 deficit to beat the Athletics 4-3 at Globe Life Field on Friday night. The blast, Jung's fourth of the season, came on just two pitches from Jeffrey Springs and gave Texas its first lead of the game.
+
+The Athletics jumped ahead early, building their three-run advantage through the first three innings. Darell Hernaiz drove in the first run with a single in the second, scoring Jacob Wilson. The visitors added two more in the third when Colby Thomas singled home Shea Langeliers and Wilson followed with a sacrifice fly that brought Nick Kurtz across.
+
+But Texas began chipping away immediately. Brandon Nimmo answered with a sacrifice fly in the bottom of the third, plating Danny Jansen. Two batters later, Corey Seager lined a single to center that scored Evan Carter and cut the deficit to 3-2.
+
+MacKenzie Gore weathered the early storm despite allowing three runs over five innings. The left-hander struck out seven but needed 108 pitches to get through his outing, walking three and surrendering six hits. Gore's ability to limit further damage after the third proved crucial, giving the Rangers offense time to mount their comeback.
+
+The decisive moment came in the sixth when Springs, who had settled in after the rocky third inning, faced Jung with Seager on base. On a 1-1 count, Jung turned on a pitch and drove it to right-center for the go-ahead runs. The third baseman's hot streak continues to mirror his 2023 All-Star form, and his clutch hitting provided exactly the spark Texas needed.
+
+Cole Winn earned the victory with a perfect sixth inning, striking out one. The Rangers bullpen locked things down from there, with Jalen Beeks, Jakob Junis, and Jacob Latz each contributing scoreless frames. Latz worked around a single in the ninth to secure his first save.
+
+Texas showed impressive efficiency with runners in scoring position, going 3-for-5 in those situations while leaving just four men on base. That kind of clutch hitting, combined with Jung's resurgent bat, offers hope for a team still trying to climb above .500 this season. The 152-minute victory improved the Rangers' record and demonstrated the type of comeback ability that could define their 2026 campaign.`
+},
   {
     id:'4-24-26-athletics',
     date:'April 24, 2026',
