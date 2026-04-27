@@ -23,6 +23,27 @@
  */
 
 const RECAPS = [{
+  id:'4-26-26-athletics',
+  date:'April 26, 2026',
+  opponent:'Athletics',
+  home:true,
+  result:'loss',
+  score:'TEX 1, ATH 2',
+  record:'14-14',  // ← fill in current record
+  gamePk:822911,
+  preview:"A 1-2-3 eighth inning by Jack Perkins sealed another frustrating afternoon for the Rangers, who watched their best scoring opportunity slip away when Danny Jansen struck out with runners in scoring position for the third time.",
+  body:`A 1-2-3 eighth inning by Jack Perkins sealed another frustrating afternoon for the Rangers, who watched their best scoring opportunity slip away when Danny Jansen struck out with runners in scoring position for the third time. The final strikeout punctuated a day when Texas managed just one run despite leaving 11 runners on base in a 2-1 loss to Oakland.
+
+Kumar Rocker's fifth start of the season unraveled in spectacular fashion during the opening frame. Carlos Cortes lined an eight-pitch battle into the gap in center field, driving home both Tyler Soderstrom and Brent Rooker with a triple that gave the Athletics all the offense they would need. The early deficit forced Rocker into damage control mode for the remainder of his six-inning effort, though he settled down nicely after the rocky beginning.
+
+The Rangers' lone response came in the sixth when Jacob Lopez's throwing error on Evan Carter's sacrifice bunt attempt allowed Josh Jung to score from third base. Carter reached first safely on the miscue, but Texas couldn't capitalize on the momentum shift. The rally died there despite Jung's 2-for-4 performance that represented one of the few bright spots in an otherwise anemic offensive display.
+
+Skip Schumaker's lineup managed just five hits while going 1-for-9 with runners in scoring position. Corey Seager endured an 0-for-5 afternoon that dropped his early-season average, while the designated hitter spot produced minimal contributions from both Joc Pederson and Andrew McCutchen, who combined to go 0-for-3. Pederson's double play in the seventh inning exemplified the Rangers' inability to string together meaningful at-bats.
+
+The Athletics bullpen took control after J.T. Ginn's early exit, with Perkins delivering two scoreless frames for the save. His six strikeouts over the final two innings highlighted Texas's struggles to make contact in crucial moments. The game stretched to two hours and 47 minutes as both teams worked deep counts and made frequent pitching changes, but only Oakland managed to execute when opportunities arose.
+
+Globe Life Field's 32,031 fans witnessed another example of how early deficits can prove insurmountable when the offense fails to capitalize on scoring chances. The Rangers bullpen kept pace after Rocker's departure, but the damage from that first-inning triple proved decisive in a game that hinged on execution rather than power.`
+},{
   id:'4-25-26-athletics',
   date:'April 25, 2026',
   opponent:'Athletics',
