@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MCQ9ZZ2W');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Is Bases Gained (BG) in Baseball? The Stat Explained | The Baseball Nerd</title>
+  <meta name="description" content="Bases Gained (BG) is a proprietary offensive metric that counts every base a player earns, penalizes double plays and caught stealing, and adjusts for defensive position. Here's what it measures, how it works, and what it found." />
+  <link rel="canonical" href="https://thebaseballnerd.com/articles/what-is-bases-gained-in-baseball" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="What Is Bases Gained (BG) in Baseball? The Stat Explained" />
+  <meta property="og:description" content="Bases Gained counts everything a hitter directly does to move runners and score runs, then charges him for the two most damaging things he can do. Cal Raleigh led Aaron Judge in 2025. Here's why." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://thebaseballnerd.com/articles/what-is-bases-gained-in-baseball" />
+  <meta property="og:site_name" content="The Baseball Nerd" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="What Is Bases Gained (BG) in Baseball?" />
+  <meta name="twitter:description" content="Bases Gained counts every direct offensive action, penalizes double plays and caught stealing, and adjusts for position. Cal Raleigh led Aaron Judge in 2025. Here's how." />
+  <meta name="twitter:site" content="@thebaseballnerd" />
+
+  <!-- Schema: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Is Bases Gained (BG) in Baseball? The Stat Explained",
+    "description": "Bases Gained (BG) is a proprietary offensive metric that counts every base a player earns, penalizes double plays and caught stealing, and adjusts for defensive position. Here's what it measures, how it works, and what it found.",
+    "author": {
+      "@type": "Person",
+      "name": "Pete Dwyer",
+      "url": "https://thebaseballnerd.com/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Baseball Nerd",
+      "url": "https://thebaseballnerd.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://thebaseballnerd.com/assets/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://thebaseballnerd.com/articles/what-is-bases-gained-in-baseball"
+    },
+    "datePublished": "2026-04-26",
+    "dateModified": "2026-04-26",
+    "keywords": ["Bases Gained", "BG baseball stat", "offensive metric baseball", "baseball analytics", "Cal Raleigh MVP", "baseball stat explained", "The Baseball Nerd"],
+    "articleSection": "Analytics"
+  }
+  </script>
+
+  <!-- Schema: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Bases Gained (BG) in baseball?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bases Gained (BG) is a proprietary offensive contribution metric developed by The Baseball Nerd. It counts every direct action a player takes to advance himself and his teammates, including total bases, walks, hit by pitches, stolen bases, and runs driven in beyond home runs. It then penalizes caught stealing and ground ball double plays, and applies a positional adjustment derived from 10 years of qualified-season data. The result is a single transparent number that measures what a player actually did to help his team score runs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is Bases Gained calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bases Gained (BG) is built from several components that together count every direct offensive action a player takes, penalize the two most damaging outcomes a batter can produce, and apply a positional adjustment derived from 10 years of qualified-season data. The full methodology and formula are proprietary to The Baseball Nerd."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a good Bases Gained score?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "BG tiers are season-specific, recalibrated each year based on the percentile distribution of all qualified hitters. In a full season, Elite is the top 5% (above 491.9 in 2025), Great is the top 25% (above 403.8), Above Average is above the median (above 352.1), Average is the middle two quartiles, Below Average is the bottom quarter, and Struggling is the bottom 10%. The all-time single-season leader in the dataset is Aaron Judge 2024 at 653.04."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why did Cal Raleigh score higher than Aaron Judge in Bases Gained in 2025?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Raleigh scored 613.45 BG against Judge's 586.10 in 2025, despite Judge having a higher wRC+ (204 vs 161). Two factors drive the gap. Judge hit into 16 double plays versus Raleigh's 6, a -20 point difference in the GIDP penalty. The positional adjustment swings nearly 68 points: catchers receive a significant catcher bonus because they produce the least raw offense of any qualified position, while right fielders receive a right field penalty because they produce the most. Strip out position and penalties and Judge leads Raleigh in raw BG by 40 points. Add them back and Raleigh leads by 27."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How was Bases Gained validated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "BG inputs were verified across three independent data sources: FanGraphs, Baseball Prospectus, and Baseball Reference. Caught stealing data matched 100% across all three sources across 1,378 qualified player-seasons. Stolen base data matched in 99.7% of cases. The baserunning component was compared against Baseball Prospectus's independently derived Downgraded Runs on Basepaths (0.740 correlation) and Stolen Base Runs Above Average (0.751 correlation). BG correlates with wRC+ at 0.785, confirming it is related but measuring something distinct."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Bases Gained park-adjusted?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Bases Gained is deliberately not park-adjusted. It records what actually happened in actual games. A hitter at Coors Field benefits from the environment, and BG reflects that. This is a design choice, not an oversight. A park-adjusted version of BG is a documented future extension of the framework."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy: #0a1628;
+      --gold: #c9a84c;
+      --gold-light: #dfc278;
+      --gold-dim: rgba(201,168,76,0.15);
+      --cream: #f5f0e8;
+      --cream-dim: rgba(245,240,232,0.06);
+      --text: #e8e2d6;
+      --text-muted: #8a8070;
+      --border: rgba(201,168,76,0.2);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--navy); color: var(--text); font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    .site-nav { border-bottom: 1px solid var(--border); padding: 0 clamp(1rem,5vw,4rem); display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; background: rgba(10,22,40,0.97); backdrop-filter: blur(16px); z-index: 100; }
+    .site-nav .logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.05em; color: var(--gold); text-decoration: none; }
+    .site-nav .tagline { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.12em; text-transform: uppercase; }
+
+    /* ARTICLE */
+    .article-wrapper { max-width: 760px; margin: 0 auto; padding: clamp(2rem,6vw,4rem) clamp(1rem,5vw,2rem) 6rem; }
+    .article-header { margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    .article-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+    .article-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 60px; }
+    .article-title { font-family: 'DM Serif Display', serif; font-size: clamp(2rem,5vw,3rem); line-height: 1.15; color: var(--cream); margin-bottom: 1.2rem; }
+    .article-dek { font-size: 1.05rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.5rem; }
+    .article-meta { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
+    .article-meta span { color: var(--gold); }
+
+    /* ANSWER BOX */
+    .answer-box { background: var(--cream-dim); border-left: 3px solid var(--gold); border-radius: 0 6px 6px 0; padding: 1.4rem 1.6rem; margin: 2rem 0; }
+    .answer-box .answer-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+    .answer-box p { font-size: 1rem; line-height: 1.7; color: var(--cream); }
+
+    /* BODY */
+    .article-body h2 { font-family: 'DM Serif Display', serif; font-size: 1.55rem; color: var(--cream); margin: 2.8rem 0 0.8rem; line-height: 1.25; }
+    .article-body h3 { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--gold-light); margin: 2rem 0 0.6rem; font-style: italic; }
+    .article-body p { margin-bottom: 1.3rem; color: var(--text); }
+    .article-body strong { color: var(--cream); font-weight: 600; }
+    .article-body a { color: var(--gold); text-decoration: underline; text-decoration-color: rgba(201,168,76,0.4); text-underline-offset: 3px; transition: text-decoration-color 0.2s; }
+    .article-body a:hover { text-decoration-color: var(--gold); }
+
+    /* FORMULA BOX */
+    .formula-box { background: rgba(0,0,0,0.35); border: 1px solid var(--border); border-radius: 6px; padding: 1.4rem 1.6rem; margin: 1.5rem 0; font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; line-height: 1.9; color: var(--cream); }
+    .formula-box .formula-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .fl { color: var(--gold); }
+
+    /* COMPONENT GRID */
+    .component-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0 2rem; }
+    .component-card { background: rgba(0,0,0,0.25); border: 1px solid var(--border); padding: 1.25rem 1.4rem; position: relative; overflow: hidden; }
+    .component-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); }
+    .component-title { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+    .component-formula { font-family: 'IBM Plex Mono', monospace; font-size: 0.9rem; color: var(--cream); margin-bottom: 0.5rem; font-weight: 600; }
+    .component-desc { font-size: 0.85rem; color: var(--text); opacity: 0.75; line-height: 1.6; }
+    @media(max-width:580px) { .component-grid { grid-template-columns: 1fr; } }
+
+    /* SCALE TABLE */
+    .scale-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; }
+    .scale-table thead tr { border-bottom: 2px solid var(--gold); }
+    .scale-table th { padding: 0.6rem 1rem; text-align: left; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.7rem; }
+    .scale-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border); color: var(--text); }
+    .scale-table tr:last-child td { border-bottom: none; }
+    .scale-table tr:hover td { background: var(--cream-dim); }
+    .tier-elite { color: #f9c74f; font-weight: 600; }
+    .tier-great { color: #90be6d; }
+    .tier-avg { color: var(--text-muted); }
+    .tier-below { color: #e07b6b; }
+
+    /* COMPARISON CARD */
+    .versus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0 2rem; }
+    .versus-card { background: rgba(0,0,0,0.25); border: 1px solid var(--border); padding: 1.25rem 1.4rem; }
+    .versus-card.winner { border-color: rgba(201,168,76,0.5); }
+    .versus-card-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .versus-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--cream); margin-bottom: 0.6rem; font-style: normal; }
+    .versus-stat { display: flex; justify-content: space-between; padding: 0.4rem 0; border-bottom: 1px solid rgba(201,168,76,0.08); font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; }
+    .versus-stat:last-of-type { border-bottom: none; }
+    .versus-stat .vs-label { color: var(--text-muted); }
+    .versus-stat .vs-val { color: var(--cream); font-weight: 600; }
+    .versus-stat .vs-val.good { color: #90be6d; }
+    .versus-stat .vs-val.bad { color: #e07b6b; }
+    .versus-total { margin-top: 0.75rem; padding-top: 0.75rem; border-top: 2px solid var(--gold); display: flex; justify-content: space-between; align-items: baseline; }
+    .versus-total .vt-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+    .versus-total .vt-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--gold); }
+    .versus-total .vt-val.dim { color: rgba(201,168,76,0.45); font-size: 1.5rem; }
+    @media(max-width:580px) { .versus-grid { grid-template-columns: 1fr; } }
+
+    /* VALIDATION CARD */
+    .validation-card { background: rgba(0,0,0,0.3); border: 1px solid var(--border); border-left: 3px solid var(--gold); padding: 1.25rem 1.4rem; margin: 1rem 0; font-family: 'IBM Plex Mono', monospace; }
+    .vc-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.45rem 0; border-bottom: 1px solid var(--border); gap: 1rem; }
+    .vc-row:last-child { border-bottom: none; }
+    .vc-label { font-size: 0.8rem; color: var(--text); opacity: 0.75; flex: 1; }
+    .vc-val { font-size: 1rem; color: var(--gold); font-weight: 600; flex-shrink: 0; }
+
+    /* STAT CALLOUT */
+    .stat-callout { background: var(--cream-dim); border: 1px solid var(--border); padding: 1.25rem 1.6rem; margin: 1.5rem 0; display: flex; align-items: center; gap: 1.5rem; }
+    .stat-callout .sc-num { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--gold); line-height: 1; flex-shrink: 0; }
+    .stat-callout .sc-text { font-size: 0.9rem; color: var(--text); line-height: 1.6; }
+    .stat-callout .sc-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.25rem; }
+
+    /* PULLQUOTE */
+    .pullquote { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.5rem 0; margin: 2.5rem 0; }
+    .pullquote p { font-family: 'DM Serif Display', serif; font-size: 1.35rem; font-style: italic; color: var(--cream); line-height: 1.4; margin: 0; }
+    .pullquote cite { display: block; margin-top: 0.6rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); font-style: normal; }
+
+    /* POS ADJ TABLE */
+    .pos-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.82rem; }
+    .pos-table thead tr { border-bottom: 2px solid var(--gold); }
+    .pos-table th { padding: 0.6rem 1rem; text-align: left; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.68rem; }
+    .pos-table td { padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); color: var(--text); }
+    .pos-table tr:last-child td { border-bottom: none; }
+    .pos-table tr:hover td { background: var(--cream-dim); }
+    .adj-pos { color: #90be6d; font-weight: 600; }
+    .adj-neg { color: #e07b6b; font-weight: 600; }
+
+    /* LEADERBOARD TABLE */
+    .lb-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.82rem; }
+    .lb-table thead tr { border-bottom: 2px solid var(--gold); }
+    .lb-table th { padding: 0.6rem 1rem; text-align: left; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.68rem; }
+    .lb-table td { padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); color: var(--text); }
+    .lb-table tr:last-child td { border-bottom: none; }
+    .lb-table tr:hover td { background: var(--cream-dim); }
+    .lb-table .rank-gold { color: #f9c74f; font-weight: 600; }
+    .lb-table .rank-silver { color: #90be6d; }
+    .lb-table .player-name { color: var(--cream); }
+    .lb-table .bg-val { color: var(--gold); font-weight: 600; }
+
+    /* FAQ */
+    .faq-section { margin-top: 3rem; }
+    .faq-section h2 { font-family: 'DM Serif Display', serif; font-size: 1.55rem; color: var(--cream); margin-bottom: 1.5rem; }
+    .faq-item { border-top: 1px solid var(--border); padding: 1.2rem 0; }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-q { font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: var(--cream); margin-bottom: 0.5rem; }
+    .faq-a { color: var(--text); font-size: 0.95rem; line-height: 1.7; }
+
+    /* PROPRIETARY NOTICE */
+    .prop-notice { background: rgba(201,168,76,0.08); border: 1px solid var(--border); border-left: 3px solid var(--gold); padding: 1.25rem 1.4rem; margin: 2rem 0; font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+    .prop-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+
+    /* CTA */
+    .article-cta { background: var(--gold-dim); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; margin-top: 3.5rem; text-align: center; }
+    .article-cta .cta-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+    .article-cta h3 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--cream); margin-bottom: 0.6rem; }
+    .article-cta p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.2rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-btn { display: inline-block; background: var(--gold); color: var(--navy); font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.12em; padding: 0.65rem 2rem; border-radius: 3px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+    .cta-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* RELATED */
+    .related-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .related-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
+    .related-links { list-style: none; }
+    .related-links li { margin-bottom: 0.5rem; }
+    .related-links a { color: var(--gold); text-decoration: none; font-size: 0.95rem; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+    .related-links a:hover { border-color: var(--gold); }
+  </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCQ9ZZ2W"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <nav class="site-nav">
+    <a href="https://thebaseballnerd.com" class="logo">The Baseball Nerd</a>
+    <span class="tagline">Numbers Not Feelings</span>
+  </nav>
+
+  <main class="article-wrapper">
+
+    <header class="article-header">
+      <div class="article-label">Analytics &nbsp;&middot;&nbsp; Proprietary Framework</div>
+      <h1 class="article-title">What Is Bases Gained (BG) in Baseball? The Stat Explained.</h1>
+      <p class="article-dek">Every offensive metric counts something and stops counting too soon. Bases Gained counts everything, charges for the damage, and adjusts for where you play. Here's what it is, how it was built, and what it found.</p>
+      <div class="article-meta">
+        By <span>Pete Dwyer</span> &nbsp;|&nbsp; Published <span>April 2026</span> &nbsp;|&nbsp; 12 min read
+      </div>
+    </header>
+
+    <div class="article-body">
+
+      <div class="answer-box">
+        <div class="answer-label">Quick Answer</div>
+        <p><strong>Bases Gained (BG)</strong> is a proprietary offensive contribution metric developed by The Baseball Nerd. It counts every direct action a player takes to advance himself and his teammates, applies a weighted penalty for caught stealing and a flat penalty for ground ball double plays, and adjusts for defensive position using 10 years of qualified-season data. The formula is transparent. The methodology is proprietary. The all-time leader in the dataset is Aaron Judge 2024 at 653.04 BG.</p>
+      </div>
+
+      <h2>What Every Other Stat Gets Wrong</h2>
+      <p>The existing metrics are not broken. They are excellent at what they were designed to measure. The problem is what they were not designed to measure.</p>
+      <p><strong>Total Bases</strong> counts contact and stops at the moment of impact. A player who walks, steals second, and scores on a sacrifice fly contributed three advancement events to his team. Total Bases credits him with zero.</p>
+      <p><strong>wOBA</strong> applies empirically derived run values to every plate appearance and is the most accurate rate stat publicly available. It deliberately excludes stolen bases from the batter's line. It does not penalize him for hitting into double plays. A player who steals 40 bases and a player who never runs finish with the same wOBA if their contact and walk numbers match.</p>
+      <p><strong>wRC+</strong> builds on wOBA, adjusts for park and league, and is the preferred tool for cross-era comparisons. It is a rate stat. It does not price caught stealing or double plays. It cannot tell you what a player cost his team in damaged rallies.</p>
+      <p>BG answers the question none of them are asking: across every direct action this player took, how many total bases of advancement did he generate for his team, against the full cost of his most damaging actions?</p>
+
+      <h2>What Each Component Captures</h2>
+
+      <div class="component-grid">
+        <div class="component-card">
+          <div class="component-title">Total Bases</div>
+          <div class="component-formula">1B + 2(2B) + 3(3B) + 4(HR)</div>
+          <div class="component-desc">The contact foundation. No modification. Transparent, universally understood, reconstructable from any box score.</div>
+        </div>
+        <div class="component-card">
+          <div class="component-title">Walks + HBP</div>
+          <div class="component-formula">BB + HBP = +1 each</div>
+          <div class="component-desc">Plate discipline advancement. A walk with the bases loaded has the same first-order effect as a single. RE24 handles the situational context on top.</div>
+        </div>
+        <div class="component-card">
+          <div class="component-title">Stolen Bases</div>
+          <div class="component-formula">SB = +1 per base</div>
+          <div class="component-desc">Direct advancement the player created through speed and read. Credited at face value. The CS penalty accounts for the downside of reckless baserunning.</div>
+        </div>
+        <div class="component-card">
+          <div class="component-title">RBI minus Home Runs</div>
+          <div class="component-formula">RBI &minus; HR</div>
+          <div class="component-desc">Team advancement credit. A home run is already four bases in TB. Subtracting HR isolates runs driven in through everything else. Each one is a teammate who scored because of this batter.</div>
+        </div>
+        <div class="component-card">
+          <div class="component-title">RE24</div>
+          <div class="component-formula">Season run expectancy change</div>
+          <div class="component-desc">Situational context. The same walk is worth more in the seventh inning of a tie game than leading off the first. RE24 captures that difference. No other component does.</div>
+        </div>
+        <div class="component-card">
+          <div class="component-title">GIDP Penalty</div>
+          <div class="component-formula">GIDP &times; &minus;2</div>
+          <div class="component-desc">The explicit rally-killing charge. The correlation between GIDP count and RE24 across 1,378 qualified seasons was -0.036. RE24 does not capture this cost. The penalty must be direct. Mean season penalty: -23.3 points.</div>
+        </div>
+      </div>
+
+      <h2>The Caught Stealing Penalty</h2>
+      <p>A flat -1 per caught stealing was the starting point and was rejected for two reasons. The actual cost is higher: a CS removes the runner entirely rather than simply costing a base. And a flat penalty treats a player stealing at 90% career rate identically to one stealing at 40%. They are not identical.</p>
+      <p>The tier structure applies the penalty based on career attempt volume, because single-season SB% is too noisy to reflect true skill reliably.</p>
+
+      <table class="scale-table">
+        <thead><tr><th>Tier</th><th>Career Attempts</th><th>Formula</th></tr></thead>
+        <tbody>
+          <tr><td>No activity</td><td>0</td><td>No penalty</td></tr>
+          <tr><td>Small sample</td><td>1-4</td><td>CS x -2 (flat)</td></tr>
+          <tr><td>Active</td><td>5-30</td><td>CS x -2 x (1 - Career SB%)</td></tr>
+          <tr><td>Elite</td><td>31+</td><td>CS x -2 x (1 - Career SB%)</td></tr>
+        </tbody>
+      </table>
+
+      <p>The result: Ronald Acuña Jr. with 73 stolen bases and a 10-catch season takes a penalty of just -1.6. Rougned Odor with 12 stolen bases and 12 caught stealings at a 60.5% career rate takes -9.49. BG prices the difference because the outcome for the team is not the same.</p>
+
+      <h2>The Positional Adjustment</h2>
+      <p>A catcher producing 400 raw BG is contributing something categorically different from a first baseman at the same number. The positional adjustment closes the gap between what each position historically produces among qualified hitters and what the average qualified hitter produces. It is derived from 10 years of BG distributions and does not borrow values from any other framework.</p>
+      <p>Catchers and middle infielders receive positive adjustments because they produce the least raw offense among qualified hitters. Designated hitters and corner outfielders carry negative adjustments because the position demands elite offensive output. Left field is the effective baseline position, sitting closest to zero adjustment. The full positional adjustment values are available to paid subscribers.</p>
+
+      <p>Left field at near-zero is effectively the baseline position. DH at a significant DH penalty reflects the highest offensive standard any position faces: no defensive obligation, justify the roster spot entirely with the bat.</p>
+
+      <h2>The Data Behind It</h2>
+      <p>BG inputs were built from three independent data sources and verified for consistency before any leaderboard was published. The stolen base and caught stealing data across FanGraphs, Baseball Prospectus, and Baseball Reference matched in 99.7% of 1,378 qualified player-seasons. CS data was identical across all three sources in every single record.</p>
+
+      <div class="validation-card">
+        <div class="vc-row"><div class="vc-label">CS data concordance across all three sources (1,378 seasons)</div><div class="vc-val">100%</div></div>
+        <div class="vc-row"><div class="vc-label">SB data concordance across all three sources</div><div class="vc-val">99.7%</div></div>
+        <div class="vc-row"><div class="vc-label">BG baserunning component vs. BP Downgraded Runs on Basepaths</div><div class="vc-val">0.740</div></div>
+        <div class="vc-row"><div class="vc-label">BG baserunning vs. BP Stolen Base Runs Above Average</div><div class="vc-val">0.751</div></div>
+        <div class="vc-row"><div class="vc-label">BG vs. wRC+ (related, measuring something distinct)</div><div class="vc-val">0.785</div></div>
+      </div>
+
+      <p>The 0.785 correlation with wRC+ confirms BG is related to the best existing public rate stat. The gap between 1.000 and 0.785 is where BG adds information. Stolen base volume, double play damage, positional context, and situational RE24 are all doing work that wRC+ does not do.</p>
+
+      <h2>Raleigh Outscored Judge in 2025. Here Is Why.</h2>
+      <p>This is the result that makes BG worth understanding. In 2025, Aaron Judge had a wRC+ of 204, one of the highest single-season marks in the dataset. Cal Raleigh had a wRC+ of 161. Judge was the better hitter by every rate measure. He won the AL MVP.</p>
+      <p>BG puts Raleigh ahead of Judge by 27.35 points. The argument is specific and the math is transparent.</p>
+
+      <div class="versus-grid">
+        <div class="versus-card winner">
+          <div class="versus-card-label">2025 BG Leader</div>
+          <h3>Cal Raleigh &nbsp; C &nbsp; SEA</h3>
+          <div class="versus-stat"><span class="vs-label">Total Bases</span><span class="vs-val">351</span></div>
+          <div class="versus-stat"><span class="vs-label">Walks + HBP</span><span class="vs-val">97</span></div>
+          <div class="versus-stat"><span class="vs-label">Stolen Bases</span><span class="vs-val good">14</span></div>
+          <div class="versus-stat"><span class="vs-label">RBI minus HR</span><span class="vs-val good">65</span></div>
+          <div class="versus-stat"><span class="vs-label">RE24</span><span class="vs-val">+53.0</span></div>
+          <div class="versus-stat"><span class="vs-label">GIDP Penalty</span><span class="vs-val good">-12</span></div>
+          <div class="versus-stat"><span class="vs-label">Positional Adj (C)</span><span class="vs-val good">Catcher bonus</span></div>
+          <div class="versus-total"><span class="vt-label">Bases Gained</span><span class="vt-val">613.45</span></div>
+        </div>
+        <div class="versus-card">
+          <div class="versus-card-label">2025 AL MVP</div>
+          <h3>Aaron Judge &nbsp; RF &nbsp; NYY</h3>
+          <div class="versus-stat"><span class="vs-label">Total Bases</span><span class="vs-val">372</span></div>
+          <div class="versus-stat"><span class="vs-label">Walks + HBP</span><span class="vs-val">124</span></div>
+          <div class="versus-stat"><span class="vs-label">Stolen Bases</span><span class="vs-val">12</span></div>
+          <div class="versus-stat"><span class="vs-label">RBI minus HR</span><span class="vs-val">61</span></div>
+          <div class="versus-stat"><span class="vs-label">RE24</span><span class="vs-val">+73.8</span></div>
+          <div class="versus-stat"><span class="vs-label">GIDP Penalty</span><span class="vs-val bad">-32</span></div>
+          <div class="versus-stat"><span class="vs-label">Positional Adj (RF)</span><span class="vs-val bad">RF penalty</span></div>
+          <div class="versus-total"><span class="vt-label">Bases Gained</span><span class="vt-val dim">586.10</span></div>
+        </div>
+      </div>
+
+      <p>Strip out position and penalties and look at raw production. Judge at 615.82 raw BG outproduced Raleigh at 575.36 by 40 points. That is a right fielder with a wRC+ of 204 being better than a catcher with a wRC+ of 161. BG agrees completely with that.</p>
+      <p>The positional swing of nearly 68 points reflects 10 years of historical data showing that catchers as a group produce the least offense of any qualified position, while right fielders produce the most. The GIDP gap adds another 20 points: Judge hit into 16 double plays against Raleigh's 6. wRC+ charged him nothing for that. BG charged him -20.</p>
+      <p>BG is not saying Judge was a bad player. It is saying Raleigh contributed more to his team's run production over the full 2025 season. Those are different claims. The first is obviously false. The second is what BG is designed to evaluate.</p>
+
+      <div class="pullquote">
+        <p>"Judge was the better hitter. Raleigh was the more complete contributor. BG measures the second thing."</p>
+        <cite>The Baseball Nerd, 2026</cite>
+      </div>
+
+      <h2>What a Good BG Score Looks Like</h2>
+      <p>BG tiers recalibrate each season based on the percentile distribution of all qualified hitters. The cutoffs below are 2025 full-season finals.</p>
+
+      <table class="scale-table">
+        <thead><tr><th>Tier</th><th>2025 BG</th><th>Description</th><th>2025 Examples</th></tr></thead>
+        <tbody>
+          <tr><td class="tier-elite">Elite</td><td class="tier-elite">491.9+</td><td class="tier-elite">Top 5%. MVP conversation.</td><td>Raleigh, Judge, Schwarber</td></tr>
+          <tr><td class="tier-great">Great</td><td class="tier-great">403.8 - 491.9</td><td class="tier-great">Top 25%. All-Star caliber.</td><td>Tatis, Ramirez, Carroll</td></tr>
+          <tr><td class="tier-great">Above Average</td><td class="tier-great">352.1 - 403.8</td><td class="tier-great">Above median. Productive starter.</td><td>Guerrero Jr., Nimmo</td></tr>
+          <tr><td class="tier-avg">Average</td><td class="tier-avg">293.5 - 352.1</td><td class="tier-avg">League average contribution.</td><td>Albies, Kwan, Frelick</td></tr>
+          <tr><td class="tier-below">Below Average</td><td class="tier-below">249.2 - 293.5</td><td class="tier-below">Lineup liability.</td><td>Semien, Steer</td></tr>
+          <tr><td class="tier-below">Struggling</td><td class="tier-below">Below 249.2</td><td class="tier-below">Bottom 10%. Roster concern.</td><td>Castellanos, Sheets</td></tr>
+        </tbody>
+      </table>
+
+      <h2>The All-Time Leaderboard</h2>
+
+      <table class="lb-table">
+        <thead><tr><th>#</th><th>Player</th><th>Season</th><th>Pos</th><th>BG</th><th>wRC+</th></tr></thead>
+        <tbody>
+          <tr><td class="rank-gold">1</td><td class="player-name">Aaron Judge</td><td>2024</td><td>RF</td><td class="bg-val">653.04</td><td>205</td></tr>
+          <tr><td>2</td><td class="player-name">Shohei Ohtani</td><td>2024</td><td>DH</td><td class="bg-val">650.75</td><td>192</td></tr>
+          <tr><td>3</td><td class="player-name">Bobby Witt Jr.</td><td>2024</td><td>SS</td><td class="bg-val">619.53</td><td>169</td></tr>
+          <tr><td>4</td><td class="player-name">Ronald Acuña Jr.</td><td>2023</td><td>RF</td><td class="bg-val">618.35</td><td>170</td></tr>
+          <tr><td>5</td><td class="player-name">Aaron Judge</td><td>2022</td><td>RF</td><td class="bg-val">616.17</td><td>211</td></tr>
+          <tr><td>6</td><td class="player-name">Cal Raleigh</td><td>2025</td><td>C</td><td class="bg-val">613.45</td><td>161</td></tr>
+          <tr><td>7</td><td class="player-name">Mike Trout</td><td>2016</td><td>CF</td><td class="bg-val">603.08</td><td>174</td></tr>
+          <tr><td>8</td><td class="player-name">Cody Bellinger</td><td>2019</td><td>CF</td><td class="bg-val">587.59</td><td>167</td></tr>
+          <tr><td>9</td><td class="player-name">Aaron Judge</td><td>2025</td><td>RF</td><td class="bg-val">586.10</td><td>204</td></tr>
+          <tr><td>10</td><td class="player-name">Matt Olson</td><td>2023</td><td>1B</td><td class="bg-val">579.61</td><td>150</td></tr>
+        </tbody>
+      </table>
+
+      <p>Bobby Witt Jr. at third all-time with a 2024 wRC+ of 169 is the most instructive result on this leaderboard. His 37 stolen bases, 73 non-HR RBI, and shortstop positional bonus (a shortstop positional bonus) combine to produce a score that no single public metric surfaces in one place. BG found it because it was designed to find exactly that combination.</p>
+
+      <h2>What BG Does Not Measure</h2>
+      <p>BG is a direct-action offensive framework. It measures what a player personally did to advance himself and his teammates at the plate and on the basepaths. Several real contributions fall outside its boundary by design.</p>
+      <p>It is not park-adjusted. Coors Field inflates everything. BG records what actually happened. A park-adjusted version is a documented future extension.</p>
+      <p>It is not predictive. A player who hits into 31 double plays might be unlucky on contact. BG records the result and leaves the cause to the evaluator.</p>
+      <p>It does not measure defense. The positional adjustment accounts for the offensive demands of each position at the population level. Individual defensive performance is not part of the formula.</p>
+      <p>Non-scoring sacrifice bunts and productive outs that do not produce an RBI are excluded. These require play-by-play intent data that public sources do not reliably provide. The exclusion applies uniformly and does not distort comparisons across qualified hitters.</p>
+
+      <h2>How to Use It</h2>
+      <p>BG is most useful alongside wRC+ and FIP rather than instead of them. The 0.785 correlation with wRC+ tells you they substantially agree on who the best hitters are. The gap tells you where the most useful information lives.</p>
+      <p>A player ranking materially higher in BG than wRC+ is producing baserunning and situational value that rate stats cannot see. A player ranking materially lower in BG than wRC+ is carrying penalty weight that rate stats do not charge. Junior Caminero in 2025 had a wRC+ of 112 and a GIDP total of 31, a -62 penalty that his rate stats never acknowledged. BG did.</p>
+      <p>The live leaderboard is available at <a href="https://tbnbasesgained.netlify.app">tbnbasesgained.netlify.app</a>, updated weekly through the 2026 season. Click any player to see the full component breakdown.</p>
+
+      <div class="prop-notice">
+        <div class="prop-label">Proprietary Notice</div>
+        Bases Gained (BG) is an original statistical analysis framework developed exclusively by The Baseball Nerd. The full methodology, formula, component weightings and positional adjustment derivation are proprietary. Copyright 2026 The Baseball Nerd. All Rights Reserved.
+      </div>
+
+      <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <p class="faq-q">What is Bases Gained in baseball?</p>
+          <p class="faq-a">Bases Gained (BG) is a proprietary offensive contribution metric developed by The Baseball Nerd. It counts every direct action a player takes to advance himself and his teammates, applies a weighted penalty for caught stealing based on career stolen base rate, applies a flat penalty for ground ball double plays, and adjusts for defensive position using 10 years of qualified-season data. The full methodology and formula are proprietary to The Baseball Nerd.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Why did Cal Raleigh outscore Aaron Judge in 2025?</p>
+          <p class="faq-a">Raleigh scored 613.45 BG against Judge's 586.10. In raw production before adjustments, Judge leads Raleigh by 40 points. The positional adjustment swings nearly 68 points: catchers receive a significant catcher bonus because they produce the least offense of any qualified position, right fielders receive a right field penalty because they produce the most. Judge also hit into 16 double plays against Raleigh's 6, a -20 point gap in the GIDP penalty that no public metric charges. BG is not saying Judge was a worse hitter. It is saying Raleigh contributed more to his team's run production over the full season.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Is Bases Gained park-adjusted?</p>
+          <p class="faq-a">No. BG records what actually happened in actual games. A hitter at Coors Field benefits from that environment and BG reflects it. This is a deliberate design choice. A park-adjusted version of BG is a documented future extension of the framework.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">How was Bases Gained verified?</p>
+          <p class="faq-a">BG inputs were verified across FanGraphs, Baseball Prospectus, and Baseball Reference. Caught stealing data matched 100% across all three sources across 1,378 qualified player-seasons. Stolen base data matched in 99.7% of cases. The baserunning component correlates at 0.740 with Baseball Prospectus's independently derived Downgraded Runs on Basepaths and 0.751 with their Stolen Base Runs Above Average, confirming that two separate frameworks built by different organizations identify the same players as elite and poor baserunners.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">What is the highest single-season Bases Gained score in the dataset?</p>
+          <p class="faq-a">Aaron Judge 2024 leads all seasons at 653.04 BG. Judge combined 411 total bases, 79 walks, 10 stolen bases, a +48.3 RE24, and only 6 double plays. His right field penalty is the steepest in the formula and he still leads all qualified seasons in the 2015-2025 dataset.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Where can I find the Bases Gained leaderboard?</p>
+          <p class="faq-a">The live leaderboard is at tbnbasesgained.netlify.app. It covers the 2026 current season updated weekly and full 2024 and 2025 final seasons. Every player row links to a full component breakdown showing exactly how the BG score was assembled.</p>
+        </div>
+      </section>
+
+      <div class="answer-box" style="margin-top: 2.5rem;">
+        <div class="answer-label">Methodology Documentation</div>
+        <p>The Baseball Nerd maintains a white paper and a changelog for Bases Gained. The white paper covers the full methodology, formula derivation, component rationale, positional adjustment construction, and cross-validation findings. The changelog documents any updates to the framework over time. Both documents can be reviewed by request. Contact information is at <a href="https://thebaseballnerd.com/about" style="color: var(--gold);">thebaseballnerd.com/about</a>.</p>
+      </div>
+
+    </div>
+
+    <div class="article-cta">
+      <div class="cta-label">The Baseball Nerd Analytics Suite</div>
+      <h3>Bases Gained. Live. Updated Weekly.</h3>
+      <p>The full 2026 season BG leaderboard, 2025 and 2024 final seasons, full component breakdowns on every player. Numbers Not Feelings.</p>
+      <a href="https://tbnbasesgained.netlify.app" class="cta-btn">View the Leaderboard</a>
+    </div>
+
+    <div class="related-section">
+      <div class="related-label">Related Articles</div>
+      <ul class="related-links">
+        <li><a href="/articles/what-is-wrc-plus-in-baseball">What Is wRC+ in Baseball? The Stat Explained</a></li>
+        <li><a href="/articles/what-is-woba-in-baseball">What Is wOBA? The Complete Explanation</a></li>
+        <li><a href="/articles/what-is-war-in-baseball">What Is WAR in Baseball? Wins Above Replacement Explained</a></li>
+        <li><a href="/articles/ops-plus-vs-wrc-plus">wRC+ vs. OPS+: Which Stat Should You Trust?</a></li>
+        <li><a href="/articles/spark-score-explained">The SPARK Score: How We Grade Offensive Prospects</a></li>
+      </ul>
+    </div>
+
+  </main>
+
+</body>
+</html>
