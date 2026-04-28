@@ -23,6 +23,27 @@
  */
 
 const RECAPS = [{
+  id:'4-27-26-yankees',
+  date:'April 27, 2026',
+  opponent:'New York Yankees',
+  home:true,
+  result:'loss',
+  score:'TEX 2, NYY 4',
+  record:'14-15',  // ← fill in current record
+  gamePk:822906,
+  preview:"Max Fried carved through the Rangers lineup like a surgeon on Monday night, and the numbers behind Corey Seager's struggles tell a story that's becoming impossible to ignore.",
+  body:`Max Fried carved through the Rangers lineup like a surgeon on Monday night, and the numbers behind Corey Seager's struggles tell a story that's becoming impossible to ignore. The Yankees southpaw scattered just four hits across six shutout innings in a 4-2 victory at Globe Life Field, but it was his mastery over the Rangers' franchise shortstop that crystallized a troubling trend.
+
+Seager went 0-for-4 with three strikeouts, extending his April misery to a .186/.268/.372 slash line that would make a backup utility player cringe. But the real concern isn't the surface numbers. It's what's happening when sliders cross the plate. After slugging .730 against 259 sliders in 2025, Seager is posting a microscopic .048 slugging percentage against 97 sliders this season. His whiff rate on the pitch has ballooned from 36.7% to 53.1%, and opposing pitchers have clearly taken notice.
+
+Fried exploited that weakness ruthlessly, leaving Seager looking overmatched in crucial spots. The Rangers went 1-for-5 with runners in scoring position, with Seager stranding runners in two separate at-bats when a timely hit could have changed the complexion of the game.
+
+Meanwhile, Jack Leiter endured his worst outing of the young season, surrendering four runs on three home run balls that told the story of the night. Ben Rice opened the floodgates in the third inning with a first-pitch bomb to center field that scored Trent Grisham. Aaron Judge followed immediately with a line drive homer to left field. Jazz Chisholm Jr. added insult to injury in the fourth, turning on another first-pitch offering and depositing it over the right-center field wall.
+
+The Rangers managed only token resistance. Joc Pederson broke the shutout with a solo homer in the seventh inning, and Alejandro Osuna delivered a two-out RBI single in the ninth that scored Jake Burger and brought Josh Smith to second base. But by then, David Bednar had entered to close out the victory for New York.
+
+Leiter's struggles were stark. Three home runs allowed in six innings, with all the damage coming on pitches opponents jumped on early in counts. The 2h 48m game time reflected the stop-and-start nature of an evening where momentum never shifted toward the home team. For a Rangers offense that managed just seven runners left on base, the real damage was done by their inability to capitalize when opportunities presented themselves.`
+},{
   id:'4-26-26-athletics',
   date:'April 26, 2026',
   opponent:'Athletics',
