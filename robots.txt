@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /embeds/
+Disallow: /.netlify/
+
+Sitemap: https://thebaseballnerd.com/sitemap.xml
