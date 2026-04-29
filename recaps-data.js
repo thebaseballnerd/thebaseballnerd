@@ -23,6 +23,25 @@
  */
 
 const RECAPS = [{
+  id:'4-28-26-yankees',
+  date:'2026-04-28',
+  opponent:'New York Yankees',
+  home:true,
+  result:'loss',
+  score:'TEX 2, NYY 3',
+  record:'14-16',  // ← fill in current record
+  gamePk:822908,
+  preview:"Another night, another chapter in the Rangers' ongoing offensive struggles as they fell 3-2 to the Yankees at Globe Life Field, a defeat that felt both predictable and preventable.",
+  body:`Another night, another chapter in the Rangers' ongoing offensive struggles as they fell 3-2 to the Yankees at Globe Life Field, a defeat that felt both predictable and preventable. The numbers tell the story of a team treading water. One-for-ten with runners in scoring position. Ten men left on base. Corey Seager grounding into yet another double play to kill a potential rally.
+
+Jacob deGrom delivered exactly what the Rangers needed from their ace, spinning six innings of three-hit ball with five strikeouts and zero walks. The only blemish came in the first inning when Cody Bellinger doubled home Aaron Judge on a four-pitch sequence that found the gap in center field. DeGrom settled in immediately after that, retiring the next 18 batters he faced with the kind of surgical precision that reminded everyone why he commands ace money. But in a season where run support has been scarce, even vintage deGrom wasn't enough.
+
+The Yankees extended their lead in the seventh when Austin Wells took Jalen Beeks deep on just three pitches, a fastball that caught too much of the plate and disappeared over the right field wall. That homer loomed large as the Rangers continued to waste opportunities, stranding runners in scoring position in multiple innings while their lineup looked overmatched against Yankees starter Cam Schlittler.
+
+The ninth inning provided both hope and heartbreak in equal measure. Aaron Judge crushed a Cole Winn fastball to left-center for his 12th homer of the season, seemingly putting the game away at 3-0. But the Rangers showed life in the bottom half. Danny Jansen tripled home Andrew McCutchen to break the shutout, then Josh Jung followed with a line drive single to left that scored Jansen and brought the tying run to second base.
+
+That's when the familiar demons surfaced. With Brandon Nimmo on second and momentum building, the Rangers needed situational hitting. Instead, they got more of the same offensive futility that has defined this .500 start to the season. Skip Schumaker's club is running out of excuses for these fundamental failures at the plate. Until someone in that clubhouse learns how to execute with runners in scoring position, this team will continue spinning its wheels in mediocrity, wasting strong pitching performances and frustrating a fan base that deserves better.`
+},{
   id:'4-27-26-yankees',
   date:'April 27, 2026',
   opponent:'New York Yankees',
