@@ -23,8 +23,29 @@
  */
 
 const RECAPS = [{
+  id:'4-29-26-yankees',
+  date:'April 29, 2026',
+  opponent:'New York Yankees',
+  home:true,
+  result:'win',
+  score:'TEX 3, NYY 0',
+  record:'15-16',  // ← fill in current record
+  gamePk:822907,
+  preview:"Nathan Eovaldi did Nasty Nate stuff at Globe Life Field Wednesday afternoon, making sure to give his team a chance against a Yankees lineup that did not want to be shutout for seven innings in a 3-0 Rangers victory.",
+  body:`Nathan Eovaldi dominated with surgical precision at Globe Life Field, carving through the Yankees lineup for seven shutout innings in a 3-0 Rangers victory that felt both inevitable and painfully delayed. The veteran right-hander scattered just four hits while striking out seven, looking every bit like the ace Texas needs him to be in his seventh start of the season.
+
+What should have been a rout against rookie Elmer Rodríguez instead became a masterclass in squandered opportunities. The Yankees starter was making his major league debut, walking four batters through four innings while clearly fighting his nerves on the mound. Yet the Rangers managed just two runs against him, failing repeatedly to capitalize on prime scoring chances that would have broken the game open early.
+
+The breakthrough finally came in the fifth inning when Josh Jung delivered the decisive blow. With runners in scoring position, Jung grounded a single to left fielder Max Schuemann that brought home both Alejandro Osuna and Ezequiel Duran for a 2-0 lead. The two-RBI knock represented exactly the kind of clutch hitting that had been absent through four frustrating innings of missed chances.
+
+Duran emerged as the catalyst throughout the afternoon, reaching base in all three plate appearances and scoring twice. His ability to get on base consistently provided the foundation for what limited offense the Rangers could muster against a Yankees staff that changed pitchers five times across nine innings.
+
+The insurance run came in the seventh when Sam Haggerty singled home Duran with a ground ball to center fielder Trent Grisham. By then, Eovaldi had the Yankees completely stifled, retiring Aaron Judge four straight times and limiting Ben Rice to singles despite his three-hit afternoon.
+
+Jacob Latz closed out the final two frames with typical efficiency, allowing just one hit while preserving the shutout. The 2 hour, 43 minute affair dragged through multiple pitching changes, but Eovaldi's dominance made the outcome feel predetermined once the Rangers finally solved Rodríguez. Skip Schumaker's club improved their record with a performance that showcased their pitching strength while highlighting persistent offensive inconsistencies that could prove costly against better lineups.`
+},{
   id:'4-28-26-yankees',
-  date:'2026-04-28',
+  date:'April 28, 2026',
   opponent:'New York Yankees',
   home:true,
   result:'loss',
