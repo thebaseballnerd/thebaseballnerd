@@ -30,7 +30,7 @@ const RECAPS = [{
   result:'win',
   score:'TEX 5, DET 4',
   record:'16-16',  // ← fill in current record
-  gamePk:824686,
+  gamePk:824287,
   preview:"In a game that began with the Rangers showing an explosive offense, both teams settled into a contest to see who could outlast the other on a cold and wet afternoon in Detroit.",
   body:`Under gray skies and a persistent drizzle at Comerica Park, the Rangers manufactured just enough offense in the late innings to escape Detroit with a messy 5-4 victory that exposed troubling early-season cracks. What should have been a comfortable win after building a 4-0 lead through three innings instead became a bullpen-taxing slog that raises questions about rotation depth as Texas heads toward a crucial series in New York.
 
