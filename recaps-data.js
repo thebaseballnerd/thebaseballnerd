@@ -42,7 +42,7 @@ Detroit's comeback began immediately in the bottom of the fourth when Wenceel PÃ
 
 Alejandro Osuna rescued the Rangers in the eighth with the game's most crucial swing, turning on a first-pitch offering from Burch Smith and lining a double down the left field line to score Jake Burger. That clutch hit off the Tigers' most effective reliever provided just enough margin for Jacob Latz to nail down his save in the ninth.
 
-The bullpen parade that followed Gore's early exit ultimately held, with Tyler Alexander earning the win despite the committee approach consuming five different arms. On a cold, dreary afternoon that stretched past three hours, the Rangers found a way to steal one, but the inefficient pitching performance hardly inspires confidence heading into the Bronx.`
+The bullpen parade that followed Gore's early exit ultimately held, with Tyler Alexander earning the win despite the committee approach consuming five different arms. On a cold, dreary afternoon that stretched past three hours, the Rangers found a way to steal one, but the inefficient pitching performance hardly inspires confidence to begin a six game road trip that culminates in the Bronx.`
 },{
   id:'4-29-26-yankees',
   date:'April 29, 2026',
