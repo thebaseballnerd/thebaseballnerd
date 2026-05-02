@@ -23,6 +23,26 @@
  */
 
 const RECAPS = [{
+  id:'5-1-26-detroit-tigers',
+  date:'May 1, 2026',
+  opponent:'Detroit Tigers',
+  home:false,
+  result:'win',
+  score:'TEX 5, DET 4',
+  record:'16-16',  // ← fill in current record
+  preview:"In a game that began with the Rangers showing an explosive offense, both teams settled into a contest to see who could outlast the other on a cold and wet afternoon in Detroit.",
+  body:`Under gray skies and a persistent drizzle at Comerica Park, the Rangers manufactured just enough offense in the late innings to escape Detroit with a messy 5-4 victory that exposed troubling early-season cracks. What should have been a comfortable win after building a 4-0 lead through three innings instead became a bullpen-taxing slog that raises questions about rotation depth as Texas heads toward a crucial series in New York.
+
+MacKenzie Gore's struggles told the story of an afternoon that went sideways quickly. The left-hander labored through 94 pitches to record just 11 outs, walking three and surrendering the Rangers' four-run cushion before Skip Schumaker mercifully pulled him with one out in the fourth. Gore's 58.5% strike rate reflects a pitcher still searching for command in his seventh start, and the timing couldn't be worse with five more bullpen arms now needed to finish a game that should have been locked down by the starter.
+
+The early offensive surge painted a different picture entirely. Josh Jung delivered twice against Jack Flaherty, driving in Brandon Nimmo with a line drive to left in the first inning before adding another RBI single in a three-run third. Danny Jansen's solo shot to left field in that same third inning marked his second homer of the season, while Joc pederson tacked on a sacrifice fly to seemingly put the game away at 4-0.
+
+Detroit's comeback began immediately in the bottom of the fourth when Wenceel Pérez punished Gore with a two-RBI single, then Hao-Yu Lee followed with a soft liner to right that scored Spencer Torkelson. The Tigers completed their rally in the fifth against Jalen Beeks when Riley Greene's forceout brought home Kerry Carpenter to even the score at four.
+
+Alejandro Osuna rescued the Rangers in the eighth with the game's most crucial swing, turning on a first-pitch offering from Burch Smith and lining a double down the left field line to score Jake Burger. That clutch hit off the Tigers' most effective reliever provided just enough margin for Jacob Latz to nail down his save in the ninth.
+
+The bullpen parade that followed Gore's early exit ultimately held, with Tyler Alexander earning the win despite the committee approach consuming five different arms. On a cold, dreary afternoon that stretched past three hours, the Rangers found a way to steal one, but the inefficient pitching performance hardly inspires confidence heading into the Bronx.`
+},{
   id:'4-29-26-yankees',
   date:'April 29, 2026',
   opponent:'New York Yankees',
