@@ -36,7 +36,7 @@ const RECAPS = [{
 
 The nightmare began immediately in the first inning when Dillon Dingler crushed a three-run homer to left field, capping a rally that scored Colt Keith and Riley Greene. Rocker threw just four pitches to Dingler, all of them hittable. The second inning brought more misery as Kevin McGonigle and Gleyber Torres delivered back-to-back RBI singles, the latter coming on a three-pitch sequence that suggested Rocker had completely lost his feel.
 
-What made the early deficit particularly crushing was Josh Jung's fielding error in the second frame, which allowed two runs that should have stayed off the board. Jung, normally reliable with the glove, couldn't handle a routine chance that turned a manageable situation into a rout. Skip Schumaker had seen enough after 39 pitches from his starter.
+What made the early deficit particularly crushing was Josh Jung's fielding error in the second frame, which allowed two runs that should have stayed off the board. Jung, normally reliable with the glove, couldn't handle a routine chance that turned a manageable situation into a rout. Skip Schumaker had seen enough after 43 pitches from his starter.
 
 The Rangers' offensive response? Practically nonexistent. They went 0-for-6 with runners in scoring position and stranded seven baserunners against Detroit starter Keider Montero, who cruised through 6.2 innings despite the cold conditions that typically favor pitchers. Jake Burger's solo homer in the fourth provided the only run, a meaningless tally in what had already become a lost cause.
 
