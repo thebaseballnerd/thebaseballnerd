@@ -23,6 +23,27 @@
  */
 
 const RECAPS = [{
+  id:'5-2-26-detroit-tigers',
+  date:'2026-05-02',
+  opponent:'Detroit Tigers',
+  home:false,
+  result:'loss',
+  score:'TEX 1, DET 5',
+  record:'16-17',  // ← fill in current record
+  gamePk:824284,
+  preview:"43 pitches. 2 stolen bases from a painfully slow delivery. 5 runs scored. 2 innings pitched. Kumar Rocker got rocked and Skip Schumaker had seen enough.",
+  body:`Kumar Rocker's season hit rock bottom on a frigid Friday night in Detroit, where his command evaporated faster than warmth from the 48-degree air. The Rangers' embattled starter lasted just two innings, surrendering five runs on six hits while watching baserunners steal at will against him. Four stolen bases in two frames. Complete chaos.
+
+The nightmare began immediately in the first inning when Dillon Dingler crushed a three-run homer to left field, capping a rally that scored Colt Keith and Riley Greene. Rocker threw just four pitches to Dingler, all of them hittable. The second inning brought more misery as Kevin McGonigle and Gleyber Torres delivered back-to-back RBI singles, the latter coming on a three-pitch sequence that suggested Rocker had completely lost his feel.
+
+What made the early deficit particularly crushing was Josh Jung's fielding error in the second frame, which allowed two runs that should have stayed off the board. Jung, normally reliable with the glove, couldn't handle a routine chance that turned a manageable situation into a rout. Skip Schumaker had seen enough after 39 pitches from his starter.
+
+The Rangers' offensive response? Practically nonexistent. They went 0-for-6 with runners in scoring position and stranded seven baserunners against Detroit starter Keider Montero, who cruised through 6.2 innings despite the cold conditions that typically favor pitchers. Jake Burger's solo homer in the fourth provided the only run, a meaningless tally in what had already become a lost cause.
+
+Cal Quantrill, Peyton Gray, and Gavin Collyer combined for six shutout innings in relief, showcasing exactly what the Rangers needed from their rotation but didn't get from Rocker. Their efforts felt hollow given the early hole. The bullpen threw 105 pitches to clean up another Rocker mess, taxing arms that will be needed throughout the long season.
+
+This marked Rocker's sixth start, and the pattern is becoming undeniable. When he's bad, he's catastrophically bad. The stolen bases suggest his slow delivery remains a liability, while the command issues point to deeper mechanical problems. At some point, the Rangers will need to confront whether their investment in the former Vanderbilt ace is paying dividends or just accumulating costly mistakes like this frigid Detroit disaster.`
+},{
   id:'5-1-26-detroit-tigers',
   date:'May 1, 2026',
   opponent:'Detroit Tigers',
