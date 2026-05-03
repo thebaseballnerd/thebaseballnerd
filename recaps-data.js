@@ -32,7 +32,7 @@ const RECAPS = [{
   record:'16-17',  // ← fill in current record
   gamePk:824284,
   preview:"43 pitches. 2 stolen bases from a painfully slow delivery. 5 runs scored. 2 innings pitched. Kumar Rocker got rocked and Skip Schumaker had seen enough.",
-  body:`Kumar Rocker's season hit rock bottom on a frigid Friday night in Detroit, where his command evaporated faster than warmth from the 48-degree air. The Rangers' embattled starter lasted just two innings, surrendering five runs on six hits while watching baserunners steal at will against him. Four stolen bases in two frames. Complete chaos.
+  body:`Kumar Rocker's season hit rock bottom on a frigid Friday night in Detroit, where his command evaporated faster than warmth from the 48-degree air. The Rangers' embattled starter lasted just two innings, surrendering five runs on six hits while watching baserunners steal at will against him. Complete chaos.
 
 The nightmare began immediately in the first inning when Dillon Dingler crushed a three-run homer to left field, capping a rally that scored Colt Keith and Riley Greene. Rocker threw just four pitches to Dingler, all of them hittable. The second inning brought more misery as Kevin McGonigle and Gleyber Torres delivered back-to-back RBI singles, the latter coming on a three-pitch sequence that suggested Rocker had completely lost his feel.
 
