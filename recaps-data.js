@@ -24,7 +24,7 @@
 
 const RECAPS = [{
   id:'5-3-26-detroit-tigers',
-  date:'2026-05-03',
+  date:'May 3, 2026',
   opponent:'Detroit Tigers',
   home:false,
   result:'loss',
@@ -49,7 +49,7 @@ Josh Smith collected two of the Rangers' six hits. Corey Seager, Brandon Nimmo a
 The Rangers left runners in scoring position with two outs three times, including twice by Nimmo and once by Burger. Seager grounded into a double play. This was an offensive performance completely devoid of clutch hitting or sustained rallies. Unless something changes quickly, this season will slip away before Memorial Day arrives.`
 },{
   id:'5-2-26-detroit-tigers',
-  date:'2026-05-02',
+  date:'May 2, 2026',
   opponent:'Detroit Tigers',
   home:false,
   result:'loss',
