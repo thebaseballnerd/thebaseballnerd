@@ -23,6 +23,31 @@
  */
 
 const RECAPS = [{
+  id:'5-3-26-detroit-tigers',
+  date:'2026-05-03',
+  opponent:'Detroit Tigers',
+  home:false,
+  result:'loss',
+  score:'TEX 1, DET 7',
+  record:'16-18',  // ← fill in current record
+  gamePk:824285,
+  preview:"The Texas Rangers remain in second place in the AL West simply because the rest of the AL West is playing horrendous baseball at this point in the season. Whatever Skip Schumaker is trying to do is just simply not working out.",
+  body:`Offensive futility doomed the Rangers in a 7-1 loss to Detroit at Comerica Park, extending their early-season struggles with another dismal showing at the plate. Seven total runners reached base all night. Four made it to scoring position. The Rangers went 0-for-4 with runners in scoring position and managed just eight total bases as a team.
+
+Jack Leiter pitched well enough through five innings before unraveling in the seventh, but the offense provided no support whatsoever. The Rangers collected six hits and drew two walks across nine innings against a Detroit bullpen game. That's not major league caliber production.
+
+Spencer Torkelson broke the scoreless deadlock in the fifth with a two-run homer to left center, his sixth of the season. Riley Greene had reached base ahead of him, and Torkelson turned on Leiter's offering in just three pitches. The 12 mph wind blowing out to left field likely helped carry the ball over the wall.
+
+Leiter surrendered another run in the sixth when Kevin McGonigle lined a single to right field, scoring Jake Rogers. The right-hander had struck out 10 batters through 6.2 innings but couldn't escape the seventh inning intact.
+
+The Rangers finally broke through against Ricky Vanasco in the seventh when Kyle Higashioka grounded out softly to first base, scoring Ezequiel Duran. Josh Smith had reached third base, but that lone RBI represented the sum total of Texas offensive production.
+
+Detroit buried the game in the bottom of the seventh. Hao-Yu Lee singled off Leiter to score Kerry Carpenter, then Skip Schumaker pulled his starter. Tyler Alexander entered and immediately gave up back-to-back RBI singles to McGonigle and Matt Vierling. Vierling's double to right field plated two more runs, turning a manageable deficit into a rout.
+
+Josh Smith collected two of the Rangers' six hits. Corey Seager, Brandon Nimmo and Josh Jung each managed one hit apiece but combined for five strikeouts. Jake Burger went 0-for-4 with two strikeouts. Evan Carter went hitless in four at-bats.
+
+The Rangers left runners in scoring position with two outs three times, including twice by Nimmo and once by Burger. Seager grounded into a double play. This was an offensive performance completely devoid of clutch hitting or sustained rallies. Unless something changes quickly, this season will slip away before Memorial Day arrives.`
+},{
   id:'5-2-26-detroit-tigers',
   date:'2026-05-02',
   opponent:'Detroit Tigers',
