@@ -23,6 +23,29 @@
  */
 
 const RECAPS = [{
+  id:'5-5-26-yankees',
+  date:'May 5, 2026',
+  opponent:'New York Yankees',
+  home:false,
+  result:'loss',
+  score:'TEX 4, NYY 7',
+  record:'16-19',  // ← fill in current record
+  gamePk:822743,
+  preview:"The Texas Rangers had the bases loaded, not once, but twice, and could not bring home a runner. Whatever style of baseball this team is playing, it is not professional and is not well-coached.",
+  body:`Jacob deGrom delivered a vintage performance at Yankee Stadium, carving through New York's lineup with surgical precision for six-plus innings. Seven strikeouts, one walk, and the kind of command that made him a two-time Cy Young winner. The only problem? His offense forgot how to hit with runners in scoring position.
+
+The Rangers stranded 12 runners on base in a 7-4 loss that felt like watching a master craftsman's work get demolished by his own construction crew. deGrom surrendered just six earned runs through 6.1 innings, but those numbers don't tell the story of an offense that went 3-for-13 with runners in scoring position and left eight runners stranded in two-out situations.
+
+Texas jumped ahead early with textbook situational hitting in the first inning. Joc Pederson lifted a sacrifice fly to center, scoring Evan Carter. Two batters later, Ezequiel Duran singled to right field, plating Corey Seager for a 2-0 advantage. Then the clutch hitting vanished like morning fog in the Bronx heat.
+
+The Yankees chipped away methodically. Cody Bellinger doubled home Aaron Judge in the first, cutting the deficit to 3-1. Ryan McMahon's two-run homer in the second tied it at three. Jazz Chisholm Jr. took deGrom deep in the sixth for the go-ahead run, a solo shot that highlighted how thin margins become razor-sharp when your offense can't capitalize on opportunities.
+
+Bellinger delivered the crushing blow in the seventh, a two-RBI double off Jalen Beeks that scored McMahon and José Caballero, stretching New York's lead to 6-3. Paul Goldschmidt added insult with a solo homer in the eighth against Tyler Alexander.
+
+Josh Jung collected three hits in five at-bats, but left three runners in scoring position with two outs. Sam Haggerty and Danny Jansen combined for two more such failures. Jake Burger managed an RBI groundout in the ninth, scoring Duran for the final margin, but it felt like statistical noise after watching the Rangers waste chance after chance.
+
+The 15-mph wind blowing right to left at Yankee Stadium didn't help Texas hitters, but wind doesn't explain swinging through hittable pitches with runners 90 feet away. deGrom deserved better than this listless offensive display. Skip Schumaker's club showed championship-level starting pitching and Little League-level situational awareness.`
+},{
   id:'5-3-26-detroit-tigers',
   date:'May 3, 2026',
   opponent:'Detroit Tigers',
