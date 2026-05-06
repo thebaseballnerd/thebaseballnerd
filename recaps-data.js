@@ -30,7 +30,7 @@ const RECAPS = [{
   result:'loss',
   score:'TEX 4, NYY 7',
   record:'16-19',  // ← fill in current record
-  gamePk:822743,
+  gamePk:823553,
   preview:"The Texas Rangers had the bases loaded, not once, but twice, and could not bring home a runner. Whatever style of baseball this team is playing, it is not professional and is not well-coached.",
   body:`Jacob deGrom delivered a vintage performance at Yankee Stadium, carving through New York's lineup with surgical precision for six-plus innings. Seven strikeouts, one walk, and the kind of command that made him a two-time Cy Young winner. The only problem? His offense forgot how to hit with runners in scoring position.
 
