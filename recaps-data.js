@@ -23,6 +23,29 @@
  */
 
 const RECAPS = [{
+  id:'5-6-26-yankees',
+  date:'May 6,2026',
+  opponent:'New York Yankees',
+  home:false,
+  result:'win',
+  score:'TEX 6, NYY 1',
+  record:'17-19',  // ← fill in current record
+  gamePk:823550,
+  preview:"The Texas Rangers' true ace pitcher carved up the surging Yankees on Wednesday night in the Bronx, the only run scored was a solo shot by Aaron Judge. Eovaldi completed the 8th inning with 100 pitches to allow Jacob Latz to effeciently close out the game, one the Rangers desperately needed.",
+  body:`Nathan Eovaldi carved through the Yankees lineup like a surgeon with a scalpel, delivering eight innings of near-perfection that overshadowed what should have been a statement offensive performance. The veteran right-hander allowed just three hits and one run while striking out eight, throwing exactly 100 pitches in a masterclass that reminded everyone why Texas traded for him in the first place.
+
+But here's the maddening paradox of this 6-1 victory at Yankee Stadium. The Rangers exploded for six runs on nine hits, yet still managed to showcase their most glaring weakness in the process. They went 2-for-10 with runners in scoring position and left seven men on base, including four runners stranded in scoring position with two outs. Even in victory, the fundamental inability to capitalize on scoring chances remains a festering wound.
+
+The offensive fireworks started early when Corey Seager took Will Warren deep on just four pitches in the first inning, his seventh homer of the season sailing into the right field seats. The third inning brought more drama as Ezequiel Duran ripped a line drive double to left, scoring Brandon Nimmo. Two batters later, Evan Carter launched his fourth home run of the year, also to right field, plating Duran and extending the lead to 4-0.
+
+The fourth inning continued the assault on Warren. Duran lifted a sacrifice fly to center, bringing home Jake Burger. Seager followed immediately with an RBI single to right, scoring Andrew McCutchen and chasing the Yankees starter after just four innings of work.
+
+Yet between those explosive moments lurked missed opportunities. Josh Jung struck out three times in five at-bats. Kyle Higashioka whiffed three times as well. The middle of the order continues to hemorrhage production, leaving too much on the shoulders of Seager and the top of the lineup.
+
+Eovaldi's dominance made those concerns academic tonight. After Aaron Judge's three-pitch home run in the sixth provided the Yankees' only run, the Rangers ace settled back into cruise control. He walked nobody, attacked the strike zone relentlessly, and gave Skip Schumaker exactly what this rotation desperately needed.
+
+The victory masks deeper issues, though. When you're winning 6-1 and still leaving this many runners stranded, it exposes the razor-thin margin for error this team operates within. Eovaldi won't pitch this brilliantly every fifth day.`
+},{
   id:'5-5-26-yankees',
   date:'May 5, 2026',
   opponent:'New York Yankees',
