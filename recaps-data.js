@@ -23,6 +23,29 @@
  */
 
 const RECAPS = [{
+  id:'5-7-26-yankees',
+  date:'May 7, 2026',
+  opponent:'New York Yankees',
+  home:false,
+  result:'loss',
+  score:'TEX 2, NYY 9',
+  record:'17-20',  // ← fill in current record
+  gamePk:823551,
+  preview:"Ugly, sloppy defense, an inability to be efficient on the mound and nagging injuries have allowed the Rangers to be what everyone expected them to be. Coming home to face the Cubs is now an even bigger task after dropping 4 of 6 on the road.",
+  body:`A dropped popup changed everything for MacKenzie Gore and the Rangers in what became a 9-2 blowout loss at Yankee Stadium. The left-hander was navigating the sixth inning with minimal damage when Alejandro Osuna lost track of Amed Rosario's routine fly ball, opening the floodgates for a six-run Yankees rally that transformed a tight 2-1 game into a rout.
+
+Gore entered the afternoon carrying a 5.18 ERA through his first seven starts, the kind of numbers that explain why Washington was shopping him before the trade. His command issues surfaced again, as he reached three-ball counts 45 times this season, tied for fourth-most in the majors. The inability to get ahead consistently finally caught up to him in that disastrous sixth frame.
+
+The Rangers had clawed back from an early deficit thanks to Ezequiel Duran's power display. After Cody Bellinger's first-inning triple off a misplayed ball by Joc Pederson scored Paul Goldschmidt, Duran answered with a solo blast in the third on the first pitch he saw from Brendan Beck. Two innings later, Duran drove in another run on a forceout that scored Osuna for a 2-1 lead.
+
+But Pederson's defensive miscues in right field foreshadowed larger problems. The veteran hasn't played the outfield consistently since September 2023 with San Francisco, and it showed. His first-inning struggles contributed to multiple extra bases, including Bellinger's RBI triple. There's a reason Skip Schumaker replaced him with Andrew McCutchen after two innings.
+
+The sixth inning unraveled quickly once Osuna's error kept the Yankees' rally alive. Trent Grisham delivered the knockout punch with a three-run double that scored Bellinger, Rosario, and Ryan McMahon. J.C. Escarra followed with an RBI single before Gore finally exited. The damage continued against relievers Jalen Beeks and Cole Winn, as Aaron Judge and Bellinger tacked on two more runs to make it 7-2.
+
+Texas managed just five hits and stranded 10 runners, going 1-for-5 with runners in scoring position. The offensive futility extended a troubling pattern for a lineup that couldn't capitalize on scoring chances. Corey Seager walked twice but never crossed the plate despite batting behind Duran's production.
+
+The Yankees added late insurance runs in the seventh and eighth innings, with Max Schuemann and McMahon driving home the final tallies in what became a 3-hour, 11-minute marathon. Gore's season-long command problems and the team's defensive lapses combined for another forgettable afternoon in the Bronx.`
+},{
   id:'5-6-26-yankees',
   date:'May 6,2026',
   opponent:'New York Yankees',
