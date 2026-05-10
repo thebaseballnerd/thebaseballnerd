@@ -23,6 +23,54 @@
  */
 
 const RECAPS = [{
+  id:'5-9-26-chicago-cubs',
+  date:'May 9, 2026',
+  opponent:'Chicago Cubs',
+  home:true,
+  result:'win',
+  score:'TEX 6, CHC 0',
+  record:'18-21',  // ← fill in current record
+  gamePk:822905,
+  preview:"Justin Foscue comes through, and the Rangers find new life. Does it continue this afternoon in Arlington?",
+  body:`Edward Cabrera looked like a pitcher who had lost his way. The Cubs right-hander surrendered five runs across five innings at Globe Life Field Friday night, watching strike after strike get tattooed by Rangers hitters who seemed to know what was coming. Even a broken clock is right twice a day, and for Texas, every swing felt perfectly timed.
+
+Josh Jung opened the scoring parade in the second inning with a four-pitch demolition job, turning Cabrera's offering into his fifth home run of the season. The blast to right center field set the tone for what would become a methodical dismantling. Two batters later, Alejandro Osuna delivered the knockout punch of the frame, lining a single to left that plated Evan Carter and pushed the lead to 2-0.
+
+Cabrera's struggles intensified in the fourth. Joc Pederson needed just two pitches to double Carter home, then Osuna struck again with another RBI single, this time finding the gap against the shifted defense. The Cubs starter was hemorrhaging runs, his command evaporating in the Texas heat.
+
+Justin Foscue provided the exclamation point in the fifth, launching his first homer of 2026 into the left field seats. The four-pitch sequence represented everything wrong with Cabrera's night. Location, velocity, sequencing. Nothing worked.
+
+While Cabrera imploded, Jack Leiter navigated through early turbulence to give Skip Schumaker exactly what the Rangers needed. The young right-hander scattered three hits across 4.2 innings, though his five walks suggested the command still needs refinement. Six strikeouts demonstrated the swing-and-miss stuff remains electric when he finds the zone.
+
+Jalen Beeks emerged from the bullpen to earn the victory with 1.1 innings of scoreless relief. Cole Winn and Gavin Collyer followed suit, preserving the shutout through the final three frames. The Cubs managed just five hits total, never mounting a serious threat against the Rangers' collection of arms.
+
+Kyle Higashioka capped the scoring in the sixth with a sharp single off Jacob Webb, plating Jung for the final margin. At 2 hours and 43 minutes, this one dragged on longer than the lopsided score suggested, but Texas never let Chicago back into the conversation.
+
+The 35,807 in attendance witnessed a performance that showcased both the Rangers' offensive depth and their ability to piece together quality innings from the pitching staff when the starter exits early.`
+},{
+  id:'5-8-26-chicago-cubs',
+  date:'May 8, 2026',
+  opponent:'Chicago Cubs',
+  home:true,
+  result:'loss',
+  score:'TEX 1, CHC 7',
+  record:'17-21',  // ← fill in current record
+  gamePk:822904,
+  preview:"Seven starts into his major league career, Kumar Rocker continues to demonstrate he's not ready for this level.",
+  body:`Seven starts into his major league career, Kumar Rocker continues to demonstrate he's not ready for this level. The right-hander lasted just 3.2 innings against Chicago, surrendering three runs on four hits while walking three batters in a 7-1 Cubs victory at Globe Life Field that felt decided before the Rangers even found their footing.
+
+Rocker's struggles materialized immediately. Ian Happ grounded a three-pitch single to left field in the first inning, plating Michael Conforto for an early Chicago lead. But the real damage came in the fourth, when Seiya Suzuki turned an eight-pitch battle into a two-run homer to center field, scoring Happ ahead of him. That blast effectively ended Rocker's evening, though Skip Schumaker let him face two more batters before mercifully pulling him.
+
+The numbers tell the story of a pitcher still searching for command. Three walks in fewer than four innings. Constant traffic on the basepaths. An inability to put hitters away when ahead in counts. For all the velocity and potential, Rocker's seventh start looked disturbingly similar to his first six.
+
+Chicago's Ben Brown provided a stark contrast, no-hitting the Rangers through four innings while striking out three. The Cubs starter made Rangers hitters look foolish, locating his fastball and keeping them off balance with secondary offerings. When Ryan Rolison replaced Brown in the fifth, he immediately ran into trouble, walking two batters before Justin Foscue lined a single to left that scored Evan Carter for the Rangers' only run.
+
+That brief moment of hope evaporated quickly. Pete Crow-Armstrong doubled home Michael Busch in the sixth for a 4-1 Cubs lead. Then came the seventh-inning avalanche. Busch ripped a sharp line drive to left field that cleared the bases, scoring Alex Bregman, Happ, and Suzuki in one devastating swing that turned a competitive game into a rout.
+
+Cal Quantrill, who relieved Rocker, bore the brunt of Chicago's late-game surge. The veteran right-hander allowed four runs across 3.1 innings, including all three of Busch's RBIs. The Rangers managed just two hits total, going 1-for-5 with runners in scoring position while stranding five baserunners.
+
+At 32,394 fans witnessed another reminder that rushing prospects rarely works. Rocker's development continues, but somewhere other than Globe Life Field would serve everyone better.`
+},{
   id:'5-7-26-yankees',
   date:'May 7, 2026',
   opponent:'New York Yankees',
