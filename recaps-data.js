@@ -23,6 +23,29 @@
  */
 
 const RECAPS = [{
+  id:'5-10-26-chicago-cubs',
+  date:'May 10, 2026',
+  opponent:'Chicago Cubs',
+  home:true,
+  result:'win',
+  score:'TEX 3, CHC 0',
+  record:'19-21',  // ← fill in current record
+  gamePk:822902,
+  preview:"Jacob deGrom carved through the Cubs lineup like a surgeon with a scalpel, delivering 10 strikeouts across seven dominant innings in a 3-0 Rangers victory that showcased exactly why his chase for 2,000 career strikeouts remains must-watch baseball.",
+  body:`Jacob deGrom carved through the Cubs lineup like a surgeon with a scalpel, delivering 10 strikeouts across seven dominant innings in a 3-0 Rangers victory that showcased exactly why his chase for 2,000 career strikeouts remains must-watch baseball. The right-hander allowed just three hits and zero walks, retiring 21 of 24 batters faced in what amounted to a clinic in precision pitching.
+
+The offensive fireworks were limited but timely. Josh Jung sparked both scoring rallies, reaching base four times on three hits. In the fourth inning, Jung's presence on the basepaths paid dividends when Alejandro Osuna grounded into what became a run-scoring fielder's choice. The Cubs challenged the tag play at home plate, but the call stood, giving Texas its first run against Jameson Taillon.
+
+That lone run held up until the eighth inning, when Jung again found himself in scoring position before Evan Carter launched his fifth home run of the season off Daniel Palencia. The two-run blast to right field provided all the cushion deGrom's masterpiece required.
+
+The most glaring storyline wasn't what Texas accomplished, but what they failed to execute. The Rangers went 0-for-6 with runners in scoring position, a stunning display of offensive futility that could have derailed any game not backed by elite pitching. They weren't even trying to get runners home, leaving multiple opportunities scattered across nine innings like discarded lottery tickets.
+
+Taillon actually pitched well enough to win most games, allowing just one earned run through 5.1 innings while striking out four. But when deGrom is operating at this level, good enough isn't nearly sufficient. The Cubs managed only three base hits total, with Nico Hoerner accounting for two of them.
+
+Jacob Latz closed out the final two innings with a perfect performance, allowing no hits while striking out one to earn the save. The Cubs' offensive futility was complete, managing zero extra-base hits against Rangers pitching.
+
+Skip Schumaker's club improved to 8-0 in deGrom's starts this season, a testament to both the ace's continued excellence and the team's ability to manufacture just enough offense when their rotation delivers dominance. The 137-minute game time reflected the crisp pace deGrom maintained throughout his outing, never allowing Chicago's hitters to find any rhythm or comfort zone.`
+},{
   id:'5-9-26-chicago-cubs',
   date:'May 9, 2026',
   opponent:'Chicago Cubs',
