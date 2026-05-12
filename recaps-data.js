@@ -23,6 +23,27 @@
  */
 
 const RECAPS = [{
+  id:'5-11-26-arizona-diamondbacks',
+  date:'May 11, 2026',
+  opponent:'Arizona Diamondbacks',
+  home:true,
+  result:'loss',
+  score:'TEX 0, AZ 1',
+  record:'19-22',  // ← fill in current record
+  gamePk:822901,
+  preview:"Michael Soroka carved through the Rangers lineup like it was still 2019, turning back the clock with six-plus innings of dominant pitching that silenced a sparse Globe Life Field crowd.",
+  body:`Michael Soroka carved through the Rangers lineup like it was still 2019, turning back the clock with six-plus innings of dominant pitching that silenced a sparse Globe Life Field crowd. The Arizona right-hander allowed just three hits and struck out five in a masterful performance that reminded everyone why he was once considered among baseball's brightest young stars before injuries derailed his trajectory.
+
+The decisive blow came early and stayed that way. Corbin Carroll reached base to start the game, and Geraldo Perdomo immediately capitalized with a three-pitch at-bat that ended in a line drive double to right field. Brandon Nimmo had no chance as Carroll raced home with what proved to be the game's only run. That quick strike in the first inning was all Soroka needed, and more importantly, all he would get.
+
+Jakob Junis battled through 2.2 innings before Skip Schumaker made the early hook, but the damage was already done. The Rangers starter surrendered that early run and never found his rhythm, though the bullpen performed admirably behind him. Jalen Beeks, Peyton Gray, Cole Winn, and Tyler Alexander combined for six-plus innings of mostly effective relief work, keeping the deficit manageable and the game within reach.
+
+Except Texas couldn't reach anything against Soroka. The Rangers managed just four hits all night and went 0-for-3 with runners in scoring position. Most damaging was Evan Carter's failure to deliver in two separate opportunities with runners on second and two outs. Those moments defined a listless offensive performance that left 22,651 fans with little to cheer about in a cavernous ballpark that felt even emptier than the attendance suggested.
+
+Corey Seager went hitless in three at-bats, continuing a concerning trend for the Rangers' highest-paid player. Josh Jung managed no hits in four trips. The middle of the order produced nothing while Soroka methodically worked through his business with the efficiency of a surgeon.
+
+Paul Sewald closed it out with a perfect ninth inning to secure Arizona's 1-0 victory. For a Rangers team trying to stay relevant in an increasingly competitive AL West, performances like this only accelerate the fan apathy evident in those empty seats. Soroka's renaissance continues while Texas searches for answers that seem increasingly elusive.`
+},{
   id:'5-10-26-chicago-cubs',
   date:'May 10, 2026',
   opponent:'Chicago Cubs',
