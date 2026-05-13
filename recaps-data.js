@@ -23,6 +23,31 @@
  */
 
 const RECAPS = [{
+  id:'5-12-26-arizona-diamondbacks',
+  date:'May 12, 2026',
+  opponent:'Arizona Diamondbacks',
+  home:true,
+  result:'win',
+  score:'TEX 7, AZ 1',
+  record:'20-22',  // ← fill in current record
+  gamePk:822903,
+  preview:"Joc Pederson wasted no time making his statement Monday night at Globe Life Field.",
+  body:`Joc Pederson wasted no time making his statement Monday night at Globe Life Field. The Rangers leadoff man turned on Zac Gallen's first pitch of the game and launched it into the right field stands for his third home run of the season. That early blast set the tone for what became a 7-1 demolition of the Arizona Diamondbacks.
+
+The offensive explosion belonged almost entirely to Texas, but it took patience to fully materialize. After Ildemaro Vargas answered Pederson's opener with a solo shot to left center in the second inning, the game remained tight through four frames. MacKenzie Gore kept Arizona's bats quiet while his offense methodically built separation.
+
+Ezequiel Duran provided the first separation punch with a fourth-inning solo homer to right field off Gallen, his third of the year. That 3-1 advantage felt manageable for Arizona until the fifth inning arrived like a summer thunderstorm.
+
+The pivotal sequence began when Corey Seager reached on a fielder's choice that plated Brandon Nimmo. Seager's struggles at the plate continued as he finished 0-for-4, but his timely groundball pushed across a crucial insurance run. That proved to be just the beginning of Gallen's fifth-inning collapse.
+
+Duran followed with an RBI single through the left side of the infield, scoring Seager to make it 5-1. Alejandro Osuna kept the rally alive with another run-scoring single to center field. By the time Jake Burger capped the four-run frame with his second RBI single of the night, Arizona had seen enough of their struggling starter.
+
+Gore dominated throughout his eight-inning masterpiece, surrendering just three hits while striking out five. The left-hander's efficiency kept Skip Schumaker's bullpen fresh and the Diamondbacks guessing. Only Vargas managed to solve Gore consistently, collecting the lone run on his second-inning blast.
+
+Burger emerged as an unsung hero with a perfect 3-for-3 night that included two RBIs and a walk. His consistent at-bats provided the foundation for Texas to break the game open when opportunities presented themselves. Nimmo added three hits before departing after tweaking his ankle at first base during the later innings.
+
+The lopsided victory showcased the Rangers' depth and patience against quality pitching. Even when Gallen found his rhythm early, Texas continued grinding out competitive at-bats until the fifth-inning breakthrough changed everything.`
+},{
   id:'5-11-26-arizona-diamondbacks',
   date:'May 11, 2026',
   opponent:'Arizona Diamondbacks',
