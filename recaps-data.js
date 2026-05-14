@@ -23,6 +23,27 @@
  */
 
 const RECAPS = [{
+  id:'5-13-26-arizona-diamondbacks',
+  date:'2026-05-13',
+  opponent:'Arizona Diamondbacks',
+  home:true,
+  result:'win',
+  score:'TEX 6, AZ 5',
+  record:'21-22',  // ← fill in current record
+  gamePk:822900,
+  preview:"If I were a scout, this would be my entry for Paul Sewald; has trouble holding a lead at Globe Life Field.",
+  body:`A three-run lead in the ninth inning should feel comfortable. Paul Sewald had other ideas, and the Rangers turned what looked like certain defeat into a stunning 6-5 walkoff victory that left 26,049 fans at Globe Life Field wondering how they'd just witnessed one of the season's most improbable comebacks.
+
+Jake Burger's three-run blast in the fifth inning seemed to provide all the cushion Kumar Rocker would need. The Rangers starter had navigated five innings of traffic, allowing just three hits while issuing four walks in what felt like a typical Rocker outing. Burger turned on Ryne Nelson's first pitch and sent Evan Carter and Alejandro Osuna home ahead of him, capping a rally that broke open a scoreless game in decisive fashion.
+
+But baseball rewards patience, and Arizona chipped away methodically. Lourdes Gurriel Jr. doubled home Nolan Arenado in the sixth against Cole Winn. The veteran Arenado returned the favor an inning later, lifting a sacrifice fly off Peyton Gray to score Ketel Marte and trim the deficit to 3-2.
+
+Skip Schumaker's bullpen management became increasingly desperate as the game stretched past three hours. Jacob Latz entered the ninth with a one-run lead and immediately surrendered it. Arenado ripped a double to left, scoring Corbin Carroll to tie the game. Two batters later, Ildemaro Vargas lined a single to the same spot, plating both Geraldo Perdomo and Arenado to give the Diamondbacks what appeared to be a decisive 5-3 advantage.
+
+The ninth inning bottom half unfolded like a fever dream. Ezequiel Duran doubled home Josh Jung to cut the lead to one. Burger followed with his second clutch hit of the night, a line drive single that scored Duran and knotted the game at five. Danny Jansen needed just one pitch against Juan Morillo to end it, grounding a single through the left side that sent Osuna home with the winning run.
+
+Cal Quantrill earned the victory after cleaning up Latz's mess with a scoreless ninth inning. The Rangers improved their record in dramatic fashion, turning a 3-0 lead into a 3-5 deficit and back into victory in the span of two chaotic innings. Sometimes the best-laid plans crumble, and sometimes that works out perfectly.`
+},{
   id:'5-12-26-arizona-diamondbacks',
   date:'May 12, 2026',
   opponent:'Arizona Diamondbacks',
