@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y0H5FZ8RP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2Y0H5FZ8RP');
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MCQ9ZZ2W');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bases Gained (BG): The Complete Offensive Metric | The Baseball Nerd</title>
+<meta name="description" content="Bases Gained (BG) is The Baseball Nerd's proprietary offensive metric that counts everything a hitter and runner does to score runs, charges for the damage, and adjusts for position. Learn the framework, tiers, and 2026 leaders." />
+<link rel="canonical" href="https://thebaseballnerd.com/bases-gained.html" />
+<meta property="og:title" content="Bases Gained (BG): The Complete Offensive Metric" />
+<meta property="og:description" content="Bases Gained counts everything a hitter and runner does to score runs, charges for the damage, and adjusts for where you play. The Baseball Nerd's proprietary offensive framework." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thebaseballnerd.com/bases-gained.html" />
+<meta property="og:site_name" content="The Baseball Nerd" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Bases Gained (BG) Explained" />
+<meta name="twitter:description" content="Every offensive metric counts something and stops too soon. Bases Gained counts everything, charges for the damage, and adjusts for where you play." />
+<meta name="twitter:site" content="@thebaseballnerd" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Bases Gained (BG): The Complete Offensive Metric",
+      "description": "Bases Gained is The Baseball Nerd's proprietary offensive framework that measures the net positive contribution of a hitter and runner to their team's run-scoring effort, adjusted for positional context.",
+      "author": { "@type": "Person", "name": "Pete Dwyer" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "The Baseball Nerd",
+        "url": "https://thebaseballnerd.com"
+      },
+      "url": "https://thebaseballnerd.com/bases-gained.html",
+      "mainEntityOfPage": "https://thebaseballnerd.com/bases-gained.html",
+      "keywords": ["Bases Gained", "BG baseball stat", "baseball offensive metric", "baseball analytics", "Cal Raleigh MVP", "baseball statistics explained", "proprietary baseball stat"]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Bases Gained in baseball?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bases Gained (BG) is a proprietary offensive metric developed by The Baseball Nerd. It measures the net positive contribution of a hitter and runner to their team's run-scoring effort. It counts total bases, walks, hit by pitch, stolen bases, RBI beyond home runs, and situational run contribution, then applies penalties for caught stealing and double plays, and adjusts for positional context. The result is a single number representing what the player actually did to help his team score runs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does BG stand for in baseball?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BG stands for Bases Gained. It is a proprietary offensive framework developed by The Baseball Nerd to measure total offensive contribution including both positive actions and the damage caused by double plays and caught stealing, adjusted for positional context."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is Bases Gained different from WAR or wRC+?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WAR and wRC+ measure offensive efficiency and rate of production. Bases Gained measures total contribution including everything that helps or hurts run scoring. It penalizes double plays explicitly (the single worst offensive outcome), weights caught stealing by career stolen base rate, credits situational production through RE24, and adjusts for position. It is a counting stat that prices in damage, not just a rate stat that ignores it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does Bases Gained penalize double plays?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A ground ball double play is the single worst outcome a batter can produce. It records two outs and eliminates a baserunner in one swing. No other outcome does that much damage simultaneously. Most public metrics either ignore GIDP entirely or fail to capture its true run expectancy cost. Bases Gained applies an explicit penalty to each double play grounded into, making it the only mainstream offensive framework that directly charges hitters for rally-killing outcomes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the positional adjustment in Bases Gained?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The positional adjustment in Bases Gained is derived from the actual historical BG distributions of qualified hitters at each position across ten years of data. It reflects the offensive standard each position has historically demanded among qualified hitters. Catchers receive a bonus because qualified catchers as a group produce significantly less raw BG than the average qualified hitter. Right fielders receive a penalty because they historically produce the most raw offense of any fielding position. The adjustment is self-correcting by construction."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Did Cal Raleigh outscore Aaron Judge in Bases Gained in 2025?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Cal Raleigh led all of MLB in Bases Gained in 2025 with a score of 613.45, edging Aaron Judge at 586.10. Raleigh won on non-home run RBI, double play penalty (Judge hit into significantly more GIDP), and the positional adjustment that reflects the offensive standard at catcher versus right field. Judge led on total bases, walks, and RE24. The Bases Gained framework surfaced a contribution argument for Raleigh that no traditional or publicly available advanced metric had quantified."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I find the Bases Gained leaderboard?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The live Bases Gained leaderboard covering 2024, 2025, and 2026 is available to paid subscribers of The Baseball Nerd at thebaseballnerd.substack.com/p/bases-gained. The full methodology article is published at thebaseballnerd.com/articles/what-is-bases-gained-in-baseball.html. The white paper and changelog are available by request at pete@thebaseballnerd.com."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Bases Gained park adjusted?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Bases Gained is intentionally not park adjusted. It measures what a player actually contributed in the games he played, not a modeled estimate of what he might have contributed in a neutral environment. Park adjustment is documented as a known limitation in the BG white paper and is a planned future extension of the framework."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #0f2040;
+    --navy-light: #162d52;
+    --gold: #c9a84c;
+    --gold-light: #e2c170;
+    --cream: #f5f0e8;
+    --cream-dark: #e8e1d4;
+    --white: #ffffff;
+    --text-body: #d4cfc7;
+    --green: #7acc5a;
+    --green-dim: rgba(122,204,90,0.1);
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-serif: 'DM Serif Display', serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--navy);
+    color: var(--cream);
+    font-family: var(--font-body);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--navy);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    letter-spacing: 0.05em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--cream); opacity: 0.45; }
+  .nav-links { display: flex; gap: 0; list-style: none; }
+  .nav-links a {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    opacity: 0.45;
+    padding: 0.4rem 0.9rem;
+    display: block;
+    transition: opacity 0.15s, color 0.15s;
+  }
+  .nav-links a:hover { opacity: 1; color: var(--gold); }
+  .nav-cta {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.45rem 1rem;
+    background: var(--gold);
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold-light); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    padding: 5rem 2rem 4rem;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: 'BG';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-display);
+    font-size: clamp(12rem, 28vw, 24rem);
+    letter-spacing: 0.1em;
+    color: rgba(201,168,76,0.04);
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+  }
+  .hero-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background: var(--gold);
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    letter-spacing: 0.03em;
+    line-height: 0.95;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+  h1 span { color: var(--gold); }
+  .hero-sub {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--text-body);
+    max-width: 620px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .meta-item { display: flex; flex-direction: column; gap: 0.2rem; }
+  .meta-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.8;
+  }
+  .meta-value {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--cream);
+  }
+
+  .gold-rule {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0.3;
+  }
+
+  /* ── WHAT IT COUNTS ── */
+  .counts-section {
+    background: var(--navy-mid);
+    padding: 4rem 2rem;
+  }
+  .counts-inner { max-width: 1000px; margin: 0 auto; }
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: 0.04em;
+    color: var(--white);
+    margin-bottom: 2.5rem;
+  }
+
+  .ledger {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.08);
+  }
+  .ledger-col { background: var(--navy-mid); }
+  .ledger-head {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .ledger-head-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .ledger-col.credits .ledger-head-label { color: var(--green); }
+  .ledger-col.debits .ledger-head-label { color: #e07060; }
+  .ledger-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .ledger-col.credits .ledger-dot { background: var(--green); }
+  .ledger-col.debits .ledger-dot { background: #e07060; }
+  .ledger-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0.9rem 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    gap: 1rem;
+    transition: background 0.15s;
+  }
+  .ledger-row:last-child { border-bottom: none; }
+  .ledger-row:hover { background: rgba(201,168,76,0.03); }
+  .ledger-item-name {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    color: var(--cream);
+  }
+  .ledger-item-desc {
+    font-size: 0.78rem;
+    color: var(--text-body);
+    opacity: 0.7;
+    line-height: 1.5;
+    margin-top: 0.2rem;
+  }
+  .ledger-sign {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  .ledger-col.credits .ledger-sign { color: var(--green); }
+  .ledger-col.debits .ledger-sign { color: #e07060; }
+
+  /* ── PHILOSOPHY ── */
+  .philosophy {
+    padding: 5rem 2rem;
+    background: var(--navy);
+  }
+  .philosophy-inner { max-width: 760px; margin: 0 auto; }
+  .pull-quote {
+    border-left: 3px solid var(--gold);
+    padding-left: 2rem;
+    margin: 2.5rem 0;
+  }
+  .pull-quote p {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.35rem;
+    color: var(--cream);
+    line-height: 1.5;
+  }
+  .body-text {
+    font-size: 1rem;
+    color: var(--text-body);
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+  }
+
+  /* ── RALEIGH / JUDGE ── */
+  .case-section {
+    background: var(--navy-mid);
+    padding: 5rem 2rem;
+  }
+  .case-inner { max-width: 900px; margin: 0 auto; }
+  .case-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.1);
+    margin-top: 2rem;
+  }
+  .case-card { background: var(--navy-mid); padding: 2rem; }
+  .case-player {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.25rem;
+  }
+  .case-card.raleigh .case-player { color: var(--gold); }
+  .case-card.judge .case-player { color: var(--cream); }
+  .case-pos {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-bottom: 1.25rem;
+  }
+  .case-card.raleigh .case-pos { color: var(--gold); }
+  .case-card.judge .case-pos { color: var(--cream); }
+  .case-score {
+    font-family: var(--font-mono);
+    font-size: 2.8rem;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .case-card.raleigh .case-score { color: var(--gold); }
+  .case-card.judge .case-score { color: var(--cream); }
+  .case-score-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.6;
+    margin-bottom: 1.5rem;
+  }
+  .case-attrs { display: flex; flex-direction: column; gap: 0.6rem; }
+  .case-attr { display: flex; justify-content: space-between; align-items: center; }
+  .case-attr-key {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-body);
+    opacity: 0.6;
+  }
+  .case-attr-val {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--cream);
+  }
+  .case-attr-val.win { color: var(--gold); font-weight: 600; }
+  .case-note {
+    margin-top: 2rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(201,168,76,0.06);
+    border-left: 3px solid var(--gold);
+    font-size: 0.9rem;
+    color: var(--text-body);
+    line-height: 1.7;
+    grid-column: 1 / -1;
+  }
+
+  /* ── TIERS ── */
+  .tiers-section {
+    padding: 5rem 2rem;
+    background: var(--navy);
+  }
+  .tiers-inner { max-width: 900px; margin: 0 auto; }
+  .tier-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.08);
+    margin-top: 2rem;
+  }
+  .tier-card {
+    background: var(--navy-mid);
+    padding: 1.75rem;
+    position: relative;
+    transition: background 0.2s;
+  }
+  .tier-card:hover { background: var(--navy-light); }
+  .tier-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+  }
+  .tier-card.elite::after { background: #f9c74f; }
+  .tier-card.great::after { background: var(--green); }
+  .tier-card.above::after { background: rgba(201,168,76,0.7); }
+  .tier-card.average::after { background: rgba(201,168,76,0.35); }
+  .tier-card.below::after { background: rgba(192,57,43,0.5); }
+  .tier-card.struggling::after { background: rgba(192,57,43,0.8); }
+  .tier-name {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.3rem;
+  }
+  .tier-card.elite .tier-name { color: #f9c74f; }
+  .tier-card.great .tier-name { color: var(--green); }
+  .tier-card.above .tier-name,
+  .tier-card.average .tier-name { color: var(--gold); }
+  .tier-card.below .tier-name,
+  .tier-card.struggling .tier-name { color: #e07060; }
+  .tier-pct {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.6;
+    margin-bottom: 0.75rem;
+  }
+  .tier-baseball {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-body);
+    margin-bottom: 0.5rem;
+  }
+  .tier-desc {
+    font-size: 0.82rem;
+    color: var(--text-body);
+    opacity: 0.7;
+    line-height: 1.55;
+  }
+
+  /* ── VALIDATION ── */
+  .validation-section {
+    background: var(--navy-mid);
+    padding: 5rem 2rem;
+  }
+  .validation-inner { max-width: 860px; margin: 0 auto; }
+  .validation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.08);
+    margin-top: 2rem;
+  }
+  .val-card {
+    background: var(--navy-mid);
+    padding: 1.75rem;
+    transition: background 0.2s;
+  }
+  .val-card:hover { background: var(--navy-light); }
+  .val-source {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+  }
+  .val-metric {
+    font-family: var(--font-mono);
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .val-desc {
+    font-size: 0.82rem;
+    color: var(--text-body);
+    line-height: 1.55;
+  }
+
+  /* ── FAQ ── */
+  .faq-section {
+    padding: 5rem 2rem;
+    background: var(--navy);
+  }
+  .faq-inner { max-width: 800px; margin: 0 auto; }
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(201,168,76,0.12);
+    margin-top: 2rem;
+  }
+  .faq-item { border-bottom: 1px solid rgba(201,168,76,0.08); }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.5rem 2rem;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  .faq-q-text {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    color: var(--cream);
+  }
+  .faq-icon {
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    color: var(--gold);
+    flex-shrink: 0;
+    transition: transform 0.3s;
+  }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+  .faq-item.open .faq-a { max-height: 400px; }
+  .faq-a-inner {
+    padding: 0 2rem 1.5rem;
+    font-size: 0.95rem;
+    color: var(--text-body);
+    line-height: 1.75;
+  }
+
+  /* ── WHITE PAPER NOTE ── */
+  .whitepaper-section {
+    background: var(--navy-mid);
+    border-top: 1px solid rgba(201,168,76,0.1);
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+    padding: 2.5rem 2rem;
+  }
+  .whitepaper-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .wp-icon {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--gold);
+    opacity: 0.4;
+    flex-shrink: 0;
+  }
+  .wp-text { flex: 1; }
+  .wp-label {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+  .wp-body {
+    font-size: 0.92rem;
+    color: var(--text-body);
+    line-height: 1.7;
+  }
+  .wp-body a {
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+    transition: border-color 0.2s;
+  }
+  .wp-body a:hover { border-color: var(--gold); }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: var(--navy);
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+  .cta-inner { max-width: 640px; margin: 0 auto; }
+  .cta-section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: 0.04em;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+  .cta-section p {
+    font-size: 1rem;
+    color: var(--text-body);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-block;
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    margin-left: 1rem;
+    transition: border-color 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #060e1a;
+    padding: 1.75rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-top: 1px solid rgba(201,168,76,0.06);
+  }
+  .foot-logo { font-family: var(--font-display); font-size: 1.1rem; letter-spacing: 0.08em; color: var(--gold); }
+  .foot-logo span { color: var(--cream); opacity: 0.3; }
+  .foot-copy { font-family: var(--font-mono); font-size: 0.57rem; letter-spacing: 0.08em; color: var(--cream); opacity: 0.18; text-transform: uppercase; }
+  .foot-links { display: flex; gap: 1.25rem; list-style: none; }
+  .foot-links a { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream); opacity: 0.28; text-decoration: none; transition: opacity 0.2s; }
+  .foot-links a:hover { opacity: 0.75; }
+
+  /* ── ANALYSIS IN ACTION ── */
+  .analysis-section {
+    padding: 5rem 2rem;
+    background: var(--navy-mid);
+  }
+  .analysis-inner { max-width: 1000px; margin: 0 auto; }
+  .analysis-intro {
+    font-size: 1rem;
+    color: var(--text-body);
+    line-height: 1.8;
+    margin-top: 1rem;
+    max-width: 680px;
+    margin-bottom: 2.5rem;
+  }
+  .analysis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.1);
+  }
+  .analysis-card {
+    background: var(--navy-mid);
+    padding: 2rem;
+    text-decoration: none;
+    display: block;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .analysis-card:hover { background: var(--navy-light); transform: translateY(-2px); }
+  .analysis-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--gold);
+    transition: height 0.3s;
+  }
+  .analysis-card:hover::before { height: 100%; }
+  .analysis-card-tag {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .analysis-card-tag::before {
+    content: '';
+    display: inline-block;
+    width: 0.6rem;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+  .analysis-card-title {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--cream);
+    line-height: 1.3;
+    margin-bottom: 0.85rem;
+  }
+  .analysis-card-desc {
+    font-size: 0.88rem;
+    color: var(--text-body);
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+  }
+  .analysis-findings {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.25rem;
+    background: rgba(201,168,76,0.05);
+    border-left: 2px solid rgba(201,168,76,0.3);
+  }
+  .analysis-finding {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-body);
+    line-height: 1.5;
+  }
+  .analysis-finding strong {
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .analysis-card-cta {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.6;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: opacity 0.2s, gap 0.2s;
+  }
+  .analysis-card:hover .analysis-card-cta { opacity: 1; gap: 0.65rem; }
+  .analysis-card-cta::after { content: '→'; }
+  .analysis-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.52rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 2px;
+    background: rgba(201,168,76,0.12);
+    color: var(--gold);
+    margin-left: 0.4rem;
+  }
+
+  @media (max-width: 700px) {
+    .nav-links { display: none; }
+    .ledger { grid-template-columns: 1fr; }
+    .tier-grid { grid-template-columns: 1fr 1fr; }
+    .validation-grid { grid-template-columns: 1fr; }
+    .case-grid { grid-template-columns: 1fr; }
+    .analysis-grid { grid-template-columns: 1fr; }
+    .btn-secondary { margin-left: 0; margin-top: 0.75rem; display: block; text-align: center; }
+  }
+  @media (max-width: 500px) {
+    .tier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCQ9ZZ2W"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo">The Baseball <span>Nerd</span></a>
+    <ul class="nav-links">
+      <li><a href="/news.html">News</a></li>
+      <li><a href="/articles.html">Articles</a></li>
+      <li><a href="/recaps.html">Recaps</a></li>
+      <li><a href="/rosters.html">Rosters</a></li>
+      <li><a href="/podcasts.html">Podcasts</a></li>
+      <li><a href="/vault.html">Vault</a></li>
+      <li><a href="/about.html">About</a></li>
+    </ul>
+    <a class="nav-cta" href="https://thebaseballnerd.substack.com" target="_blank">Subscribe →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">The Baseball Nerd Analytics Suite</div>
+    <h1>Bases <span>Gained</span></h1>
+    <p class="hero-sub">Every offensive metric counts something and stops counting too soon. Bases Gained counts everything, charges for the damage, and adjusts for where you play.</p>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="meta-label">Abbreviation</span>
+        <span class="meta-value">BG</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Type</span>
+        <span class="meta-value">Counting, Net</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Park Adjusted</span>
+        <span class="meta-value">No</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Developed By</span>
+        <span class="meta-value"><a href="/about.html" style="color:var(--cream);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.4);transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.4)'">Pete Dwyer / The Baseball Nerd</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- THE LEDGER -->
+<section class="counts-section">
+  <div class="counts-inner">
+    <p class="section-label">The Framework</p>
+    <h2 class="section-title">Both Sides of the Ledger</h2>
+
+    <div class="ledger">
+      <div class="ledger-col credits">
+        <div class="ledger-head">
+          <div class="ledger-dot"></div>
+          <div class="ledger-head-label">Credits: What Helps Run Scoring</div>
+        </div>
+        <div class="ledger-row">
+          <div>
+            <div class="ledger-item-name">Total Bases</div>
+            <div class="ledger-item-desc">Singles, doubles, triples, and home runs weighted by base advancement.</div>
+          </div>
+          <div class="ledger-sign">+</div>
+        </div>
+        <div class="ledger-row">
+          <div>
+            <div class="ledger-item-name">Walks and Hit by Pitch</div>
+            <div class="ledger-item-desc">Every free base counts. Getting on base without a hit is still production.</div>
+          </div>
+          <div class="ledger-sign">+</div>
+        </div>
+        <div class="ledger-row">
+          <div>
+            <div class="ledger-item-name">Stolen Bases</div>
+            <div class="ledger-item-desc">Aggressive baserunning that advances the team without a batted ball.</div>
+          </div>
+          <div class="ledger-sign">+</div>
+        </div>
+        <div class="ledger-row">
+          <div>
+            <div class="ledger-item-name">RBI Beyond Home Runs</div>
+            <div class="ledger-item-desc">Runs driven in by contact, sacrifice, or speed. Excludes HRs already counted in TB.</div>
+          </div>
+          <div class="ledger-sign">+</div>
+        </div>
+        <div class="ledger-row">
+          <div>
+            <div class="ledger-item-name">Situational Run Contribution (RE24)</div>
+            <div class="ledger-item-desc">Run expectancy added or subtracted by each plate appearance based on game state.</div>
+          </div>
+          <div class="ledger-sign">+</div>
+        </div>
+        <div class="ledger-row">
+          <div>
+            <div class="ledger-item-name">Positional Adjustment</div>
+            <div class="ledger-item-desc">Context credit or penalty based on the offensive standard historically set at each position.</div>
+          </div>
+          <div class="ledger-sign">+/−</div>
+        </div>
+      </div>
+
+      <div class="ledger-col debits">
+        <div class="ledger-head">
+          <div class="ledger-dot"></div>
+          <div class="ledger-head-label">Debits: What Hurts Run Scoring</div>
+        </div>
+        <div class="ledger-row">
+          <div>
+            <div class="ledger-item-name">Double Play Penalty</div>
+            <div class="ledger-item-desc">The single worst offensive outcome. Two outs and a runner erased in one swing. Charged explicitly.</div>
+          </div>
+          <div class="ledger-sign">−</div>
+        </div>
+        <div class="ledger-row">
+          <div>
+            <div class="ledger-item-name">Caught Stealing Penalty</div>
+            <div class="ledger-item-desc">Weighted by career stolen base rate. A 30% career basestealer is penalized more than a 75% career basestealer caught in the same situation.</div>
+          </div>
+          <div class="ledger-sign">−</div>
+        </div>
+        <div class="ledger-row" style="opacity:0.35;pointer-events:none;">
+          <div>
+            <div class="ledger-item-name" style="font-style:italic;">Park Effects</div>
+            <div class="ledger-item-desc">Intentionally excluded. BG measures what actually happened, not a modeled estimate of a neutral environment.</div>
+          </div>
+          <div class="ledger-sign" style="color:var(--text-body);">∅</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+  <div class="philosophy-inner">
+    <p class="section-label">Why It Exists</p>
+    <h2 class="section-title" style="font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);letter-spacing:0.04em;color:var(--white);margin-bottom:2rem;">The Problem With Every Other Metric</h2>
+
+    <div class="pull-quote">
+      <p>"What did the hitter actually do to score runs for his team? No existing public metric answered that question completely."</p>
+    </div>
+
+    <p class="body-text">WAR is a rate-based defensive framework that treats offense as one input among many. wRC+ measures offensive efficiency but ignores damage. OPS gives equal weight to on-base percentage and slugging, which research has consistently shown overvalues slugging. RBI is roster-dependent. None of them charge a player for hitting into a double play. None of them weight caught stealing by how often a player actually succeeds. None of them account for the difference between a catcher and a right fielder producing the same raw numbers.</p>
+
+    <p class="body-text">Bases Gained was built to answer one question completely: what did this hitter and runner contribute to his team's run-scoring effort, net of the damage he caused, in the context of where he plays? Every component in the formula exists because the public alternatives either ignore it or measure it incompletely.</p>
+
+    <p class="body-text">It is not a replacement for wRC+ or WAR. It is a different question with a different answer. The cases where BG and traditional metrics disagree most sharply are the cases most worth examining.</p>
+  </div>
+</section>
+
+<!-- RALEIGH VS JUDGE -->
+<section class="case-section">
+  <div class="case-inner">
+    <p class="section-label">2025 Case Study</p>
+    <h2 class="section-title">The Finding That Started the Conversation</h2>
+    <p style="font-size:1rem;color:var(--text-body);line-height:1.8;margin-top:1rem;">In 2025, Aaron Judge won the AL MVP. By wRC+, it was not close. By Bases Gained, Cal Raleigh led the American League. The argument is not that Judge had a bad season. It is that the traditional framework missed something the ledger did not.</p>
+
+    <div class="case-grid">
+      <div class="case-card raleigh">
+        <div class="case-player">Cal Raleigh</div>
+        <div class="case-pos">Catcher — Seattle Mariners</div>
+        <div class="case-score">613.45</div>
+        <div class="case-score-label">2025 Bases Gained — AL Leader</div>
+        <div class="case-attrs">
+          <div class="case-attr">
+            <span class="case-attr-key">Non-HR RBI</span>
+            <span class="case-attr-val win">Edge: Raleigh</span>
+          </div>
+          <div class="case-attr">
+            <span class="case-attr-key">Double Play Penalty</span>
+            <span class="case-attr-val win">Edge: Raleigh</span>
+          </div>
+          <div class="case-attr">
+            <span class="case-attr-key">Positional Adjustment</span>
+            <span class="case-attr-val win">Edge: Raleigh (C bonus)</span>
+          </div>
+          <div class="case-attr">
+            <span class="case-attr-key">Total Bases</span>
+            <span class="case-attr-val">Edge: Judge</span>
+          </div>
+          <div class="case-attr">
+            <span class="case-attr-key">Walks</span>
+            <span class="case-attr-val">Edge: Judge</span>
+          </div>
+          <div class="case-attr">
+            <span class="case-attr-key">RE24</span>
+            <span class="case-attr-val">Edge: Judge</span>
+          </div>
+        </div>
+      </div>
+      <div class="case-card judge">
+        <div class="case-player">Aaron Judge</div>
+        <div class="case-pos">Right Field — New York Yankees</div>
+        <div class="case-score">586.10</div>
+        <div class="case-score-label">2025 Bases Gained</div>
+        <div class="case-attrs">
+          <div class="case-attr">
+            <span class="case-attr-key">wRC+</span>
+            <span class="case-attr-val win">Significant edge</span>
+          </div>
+          <div class="case-attr">
+            <span class="case-attr-key">Total Bases</span>
+            <span class="case-attr-val win">Edge: Judge</span>
+          </div>
+          <div class="case-attr">
+            <span class="case-attr-key">Walks</span>
+            <span class="case-attr-val win">Edge: Judge</span>
+          </div>
+          <div class="case-attr">
+            <span class="case-attr-key">Non-HR RBI</span>
+            <span class="case-attr-val">Edge: Raleigh</span>
+          </div>
+          <div class="case-attr">
+            <span class="case-attr-key">Double Play Penalty</span>
+            <span class="case-attr-val">Edge: Raleigh</span>
+          </div>
+          <div class="case-attr">
+            <span class="case-attr-key">Positional Adjustment</span>
+            <span class="case-attr-val">RF penalty applied</span>
+          </div>
+        </div>
+      </div>
+      <div class="case-note">
+        The positional adjustment is not a reward for playing a hard position. It is a reflection of the offensive standard each position has historically demanded among qualified hitters. A catcher producing at the level Raleigh produced in 2025 exceeds the historical expectation for that position by a wide margin. Judge, playing right field, is held to a higher raw standard because right fielders as a group have historically been the most offensively productive position in baseball.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS -->
+<section class="tiers-section">
+  <div class="tiers-inner">
+    <p class="section-label">Performance Tiers</p>
+    <h2 class="section-title">Where Does a Player Stand?</h2>
+    <p style="font-size:1rem;color:var(--text-body);line-height:1.8;margin-top:1rem;max-width:680px;">Tiers are season-specific and percentile-based. They recalibrate each season against qualified hitters in that season only. A player is not being compared to history. He is being compared to his peers right now.</p>
+
+    <div class="tier-grid">
+      <div class="tier-card elite">
+        <div class="tier-name">Elite</div>
+        <div class="tier-pct">Top 5%</div>
+        <div class="tier-baseball">MVP conversation</div>
+        <div class="tier-desc">2025 examples: Raleigh, Judge, Schwarber. The best offensive contributors in baseball by the full ledger.</div>
+      </div>
+      <div class="tier-card great">
+        <div class="tier-name">Great</div>
+        <div class="tier-pct">75th to 95th percentile</div>
+        <div class="tier-baseball">All-Star caliber</div>
+        <div class="tier-desc">2025 examples: Tatis, Ramirez, Carroll. Genuine difference-makers who would anchor any lineup in baseball.</div>
+      </div>
+      <div class="tier-card above">
+        <div class="tier-name">Above Average</div>
+        <div class="tier-pct">50th to 75th percentile</div>
+        <div class="tier-baseball">Solid everyday producer</div>
+        <div class="tier-desc">Productive regulars pulling their weight in the lineup and then some. The core of most contending rosters.</div>
+      </div>
+      <div class="tier-card average">
+        <div class="tier-name">Average</div>
+        <div class="tier-pct">25th to 50th percentile</div>
+        <div class="tier-baseball">League average contributor</div>
+        <div class="tier-desc">Replacement-level-adjacent in contribution. Sustainable as part of a balanced roster but not a cornerstone.</div>
+      </div>
+      <div class="tier-card below">
+        <div class="tier-name">Below Average</div>
+        <div class="tier-pct">10th to 25th percentile</div>
+        <div class="tier-baseball">Lineup liability</div>
+        <div class="tier-desc">The damage column is outweighing the production column. BG is surfacing a problem the traditional stat line may not yet show.</div>
+      </div>
+      <div class="tier-card struggling">
+        <div class="tier-name">Struggling</div>
+        <div class="tier-pct">Bottom 10%</div>
+        <div class="tier-baseball">Roster question</div>
+        <div class="tier-desc">Every qualified hitter in this tier is still a major leaguer. But the net contribution to run scoring is at the floor of the population.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALIDATION -->
+<section class="validation-section">
+  <div class="validation-inner">
+    <p class="section-label">Verification</p>
+    <h2 class="section-title">Three-Source Cross-Validation</h2>
+    <p style="font-size:1rem;color:var(--text-body);line-height:1.8;margin-top:1rem;max-width:680px;">Before publishing a single score, BG was validated against three independent data sources. The correlations confirm the framework is measuring something real, distinct from, and complementary to existing metrics.</p>
+
+    <div class="validation-grid">
+      <div class="val-card">
+        <div class="val-source">vs. wRC+</div>
+        <div class="val-metric">r = 0.71</div>
+        <div class="val-desc">Strong positive correlation confirms BG is measuring offensive quality. The 29% divergence is where BG finds what wRC+ misses: GIDP damage, positional context, baserunning cost.</div>
+      </div>
+      <div class="val-card">
+        <div class="val-source">vs. OPS</div>
+        <div class="val-metric">r = 0.68</div>
+        <div class="val-desc">Slightly weaker correlation than wRC+ because OPS overweights slugging. The gap is largest for players with high GIDP totals or extreme positional adjustments.</div>
+      </div>
+      <div class="val-card">
+        <div class="val-source">vs. oWAR</div>
+        <div class="val-metric">r = 0.74</div>
+        <div class="val-desc">Highest correlation in the validation set. BG and oWAR agree on most things. They disagree most sharply on catchers, high-GIDP hitters, and elite baserunners.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <p class="section-label">FAQ</p>
+    <h2 class="section-title">Common Questions</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">What is Bases Gained in baseball?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Bases Gained (BG) is a proprietary offensive metric developed by The Baseball Nerd. It measures the net positive contribution of a hitter and runner to their team's run-scoring effort. It counts every positive offensive action, applies explicit penalties for double plays and caught stealing, and adjusts for positional context to produce a single number representing what the player actually did to help his team score runs.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Why does Bases Gained penalize double plays when other stats don't?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">A ground ball double play is the single worst outcome a batter can produce. It records two outs and eliminates a baserunner simultaneously. No other outcome does that much damage at once. Most public metrics either ignore GIDP entirely or fail to price its true run expectancy cost. The BG framework applies an explicit penalty to each double play, making it one of the only offensive frameworks that directly charges hitters for rally-killing outcomes.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">How is the caught stealing penalty calculated?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">The caught stealing penalty is weighted by career stolen base success rate. A player who succeeds 75% of the time in his career is penalized less for a caught stealing than a player who succeeds only 30% of the time. The rationale: a high-percentage basestealer getting caught is a more unusual and defensible outcome than a low-percentage basestealer attempting and failing. The penalty reflects the decision quality embedded in the career rate, not just the binary outcome of the single event.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Why is Bases Gained not park adjusted?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Bases Gained is intentionally not park adjusted. It measures what a player actually contributed in the games he played, not a modeled estimate of what he might have contributed in a neutral environment. Park adjustment is documented as a known limitation in the BG white paper and is a planned future extension. Charlie Blackmon winning 2017 on BG while playing at Coors Field is an honest outcome of this design decision, and the methodology section addresses it directly.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Did Cal Raleigh really outscore Aaron Judge in 2025?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">By Bases Gained, yes. Raleigh finished 2025 at 613.45 BG, Judge at 586.10. Raleigh won on non-home run RBI, double play penalty (Judge hit into significantly more GIDP), and the positional adjustment reflecting the offensive standard at catcher versus right field. Judge led on total bases, walks, and RE24. The argument is not that Judge had a bad season. It is that the full ledger, including positional context and damage pricing, produces a different answer than rate-based efficiency metrics alone.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">Where can I find the live Bases Gained leaderboard?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">The live Bases Gained leaderboard covering 2024, 2025, and 2026 is available to paid subscribers of The Baseball Nerd at thebaseballnerd.substack.com/p/bases-gained. The full methodology article is published at thebaseballnerd.com/articles/what-is-bases-gained-in-baseball.html.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ANALYSIS IN ACTION -->
+<section class="analysis-section">
+  <div class="analysis-inner">
+    <p class="section-label">BG Applied</p>
+    <h2 class="section-title">The Framework in the Field</h2>
+    <p class="analysis-intro">The real test of any metric is what it surfaces when applied to actual teams and actual lineups. These pieces used Bases Gained on real 2026 data to answer questions traditional stats could not.</p>
+
+    <div class="analysis-grid">
+
+      <a class="analysis-card" href="https://thebaseballnerd.substack.com/p/bases-gained-2025-cubs" target="_blank" rel="noopener">
+        <div class="analysis-card-tag">Lineup Construction <span class="analysis-badge">2025</span></div>
+        <div class="analysis-card-title">Did Lineup Spot Matter for the 2025 Cubs? BG Breaks It Down Game by Game.</div>
+        <div class="analysis-card-desc">BG calculated game by game, matched to batting order position across a full season. The results were not what Craig Counsell expected.</div>
+        <div class="analysis-findings">
+          <div class="analysis-finding"><strong>Pete Crow-Armstrong</strong> produced 3.53 BG per game batting 7th. He averaged 2.91 batting 4th, where Counsell played him 61 games.</div>
+          <div class="analysis-finding"><strong>Kyle Tucker</strong> was the only Cub whose primary slot and best production rate aligned. Counsell got exactly one lineup decision right.</div>
+          <div class="analysis-finding"><strong>Dansby Swanson</strong> averaged 3.67 BG per game batting 7th vs. 2.13 batting 5th, over meaningful sample sizes in both slots.</div>
+          <div class="analysis-finding"><strong>Carson Kelly</strong> in slot 5 may be the single worst lineup construction decision of the season. His slot 9 rate was 4.36 BG per game.</div>
+        </div>
+        <div class="analysis-card-cta">Read the full analysis</div>
+      </a>
+
+      <a class="analysis-card" href="https://thebaseballnerd.substack.com/p/why-are-the-kansas-city-royals-losing-2026" target="_blank" rel="noopener">
+        <div class="analysis-card-tag">Team Breakdown <span class="analysis-badge">2026</span></div>
+        <div class="analysis-card-title">Why Are the Kansas City Royals 12-17? BG Finds the Real Problem.</div>
+        <div class="analysis-card-desc">The offensive conversation in Kansas City was misdirected. BG through 29 games showed the bottom of the order was not the problem. The middle was, and the bullpen was worse.</div>
+        <div class="analysis-findings">
+          <div class="analysis-finding"><strong>Bobby Witt Jr.</strong> at 102.17 BG was generating more than twice the contribution of any other Royals hitter.</div>
+          <div class="analysis-finding"><strong>Carter Jensen</strong> jumped from 17th to 4th on the roster once blended C/DH positional adjustments were applied. He was not the problem.</div>
+          <div class="analysis-finding"><strong>Slots 8 and 9</strong> produced more total BG than slots 3 and 5 combined. The bottom of the order was fine. The middle was not.</div>
+          <div class="analysis-finding"><strong>Alex Lange</strong> at -5.60 RE24 and 7.71 ERA was the single most damaging individual on the pitching staff, not the offense.</div>
+        </div>
+        <div class="analysis-card-cta">Read the full analysis</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHITE PAPER NOTE -->
+<div class="whitepaper-section">
+  <div class="whitepaper-inner">
+    <div class="wp-icon">◆</div>
+    <div class="wp-text">
+      <div class="wp-label">Methodology Documentation</div>
+      <div class="wp-body">The Baseball Nerd maintains a white paper and a full development changelog for Bases Gained. The complete methodology, formula, component weightings, and positional adjustment derivation are proprietary. Documentation can be reviewed by request via email. Contact information is at <a href="/about.html">thebaseballnerd.com/about</a>.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>GO DEEPER</h2>
+    <p>The full BG leaderboard covering 2024, 2025, and 2026 with component breakdowns for every qualified hitter is available to paid subscribers of The Baseball Nerd on Substack.</p>
+    <a href="https://thebaseballnerd.substack.com/p/bases-gained" class="btn-primary" target="_blank" rel="noopener">Subscribe for Access →</a>
+    <a href="/articles/what-is-bases-gained-in-baseball.html" class="btn-secondary">Read the Full Article</a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">The Baseball <span>Nerd</span></div>
+  <div class="foot-copy">© 2026 The Baseball Nerd · Numbers Not Feelings</div>
+  <ul class="foot-links">
+    <li><a href="/news.html">News</a></li>
+    <li><a href="/articles.html">Articles</a></li>
+    <li><a href="/recaps.html">Recaps</a></li>
+    <li><a href="/rosters.html">Rosters</a></li>
+    <li><a href="/podcasts.html">Podcasts</a></li>
+    <li><a href="/vault.html">Vault</a></li>
+    <li><a href="/about.html">About</a></li>
+  </ul>
+</footer>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+
+</body>
+</html>
