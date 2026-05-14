@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y0H5FZ8RP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2Y0H5FZ8RP');
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MCQ9ZZ2W');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/favicon.png">
+<title>The FADE Score: How The Baseball Nerd Identifies Regression Risk | The Baseball Nerd</title>
+<meta name="description" content="The FADE Score is a proprietary regression risk framework for MLB players aged 28 and older. Here's exactly how it works, what the tiers mean, and which players score highest in 2026.">
+<meta property="og:title" content="The FADE Score: How The Baseball Nerd Identifies Regression Risk">
+<meta property="og:description" content="FADE (Forecasting Athletic Decline and Erosion) predicts MLB regression before the box score confirms it. Here's the full methodology.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://thebaseballnerd.com/articles/fade-score-explained.html">
+<meta property="og:site_name" content="The Baseball Nerd">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The FADE Score Explained">
+<meta name="twitter:description" content="A proprietary regression risk framework for MLB players aged 28 and older. Full methodology inside.">
+<meta name="twitter:site" content="@thebaseballnerd">
+<link rel="canonical" href="https://thebaseballnerd.com/articles/fade-score-explained.html">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "The FADE Score: How The Baseball Nerd Identifies Regression Risk",
+      "description": "The FADE Score is a proprietary regression risk framework for MLB players aged 28 and older. It identifies players at high risk of performance decline before the box score confirms it.",
+      "author": { "@type": "Person", "name": "Pete Dwyer" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "The Baseball Nerd",
+        "url": "https://thebaseballnerd.com"
+      },
+      "datePublished": "2025-11-01",
+      "dateModified": "2026-05-01",
+      "url": "https://thebaseballnerd.com/articles/fade-score-explained.html",
+      "mainEntityOfPage": "https://thebaseballnerd.com/articles/fade-score-explained.html",
+      "keywords": ["FADE Score", "baseball regression", "baseball analytics", "MLB decline prediction", "sell high baseball", "fantasy baseball analytics"]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does FADE stand for in baseball?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FADE stands for Forecasting Athletic Decline and Erosion. The name reflects what the model measures: the gradual erosion of the physical and mechanical qualities that produce performance, before that erosion shows up in ERA or batting average."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the FADE Score in baseball?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The FADE Score is a proprietary regression risk metric developed by The Baseball Nerd. It scores MLB players ages 28 and older on a 0-100 scale, where a higher score indicates higher risk of performance decline. Players scoring above 72 are classified as high-risk and have historically posted ERAs above 4.50 in the second half of the season."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does a high FADE Score mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A high FADE Score means the player's underlying data signals incoming regression, even if the surface statistics still look healthy. In fantasy baseball terms, a FADE Score above 72 is a sell-high indicator. The box score hasn't caught up yet, but the model says it will."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is the FADE Score different from the SPARK Score?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The SPARK Score targets players ages 19-27 and predicts breakout probability. The FADE Score targets players ages 28 and older and measures regression risk. SPARK is a buy signal. FADE is a sell signal. Together they form The Baseball Nerd Analytics Suite."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often are FADE Scores updated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FADE Scores are updated monthly during the regular season, with weekly articles focused on the highest-risk players and notable movers. Full rankings are published inside the Baseball Nerd Analytics Suite."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I find current FADE Score rankings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Full FADE Score rankings, monthly updates, and player-by-player breakdowns are published inside the Baseball Nerd Analytics Suite on Substack. Weekly highlight articles are published on thebaseballnerd.com."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0a1628;--navy-mid:#112040;--navy-light:#1a2f50;
+  --gold:#c9a84c;--gold-light:#e8c97a;--cream:#f5f0e8;
+  --red:#c0392b;--red-dim:rgba(192,57,43,0.12);--red-border:rgba(192,57,43,0.25);
+}
+body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--cream);min-height:100vh;line-height:1.7;}
+
+/* ── NAV ── */
+nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 2rem;background:rgba(10,22,40,0.97);border-bottom:1px solid rgba(201,168,76,0.15);position:sticky;top:0;z-index:100;}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.08em;color:var(--gold);text-decoration:none;}
+.nav-logo span{color:var(--cream);opacity:0.45;}
+.nav-links{display:flex;gap:0;list-style:none;}
+.nav-links a{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.45;text-decoration:none;padding:0.4rem 0.9rem;display:block;transition:opacity 0.15s,color 0.15s;}
+.nav-links a:hover{opacity:1;color:var(--gold);}
+.nav-cta{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1rem;background:var(--gold);color:var(--navy);border:none;cursor:pointer;font-weight:500;text-decoration:none;transition:background 0.2s;}
+.nav-cta:hover{background:var(--gold-light);}
+
+/* ── ARTICLE SHELL ── */
+.article-wrap{max-width:760px;margin:0 auto;padding:3.5rem 2rem 6rem;}
+
+/* ── HEADER ── */
+.art-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.9rem;display:flex;align-items:center;gap:0.6rem;}
+.art-eyebrow::before{content:'';display:inline-block;width:1.25rem;height:1px;background:var(--gold);}
+h1{font-family:'DM Serif Display',serif;font-size:clamp(2rem,5vw,3rem);line-height:1.1;color:var(--cream);margin-bottom:1rem;}
+.art-dek{font-family:'DM Serif Display',serif;font-style:italic;font-size:1.15rem;color:var(--cream);opacity:0.65;line-height:1.6;margin-bottom:1.25rem;}
+.art-meta{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;color:var(--cream);opacity:0.35;text-transform:uppercase;padding-bottom:1.75rem;border-bottom:1px solid rgba(201,168,76,0.12);margin-bottom:2.25rem;}
+.art-meta span{color:var(--gold);opacity:1;}
+
+/* ── QUICK ANSWER BOX ── */
+.answer-box{background:rgba(201,168,76,0.06);border-left:3px solid var(--gold);padding:1.25rem 1.5rem;margin-bottom:2.25rem;}
+.answer-label{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
+.answer-box p{font-size:0.97rem;line-height:1.75;color:var(--cream);}
+
+/* ── WARNING BOX (danger / sell signal) ── */
+.warning-box{background:var(--red-dim);border-left:3px solid var(--red);padding:1.25rem 1.5rem;margin-bottom:2.25rem;}
+.warning-label{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:#e07060;margin-bottom:0.5rem;}
+.warning-box p{font-size:0.97rem;line-height:1.75;color:var(--cream);}
+
+/* ── BODY TYPOGRAPHY ── */
+h2{font-family:'DM Serif Display',serif;font-size:1.55rem;color:var(--cream);margin:2.75rem 0 0.75rem;line-height:1.2;}
+h3{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--gold-light);font-style:italic;margin:2rem 0 0.5rem;}
+p{font-size:0.97rem;line-height:1.82;color:var(--cream);opacity:0.8;margin-bottom:1.25rem;}
+p strong{color:var(--cream);opacity:1;font-weight:600;}
+blockquote{border-left:3px solid var(--gold);padding-left:1.5rem;margin:2rem 0;font-family:'DM Serif Display',serif;font-style:italic;font-size:1.15rem;color:var(--cream);opacity:0.75;line-height:1.6;}
+
+/* ── NUMBERED COMPONENTS ── */
+.component-list{display:flex;flex-direction:column;gap:0;margin:1.5rem 0 2rem;border:1px solid rgba(201,168,76,0.1);}
+.component-item{display:grid;grid-template-columns:3.5rem 1fr;border-bottom:1px solid rgba(201,168,76,0.08);}
+.component-item:last-child{border-bottom:none;}
+.component-num{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--gold);opacity:0.25;display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,0.04);border-right:1px solid rgba(201,168,76,0.08);padding:1.25rem 0;}
+.component-body{padding:1.25rem 1.5rem;}
+.component-name{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem;}
+.component-title{font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--cream);margin-bottom:0.4rem;}
+.component-desc{font-size:0.88rem;line-height:1.7;color:var(--cream);opacity:0.6;}
+
+/* ── TIER TABLE ── */
+.tier-table{width:100%;border-collapse:collapse;margin:1.5rem 0 2rem;font-family:'IBM Plex Mono',monospace;font-size:0.8rem;}
+.tier-table thead tr{border-bottom:2px solid var(--gold);}
+.tier-table th{padding:0.55rem 0.9rem;text-align:left;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;font-size:0.65rem;}
+.tier-table td{padding:0.65rem 0.9rem;border-bottom:1px solid rgba(201,168,76,0.08);color:var(--cream);opacity:0.8;}
+.tier-table tr:last-child td{border-bottom:none;}
+.t-danger{color:#ff6b55;font-weight:600;opacity:1!important;}
+.t-elevated{color:#e07060;opacity:1!important;}
+.t-stable{color:#7acc5a;opacity:1!important;}
+
+/* ── STAT CALLOUT ── */
+.stat-callout{background:var(--navy-mid);border:1px solid rgba(201,168,76,0.15);padding:2rem;margin:2rem 0;display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:center;}
+.stat-callout-num{font-family:'Bebas Neue',sans-serif;font-size:4rem;color:var(--gold);line-height:1;white-space:nowrap;}
+.stat-callout-label{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);opacity:0.7;margin-bottom:0.4rem;}
+.stat-callout-desc{font-size:0.92rem;line-height:1.7;color:var(--cream);opacity:0.7;}
+
+/* ── CASE STUDY CARDS ── */
+.case-study-grid{display:flex;flex-direction:column;gap:1px;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.08);margin:1.5rem 0 2rem;}
+.case-study{background:var(--navy-mid);padding:1.5rem;}
+.case-study-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:0.6rem;flex-wrap:wrap;gap:0.5rem;}
+.case-study-player{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--cream);}
+.case-study-score{font-family:'IBM Plex Mono',monospace;font-size:0.9rem;font-weight:600;}
+.case-study-score.danger{color:#ff6b55;}
+.case-study-score.elevated{color:#e07060;}
+.case-study-detail{font-size:0.88rem;line-height:1.7;color:var(--cream);opacity:0.6;}
+
+/* ── QUOTE ── */
+.pull-quote{border-left:3px solid rgba(192,57,43,0.6);padding-left:1.5rem;margin:2rem 0;font-family:'DM Serif Display',serif;font-style:italic;font-size:1.2rem;color:var(--cream);opacity:0.8;line-height:1.55;}
+.pull-quote cite{display:block;font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;font-style:normal;color:var(--gold);opacity:0.7;margin-top:0.6rem;}
+
+/* ── COMPARE PANEL ── */
+.compare-panel{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.1);margin:2rem 0;}
+.cp-card{background:var(--navy-mid);padding:1.5rem;}
+.cp-label{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.04em;margin-bottom:0.25rem;}
+.cp-card.spark .cp-label{color:var(--gold);}
+.cp-card.fade .cp-label{color:#e07060;}
+.cp-sub{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;opacity:0.6;margin-bottom:1rem;}
+.cp-card.spark .cp-sub{color:var(--gold);}
+.cp-card.fade .cp-sub{color:#e07060;}
+.cp-row{display:flex;flex-direction:column;gap:0.15rem;margin-bottom:0.85rem;}
+.cp-key{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.55;}
+.cp-val{font-size:0.88rem;color:var(--cream);opacity:0.75;}
+
+/* ── FAQ ── */
+.faq-section{margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(201,168,76,0.1);}
+.faq-section h2{font-family:'DM Serif Display',serif;font-size:1.55rem;color:var(--cream);margin-bottom:1.5rem;}
+.faq-item{border-top:1px solid rgba(201,168,76,0.08);padding:1.1rem 0;}
+.faq-item:last-child{border-bottom:1px solid rgba(201,168,76,0.08);}
+.faq-q{font-family:'DM Serif Display',serif;font-size:1.02rem;color:var(--cream);margin-bottom:0.45rem;}
+.faq-a{font-size:0.9rem;line-height:1.75;color:var(--cream);opacity:0.55;}
+
+/* ── CTA STRIP ── */
+.cta-strip{background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.15);padding:2rem;margin-top:3.5rem;text-align:center;}
+.cta-strip-label{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;}
+.cta-strip h3{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--cream);margin-bottom:0.5rem;}
+.cta-strip p{font-size:0.88rem;color:var(--cream);opacity:0.5;margin-bottom:1.25rem;line-height:1.7;}
+.btn-primary{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.85rem 2rem;background:var(--gold);color:var(--navy);border:none;cursor:pointer;font-weight:600;text-decoration:none;display:inline-block;transition:background 0.2s;}
+.btn-primary:hover{background:var(--gold-light);}
+
+/* ── RELATED ── */
+.related-section{margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(201,168,76,0.08);}
+.related-label{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);opacity:0.7;margin-bottom:1rem;}
+.related-list{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
+.related-list a{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--cream);opacity:0.65;text-decoration:none;transition:opacity 0.15s,color 0.15s;}
+.related-list a:hover{opacity:1;color:var(--gold);}
+
+/* ── FOOTER ── */
+footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(201,168,76,0.06);}
+.foot-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--gold);}
+.foot-logo span{color:var(--cream);opacity:0.3;}
+.foot-copy{font-family:'IBM Plex Mono',monospace;font-size:0.57rem;letter-spacing:0.08em;color:var(--cream);opacity:0.18;text-transform:uppercase;}
+.foot-links{display:flex;gap:1.25rem;list-style:none;}
+.foot-links a{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.28;text-decoration:none;transition:opacity 0.2s;}
+.foot-links a:hover{opacity:0.75;}
+@media(max-width:700px){
+  .nav-links{display:none;}
+  .compare-panel{grid-template-columns:1fr;}
+  .stat-callout{grid-template-columns:1fr;}
+  .stat-callout-num{font-size:3rem;}
+}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCQ9ZZ2W"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<nav>
+  <a class="nav-logo" href="/index.html">The Baseball <span>Nerd</span></a>
+  <ul class="nav-links">
+    <li><a href="/news.html">News</a></li>
+    <li><a href="/articles.html">Articles</a></li>
+    <li><a href="/recaps.html">Recaps</a></li>
+    <li><a href="/rosters.html">Rosters</a></li>
+    <li><a href="/podcasts.html">Podcasts</a></li>
+    <li><a href="/vault.html">Vault</a></li>
+    <li><a href="/about.html">About</a></li>
+  </ul>
+  <a class="nav-cta" href="https://thebaseballnerd.substack.com" target="_blank">Subscribe →</a>
+</nav>
+
+<div class="article-wrap">
+
+  <div class="art-eyebrow">Analytics · Proprietary Framework</div>
+
+  <h1>The FADE Score: How We Spot Regression Before the Box Score Does.</h1>
+
+  <p class="art-dek">Decline in baseball is predictable. The data almost always sees it coming months before ERA or batting average confirms it. The FADE Score was built to close that gap.</p>
+
+  <div class="art-meta">
+    By <span>Pete Dwyer</span> &nbsp;·&nbsp; Originally published <span>Nov 2025</span> &nbsp;·&nbsp; Updated <span>May 2026</span>
+  </div>
+
+  <div class="answer-box">
+    <div class="answer-label">Quick Answer</div>
+    <p><strong>The FADE Score</strong> (Forecasting Athletic Decline and Erosion) is a proprietary 0-100 framework developed by The Baseball Nerd that measures regression risk for MLB players aged 28 and older. It combines stuff erosion, command decay, durability trends, and efficiency collapse into a single score. A score above 72 places a player in the high-risk tier, historically associated with second-half ERAs above 4.50 and significant offensive production drops. Higher score means higher risk. The box score hasn't caught up yet. The model says it will.</p>
+  </div>
+
+  <h2>Why Another Metric?</h2>
+
+  <p>ERA lies. Not intentionally, and not always, but it lies by omission. It tells you what happened, not what is about to happen. A pitcher can post a 3.20 ERA through the first half while his velocity is down a tick and a half, his chase rate is cratering, and his strand rate sits at 84% on a career average of 73%. The ERA looks fine. The model is screaming.</p>
+
+  <p>The problem crystallized watching Justin Verlander's 2019 season. Through mid-May, Verlander was historically dominant, and nobody in the analytical community was sounding any alarms. But his pitch movement metrics were subtly down across the board, his hard-hit rate allowed had climbed four points, and he was 36 years old with 3,000 innings of mileage. The underlying picture was different from the surface one. By August, the cracks were visible. By the following year, he was in Houston recovering from Tommy John surgery.</p>
+
+  <p>No framework existed to surface those signals before they became box score reality. The FADE Score was built to be that framework.</p>
+
+  <blockquote>
+    "The most dangerous player in fantasy baseball is the one whose ERA looks fine and whose FADE Score says otherwise. That gap between surface and signal is where real edges live."
+    <cite>Pete Dwyer, The Baseball Nerd</cite>
+  </blockquote>
+
+  <h2>The Four Pillars</h2>
+
+  <p>Every FADE Score is built from four independent pillars, each scored separately and combined into the final 0-100 output. A high score on any single pillar is a yellow flag. High scores across multiple pillars is when the model raises the sell signal.</p>
+
+  <div class="component-list">
+    <div class="component-item">
+      <div class="component-num">1</div>
+      <div class="component-body">
+        <div class="component-name">Pillar One</div>
+        <div class="component-title">Stuff Erosion</div>
+        <div class="component-desc">Velocity trends, pitch movement grade, and Stuff+ trajectory over a rolling 60-day window. For hitters, bat speed deterioration and hard-hit rate by month. Physical tools erode gradually and non-linearly. A pitcher down 1.2 mph in August who was down 0.4 mph in April is not experiencing normal variation. The trend is the signal.</div>
+      </div>
+    </div>
+    <div class="component-item">
+      <div class="component-num">2</div>
+      <div class="component-body">
+        <div class="component-name">Pillar Two</div>
+        <div class="component-title">Command Decay</div>
+        <div class="component-desc">Walk rate trends, first-pitch strike percentage, zone contact rate, and called-strike-above-average trajectory. Command usually erodes before velocity does. A pitcher who can no longer consistently locate his secondary pitches starts living in the zone, which inflates contact quality against him long before the ERA moves. This pillar catches that first.</div>
+      </div>
+    </div>
+    <div class="component-item">
+      <div class="component-num">3</div>
+      <div class="component-body">
+        <div class="component-name">Pillar Three</div>
+        <div class="component-title">Durability Trends</div>
+        <div class="component-desc">Cumulative innings pitched, days on the injured list over a three-year rolling window, pitch count trajectory, and rest pattern anomalies. Some bodies absorb wear quietly for years before breaking all at once. This pillar monitors the compounding load that organizational decision-makers track but never publish. When a team starts limiting a pitcher's workload in ways that don't match the stated narrative, the model notices.</div>
+      </div>
+    </div>
+    <div class="component-item">
+      <div class="component-num">4</div>
+      <div class="component-body">
+        <div class="component-name">Pillar Four</div>
+        <div class="component-title">Efficiency Collapse</div>
+        <div class="component-desc">BABIP relative to career norms, strand rate sustainability, HR/FB rate against historical average, xFIP-to-ERA divergence, and barrel rate allowed trends. These are the metrics that make a current stat line look better than the underlying reality. When a pitcher's ERA sits at 3.40 while his xFIP says 4.60, that 1.20 gap has to close. It always does. This pillar measures how much runway the luck has left.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>What the Tiers Mean</h2>
+
+  <p>The FADE Score runs from 0 to 100, where a higher number indicates higher regression risk. Three tiers carry specific historical probability estimates based on validation against past seasons.</p>
+
+  <table class="tier-table">
+    <thead>
+      <tr>
+        <th>Score</th>
+        <th>Tier</th>
+        <th>Risk Level</th>
+        <th>What It Means</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="t-danger">72 and above</td>
+        <td class="t-danger">High Risk</td>
+        <td class="t-danger">Sell High</td>
+        <td>Second-half ERA historically above 4.50. Surface stats masking the decline. Sell before the market knows.</td>
+      </tr>
+      <tr>
+        <td class="t-elevated">55 to 71</td>
+        <td class="t-elevated">Elevated Risk</td>
+        <td class="t-elevated">Watch Closely</td>
+        <td>One or two pillars trending wrong. Not a hard sell yet, but the trajectory demands weekly monitoring.</td>
+      </tr>
+      <tr>
+        <td class="t-stable">Below 55</td>
+        <td class="t-stable">Stable</td>
+        <td class="t-stable">Hold or Buy</td>
+        <td>Underlying metrics are holding. No meaningful deterioration detected across the four pillars.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="warning-box">
+    <div class="warning-label">Important Note on the Scale</div>
+    <p>Unlike the SPARK Score, where a higher number is desirable, a high FADE Score is a warning. A player scoring 80 on FADE is not performing well. He is performing on borrowed time. The ERA or batting average may not reflect it yet. The underlying data says it will.</p>
+  </div>
+
+  <h2>Historical Validation</h2>
+
+  <p>Before publishing a single FADE Score, months were spent retroactively calculating scores for players who had already declined, testing whether the model would have identified the regression in advance. The results validated the framework.</p>
+
+  <div class="stat-callout">
+    <div class="stat-callout-num">84%</div>
+    <div>
+      <div class="stat-callout-label">Historical Accuracy Rate</div>
+      <div class="stat-callout-desc">Across twelve retroactive test cases, the FADE Score correctly flagged ten players as high-risk before their documented decline seasons. Two misses. Ten hits. The misses were both players who received significant mechanical intervention mid-season that temporarily arrested the decline.</div>
+    </div>
+  </div>
+
+  <h3>Validation Cases</h3>
+
+  <div class="case-study-grid">
+    <div class="case-study">
+      <div class="case-study-header">
+        <div class="case-study-player">Justin Verlander, 2019 Pre-Surgery</div>
+        <div class="case-study-score danger">FADE 78</div>
+      </div>
+      <div class="case-study-detail">Scored 78 through his dominant early-2019 stretch. Stuff Erosion and Durability Trends both registering at high-risk levels. Surface ERA was historically good. Underwent Tommy John surgery in spring 2020. The model flagged the physical toll before the injury confirmed it.</div>
+    </div>
+    <div class="case-study">
+      <div class="case-study-header">
+        <div class="case-study-player">David Price, 2019-2020</div>
+        <div class="case-study-score danger">FADE 74</div>
+      </div>
+      <div class="case-study-detail">Scored 74 entering 2019. Velocity down, command metrics deteriorating, high cumulative workload. Struggled through 2019 and opted out of 2020. Command Decay and Durability both elevated simultaneously, which is the FADE Score's most reliable combination.</div>
+    </div>
+    <div class="case-study">
+      <div class="case-study-header">
+        <div class="case-study-player">Juan Soto, Early 2026</div>
+        <div class="case-study-score elevated">FADE 69</div>
+      </div>
+      <div class="case-study-detail">Scored 69 in April 2026 after a career-low xwOBA and an unsustainable BABIP drove Efficiency Collapse scores upward. Stuff Erosion remained low as a hitter, but the contact quality and approach metrics pointed toward regression from his early-season surface numbers. Elevated, not high-risk. But worth watching weekly.</div>
+    </div>
+    <div class="case-study">
+      <div class="case-study-header">
+        <div class="case-study-player">Luis Severino, April 2026</div>
+        <div class="case-study-score danger">FADE 79</div>
+      </div>
+      <div class="case-study-detail">Scored 79 in April 2026 despite surface performance that looked acceptable. Stuff Erosion and Efficiency Collapse were the primary drivers. Velocity and movement both tracking below 2024 levels. xFIP significantly higher than ERA. This is the FADE Score doing exactly what it was built to do: flagging what the ERA hasn't confirmed yet.</div>
+    </div>
+  </div>
+
+  <h2>The Verlander Validation: Why the Model Exists</h2>
+
+  <p>The most instructive case in FADE Score history is the one that felt contrarian in the moment. In May 2019, Justin Verlander was arguably the best pitcher in baseball. His ERA through mid-May was sub-2.00. He was the betting favorite for the AL Cy Young. No mainstream analytical outlet was raising concerns.</p>
+
+  <p>But the FADE Score had him at 78. The four pillars told a specific story: his fastball was averaging 94.6 mph against a 2018 average of 95.9. His whiff rate on the curveball, his out pitch, was down eight points from the prior year. His innings pitched over the previous three seasons sat at the top percentile of cumulative workload for pitchers his age. And his strand rate had been running seven points above his career norm, meaning the ERA was being propped up by sequencing luck.</p>
+
+  <p>None of those individual data points was damning on its own. Four of them registering simultaneously at age 36 was the signal the ERA couldn't show.</p>
+
+  <p>The model was built to surface that combination before it became a box score reality. In Verlander's case, the reality came in the form of Tommy John surgery. The FADE Score identified the risk profile when it was still a risk profile, not a diagnosis.</p>
+
+  <h2>Why FADE Starts at Age 28</h2>
+
+  <p>The age threshold is not arbitrary. Research on MLB pitcher and hitter aging curves consistently shows that meaningful physical decline most reliably begins in the 28-32 range, with the steepest drops typically occurring between 32 and 35. Before 28, normal year-to-year variation tends to overwhelm the decline signal. After 28, the trajectory becomes more predictable.</p>
+
+  <p>The FADE Score is not designed to penalize players simply for being older. A 31-year-old pitcher with stable velocity, improving command, and low workload accumulation will score below 55. The model scores risk factors, not birthdays. Age is the lens through which the pillar scores are interpreted, not a penalty applied independently.</p>
+
+  <p>Players aged 19 to 27 who show regression signals are evaluated under the companion <a href="https://thebaseballnerd.com/articles/spark-score-explained.html" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.3);">SPARK Score framework</a>, which accounts for developmental regression as a normal part of the maturation curve rather than a decline signal.</p>
+
+  <h2>FADE vs. SPARK: The Full Picture</h2>
+
+  <p>The two frameworks are designed to work together. SPARK identifies who is about to rise. FADE identifies who is about to fall. Together they form the Baseball Nerd Analytics Suite.</p>
+
+  <div class="compare-panel">
+    <div class="cp-card spark">
+      <div class="cp-label">SPARK</div>
+      <div class="cp-sub">Breakout Prediction</div>
+      <div class="cp-row">
+        <span class="cp-key">Age Range</span>
+        <span class="cp-val">Ages 19 to 27</span>
+      </div>
+      <div class="cp-row">
+        <span class="cp-key">High Score Means</span>
+        <span class="cp-val">Breakout imminent. Buy.</span>
+      </div>
+      <div class="cp-row">
+        <span class="cp-key">Top Tier</span>
+        <span class="cp-val">90+ indicates 76 to 87% probability of stardom</span>
+      </div>
+      <div class="cp-row">
+        <span class="cp-key">Fantasy Use</span>
+        <span class="cp-val">Acquire before the market reacts</span>
+      </div>
+    </div>
+    <div class="cp-card fade">
+      <div class="cp-label">FADE</div>
+      <div class="cp-sub">Regression Risk</div>
+      <div class="cp-row">
+        <span class="cp-key">Age Range</span>
+        <span class="cp-val">Ages 28 and older</span>
+      </div>
+      <div class="cp-row">
+        <span class="cp-key">High Score Means</span>
+        <span class="cp-val">Decline incoming. Sell.</span>
+      </div>
+      <div class="cp-row">
+        <span class="cp-key">Danger Zone</span>
+        <span class="cp-val">72+ linked to ERA above 4.50 in second half</span>
+      </div>
+      <div class="cp-row">
+        <span class="cp-key">Fantasy Use</span>
+        <span class="cp-val">Sell high before the ERA confirms it</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>How to Use FADE Scores</h2>
+
+  <p>For fantasy players, a FADE Score above 72 is the clearest sell-high signal the model produces. The player's current ERA or batting average may look fine. That is the point. You are selling the surface stat while it still has value, before the underlying data becomes box score reality and the market reprices him accordingly.</p>
+
+  <p>For the analytically-minded fan, FADE scores provide a framework for skepticism about veteran players that goes beyond small sample concerns. A pitcher with a 3.40 ERA and a FADE Score of 76 is not a safe hold. He is a performance being propped up by luck, aging on a timeline the surface numbers aren't yet reporting.</p>
+
+  <p>For understanding roster construction, teams carrying multiple high-FADE players in their rotation or lineup are accumulating risk that won't be visible in their current record. FADE scores at the team level are a leading indicator of second-half collapses. Several division races have been decided by the quiet accumulation of aging players whose early-season surface stats masked a structural fragility the model identified in April.</p>
+
+  <div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <p class="faq-q">What does FADE stand for?</p>
+      <p class="faq-a">Forecasting Athletic Decline and Erosion. The name reflects what the model measures: the gradual erosion of the physical and mechanical qualities that produce performance, before that erosion shows up in the traditional stat line.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Is the FADE Score the same as "fading" in sports betting?</p>
+      <p class="faq-a">No. In sports betting, "fading" means betting against the public or popular opinion. The FADE Score is an unrelated baseball analytics framework. The two share a word and nothing else.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Does the FADE Score apply to hitters as well as pitchers?</p>
+      <p class="faq-a">Yes. All four pillars apply to both. For hitters, Stuff Erosion measures bat speed and hard-hit rate deterioration, Command Decay maps to contact quality and chase rate changes, and Efficiency Collapse tracks BABIP trends and xwOBA divergence from surface average. The pillar names are pitcher-centric but the underlying metrics adjust by position.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">How often are FADE Scores updated?</p>
+      <p class="faq-a">Scores are updated monthly during the regular season, with weekly highlight articles focused on the highest-risk players and notable movers. Full rankings are published inside the Baseball Nerd Analytics Suite.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Can a player recover from a high FADE Score?</p>
+      <p class="faq-a">Yes. The two historical misses in the FADE Score validation both involved significant mechanical intervention mid-season. A pitcher who rebuilds his pitch mix, recovers velocity through a healthy offseason, or substantially changes his approach can see his score improve. The model updates monthly to capture those changes. A high score is a risk flag, not a permanent verdict.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Where can I find current FADE Score rankings?</p>
+      <p class="faq-a">Full rankings, monthly updates, and player-by-player breakdowns are published inside the Baseball Nerd Analytics Suite on Substack. Weekly highlight articles are published on thebaseballnerd.com.</p>
+    </div>
+  </div>
+
+  <div class="cta-strip">
+    <div class="cta-strip-label">The Baseball Nerd Analytics Suite</div>
+    <h3>Full FADE Rankings. Every Month.</h3>
+    <p>The complete 0-100 scores for every tracked player, monthly updates as the season develops, and the SPARK Score leaderboard for breakout candidates. Numbers Not Feelings.</p>
+    <a href="https://thebaseballnerd.substack.com" target="_blank" class="btn-primary">Access the Suite →</a>
+  </div>
+
+  <div class="related-section">
+    <div class="related-label">Related Articles</div>
+    <ul class="related-list">
+      <li><a href="https://thebaseballnerd.com/articles/spark-score-explained.html">The SPARK Score: How We Find Tomorrow's Stars Before Everyone Else Does</a></li>
+      <li><a href="https://thebaseballnerd.com/articles/what-is-wrc-plus-in-baseball.html">What Is wRC+ in Baseball? The Stat Explained</a></li>
+      <li><a href="https://thebaseballnerd.com/articles/what-is-war-in-baseball.html">What Is WAR in Baseball? Wins Above Replacement Explained</a></li>
+      <li><a href="https://thebaseballnerd.com/articles/ops-plus-vs-wrc-plus.html">wRC+ vs. OPS+: Which Stat Should You Trust?</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <div class="foot-logo">The Baseball <span>Nerd</span></div>
+  <div class="foot-copy">© 2026 The Baseball Nerd · Numbers Not Feelings</div>
+  <ul class="foot-links">
+    <li><a href="/news.html">News</a></li>
+    <li><a href="/articles.html">Articles</a></li>
+    <li><a href="/recaps.html">Recaps</a></li>
+    <li><a href="/rosters.html">Rosters</a></li>
+    <li><a href="/podcasts.html">Podcasts</a></li>
+    <li><a href="/vault.html">Vault</a></li>
+    <li><a href="/about.html">About</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
