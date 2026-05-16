@@ -23,6 +23,27 @@
  */
 
 const RECAPS = [{
+  id:'5-15-26-houston-astros',
+  date:'May 15, 2026',
+  opponent:'Houston Astros',
+  home:false,
+  result:'loss',
+  score:'TEX 0, HOU 2',
+  record:'21-23',  // ← fill in current record
+  gamePk:824194,
+  preview:"Hand it to Spencer Arrighetti. Throwing a no-hitter through 7 against a little league team is something to be proud of.",
+  body:`Spencer Arrighetti carved through the Rangers lineup like a surgeon with a scalpel, allowing just one hit over 7.1 innings in a masterful performance that silenced Texas bats at Daikin Park. The Astros right-hander walked four but consistently escaped trouble, stranding Rangers runners in scoring position twice with two outs and inducing a double play grounder from Brandon Nimmo to snuff out another threat.
+
+Only Justin Foscue managed to solve Arrighetti's arsenal, collecting the Rangers' lone hit in what became a frustrating 2-0 loss. The shutout extended Texas's recent offensive struggles, as Skip Schumaker's lineup managed just four walks against Houston pitching but failed to capitalize on any scoring opportunities. The Rangers went 0-for-3 with runners in scoring position, leaving Foscue and Kyle Higashioka stranded in key spots.
+
+Jack Leiter delivered his finest outing of the season but suffered the cruel fate of a hard-luck loss. The young right-hander scattered just three hits across seven innings, striking out six while issuing three walks. His only mistake came in the third inning when Isaac Paredes turned on a 2-1 fastball and drove it over the left field wall for his fourth home run of the year. That solo shot proved to be all Houston needed, though they added insurance in the eighth.
+
+Cole Winn entered in relief and immediately found trouble, surrendering a line drive single to Braden Shewmake that plated Nick Allen with the game's second run. Yordan Alvarez had reached base earlier in the frame and moved into scoring position before Allen's appearance, setting up Shewmake's RBI knock that effectively sealed the contest.
+
+The offensive futility stung most for Texas. Joc Pederson and Andrew McCutchen split time at designated hitter but combined to go 0-for-3. Ezequiel Duran endured a particularly rough night, striking out three times in four at-bats while failing to advance any of the runners who reached base ahead of him.
+
+Bryan King closed out the victory for Houston, retiring all five batters he faced with one strikeout. The combined one-hitter marked just the second time this season the Rangers managed fewer than two hits in a game, highlighting how thoroughly Arrighetti dominated from first pitch to last.`
+},{
   id:'5-13-26-arizona-diamondbacks',
   date:'2026-05-13',
   opponent:'Arizona Diamondbacks',
