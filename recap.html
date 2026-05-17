@@ -1,209 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y0H5FZ8RP"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-2Y0H5FZ8RP');
-  </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="/favicon.png">
-
-  <!-- ============================================================
-    SOFT 404 FIX: Synchronous inline pre-render
-    --------------------------------------------------------------
-    recaps-data.js is large. Googlebot's first-wave crawl often
-    parses the raw HTML before JS executes, sees "Loading..." and
-    calls it a soft 404.
-
-    Fix: read ?id from location.search synchronously in <head>,
-    find the matching recap in an INLINE snapshot (title + preview
-    only — keeps this script tiny), then write real <title>,
-    <meta name="description">, and <link rel="canonical"> tags
-    before the browser paints anything.
-
-    The full render (body text, nav links, schema, MLB embed) still
-    happens after recaps-data.js loads at the bottom of <body>.
-    That second pass overwrites whatever the pre-render wrote, so
-    users always see the complete article. But Googlebot's first-wave
-    crawl now sees a page with a real title, description, canonical,
-    and a visible <h1> — not a spinner.
-    ============================================================ -->
-
-  <!--
-    MAINTAINER NOTE
-    ---------------
-    RECAP_SNAPSHOT below is a lightweight index: id, title-parts,
-    and preview sentence only. It is NOT the full data (that lives
-    in recaps-data.js). When you add a new game to recaps-data.js,
-    also add one line to RECAP_SNAPSHOT here. Keep them in sync.
-
-    Format: { id, opp, home, date, result, score, preview }
-      - opp:    opponent full name
-      - home:   true = Rangers home team
-      - result: 'win' or 'loss'
-  -->
-  <script>
-  (function(){
-    // ── Inline snapshot (id + meta only — NOT full body text) ──────
-    var RECAP_SNAPSHOT = [
-      {id:'5-10-26-chicago-cubs',opp:'Chicago Cubs',home:true,date:'May 10, 2026',result:'win',score:'TEX 3, CHC 0',preview:"Jacob deGrom carved through the Cubs lineup like a surgeon with a scalpel, delivering 10 strikeouts across seven dominant innings in a 3-0 Rangers victory that showcased exactly why his chase for 2,000 career strikeouts remains must-watch baseball."},
-      {id:'5-9-26-chicago-cubs',opp:'Chicago Cubs',home:true,date:'May 9, 2026',result:'win',score:'TEX 6, CHC 0',preview:"Justin Foscue comes through, and the Rangers find new life. Does it continue this afternoon in Arlington?"},
-      {id:'5-8-26-chicago-cubs',opp:'Chicago Cubs',home:true,date:'May 8, 2026',result:'loss',score:'TEX 1, CHC 7',preview:"Seven starts into his major league career, Kumar Rocker continues to demonstrate he's not ready for this level."},
-      {id:'5-7-26-yankees',opp:'New York Yankees',home:false,date:'May 7, 2026',result:'loss',score:'TEX 2, NYY 9',preview:"Ugly, sloppy defense, an inability to be efficient on the mound and nagging injuries have allowed the Rangers to be what everyone expected them to be."},
-      {id:'5-6-26-yankees',opp:'New York Yankees',home:false,date:'May 6, 2026',result:'win',score:'TEX 6, NYY 1',preview:"The Texas Rangers' true ace pitcher carved up the surging Yankees on Wednesday night in the Bronx, the only run scored was a solo shot by Aaron Judge."},
-      {id:'5-5-26-yankees',opp:'New York Yankees',home:false,date:'May 5, 2026',result:'loss',score:'TEX 4, NYY 7',preview:"Jacob deGrom delivered a vintage performance at Yankee Stadium, carving through New York's lineup with surgical precision for six-plus innings."},
-      {id:'5-3-26-detroit-tigers',opp:'Detroit Tigers',home:false,date:'May 3, 2026',result:'loss',score:'TEX 1, DET 7',preview:"The Texas Rangers remain in second place in the AL West simply because the rest of the AL West is playing horrendous baseball at this point in the season."},
-      {id:'5-2-26-detroit-tigers',opp:'Detroit Tigers',home:false,date:'May 2, 2026',result:'loss',score:'TEX 1, DET 5',preview:"43 pitches. 2 stolen bases from a painfully slow delivery. 5 runs scored. 2 innings pitched. Kumar Rocker got rocked and Skip Schumaker had seen enough."},
-      {id:'5-1-26-detroit-tigers',opp:'Detroit Tigers',home:false,date:'May 1, 2026',result:'win',score:'TEX 5, DET 4',preview:"In a game that began with the Rangers showing an explosive offense, both teams settled into a contest to see who could outlast the other on a cold and wet afternoon in Detroit."},
-      {id:'4-29-26-yankees',opp:'New York Yankees',home:true,date:'April 29, 2026',result:'win',score:'TEX 3, NYY 0',preview:"Nathan Eovaldi did Nasty Nate stuff at Globe Life Field Wednesday afternoon, making sure to give his team a chance against a Yankees lineup that did not want to be shutout."},
-      {id:'4-28-26-yankees',opp:'New York Yankees',home:true,date:'April 28, 2026',result:'loss',score:'TEX 2, NYY 3',preview:"Another night, another chapter in the Rangers' ongoing offensive struggles as they fell 3-2 to the Yankees at Globe Life Field, a defeat that felt both predictable and preventable."},
-      {id:'4-27-26-yankees',opp:'New York Yankees',home:true,date:'April 27, 2026',result:'loss',score:'TEX 2, NYY 4',preview:"Max Fried carved through the Rangers lineup like a surgeon on Monday night, and the numbers behind Corey Seager's struggles tell a story that's becoming impossible to ignore."},
-      {id:'4-26-26-athletics',opp:'Athletics',home:true,date:'April 26, 2026',result:'loss',score:'TEX 1, ATH 2',preview:"A 1-2-3 eighth inning by Jack Perkins sealed another frustrating afternoon for the Rangers, who watched their best scoring opportunity slip away."},
-      {id:'4-25-26-athletics',opp:'Athletics',home:true,date:'April 25, 2026',result:'win',score:'TEX 4, ATH 3',preview:"Josh Jung belted a sixth inning home run to cap a dramatic comeback as the Rangers rallied from a 3-0 deficit to beat the Athletics 4-3 at Globe Life Field."},
-      {id:'4-24-26-athletics',opp:'Athletics',home:true,date:'April 24, 2026',result:'loss',score:'TEX 1, ATH 8',preview:"If the Rangers really expect to play baseball in October, they might want to start doing it in April."},
-      {id:'4-23-26-pittsburgh-pirates',opp:'Pittsburgh Pirates',home:true,date:'April 23, 2026',result:'win',score:'TEX 6, PIT 1',preview:"Evan Carter thought he hit a homerun. It hit the wall in right center. It was still a homerun. His first inside-the-park home run."},
-      {id:'4-22-26-pittsburgh-pirates',opp:'Pittsburgh Pirates',home:true,date:'April 22, 2026',result:'loss',score:'TEX 4, PIT 8',preview:"Again with the bullpen. Just when you think you get out, they climbed right back in, turning what could have been into a nightmare."},
-      {id:'4-21-26-pittsburgh-pirates',opp:'Pittsburgh Pirates',home:true,date:'April 21, 2026',result:'win',score:'TEX 5, PIT 1',preview:"Another frustrating night with runners in scoring position haunted the Rangers, even in a 5-1 victory over Pittsburgh at Globe Life Field."},
-      {id:'4-19-26-seattle-mariners',opp:'Seattle Mariners',home:false,date:'April 19, 2026',result:'loss',score:'TEX 2, SEA 5',preview:"The Rangers dropped the series finale in Seattle behind another rough outing from MacKenzie Gore."},
-      {id:'4-18-26-seattle-mariners',opp:'Seattle Mariners',home:false,date:'April 18, 2026',result:'loss',score:'TEX 3, SEA 7',preview:"Rangers waste chances in 7-3 loss, stranding 16 runners and exposing a clutch hitting failure that outweighs any pitching or defensive issues."},
-      {id:'4-17-26-seattle-mariners',opp:'Seattle Mariners',home:false,date:'April 17, 2026',result:'win',score:'TEX 5, SEA 0',preview:"Jacob deGrom's return to Seattle turned into a battle of attrition that the Rangers ultimately won through persistence rather than dominance."},
-      {id:'4-16-26-athletics',opp:'Athletics',home:false,date:'April 16, 2026',result:'win',score:'TEX 9, ATH 6',preview:"Sometimes a frustrated outfielder throwing water jugs in the dugout provides exactly the spark a team needs."},
-      {id:'4-15-26-athletics',opp:'Athletics',home:false,date:'April 15, 2026',result:'loss',score:'TEX 5, ATH 6',preview:"Skip Schumaker took full responsibility for a loss that felt more like managerial miscalculation than player failure."},
-      {id:'4-14-26-athletics',opp:'Athletics',home:false,date:'April 14, 2026',result:'loss',score:'TEX 1, ATH 2',preview:"Another lefty, another struggle for a Rangers offense that continues to unravel against southpaw pitching."},
-      {id:'4-13-26-athletics',opp:'Athletics',home:false,date:'April 13, 2026',result:'win',score:'TEX 8, ATH 1',preview:"Eovaldi threw seven shutout innings and Jake Burger hit two home runs as the Rangers beat the Athletics 8-1 in Sacramento."},
-      {id:'4-12-26-dodgers',opp:'Los Angeles Dodgers',home:false,date:'April 12, 2026',result:'win',score:'TEX 5, LAD 2',preview:"deGrom gave up a first-pitch homer to Ohtani, then struck out nine over six innings to earn the win."},
-      {id:'4-11-26-dodgers',opp:'Los Angeles Dodgers',home:false,date:'April 11, 2026',result:'loss',score:'LAD 6, TEX 3',preview:"Jack Leiter allowed four runs in the first inning and couldn't escape the third as the Rangers fell 6-3 at Dodger Stadium."},
-      {id:'4-10-26-dodgers',opp:'Los Angeles Dodgers',home:false,date:'April 10, 2026',result:'loss',score:'LAD 8, TEX 7',preview:"Bullpen meltdown at Dodger Stadium. Four Rangers relievers were torched as the Rangers blew a late lead and lost 8-7 on Max Muncy's walk-off homer."},
-      {id:'4-8-26-mariners',opp:'Seattle Mariners',home:true,date:'April 8, 2026',result:'win',score:'TEX 3, SEA 0',preview:"MacKenzie Gore struck out nine over five one-hit innings, and a chaotic fifth-inning rally gave Texas a 3-0 shutout win over Seattle."},
-      {id:'4-7-26-mariners',opp:'Seattle Mariners',home:true,date:'April 7, 2026',result:'win',score:'TEX 3, SEA 2',preview:"Kyle Higashioka's two-run homer in the fifth turned a 2-0 deficit into a 3-2 lead the Rangers never gave back."},
-      {id:'4-6-26-mariners',opp:'Seattle Mariners',home:true,date:'April 6, 2026',result:'win',score:'TEX 2, SEA 1',preview:"Jacob deGrom's second start of 2026 delivered five dominant innings, but it was Jake Burger's clutch sixth-inning double that gave Texas a 2-1 win."},
-      {id:'4-5-26-reds',opp:'Cincinnati Reds',home:true,date:'April 5, 2026',result:'loss',score:'CIN 2, TEX 1',preview:"Jack Leiter delivered the kind of performance that validates organizational patience, striking out nine Reds across five innings."},
-      {id:'4-4-26-reds',opp:'Cincinnati Reds',home:true,date:'April 4, 2026',result:'loss',score:'CIN 2, TEX 0',preview:"Opening night at Globe Life Field became a sobering reminder that baseball's cruelest mathematics often reduce to the simplest equation."},
-      {id:'4-3-26-reds',opp:'Cincinnati Reds',home:true,date:'April 3, 2026',result:'loss',score:'CIN 5, TEX 3',preview:"Chris Martin's ninth-inning meltdown turned what should have been a crisp home opener into a painful lesson about closer hierarchy."},
-      {id:'4-1-26-orioles',opp:'Baltimore Orioles',home:false,date:'April 1, 2026',result:'loss',score:'BAL 9, TEX 4',preview:"Fourth innings have a way of fooling you in baseball. When Josh Jung and Ezequiel Duran drove in two runs to tie things at Camden Yards, it felt like Nathan Eovaldi might have found his footing."},
-      {id:'3-31-26-orioles',opp:'Baltimore Orioles',home:false,date:'March 31, 2026',result:'win',score:'TEX 6, BAL 4',preview:"Sometimes the most telling moment in a baseball game happens when everything appears secure."},
-      {id:'3-30-26-orioles',opp:'Baltimore Orioles',home:false,date:'March 30, 2026',result:'win',score:'TEX 5, BAL 2',preview:"Camden Yards witnessed Jack Leiter's finest outing of the young season Sunday afternoon, striking out eight Reds across six innings."},
-      {id:'3-29-26-phillies',opp:'Philadelphia Phillies',home:false,date:'March 29, 2026',result:'win',score:'TEX 8, PHI 3',preview:"Andrew McCutchen's three-run blast in the fourth inning turned a methodical Rangers victory into a rout at Citizens Bank Park."},
-      {id:'3-28-26-phillies',opp:'Philadelphia Phillies',home:false,date:'March 28, 2026',result:'win',score:'TEX 4, PHI 3 (10)',preview:"Late-inning collapses have haunted this Rangers franchise for years, but Friday night at Citizens Bank Park showcased something different entirely."},
-      {id:'3-26-26-phillies',opp:'Philadelphia Phillies',home:false,date:'March 26, 2026',result:'loss',score:'PHI 5, TEX 3',preview:"Too little, too late. That cruel baseball cliche played out in vivid detail at Citizens Bank Park as the Rangers mounted a frantic ninth-inning rally that fell just short."}
-    ];
-
-    // ── Parse ?id from URL synchronously ───────────────────────────
-    var id = new URLSearchParams(window.location.search).get('id');
-    var snap = null;
-    for (var i = 0; i < RECAP_SNAPSHOT.length; i++) {
-      if (RECAP_SNAPSHOT[i].id === id) { snap = RECAP_SNAPSHOT[i]; break; }
-    }
-
-    // ── Helper: id → ISO date ──────────────────────────────────────
-    function idToISO(id) {
-      var p = id ? id.split('-') : [];
-      if (p.length < 3) return '';
-      return '20' + p[2] + '-' + p[0].padStart(2,'0') + '-' + p[1].padStart(2,'0');
-    }
-
-    // ── If no matching recap: mark noindex, set canonical to index ──
-    if (!snap) {
-      document.write('<meta name="robots" content="noindex, follow">');
-      // canonical already points to recaps.html in static markup below
-      return; // nothing more to pre-render
-    }
-
-    // ── We have a match: write real tags synchronously ──────────────
-    var matchup = snap.home ? snap.opp + ' vs Rangers' : 'Rangers vs ' + snap.opp;
-    var iso     = idToISO(snap.id);
-    var wl      = snap.result === 'win' ? 'W' : 'L';
-    var title   = matchup + ' Recap (' + snap.score + ') — The Baseball Nerd';
-    var desc    = 'Rangers recap ' + snap.date + ': ' + snap.score + '. ' +
-                  snap.preview.slice(0, 130).replace(/\.$/, '') +
-                  '. Analytics-first coverage on The Baseball Nerd.';
-    var canonical = 'https://thebaseballnerd.com/recap.html?id=' + snap.id;
-
-    document.write('<title>' + title + '<\/title>');
-    document.write('<meta name="description" content="' + desc.replace(/"/g, '&quot;') + '">');
-    document.write('<link rel="canonical" href="' + canonical + '">');
-    document.write('<meta property="og:title" content="' + (matchup + ' Recap — ' + snap.score + ' | The Baseball Nerd').replace(/"/g, '&quot;') + '">');
-    document.write('<meta property="og:description" content="' + snap.preview.slice(0,200).replace(/"/g, '&quot;') + '">');
-    if (iso) document.write('<meta property="article:published_time" content="' + iso + 'T12:00:00-05:00">');
-
-    // Stash snap so the full render pass can skip the lookup
-    window.__RECAP_SNAP__ = snap;
-  })();
-  </script>
-
-  <!-- Static fallback tags — overwritten above when a recap matches,
-       kept as safe defaults when it doesn't. -->
-  <title>Rangers Recap — The Baseball Nerd</title>
-  <meta name="description" content="Texas Rangers game recaps with in-depth analytics, RISP breakdowns, and honest takes. Daily coverage from The Baseball Nerd.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://thebaseballnerd.com/recaps.html">
-
-  <meta property="og:site_name" content="The Baseball Nerd">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="Rangers Recap — The Baseball Nerd">
-  <meta property="og:description" content="Texas Rangers game recaps with in-depth analytics and honest takes from The Baseball Nerd.">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@thebaseballnerd">
-
-  <!-- JSON-LD — populated by full render pass below -->
-  <script id="jsonld-schema" type="application/ld+json"></script>
-
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    :root{--navy:#0a1628;--navy-mid:#112040;--navy-light:#1a2f50;--gold:#c9a84c;--gold-light:#e8c97a;--cream:#f5f0e8;}
-    body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--cream);min-height:100vh;}
-    nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 2rem;background:rgba(10,22,40,0.97);border-bottom:1px solid rgba(201,168,76,0.15);position:sticky;top:0;z-index:100;}
-    .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.08em;color:var(--gold);text-decoration:none;}
-    .nav-logo span{color:var(--cream);opacity:0.45;}
-    .nav-links{display:flex;gap:0;list-style:none;}
-    .nav-links a{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.45;text-decoration:none;padding:0.4rem 0.9rem;display:block;transition:opacity 0.15s,color 0.15s;}
-    .nav-links a:hover{opacity:1;color:var(--gold);}
-    .nav-links a.active{opacity:1;color:var(--gold);border-bottom:1px solid var(--gold);}
-    .nav-cta{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1rem;background:var(--gold);color:var(--navy);border:none;cursor:pointer;font-weight:500;text-decoration:none;transition:background 0.2s;}
-    .nav-cta:hover{background:var(--gold-light);}
-    .article-wrap{max-width:720px;margin:0 auto;padding:3rem 2rem 6rem;}
-    .back-link{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.6;text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;margin-bottom:2rem;transition:opacity 0.15s;}
-    .back-link:hover{opacity:1;}
-    .article-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;}
-    .article-eyebrow::before{content:'';display:inline-block;width:1rem;height:1px;background:var(--gold);}
-    .article-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.2rem);letter-spacing:0.03em;color:var(--cream);line-height:1;margin-bottom:1rem;}
-    .article-meta{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding:1rem 0;border-top:1px solid rgba(201,168,76,0.1);border-bottom:1px solid rgba(201,168,76,0.1);margin-bottom:2.5rem;}
-    .meta-item{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.45;}
-    .meta-result{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:2px;}
-    .meta-result.win{background:rgba(90,204,106,0.1);color:#5acc6a;}
-    .meta-result.loss{background:rgba(204,90,90,0.1);color:#cc5a5a;}
-    .article-body p{font-family:'DM Serif Display',serif;font-size:1.15rem;line-height:1.85;color:var(--cream);opacity:0.85;margin-bottom:1.5rem;}
-    .article-body p:first-child{font-size:1.25rem;opacity:1;}
-    /* Pre-render skeleton — shown immediately, replaced by full render */
-    .prerender-body p{font-family:'DM Serif Display',serif;font-size:1.15rem;line-height:1.85;color:var(--cream);opacity:0.85;margin-bottom:1.5rem;}
-    .prerender-body p:first-child{font-size:1.25rem;opacity:1;}
-    .prerender-loading{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);opacity:0.4;margin-top:2rem;}
-    /* MLB Stories embed */
-    .mlb-embed-wrap{margin:2.5rem 0;border:1px solid rgba(201,168,76,0.15);background:rgba(0,0,0,0.2);}
-    .mlb-embed-label{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);opacity:0.65;padding:0.65rem 1rem;border-bottom:1px solid rgba(201,168,76,0.1);display:flex;align-items:center;justify-content:space-between;}
-    .mlb-embed-label a{font-family:'IBM Plex Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.5;text-decoration:none;transition:opacity 0.15s;}
-    .mlb-embed-label a:hover{opacity:1;}
-    .mlb-embed-frame{width:100%;height:600px;border:none;display:block;}
-    @media(max-width:700px){.mlb-embed-frame{height:480px;}}
-    .article-nav{display:flex;justify-content:center;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(201,168,76,0.08);}
-    .article-nav a{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.6;text-decoration:none;transition:opacity 0.15s;}
-    .article-nav a:hover{opacity:1;}
-    .not-found{text-align:center;padding:4rem 0;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.3;}
-    footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(201,168,76,0.06);}
-    .foot-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--gold);}
-    .foot-logo span{color:var(--cream);opacity:0.3;}
-    .foot-copy{font-family:'IBM Plex Mono',monospace;font-size:0.57rem;letter-spacing:0.08em;color:var(--cream);opacity:0.18;text-transform:uppercase;}
-    .foot-links{display:flex;gap:1.25rem;list-style:none;}
-    .foot-links a{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.28;text-decoration:none;transition:opacity 0.2s;}
-    .foot-links a:hover{opacity:0.75;}
-    @media(max-width:700px){.nav-links{display:none;}.article-body p,.prerender-body p{font-size:1rem;}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta name="robots" content="index, follow">
+<title>Rangers Recap — The Baseball Nerd</title>
+<meta name="description" content="Texas Rangers game recaps with in-depth analytics and honest takes from The Baseball Nerd.">
+<link rel="canonical" href="https://thebaseballnerd.com/recaps.html">
+<meta property="og:site_name" content="The Baseball Nerd">
+<meta property="og:type" content="article">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--navy:#0a1628;--navy-mid:#112040;--navy-light:#1a2f50;--gold:#c9a84c;--gold-light:#e8c97a;--cream:#f5f0e8;}
+body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--cream);min-height:100vh;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 2rem;background:rgba(10,22,40,0.97);border-bottom:1px solid rgba(201,168,76,0.15);position:sticky;top:0;z-index:100;}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.08em;color:var(--gold);text-decoration:none;}
+.nav-logo span{color:var(--cream);opacity:0.45;}
+.nav-links{display:flex;gap:0;list-style:none;}
+.nav-links a{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.45;text-decoration:none;padding:0.4rem 0.9rem;display:block;transition:opacity 0.15s,color 0.15s;}
+.nav-links a:hover{opacity:1;color:var(--gold);}
+.nav-links a.active{opacity:1;color:var(--gold);border-bottom:1px solid var(--gold);}
+.nav-cta{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1rem;background:var(--gold);color:var(--navy);border:none;cursor:pointer;font-weight:500;text-decoration:none;transition:background 0.2s;}
+.nav-cta:hover{background:var(--gold-light);}
+.article-wrap{max-width:720px;margin:0 auto;padding:3rem 2rem 6rem;}
+.back-link{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.6;text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;margin-bottom:2rem;transition:opacity 0.15s;}
+.back-link:hover{opacity:1;}
+.article-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;}
+.article-eyebrow::before{content:'';display:inline-block;width:1rem;height:1px;background:var(--gold);}
+.article-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.2rem);letter-spacing:0.03em;color:var(--cream);line-height:1;margin-bottom:1rem;}
+.article-meta{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding:1rem 0;border-top:1px solid rgba(201,168,76,0.1);border-bottom:1px solid rgba(201,168,76,0.1);margin-bottom:2.5rem;}
+.meta-item{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.45;}
+.meta-result{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:2px;}
+.meta-result.win{background:rgba(90,204,106,0.1);color:#5acc6a;}
+.meta-result.loss{background:rgba(204,90,90,0.1);color:#cc5a5a;}
+.article-body p{font-family:'DM Serif Display',serif;font-size:1.15rem;line-height:1.85;color:var(--cream);opacity:0.85;margin-bottom:1.5rem;}
+.article-body p:first-child{font-size:1.25rem;opacity:1;}
+.article-nav{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(201,168,76,0.08);}
+.article-nav a{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);opacity:0.6;text-decoration:none;transition:opacity 0.15s;max-width:40%;}
+.article-nav a:hover{opacity:1;}
+.not-found{text-align:center;padding:4rem 0;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.3;}
+footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(201,168,76,0.06);}
+.foot-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--gold);}
+.foot-logo span{color:var(--cream);opacity:0.3;}
+.foot-copy{font-family:'IBM Plex Mono',monospace;font-size:0.57rem;letter-spacing:0.08em;color:var(--cream);opacity:0.18;text-transform:uppercase;}
+.foot-links{display:flex;gap:1.25rem;list-style:none;}
+.foot-links a{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.28;text-decoration:none;transition:opacity 0.2s;}
+.foot-links a:hover{opacity:0.75;}
+@media(max-width:700px){.nav-links{display:none;}.article-body p{font-size:1rem;}.article-nav a{max-width:100%;}}
+</style>
 </head>
 <body>
 <nav>
@@ -220,19 +66,8 @@
   <a class="nav-cta" href="https://thebaseballnerd.substack.com" target="_blank">Subscribe →</a>
 </nav>
 
-<!--
-  PRE-RENDERED SHELL
-  ------------------
-  Populated synchronously by the inline script below — before recaps-data.js
-  loads. Googlebot's first-wave crawl sees a real <h1>, matchup title, date,
-  and lede sentence rather than "Loading...". The full render pass replaces
-  this entire block once recaps-data.js is available.
-
-  If no recap matches the ?id param, this block shows the not-found message
-  and the noindex meta tag has already been written in <head>.
--->
 <div class="article-wrap" id="article-wrap">
-  <!-- Populated immediately by the script below -->
+  <div class="not-found">Loading...</div>
 </div>
 
 <footer>
@@ -248,234 +83,53 @@
   </ul>
 </footer>
 
-<!-- ── Step 1: Synchronous pre-render from snapshot ──────────────────
-     Runs immediately. No external dependencies. Gives Google (and
-     users on slow connections) a real page with a visible headline,
-     date, result badge, and lede paragraph before any network
-     requests complete.
-  ───────────────────────────────────────────────────────────────── -->
+<script src="recaps-data.js"></script>
 <script>
-(function(){
-  var snap = window.__RECAP_SNAP__; // set in <head> pre-render script
-  var wrap = document.getElementById('article-wrap');
-  if (!wrap) return;
+function getParam(n){return new URLSearchParams(window.location.search).get(n);}
 
-  if (!snap) {
-    // No match: show not-found. noindex already written in <head>.
-    wrap.innerHTML = '<div class="not-found">Recap not found. <a href="recaps.html" style="color:var(--gold);">Back to recaps \u2192<\/a><\/div>';
+function render(){
+  var id=getParam('id');
+  var recap=typeof RECAPS!=='undefined'?RECAPS.find(function(r){return r.id===id;}):null;
+  var wrap=document.getElementById('article-wrap');
+
+  if(!recap){
+    wrap.innerHTML='<div class="not-found">Recap not found. <a href="recaps.html" style="color:var(--gold);">Back to recaps \u2192</a></div>';
     return;
   }
 
-  function idToISO(id) {
-    var p = id ? id.split('-') : [];
-    if (p.length < 3) return '';
-    return '20' + p[2] + '-' + p[0].padStart(2,'0') + '-' + p[1].padStart(2,'0');
-  }
+  // Update SEO tags dynamically
+  var matchup=recap.home?recap.opponent+' vs Rangers':'Rangers vs '+recap.opponent;
+  document.title=matchup+' Recap ('+recap.score+') \u2014 The Baseball Nerd';
+  document.querySelector('meta[name="description"]').setAttribute('content',
+    'Rangers recap '+recap.date+': '+recap.score+'. '+recap.preview.slice(0,150)+'. Analytics-first coverage on The Baseball Nerd.');
+  document.querySelector('link[rel="canonical"]').setAttribute('href',
+    'https://thebaseballnerd.com/recap.html?id='+recap.id);
 
-  var matchup = snap.home ? snap.opp + ' vs Rangers' : 'Rangers vs ' + snap.opp;
-  var iso     = idToISO(snap.id);
-  var wl      = snap.result === 'win' ? 'W' : 'L';
+  // Prev / next navigation
+  var idx=RECAPS.findIndex(function(r){return r.id===id;});
+  var prev=RECAPS[idx+1];
+  var next=RECAPS[idx-1];
 
-  // Render the article shell with the lede sentence visible immediately.
-  // The .prerender-body div will be replaced by the full body once
-  // recaps-data.js loads (Step 2 below).
-  wrap.innerHTML =
-    '<a class="back-link" href="recaps.html">\u2190 All recaps<\/a>' +
-    '<div class="article-eyebrow">Rangers Recap \u00b7 2026 Season<\/div>' +
-    '<h1 class="article-title" id="pre-title">' + matchup + '<\/h1>' +
-    '<div class="article-meta">' +
-      '<div class="meta-item"><time datetime="' + iso + '">' + snap.date + '<\/time><\/div>' +
-      '<div class="meta-result ' + snap.result + '">' + wl + ' \u00b7 ' + snap.score + '<\/div>' +
-    '<\/div>' +
-    '<div id="prerender-body" class="prerender-body">' +
-      '<p>' + snap.preview + '<\/p>' +
-      '<p class="prerender-loading">Loading full recap\u2026<\/p>' +
-    '<\/div>';
-})();
-</script>
+  var paragraphs=recap.body.split('\n\n').map(function(p){return '<p>'+p+'</p>';}).join('');
 
-<!-- ── Step 2: Full data + render ────────────────────────────────────
-     recaps-data.js loads after the pre-render shell is already
-     visible in the DOM. Once it's parsed, the full render replaces
-     the pre-render shell with complete body text, nav links, record,
-     MLB embed, and JSON-LD schema.
-  ───────────────────────────────────────────────────────────────── -->
-<script src="recaps-data.js"></script>
-<script>
-(function(){
-  // ── Helpers ─────────────────────────────────────────────────────
-  function getParam(n){ return new URLSearchParams(window.location.search).get(n); }
+  wrap.innerHTML=
+    '<a class="back-link" href="recaps.html">\u2190 All recaps</a>'+
+    '<div class="article-eyebrow">Rangers Recap \u00b7 2026 Season</div>'+
+    '<h1 class="article-title">'+matchup+'</h1>'+
+    '<div class="article-meta">'+
+      '<div class="meta-item">'+recap.date+'</div>'+
+      '<div class="meta-result '+recap.result+'">'+(recap.result==='win'?'W':'L')+' \u00b7 '+recap.score+'</div>'+
+      '<div class="meta-item">Record: '+recap.record+'</div>'+
+    '</div>'+
+    '<div class="article-body">'+paragraphs+'</div>'+
+    '<div class="article-nav">'+
+      (prev?'<a href="recap.html?id='+prev.id+'">\u2190 '+prev.opponent+' ('+prev.date+')</a>':'<span></span>')+
+      '<a href="recaps.html" style="opacity:0.45;text-align:center;">All Recaps</a>'+
+      (next?'<a href="recap.html?id='+next.id+'" style="text-align:right;">'+next.opponent+' ('+next.date+') \u2192</a>':'<span></span>')+
+    '</div>';
+}
 
-  function idToISODate(id){
-    var parts = id ? id.split('-') : [];
-    if(parts.length < 3) return null;
-    return '20'+parts[2]+'-'+parts[0].padStart(2,'0')+'-'+parts[1].padStart(2,'0');
-  }
-
-  // ── Structured Data ──────────────────────────────────────────────
-  function injectStructuredData(recap, matchupTitle, isoDate){
-    var homeTeam = recap.home ? 'Texas Rangers' : recap.opponent;
-    var awayTeam = recap.home ? recap.opponent  : 'Texas Rangers';
-    var schema = {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": matchupTitle + ' Recap \u2014 ' + recap.date,
-      "description": recap.preview,
-      "datePublished": isoDate || new Date().toISOString().split('T')[0],
-      "dateModified":  isoDate || new Date().toISOString().split('T')[0],
-      "author": {
-        "@type": "Person",
-        "name": "Pete Dwyer",
-        "url": "https://thebaseballnerd.com/about.html"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "The Baseball Nerd",
-        "url": "https://thebaseballnerd.com",
-        "logo": { "@type": "ImageObject", "url": "https://thebaseballnerd.com/favicon.png" }
-      },
-      "url": "https://thebaseballnerd.com/recap.html?id=" + recap.id,
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://thebaseballnerd.com/recap.html?id=" + recap.id
-      },
-      "about": {
-        "@type": "SportsEvent",
-        "name": matchupTitle,
-        "startDate": isoDate,
-        "endDate":   isoDate,
-        "eventStatus": "https://schema.org/EventScheduled",
-        "sport": "Baseball",
-        "location": {
-          "@type": "Place",
-          "name": recap.home ? "Globe Life Field" : recap.opponent + " Ballpark",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": recap.home ? "Arlington" : "",
-            "addressRegion":   recap.home ? "TX" : "",
-            "addressCountry":  "US"
-          }
-        },
-        "organizer": { "@type": "Organization", "name": "Major League Baseball", "url": "https://www.mlb.com" },
-        "homeTeam": { "@type": "SportsTeam", "name": homeTeam, "sport": "Baseball" },
-        "awayTeam": { "@type": "SportsTeam", "name": awayTeam, "sport": "Baseball" },
-        "description": recap.score + ' \u2014 ' + recap.preview
-      },
-      "keywords": [
-        "Texas Rangers recap",
-        matchupTitle + " recap",
-        "Rangers " + recap.date,
-        "Rangers vs " + recap.opponent,
-        recap.opponent + " vs Rangers",
-        "Rangers 2026",
-        "Rangers box score",
-        "AL West"
-      ]
-    };
-    document.getElementById('jsonld-schema').textContent = JSON.stringify(schema, null, 2);
-  }
-
-  // ── Meta updater (fills in any tags the pre-render didn't write) ──
-  function updateMeta(recap, matchupTitle, isoDate){
-    document.title = matchupTitle + ' Recap (' + recap.score + ') \u2014 The Baseball Nerd';
-    var desc = 'Rangers recap ' + recap.date + ': ' + recap.score +
-      '. ' + recap.preview.slice(0,130).replace(/\.$/, '') +
-      '. Analytics-first coverage on The Baseball Nerd.';
-    document.querySelector('meta[name="description"]').setAttribute('content', desc);
-    document.querySelector('meta[property="og:title"]').setAttribute('content',
-      matchupTitle + ' Recap \u2014 ' + recap.score + ' | The Baseball Nerd');
-    document.querySelector('meta[property="og:description"]').setAttribute('content',
-      recap.preview.slice(0,200));
-    document.querySelector('link[rel="canonical"]').setAttribute('href',
-      'https://thebaseballnerd.com/recap.html?id=' + recap.id);
-  }
-
-  // ── Full render ──────────────────────────────────────────────────
-  function render(){
-    var id   = getParam('id');
-    var recap = (typeof RECAPS !== 'undefined') ? RECAPS.find(function(r){ return r.id === id; }) : null;
-    var wrap  = document.getElementById('article-wrap');
-
-    // If recaps-data.js failed to load or id not found
-    if (!recap) {
-      // Only overwrite the DOM if the pre-render didn't already show something.
-      // If __RECAP_SNAP__ existed but RECAPS doesn't have it (data mismatch),
-      // replace the loading placeholder with a graceful message.
-      var preBody = document.getElementById('prerender-body');
-      if (preBody) {
-        preBody.innerHTML = '<p style="opacity:0.5;font-family:\'IBM Plex Mono\',monospace;font-size:0.7rem;letter-spacing:0.08em;">Full recap unavailable. <a href="recaps.html" style="color:var(--gold);">Back to recaps \u2192<\/a><\/p>';
-      } else if (wrap && !window.__RECAP_SNAP__) {
-        // Totally unknown id — no pre-render ran at all
-        wrap.innerHTML = '<div class="not-found">Recap not found. <a href="recaps.html" style="color:var(--gold);">Back to recaps \u2192<\/a><\/div>';
-      }
-      return;
-    }
-
-    var matchupTitle = recap.home
-      ? recap.opponent + ' vs Rangers'
-      : 'Rangers vs ' + recap.opponent;
-
-    var isoDate = idToISODate(recap.id);
-
-    updateMeta(recap, matchupTitle, isoDate);
-    injectStructuredData(recap, matchupTitle, isoDate);
-
-    // Body text
-    var bodyContent = (recap.body && recap.body.trim())
-      ? recap.body.trim().split('\n\n').map(function(p){ return '<p>' + p + '<\/p>'; }).join('')
-      : '<p>' + recap.preview + '<\/p><p><em>Full recap coming soon.<\/em><\/p>';
-
-    // Prev/next nav
-    var idx  = RECAPS.findIndex(function(r){ return r.id === id; });
-    var prev = RECAPS[idx + 1];
-    var next = RECAPS[idx - 1];
-
-    var navLinks = [
-      prev ? '<a href="recap.html?id=' + prev.id + '" style="margin-right:auto;">\u2190 ' + prev.opponent + ' (' + prev.date + ')<\/a>' : '<span><\/span>',
-      '<a href="recaps.html" style="opacity:0.45;">All Recaps<\/a>',
-      next ? '<a href="recap.html?id=' + next.id + '" style="margin-left:auto;">' + next.opponent + ' (' + next.date + ') \u2192<\/a>' : '<span><\/span>'
-    ].join('');
-
-    // MLB embed
-    var mlbEmbed = (recap.gamePk && recap.body && recap.body.trim())
-      ? '<div class="mlb-embed-wrap">' +
-          '<div class="mlb-embed-label">' +
-            '<span>// Game Highlights \u00b7 MLB Stories<\/span>' +
-            '<a href="https://www.mlb.com/stories/game/' + recap.gamePk + '" target="_blank" rel="noopener">View on MLB.com \u2192<\/a>' +
-          '<\/div>' +
-          '<iframe class="mlb-embed-frame"' +
-            ' src="https://www.mlb.com/stories/game/' + recap.gamePk + '?storylocal=gameday-postgame-wrap-game-embed"' +
-            ' title="' + matchupTitle + ' highlights"' +
-            ' loading="lazy"' +
-            ' sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"><\/iframe>' +
-        '<\/div>'
-      : '';
-
-    // Replace the entire article-wrap with the full render.
-    // Because the pre-render shell is already visible, this swap is
-    // imperceptible to human visitors but ensures the full body text
-    // is in the DOM for JS-executing crawlers too.
-    wrap.innerHTML =
-      '<a class="back-link" href="recaps.html">\u2190 All recaps<\/a>' +
-      '<div class="article-eyebrow">Rangers Recap \u00b7 2026 Season<\/div>' +
-      '<h1 class="article-title">' + matchupTitle + '<\/h1>' +
-      '<div class="article-meta">' +
-        '<div class="meta-item"><time datetime="' + (isoDate||'') + '">' + recap.date + '<\/time><\/div>' +
-        '<div class="meta-result ' + recap.result + '">' + (recap.result === 'win' ? 'W' : 'L') + ' \u00b7 ' + recap.score + '<\/div>' +
-        '<div class="meta-item">Record: ' + recap.record + '<\/div>' +
-      '<\/div>' +
-      '<article class="article-body" itemscope itemtype="https://schema.org/Article">' +
-        '<meta itemprop="headline" content="' + matchupTitle + ' Recap \u2014 ' + recap.date + '">' +
-        '<meta itemprop="datePublished" content="' + (isoDate||'') + '">' +
-        '<meta itemprop="author" content="Pete Dwyer">' +
-        bodyContent +
-      '<\/article>' +
-      mlbEmbed +
-      '<div class="article-nav" style="justify-content:space-between;gap:1rem;flex-wrap:wrap;">' + navLinks + '<\/div>';
-  }
-
-  render();
-})();
+render();
 </script>
 </body>
 </html>
