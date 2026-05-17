@@ -1,254 +1,402 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- ==================== CORE PAGES ==================== -->
+
   <url>
     <loc>https://thebaseballnerd.com/</loc>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/news.html</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/articles.html</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://thebaseballnerd.com/recaps</loc>
+    <loc>https://thebaseballnerd.com/recaps.html</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/rosters.html</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thebaseballnerd.com/vault.html</loc>
-    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/podcasts.html</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thebaseballnerd.com/about</loc>
-    <lastmod>2026-04-11</lastmod>
+    <loc>https://thebaseballnerd.com/vault.html</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/about.html</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 
-  <!-- Articles -->
-  <url>
-    <loc>https://thebaseballnerd.com/articles/what-is-wrc-plus-in-baseball</loc>
-    <lastmod>2026-04-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://thebaseballnerd.com/articles/ops-plus-vs-wrc-plus</loc>
-    <lastmod>2026-04-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://thebaseballnerd.com/articles/what-is-war-in-baseball</loc>
-    <lastmod>2026-04-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://thebaseballnerd.com/articles/what-is-woba-in-baseball</loc>
-    <lastmod>2026-04-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://thebaseballnerd.com/articles/what-is-ops-in-baseball</loc>
-    <lastmod>2026-04-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://thebaseballnerd.com/articles/spark-score-explained</loc>
-    <lastmod>2026-04-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
+  <!-- ==================== ANALYTICS TOOLS ==================== -->
 
-  <!-- Data Vault Pages -->
   <url>
     <loc>https://thebaseballnerd.com/pitching-analysis-2026.html</loc>
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/scout_2026.html</loc>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Rangers Game Recaps 2026 -->
+  <!-- ==================== NATIVE ARTICLES ==================== -->
+
+  <url>
+    <loc>https://thebaseballnerd.com/articles/bases-gained.html</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/articles/what-is-bases-gained-in-baseball.html</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/articles/fade-score-explained.html</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/articles/spark-score-explained.html</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/articles/what-is-ops-in-baseball.html</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/articles/what-is-woba-in-baseball.html</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/articles/ops-plus-vs-wrc-plus.html</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/articles/what-is-war-in-baseball.html</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/articles/what-is-wrc-plus-in-baseball.html</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ==================== GAME RECAPS (44 total) ==================== -->
+  <!-- Individual recaps served via recap.html?id= query string        -->
+  <!-- changefreq=never: past game data does not change                -->
+
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=5-16-26-houston-astros</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=5-15-26-houston-astros</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=5-13-26-arizona-diamondbacks</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=5-12-26-arizona-diamondbacks</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=5-11-26-arizona-diamondbacks</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=5-10-26-chicago-cubs</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=5-9-26-chicago-cubs</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=5-8-26-chicago-cubs</loc>
+    <lastmod>2026-05-08</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=5-7-26-yankees</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=5-6-26-yankees</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=5-5-26-yankees</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=5-3-26-detroit-tigers</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=5-2-26-detroit-tigers</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=5-1-26-detroit-tigers</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=4-29-26-yankees</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=4-28-26-yankees</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=4-27-26-yankees</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=4-26-26-athletics</loc>
+    <lastmod>2026-04-26</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=4-25-26-athletics</loc>
     <lastmod>2026-04-25</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=4-24-26-athletics</loc>
     <lastmod>2026-04-24</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=4-23-26-pittsburgh-pirates</loc>
     <lastmod>2026-04-23</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=4-22-26-pittsburgh-pirates</loc>
     <lastmod>2026-04-22</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=4-21-26-pittsburgh-pirates</loc>
     <lastmod>2026-04-21</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=4-19-26-seattle-mariners</loc>
     <lastmod>2026-04-19</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=4-18-26-seattle-mariners</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=4-17-26-seattle-mariners</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=4-16-26-athletics</loc>
     <lastmod>2026-04-16</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=4-15-26-athletics</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=4-14-26-athletics</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=4-13-26-athletics</loc>
     <lastmod>2026-04-13</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=4-12-26-dodgers</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=4-11-26-dodgers</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=4-10-26-dodgers</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=4-8-26-mariners</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=4-7-26-mariners</loc>
     <lastmod>2026-04-07</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=4-6-26-mariners</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=4-5-26-reds</loc>
     <lastmod>2026-04-05</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=4-4-26-reds</loc>
     <lastmod>2026-04-04</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=4-3-26-reds</loc>
     <lastmod>2026-04-03</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=4-1-26-orioles</loc>
     <lastmod>2026-04-01</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=3-31-26-orioles</loc>
     <lastmod>2026-03-31</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=3-30-26-orioles</loc>
     <lastmod>2026-03-30</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=3-29-26-phillies</loc>
     <lastmod>2026-03-29</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=3-28-26-phillies</loc>
     <lastmod>2026-03-28</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thebaseballnerd.com/recap.html?id=3-26-26-phillies</loc>
     <lastmod>2026-03-26</lastmod>
     <changefreq>never</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
+
 </urlset>
