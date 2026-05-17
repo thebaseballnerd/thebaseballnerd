@@ -23,6 +23,27 @@
  */
 
 const RECAPS = [{
+  id:'5-16-26-houston-astros',
+  date:'2026-05-16',
+  opponent:'Houston Astros',
+  home:false,
+  result:'loss',
+  score:'TEX 1, HOU 4',
+  record:'21-24',  // ← fill in current record
+  gamePk:824193,
+  preview:"Another night, another home run parade for Jacob deGrom.",
+  body:`deGrom surrendered four solo shots at Daikin Park, watching his team drop a 4-1 decision to Houston that felt more lopsided than the final score suggested. What made this loss particularly galling wasn't just the power barrage against deGrom, but the complete offensive ineptitude that left 13 runners stranded and produced just one hit in 10 at-bats with runners in scoring position.
+
+The tone was set early when Jose Altuve needed just three pitches to take deGrom deep in the bottom of the first. Two batters later, Yordan Alvarez followed with his 15th homer of the season, an 8-pitch battle that ended with another ball sailing over the right field wall. The Rangers had fallen behind 2-0 before recording their third out, and deGrom's troubling trend with the long ball was already in full display.
+
+Things got worse in the fourth when Christian Walker crushed a first-pitch fastball to left-center for his 11th homer. Four pitches later, Zach Cole added insult to injury with another deep fly to right field, capping a disastrous outing that saw deGrom allow four home runs in six innings. The veteran right-hander struck out four and walked none, but the command issues that have plagued him this season were evident as Houston hitters repeatedly turned on mistake pitches.
+
+While deGrom was serving up batting practice fastballs, Kai-Wei Teng was suffocating the Rangers offense through five innings. The Houston starter allowed just two hits while walking four and striking out seven, consistently working out of trouble as Texas squandered scoring chances. The Rangers managed to load the bases twice but couldn't capitalize, a theme that would define their evening.
+
+The lone bright spot came in the seventh when Joc Pederson finally broke through with a ground-ball single to center field, scoring Jake Burger for the Rangers' only run. But even that rally fizzled as they left runners on second and third, another missed opportunity in a game full of them.
+
+Skip Schumaker's club entered the night needing to find consistency, but this performance highlighted their biggest weaknesses. DeGrom's transformation into a home run machine has become a serious concern, while the offense's inability to execute with runners in scoring position continues to waste quality opportunities. At 1-for-10 with runners in scoring position, this was baseball malpractice.`
+},{
   id:'5-15-26-houston-astros',
   date:'May 15, 2026',
   opponent:'Houston Astros',
