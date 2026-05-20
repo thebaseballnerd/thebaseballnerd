@@ -14,7 +14,8 @@ exports.handler = async function(event) {
     'baseball-reference.com',
     'baseballamerica.com',
     'baseballprospectus.com',
-    'substack.com'
+    'substack.com',
+    'api.substack.com'
   ];
   if (!allowed.some(d => feedUrl.includes(d))) {
     return { statusCode: 403, body: JSON.stringify({ error: 'Domain not allowed' }) };
@@ -83,7 +84,13 @@ function parseRSS(xml) {
     const link    = strip(extractLink(item) || extract(item, 'guid'));
     const pubDate = strip(extract(item, 'pubDate'));
     const desc    = strip(extract(item, 'description'));
-    if (title && link) items.push({ title, link, pubDate, description: desc });
+    // Extract enclosure URL (self-closing tag: <enclosure url="..." .../>)
+    const enclosureMatch = item.match(/<enclosure[^>]+url=["']([^"']+)["']/i);
+    const enclosure = enclosureMatch ? enclosureMatch[1] : '';
+    // Extract itunes:duration
+    const durationMatch = item.match(/<itunes:duration[^>]*>([\s\S]*?)<\/itunes:duration>/i);
+    const duration = durationMatch ? strip(durationMatch[1]) : '';
+    if (title && link) items.push({ title, link, pubDate, description: desc, enclosure, duration });
   });
   return items;
 }
