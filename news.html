@@ -201,12 +201,58 @@ function renderFeeds() {
   }).join('');
 }
 
+function parseRSS(xmlText, count) {
+  const parser = new DOMParser();
+  const xml = parser.parseFromString(xmlText, 'text/xml');
+  const items = [...xml.querySelectorAll('item')].slice(0, count);
+  return items.map(item => ({
+    title:   item.querySelector('title')?.textContent || '',
+    link:    item.querySelector('link')?.textContent || item.querySelector('link')?.nextSibling?.textContent || '',
+    pubDate: item.querySelector('pubDate')?.textContent || '',
+  }));
+}
+
+// ESPN blocks server-side fetches via AWS WAF — fetch it client-side via rss2json
+const ESPN_ID = 'espn';
+
+function parseRSSClientSide(xmlText, count) {
+  const parser = new DOMParser();
+  const xml = parser.parseFromString(xmlText, 'text/xml');
+  const items = [...xml.querySelectorAll('item')].slice(0, count);
+  return items.map(item => ({
+    title:   item.querySelector('title')?.textContent?.trim() || '',
+    link:    item.querySelector('link')?.textContent?.trim() ||
+             item.querySelector('guid')?.textContent?.trim() || '',
+    pubDate: item.querySelector('pubDate')?.textContent?.trim() || '',
+    description: item.querySelector('description')?.textContent?.trim() || '',
+  })).filter(i => i.title && i.link);
+}
+
 async function loadFeed(feed) {
   try {
-    const res  = await fetch(PROXY + encodeURIComponent(feed.rss));
-    const data = await res.json();
-    allItems[feed.id] = (data.status === 'ok' && data.items && data.items.length > 0) ? data.items.slice(0, feed.count) : [];
-    setStatus(feed.id, allItems[feed.id].length > 0);
+    let items = [];
+
+    if (feed.id === ESPN_ID) {
+      // ESPN: fetch directly from browser — their WAF blocks datacenter IPs
+      const res = await fetch(feed.rss);
+      const xml = await res.text();
+      items = parseRSSClientSide(xml, feed.count);
+    } else {
+      // All other feeds: use Netlify proxy
+      const res  = await fetch(PROXY + encodeURIComponent(feed.rss));
+      const data = await res.json();
+      if (data.status === 'ok' && data.items && data.items.length > 0) {
+        items = data.items.slice(0, feed.count);
+      }
+    }
+
+    if (items.length > 0) {
+      allItems[feed.id] = items;
+      setStatus(feed.id, true);
+    } else {
+      allItems[feed.id] = [];
+      setStatus(feed.id, false);
+    }
   } catch(e) {
     allItems[feed.id] = [];
     setStatus(feed.id, false);
