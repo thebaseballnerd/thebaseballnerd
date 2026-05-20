@@ -38,82 +38,83 @@ exports.handler = async function(event) {
   }
 };
 
-function fetchUrl(url, redirectCount = 0) {
+function fetchUrl(url, redirectCount) {
+  redirectCount = redirectCount || 0;
   if (redirectCount > 5) return Promise.reject(new Error('Too many redirects'));
+
   return new Promise((resolve, reject) => {
     const lib = url.startsWith('https') ? https : http;
-    const parsed = new URL(url);
-    const options = {
-      hostname: parsed.hostname,
-      path: parsed.pathname + parsed.search,
-      method: 'GET',
+    const reqOptions = {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
         'Accept-Language': 'en-US,en;q=0.9',
         'Accept-Encoding': 'identity',
-        'Referer': `https://${parsed.hostname}/`,
-        'Cache-Control': 'no-cache',
-        'Connection': 'keep-alive'
+        'Cache-Control': 'no-cache'
       }
     };
-    const req = lib.request(options, (res) => {
+
+    lib.get(url, reqOptions, function(res) {
       if (res.statusCode === 301 || res.statusCode === 302 || res.statusCode === 307 || res.statusCode === 308) {
-        const location = res.headers.location;
+        var location = res.headers.location;
+        res.resume(); // drain response
         if (!location) return reject(new Error('Redirect with no location'));
-        const next = location.startsWith('http') ? location : `https://${parsed.hostname}${location}`;
-        return resolve(fetchUrl(next, redirectCount + 1));
+        if (!location.startsWith('http')) {
+          var parsed = new URL(url);
+          location = parsed.protocol + '//' + parsed.hostname + location;
+        }
+        return fetchUrl(location, redirectCount + 1).then(resolve, reject);
       }
-      if (res.statusCode !== 200) return reject(new Error(`HTTP ${res.statusCode}`));
-      let data = '';
+      if (res.statusCode !== 200) {
+        res.resume();
+        return reject(new Error('HTTP ' + res.statusCode));
+      }
       res.setEncoding('utf8');
-      res.on('data', chunk => data += chunk);
-      res.on('end', () => resolve(data));
+      var data = '';
+      res.on('data', function(chunk) { data += chunk; });
+      res.on('end', function() { resolve(data); });
+    }).on('error', reject).setTimeout(10000, function() {
+      this.destroy();
+      reject(new Error('Timeout'));
     });
-    req.on('error', reject);
-    req.setTimeout(10000, () => { req.destroy(); reject(new Error('Timeout')); });
-    req.end();
   });
 }
 
 function parseRSS(xml) {
-  const items = [];
-  const matches = xml.match(/<item[\s\S]*?<\/item>/g) || [];
-  matches.slice(0, 20).forEach(item => {
-    const title   = strip(extract(item, 'title'));
-    const link    = strip(extractLink(item) || extract(item, 'guid'));
-    const pubDate = strip(extract(item, 'pubDate'));
-    const desc    = strip(extract(item, 'description'));
-    // Extract enclosure URL (self-closing tag: <enclosure url="..." .../>)
-    const enclosureMatch = item.match(/<enclosure[^>]+url=["']([^"']+)["']/i);
-    const enclosure = enclosureMatch ? enclosureMatch[1] : '';
-    // Extract itunes:duration
-    const durationMatch = item.match(/<itunes:duration[^>]*>([\s\S]*?)<\/itunes:duration>/i);
-    const duration = durationMatch ? strip(durationMatch[1]) : '';
-    if (title && link) items.push({ title, link, pubDate, description: desc, enclosure, duration });
+  var items = [];
+  var matches = xml.match(/<item[\s\S]*?<\/item>/g) || [];
+  matches.slice(0, 20).forEach(function(item) {
+    var title   = strip(extract(item, 'title'));
+    var link    = strip(extractLink(item) || extract(item, 'guid'));
+    var pubDate = strip(extract(item, 'pubDate'));
+    var desc    = strip(extract(item, 'description'));
+    // Self-closing enclosure tag
+    var enclosureMatch = item.match(/<enclosure[^>]+url=["']([^"']+)["']/i);
+    var enclosure = enclosureMatch ? enclosureMatch[1] : '';
+    // itunes:duration
+    var durationMatch = item.match(/<itunes:duration[^>]*>([\s\S]*?)<\/itunes:duration>/i);
+    var duration = durationMatch ? strip(durationMatch[1]) : '';
+    if (title && link) items.push({ title: title, link: link, pubDate: pubDate, description: desc, enclosure: enclosure, duration: duration });
   });
   return items;
 }
 
-function extract(str, tag) {
-  // Try standard open/close tag first
-  const m = str.match(new RegExp(`<${tag}[^>]*>([\s\S]*?)<\/${tag}>`, 'i'));
-  if (m && m[1].trim()) return m[1];
-  // Fallback: self-closing or atom namespace variants
+function extractLink(str) {
+  // CDATA-wrapped link (ESPN style)
+  var cdataMatch = str.match(/<link[^>]*>\s*<!\[CDATA\[([\s\S]*?)\]\]>\s*<\/link>/i);
+  if (cdataMatch && cdataMatch[1].trim()) return cdataMatch[1].trim();
+  // Plain URL in link tag
+  var stdMatch = str.match(/<link[^>]*>(https?:\/\/[^\s<]+)<\/link>/i);
+  if (stdMatch) return stdMatch[1].trim();
+  // guid fallback
+  var guidMatch = str.match(/<guid[^>]*>(https?:\/\/[^\s<]+)<\/guid>/i);
+  if (guidMatch) return guidMatch[1].trim();
   return '';
 }
 
-function extractLink(str) {
-  // Handle ESPN CDATA links: <link><![CDATA[url]]></link>
-  const cdataMatch = str.match(/<link[^>]*>\s*<!\[CDATA\[([\s\S]*?)\]\]>\s*<\/link>/i);
-  if (cdataMatch && cdataMatch[1].trim()) return cdataMatch[1].trim();
-  // Standard link tag
-  const stdMatch = str.match(/<link[^>]*>(https?:\/\/[^\s<]+)<\/link>/i);
-  if (stdMatch) return stdMatch[1].trim();
-  // guid as fallback
-  const guidMatch = str.match(/<guid[^>]*>(https?:\/\/[^\s<]+)<\/guid>/i);
-  if (guidMatch) return guidMatch[1].trim();
-  return '';
+function extract(str, tag) {
+  var m = str.match(new RegExp('<' + tag + '[^>]*>([\\s\\S]*?)<\\/' + tag + '>', 'i'));
+  return m ? m[1] : '';
 }
 
 function strip(str) {
