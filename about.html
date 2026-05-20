@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y0H5FZ8RP"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-2Y0H5FZ8RP');
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="/favicon.png">
-<title>About - The Baseball Nerd</title>
-<meta name="description" content="Pete Dwyer is The Baseball Nerd - analytics-first baseball coverage built on proprietary SPARK and FADE scoring.">
-<link rel="canonical" href="">
+<title>About — The Baseball Nerd</title>
+<meta name="description" content="Pete Dwyer is The Baseball Nerd — analytics-first MLB coverage built on proprietary SPARK, FADE, Bases Gained, and ABS IQ+ scoring frameworks.">
+<link rel="canonical" href="https://thebaseballnerd.com/about.html">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -39,6 +37,14 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem
 .about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding-top:1.5rem;border-top:1px solid rgba(201,168,76,0.12);}
 .stat-num{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--gold);line-height:1;}
 .stat-lbl{font-family:'IBM Plex Mono',monospace;font-size:0.57rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.32;margin-top:0.2rem;}
+/* Framework cards */
+.frameworks{display:flex;flex-direction:column;gap:0.65rem;margin:1.25rem 0 1.5rem;}
+.framework-card{background:rgba(201,168,76,0.06);border-left:2px solid var(--gold);padding:0.7rem 0.9rem;color:var(--navy);}
+.framework-name{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.06em;color:#854F0B;line-height:1;margin-bottom:0.2rem;}
+.framework-desc{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.05em;color:#1a1a2e;opacity:0.7;line-height:1.55;}
+.framework-link{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#854F0B;opacity:0.85;margin-top:0.5rem;}
+.framework-card:hover{border-left-color:var(--gold-light);background:rgba(201,168,76,0.1);}
+.framework-card{transition:background 0.2s,border-color 0.2s;}
 .about-right p{font-size:0.92rem;line-height:1.8;color:#1a1a2e;opacity:0.65;margin-bottom:1.1rem;}
 .about-right strong{color:#1a1a2e;opacity:1;font-weight:500;}
 .about-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:#854F0B;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem;}
@@ -77,51 +83,83 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
   </ul>
   <a class="nav-cta" href="https://thebaseballnerd.substack.com" target="_blank">Subscribe →</a>
 </nav>
- 
+
 <div class="about-wrap">
   <div class="about-inner">
     <div>
       <div class="about-left-card">
         <div class="about-tagline">Numbers<br>Not<br>Feelings.</div>
-        <div class="about-card-desc">Proprietary analytics built from the ground up. No hot takes. No narrative chasing. Just the data doing the talking.</div>
+        <div class="about-card-desc">Four proprietary frameworks built from the ground up. No hot takes. No narrative chasing. Just the data doing the talking.</div>
         <div class="about-stats">
           <div><div class="stat-num">2,500+</div><div class="stat-lbl">Subscribers</div></div>
-          <div><div class="stat-num">SPARK</div><div class="stat-lbl">Breakout score</div></div>
-          <div><div class="stat-num">FADE</div><div class="stat-lbl">Decline score</div></div>
+          <div><div class="stat-num">30</div><div class="stat-lbl">Teams covered</div></div>
+          <div><div class="stat-num">4</div><div class="stat-lbl">Proprietary models</div></div>
           <div><div class="stat-num">2023</div><div class="stat-lbl">Founded</div></div>
         </div>
       </div>
     </div>
+
     <div class="about-right">
       <div class="about-eyebrow">About</div>
       <div class="about-head">Pete Dwyer,<br>The Baseball Nerd</div>
-      <p><strong>The Baseball Nerd</strong> is an independent baseball media brand covering MLB, MiLB, and all things related to the game, built on the belief that data tells a better story than conventional wisdom ever will.</p>
-      <p>Founded in 2023, The Baseball Nerd has grown to more than 2,500 subscribers through original analytics work, long-form investigative series, and a commitment to covering the game the way it deserves to be covered. Without the noise. Coverage spans the full professional game, from the major league level down through the minor league system, with a particular focus on the AL West and the Texas Rangers organization.</p>
-      <p>Pete Dwyer is the author of a published baseball scorekeeping book and how-to scoring guide, available through Amazon. It is a practical resource for fans who want to connect with the game the way it was meant to be followed. He is a member of the IBWAA and an active contributor to various baseball publications.</p>
-      <p>The Baseball Nerd Analytics Suite provides subscribers with proprietary SPARK Score and FADE Score frameworks, original research tools built from public data, alongside a growing library of datasets and workbooks available in the Data Vault.</p>
-      <p>This is independent media. No corporate backing, no editorial filters, no agenda beyond getting it right.</p>
-      <div class="pillars">
-        <div class="pillar"><div class="pillar-dot"></div>MLB and MiLB coverage</div>
-        <div class="pillar"><div class="pillar-dot"></div>MLB credentialed</div>
-        <div class="pillar"><div class="pillar-dot"></div>Proprietary SPARK and FADE analytics</div>
-        <div class="pillar"><div class="pillar-dot"></div>AL West and Texas Rangers focus</div>
-        <div class="pillar"><div class="pillar-dot"></div>Published scorekeeping book and how-to guide</div>
-        <div class="pillar"><div class="pillar-dot"></div>Sunday Stories: baseball history and long-form articles</div>
+
+      <p><strong>The Baseball Nerd</strong> is an independent baseball media brand covering all 30 MLB teams and the minor league system, built on the belief that data tells a better story than conventional wisdom ever will.</p>
+
+      <p>Founded in 2023 and grown to more than 2,500 subscribers, The Baseball Nerd produces original analytics work, long-form features, game coverage, and a weekly podcast. The work is built on four proprietary scoring frameworks developed in-house.</p>
+
+      <div class="frameworks">
+        <a class="framework-card" href="https://thebaseballnerd.com/articles/spark-score-explained.html" style="text-decoration:none;display:block;">
+          <div class="framework-name">SPARK Score</div>
+          <div class="framework-desc">Statistical Performance Acceleration and Rising Kinetics. Identifies breakout candidates aged 20-27 across five components. Max 80 points.</div>
+          <div class="framework-link">Read the methodology →</div>
+        </a>
+        <a class="framework-card" href="https://thebaseballnerd.com/articles/fade-score-explained.html" style="text-decoration:none;display:block;">
+          <div class="framework-name">FADE Score</div>
+          <div class="framework-desc">Forecasting Athletic Decline and Erosion. Flags regression risk for players 28 and older before the ERA or batting average confirms it.</div>
+          <div class="framework-link">Read the methodology →</div>
+        </a>
+        <a class="framework-card" href="https://thebaseballnerd.com/articles/what-is-bases-gained-in-baseball.html" style="text-decoration:none;display:block;">
+          <div class="framework-name">Bases Gained</div>
+          <div class="framework-desc">Counts every direct offensive action, penalizes double plays and caught stealing, and adjusts for defensive position using 10 years of qualified-season data.</div>
+          <div class="framework-link">Read the methodology →</div>
+        </a>
+        <a class="framework-card" href="https://thebaseballnerd.com/articles/what-is-abs-iq-plus-in-baseball.html" style="text-decoration:none;display:block;">
+          <div class="framework-name">ABS IQ+</div>
+          <div class="framework-desc">Scores how intelligently every MLB team and player uses the 2026 Automated Ball-Strike challenge system. Scaled to 100 as league average.</div>
+          <div class="framework-link">Read the methodology →</div>
+        </a>
       </div>
+
+      <p>Pete Dwyer is a credentialed baseball writer, IBWAA member, and the author of a published baseball scorekeeping book available through Amazon. He is an active contributor to FanSided and Painting Corners Baseball, with press credentials through the Frisco RoughRiders.</p>
+
+      <p>The Baseball Nerd Analytics Suite provides subscribers with all four proprietary frameworks, original research tools, and a growing library of datasets and workbooks available in the Data Vault.</p>
+
+      <p>This is independent media. No corporate backing, no editorial filters, no agenda beyond getting it right.</p>
+
+      <div class="pillars">
+        <div class="pillar"><div class="pillar-dot"></div>Full MLB and MiLB coverage, all 30 teams</div>
+        <div class="pillar"><div class="pillar-dot"></div>Credentialed writer, IBWAA member</div>
+        <div class="pillar"><div class="pillar-dot"></div>SPARK, FADE, Bases Gained, and ABS IQ+ frameworks</div>
+        <div class="pillar"><div class="pillar-dot"></div>The Division Line — weekly MLB podcast, Mondays</div>
+        <div class="pillar"><div class="pillar-dot"></div>Published scorekeeping book and how-to guide</div>
+        <div class="pillar"><div class="pillar-dot"></div>Sunday Stories: baseball history and long-form features</div>
+      </div>
+
       <div class="affils">
         <a class="affil" href="https://ibwaa.com" target="_blank" rel="noopener" style="text-decoration:none;">IBWAA</a>
         <a class="affil" href="https://fansided.com/author/petedwyer" target="_blank" rel="noopener" style="text-decoration:none;">FanSided</a>
         <a class="affil" href="https://painting-corners.com/painting-corners-mlb-baseball-all-articles?author=695be1bf9f9fe76b728a7671#show-archive" target="_blank" rel="noopener" style="text-decoration:none;">Painting Corners Baseball</a>
         <a class="affil" href="https://www.amazon.com/Americas-Most-Measured-Game-Understanding/dp/B0G2MRZBQ6/" target="_blank" rel="noopener" style="text-decoration:none;">Amazon</a>
       </div>
+
       <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
         <a class="btn-gold-sm" href="https://thebaseballnerd.substack.com" target="_blank">Subscribe on Substack</a>
-        <a class="btn-outline-sm" href="/cdn-cgi/l/email-protection#1e6e7b6a7b5e6a767b7c7f6d7b7c7f7272707b6c7a307d7173">Contact Pete</a>
+        <a class="btn-outline-sm" href="mailto:pete@thebaseballnerd.com">Contact Pete</a>
       </div>
     </div>
   </div>
 </div>
- 
+
 <footer>
   <div class="foot-logo">The Baseball <span>Nerd</span></div>
   <div class="foot-copy">© 2026 The Baseball Nerd · Numbers Not Feelings</div>
@@ -132,4 +170,8 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
     <li><a href="rosters.html">Rosters</a></li>
     <li><a href="podcasts.html">Podcasts</a></li>
     <li><a href="vault.html">Vault</a></li>
-    <li><a href="about.html">Ab
+    <li><a href="about.html">About</a></li>
+  </ul>
+</footer>
+</body>
+</html>
