@@ -80,7 +80,7 @@ function parseRSS(xml) {
   const matches = xml.match(/<item[\s\S]*?<\/item>/g) || [];
   matches.slice(0, 20).forEach(item => {
     const title   = strip(extract(item, 'title'));
-    const link    = strip(extract(item, 'link') || extract(item, 'guid'));
+    const link    = strip(extractLink(item) || extract(item, 'guid'));
     const pubDate = strip(extract(item, 'pubDate'));
     const desc    = strip(extract(item, 'description'));
     if (title && link) items.push({ title, link, pubDate, description: desc });
@@ -89,8 +89,24 @@ function parseRSS(xml) {
 }
 
 function extract(str, tag) {
-  const m = str.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, 'i'));
-  return m ? m[1] : '';
+  // Try standard open/close tag first
+  const m = str.match(new RegExp(`<${tag}[^>]*>([\s\S]*?)<\/${tag}>`, 'i'));
+  if (m && m[1].trim()) return m[1];
+  // Fallback: self-closing or atom namespace variants
+  return '';
+}
+
+function extractLink(str) {
+  // Handle ESPN CDATA links: <link><![CDATA[url]]></link>
+  const cdataMatch = str.match(/<link[^>]*>\s*<!\[CDATA\[([\s\S]*?)\]\]>\s*<\/link>/i);
+  if (cdataMatch && cdataMatch[1].trim()) return cdataMatch[1].trim();
+  // Standard link tag
+  const stdMatch = str.match(/<link[^>]*>(https?:\/\/[^\s<]+)<\/link>/i);
+  if (stdMatch) return stdMatch[1].trim();
+  // guid as fallback
+  const guidMatch = str.match(/<guid[^>]*>(https?:\/\/[^\s<]+)<\/guid>/i);
+  if (guidMatch) return guidMatch[1].trim();
+  return '';
 }
 
 function strip(str) {
