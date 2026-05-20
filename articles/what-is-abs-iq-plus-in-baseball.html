@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y0H5FZ8RP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2Y0H5FZ8RP');
+</script>
+  <link rel="icon" type="image/png" href="../favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What is ABS IQ+? Baseball's Challenge Intelligence Metric | The Baseball Nerd</title>
+<meta name="description" content="ABS IQ+ measures how intelligently MLB teams and players use the Automated Ball-Strike challenge system. 100 equals league average. See the full 2026 leaderboard.">
+<meta name="author" content="Pete Dwyer">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://thebaseballnerd.com/articles/what-is-abs-iq-plus-in-baseball.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="What is ABS IQ+? Baseball's Challenge Intelligence Metric">
+<meta property="og:description" content="A proprietary metric scoring every MLB team and player's Automated Ball-Strike challenge intelligence. 100 equals league average. Full 2026 leaderboard included.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://thebaseballnerd.com/abs-iq-baseball-challenge-intelligence">
+<meta property="og:site_name" content="The Baseball Nerd">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What is ABS IQ+? Baseball's Challenge Intelligence Metric">
+<meta name="twitter:description" content="A proprietary metric scoring every MLB team and player's ABS challenge intelligence. 100 = league average. Full 2026 leaderboard.">
+
+<!-- Article schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What is ABS IQ+? The Metric Measuring Baseball's Challenge Intelligence",
+  "description": "ABS IQ+ is a proprietary composite metric developed by The Baseball Nerd to score how intelligently MLB teams and players use the Automated Ball-Strike challenge system. 100 equals league average.",
+  "author": {
+    "@type": "Person",
+    "name": "Pete Dwyer",
+    "url": "https://thebaseballnerd.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Baseball Nerd",
+    "url": "https://thebaseballnerd.com"
+  },
+  "datePublished": "2026-05-19",
+  "dateModified": "2026-05-19",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://thebaseballnerd.com/articles/what-is-abs-iq-plus-in-baseball.html"
+  }
+}
+</script>
+
+<!-- FAQ schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is ABS IQ+ in baseball?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ABS IQ+ is a proprietary metric developed by The Baseball Nerd that scores how intelligently MLB teams and players use the Automated Ball-Strike challenge system. It is scaled so that 100 equals league average, following the same convention as wRC+ and ERA+. Scores above 100 indicate above-average challenge intelligence. Scores below 100 indicate below-average performance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Automated Ball-Strike (ABS) challenge system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The ABS challenge system, introduced in MLB in 2026, allows batters, pitchers, and catchers to contest a human umpire's ball or strike call. Each team receives two challenges per game. If the challenge succeeds, the call is overturned and the challenge is retained. If it fails, the challenge is lost. The system uses Hawk-Eye camera technology to determine pitch location relative to the rulebook strike zone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which MLB team has the highest ABS IQ+ in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Kansas City Royals lead MLB in team ABS IQ+ in 2026 with a score of 113.9. They rank among the best in both offensive challenge accuracy (62% overturn rate) and defensive challenge accuracy (62%), while maintaining a disciplined batter challenge rate of 3.7 percent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which catchers are best at the ABS challenge system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Through mid-May 2026, Carson Kelly of the Cubs leads all qualified catchers with an ABS IQ+ of 123.4, converting 84% of his challenges. Dillon Dingler of the Tigers ranks second at 121.2, and J.T. Realmuto of the Phillies is third at 120.7. All three are winning challenges well above their expected overturn rates, indicating genuine zone recognition rather than luck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is ABS IQ+ calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ABS IQ+ is a four-component composite score: raw accuracy (30%), skill accuracy measured as won percentage above expected (20%), discipline measured as challenge rate relative to the Statcast expected model (30%), and net value (20%). Each component is z-score normalized within position group and scaled to 100 equals league average with a standard deviation of 15 points. Full methodology is available in the ABS IQ+ white paper at thebaseballnerd.com."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --navy: #0a1628;
+    --gold: #c9a84c;
+    --cream: #f5f0e8;
+    --text: #1a1a2e;
+    --muted: #5a5a6e;
+    --border: #e2ddd4;
+    --bg-alt: #f9f7f3;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'IBM Plex Serif', Georgia, serif;
+    background: #fff;
+    color: var(--text);
+    line-height: 1.75;
+    font-size: 17px;
+  }
+
+  .site-bar {
+    background: var(--navy);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .site-bar a {
+    color: var(--gold);
+    text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: .05em;
+  }
+
+  .site-bar .tagline {
+    color: rgba(255,255,255,.5);
+    font-size: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .article-header {
+    background: var(--navy);
+    color: #fff;
+    padding: 56px 24px 48px;
+    text-align: center;
+  }
+
+  .article-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(28px, 5vw, 46px);
+    line-height: 1.15;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    color: #fff;
+  }
+
+  .article-subtitle {
+    font-size: 18px;
+    color: rgba(255,255,255,.7);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .article-body {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  .lede {
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 32px;
+    border-left: 3px solid var(--gold);
+    padding-left: 20px;
+  }
+
+  p { margin-bottom: 20px; }
+
+  h2 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 26px;
+    color: var(--navy);
+    margin: 44px 0 16px;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--gold);
+    margin: 32px 0 10px;
+  }
+
+  .callout {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--gold);
+    padding: 20px 24px;
+    margin: 28px 0;
+    border-radius: 0 6px 6px 0;
+  }
+
+  .callout p { margin: 0; font-size: 15px; color: var(--muted); }
+  .callout strong { color: var(--navy); }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin: 28px 0;
+  }
+
+  .stat-box {
+    background: var(--navy);
+    color: #fff;
+    padding: 18px 16px;
+    border-radius: 6px;
+    text-align: center;
+  }
+
+  .stat-box .num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 38px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-box .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: rgba(255,255,255,.6);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin: 24px 0;
+  }
+
+  th {
+    background: var(--navy);
+    color: var(--gold);
+    text-align: left;
+    padding: 10px 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--border);
+    font-family: 'Inter', sans-serif;
+  }
+
+  tr:nth-child(even) td { background: var(--bg-alt); }
+  tr:hover td { background: #f0ece2; }
+
+  .iq-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .iq-elite { background: #d4edda; color: #1a5c2a; }
+  .iq-good  { background: #cce5ff; color: #004a99; }
+  .iq-avg   { background: #f0ece2; color: #5a5a6e; }
+  .iq-poor  { background: #fce8db; color: #8a3a1a; }
+
+  .tbl-scroll { overflow-x: auto; margin: 0 -4px; }
+
+  .findings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 28px 0;
+  }
+
+  .finding {
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 6px;
+  }
+
+  .finding .finding-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .finding p {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  .cta-block {
+    background: var(--navy);
+    color: #fff;
+    padding: 36px 32px;
+    border-radius: 8px;
+    margin: 48px 0 0;
+    text-align: center;
+  }
+
+  .cta-block h3 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 22px;
+    color: #fff;
+    text-transform: none;
+    letter-spacing: 0;
+    margin-bottom: 10px;
+  }
+
+  .cta-block p {
+    color: rgba(255,255,255,.7);
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin: 6px;
+  }
+
+  .byline {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: rgba(255,255,255,.5);
+    margin-top: 4px;
+  }
+
+  .rule {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 40px 0;
+  }
+
+  @media (max-width: 600px) {
+    .article-header { padding: 36px 20px 32px; }
+    .article-body { padding: 32px 20px 60px; }
+    .stat-box .num { font-size: 30px; }
+  }
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Serif:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:0.9rem 2rem;background:rgba(10,22,40,0.97);border-bottom:1px solid rgba(201,168,76,0.15);position:sticky;top:0;z-index:100;">
+  <a style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.08em;color:#c9a84c;text-decoration:none;" href="../index.html">The Baseball <span style="color:#f5f0e8;opacity:0.45;">Nerd</span></a>
+  <ul style="display:flex;gap:0;list-style:none;">
+    <li><a style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:#f5f0e8;opacity:0.45;text-decoration:none;padding:0.4rem 0.9rem;display:block;" href="../news.html">News</a></li>
+    <li><a style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:#c9a84c;opacity:1;text-decoration:none;padding:0.4rem 0.9rem;display:block;border-bottom:1px solid #c9a84c;" href="../articles.html">Articles</a></li>
+    <li><a style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:#f5f0e8;opacity:0.45;text-decoration:none;padding:0.4rem 0.9rem;display:block;" href="../recaps.html">Recaps</a></li>
+    <li><a style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:#f5f0e8;opacity:0.45;text-decoration:none;padding:0.4rem 0.9rem;display:block;" href="../rosters.html">Rosters</a></li>
+    <li><a style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:#f5f0e8;opacity:0.45;text-decoration:none;padding:0.4rem 0.9rem;display:block;" href="../podcasts.html">Podcasts</a></li>
+    <li><a style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:#f5f0e8;opacity:0.45;text-decoration:none;padding:0.4rem 0.9rem;display:block;" href="../vault.html">Vault</a></li>
+    <li><a style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:#f5f0e8;opacity:0.45;text-decoration:none;padding:0.4rem 0.9rem;display:block;" href="../about.html">About</a></li>
+  </ul>
+  <a style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1rem;background:#c9a84c;color:#0a1628;text-decoration:none;font-weight:500;" href="https://thebaseballnerd.substack.com" target="_blank" target="_blank">Subscribe →</a>
+</nav>
+
+<header class="article-header">
+  <div class="article-meta">Analytics &nbsp;|&nbsp; ABS System &nbsp;|&nbsp; May 19, 2026</div>
+  <h1>What is ABS IQ+? The Metric Measuring Baseball's Challenge Intelligence</h1>
+  <p class="article-subtitle">We built a proprietary score to rank every MLB team and player on how well they use the Automated Ball-Strike system. Here is what the data shows.</p>
+  <p class="byline">By Pete Dwyer &nbsp;|&nbsp; The Baseball Nerd</p>
+</header>
+
+<main class="article-body">
+
+  <p class="lede">ABS IQ+ is a proprietary metric from The Baseball Nerd that scores how intelligently MLB teams and players use the 2026 Automated Ball-Strike challenge system. Scaled to 100 equals league average, following the convention of wRC+ and ERA+, it measures four things: raw challenge accuracy, skill above what the pitches deserved, challenge rate discipline, and net value generated above the Statcast expected model.</p>
+
+  <p>The short version: some teams are dramatically better at this than others, and raw overturn percentage is not the whole story. Kansas City leads MLB at 113.9. Cleveland sits last at 85.9. That 28-point spread represents a real strategic advantage that compounds over 162 games.</p>
+
+  <p>This article explains how the ABS challenge system works, what makes a challenge decision smart or reckless, and where every team and player currently stands.</p>
+
+  <hr class="rule">
+
+  <h2>How the ABS Challenge System Works</h2>
+
+  <p>The Automated Ball-Strike system made its MLB debut on Opening Day 2026. It uses Hawk-Eye camera technology, the same system powering Statcast, to track the precise location of every pitch relative to each batter's individually measured strike zone.</p>
+
+  <p>Each team receives two challenges per game. Only the active batter, the pitcher, or the catcher can initiate a challenge. No manager involvement, no assistance from the dugout. The player taps their helmet within two seconds of the call. The result appears on stadium videoboards and broadcasts nearly instantly.</p>
+
+  <div class="callout">
+    <p><strong>The key rule:</strong> A successful challenge is retained. Only a failed challenge costs you one. This means a disciplined team that challenges correctly can theoretically use their two challenges all game. A team that guesses wrong twice loses both before the third inning.</p>
+  </div>
+
+  <p>In extra innings, any team that starts an inning without challenges receives one additional challenge for that inning. The system does not apply when a position player is pitching.</p>
+
+  <p>The strike zone is 17 inches wide, matching home plate. The top sits at 53.5 percent of each batter's measured height without cleats. The bottom is at 27 percent. The zone is captured above the midpoint of the plate, not the front edge. This is a two-dimensional zone, not the three-dimensional rulebook definition.</p>
+
+  <hr class="rule">
+
+  <h2>What Makes a Smart ABS Challenge?</h2>
+
+  <p>Six weeks of 2026 data has already revealed a consistent behavioral pattern. As game leverage increases, batter challenge rates rise. Catcher challenge rates stay flat. The gap between those two curves is where ABS strategy either wins or loses.</p>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="num">24%</div>
+      <div class="label">Batter challenge rate, full count</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">33%</div>
+      <div class="label">Batter overturn rate, full count</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">6.5%</div>
+      <div class="label">Catcher challenge rate, full count</div>
+    </div>
+    <div class="stat-box">
+      <div class="num">41%</div>
+      <div class="label">Catcher overturn rate, full count</div>
+    </div>
+  </div>
+
+  <p>On a full count, batters challenge at nearly four times the rate of catchers. They win a third of the time. Catchers challenge sparingly and win 41 percent of the time in the same situation. The emotional urgency of a potential strikeout is overriding the analytical question of whether the pitch actually missed the zone.</p>
+
+  <p>The same pattern holds on two-strike pitches. Batters challenge 15 percent of the time and convert 39 percent. Fielders challenge 2.5 percent of the time and convert 53 percent. Same count, same stakes, completely opposite results. One side is making a situational call. The other is reacting.</p>
+
+  <p>A smart ABS challenge has three properties: the pitch was genuinely borderline, the game situation justifies spending the resource, and the challenger has enough zone awareness to identify the difference between a close pitch and a clear strike. The Statcast expected model, built by Tom Tango and the MLB data team, incorporates pitch location, challenges remaining, runners on base, and the current count and out situation to define what a reasonable challenge looks like. ABS IQ+ measures actual behavior against that baseline.</p>
+
+  <hr class="rule">
+
+  <h2>How ABS IQ+ Is Scored</h2>
+
+  <p>ABS IQ+ is a four-component composite score. Each component is normalized within position group using z-scores and scaled to the 100=average convention: one standard deviation above average equals 115.</p>
+
+  <div class="findings-grid">
+    <div class="finding">
+      <div class="finding-num">30%</div>
+      <p>Raw accuracy. Overturn rate on challenges initiated. Did the pitch actually miss the zone?</p>
+    </div>
+    <div class="finding">
+      <div class="finding-num">20%</div>
+      <p>Skill accuracy. Won percentage above expected win percentage. Winning on harder pitches than the model predicted.</p>
+    </div>
+    <div class="finding">
+      <div class="finding-num">30%</div>
+      <p>Discipline. Actual challenge rate versus Statcast expected rate. Over-challenging is penalized. The emotional challenge is the primary failure mode.</p>
+    </div>
+    <div class="finding">
+      <div class="finding-num">20%</div>
+      <p>Net value. Challenges gained above expectation using the Statcast probability model.</p>
+    </div>
+  </div>
+
+  <p>Full methodology, component definitions, and scoring procedures are documented in the <a href="https://docs.google.com/document/d/1o8853aUjVEZ8pe7kYZ-lxxIIKGuE3tPwLzHGMZHkwZQ/edit?tab=t.0" style="color:var(--navy);font-weight:600;">ABS IQ+ white paper</a>, available in the Data Vault.</p>
+
+  <hr class="rule">
+
+  <h2>2026 ABS IQ+ Leaderboard: All 30 Teams</h2>
+
+  <p>Data through mid-May 2026. Off won% is the batter overturn rate. Def won% is the fielding overturn rate. Off disc and Def disc are component scores: 100 equals average, higher is better.</p>
+
+  <div class="tbl-scroll">
+  <table>
+    <thead>
+      <tr>
+        <th>Rk</th>
+        <th>Team</th>
+        <th>ABS IQ+</th>
+        <th>Off Won%</th>
+        <th>Off Disc</th>
+        <th>Def Won%</th>
+        <th>Def Disc</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td><strong>KC</strong></td><td><span class="iq-badge iq-elite">113.9</span></td><td>62%</td><td>110</td><td>62%</td><td>109</td></tr>
+      <tr><td>2</td><td><strong>MIA</strong></td><td><span class="iq-badge iq-elite">111.5</span></td><td>45%</td><td>121</td><td>59%</td><td>137</td></tr>
+      <tr><td>3</td><td><strong>CHC</strong></td><td><span class="iq-badge iq-elite">110.7</span></td><td>48%</td><td>114</td><td>70%</td><td>102</td></tr>
+      <tr><td>4</td><td><strong>AZ</strong></td><td><span class="iq-badge iq-elite">108.3</span></td><td>44%</td><td>119</td><td>70%</td><td>95</td></tr>
+      <tr><td>5</td><td><strong>LAD</strong></td><td><span class="iq-badge iq-elite">107.6</span></td><td>49%</td><td>113</td><td>66%</td><td>97</td></tr>
+      <tr><td>6</td><td><strong>DET</strong></td><td><span class="iq-badge iq-elite">107.4</span></td><td>50%</td><td>97</td><td>76%</td><td>85</td></tr>
+      <tr><td>7</td><td><strong>SD</strong></td><td><span class="iq-badge iq-good">106.7</span></td><td>46%</td><td>118</td><td>61%</td><td>109</td></tr>
+      <tr><td>8</td><td><strong>STL</strong></td><td><span class="iq-badge iq-good">106.6</span></td><td>47%</td><td>113</td><td>67%</td><td>95</td></tr>
+      <tr><td>9</td><td><strong>TEX</strong></td><td><span class="iq-badge iq-good">106.3</span></td><td>63%</td><td>102</td><td>61%</td><td>81</td></tr>
+      <tr><td>10</td><td><strong>CIN</strong></td><td><span class="iq-badge iq-good">106.0</span></td><td>52%</td><td>106</td><td>69%</td><td>81</td></tr>
+      <tr><td>11</td><td><strong>ATH</strong></td><td><span class="iq-badge iq-good">105.9</span></td><td>57%</td><td>88</td><td>61%</td><td>111</td></tr>
+      <tr><td>12</td><td><strong>MIL</strong></td><td><span class="iq-badge iq-good">103.7</span></td><td>32%</td><td>121</td><td>61%</td><td>128</td></tr>
+      <tr><td>13</td><td><strong>NYY</strong></td><td><span class="iq-badge iq-avg">101.4</span></td><td>47%</td><td>90</td><td>62%</td><td>111</td></tr>
+      <tr><td>14</td><td><strong>TB</strong></td><td><span class="iq-badge iq-avg">100.5</span></td><td>44%</td><td>110</td><td>53%</td><td>116</td></tr>
+      <tr><td>15</td><td><strong>ATL</strong></td><td><span class="iq-badge iq-avg">98.8</span></td><td>40%</td><td>88</td><td>64%</td><td>114</td></tr>
+      <tr><td>16</td><td><strong>CWS</strong></td><td><span class="iq-badge iq-avg">98.3</span></td><td>50%</td><td>105</td><td>43%</td><td>123</td></tr>
+      <tr><td>17</td><td><strong>SEA</strong></td><td><span class="iq-badge iq-avg">97.9</span></td><td>44%</td><td>90</td><td>62%</td><td>102</td></tr>
+      <tr><td>18</td><td><strong>NYM</strong></td><td><span class="iq-badge iq-avg">97.1</span></td><td>49%</td><td>93</td><td>56%</td><td>97</td></tr>
+      <tr><td>19</td><td><strong>MIN</strong></td><td><span class="iq-badge iq-avg">96.7</span></td><td>43%</td><td>72</td><td>67%</td><td>106</td></tr>
+      <tr><td>20</td><td><strong>PHI</strong></td><td><span class="iq-badge iq-avg">96.0</span></td><td>45%</td><td>105</td><td>57%</td><td>85</td></tr>
+      <tr><td>21</td><td><strong>HOU</strong></td><td><span class="iq-badge iq-avg">95.3</span></td><td>58%</td><td>88</td><td>48%</td><td>92</td></tr>
+      <tr><td>22</td><td><strong>LAA</strong></td><td><span class="iq-badge iq-avg">95.3</span></td><td>42%</td><td>84</td><td>63%</td><td>100</td></tr>
+      <tr><td>23</td><td><strong>BOS</strong></td><td><span class="iq-badge iq-poor">92.9</span></td><td>40%</td><td>118</td><td>54%</td><td>76</td></tr>
+      <tr><td>24</td><td><strong>BAL</strong></td><td><span class="iq-badge iq-poor">92.4</span></td><td>47%</td><td>98</td><td>55%</td><td>76</td></tr>
+      <tr><td>25</td><td><strong>WSH</strong></td><td><span class="iq-badge iq-poor">92.2</span></td><td>41%</td><td>113</td><td>48%</td><td>92</td></tr>
+      <tr><td>26</td><td><strong>COL</strong></td><td><span class="iq-badge iq-poor">92.0</span></td><td>42%</td><td>66</td><td>60%</td><td>114</td></tr>
+      <tr><td>27</td><td><strong>SF</strong></td><td><span class="iq-badge iq-poor">91.6</span></td><td>47%</td><td>100</td><td>47%</td><td>92</td></tr>
+      <tr><td>28</td><td><strong>TOR</strong></td><td><span class="iq-badge iq-poor">91.4</span></td><td>54%</td><td>72</td><td>52%</td><td>92</td></tr>
+      <tr><td>29</td><td><strong>PIT</strong></td><td><span class="iq-badge iq-poor">89.5</span></td><td>44%</td><td>95</td><td>49%</td><td>90</td></tr>
+      <tr><td>30</td><td><strong>CLE</strong></td><td><span class="iq-badge iq-poor">85.9</span></td><td>36%</td><td>92</td><td>51%</td><td>92</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <hr class="rule">
+
+  <h2>Who Are the Best Individual ABS Challengers?</h2>
+
+  <h3>Top Catchers (min. 10 challenges)</h3>
+
+  <div class="tbl-scroll">
+  <table>
+    <thead>
+      <tr><th>Rk</th><th>Catcher</th><th>Team</th><th>ABS IQ+</th><th>Won%</th><th>xWon%</th><th>Skill +/-</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Carson Kelly</td><td>CHC</td><td><span class="iq-badge iq-elite">123.4</span></td><td>84%</td><td>56%</td><td>+28.5</td></tr>
+      <tr><td>2</td><td>Dillon Dingler</td><td>DET</td><td><span class="iq-badge iq-elite">121.2</span></td><td>75%</td><td>47%</td><td>+27.7</td></tr>
+      <tr><td>3</td><td>J.T. Realmuto</td><td>PHI</td><td><span class="iq-badge iq-elite">120.7</span></td><td>79%</td><td>51%</td><td>+27.7</td></tr>
+      <tr><td>4</td><td>Tyler Stephenson</td><td>CIN</td><td><span class="iq-badge iq-elite">118.5</span></td><td>72%</td><td>51%</td><td>+20.5</td></tr>
+      <tr><td>5</td><td>Travis d'Arnaud</td><td>LAA</td><td><span class="iq-badge iq-elite">116.5</span></td><td>80%</td><td>53%</td><td>+27.0</td></tr>
+      <tr><td>6</td><td>Mitch Garver</td><td>SEA</td><td><span class="iq-badge iq-elite">116.4</span></td><td>81%</td><td>55%</td><td>+26.2</td></tr>
+      <tr><td>7</td><td>Ivan Herrera</td><td>STL</td><td><span class="iq-badge iq-elite">116.0</span></td><td>75%</td><td>51%</td><td>+24.5</td></tr>
+      <tr><td>8</td><td>Salvador Perez</td><td>KC</td><td><span class="iq-badge iq-elite">115.7</span></td><td>77%</td><td>52%</td><td>+25.1</td></tr>
+      <tr><td>9</td><td>Gabriel Moreno</td><td>AZ</td><td><span class="iq-badge iq-elite">115.6</span></td><td>77%</td><td>54%</td><td>+23.3</td></tr>
+      <tr><td>10</td><td>Danny Jansen</td><td>TEX</td><td><span class="iq-badge iq-elite">115.1</span></td><td>71%</td><td>54%</td><td>+17.8</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Top Batters (min. 8 challenges)</h3>
+
+  <div class="tbl-scroll">
+  <table>
+    <thead>
+      <tr><th>Rk</th><th>Batter</th><th>Team</th><th>ABS IQ+</th><th>Won%</th><th>xWon%</th><th>Skill +/-</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Kevin McGonigle</td><td>DET</td><td><span class="iq-badge iq-elite">117.5</span></td><td>78%</td><td>57%</td><td>+20.4</td></tr>
+      <tr><td>2</td><td>Xander Bogaerts</td><td>SD</td><td><span class="iq-badge iq-elite">117.0</span></td><td>75%</td><td>48%</td><td>+26.8</td></tr>
+      <tr><td>3</td><td>Maikel Garcia</td><td>KC</td><td><span class="iq-badge iq-elite">116.2</span></td><td>75%</td><td>57%</td><td>+17.6</td></tr>
+      <tr><td>4</td><td>Teoscar Hernandez</td><td>LAD</td><td><span class="iq-badge iq-elite">115.8</span></td><td>75%</td><td>49%</td><td>+25.7</td></tr>
+      <tr><td>5</td><td>Kyle Schwarber</td><td>PHI</td><td><span class="iq-badge iq-good">111.0</span></td><td>64%</td><td>44%</td><td>+19.9</td></tr>
+      <tr><td>6</td><td>Munetaka Murakami</td><td>CWS</td><td><span class="iq-badge iq-good">111.9</span></td><td>60%</td><td>37%</td><td>+23.1</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <hr class="rule">
+
+  <h2>What the Numbers Actually Reveal</h2>
+
+  <p>The best ABS teams are not necessarily the ones with the best hitters. Kansas City's batters win 62 percent of their challenges and challenge at a disciplined 3.7 percent rate. Their catchers match that 62 percent on the defensive side. Both sides of the ball are working from the same framework: challenge when you're right, not when you're desperate.</p>
+
+  <p>Detroit is a completely different model. Their batters convert at exactly 50 percent, dead average. Their fielding corps converts at 76 percent, the highest in baseball. Dillon Dingler is the primary reason. He challenges so rarely and so accurately that Detroit can win the defensive ABS game without needing much from their lineup. That is a catcher-first ABS identity.</p>
+
+  <p>Houston is the most analytically interesting result in baseball right now. Their batters win 58 percent of challenges, third-best in MLB. But they challenge at a 5.0 percent rate, tied for one of the highest in the league. And their fielding corps converts at just 48 percent, below average. They are accurate but undisciplined on offense, and their battery is actively losing value on defense. That is a team winning on talent and losing on strategy simultaneously.</p>
+
+  <p>Colorado is challenging batters at a 6.4 percent rate, highest in MLB, and winning only 42 percent of the time. Their discipline component score is 66, the worst in baseball. They are spending challenges like they do not understand what they cost.</p>
+
+  <div class="callout">
+    <p><strong>The deeper dive:</strong> Individual player breakdowns, team-by-team analysis, and the full methodology behind ABS IQ+ are available in the <a href="https://thebaseballnerd.substack.com" target="_blank" style="color:var(--navy);">paid subscriber edition</a> on Substack. The white paper is available in the <a href="https://docs.google.com/document/d/1o8853aUjVEZ8pe7kYZ-lxxIIKGuE3tPwLzHGMZHkwZQ/edit?tab=t.0" style="color:var(--navy);">Data Vault</a>.</p>
+  </div>
+
+  <div class="cta-block">
+    <h3>Go Deeper with The Baseball Nerd</h3>
+    <p>The full ABS IQ+ analysis, including individual breakdowns, team stories, and weekly updates, lives behind the subscriber paywall on Substack.</p>
+    <a class="cta-btn" href="https://thebaseballnerd.substack.com" target="_blank">Subscribe on Substack</a>
+    <a class="cta-btn" href="https://docs.google.com/document/d/1o8853aUjVEZ8pe7kYZ-lxxIIKGuE3tPwLzHGMZHkwZQ/edit?tab=t.0">Read the White Paper</a>
+  </div>
+
+</main>
+
+</body>
+</html>
