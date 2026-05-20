@@ -7,250 +7,128 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-2Y0H5FZ8RP');
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="/favicon.png">
 <title>The Baseball Nerd — Numbers Not Feelings</title>
-<meta name="description" content="Analytics-first baseball coverage. SPARK Score breakouts, FADE Score regression, AL West deep dives, and the numbers the mainstream misses.">
- <link rel="canonical" href="https://thebaseballnerd.com/">
+<meta name="description" content="Analytics-first baseball coverage. SPARK Score breakouts, FADE Score regression, MLB deep dives, and the numbers the mainstream misses.">
+<link rel="canonical" href="https://thebaseballnerd.com/">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{--navy:#0a1628;--navy-mid:#112040;--navy-light:#1a2f50;--gold:#c9a84c;--gold-light:#e8c97a;--gold-dim:rgba(201,168,76,0.15);--cream:#f5f0e8;--cream-mid:#ede6d6;--cream-dim:#a89f8c;}
 html{scroll-behavior:smooth;}
 body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--cream);overflow-x:hidden;}
- 
-/* ══════════════════════════════════
-   NAV — rebuilt, more presence
-══════════════════════════════════ */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  background:rgba(10,22,40,0.97);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(201,168,76,0.25);
-}
-.nav-inner{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 2rem;height:68px;max-width:1340px;margin:0 auto;
-}
-.nav-logo{
-  font-family:'Bebas Neue',sans-serif;font-size:1.5rem;
-  letter-spacing:0.08em;color:var(--gold);text-decoration:none;
-  flex-shrink:0;
-}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,0.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,168,76,0.25);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:68px;max-width:1340px;margin:0 auto;}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.08em;color:var(--gold);text-decoration:none;flex-shrink:0;}
 .nav-logo span{color:var(--cream);opacity:0.45;}
 .nav-links{display:flex;gap:0;list-style:none;height:100%;}
 .nav-links li{height:100%;display:flex;align-items:center;}
-.nav-links a{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:0.72rem;
-  font-weight:600;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  color:var(--cream);
-  text-decoration:none;
-  padding:0 1.1rem;
-  height:100%;
-  display:flex;
-  align-items:center;
-  border-bottom:3px solid transparent;
-  transition:color 0.15s,border-color 0.15s;
-  opacity:0.7;
-}
+.nav-links a{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--cream);text-decoration:none;padding:0 1.1rem;height:100%;display:flex;align-items:center;border-bottom:3px solid transparent;transition:color 0.15s,border-color 0.15s;opacity:0.7;}
 .nav-links a:hover{color:var(--gold);opacity:1;border-bottom-color:var(--gold);}
 .nav-links a.active{color:var(--gold);opacity:1;border-bottom-color:var(--gold);}
 .nav-right{display:flex;align-items:center;gap:0.75rem;flex-shrink:0;}
-.nav-cta{
-  font-family:'IBM Plex Mono',monospace;font-size:0.65rem;
-  letter-spacing:0.12em;text-transform:uppercase;
-  padding:0.55rem 1.25rem;background:var(--gold);color:var(--navy);
-  border:none;cursor:pointer;font-weight:600;text-decoration:none;
-  transition:background 0.2s;white-space:nowrap;
-}
+.nav-cta{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.55rem 1.25rem;background:var(--gold);color:var(--navy);border:none;cursor:pointer;font-weight:600;text-decoration:none;transition:background 0.2s;white-space:nowrap;}
 .nav-cta:hover{background:var(--gold-light);}
- 
-/* ══════════════════════════════════
-   HERO
-══════════════════════════════════ */
-.hero{
-  min-height:100vh;display:flex;align-items:center;
-  position:relative;overflow:hidden;padding:7rem 2rem 4rem;
-}
-.hero-bg{
-  position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 55% 45% at 72% 50%, rgba(201,168,76,0.06) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 60% at 15% 85%, rgba(17,32,64,0.8) 0%, transparent 55%);
-}
-.diamond-bg{
-  position:absolute;right:-6rem;top:50%;transform:translateY(-50%) rotate(45deg);
-  width:52vw;height:52vw;
-  border:1px solid rgba(201,168,76,0.05);opacity:0.5;
-}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:7rem 2rem 4rem;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 55% 45% at 72% 50%, rgba(201,168,76,0.06) 0%, transparent 65%),radial-gradient(ellipse 40% 60% at 15% 85%, rgba(17,32,64,0.8) 0%, transparent 55%);}
+.diamond-bg{position:absolute;right:-6rem;top:50%;transform:translateY(-50%) rotate(45deg);width:52vw;height:52vw;border:1px solid rgba(201,168,76,0.05);opacity:0.5;}
 .diamond-bg::before{content:'';position:absolute;inset:12%;border:1px solid rgba(201,168,76,0.04);}
- 
-/* Two-column hero layout */
-.hero-inner{
-  position:relative;width:100%;max-width:1340px;margin:0 auto;
-  display:grid;grid-template-columns:1fr 420px;gap:3rem;align-items:center;
-}
+.hero-inner{position:relative;width:100%;max-width:1340px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:3rem;align-items:center;}
 .hero-content{animation:fadeUp 0.9s ease both;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-.hero-eyebrow{
-  font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.2em;
-  text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;
-  display:flex;align-items:center;gap:0.75rem;
-}
+.hero-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:flex;align-items:center;gap:0.75rem;}
 .hero-eyebrow::before{content:'';display:inline-block;width:2rem;height:1px;background:var(--gold);}
-.hero-headline{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(4.5rem,11vw,8rem);
-  line-height:0.9;letter-spacing:0.03em;color:var(--cream);margin-bottom:0.3rem;
-}
+.hero-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(4.5rem,11vw,8rem);line-height:0.9;letter-spacing:0.03em;color:var(--cream);margin-bottom:0.3rem;}
 .hero-headline .gold{color:var(--gold);}
-.hero-sub{
-  font-family:'DM Serif Display',serif;font-style:italic;
-  font-size:clamp(1.1rem,2.5vw,1.65rem);color:var(--cream-mid);
-  margin-bottom:1.75rem;opacity:0.9;
-}
-.hero-desc{
-  font-size:1rem;line-height:1.8;color:var(--cream);
-  opacity:0.55;max-width:500px;margin-bottom:2.5rem;
-}
+.headline-the-row{display:flex;align-items:baseline;gap:0;overflow:hidden;position:relative;}
+.headline-the{flex-shrink:0;}
+.scores-ticker-wrap{flex:1;overflow:hidden;position:relative;height:1em;display:flex;align-items:center;}
+.scores-ticker-fade{position:absolute;left:0;top:0;bottom:0;width:3em;background:linear-gradient(to right, var(--navy) 0%, transparent 100%);z-index:2;pointer-events:none;}
+.scores-ticker-track{position:absolute;left:0;right:0;top:0;bottom:0;overflow:hidden;}
+.scores-ticker-inner{display:inline-block;white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:clamp(0.65rem,1.3vw,0.85rem);letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.7;padding-left:100%;}
+.scores-ticker-inner .st-game{margin-right:2.5rem;}
+.scores-ticker-inner .st-sep{margin-right:2.5rem;opacity:0.3;}
+@keyframes scoresTicker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.hero-sub{font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(1.1rem,2.5vw,1.65rem);color:var(--cream-mid);margin-bottom:1.75rem;opacity:0.9;}
+.hero-desc{font-size:1rem;line-height:1.8;color:var(--cream);opacity:0.55;max-width:500px;margin-bottom:2.5rem;}
 .hero-cta{display:flex;gap:1rem;flex-wrap:wrap;}
-.btn-primary{
-  font-family:'IBM Plex Mono',monospace;font-size:0.78rem;letter-spacing:0.12em;
-  text-transform:uppercase;padding:0.9rem 2rem;background:var(--gold);
-  color:var(--navy);border:none;cursor:pointer;text-decoration:none;
-  font-weight:600;transition:background 0.2s,transform 0.15s;display:inline-block;
-}
+.btn-primary{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.9rem 2rem;background:var(--gold);color:var(--navy);border:none;cursor:pointer;text-decoration:none;font-weight:600;transition:background 0.2s,transform 0.15s;display:inline-block;}
 .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);}
-.btn-secondary{
-  font-family:'IBM Plex Mono',monospace;font-size:0.78rem;letter-spacing:0.12em;
-  text-transform:uppercase;padding:0.9rem 2rem;background:transparent;
-  color:var(--cream);border:1px solid rgba(245,240,232,0.25);cursor:pointer;
-  text-decoration:none;transition:border-color 0.2s,color 0.2s;display:inline-block;
-}
+.btn-secondary{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.9rem 2rem;background:transparent;color:var(--cream);border:1px solid rgba(245,240,232,0.25);cursor:pointer;text-decoration:none;transition:border-color 0.2s,color 0.2s;display:inline-block;}
 .btn-secondary:hover{border-color:var(--gold);color:var(--gold);}
- 
-.hero-stats{
-  display:flex;gap:2.5rem;margin-top:3rem;padding-top:2rem;
-  border-top:1px solid rgba(201,168,76,0.15);
-  animation:fadeUp 0.9s 0.3s ease both;flex-wrap:wrap;
-}
+.hero-stats{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(201,168,76,0.15);animation:fadeUp 0.9s 0.3s ease both;flex-wrap:wrap;}
 .hero-stat-num{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:var(--gold);line-height:1;}
 .hero-stat-label{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--cream);opacity:0.4;margin-top:0.2rem;}
- 
-/* ══════════════════════════════════
-   HERO RIGHT PANEL — Live AL West
-══════════════════════════════════ */
+
+/* HERO RIGHT PANEL */
 .hero-right{animation:fadeUp 0.9s 0.2s ease both;display:flex;flex-direction:column;gap:1rem;}
 .hero-panel-label{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);opacity:0.7;display:flex;align-items:center;justify-content:space-between;margin-bottom:0.25rem;}
 .hero-live-dot{width:6px;height:6px;border-radius:50%;background:#7dd9a0;animation:livepulse 1.8s ease-in-out infinite;display:inline-block;margin-right:0.35rem;}
 @keyframes livepulse{0%,100%{opacity:0.4;transform:scale(0.85)}50%{opacity:1;transform:scale(1)}}
-.hw-standings{background:rgba(17,32,64,0.9);border:1px solid rgba(201,168,76,0.2);backdrop-filter:blur(8px);overflow:hidden;}
-.hw-standings-head{background:rgba(201,168,76,0.08);border-bottom:1px solid rgba(201,168,76,0.12);padding:0.6rem 1rem;display:flex;align-items:center;justify-content:space-between;}
-.hw-standings-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.08em;color:var(--gold);}
-.hw-standings-date{font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:var(--cream);opacity:0.35;letter-spacing:0.08em;}
-.hw-team-row{display:grid;grid-template-columns:1.5rem 1fr auto auto auto;align-items:center;gap:0.4rem;padding:0.6rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);transition:background 0.12s;}
-.hw-team-row:last-child{border-bottom:none;}
-.hw-team-row:hover{background:rgba(201,168,76,0.04);}
-.hw-team-row.hw-first{background:rgba(201,168,76,0.06);}
-.hw-rank{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;color:var(--gold);opacity:0.4;}
-.hw-name{font-family:'Inter',sans-serif;font-size:0.78rem;font-weight:600;color:var(--cream);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.hw-name.tex{color:var(--gold);}
-.hw-record{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:var(--cream);opacity:0.55;text-align:right;}
-.hw-gb{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:var(--cream);opacity:0.4;text-align:right;min-width:2.2rem;}
-.hw-gb.leader{color:var(--gold);opacity:0.9;font-weight:600;}
-.hw-streak{font-family:'IBM Plex Mono',monospace;font-size:0.55rem;padding:0.1rem 0.28rem;min-width:2rem;text-align:center;}
-.hw-streak.w{background:rgba(45,106,63,0.2);color:#7dd9a0;}
-.hw-streak.l{background:rgba(160,50,50,0.2);color:#e07070;}
-.hw-game{background:rgba(17,32,64,0.9);border:1px solid rgba(201,168,76,0.2);backdrop-filter:blur(8px);position:relative;overflow:hidden;}
-.hw-game::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent 60%);}
-.hw-game-head{padding:0.6rem 1rem;border-bottom:1px solid rgba(201,168,76,0.1);display:flex;align-items:center;justify-content:space-between;}
-.hw-game-label{font-family:'IBM Plex Mono',monospace;font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);opacity:0.65;}
-.hw-game-status{font-family:'IBM Plex Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;}
-.hw-game-status.final{color:var(--cream);opacity:0.35;}
-.hw-game-status.live{color:#7dd9a0;}
-.hw-game-status.preview{color:var(--cream-dim);opacity:0.6;}
-.hw-game-body{padding:0.9rem 1rem;}
-.hw-game-teams{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:0.75rem;}
-.hw-game-team-row{display:flex;align-items:center;justify-content:space-between;}
-.hw-game-team-name{font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:600;color:var(--cream);}
-.hw-game-team-name.tex{color:var(--gold);}
-.hw-game-score{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--cream);line-height:1;}
-.hw-game-score.winner{color:var(--gold);}
-.hw-game-score.loser{opacity:0.4;}
-.hw-game-meta{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:var(--cream);opacity:0.3;letter-spacing:0.06em;}
-.hw-game-decisions{margin-top:0.6rem;display:flex;gap:1rem;flex-wrap:wrap;}
-.hw-dec{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;color:var(--cream);opacity:0.5;}
-.hw-dec b{color:var(--gold);opacity:0.8;font-weight:600;font-style:normal;}
-.hw-no-game{padding:1.25rem 1rem;font-family:'IBM Plex Mono',monospace;font-size:0.62rem;color:var(--cream);opacity:0.3;letter-spacing:0.08em;text-align:center;}
+
+/* DIVISION LEADERS WIDGET */
+.hw-leaders{background:rgba(17,32,64,0.9);border:1px solid rgba(201,168,76,0.2);backdrop-filter:blur(8px);overflow:hidden;}
+.hw-leaders-head{background:rgba(201,168,76,0.08);border-bottom:1px solid rgba(201,168,76,0.12);padding:0.6rem 1rem;display:flex;align-items:center;justify-content:space-between;}
+.hw-leaders-title{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.08em;color:var(--gold);}
+.hw-leaders-date{font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:var(--cream);opacity:0.35;letter-spacing:0.08em;}
+.hw-div-group{border-bottom:1px solid rgba(255,255,255,0.04);}
+.hw-div-group:last-child{border-bottom:none;}
+.hw-div-label{font-family:'IBM Plex Mono',monospace;font-size:0.52rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);opacity:0.45;padding:0.45rem 1rem 0.1rem;}
+.hw-leader-row{display:grid;grid-template-columns:1fr auto auto auto;align-items:center;gap:0.4rem;padding:0.38rem 1rem 0.45rem;transition:background 0.12s;}
+.hw-leader-row:hover{background:rgba(201,168,76,0.04);}
+.hw-leader-row.tied{padding-bottom:0.2rem;}
+.hw-leader-row.tied-last{padding-bottom:0.45rem;}
+.hw-lname{font-family:'Inter',sans-serif;font-size:0.76rem;font-weight:600;color:var(--cream);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.hw-lrecord{font-family:'IBM Plex Mono',monospace;font-size:0.64rem;color:var(--cream);opacity:0.55;text-align:right;}
+.hw-lpct{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:var(--gold);opacity:0.7;text-align:right;min-width:2.8rem;}
+.hw-lstreak{font-family:'IBM Plex Mono',monospace;font-size:0.52rem;padding:0.1rem 0.25rem;min-width:1.9rem;text-align:center;}
+.hw-lstreak.w{background:rgba(45,106,63,0.2);color:#7dd9a0;}
+.hw-lstreak.l{background:rgba(160,50,50,0.2);color:#e07070;}
 .hw-view-link{display:block;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.5;padding:0.6rem;border-top:1px solid rgba(201,168,76,0.08);text-decoration:none;transition:opacity 0.15s;}
 .hw-view-link:hover{opacity:1;}
- 
-/* ══════════════════════════════════
-   TICKER
-══════════════════════════════════ */
+.hw-no-data{padding:1.25rem 1rem;font-family:'IBM Plex Mono',monospace;font-size:0.62rem;color:var(--cream);opacity:0.3;letter-spacing:0.08em;text-align:center;}
+
+/* TODAY'S SCORES WIDGET */
+.hw-scores{background:rgba(17,32,64,0.9);border:1px solid rgba(201,168,76,0.2);backdrop-filter:blur(8px);overflow:hidden;position:relative;}
+.hw-scores::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent 60%);}
+.hw-scores-head{padding:0.6rem 1rem;border-bottom:1px solid rgba(201,168,76,0.1);display:flex;align-items:center;justify-content:space-between;}
+.hw-scores-label{font-family:'IBM Plex Mono',monospace;font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);opacity:0.65;}
+.hw-scores-date{font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:var(--cream);opacity:0.3;letter-spacing:0.06em;}
+.hw-scores-list{max-height:220px;overflow-y:auto;}
+.hw-scores-list::-webkit-scrollbar{width:3px;}
+.hw-scores-list::-webkit-scrollbar-track{background:transparent;}
+.hw-scores-list::-webkit-scrollbar-thumb{background:rgba(201,168,76,0.2);}
+.hw-score-row{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:0.5rem;padding:0.42rem 1rem;border-bottom:1px solid rgba(255,255,255,0.04);transition:background 0.12s;}
+.hw-score-row:last-child{border-bottom:none;}
+.hw-score-row:hover{background:rgba(201,168,76,0.04);}
+.hw-matchup{display:flex;flex-direction:column;gap:2px;}
+.hw-matchup-teams{font-family:'Inter',sans-serif;font-size:0.72rem;font-weight:600;color:var(--cream);}
+.hw-matchup-venue{font-family:'IBM Plex Mono',monospace;font-size:0.52rem;color:var(--cream);opacity:0.3;letter-spacing:0.04em;}
+.hw-score-nums{display:flex;flex-direction:column;align-items:flex-end;gap:1px;}
+.hw-score-num{font-family:'Bebas Neue',sans-serif;font-size:1rem;line-height:1;color:var(--cream);}
+.hw-score-num.winner{color:var(--gold);}
+.hw-score-num.loser{opacity:0.35;}
+.hw-score-status{font-family:'IBM Plex Mono',monospace;font-size:0.52rem;text-align:right;letter-spacing:0.06em;padding-left:0.5rem;min-width:3rem;}
+.hw-score-status.live{color:#7dd9a0;}
+.hw-score-status.final{color:var(--cream);opacity:0.3;}
+.hw-score-status.preview{color:var(--cream-dim);opacity:0.6;}
+
+/* TICKER */
 .ticker{background:var(--gold);padding:0.6rem 0;overflow:hidden;white-space:nowrap;}
 .ticker-inner{display:inline-block;animation:ticker 34s linear infinite;}
 @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .ticker-item{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);font-weight:600;margin-right:3rem;}
 .ticker-item::before{content:'◆ ';}
- 
-/* ══════════════════════════════════
-   LIVE STANDINGS STRIP
-══════════════════════════════════ */
-.standings-strip{
-  background:var(--navy-mid);
-  border-bottom:1px solid rgba(201,168,76,0.1);
-  padding:0;overflow:hidden;
-}
-.standings-strip-inner{
-  max-width:1340px;margin:0 auto;
-  display:flex;align-items:stretch;
-}
-.strip-label{
-  font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.1em;
-  color:var(--navy);background:var(--gold);
-  padding:0 1.5rem;display:flex;align-items:center;
-  white-space:nowrap;flex-shrink:0;
-}
-.strip-teams{display:flex;flex:1;overflow-x:auto;}
-.strip-teams::-webkit-scrollbar{display:none;}
-.strip-team{
-  display:flex;align-items:center;gap:0.85rem;
-  padding:0.9rem 1.5rem;border-right:1px solid rgba(201,168,76,0.08);
-  flex-shrink:0;min-width:160px;transition:background 0.15s;
-}
-.strip-team:hover{background:rgba(201,168,76,0.05);}
-.strip-team.first{background:rgba(201,168,76,0.06);}
-.strip-team-info{display:flex;flex-direction:column;gap:0.15rem;}
-.strip-abbr{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.06em;color:var(--cream);}
-.strip-abbr.tex{color:var(--gold);}
-.strip-record{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:var(--cream);opacity:0.55;}
-.strip-right{display:flex;flex-direction:column;align-items:flex-end;gap:0.15rem;margin-left:auto;}
-.strip-gb{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;color:var(--cream);opacity:0.4;}
-.strip-gb.leader{color:var(--gold);opacity:0.8;font-weight:600;}
-.strip-streak{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;padding:0.1rem 0.3rem;}
-.strip-streak.w{background:rgba(45,106,63,0.2);color:#7dd9a0;}
-.strip-streak.l{background:rgba(160,50,50,0.2);color:#e07070;}
-.strip-loading{padding:1rem 1.5rem;font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.3;}
-.strip-view-all{
-  font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;
-  text-transform:uppercase;color:var(--gold);opacity:0.6;
-  padding:0 1.25rem;display:flex;align-items:center;
-  white-space:nowrap;flex-shrink:0;text-decoration:none;
-  transition:opacity 0.15s;border-left:1px solid rgba(201,168,76,0.08);
-}
-.strip-view-all:hover{opacity:1;}
- 
-/* ══════════════════════════════════
-   SECTIONS
-══════════════════════════════════ */
+
+/* SECTIONS */
 .section{padding:5rem 2rem;}
 .wrap{max-width:1100px;margin:0 auto;}
 .section-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;display:flex;align-items:center;gap:0.5rem;}
@@ -259,10 +137,8 @@ nav{
 .section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:0.75rem;}
 .btn-outline-sm{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.5rem 1.1rem;border:1px solid rgba(245,240,232,0.2);background:transparent;color:var(--cream);cursor:pointer;text-decoration:none;display:inline-block;transition:border-color 0.2s,color 0.2s;}
 .btn-outline-sm:hover{border-color:var(--gold);color:var(--gold);}
- 
-/* ══════════════════════════════════
-   POSTS GRID
-══════════════════════════════════ */
+
+/* POSTS GRID */
 .posts-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:1.5rem;}
 .post-card{position:relative;background:var(--navy-mid);border:1px solid rgba(201,168,76,0.1);padding:2rem;cursor:pointer;transition:border-color 0.25s,transform 0.2s;overflow:hidden;text-decoration:none;display:block;color:inherit;}
 .post-card:hover{border-color:rgba(201,168,76,0.4);transform:translateY(-3px);}
@@ -280,80 +156,32 @@ nav{
 .post-read{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;color:var(--gold);opacity:0.6;}
 .side-posts{display:flex;flex-direction:column;gap:1.5rem;}
 .post-num{position:absolute;bottom:0.5rem;right:1rem;font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--gold);opacity:0.06;line-height:1;pointer-events:none;}
- 
-/* ══════════════════════════════════
-   PODCAST BLOCK — The Division Line
-══════════════════════════════════ */
-.podcast-section{
-  background:var(--navy-mid);
-  border-top:1px solid rgba(201,168,76,0.08);
-  border-bottom:1px solid rgba(201,168,76,0.08);
-  padding:4rem 2rem;
-}
+
+/* PODCAST */
+.podcast-section{background:var(--navy-mid);border-top:1px solid rgba(201,168,76,0.08);border-bottom:1px solid rgba(201,168,76,0.08);padding:4rem 2rem;}
 .podcast-inner{max-width:1100px;margin:0 auto;}
 .podcast-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:3rem;align-items:center;}
-.podcast-badge{
-  display:inline-flex;align-items:center;gap:0.5rem;
-  font-family:'IBM Plex Mono',monospace;font-size:0.6rem;
-  letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--navy);background:var(--gold);
-  padding:0.25rem 0.65rem;margin-bottom:1.25rem;
-}
+.podcast-badge{display:inline-flex;align-items:center;gap:0.5rem;font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:0.25rem 0.65rem;margin-bottom:1.25rem;}
 .podcast-badge::before{content:'▶';font-size:0.5rem;}
-.podcast-show-name{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(2.5rem,5vw,4rem);
-  letter-spacing:0.04em;color:var(--cream);line-height:0.95;
-  margin-bottom:0.5rem;
-}
+.podcast-show-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4rem);letter-spacing:0.04em;color:var(--cream);line-height:0.95;margin-bottom:0.5rem;}
 .podcast-show-name span{color:var(--gold);}
-.podcast-show-sub{
-  font-family:'IBM Plex Mono',monospace;font-size:0.65rem;
-  letter-spacing:0.12em;text-transform:uppercase;
-  color:var(--cream-dim);margin-bottom:1.5rem;
-}
-.podcast-desc{
-  font-size:0.9rem;line-height:1.75;color:var(--cream);
-  opacity:0.55;margin-bottom:2rem;max-width:420px;
-}
+.podcast-show-sub{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--cream-dim);margin-bottom:1.5rem;}
+.podcast-desc{font-size:0.9rem;line-height:1.75;color:var(--cream);opacity:0.55;margin-bottom:2rem;max-width:420px;}
 .podcast-cta-row{display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;}
-.podcast-listen-btn{
-  font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:0.1em;
-  text-transform:uppercase;padding:0.7rem 1.5rem;
-  background:var(--gold);color:var(--navy);border:none;
-  cursor:pointer;font-weight:600;text-decoration:none;
-  transition:background 0.2s;display:inline-flex;align-items:center;gap:0.4rem;
-}
+.podcast-listen-btn{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.7rem 1.5rem;background:var(--gold);color:var(--navy);border:none;cursor:pointer;font-weight:600;text-decoration:none;transition:background 0.2s;display:inline-flex;align-items:center;gap:0.4rem;}
 .podcast-listen-btn:hover{background:var(--gold-light);}
 .podcast-listen-btn::before{content:'▶';font-size:0.55rem;}
- 
-/* Latest episode card */
-.podcast-latest{
-  background:var(--navy);border:1px solid rgba(201,168,76,0.15);
-  padding:1.75rem;position:relative;overflow:hidden;
-}
-.podcast-latest::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--gold),transparent);
-}
+.podcast-latest{background:var(--navy);border:1px solid rgba(201,168,76,0.15);padding:1.75rem;position:relative;overflow:hidden;}
+.podcast-latest::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);}
 .podcast-ep-label{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);opacity:0.6;margin-bottom:0.5rem;}
 .podcast-ep-title{font-family:'DM Serif Display',serif;font-size:1.3rem;line-height:1.25;color:var(--cream);margin-bottom:0.75rem;}
 .podcast-ep-desc{font-size:0.82rem;line-height:1.7;color:var(--cream);opacity:0.45;margin-bottom:1.25rem;}
 .podcast-ep-meta{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
 .podcast-ep-date{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;color:var(--cream);opacity:0.3;}
-.podcast-ep-duration{
-  font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;
-  color:var(--gold);opacity:0.6;
-  display:flex;align-items:center;gap:0.3rem;
-}
+.podcast-ep-duration{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.08em;color:var(--gold);opacity:0.6;display:flex;align-items:center;gap:0.3rem;}
 .podcast-ep-duration::before{content:'◷';}
-.podcast-waveform{
-  display:flex;align-items:center;gap:3px;height:28px;margin-left:auto;
-}
-.wave-bar{
-  width:3px;background:var(--gold);opacity:0.3;border-radius:2px;
-  animation:wave 1.2s ease-in-out infinite;
-}
+.podcast-waveform{display:flex;align-items:center;gap:3px;height:28px;margin-left:auto;}
+.wave-bar{width:3px;background:var(--gold);opacity:0.3;border-radius:2px;animation:wave 1.2s ease-in-out infinite;}
 .wave-bar:nth-child(1){height:8px;animation-delay:0s;}
 .wave-bar:nth-child(2){height:16px;animation-delay:0.1s;}
 .wave-bar:nth-child(3){height:22px;animation-delay:0.2s;}
@@ -363,10 +191,8 @@ nav{
 .wave-bar:nth-child(7){height:18px;animation-delay:0.15s;}
 .wave-bar:nth-child(8){height:12px;animation-delay:0.25s;}
 @keyframes wave{0%,100%{opacity:0.2;transform:scaleY(0.7)}50%{opacity:0.6;transform:scaleY(1)}}
- 
-/* ══════════════════════════════════
-   NEWSLETTER
-══════════════════════════════════ */
+
+/* NEWSLETTER */
 .newsletter-section{padding:5rem 2rem;border-top:1px solid rgba(201,168,76,0.08);}
 .newsletter-inner{max-width:640px;margin:0 auto;text-align:center;}
 .newsletter-glyph{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--gold);opacity:0.45;margin-bottom:1.25rem;letter-spacing:0.1em;}
@@ -380,10 +206,8 @@ nav{
 .newsletter-btn{padding:0.9rem 1.4rem;background:var(--gold);color:var(--navy);border:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;transition:background 0.2s;white-space:nowrap;}
 .newsletter-btn:hover{background:var(--gold-light);}
 .newsletter-fine{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:var(--cream);opacity:0.22;text-transform:uppercase;}
- 
-/* ══════════════════════════════════
-   FOOTER
-══════════════════════════════════ */
+
+/* FOOTER */
 footer{background:#060e1a;padding:2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(201,168,76,0.06);}
 .foot-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--gold);}
 .foot-logo span{color:var(--cream);opacity:0.3;}
@@ -391,354 +215,77 @@ footer{background:#060e1a;padding:2rem;display:flex;align-items:center;justify-c
 .foot-links{display:flex;gap:1.25rem;list-style:none;}
 .foot-links a{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.28;text-decoration:none;transition:opacity 0.2s;}
 .foot-links a:hover{opacity:0.75;}
- 
-/* ══════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════ */
-@media(max-width:1000px){
-  .hero-inner{grid-template-columns:1fr;}
-  .hero-right{display:none;}
-}
-@media(max-width:900px){
-  .podcast-grid{grid-template-columns:1fr;}
-  .podcast-desc{max-width:none;}
-}
-@media(max-width:700px){
-  .posts-grid{grid-template-columns:1fr;}
-  .nav-links{display:none;}
-  .hero-stats{gap:1.5rem;}
-  .strip-label{display:none;}
-}
 
-/* ══════════════════════════════════
-   MUST READ — hero article tease card
-══════════════════════════════════ */
-.must-read-wrap{
-  margin-top:2rem;
-  animation:fadeUp 0.9s 0.15s ease both;
-}
-.must-read-card{
-  position:relative;
-  background:rgba(17,32,64,0.85);
-  border:1px solid rgba(201,168,76,0.25);
-  border-left:3px solid var(--gold);
-  padding:1.4rem 1.6rem 1.3rem;
-  cursor:pointer;
-  transition:border-color 0.22s, background 0.22s, transform 0.18s;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-  gap:0.55rem;
-  backdrop-filter:blur(8px);
-}
-.must-read-card:hover{
-  border-color:var(--gold);
-  background:rgba(17,32,64,0.97);
-  transform:translateY(-2px);
-}
-.must-read-card::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(135deg, rgba(201,168,76,0.04) 0%, transparent 60%);
-  pointer-events:none;
-}
-.mr-eyebrow{
-  display:flex;
-  align-items:center;
-  gap:0.6rem;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:0.6rem;
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  color:var(--gold);
-}
-.mr-must-badge{
-  background:var(--gold);
-  color:var(--navy);
-  font-family:'IBM Plex Mono',monospace;
-  font-size:0.52rem;
-  font-weight:700;
-  letter-spacing:0.14em;
-  text-transform:uppercase;
-  padding:2px 7px;
-  flex-shrink:0;
-}
+/* RESPONSIVE */
+@media(max-width:1000px){.hero-inner{grid-template-columns:1fr;}.hero-right{display:none;}}
+@media(max-width:900px){.podcast-grid{grid-template-columns:1fr;}.podcast-desc{max-width:none;}}
+@media(max-width:700px){.posts-grid{grid-template-columns:1fr;}.nav-links{display:none;}.hero-stats{gap:1.5rem;}}
+
+/* MUST READ */
+.must-read-wrap{margin-top:2rem;animation:fadeUp 0.9s 0.15s ease both;}
+.must-read-card{position:relative;background:rgba(17,32,64,0.85);border:1px solid rgba(201,168,76,0.25);border-left:3px solid var(--gold);padding:1.4rem 1.6rem 1.3rem;cursor:pointer;transition:border-color 0.22s,background 0.22s,transform 0.18s;overflow:hidden;display:flex;flex-direction:column;gap:0.55rem;backdrop-filter:blur(8px);}
+.must-read-card:hover{border-color:var(--gold);background:rgba(17,32,64,0.97);transform:translateY(-2px);}
+.must-read-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg, rgba(201,168,76,0.04) 0%, transparent 60%);pointer-events:none;}
+.mr-eyebrow{display:flex;align-items:center;gap:0.6rem;font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);}
+.mr-must-badge{background:var(--gold);color:var(--navy);font-family:'IBM Plex Mono',monospace;font-size:0.52rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:2px 7px;flex-shrink:0;}
 .mr-divider{width:1px;height:10px;background:rgba(201,168,76,0.3);}
-.mr-title{
-  font-family:'DM Serif Display',serif;
-  font-size:1.25rem;
-  line-height:1.25;
-  color:var(--cream);
-}
-.mr-excerpt{
-  font-size:0.82rem;
-  line-height:1.65;
-  color:var(--cream);
-  opacity:0.5;
-  display:-webkit-box;
-  -webkit-line-clamp:2;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
-}
-.mr-footer{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-top:0.2rem;
-}
-.mr-meta{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:0.58rem;
-  letter-spacing:0.08em;
-  color:var(--cream);
-  opacity:0.3;
-}
-.mr-cta{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:0.62rem;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  color:var(--gold);
-  display:flex;
-  align-items:center;
-  gap:0.4rem;
-  transition:gap 0.2s;
-}
+.mr-title{font-family:'DM Serif Display',serif;font-size:1.25rem;line-height:1.25;color:var(--cream);}
+.mr-excerpt{font-size:0.82rem;line-height:1.65;color:var(--cream);opacity:0.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.mr-footer{display:flex;align-items:center;justify-content:space-between;margin-top:0.2rem;}
+.mr-meta{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.08em;color:var(--cream);opacity:0.3;}
+.mr-cta{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:0.4rem;transition:gap 0.2s;}
 .must-read-card:hover .mr-cta{gap:0.65rem;}
 .mr-cta::after{content:'→';}
 
-/* ══════════════════════════════════
-   ARTICLE MODAL — full article overlay
-══════════════════════════════════ */
-.article-modal-overlay{
-  position:fixed;
-  inset:0;
-  z-index:500;
-  background:rgba(6,14,26,0.92);
-  backdrop-filter:blur(12px);
-  display:flex;
-  align-items:flex-start;
-  justify-content:center;
-  padding:2rem 1rem;
-  overflow-y:auto;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity 0.3s;
-}
-.article-modal-overlay.open{
-  opacity:1;
-  pointer-events:all;
-}
-.article-modal{
-  background:var(--navy);
-  border:1px solid rgba(201,168,76,0.2);
-  max-width:760px;
-  width:100%;
-  position:relative;
-  transform:translateY(24px);
-  transition:transform 0.35s cubic-bezier(0.22,1,0.36,1);
-  margin:auto;
-}
-.article-modal-overlay.open .article-modal{
-  transform:translateY(0);
-}
-.article-modal-topbar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0.85rem 1.5rem;
-  border-bottom:1px solid rgba(201,168,76,0.12);
-  position:sticky;
-  top:0;
-  background:var(--navy);
-  z-index:10;
-}
-.modal-label{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:0.6rem;
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  color:var(--gold);
-  opacity:0.7;
-}
-.modal-close{
-  background:none;
-  border:1px solid rgba(201,168,76,0.2);
-  color:var(--cream);
-  cursor:pointer;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:0.62rem;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  padding:0.4rem 0.9rem;
-  transition:border-color 0.2s, color 0.2s;
-  display:flex;
-  align-items:center;
-  gap:0.4rem;
-}
+/* ARTICLE MODAL */
+.article-modal-overlay{position:fixed;inset:0;z-index:500;background:rgba(6,14,26,0.92);backdrop-filter:blur(12px);display:flex;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity 0.3s;}
+.article-modal-overlay.open{opacity:1;pointer-events:all;}
+.article-modal{background:var(--navy);border:1px solid rgba(201,168,76,0.2);max-width:760px;width:100%;position:relative;transform:translateY(24px);transition:transform 0.35s cubic-bezier(0.22,1,0.36,1);margin:auto;}
+.article-modal-overlay.open .article-modal{transform:translateY(0);}
+.article-modal-topbar{display:flex;align-items:center;justify-content:space-between;padding:0.85rem 1.5rem;border-bottom:1px solid rgba(201,168,76,0.12);position:sticky;top:0;background:var(--navy);z-index:10;}
+.modal-label{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);opacity:0.7;}
+.modal-close{background:none;border:1px solid rgba(201,168,76,0.2);color:var(--cream);cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.4rem 0.9rem;transition:border-color 0.2s,color 0.2s;display:flex;align-items:center;gap:0.4rem;}
 .modal-close:hover{border-color:var(--gold);color:var(--gold);}
 .modal-close::before{content:'✕';font-size:0.65rem;}
-.article-modal-body{
-  padding:2.5rem clamp(1.5rem,5vw,3rem) 3.5rem;
-  font-family:'Inter',sans-serif;
-}
-
-/* Article content inside modal */
-.modal-article-label{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:0.65rem;
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  color:var(--gold);
-  margin-bottom:1rem;
-  display:flex;
-  align-items:center;
-  gap:0.6rem;
-}
+.article-modal-body{padding:2.5rem clamp(1.5rem,5vw,3rem) 3.5rem;font-family:'Inter',sans-serif;}
+.modal-article-label{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:0.6rem;}
 .modal-article-label::after{content:'';flex:1;height:1px;background:rgba(201,168,76,0.15);max-width:60px;}
-.modal-article-title{
-  font-family:'DM Serif Display',serif;
-  font-size:clamp(1.8rem,4vw,2.6rem);
-  line-height:1.15;
-  color:var(--cream);
-  margin-bottom:0.9rem;
-}
-.modal-article-dek{
-  font-size:1rem;
-  color:var(--cream);
-  opacity:0.55;
-  line-height:1.65;
-  margin-bottom:1.2rem;
-}
-.modal-article-meta{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:0.65rem;
-  letter-spacing:0.1em;
-  color:var(--cream);
-  opacity:0.3;
-  text-transform:uppercase;
-  padding-bottom:1.5rem;
-  border-bottom:1px solid rgba(201,168,76,0.1);
-  margin-bottom:2rem;
-}
+.modal-article-title{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15;color:var(--cream);margin-bottom:0.9rem;}
+.modal-article-dek{font-size:1rem;color:var(--cream);opacity:0.55;line-height:1.65;margin-bottom:1.2rem;}
+.modal-article-meta{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;color:var(--cream);opacity:0.3;text-transform:uppercase;padding-bottom:1.5rem;border-bottom:1px solid rgba(201,168,76,0.1);margin-bottom:2rem;}
 .modal-article-meta span{color:var(--gold);opacity:1;}
-.modal-answer-box{
-  background:rgba(201,168,76,0.06);
-  border-left:3px solid var(--gold);
-  padding:1.2rem 1.4rem;
-  margin:0 0 2rem;
-}
-.modal-answer-label{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:0.6rem;
-  letter-spacing:0.15em;
-  text-transform:uppercase;
-  color:var(--gold);
-  margin-bottom:0.5rem;
-}
+.modal-answer-box{background:rgba(201,168,76,0.06);border-left:3px solid var(--gold);padding:1.2rem 1.4rem;margin:0 0 2rem;}
+.modal-answer-label{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
 .modal-answer-box p{font-size:0.95rem;line-height:1.7;color:var(--cream);}
-.modal-body-text h2{
-  font-family:'DM Serif Display',serif;
-  font-size:1.4rem;
-  color:var(--cream);
-  margin:2.5rem 0 0.7rem;
-  line-height:1.25;
-}
-.modal-body-text h3{
-  font-family:'DM Serif Display',serif;
-  font-size:1.1rem;
-  color:var(--gold-light);
-  font-style:italic;
-  margin:1.8rem 0 0.5rem;
-}
-.modal-body-text p{
-  font-size:0.95rem;
-  line-height:1.8;
-  color:var(--cream);
-  opacity:0.75;
-  margin-bottom:1.2rem;
-}
+.modal-body-text h2{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--cream);margin:2.5rem 0 0.7rem;line-height:1.25;}
+.modal-body-text h3{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--gold-light);font-style:italic;margin:1.8rem 0 0.5rem;}
+.modal-body-text p{font-size:0.95rem;line-height:1.8;color:var(--cream);opacity:0.75;margin-bottom:1.2rem;}
 .modal-body-text strong{color:var(--cream);opacity:1;font-weight:600;}
-.modal-scale-table{
-  width:100%;
-  border-collapse:collapse;
-  margin:1.25rem 0 1.75rem;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:0.8rem;
-}
+.modal-scale-table{width:100%;border-collapse:collapse;margin:1.25rem 0 1.75rem;font-family:'IBM Plex Mono',monospace;font-size:0.8rem;}
 .modal-scale-table thead tr{border-bottom:2px solid var(--gold);}
-.modal-scale-table th{
-  padding:0.5rem 0.85rem;
-  text-align:left;
-  color:var(--gold);
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  font-size:0.65rem;
-}
-.modal-scale-table td{
-  padding:0.6rem 0.85rem;
-  border-bottom:1px solid rgba(201,168,76,0.1);
-  color:var(--cream);
-  opacity:0.8;
-}
+.modal-scale-table th{padding:0.5rem 0.85rem;text-align:left;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;font-size:0.65rem;}
+.modal-scale-table td{padding:0.6rem 0.85rem;border-bottom:1px solid rgba(201,168,76,0.1);color:var(--cream);opacity:0.8;}
 .modal-scale-table tr:last-child td{border-bottom:none;}
 .t-elite{color:#f9c74f;font-weight:600;opacity:1!important;}
 .t-great{color:#90be6d;opacity:1!important;}
 .t-below{color:#e07b6b;opacity:1!important;}
-.modal-formula{
-  background:rgba(0,0,0,0.3);
-  border:1px solid rgba(201,168,76,0.12);
-  border-radius:4px;
-  padding:1.2rem 1.4rem;
-  margin:1.25rem 0 1.75rem;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:0.8rem;
-  line-height:1.9;
-  color:var(--cream);
-  opacity:0.8;
-}
+.modal-formula{background:rgba(0,0,0,0.3);border:1px solid rgba(201,168,76,0.12);border-radius:4px;padding:1.2rem 1.4rem;margin:1.25rem 0 1.75rem;font-family:'IBM Plex Mono',monospace;font-size:0.8rem;line-height:1.9;color:var(--cream);opacity:0.8;}
 .modal-formula .fl{color:var(--gold);opacity:1;}
 .modal-faq{margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(201,168,76,0.1);}
-.modal-faq h2{
-  font-family:'DM Serif Display',serif;
-  font-size:1.4rem;
-  color:var(--cream);
-  margin-bottom:1.25rem;
-}
+.modal-faq h2{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--cream);margin-bottom:1.25rem;}
 .modal-faq-item{border-top:1px solid rgba(201,168,76,0.08);padding:1rem 0;}
 .modal-faq-item:last-child{border-bottom:1px solid rgba(201,168,76,0.08);}
 .modal-faq-q{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--cream);margin-bottom:0.4rem;}
 .modal-faq-a{font-size:0.88rem;line-height:1.7;color:var(--cream);opacity:0.55;}
-.modal-cta-strip{
-  background:rgba(201,168,76,0.07);
-  border:1px solid rgba(201,168,76,0.15);
-  padding:1.75rem;
-  margin-top:3rem;
-  text-align:center;
-}
-.modal-cta-strip .mcs-label{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:0.6rem;
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  color:var(--gold);
-  margin-bottom:0.6rem;
-}
-.modal-cta-strip h3{
-  font-family:'DM Serif Display',serif;
-  font-size:1.3rem;
-  color:var(--cream);
-  margin-bottom:0.4rem;
-}
+.modal-cta-strip{background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.15);padding:1.75rem;margin-top:3rem;text-align:center;}
+.modal-cta-strip .mcs-label{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;}
+.modal-cta-strip h3{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--cream);margin-bottom:0.4rem;}
 .modal-cta-strip p{font-size:0.85rem;color:var(--cream);opacity:0.45;margin-bottom:1rem;}
 </style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCQ9ZZ2W"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCQ9ZZ2W" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- NAV -->
 <nav>
@@ -746,8 +293,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a class="nav-logo" href="index.html">The Baseball <span>Nerd</span></a>
     <ul class="nav-links">
       <li><a href="news.html">News</a></li>
-     <li><a href="articles.html">Articles</a></li>
-    <li><a href="recaps.html">Recaps</a></li>
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="recaps.html">Recaps</a></li>
       <li><a href="rosters.html">Rosters</a></li>
       <li><a href="podcasts.html">Podcasts</a></li>
       <li><a href="vault.html">Vault</a></li>
@@ -758,19 +305,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </nav>
- 
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="diamond-bg"></div>
   <div class="hero-inner">
- 
+
     <!-- LEFT: Brand + CTA -->
     <div class="hero-content">
       <div class="hero-eyebrow">Baseball Analytics</div>
-      <div class="hero-headline">The<br><span class="gold">Baseball</span><br>Nerd</div>
+      <div class="hero-headline">
+        <div class="headline-the-row">
+          <span class="headline-the">The</span>
+          <div class="scores-ticker-wrap">
+            <div class="scores-ticker-fade"></div>
+            <div class="scores-ticker-track">
+              <span class="scores-ticker-inner" id="scores-ticker-inner">Loading scores...</span>
+            </div>
+          </div>
+        </div>
+        <div><span class="gold">Baseball</span></div>
+        <div>Nerd</div>
+      </div>
       <div class="hero-sub">Numbers Not Feelings.</div>
-      <p class="hero-desc">Deep-dive analytics, proprietary SPARK and FADE scoring, and honest takes that don't care who you want to be right.</p>
+      <p class="hero-desc">Deep-dive analytics, proprietary SPARK and FADE scoring, and honest takes on every team in baseball that don't care who you want to be right.</p>
       <div class="hero-cta">
         <a href="articles.html" class="btn-primary">Read the Analysis</a>
         <a href="https://thebaseballnerd.substack.com" target="_blank" class="btn-secondary">Subscribe on Substack</a>
@@ -779,7 +338,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div><div class="hero-stat-num">2,500+</div><div class="hero-stat-label">Subscribers</div></div>
         <div><div class="hero-stat-num">SPARK</div><div class="hero-stat-label">Breakout Score</div></div>
         <div><div class="hero-stat-num">FADE</div><div class="hero-stat-label">Decline Score</div></div>
-        <div><div class="hero-stat-num" id="hero-record">—</div><div class="hero-stat-label">Rangers 2026</div></div>
+        <div><div class="hero-stat-num">30</div><div class="hero-stat-label">Teams Covered</div></div>
       </div>
       <!-- MUST READ article tease -->
       <div class="must-read-wrap">
@@ -797,69 +356,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
       </div>
-
     </div>
- 
-    <!-- RIGHT: Live AL West data -->
+
+    <!-- RIGHT: Division Leaders + Today's Scores -->
     <div class="hero-right">
- 
-      <!-- AL West Standings -->
+
+      <!-- Division Leaders -->
       <div>
         <div class="hero-panel-label">
-          <span><span class="hero-live-dot"></span>AL West Standings</span>
-          <span id="standings-updated"></span>
+          <span><span class="hero-live-dot"></span>Division Leaders</span>
+          <span id="leaders-updated"></span>
         </div>
-        <div class="hw-standings">
-          <div class="hw-standings-head">
-            <div class="hw-standings-title">2026 AL West</div>
-            <div class="hw-standings-date" id="hw-standings-date">Live</div>
+        <div class="hw-leaders">
+          <div class="hw-leaders-head">
+            <div class="hw-leaders-title">2026 MLB Standings</div>
+            <div class="hw-leaders-date" id="hw-leaders-date">Live</div>
           </div>
-          <div id="hw-standings-rows">
-            <div class="hw-no-game">Loading standings...</div>
+          <div id="hw-leaders-rows">
+            <div class="hw-no-data">Loading standings...</div>
           </div>
-          <a href="rosters.html" class="hw-view-link">Full Standings + Boxscores →</a>
-        </div>
-      </div>
- 
-      <!-- Rangers Game Card -->
-      <div>
-        <div class="hero-panel-label">
-          <span>Rangers — Most Recent Game</span>
-        </div>
-        <div class="hw-game">
-          <div class="hw-game-head">
-            <div class="hw-game-label">Texas Rangers</div>
-            <div class="hw-game-status" id="hw-game-status">Loading...</div>
-          </div>
-          <div id="hw-game-body">
-            <div class="hw-no-game">Loading game data...</div>
-          </div>
+          <a href="rosters.html" class="hw-view-link">Full Standings →</a>
         </div>
       </div>
- 
+
     </div>
   </div>
 </section>
- 
+
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-inner">
-    <span class="ticker-item">SPARK Score</span><span class="ticker-item">AL West Race</span><span class="ticker-item">2026 Breakout Candidates</span><span class="ticker-item">FADE Score</span><span class="ticker-item">Texas Rangers Analysis</span><span class="ticker-item">The Division Line Podcast</span><span class="ticker-item">Pitching Metrics</span><span class="ticker-item">wRC+ Leaders</span><span class="ticker-item">Numbers Not Feelings</span><span class="ticker-item">SPARK Score</span><span class="ticker-item">AL West Race</span><span class="ticker-item">2026 Breakout Candidates</span><span class="ticker-item">FADE Score</span><span class="ticker-item">Texas Rangers Analysis</span><span class="ticker-item">The Division Line Podcast</span><span class="ticker-item">Pitching Metrics</span><span class="ticker-item">wRC+ Leaders</span><span class="ticker-item">Numbers Not Feelings</span>
+    <span class="ticker-item">SPARK Score</span><span class="ticker-item">MLB Breakout Candidates</span><span class="ticker-item">FADE Score</span><span class="ticker-item">The Division Line Podcast</span><span class="ticker-item">Pitching Metrics</span><span class="ticker-item">wRC+ Leaders</span><span class="ticker-item">Numbers Not Feelings</span><span class="ticker-item">All 30 Teams</span><span class="ticker-item">Statcast Deep Dives</span><span class="ticker-item">SPARK Score</span><span class="ticker-item">MLB Breakout Candidates</span><span class="ticker-item">FADE Score</span><span class="ticker-item">The Division Line Podcast</span><span class="ticker-item">Pitching Metrics</span><span class="ticker-item">wRC+ Leaders</span><span class="ticker-item">Numbers Not Feelings</span><span class="ticker-item">All 30 Teams</span><span class="ticker-item">Statcast Deep Dives</span>
   </div>
 </div>
- 
-<!-- LIVE STANDINGS STRIP -->
-<div class="standings-strip">
-  <div class="standings-strip-inner">
-    <div class="strip-label">AL West</div>
-    <div class="strip-teams" id="strip-teams">
-      <div class="strip-loading">Loading standings...</div>
-    </div>
-    <a href="rosters.html" class="strip-view-all">Full Standings →</a>
-  </div>
-</div>
- 
-<!-- FEATURED ARTICLES — live from Substack RSS -->
+
+<!-- FEATURED ARTICLES -->
 <section class="section">
   <div class="wrap">
     <div class="section-header">
@@ -870,7 +401,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="articles.html" class="btn-outline-sm">All Articles →</a>
     </div>
     <div id="posts-grid-container">
-      <!-- Skeleton loading state -->
       <div class="posts-grid" id="posts-grid">
         <div class="post-card featured" style="pointer-events:none;">
           <div class="post-tag" style="opacity:0.3;">Loading...</div>
@@ -885,7 +415,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </section>
- 
+
 <!-- THE DIVISION LINE PODCAST -->
 <div class="podcast-section">
   <div class="podcast-inner">
@@ -893,8 +423,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div>
         <div class="podcast-badge">Now Airing</div>
         <div class="podcast-show-name">The <span>Division</span><br>Line</div>
-        <div class="podcast-show-sub">An AL West Podcast from The Baseball Nerd</div>
-        <p class="podcast-desc">Every Monday. Five teams, one division, and one thesis: Can the Rangers win the whole thing in October? Data-first, no filler, no takes that don't hold up.</p>
+        <div class="podcast-show-sub">A Weekly MLB Podcast from The Baseball Nerd</div>
+        <p class="podcast-desc">The Division Line covers all six MLB divisions every Monday: standings leaders, pennant races, the transactions that matter, and the players the data says to watch. Data-first baseball, no filler, from writer Pete Dwyer.</p>
         <div class="podcast-cta-row">
           <a href="podcasts.html" class="podcast-listen-btn">Listen Now</a>
           <a href="podcasts.html" class="btn-outline-sm">All Episodes →</a>
@@ -917,7 +447,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </div>
- 
+
 <!-- NEWSLETTER -->
 <section class="newsletter-section">
   <div class="newsletter-inner">
@@ -931,7 +461,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="newsletter-fine">No spam. Unsubscribe anytime. Numbers only.</div>
   </div>
 </section>
- 
+
 <footer>
   <div class="foot-logo">The Baseball <span>Nerd</span></div>
   <div class="foot-copy">© 2026 The Baseball Nerd · Numbers Not Feelings</div>
@@ -945,204 +475,169 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><a href="about.html">About</a></li>
   </ul>
 </footer>
- 
+
 <script>
-const TEX_ID = 140;
-const ALW_IDS = [140,117,136,133,108];
- 
-/* ── STANDINGS (strip + hero widget) ── */
-async function loadStandingsData(){
-  try{
-    const res=await fetch('https://statsapi.mlb.com/api/v1/standings?leagueId=103&season=2026&standingsTypes=regularSeason&hydrate=team,record,streak');
-    const data=await res.json();
-    const alwDiv=data.records?.find(d=>d.division?.id===200);
-    const teams=alwDiv?.teamRecords||[];
-    if(!teams.length) return;
- 
-    // ── Hero widget standings ──
-    document.getElementById('hw-standings-rows').innerHTML = teams.map((r,i)=>{
-      const isTex=r.team.id===TEX_ID;
-      const streak=r.streak?.streakCode||'-';
-      const isW=streak.startsWith('W');
-      const gb=i===0?'1st':(r.gamesBack||'-');
-      return`<div class="hw-team-row ${i===0?'hw-first':''}">
-        <div class="hw-rank">${i+1}</div>
-        <div class="hw-name ${isTex?'tex':''}">${r.team.name}</div>
-        <div class="hw-record">${r.wins}-${r.losses}</div>
-        <div class="hw-gb ${i===0?'leader':''}">${gb}</div>
-        <div class="hw-streak ${isW?'w':'l'}">${streak}</div>
-      </div>`;
-    }).join('');
- 
-    // ── Strip standings ──
-    const stripContainer=document.getElementById('strip-teams');
-    if(stripContainer){
-      stripContainer.innerHTML=teams.map((r,i)=>{
-        const isTex=r.team.id===TEX_ID;
-        const streak=r.streak?.streakCode||'-';
-        const isW=streak.startsWith('W');
-        const gb=i===0?'—':(r.gamesBack||'-');
-        return`<div class="strip-team ${i===0?'first':''}">
-          <div class="strip-team-info">
-            <div class="strip-abbr ${isTex?'tex':''}">${r.team.abbreviation||''}</div>
-            <div class="strip-record">${r.wins}-${r.losses}</div>
-          </div>
-          <div class="strip-right">
-            <div class="strip-gb ${i===0?'leader':''}">${i===0?'1st':gb+' back'}</div>
-            <div class="strip-streak ${isW?'w':'l'}">${streak}</div>
-          </div>
+/* ── DIVISION CONFIG ── */
+// MLB division IDs: AL East=201, AL Central=202, AL West=200, NL East=204, NL Central=205, NL West=203
+const DIVISIONS = [
+  { id: 201, label: 'AL East' },
+  { id: 202, label: 'AL Central' },
+  { id: 200, label: 'AL West' },
+  { id: 204, label: 'NL East' },
+  { id: 205, label: 'NL Central' },
+  { id: 203, label: 'NL West' }
+];
+
+/* ── DIVISION LEADERS ── */
+async function loadDivisionLeaders() {
+  try {
+    const res = await fetch('https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason&hydrate=team,record,streak');
+    const data = await res.json();
+
+    let html = '';
+
+    for (const divCfg of DIVISIONS) {
+      const divRecord = data.records?.find(d => d.division?.id === divCfg.id);
+      const teams = divRecord?.teamRecords || [];
+      if (!teams.length) continue;
+
+      // Find all teams tied for first (GB === '-' or gamesBack === 0)
+      const leaders = [];
+      for (const t of teams) {
+        const gb = t.gamesBack;
+        if (gb === '-' || gb === '0' || gb === 0 || parseFloat(gb) === 0) {
+          leaders.push(t);
+        } else {
+          break;
+        }
+      }
+      if (!leaders.length) leaders.push(teams[0]);
+
+      html += `<div class="hw-div-group">`;
+      html += `<div class="hw-div-label">${divCfg.label}</div>`;
+
+      leaders.forEach((r, i) => {
+        const streak = r.streak?.streakCode || '-';
+        const isW = streak.startsWith('W');
+        const pct = r.winningPercentage || (r.wins && r.losses !== undefined ? (r.wins / (r.wins + r.losses)).toFixed(3) : '---');
+        const pctStr = pct && pct !== '---' ? parseFloat(pct).toFixed(3).replace(/^0/, '') : '---';
+        const isTied = leaders.length > 1;
+        const isLast = i === leaders.length - 1;
+        const rowClass = isTied ? (isLast ? 'hw-leader-row tied tied-last' : 'hw-leader-row tied') : 'hw-leader-row';
+
+        html += `<div class="${rowClass}">
+          <div class="hw-lname">${r.team.name}</div>
+          <div class="hw-lrecord">${r.wins}-${r.losses}</div>
+          <div class="hw-lpct">${pctStr}</div>
+          <div class="hw-lstreak ${isW ? 'w' : 'l'}">${streak}</div>
         </div>`;
-      }).join('');
+      });
+
+      html += `</div>`;
     }
- 
-    // Rangers record in hero stat
-    const tex=teams.find(r=>r.team.id===TEX_ID);
-    if(tex) document.getElementById('hero-record').textContent=`${tex.wins}-${tex.losses}`;
- 
-  }catch(e){
-    document.getElementById('hw-standings-rows').innerHTML='<div class="hw-no-game">Standings unavailable</div>';
-    const s=document.getElementById('strip-teams');
-    if(s) s.innerHTML='<div class="strip-loading">Unavailable</div>';
+
+    document.getElementById('hw-leaders-rows').innerHTML = html || '<div class="hw-no-data">Standings unavailable</div>';
+    document.getElementById('hw-leaders-date').textContent = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+
+  } catch (e) {
+    document.getElementById('hw-leaders-rows').innerHTML = '<div class="hw-no-data">Standings unavailable</div>';
   }
 }
- 
-/* ── RANGERS GAME CARD ── */
-async function loadRangersGame(){
-  const statusEl=document.getElementById('hw-game-status');
-  const bodyEl=document.getElementById('hw-game-body');
-  try{
-    // Try today first, then yesterday
-    const today=todayStr();
-    const yesterday=yesterdayStr();
-    let game=null;
- 
-    for(const date of [today, yesterday]){
-      const res=await fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=${date}&teamId=${TEX_ID}&hydrate=team,linescore,decisions,probablePitcher`);
-      const data=await res.json();
-      const games=data.dates?.[0]?.games||[];
-      if(games.length){ game=games[0]; break; }
-    }
- 
-    if(!game){
-      statusEl.className='hw-game-status preview';
-      statusEl.textContent='No game';
-      bodyEl.innerHTML='<div class="hw-no-game">No recent Rangers game found</div>';
+
+/* ── TODAY'S SCORES TICKER ── */
+async function loadTodaysScores() {
+  const tickerEl = document.getElementById('scores-ticker-inner');
+  if (!tickerEl) return;
+
+  try {
+    const today = todayStr();
+    const res = await fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=${today}&hydrate=team,linescore`);
+    const data = await res.json();
+    const games = data.dates?.[0]?.games || [];
+
+    if (!games.length) {
+      tickerEl.textContent = 'No games today';
       return;
     }
- 
-    const away=game.teams.away, home=game.teams.home;
-    const status=game.status?.abstractGameState||'Preview';
-    const detail=game.status?.detailedState||status;
-    const isLive=status==='Live', isFinal=status==='Final', isPrev=status==='Preview';
-    const texIsHome=home.team.id===TEX_ID;
-    const texTeam=texIsHome?home:away;
-    const oppTeam=texIsHome?away:home;
-    const texScore=isFinal||isLive?(texTeam.score??'—'):'—';
-    const oppScore=isFinal||isLive?(oppTeam.score??'—'):'—';
-    const texWon=isFinal&&texTeam.isWinner;
-    const oppWon=isFinal&&oppTeam.isWinner;
-    const venue=game.venue?.name||'';
-    const gameDate=game.gameDate?new Date(game.gameDate).toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'}):'';
- 
-    // Status
-    statusEl.className=`hw-game-status ${isLive?'live':isFinal?'final':'preview'}`;
-    if(isLive&&game.linescore){
-      statusEl.textContent=`${game.linescore.inningHalf||''} ${game.linescore.currentInning||''}`.trim();
-    } else {
-      statusEl.textContent=isFinal?`Final · ${gameDate}`:detail;
+
+    const parts = [];
+    for (const game of games) {
+      const away = game.teams.away;
+      const home = game.teams.home;
+      const status = game.status?.abstractGameState || 'Preview';
+      const isLive = status === 'Live';
+      const isFinal = status === 'Final';
+      const awayAbbr = away.team?.abbreviation || 'AWY';
+      const homeAbbr = home.team?.abbreviation || 'HME';
+
+      let label = '';
+      if (isFinal) {
+        label = `${awayAbbr} ${away.score ?? '-'} — ${homeAbbr} ${home.score ?? '-'} · FINAL`;
+      } else if (isLive && game.linescore) {
+        const half = game.linescore.inningHalf?.[0] || '';
+        const inn = game.linescore.currentInning || '';
+        label = `${awayAbbr} ${away.score ?? 0} — ${homeAbbr} ${home.score ?? 0} · ${half}${inn}`;
+      } else {
+        const gt = game.gameDate ? new Date(game.gameDate).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }) : 'TBD';
+        label = `${awayAbbr} @ ${homeAbbr} · ${gt}`;
+      }
+      parts.push(`<span class="st-game">${label}</span>`);
     }
- 
-    // Probable pitchers for preview
-    let probLine='';
-    if(isPrev){
-      const texP=texIsHome?home.probablePitcher?.fullName:away.probablePitcher?.fullName;
-      const oppP=texIsHome?away.probablePitcher?.fullName:home.probablePitcher?.fullName;
-      if(texP||oppP) probLine=`<div class="hw-game-meta" style="margin-top:0.5rem;">${texP||'TBD'} vs ${oppP||'TBD'}</div>`;
-    }
- 
-    // Decisions
-    let decisionsHtml='';
-    if(isFinal&&game.decisions){
-      const dec=game.decisions;
-      const parts=[];
-      if(dec.winner) parts.push(`<div class="hw-dec"><b>W</b> ${dec.winner.fullName}</div>`);
-      if(dec.loser)  parts.push(`<div class="hw-dec"><b>L</b> ${dec.loser.fullName}</div>`);
-      if(dec.save)   parts.push(`<div class="hw-dec"><b>SV</b> ${dec.save.fullName}</div>`);
-      if(parts.length) decisionsHtml=`<div class="hw-game-decisions">${parts.join('')}</div>`;
-    }
- 
-    bodyEl.innerHTML=`
-      <div class="hw-game-body">
-        <div class="hw-game-teams">
-          <div class="hw-game-team-row">
-            <div class="hw-game-team-name tex">Texas Rangers ${texIsHome?'':'@ '+oppTeam.team.name}</div>
-            <div class="hw-game-score ${texWon?'winner':oppWon?'loser':''}">${texScore}</div>
-          </div>
-          <div class="hw-game-team-row">
-            <div class="hw-game-team-name">${oppTeam.team.name} ${texIsHome?'(Home)':''}</div>
-            <div class="hw-game-score ${oppWon?'winner':texWon?'loser':''}">${oppScore}</div>
-          </div>
-        </div>
-        <div class="hw-game-meta">${venue}${gameDate?' · '+gameDate:''}</div>
-        ${probLine}
-        ${decisionsHtml}
-      </div>`;
- 
-  }catch(e){
-    statusEl.textContent='Unavailable';
-    bodyEl.innerHTML='<div class="hw-no-game">Could not load game data</div>';
+
+    // Double for seamless loop
+    const half = parts.join(' <span class="st-sep">◆</span> ');
+    tickerEl.innerHTML = half + ' <span class="st-sep">◆</span> ' + half;
+
+    // Set speed: each game crosses the viewport in ~7s
+    requestAnimationFrame(() => {
+      const containerW = tickerEl.parentElement?.offsetWidth || window.innerWidth;
+      const contentW = tickerEl.scrollWidth / 2; // half = one full set
+      const pxPerSec = containerW / 7;
+      const duration = contentW / pxPerSec;
+      tickerEl.style.animation = `scoresTicker ${duration.toFixed(1)}s linear infinite`;
+    });
+
+  } catch (e) {
+    if (tickerEl) tickerEl.textContent = 'Scores unavailable';
   }
 }
- 
-function todayStr(){
-  const d=new Date();
-  return`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+
+function todayStr() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 }
-function yesterdayStr(){
-  const d=new Date(); d.setDate(d.getDate()-1);
-  return`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-}
- 
-/* ── SUBSTACK RSS → ARTICLE CARDS ── */
-async function loadLatestPosts(){
+
+/* ── SUBSTACK RSS ── */
+async function loadLatestPosts() {
   const grid = document.getElementById('posts-grid');
-  try{
+  try {
     const FEED_URL = 'https://thebaseballnerd.substack.com/feed';
     const PROXY    = `/.netlify/functions/fetch-feed?url=${encodeURIComponent(FEED_URL)}`;
     const res  = await fetch(PROXY);
     const json = await res.json();
- 
-    // Function returns { status: 'ok', items: [...] }
     const items = (json.items || []).slice(0,3);
-    if(!items.length) throw new Error('No items');
- 
-    const posts = items.map(item=>{
+    if (!items.length) throw new Error('No items');
+
+    const posts = items.map(item => {
       const title   = item.title || '';
       const link    = item.link  || '#';
       const pubDate = item.pubDate || '';
-      // Strip HTML entities and tags from description
       const tmp = document.createElement('div');
       tmp.innerHTML = item.description || '';
       const excerpt = (tmp.textContent || tmp.innerText || '').replace(/\s+/g,' ').trim().slice(0,160);
       const dateObj = pubDate ? new Date(pubDate) : null;
       const dateStr = dateObj ? dateObj.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) : '';
-      // Substack free posts have full description; paid ones are truncated
       const isPaid = !item.description || item.description.length < 80;
-      const tag = 'The Baseball Nerd';
-      return { title, link, dateStr, excerpt, isPaid, tag };
+      return { title, link, dateStr, excerpt, isPaid, tag: 'The Baseball Nerd' };
     });
- 
+
     const [p1, p2, p3] = posts;
- 
     grid.innerHTML = `
       <a class="post-card featured" href="${p1.link}" target="_blank" rel="noopener">
         <div class="post-tag">${escHtml(p1.tag)} <span class="post-badge ${p1.isPaid?'b-paid':'b-free'}">${p1.isPaid?'Paid':'Free'}</span></div>
         <div class="post-title">${escHtml(p1.title)}</div>
         ${p1.excerpt?`<p class="post-excerpt">${escHtml(p1.excerpt)}${p1.excerpt.length>=160?'...':''}</p>`:''}
-        <div class="post-meta">
-          <span class="post-date">${p1.dateStr}</span>
-          <span class="post-read">Read on Substack →</span>
-        </div>
+        <div class="post-meta"><span class="post-date">${p1.dateStr}</span><span class="post-read">Read on Substack →</span></div>
         <div class="post-num">01</div>
       </a>
       <div class="side-posts">
@@ -1151,15 +646,12 @@ async function loadLatestPosts(){
             <div class="post-tag">${escHtml(p.tag)} <span class="post-badge ${p.isPaid?'b-paid':'b-free'}">${p.isPaid?'Paid':'Free'}</span></div>
             <div class="post-title">${escHtml(p.title)}</div>
             ${p.excerpt?`<p class="post-excerpt">${escHtml(p.excerpt)}${p.excerpt.length>=160?'...':''}</p>`:''}
-            <div class="post-meta">
-              <span class="post-date">${p.dateStr}</span>
-              <span class="post-read">Read →</span>
-            </div>
+            <div class="post-meta"><span class="post-date">${p.dateStr}</span><span class="post-read">Read →</span></div>
             <div class="post-num">0${i+2}</div>
           </a>`).join('')}
       </div>`;
- 
-  }catch(e){
+
+  } catch(e) {
     grid.innerHTML=`
       <div class="post-card featured" style="display:flex;align-items:center;justify-content:center;min-height:200px;">
         <div style="text-align:center;">
@@ -1171,98 +663,89 @@ async function loadLatestPosts(){
       <div class="side-posts"></div>`;
   }
 }
- 
-function escHtml(str){
+
+function escHtml(str) {
   return String(str)
     .replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>')
     .replace(/&quot;/g,'"').replace(/&#039;/g,"'")
     .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
- 
+
 /* ── LATEST PODCAST EPISODE ── */
-async function loadLatestEpisode(){
-  try{
+async function loadLatestEpisode() {
+  try {
     const FEED  = 'https://api.substack.com/feed/podcast/5440521.rss';
     const PROXY = `/.netlify/functions/fetch-feed?url=${encodeURIComponent(FEED)}`;
     const res   = await fetch(PROXY);
     const json  = await res.json();
-
-    // Function returns { status:'ok', items:[...] }
     const item = (json.items||[])[0];
-    if(!item) return;
+    if (!item) return;
 
     const title   = item.title?.trim() || 'The Division Line';
     const link    = item.link  || 'https://thebaseballnerd.substack.com/podcast';
     const pubDate = item.pubDate || '';
-
-    // Strip HTML from description
     const tmp = document.createElement('div');
     tmp.innerHTML = item.description || '';
     const desc = (tmp.textContent||tmp.innerText||'').replace(/\s+/g,' ').trim().slice(0,180);
+    const dateStr = pubDate ? new Date(pubDate).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) : '';
 
-    // Format date
-    const dateStr = pubDate
-      ? new Date(pubDate).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})
-      : '';
-
-    // Make card clickable
     const card = document.getElementById('podcast-latest');
-    if(card){ card.style.cursor='pointer'; card.onclick=()=>window.open(link,'_blank'); }
+    if (card) { card.style.cursor='pointer'; card.onclick=()=>window.open(link,'_blank'); }
 
     const titleEl = document.getElementById('pod-title');
-    if(titleEl){ titleEl.textContent=title; titleEl.style.opacity='1'; }
+    if (titleEl) { titleEl.textContent=title; titleEl.style.opacity='1'; }
     const descEl = document.getElementById('pod-desc');
-    if(descEl) descEl.textContent = desc + (desc.length>=180?'...':'');
+    if (descEl) descEl.textContent = desc + (desc.length>=180?'...':'');
     const dateEl = document.getElementById('pod-date');
-    if(dateEl) dateEl.textContent = dateStr;
-    // Duration not available from proxy — fetch raw RSS for it
-    try{
+    if (dateEl) dateEl.textContent = dateStr;
+
+    try {
       const rawRes  = await fetch(FEED);
       const rawText = await rawRes.text();
       const parser  = new DOMParser();
       const xml     = parser.parseFromString(rawText,'text/xml');
       const durNode = xml.querySelector('item duration');
-      if(durNode){
+      if (durNode) {
         const secs = parseInt(durNode.textContent)||0;
-        if(secs>0){
+        if (secs > 0) {
           const durEl = document.getElementById('pod-duration');
-          if(durEl) durEl.textContent = `~${Math.round(secs/60)} min`;
+          if (durEl) durEl.textContent = `~${Math.round(secs/60)} min`;
         }
       }
-    }catch(e2){}
+    } catch(e2) {}
 
-  }catch(e){
-    const t=document.getElementById('pod-title');
-    if(t){ t.textContent='The Division Line'; t.style.opacity='1'; }
+  } catch(e) {
+    const t = document.getElementById('pod-title');
+    if (t) { t.textContent='The Division Line'; t.style.opacity='1'; }
   }
 }
 
-// Fire on load
-loadStandingsData();
-loadRangersGame();
+/* ── INIT ── */
+loadDivisionLeaders();
+loadTodaysScores();
 loadLatestPosts();
 loadLatestEpisode();
 
+// Refresh scores ticker every 90 seconds during live games
+setInterval(loadTodaysScores, 90000);
+
 /* ── ARTICLE MODAL ── */
-function openArticleModal(){
+function openArticleModal() {
   document.getElementById('article-modal-overlay').classList.add('open');
   document.body.style.overflow='hidden';
 }
-function closeArticleModal(){
+function closeArticleModal() {
   document.getElementById('article-modal-overlay').classList.remove('open');
   document.body.style.overflow='';
 }
-// Close on overlay click
-document.getElementById('article-modal-overlay').addEventListener('click',function(e){
-  if(e.target===this) closeArticleModal();
+document.getElementById('article-modal-overlay').addEventListener('click', function(e) {
+  if (e.target===this) closeArticleModal();
 });
-// Close on Escape
-document.addEventListener('keydown',function(e){
-  if(e.key==='Escape') closeArticleModal();
+document.addEventListener('keydown', function(e) {
+  if (e.key==='Escape') closeArticleModal();
 });
-// Keyboard access for the card
-document.querySelector('.must-read-card').addEventListener('keydown',function(e){
-  if(e.key==='Enter'||e.key===' ') openArticleModal();
+document.querySelector('.must-read-card').addEventListener('keydown', function(e) {
+  if (e.key==='Enter'||e.key===' ') openArticleModal();
 });
 </script>
 
@@ -1285,7 +768,6 @@ document.querySelector('.must-read-card').addEventListener('keydown',function(e)
       </div>
 
       <div class="modal-body-text">
-
         <h2>What the "Plus" Means</h2>
         <p>The plus sign in wRC+ follows the same convention as OPS+ and ERA+. It signals two things happened to the raw number: it was <strong>park-adjusted</strong> and <strong>scaled to 100</strong> as the league-average baseline. That scaling is what makes wRC+ useful across eras. A wRC+ of 130 means the same thing in 2026 as it did in 1996: the hitter was 30% better than their peers. No mental math required.</p>
 
