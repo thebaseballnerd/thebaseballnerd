@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y0H5FZ8RP"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-2Y0H5FZ8RP');
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="/favicon.png">
 <title>Podcasts — The Baseball Nerd</title>
-<meta name="description" content="The Baseball Nerd podcast — analytics-first baseball audio. New episodes every week.">
+<meta name="description" content="The Division Line — analytics-first MLB podcast from The Baseball Nerd. All six divisions every Monday.">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -42,10 +40,12 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem
 .episode-card+.episode-card{border-top:1px solid rgba(201,168,76,0.06);}
 .episode-num{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);opacity:0.6;margin-bottom:0.4rem;}
 .episode-title{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--cream);line-height:1.35;margin-bottom:0.4rem;}
-.episode-date{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;color:var(--cream);opacity:0.3;margin-bottom:0.75rem;}
+.episode-meta{display:flex;align-items:center;gap:1rem;margin-bottom:0.75rem;flex-wrap:wrap;}
+.episode-date{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;color:var(--cream);opacity:0.3;}
+.episode-duration{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.08em;color:var(--gold);opacity:0.5;}
+.episode-duration::before{content:'◷ ';}
 .episode-desc{font-size:0.82rem;color:var(--cream);opacity:0.45;line-height:1.7;margin-bottom:1rem;}
-.episode-player{width:100%;height:52px;border:none;border-radius:0;margin-bottom:0.75rem;display:block;}
-.episode-player:not([src]){display:none;}
+.episode-player{width:100%;height:52px;border:none;border-radius:0;margin-bottom:0.75rem;display:block;background:transparent;}
 .episode-footer{display:flex;align-items:center;gap:1rem;}
 .episode-link{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.6;text-decoration:none;transition:opacity 0.15s;}
 .episode-link:hover{opacity:1;}
@@ -82,13 +82,15 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
   </ul>
   <a class="nav-cta" href="https://thebaseballnerd.substack.com" target="_blank">Subscribe →</a>
 </nav>
+
 <div class="page-hero-wrap">
   <div class="page-hero">
     <div class="page-eyebrow">Audio</div>
-    <div class="page-title">Podcasts</div>
-    <div class="page-desc">Analytics-first baseball audio from The Baseball Nerd. New episodes every week.</div>
+    <div class="page-title">The Division Line</div>
+    <div class="page-desc">All six MLB divisions every Monday. Standings leaders, pennant races, transactions that matter, and the players the data says to watch.</div>
   </div>
 </div>
+
 <div class="wrap">
   <div id="episodes-container">
     <div class="loading-wrap">
@@ -97,6 +99,7 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
     </div>
   </div>
 </div>
+
 <footer>
   <div class="foot-logo">The Baseball <span>Nerd</span></div>
   <div class="foot-copy">© 2026 The Baseball Nerd · Numbers Not Feelings</div>
@@ -105,59 +108,123 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
     <li><a href="articles.html">Articles</a></li>
     <li><a href="recaps.html">Recaps</a></li>
     <li><a href="rosters.html">Rosters</a></li>
+    <li><a href="podcasts.html">Podcasts</a></li>
     <li><a href="vault.html">Vault</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
 </footer>
+
 <script>
 const PODCAST_RSS = 'https://api.substack.com/feed/podcast/5440521.rss';
 const PROXY = '/.netlify/functions/fetch-feed?url=';
- 
-function fmt(d){
-  try{
-    return new Date(d).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
-  }catch(e){return d;}
+
+function fmt(d) {
+  try {
+    return new Date(d).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+  } catch(e) { return d; }
 }
- 
-function stripHtml(html){
-  const tmp=document.createElement('div');
-  tmp.innerHTML=html;
-  return tmp.textContent||tmp.innerText||'';
+
+function fmtDuration(secs) {
+  if (!secs) return '';
+  const s = parseInt(secs);
+  if (isNaN(s) || s <= 0) return '';
+  const m = Math.floor(s / 60);
+  const h = Math.floor(m / 60);
+  if (h > 0) return `${h}h ${m % 60}m`;
+  return `${m} min`;
 }
- 
-async function loadPodcast(){
-  const container=document.getElementById('episodes-container');
-  try{
-    const res=await fetch(PROXY+encodeURIComponent(PODCAST_RSS));
-    const data=await res.json();
- 
-    if(!data.items||data.items.length===0){
-      container.innerHTML='<div class="feed-error">No episodes found. <a href="'+PODCAST_RSS+'" target="_blank">View feed directly →</a></div>';
+
+function stripHtml(html) {
+  const tmp = document.createElement('div');
+  tmp.innerHTML = html;
+  return (tmp.textContent || tmp.innerText || '').replace(/\s+/g, ' ').trim();
+}
+
+// Parse RSS directly in the browser from raw XML text
+function parseRSSXml(xmlText) {
+  const parser = new DOMParser();
+  const xml = parser.parseFromString(xmlText, 'text/xml');
+  const items = [...xml.querySelectorAll('item')];
+  return items.map(item => {
+    const getText = tag => item.querySelector(tag)?.textContent?.trim() || '';
+    const enclosureEl = item.querySelector('enclosure');
+    const enclosure = enclosureEl?.getAttribute('url') || '';
+    const durationEl = item.querySelector('duration');
+    const duration = durationEl?.textContent?.trim() || '';
+    // link tag content may be empty text node — try nextSibling trick
+    let link = getText('link');
+    if (!link) {
+      const linkEl = item.querySelector('link');
+      if (linkEl) link = (linkEl.textContent || linkEl.nextSibling?.textContent || '').trim();
+    }
+    return {
+      title:       getText('title'),
+      link:        link || getText('guid'),
+      pubDate:     getText('pubDate'),
+      description: item.querySelector('description')?.textContent || '',
+      enclosure,
+      duration,
+    };
+  }).filter(ep => ep.title);
+}
+
+function renderEpisodes(episodes) {
+  const container = document.getElementById('episodes-container');
+  if (!episodes.length) {
+    container.innerHTML = `<div class="feed-error">No episodes found. <a href="https://thebaseballnerd.substack.com/podcast" target="_blank">Listen on Substack →</a></div>`;
+    return;
+  }
+  container.innerHTML = '<div class="episodes-list">' + episodes.map((ep, i) => {
+    const epNum = episodes.length - i;
+    const desc = ep.description ? stripHtml(ep.description).slice(0, 300) + '...' : '';
+    const dur = fmtDuration(ep.duration);
+    return `<div class="episode-card">
+      <div class="episode-num">Episode ${epNum}</div>
+      <div class="episode-title">${ep.title || 'Untitled Episode'}</div>
+      <div class="episode-meta">
+        <span class="episode-date">${fmt(ep.pubDate)}</span>
+        ${dur ? `<span class="episode-duration">${dur}</span>` : ''}
+      </div>
+      ${desc ? `<div class="episode-desc">${desc}</div>` : ''}
+      ${ep.enclosure ? `<audio class="episode-player" controls preload="none" src="${ep.enclosure}"></audio>` : ''}
+      <div class="episode-footer">
+        ${ep.link ? `<a class="episode-link" href="${ep.link}" target="_blank">View on Substack →</a>` : ''}
+      </div>
+    </div>`;
+  }).join('') + '</div>';
+}
+
+async function loadPodcast() {
+  const container = document.getElementById('episodes-container');
+  try {
+    // Try proxy first — it now returns enclosure and duration fields
+    const res  = await fetch(PROXY + encodeURIComponent(PODCAST_RSS));
+    const data = await res.json();
+
+    if (data.items && data.items.length > 0 && data.items[0].enclosure) {
+      renderEpisodes(data.items);
       return;
     }
- 
-    const episodes=data.items;
-    container.innerHTML='<div class="episodes-list">'+episodes.map((ep,i)=>{
-      const audioUrl=ep.enclosure||ep.audio||'';
-      const desc=ep.description?stripHtml(ep.description).slice(0,280)+'...':'';
-      const epNum=episodes.length-i;
-      return `<div class="episode-card">
-        <div class="episode-num">Episode ${epNum}</div>
-        <div class="episode-title">${ep.title||'Untitled Episode'}</div>
-        <div class="episode-date">${fmt(ep.pubDate)}</div>
-        ${desc?`<div class="episode-desc">${desc}</div>`:''}
-        ${audioUrl?`<audio class="episode-player" controls preload="none" src="${audioUrl}"></audio>`:''}
-        <div class="episode-footer">
-          ${ep.link?`<a class="episode-link" href="${ep.link}" target="_blank">View on Substack →</a>`:''}
-        </div>
-      </div>`;
-    }).join('')+'</div>';
- 
-  }catch(e){
-    container.innerHTML='<div class="feed-error">Could not load episodes. <a href="https://thebaseballnerd.substack.com/podcast" target="_blank">Listen on Substack →</a></div>';
+    // Proxy returned items but no enclosure — fall through to direct fetch
+    throw new Error('no enclosure from proxy');
+
+  } catch(e) {
+    // Direct browser fetch of the RSS — parses XML natively, gets all fields
+    try {
+      const res = await fetch(PODCAST_RSS);
+      const xml = await res.text();
+      const episodes = parseRSSXml(xml);
+      if (episodes.length) {
+        renderEpisodes(episodes);
+        return;
+      }
+      throw new Error('empty');
+    } catch(e2) {
+      container.innerHTML = `<div class="feed-error">Could not load episodes. <a href="https://thebaseballnerd.substack.com/podcast" target="_blank">Listen on Substack →</a></div>`;
+    }
   }
 }
- 
+
 loadPodcast();
 </script>
 </body>
