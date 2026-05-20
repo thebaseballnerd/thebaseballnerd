@@ -3,7 +3,6 @@ const http  = require('http');
 
 exports.handler = async function(event) {
   const feedUrl = event.queryStringParameters && event.queryStringParameters.url;
-
   if (!feedUrl) {
     return { statusCode: 400, body: JSON.stringify({ error: 'No feed URL provided' }) };
   }
@@ -17,7 +16,6 @@ exports.handler = async function(event) {
     'baseballprospectus.com',
     'substack.com'
   ];
-
   if (!allowed.some(d => feedUrl.includes(d))) {
     return { statusCode: 403, body: JSON.stringify({ error: 'Domain not allowed' }) };
   }
@@ -39,23 +37,41 @@ exports.handler = async function(event) {
   }
 };
 
-function fetchUrl(url) {
+function fetchUrl(url, redirectCount = 0) {
+  if (redirectCount > 5) return Promise.reject(new Error('Too many redirects'));
   return new Promise((resolve, reject) => {
     const lib = url.startsWith('https') ? https : http;
-    const req = lib.get(url, {
+    const parsed = new URL(url);
+    const options = {
+      hostname: parsed.hostname,
+      path: parsed.pathname + parsed.search,
+      method: 'GET',
       headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; TheBaseballNerd/1.0)',
-        'Accept': 'application/rss+xml, application/xml, text/xml, */*'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Accept-Encoding': 'identity',
+        'Referer': `https://${parsed.hostname}/`,
+        'Cache-Control': 'no-cache',
+        'Connection': 'keep-alive'
       }
-    }, (res) => {
-      if (res.statusCode === 301 || res.statusCode === 302) return resolve(fetchUrl(res.headers.location));
+    };
+    const req = lib.request(options, (res) => {
+      if (res.statusCode === 301 || res.statusCode === 302 || res.statusCode === 307 || res.statusCode === 308) {
+        const location = res.headers.location;
+        if (!location) return reject(new Error('Redirect with no location'));
+        const next = location.startsWith('http') ? location : `https://${parsed.hostname}${location}`;
+        return resolve(fetchUrl(next, redirectCount + 1));
+      }
       if (res.statusCode !== 200) return reject(new Error(`HTTP ${res.statusCode}`));
       let data = '';
+      res.setEncoding('utf8');
       res.on('data', chunk => data += chunk);
       res.on('end', () => resolve(data));
     });
     req.on('error', reject);
-    req.setTimeout(8000, () => { req.destroy(); reject(new Error('Timeout')); });
+    req.setTimeout(10000, () => { req.destroy(); reject(new Error('Timeout')); });
+    req.end();
   });
 }
 
