@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y0H5FZ8RP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2Y0H5FZ8RP');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="/favicon.png">
 <meta name="robots" content="index, follow">
-<title>Rangers Recap — The Baseball Nerd</title>
-<meta name="description" content="Texas Rangers game recaps with in-depth analytics and honest takes from The Baseball Nerd.">
+<title>Game Recap — The Baseball Nerd</title>
+<meta name="description" content="MLB game recap with analytics-first coverage from The Baseball Nerd.">
 <link rel="canonical" href="https://thebaseballnerd.com/recaps.html">
 <meta property="og:site_name" content="The Baseball Nerd">
 <meta property="og:type" content="article">
@@ -78,6 +85,7 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
     <li><a href="articles.html">Articles</a></li>
     <li><a href="recaps.html">Recaps</a></li>
     <li><a href="rosters.html">Rosters</a></li>
+    <li><a href="podcasts.html">Podcasts</a></li>
     <li><a href="vault.html">Vault</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
@@ -85,47 +93,86 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
 
 <script src="recaps-data.js"></script>
 <script>
-function getParam(n){return new URLSearchParams(window.location.search).get(n);}
+function getParam(n){ return new URLSearchParams(window.location.search).get(n); }
 
 function render(){
-  var id=getParam('id');
-  var recap=typeof RECAPS!=='undefined'?RECAPS.find(function(r){return r.id===id;}):null;
-  var wrap=document.getElementById('article-wrap');
+  var id     = getParam('id');
+  var recap  = typeof RECAPS !== 'undefined' ? RECAPS.find(function(r){ return r.id === id; }) : null;
+  var wrap   = document.getElementById('article-wrap');
 
   if(!recap){
-    wrap.innerHTML='<div class="not-found">Recap not found. <a href="recaps.html" style="color:var(--gold);">Back to recaps \u2192</a></div>';
+    wrap.innerHTML = '<div class="not-found">Recap not found. <a href="recaps.html" style="color:var(--gold);">Back to recaps →</a></div>';
     return;
   }
 
-  // Update SEO tags dynamically
-  var matchup=recap.home?recap.opponent+' vs Rangers':'Rangers vs '+recap.opponent;
-  document.title=matchup+' Recap ('+recap.score+') \u2014 The Baseball Nerd';
+  // Build matchup strings — neutral, both teams
+  var away       = recap.home ? recap.opponent : 'Texas Rangers';
+  var home       = recap.home ? 'Texas Rangers' : recap.opponent;
+  var matchup    = away + ' at ' + home;
+  var awayShort  = away.split(' ').pop();
+  var homeShort  = home.split(' ').pop();
+  var shortMatch = awayShort + ' at ' + homeShort;
+
+  // Dynamic SEO — lead with pitcher names and matchup, not team branding
+  document.title = matchup + ' Recap (' + recap.score + ') — The Baseball Nerd';
   document.querySelector('meta[name="description"]').setAttribute('content',
-    'Rangers recap '+recap.date+': '+recap.score+'. '+recap.preview.slice(0,150)+'. Analytics-first coverage on The Baseball Nerd.');
+    recap.date + ' · ' + matchup + ' · ' + recap.score + '. ' + recap.preview.slice(0,140) + '. Analytics-first coverage on The Baseball Nerd.');
   document.querySelector('link[rel="canonical"]').setAttribute('href',
-    'https://thebaseballnerd.com/recap.html?id='+recap.id);
+    'https://thebaseballnerd.com/recap.html?id=' + recap.id);
+  document.querySelector('meta[property="og:title"]') ||
+    document.head.insertAdjacentHTML('beforeend', '<meta property="og:title" content="' + matchup + ' Recap — The Baseball Nerd">');
+
+  // Inject Article schema
+  var schema = {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": matchup + ' Recap — ' + recap.date + ' (' + recap.score + ')',
+    "description": recap.preview,
+    "datePublished": recap.date,
+    "author": {"@type":"Person","name":"Pete Dwyer"},
+    "publisher": {"@type":"Organization","name":"The Baseball Nerd","url":"https://thebaseballnerd.com"},
+    "url": "https://thebaseballnerd.com/recap.html?id=" + recap.id,
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"The Baseball Nerd","item":"https://thebaseballnerd.com"},
+        {"@type":"ListItem","position":2,"name":"MLB Recaps 2026","item":"https://thebaseballnerd.com/recaps.html"},
+        {"@type":"ListItem","position":3,"name":matchup + ' — ' + recap.date,"item":"https://thebaseballnerd.com/recap.html?id=" + recap.id}
+      ]
+    }
+  };
+  var schemaTag = document.createElement('script');
+  schemaTag.type = 'application/ld+json';
+  schemaTag.textContent = JSON.stringify(schema);
+  document.head.appendChild(schemaTag);
 
   // Prev / next navigation
-  var idx=RECAPS.findIndex(function(r){return r.id===id;});
-  var prev=RECAPS[idx+1];
-  var next=RECAPS[idx-1];
+  var idx  = RECAPS.findIndex(function(r){ return r.id === id; });
+  var prev = RECAPS[idx + 1];
+  var next = RECAPS[idx - 1];
 
-  var paragraphs=recap.body.split('\n\n').map(function(p){return '<p>'+p+'</p>';}).join('');
+  function navLabel(r){
+    var a = r.home ? r.opponent : 'Texas Rangers';
+    var h = r.home ? 'Texas Rangers' : r.opponent;
+    return a.split(' ').pop() + ' at ' + h.split(' ').pop() + ' (' + r.date + ')';
+  }
 
-  wrap.innerHTML=
-    '<a class="back-link" href="recaps.html">\u2190 All recaps</a>'+
-    '<div class="article-eyebrow">Rangers Recap \u00b7 2026 Season</div>'+
-    '<h1 class="article-title">'+matchup+'</h1>'+
-    '<div class="article-meta">'+
-      '<div class="meta-item">'+recap.date+'</div>'+
-      '<div class="meta-result '+recap.result+'">'+(recap.result==='win'?'W':'L')+' \u00b7 '+recap.score+'</div>'+
-      '<div class="meta-item">Record: '+recap.record+'</div>'+
-    '</div>'+
-    '<div class="article-body">'+paragraphs+'</div>'+
-    '<div class="article-nav">'+
-      (prev?'<a href="recap.html?id='+prev.id+'">\u2190 '+prev.opponent+' ('+prev.date+')</a>':'<span></span>')+
-      '<a href="recaps.html" style="opacity:0.45;text-align:center;">All Recaps</a>'+
-      (next?'<a href="recap.html?id='+next.id+'" style="text-align:right;">'+next.opponent+' ('+next.date+') \u2192</a>':'<span></span>')+
+  var paragraphs = recap.body.split('\n\n').map(function(p){ return '<p>' + p + '</p>'; }).join('');
+
+  wrap.innerHTML =
+    '<a class="back-link" href="recaps.html">← All recaps</a>' +
+    '<div class="article-eyebrow">Game Recap · 2026 MLB Season</div>' +
+    '<h1 class="article-title">' + matchup + '</h1>' +
+    '<div class="article-meta">' +
+      '<div class="meta-item">' + recap.date + '</div>' +
+      '<div class="meta-result ' + recap.result + '">' + (recap.result === 'win' ? 'W' : 'L') + ' · ' + recap.score + '</div>' +
+      '<div class="meta-item">Pete Dwyer · The Baseball Nerd</div>' +
+    '</div>' +
+    '<div class="article-body">' + paragraphs + '</div>' +
+    '<div class="article-nav">' +
+      (prev ? '<a href="recap.html?id=' + prev.id + '">← ' + navLabel(prev) + '</a>' : '<span></span>') +
+      '<a href="recaps.html" style="opacity:0.45;text-align:center;">All Recaps</a>' +
+      (next ? '<a href="recap.html?id=' + next.id + '" style="text-align:right;">' + navLabel(next) + ' →</a>' : '<span></span>') +
     '</div>';
 }
 
