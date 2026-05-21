@@ -41,7 +41,7 @@ The Athletics battled back methodically against Angels starter Jack Kochanowicz,
 
 Luis Medina and Mark Leiter Jr. steadied the ship out of the bullpen after Civale's early exit, combining for three scoreless innings to keep the deficit manageable. That proved crucial when McNeil stepped in against Yates with one out in the ninth. The lefty worked a seven-pitch battle before launching his dramatic equalizer to right field.
 
-Extra innings brought more dramatics. Scott Barlow earned the victory with a perfect tenth inning, striking out one while hitting a batter. In the bottom half, Soderstrom delivered his second clutch hit of the night, a two-pitch single to left that scored Kurtz from second base. Josh Lowe's fielding error allowed Soderstrom to reach third, but the damage was already done. Hogan Harris closed it out despite issuing two walks, securing his save and Oakland's comeback victory in a contest that stretched nearly three hours.`
+Extra innings brought more dramatics. Scott Barlow earned the victory with a perfect tenth inning, striking out one while hitting a batter. In the bottom half, Soderstrom delivered his second clutch hit of the night, a two-pitch single to left that scored Kurtz from second base. Josh Lowe's fielding error allowed Soderstrom to reach third, but the damage was already done. Hogan Harris closed it out despite issuing two walks, securing his save and the A's comeback victory in a contest that stretched nearly three hours.`
 },{
   id:'5-16-26-houston-astros',
   date:'2026-05-16',
