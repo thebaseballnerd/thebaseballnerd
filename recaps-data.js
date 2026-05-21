@@ -23,6 +23,27 @@
  */
 
 const RECAPS = [{
+  id:'5-20-26-toronto-blue-jays-yankees',
+  date:'2026-05-20',
+  opponent:'New York Yankees',
+  home:false,
+  result:'win',
+  score:'TOR 2, NYY 1',
+  record:'22-27',  // ← fill in
+  gamePk:823547,
+  preview:"Pitchers' duels at Yankee Stadium in May don't usually stay scoreless for six innings, but Trey Yesavage had other plans.",
+  body:`Pitchers' duels at Yankee Stadium in May don't usually stay scoreless for six innings, but Trey Yesavage had other plans. The Blue Jays lefthander carved through New York's lineup with surgical precision, striking out eight batters while allowing just two hits through six frames. His counterpart Cam Schlittler matched zeros on the scoreboard, but baseball's cruel math was about to catch up with him.
+
+The seventh inning unraveled quickly for New York. Ernie Clement reached base and eventually found himself on third when Brandon Valenzuela sacrificed him into scoring position. Jesús Sánchez worked a walk, setting the table for the bottom of Toronto's order. That's when Andrés Giménez stepped in against Schlittler for what became an 11-pitch battle. The at-bat stretched long enough for Austin Wells to challenge the final call, but the umpires confirmed what everyone already knew. Giménez had drawn the walk that broke the scoreless tie, bringing Clement home with Toronto's first run.
+
+Jake Bird entered in relief but couldn't stem the bleeding. Vladimir Guerrero Jr. needed just one pitch to drive home Valenzuela with a sacrifice fly to right field, where Aaron Judge hauled it in. Two batters, two runs. The kind of quick-strike inning that decides tight games.
+
+Yesavage's dominant start earned him the victory, though he needed help from his bullpen to seal it. Mason Fluharty and Jeff Hoffman navigated traffic in the seventh and eighth before Tyler Rogers pitched a clean eighth. Louis Varland took over in the ninth with a two-run cushion that suddenly felt smaller when the Yankees finally broke through.
+
+Paul Goldschmidt's groundout to Varland looked routine until Cody Bellinger crossed home plate, making it a one-run game with Jazz Chisholm Jr. on second base. But Varland settled down to record his save, stranding the tying run and completing Toronto's 2-1 victory.
+
+The final numbers told the story of a game where execution mattered more than power. Neither team managed a home run despite the favorable wind conditions, and both lineups struggled with runners in scoring position. Toronto converted one of eight chances while New York managed just one of six. In a contest decided by a pair of seventh-inning runs, that difference proved everything.`
+},{
   id:'5-16-26-houston-astros',
   date:'2026-05-16',
   opponent:'Houston Astros',
