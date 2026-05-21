@@ -23,48 +23,6 @@
  */
 
 const RECAPS = [{
-  id:'5-20-26-athletics-angels',
-  date:'2026-05-20',
-  opponent:'Los Angeles Angels',
-  home:false,
-  result:'win',
-  score:'ATH 6, LAA 5',
-  record:'25-24',  // ← fill in
-  gamePk:824032,
-  preview:"Jeff McNeil stepped into the batter's box in the ninth inning with his team trailing by a run and delivered the kind of clutch swing that transforms forgettable seasons into memorable nights.",
-  body:`Jeff McNeil stepped into the batter's box in the ninth inning with his team trailing by a run and delivered the kind of clutch swing that transforms forgettable seasons into memorable nights. The veteran second baseman's solo home run off Kirby Yates tied the game at five, setting up the Athletics' dramatic 6-5 extra-inning victory over the Angels at Angel Stadium.
-
-McNeil tends to get overlooked in this Athletics lineup in comparison to the potent sluggers residing near the top of the order such as Nick Kurtz, Shea Langeliers and Brent Rooker. But his second home run of the season came at the perfect moment, erasing what looked like a decisive Angels advantage after they had taken a 5-3 lead in the second inning.
-
-The game began as an offensive showcase, with both teams trading haymakers early. Tyler Soderstrom's two-run single in the first inning scored Langeliers and Kurtz to give the A's an early 2-0 lead. Jorge Soler answered immediately with a two-run homer off Aaron Civale, bringing Mike Trout home to tie it at two. The second inning proved even wilder. Carlos Cortes singled home Henry Bolte to put the Athletics back ahead, but Jo Adell and Josh Lowe responded with back-to-back solo shots off Civale to flip the score to 5-3 in favor of Los Angeles.
-
-What followed was a pitcher's duel that stretched five scoreless innings. Both bullpens settled into a groove while hitters struggled with runners in scoring position. The Green and Gold went 5-for-13 with runners in scoring position but left nine men on base, a stat line that told the story of their offensive frustration through the middle innings.
-
-Kurtz finally broke through in the seventh with an RBI single that scored Darell Hernaiz, cutting the deficit to one run. That set the stage for McNeil's heroics two innings later.
-
-The tenth inning belonged to Soderstrom, whose fly ball single to left field brought Kurtz home with what proved to be the winning run. Chase Silseth took the loss after allowing the decisive tally, while Scott Barlow earned the win with a clean ninth inning. Hogan Harris pitched around two walks in the tenth to secure his save and complete the A's comeback victory in a contest that lasted nearly three hours.`
-},{
-  id:'5-20-26-toronto-blue-jays-yankees',
-  date:'2026-05-20',
-  opponent:'New York Yankees',
-  home:false,
-  result:'win',
-  score:'TOR 2, NYY 1',
-  record:'22-27',  // ← fill in
-  gamePk:823547,
-  preview:"Pitchers' duels at Yankee Stadium in May don't usually stay scoreless for six innings, but Trey Yesavage had other plans.",
-  body:`Pitchers' duels at Yankee Stadium in May don't usually stay scoreless for six innings, but Trey Yesavage had other plans. The Blue Jays lefthander carved through New York's lineup with surgical precision, striking out eight batters while allowing just two hits through six frames. His counterpart Cam Schlittler matched zeros on the scoreboard, but baseball's cruel math was about to catch up with him.
-
-The seventh inning unraveled quickly for New York. Ernie Clement reached base and eventually found himself on third when Brandon Valenzuela sacrificed him into scoring position. Jesús Sánchez worked a walk, setting the table for the bottom of Toronto's order. That's when Andrés Giménez stepped in against Schlittler for what became an 11-pitch battle. The at-bat stretched long enough for Austin Wells to challenge the final call, but the umpires confirmed what everyone already knew. Giménez had drawn the walk that broke the scoreless tie, bringing Clement home with Toronto's first run.
-
-Jake Bird entered in relief but couldn't stem the bleeding. Vladimir Guerrero Jr. needed just one pitch to drive home Valenzuela with a sacrifice fly to right field, where Aaron Judge hauled it in. Two batters, two runs. The kind of quick-strike inning that decides tight games.
-
-Yesavage's dominant start earned him the victory, though he needed help from his bullpen to seal it. Mason Fluharty and Jeff Hoffman navigated traffic in the seventh and eighth before Tyler Rogers pitched a clean eighth. Louis Varland took over in the ninth with a two-run cushion that suddenly felt smaller when the Yankees finally broke through.
-
-Paul Goldschmidt's groundout to Varland looked routine until Cody Bellinger crossed home plate, making it a one-run game with Jazz Chisholm Jr. on second base. But Varland settled down to record his save, stranding the tying run and completing Toronto's 2-1 victory.
-
-The final numbers told the story of a game where execution mattered more than power. Neither team managed a home run despite the favorable wind conditions, and both lineups struggled with runners in scoring position. Toronto converted one of eight chances while New York managed just one of six. In a contest decided by a pair of seventh-inning runs, that difference proved everything.`
-},{
   id:'5-16-26-houston-astros',
   date:'2026-05-16',
   opponent:'Houston Astros',
