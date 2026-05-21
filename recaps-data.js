@@ -23,6 +23,27 @@
  */
 
 const RECAPS = [{
+  id:'5-20-26-athletics-angels',
+  date:'2026-05-20',
+  opponent:'Los Angeles Angels',
+  home:false,
+  result:'win',
+  score:'ATH 6, LAA 5',
+  record:'25-24',  // ← fill in
+  gamePk:824032,
+  preview:"Jeff McNeil stepped into the batter's box in the ninth inning with his team trailing by a run and delivered the kind of clutch swing that transforms forgettable seasons into memorable nights.",
+  body:`Jeff McNeil stepped into the batter's box in the ninth inning with his team trailing by a run and delivered the kind of clutch swing that transforms forgettable seasons into memorable nights. The veteran second baseman's solo home run off Kirby Yates tied the game at five, setting up the Athletics' dramatic 6-5 extra-inning victory over the Angels at Angel Stadium.
+
+McNeil tends to get overlooked in this Athletics lineup in comparison to the potent sluggers residing near the top of the order such as Nick Kurtz, Shea Langeliers and Brent Rooker. But his second home run of the season came at the perfect moment, erasing what looked like a decisive Angels advantage after they had taken a 5-3 lead in the second inning.
+
+The game began as an offensive showcase, with both teams trading haymakers early. Tyler Soderstrom's two-run single in the first inning scored Langeliers and Kurtz to give the A's an early 2-0 lead. Jorge Soler answered immediately with a two-run homer off Aaron Civale, bringing Mike Trout home to tie it at two. The second inning proved even wilder. Carlos Cortes singled home Henry Bolte to put the Athletics back ahead, but Jo Adell and Josh Lowe responded with back-to-back solo shots off Civale to flip the score to 5-3 in favor of Los Angeles.
+
+What followed was a pitcher's duel that stretched five scoreless innings. Both bullpens settled into a groove while hitters struggled with runners in scoring position. The Green and Gold went 5-for-13 with runners in scoring position but left nine men on base, a stat line that told the story of their offensive frustration through the middle innings.
+
+Kurtz finally broke through in the seventh with an RBI single that scored Darell Hernaiz, cutting the deficit to one run. That set the stage for McNeil's heroics two innings later.
+
+The tenth inning belonged to Soderstrom, whose fly ball single to left field brought Kurtz home with what proved to be the winning run. Chase Silseth took the loss after allowing the decisive tally, while Scott Barlow earned the win with a clean ninth inning. Hogan Harris pitched around two walks in the tenth to secure his save and complete the A's comeback victory in a contest that lasted nearly three hours.`
+},{
   id:'5-20-26-toronto-blue-jays-yankees',
   date:'2026-05-20',
   opponent:'New York Yankees',
