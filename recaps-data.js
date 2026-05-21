@@ -23,6 +23,26 @@
  */
 
 const RECAPS = [{
+  id:'5-20-26-athletics-angels',
+  date:'2026-05-20',
+  focusTeam:'Athletics',
+  opponent:'Los Angeles Angels',
+  home:false,
+  result:'win',
+  score:'ATH 6, LAA 5',
+  record:'25-24',  // ← fill in
+  gamePk:824032,
+  preview:"While Nick Kurtz, Shea Langeliers and Brent Rooker command most of the attention in the A's revamped lineup, Jeff McNeil delivered the swing that mattered most in a thrilling 6-5 extra-inning victory over the Angels at Angel Stadium.",
+  body:`While Nick Kurtz, Shea Langeliers and Brent Rooker command most of the attention in the A's revamped lineup, Jeff McNeil delivered the swing that mattered most in a thrilling 6-5 extra-inning victory over the Angels at Angel Stadium. The veteran second baseman crushed a game-tying solo shot off Kirby Yates in the ninth inning, his second homer of the season, setting up Tyler Soderstrom's walk-off RBI single in the tenth.
+
+McNeil's clutch blast came after the A's had watched a 3-2 lead evaporate in spectacular fashion during the second inning. Aaron Civale, making his tenth start of the season, surrendered three home runs in his five-inning stint, including back-to-back solo shots from Jo Adell and Josh Lowe that flipped a tie game into a 5-3 deficit. Jorge Soler had earlier matched the Athletics' early two-run outburst with a two-run homer of his own in the first, turning Tyler Soderstrom's clutch two-RBI single into a temporary advantage.
+
+The Athletics battled back methodically against Angels starter Jack Kochanowicz, who worked six innings despite issuing four walks. Kurtz trimmed the deficit to 5-4 in the seventh with an RBI single that scored Darell Hernaiz, though the rally stalled when Carlos Cortes got thrown out at third on Mike Trout's assist. The Athletics' struggles with runners in scoring position, going just 5-for-13 in those situations, nearly proved costly as they stranded nine baserunners through the first eight innings.
+
+Luis Medina and Mark Leiter Jr. steadied the ship out of the bullpen after Civale's early exit, combining for three scoreless innings to keep the deficit manageable. That proved crucial when McNeil stepped in against Yates with one out in the ninth. The lefty worked a seven-pitch battle before launching his dramatic equalizer to right field.
+
+Extra innings brought more dramatics. Scott Barlow earned the victory with a perfect tenth inning, striking out one while hitting a batter. In the bottom half, Soderstrom delivered his second clutch hit of the night, a two-pitch single to left that scored Kurtz from second base. Josh Lowe's fielding error allowed Soderstrom to reach third, but the damage was already done. Hogan Harris closed it out despite issuing two walks, securing his save and Oakland's comeback victory in a contest that stretched nearly three hours.`
+},{
   id:'5-16-26-houston-astros',
   date:'2026-05-16',
   opponent:'Houston Astros',
