@@ -125,8 +125,9 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
 <script>
 function buildItemListSchema(){
   const items = RECAPS.map((r, i) => {
-    const away = r.home ? r.opponent : 'Texas Rangers';
-    const home = r.home ? 'Texas Rangers' : r.opponent;
+    const focusTeam = r.focusTeam || 'Texas Rangers';
+    const away = r.home ? r.opponent : focusTeam;
+    const home = r.home ? focusTeam : r.opponent;
     const matchup = away + ' at ' + home;
     return {
       "@type": "ListItem",
@@ -175,8 +176,9 @@ function buildItemListSchema(){
 function buildStaticIndex(){
   const el = document.getElementById('static-recap-index');
   el.innerHTML = '<ul>' + RECAPS.map(r => {
-    const away = r.home ? r.opponent : 'Texas Rangers';
-    const home = r.home ? 'Texas Rangers' : r.opponent;
+    const focusTeam = r.focusTeam || 'Texas Rangers';
+    const away = r.home ? r.opponent : focusTeam;
+    const home = r.home ? focusTeam : r.opponent;
     return `<li><a href="recap.html?id=${r.id}">${away} at ${home} — ${r.date} (${r.score}): ${r.preview}</a></li>`;
   }).join('') + '</ul>';
 }
@@ -193,8 +195,9 @@ function filterRecaps(f, btn){
 function renderRecaps(){
   const list = activeFilter === 'all' ? RECAPS : RECAPS.filter(r => r.result === activeFilter);
   document.getElementById('recaps-grid').innerHTML = list.map(r => {
-    const away = r.home ? r.opponent : 'Texas Rangers';
-    const home = r.home ? 'Texas Rangers' : r.opponent;
+    const focusTeam = r.focusTeam || 'Texas Rangers';
+    const away = r.home ? r.opponent : focusTeam;
+    const home = r.home ? focusTeam : r.opponent;
     const awayShort = away.split(' ').pop();
     const homeShort = home.split(' ').pop();
     const fullMatchup = away + ' at ' + home;
