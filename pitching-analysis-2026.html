@@ -11,7 +11,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>2026 MLB Pitching Leaders | The Baseball Nerd</title>
-  <meta name="description" content="2026 MLB pitching leaderboard through May 30: xERA, ERA, FIP, SIERA, Statcast metrics across 68 qualified starters. FanGraphs qualified threshold.">
+  <meta name="description" content="2026 MLB pitching leaderboard through May 30: xERA, ERA, FIP, SIERA, Statcast metrics across 68 qualified starters. Includes Cy Young Watch with CSR scoring.">
   <link rel="canonical" href="https://thebaseballnerd.com/pitching-analysis-2026.html">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -45,6 +45,37 @@
     .count-pill{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--gold);background:rgba(201,168,76,0.1);padding:5px 12px;border-radius:20px;border:1px solid rgba(201,168,76,0.2)}
     #leaderboardView{padding:24px 32px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
     #tableView{display:none;overflow-x:auto;padding-bottom:32px}
+
+    /* CY YOUNG WATCH */
+    .cy-watch{grid-column:1/-1;background:var(--navy-card);border:1px solid rgba(201,168,76,0.35);border-radius:6px;overflow:hidden;margin-bottom:4px}
+    .cy-header{padding:16px 20px 14px;border-bottom:2px solid rgba(201,168,76,0.3);display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,rgba(201,168,76,0.08) 0%,transparent 60%)}
+    .cy-badge{font-family:var(--mono);font-size:9px;letter-spacing:3px;color:var(--navy);background:var(--gold);padding:3px 8px;border-radius:2px;flex-shrink:0}
+    .cy-title{font-family:var(--display);font-size:28px;color:var(--gold);letter-spacing:2px;line-height:1}
+    .cy-subtitle{font-family:var(--mono);font-size:10px;color:var(--cream-dim);text-transform:uppercase;letter-spacing:1px}
+    .cy-method{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--cream-dim);line-height:1.6;text-align:right}
+    .cy-method strong{color:var(--gold);font-weight:600}
+    .cy-leagues{display:grid;grid-template-columns:1fr 1fr}
+    .cy-league:first-child{border-right:1px solid rgba(255,255,255,0.06)}
+    .cy-league-hdr{font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;padding:10px 20px 8px;border-bottom:1px solid rgba(255,255,255,0.04)}
+    .cy-row{display:flex;align-items:center;gap:12px;padding:10px 20px;transition:background .15s}
+    .cy-row:hover{background:rgba(201,168,76,0.05)}
+    .cy-rank{font-family:var(--display);font-size:24px;color:rgba(201,168,76,0.2);width:24px;text-align:center;flex-shrink:0;line-height:1}
+    .cy-rank.r1{color:var(--gold)}
+    .headshot{width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0;background:var(--navy-light);border:1px solid rgba(255,255,255,0.1)}
+    .cy-info{flex:1;min-width:0}
+    .cy-name{font-size:13px;font-weight:600;color:var(--white);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .cy-meta{font-family:var(--mono);font-size:10px;color:var(--cream-dim);margin-top:2px;display:flex;gap:10px;flex-wrap:wrap}
+    .z-bars{display:flex;gap:14px;margin-top:5px}
+    .z-bar-wrap{display:flex;flex-direction:column;gap:1px}
+    .z-bar-label{font-family:var(--mono);font-size:8px;color:var(--cream-dim);text-transform:uppercase;letter-spacing:0.5px}
+    .z-bar-val{font-family:var(--mono);font-size:10px;font-weight:600}
+    .z-bar-val.pos{color:var(--green)}
+    .z-bar-val.neg{color:var(--red)}
+    .z-bar-val.neu{color:var(--cream-dim)}
+    .cy-csr{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--gold);text-align:right;flex-shrink:0;line-height:1}
+    .cy-csr small{display:block;font-size:9px;color:var(--cream-dim);letter-spacing:1px;text-transform:uppercase;margin-top:3px;text-align:right}
+
+    /* STANDARD CARDS */
     .lb-card{background:var(--navy-card);border:1px solid rgba(255,255,255,0.07);border-radius:6px;overflow:hidden}
     .card-header{padding:12px 16px 10px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:baseline;gap:10px}
     .card-title{font-family:var(--display);font-size:18px;color:var(--gold);letter-spacing:1px}
@@ -54,7 +85,6 @@
     .card-row{display:flex;align-items:center;gap:10px;padding:8px 14px;transition:background .15s}
     .card-row:hover{background:rgba(201,168,76,0.05)}
     .card-rank{font-family:var(--mono);font-size:11px;color:var(--cream-dim);width:16px;text-align:center;flex-shrink:0}
-    .headshot{width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0;background:var(--navy-light);border:1px solid rgba(255,255,255,0.1)}
     .card-info{flex:1;min-width:0}
     .card-name{font-size:13px;font-weight:600;color:var(--white);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .card-sub{font-family:var(--mono);font-size:10px;color:var(--cream-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
@@ -119,12 +149,8 @@
   <div class="count-pill" id="countPill">68 pitchers</div>
 </div>
 
-<!-- LEADERBOARD VIEW -->
-<div id="leaderboardView">
-  <!-- Cards rendered by JS -->
-</div>
+<div id="leaderboardView"></div>
 
-<!-- TABLE VIEW -->
 <div id="tableView">
   <table>
     <thead>
@@ -166,7 +192,7 @@
       <td>10.8</td>
       <td>1.8</td>
       <td>1.12</td>
-      <td>0.337</td>
+      <td>--</td>
       <td>15.1%</td>
       <td>32.4%</td>
       <td>89.1</td>
@@ -187,7 +213,7 @@
       <td>10.1</td>
       <td>1.6</td>
       <td>0.85</td>
-      <td>0.253</td>
+      <td>--</td>
       <td>14.1%</td>
       <td>28.0%</td>
       <td>87.8</td>
@@ -208,7 +234,7 @@
       <td>5.5</td>
       <td>1.6</td>
       <td>1.11</td>
-      <td>0.276</td>
+      <td>--</td>
       <td>8.4%</td>
       <td>26.4%</td>
       <td>86.6</td>
@@ -229,7 +255,7 @@
       <td>14.1</td>
       <td>2.7</td>
       <td>0.83</td>
-      <td>0.250</td>
+      <td>--</td>
       <td>17.5%</td>
       <td>36.0%</td>
       <td>86.7</td>
@@ -250,7 +276,7 @@
       <td>10.1</td>
       <td>2.8</td>
       <td>0.96</td>
-      <td>0.228</td>
+      <td>--</td>
       <td>15.2%</td>
       <td>28.9%</td>
       <td>88.9</td>
@@ -271,7 +297,7 @@
       <td>9.4</td>
       <td>1.9</td>
       <td>0.99</td>
-      <td>0.291</td>
+      <td>--</td>
       <td>13.1%</td>
       <td>30.0%</td>
       <td>90.0</td>
@@ -292,7 +318,7 @@
       <td>10.8</td>
       <td>2.3</td>
       <td>0.94</td>
-      <td>0.256</td>
+      <td>--</td>
       <td>14.1%</td>
       <td>31.4%</td>
       <td>86.8</td>
@@ -313,7 +339,7 @@
       <td>9.6</td>
       <td>2.7</td>
       <td>1.07</td>
-      <td>0.276</td>
+      <td>--</td>
       <td>11.9%</td>
       <td>26.5%</td>
       <td>87.5</td>
@@ -334,7 +360,7 @@
       <td>6.7</td>
       <td>3.4</td>
       <td>1.21</td>
-      <td>0.259</td>
+      <td>--</td>
       <td>7.6%</td>
       <td>24.7%</td>
       <td>88.8</td>
@@ -355,7 +381,7 @@
       <td>7.6</td>
       <td>2.8</td>
       <td>1.08</td>
-      <td>0.251</td>
+      <td>--</td>
       <td>9.6%</td>
       <td>25.7%</td>
       <td>89.8</td>
@@ -376,7 +402,7 @@
       <td>5.8</td>
       <td>2.0</td>
       <td>0.99</td>
-      <td>0.233</td>
+      <td>--</td>
       <td>8.0%</td>
       <td>25.4%</td>
       <td>89.2</td>
@@ -397,7 +423,7 @@
       <td>9.8</td>
       <td>3.9</td>
       <td>1.15</td>
-      <td>0.260</td>
+      <td>--</td>
       <td>13.6%</td>
       <td>29.4%</td>
       <td>88.4</td>
@@ -418,7 +444,7 @@
       <td>7.7</td>
       <td>2.8</td>
       <td>1.02</td>
-      <td>0.230</td>
+      <td>--</td>
       <td>9.7%</td>
       <td>26.7%</td>
       <td>88.9</td>
@@ -439,7 +465,7 @@
       <td>9.2</td>
       <td>2.2</td>
       <td>1.05</td>
-      <td>0.277</td>
+      <td>--</td>
       <td>12.5%</td>
       <td>30.3%</td>
       <td>89.6</td>
@@ -460,7 +486,7 @@
       <td>8.8</td>
       <td>2.1</td>
       <td>1.01</td>
-      <td>0.259</td>
+      <td>--</td>
       <td>10.9%</td>
       <td>23.0%</td>
       <td>89.8</td>
@@ -481,7 +507,7 @@
       <td>10.3</td>
       <td>1.6</td>
       <td>0.86</td>
-      <td>0.241</td>
+      <td>--</td>
       <td>12.1%</td>
       <td>26.1%</td>
       <td>87.0</td>
@@ -502,7 +528,7 @@
       <td>9.8</td>
       <td>2.0</td>
       <td>0.93</td>
-      <td>0.259</td>
+      <td>--</td>
       <td>11.9%</td>
       <td>29.2%</td>
       <td>89.7</td>
@@ -523,7 +549,7 @@
       <td>8.4</td>
       <td>3.2</td>
       <td>1.16</td>
-      <td>0.248</td>
+      <td>--</td>
       <td>9.2%</td>
       <td>27.4%</td>
       <td>90.9</td>
@@ -544,7 +570,7 @@
       <td>10.0</td>
       <td>3.4</td>
       <td>1.10</td>
-      <td>0.254</td>
+      <td>--</td>
       <td>13.4%</td>
       <td>29.8%</td>
       <td>90.0</td>
@@ -565,7 +591,7 @@
       <td>6.4</td>
       <td>2.2</td>
       <td>1.09</td>
-      <td>0.249</td>
+      <td>--</td>
       <td>8.3%</td>
       <td>24.7%</td>
       <td>89.1</td>
@@ -586,7 +612,7 @@
       <td>8.6</td>
       <td>3.8</td>
       <td>1.13</td>
-      <td>0.250</td>
+      <td>--</td>
       <td>11.2%</td>
       <td>28.3%</td>
       <td>86.9</td>
@@ -607,7 +633,7 @@
       <td>13.3</td>
       <td>3.8</td>
       <td>1.21</td>
-      <td>0.333</td>
+      <td>--</td>
       <td>15.3%</td>
       <td>31.1%</td>
       <td>87.1</td>
@@ -628,7 +654,7 @@
       <td>10.4</td>
       <td>2.8</td>
       <td>1.09</td>
-      <td>0.278</td>
+      <td>--</td>
       <td>13.6%</td>
       <td>32.0%</td>
       <td>91.5</td>
@@ -649,7 +675,7 @@
       <td>8.3</td>
       <td>1.8</td>
       <td>0.98</td>
-      <td>0.248</td>
+      <td>--</td>
       <td>12.3%</td>
       <td>28.3%</td>
       <td>89.1</td>
@@ -670,7 +696,7 @@
       <td>8.6</td>
       <td>1.6</td>
       <td>1.09</td>
-      <td>0.292</td>
+      <td>--</td>
       <td>11.8%</td>
       <td>26.9%</td>
       <td>87.3</td>
@@ -691,7 +717,7 @@
       <td>7.3</td>
       <td>2.8</td>
       <td>1.01</td>
-      <td>0.250</td>
+      <td>--</td>
       <td>10.0%</td>
       <td>27.5%</td>
       <td>86.1</td>
@@ -712,7 +738,7 @@
       <td>8.8</td>
       <td>2.1</td>
       <td>1.20</td>
-      <td>0.318</td>
+      <td>--</td>
       <td>9.8%</td>
       <td>26.7%</td>
       <td>87.9</td>
@@ -733,7 +759,7 @@
       <td>7.0</td>
       <td>2.5</td>
       <td>1.23</td>
-      <td>0.282</td>
+      <td>--</td>
       <td>10.2%</td>
       <td>25.2%</td>
       <td>90.7</td>
@@ -754,7 +780,7 @@
       <td>10.2</td>
       <td>3.3</td>
       <td>1.18</td>
-      <td>0.301</td>
+      <td>--</td>
       <td>10.4%</td>
       <td>29.1%</td>
       <td>86.8</td>
@@ -775,7 +801,7 @@
       <td>8.4</td>
       <td>1.8</td>
       <td>1.02</td>
-      <td>0.250</td>
+      <td>--</td>
       <td>10.4%</td>
       <td>27.0%</td>
       <td>87.1</td>
@@ -796,7 +822,7 @@
       <td>8.7</td>
       <td>1.8</td>
       <td>0.96</td>
-      <td>0.254</td>
+      <td>--</td>
       <td>11.6%</td>
       <td>25.6%</td>
       <td>89.2</td>
@@ -817,7 +843,7 @@
       <td>10.6</td>
       <td>2.7</td>
       <td>1.14</td>
-      <td>0.279</td>
+      <td>--</td>
       <td>11.4%</td>
       <td>31.2%</td>
       <td>89.2</td>
@@ -838,7 +864,7 @@
       <td>9.3</td>
       <td>3.8</td>
       <td>1.30</td>
-      <td>0.279</td>
+      <td>--</td>
       <td>11.6%</td>
       <td>26.3%</td>
       <td>88.0</td>
@@ -859,7 +885,7 @@
       <td>10.0</td>
       <td>2.5</td>
       <td>1.17</td>
-      <td>0.290</td>
+      <td>--</td>
       <td>10.0%</td>
       <td>29.1%</td>
       <td>90.3</td>
@@ -880,7 +906,7 @@
       <td>7.6</td>
       <td>2.9</td>
       <td>1.35</td>
-      <td>0.327</td>
+      <td>--</td>
       <td>7.6%</td>
       <td>25.2%</td>
       <td>90.0</td>
@@ -901,7 +927,7 @@
       <td>10.3</td>
       <td>3.2</td>
       <td>1.41</td>
-      <td>0.361</td>
+      <td>--</td>
       <td>11.0%</td>
       <td>30.2%</td>
       <td>89.5</td>
@@ -922,7 +948,7 @@
       <td>9.1</td>
       <td>2.1</td>
       <td>1.11</td>
-      <td>0.277</td>
+      <td>--</td>
       <td>12.3%</td>
       <td>28.7%</td>
       <td>90.7</td>
@@ -943,7 +969,7 @@
       <td>8.7</td>
       <td>2.8</td>
       <td>1.15</td>
-      <td>0.246</td>
+      <td>--</td>
       <td>9.8%</td>
       <td>28.5%</td>
       <td>88.4</td>
@@ -964,7 +990,7 @@
       <td>10.6</td>
       <td>1.8</td>
       <td>1.01</td>
-      <td>0.245</td>
+      <td>--</td>
       <td>17.3%</td>
       <td>30.3%</td>
       <td>91.4</td>
@@ -985,7 +1011,7 @@
       <td>7.2</td>
       <td>2.1</td>
       <td>1.22</td>
-      <td>0.307</td>
+      <td>--</td>
       <td>10.1%</td>
       <td>25.7%</td>
       <td>89.3</td>
@@ -1006,7 +1032,7 @@
       <td>6.0</td>
       <td>3.9</td>
       <td>1.42</td>
-      <td>0.275</td>
+      <td>--</td>
       <td>8.7%</td>
       <td>25.1%</td>
       <td>89.5</td>
@@ -1027,7 +1053,7 @@
       <td>8.8</td>
       <td>2.1</td>
       <td>1.11</td>
-      <td>0.258</td>
+      <td>--</td>
       <td>15.1%</td>
       <td>29.4%</td>
       <td>89.0</td>
@@ -1048,7 +1074,7 @@
       <td>9.5</td>
       <td>4.0</td>
       <td>1.19</td>
-      <td>0.255</td>
+      <td>--</td>
       <td>10.6%</td>
       <td>25.2%</td>
       <td>89.4</td>
@@ -1069,7 +1095,7 @@
       <td>7.7</td>
       <td>2.7</td>
       <td>1.19</td>
-      <td>0.253</td>
+      <td>--</td>
       <td>10.4%</td>
       <td>28.4%</td>
       <td>87.3</td>
@@ -1090,7 +1116,7 @@
       <td>9.3</td>
       <td>4.5</td>
       <td>1.47</td>
-      <td>0.317</td>
+      <td>--</td>
       <td>9.3%</td>
       <td>25.2%</td>
       <td>88.8</td>
@@ -1111,7 +1137,7 @@
       <td>7.1</td>
       <td>3.3</td>
       <td>1.34</td>
-      <td>0.283</td>
+      <td>--</td>
       <td>9.3%</td>
       <td>27.8%</td>
       <td>87.9</td>
@@ -1132,7 +1158,7 @@
       <td>10.5</td>
       <td>2.5</td>
       <td>1.31</td>
-      <td>0.358</td>
+      <td>--</td>
       <td>13.8%</td>
       <td>31.0%</td>
       <td>85.6</td>
@@ -1153,7 +1179,7 @@
       <td>6.7</td>
       <td>2.6</td>
       <td>1.17</td>
-      <td>0.277</td>
+      <td>--</td>
       <td>8.9%</td>
       <td>25.0%</td>
       <td>87.9</td>
@@ -1174,7 +1200,7 @@
       <td>8.9</td>
       <td>2.3</td>
       <td>1.07</td>
-      <td>0.243</td>
+      <td>--</td>
       <td>14.0%</td>
       <td>27.9%</td>
       <td>89.4</td>
@@ -1195,7 +1221,7 @@
       <td>7.2</td>
       <td>3.3</td>
       <td>1.32</td>
-      <td>0.279</td>
+      <td>--</td>
       <td>9.2%</td>
       <td>27.5%</td>
       <td>90.2</td>
@@ -1216,7 +1242,7 @@
       <td>11.0</td>
       <td>2.8</td>
       <td>1.09</td>
-      <td>0.278</td>
+      <td>--</td>
       <td>9.7%</td>
       <td>29.7%</td>
       <td>87.0</td>
@@ -1237,7 +1263,7 @@
       <td>8.0</td>
       <td>3.8</td>
       <td>1.43</td>
-      <td>0.312</td>
+      <td>--</td>
       <td>8.4%</td>
       <td>24.9%</td>
       <td>90.4</td>
@@ -1258,7 +1284,7 @@
       <td>7.9</td>
       <td>3.0</td>
       <td>1.32</td>
-      <td>0.282</td>
+      <td>--</td>
       <td>12.0%</td>
       <td>28.6%</td>
       <td>90.8</td>
@@ -1279,7 +1305,7 @@
       <td>7.5</td>
       <td>2.5</td>
       <td>1.30</td>
-      <td>0.322</td>
+      <td>--</td>
       <td>9.3%</td>
       <td>26.9%</td>
       <td>90.0</td>
@@ -1300,7 +1326,7 @@
       <td>6.2</td>
       <td>2.4</td>
       <td>1.22</td>
-      <td>0.251</td>
+      <td>--</td>
       <td>9.1%</td>
       <td>25.7%</td>
       <td>87.9</td>
@@ -1321,7 +1347,7 @@
       <td>10.3</td>
       <td>4.0</td>
       <td>1.26</td>
-      <td>0.268</td>
+      <td>--</td>
       <td>13.5%</td>
       <td>26.5%</td>
       <td>89.1</td>
@@ -1342,7 +1368,7 @@
       <td>8.1</td>
       <td>4.5</td>
       <td>1.38</td>
-      <td>0.252</td>
+      <td>--</td>
       <td>10.9%</td>
       <td>24.3%</td>
       <td>89.2</td>
@@ -1363,7 +1389,7 @@
       <td>10.8</td>
       <td>2.9</td>
       <td>1.18</td>
-      <td>0.299</td>
+      <td>--</td>
       <td>12.8%</td>
       <td>28.5%</td>
       <td>89.3</td>
@@ -1384,7 +1410,7 @@
       <td>6.2</td>
       <td>2.5</td>
       <td>1.33</td>
-      <td>0.297</td>
+      <td>--</td>
       <td>10.0%</td>
       <td>26.7%</td>
       <td>88.6</td>
@@ -1405,7 +1431,7 @@
       <td>9.5</td>
       <td>3.9</td>
       <td>1.37</td>
-      <td>0.298</td>
+      <td>--</td>
       <td>12.1%</td>
       <td>28.4%</td>
       <td>87.8</td>
@@ -1426,7 +1452,7 @@
       <td>8.4</td>
       <td>3.5</td>
       <td>1.57</td>
-      <td>0.350</td>
+      <td>--</td>
       <td>10.4%</td>
       <td>26.7%</td>
       <td>91.5</td>
@@ -1447,7 +1473,7 @@
       <td>6.5</td>
       <td>1.9</td>
       <td>1.30</td>
-      <td>0.300</td>
+      <td>--</td>
       <td>7.1%</td>
       <td>23.7%</td>
       <td>89.8</td>
@@ -1468,7 +1494,7 @@
       <td>7.2</td>
       <td>2.6</td>
       <td>1.19</td>
-      <td>0.232</td>
+      <td>--</td>
       <td>9.2%</td>
       <td>22.4%</td>
       <td>90.6</td>
@@ -1489,7 +1515,7 @@
       <td>6.6</td>
       <td>4.5</td>
       <td>1.39</td>
-      <td>0.263</td>
+      <td>--</td>
       <td>10.3%</td>
       <td>25.9%</td>
       <td>90.0</td>
@@ -1510,7 +1536,7 @@
       <td>6.4</td>
       <td>2.7</td>
       <td>1.47</td>
-      <td>0.312</td>
+      <td>--</td>
       <td>8.6%</td>
       <td>25.1%</td>
       <td>90.8</td>
@@ -1531,7 +1557,7 @@
       <td>7.3</td>
       <td>2.9</td>
       <td>1.49</td>
-      <td>0.332</td>
+      <td>--</td>
       <td>8.3%</td>
       <td>25.4%</td>
       <td>87.8</td>
@@ -1552,7 +1578,7 @@
       <td>7.6</td>
       <td>3.0</td>
       <td>1.28</td>
-      <td>0.235</td>
+      <td>--</td>
       <td>11.0%</td>
       <td>28.0%</td>
       <td>88.0</td>
@@ -1573,7 +1599,7 @@
       <td>7.7</td>
       <td>3.0</td>
       <td>1.45</td>
-      <td>0.315</td>
+      <td>--</td>
       <td>10.9%</td>
       <td>26.9%</td>
       <td>87.7</td>
@@ -1591,7 +1617,11 @@
 </div>
 
 <script>
-const ALL_ROWS = [{"name": "Jacob Misiorowski", "team": "MIL", "mlbamid": "694819", "ip": 64.0, "era": 1.83, "xera": 2.15, "era_xera": -0.32, "fip": 1.88, "xfip": 2.02, "siera": 2.09, "k9": 14.06, "bb9": 2.67, "whip": 0.83, "babip": 0.25, "swstr": 17.5, "csw": 36.0, "ev": 86.7, "barrel": 2.4, "hh": 32.3, "vfa": 99.9}, {"name": "Cristopher S\u00e1nchez", "team": "PHI", "mlbamid": "650911", "ip": 79.1, "era": 1.47, "xera": 2.9, "era_xera": -1.43, "fip": 1.8, "xfip": 2.29, "siera": 2.52, "k9": 10.78, "bb9": 1.82, "whip": 1.12, "babip": 0.337, "swstr": 15.1, "csw": 32.4, "ev": 89.1, "barrel": 8.5, "hh": 44.1, "vfa": 95.0}, {"name": "Dylan Cease", "team": "TOR", "mlbamid": "656302", "ip": 62.0, "era": 3.05, "xera": 3.09, "era_xera": -0.04, "fip": 2.55, "xfip": 2.51, "siera": 2.76, "k9": 13.35, "bb9": 3.77, "whip": 1.21, "babip": 0.333, "swstr": 15.3, "csw": 31.1, "ev": 87.1, "barrel": 5.8, "hh": 37.2, "vfa": 97.6}, {"name": "Gavin Williams", "team": "CLE", "mlbamid": "668909", "ip": 76.1, "era": 3.07, "xera": 4.2, "era_xera": -1.13, "fip": 3.31, "xfip": 3.02, "siera": 3.14, "k9": 10.38, "bb9": 2.83, "whip": 1.09, "babip": 0.278, "swstr": 13.6, "csw": 32.0, "ev": 91.5, "barrel": 12.2, "hh": 47.1, "vfa": 96.3}, {"name": "Reid Detmers", "team": "LAA", "mlbamid": "672282", "ip": 68.0, "era": 4.63, "xera": 2.89, "era_xera": 1.74, "fip": 2.95, "xfip": 3.49, "siera": 3.26, "k9": 10.85, "bb9": 2.91, "whip": 1.18, "babip": 0.299, "swstr": 12.8, "csw": 28.5, "ev": 89.3, "barrel": 6.1, "hh": 36.7, "vfa": 94.0}, {"name": "Cam Schlittler", "team": "NYY", "mlbamid": "693645", "ip": 72.0, "era": 1.5, "xera": 2.56, "era_xera": -1.06, "fip": 1.9, "xfip": 2.6, "siera": 2.75, "k9": 10.12, "bb9": 1.62, "whip": 0.85, "babip": 0.253, "swstr": 14.1, "csw": 28.0, "ev": 87.8, "barrel": 6.6, "hh": 39.2, "vfa": 97.7}, {"name": "Chris Sale", "team": "ATL", "mlbamid": "519242", "ip": 67.0, "era": 2.01, "xera": 3.17, "era_xera": -1.16, "fip": 2.87, "xfip": 2.91, "siera": 2.87, "k9": 10.75, "bb9": 2.28, "whip": 0.94, "babip": 0.256, "swstr": 14.1, "csw": 31.4, "ev": 86.8, "barrel": 6.8, "hh": 29.6, "vfa": 95.5}, {"name": "Jes\u00fas Luzardo", "team": "PHI", "mlbamid": "666200", "ip": 67.0, "era": 4.3, "xera": 3.14, "era_xera": 1.16, "fip": 2.74, "xfip": 2.78, "siera": 3.05, "k9": 10.48, "bb9": 2.55, "whip": 1.31, "babip": 0.358, "swstr": 13.8, "csw": 31.0, "ev": 85.6, "barrel": 4.9, "hh": 27.2, "vfa": 96.8}, {"name": "Jos\u00e9 Soriano", "team": "LAA", "mlbamid": "667755", "ip": 71.1, "era": 2.65, "xera": 3.78, "era_xera": -1.13, "fip": 3.32, "xfip": 3.42, "siera": 3.65, "k9": 9.84, "bb9": 3.91, "whip": 1.15, "babip": 0.26, "swstr": 13.6, "csw": 29.4, "ev": 88.4, "barrel": 8.9, "hh": 36.3, "vfa": 97.2}, {"name": "Ryan Weathers", "team": "NYY", "mlbamid": "677960", "ip": 64.0, "era": 3.52, "xera": 3.82, "era_xera": -0.3, "fip": 3.85, "xfip": 3.03, "siera": 3.13, "k9": 10.55, "bb9": 2.67, "whip": 1.14, "babip": 0.279, "swstr": 11.4, "csw": 31.2, "ev": 89.2, "barrel": 9.1, "hh": 41.2, "vfa": 95.0}, {"name": "Paul Skenes", "team": "PIT", "mlbamid": "694973", "ip": 65.1, "era": 2.89, "xera": 2.28, "era_xera": 0.61, "fip": 2.7, "xfip": 2.93, "siera": 2.8, "k9": 10.33, "bb9": 1.65, "whip": 0.86, "babip": 0.241, "swstr": 12.1, "csw": 26.1, "ev": 87.0, "barrel": 4.3, "hh": 32.9, "vfa": 97.1}, {"name": "Nolan McLean", "team": "NYM", "mlbamid": "690997", "ip": 61.1, "era": 4.4, "xera": 3.18, "era_xera": 1.22, "fip": 3.59, "xfip": 3.05, "siera": 3.03, "k9": 11.01, "bb9": 2.79, "whip": 1.09, "babip": 0.278, "swstr": 9.7, "csw": 29.7, "ev": 87.0, "barrel": 7.2, "hh": 38.2, "vfa": 95.3}, {"name": "Max Meyer", "team": "MIA", "mlbamid": "676974", "ip": 66.2, "era": 2.97, "xera": 3.87, "era_xera": -0.9, "fip": 3.12, "xfip": 3.57, "siera": 3.56, "k9": 9.99, "bb9": 3.38, "whip": 1.1, "babip": 0.254, "swstr": 13.4, "csw": 29.8, "ev": 90.0, "barrel": 9.2, "hh": 42.0, "vfa": 94.6}, {"name": "Parker Messick", "team": "CLE", "mlbamid": "800048", "ip": 69.1, "era": 2.21, "xera": 3.18, "era_xera": -0.97, "fip": 3.01, "xfip": 3.19, "siera": 3.34, "k9": 9.61, "bb9": 2.73, "whip": 1.07, "babip": 0.276, "swstr": 11.9, "csw": 26.5, "ev": 87.5, "barrel": 4.5, "hh": 34.1, "vfa": 93.2}, {"name": "Eury P\u00e9rez", "team": "MIA", "mlbamid": "691587", "ip": 62.2, "era": 4.6, "xera": 4.87, "era_xera": -0.27, "fip": 4.63, "xfip": 4.09, "siera": 3.79, "k9": 10.34, "bb9": 4.02, "whip": 1.26, "babip": 0.268, "swstr": 13.5, "csw": 26.5, "ev": 89.1, "barrel": 15.0, "hh": 42.5, "vfa": 98.2}, {"name": "Chase Burns", "team": "CIN", "mlbamid": "695505", "ip": 64.1, "era": 1.96, "xera": 2.89, "era_xera": -0.93, "fip": 3.37, "xfip": 3.15, "siera": 3.21, "k9": 10.07, "bb9": 2.8, "whip": 0.96, "babip": 0.228, "swstr": 15.2, "csw": 28.9, "ev": 88.9, "barrel": 8.3, "hh": 37.6, "vfa": 98.1}, {"name": "Davis Martin", "team": "CHW", "mlbamid": "663436", "ip": 67.2, "era": 2.0, "xera": 3.37, "era_xera": -1.37, "fip": 2.3, "xfip": 2.89, "siera": 3.02, "k9": 9.44, "bb9": 1.86, "whip": 0.99, "babip": 0.291, "swstr": 13.1, "csw": 30.0, "ev": 90.0, "barrel": 6.9, "hh": 45.1, "vfa": 93.7}, {"name": "Jacob deGrom", "team": "TEX", "mlbamid": "594798", "ip": 59.2, "era": 3.77, "xera": 3.87, "era_xera": -0.1, "fip": 4.15, "xfip": 3.27, "siera": 3.07, "k9": 10.56, "bb9": 1.81, "whip": 1.01, "babip": 0.245, "swstr": 17.3, "csw": 30.3, "ev": 91.4, "barrel": 11.5, "hh": 46.2, "vfa": 97.2}, {"name": "Joe Ryan", "team": "MIN", "mlbamid": "657746", "ip": 64.1, "era": 2.94, "xera": 2.83, "era_xera": 0.11, "fip": 2.58, "xfip": 3.45, "siera": 3.14, "k9": 9.79, "bb9": 1.96, "whip": 0.93, "babip": 0.259, "swstr": 11.9, "csw": 29.2, "ev": 89.7, "barrel": 9.6, "hh": 41.0, "vfa": 93.0}, {"name": "Braxton Ashcraft", "team": "PIT", "mlbamid": "677952", "ip": 68.2, "era": 2.75, "xera": 2.94, "era_xera": -0.19, "fip": 3.12, "xfip": 3.31, "siera": 3.29, "k9": 9.17, "bb9": 2.23, "whip": 1.05, "babip": 0.277, "swstr": 12.5, "csw": 30.3, "ev": 89.6, "barrel": 5.5, "hh": 37.2, "vfa": 96.9}, {"name": "Logan Gilbert", "team": "SEA", "mlbamid": "669302", "ip": 68.1, "era": 3.69, "xera": 3.97, "era_xera": -0.28, "fip": 3.97, "xfip": 3.58, "siera": 3.46, "k9": 9.09, "bb9": 2.11, "whip": 1.11, "babip": 0.277, "swstr": 12.3, "csw": 28.7, "ev": 90.7, "barrel": 10.6, "hh": 45.7, "vfa": 95.5}, {"name": "Shota Imanaga", "team": "CHC", "mlbamid": "684007", "ip": 70.0, "era": 4.37, "xera": 3.72, "era_xera": 0.65, "fip": 4.41, "xfip": 3.77, "siera": 3.59, "k9": 8.87, "bb9": 2.31, "whip": 1.07, "babip": 0.243, "swstr": 14.0, "csw": 27.9, "ev": 89.4, "barrel": 10.8, "hh": 40.7, "vfa": 91.9}, {"name": "Freddy Peralta", "team": "NYM", "mlbamid": "642547", "ip": 66.0, "era": 3.55, "xera": 3.67, "era_xera": -0.12, "fip": 3.94, "xfip": 3.81, "siera": 3.97, "k9": 9.27, "bb9": 3.82, "whip": 1.3, "babip": 0.279, "swstr": 11.6, "csw": 26.3, "ev": 88.0, "barrel": 5.3, "hh": 39.6, "vfa": 94.0}, {"name": "Cade Cavalli", "team": "WSN", "mlbamid": "676917", "ip": 59.2, "era": 3.62, "xera": 3.96, "era_xera": -0.34, "fip": 3.0, "xfip": 3.75, "siera": 3.51, "k9": 10.26, "bb9": 3.17, "whip": 1.41, "babip": 0.361, "swstr": 11.0, "csw": 30.2, "ev": 89.5, "barrel": 7.7, "hh": 40.8, "vfa": 96.4}, {"name": "Landen Roupp", "team": "SFG", "mlbamid": "694738", "ip": 60.0, "era": 3.3, "xera": 3.03, "era_xera": 0.27, "fip": 2.65, "xfip": 2.99, "siera": 3.3, "k9": 10.2, "bb9": 3.3, "whip": 1.18, "babip": 0.301, "swstr": 10.4, "csw": 29.1, "ev": 86.8, "barrel": 2.6, "hh": 26.3, "vfa": 93.3}, {"name": "Bryan Woo", "team": "SEA", "mlbamid": "693433", "ip": 70.2, "era": 3.44, "xera": 3.12, "era_xera": 0.32, "fip": 2.92, "xfip": 3.7, "siera": 3.5, "k9": 8.66, "bb9": 1.78, "whip": 0.96, "babip": 0.254, "swstr": 11.6, "csw": 25.6, "ev": 89.2, "barrel": 6.7, "hh": 43.6, "vfa": 95.6}, {"name": "Nathan Eovaldi", "team": "TEX", "mlbamid": "543135", "ip": 68.2, "era": 3.93, "xera": 4.19, "era_xera": -0.26, "fip": 4.49, "xfip": 3.35, "siera": 3.36, "k9": 8.78, "bb9": 2.1, "whip": 1.11, "babip": 0.258, "swstr": 15.1, "csw": 29.4, "ev": 89.0, "barrel": 8.7, "hh": 40.5, "vfa": 94.1}, {"name": "Kevin Gausman", "team": "TOR", "mlbamid": "592332", "ip": 69.0, "era": 3.13, "xera": 3.44, "era_xera": -0.31, "fip": 2.85, "xfip": 3.36, "siera": 3.41, "k9": 8.61, "bb9": 1.57, "whip": 1.09, "babip": 0.292, "swstr": 11.8, "csw": 26.9, "ev": 87.3, "barrel": 8.0, "hh": 35.3, "vfa": 93.9}, {"name": "Luis Severino", "team": "ATH", "mlbamid": "622663", "ip": 62.2, "era": 4.16, "xera": 4.06, "era_xera": 0.1, "fip": 4.44, "xfip": 4.02, "siera": 4.15, "k9": 9.34, "bb9": 4.45, "whip": 1.47, "babip": 0.317, "swstr": 9.3, "csw": 25.2, "ev": 88.8, "barrel": 8.7, "hh": 38.7, "vfa": 96.6}, {"name": "Foster Griffin", "team": "WSN", "mlbamid": "656492", "ip": 67.0, "era": 3.76, "xera": 4.19, "era_xera": -0.43, "fip": 4.86, "xfip": 3.86, "siera": 3.77, "k9": 8.73, "bb9": 2.82, "whip": 1.15, "babip": 0.246, "swstr": 9.8, "csw": 28.5, "ev": 88.4, "barrel": 11.2, "hh": 37.8, "vfa": 91.3}, {"name": "Michael King", "team": "SDP", "mlbamid": "650633", "ip": 68.0, "era": 3.04, "xera": 3.64, "era_xera": -0.6, "fip": 3.8, "xfip": 3.97, "siera": 4.04, "k9": 8.6, "bb9": 3.84, "whip": 1.13, "babip": 0.25, "swstr": 11.2, "csw": 28.3, "ev": 86.9, "barrel": 8.0, "hh": 33.3, "vfa": 93.3}, {"name": "MacKenzie Gore", "team": "TEX", "mlbamid": "669022", "ip": 61.1, "era": 3.96, "xera": 3.96, "era_xera": 0.0, "fip": 3.63, "xfip": 4.03, "siera": 3.96, "k9": 9.54, "bb9": 3.96, "whip": 1.19, "babip": 0.255, "swstr": 10.6, "csw": 25.2, "ev": 89.4, "barrel": 9.2, "hh": 44.2, "vfa": 95.3}, {"name": "Will Warren", "team": "NYY", "mlbamid": "701542", "ip": 58.1, "era": 3.55, "xera": 3.19, "era_xera": 0.36, "fip": 3.27, "xfip": 3.34, "siera": 3.3, "k9": 10.03, "bb9": 2.47, "whip": 1.17, "babip": 0.29, "swstr": 10.0, "csw": 29.1, "ev": 90.3, "barrel": 6.2, "hh": 40.1, "vfa": 93.7}, {"name": "Jack Leiter", "team": "TEX", "mlbamid": "683004", "ip": 60.2, "era": 4.75, "xera": 4.66, "era_xera": 0.09, "fip": 4.37, "xfip": 3.89, "siera": 3.93, "k9": 9.49, "bb9": 3.86, "whip": 1.37, "babip": 0.298, "swstr": 12.1, "csw": 28.4, "ev": 87.8, "barrel": 11.2, "hh": 40.6, "vfa": 96.5}, {"name": "Emerson Hancock", "team": "SEA", "mlbamid": "676106", "ip": 64.2, "era": 2.78, "xera": 4.08, "era_xera": -1.3, "fip": 3.56, "xfip": 3.4, "siera": 3.37, "k9": 8.77, "bb9": 2.09, "whip": 1.01, "babip": 0.259, "swstr": 10.9, "csw": 23.0, "ev": 89.8, "barrel": 9.4, "hh": 42.9, "vfa": 95.0}, {"name": "Bryce Elder", "team": "ATL", "mlbamid": "693821", "ip": 72.0, "era": 2.5, "xera": 3.19, "era_xera": -0.69, "fip": 3.27, "xfip": 3.81, "siera": 4.0, "k9": 7.62, "bb9": 2.75, "whip": 1.08, "babip": 0.251, "swstr": 9.6, "csw": 25.7, "ev": 89.8, "barrel": 3.4, "hh": 38.9, "vfa": 92.1}, {"name": "Seth Lugo", "team": "KCR", "mlbamid": "607625", "ip": 71.0, "era": 3.55, "xera": 5.2, "era_xera": -1.65, "fip": 3.12, "xfip": 4.05, "siera": 4.2, "k9": 7.61, "bb9": 2.92, "whip": 1.35, "babip": 0.327, "swstr": 7.6, "csw": 25.2, "ev": 90.0, "barrel": 9.8, "hh": 41.4, "vfa": 91.5}, {"name": "Michael Wacha", "team": "KCR", "mlbamid": "608379", "ip": 70.1, "era": 2.69, "xera": 3.95, "era_xera": -1.26, "fip": 3.9, "xfip": 4.08, "siera": 4.06, "k9": 7.68, "bb9": 2.82, "whip": 1.02, "babip": 0.23, "swstr": 9.7, "csw": 26.7, "ev": 88.9, "barrel": 7.9, "hh": 38.7, "vfa": 93.0}, {"name": "Michael Soroka", "team": "ARI", "mlbamid": "647336", "ip": 61.0, "era": 3.25, "xera": 4.06, "era_xera": -0.81, "fip": 2.83, "xfip": 3.4, "siera": 3.5, "k9": 8.85, "bb9": 2.07, "whip": 1.2, "babip": 0.318, "swstr": 9.8, "csw": 26.7, "ev": 87.9, "barrel": 8.5, "hh": 33.9, "vfa": 93.6}, {"name": "George Kirby", "team": "SEA", "mlbamid": "669923", "ip": 74.0, "era": 3.77, "xera": 3.42, "era_xera": 0.35, "fip": 3.47, "xfip": 3.58, "siera": 3.72, "k9": 7.18, "bb9": 2.07, "whip": 1.22, "babip": 0.307, "swstr": 10.1, "csw": 25.7, "ev": 89.3, "barrel": 5.4, "hh": 41.9, "vfa": 96.8}, {"name": "Yoshinobu Yamamoto", "team": "LAD", "mlbamid": "808967", "ip": 64.0, "era": 3.09, "xera": 3.82, "era_xera": -0.73, "fip": 3.75, "xfip": 3.25, "siera": 3.37, "k9": 8.3, "bb9": 1.83, "whip": 0.98, "babip": 0.248, "swstr": 12.3, "csw": 28.3, "ev": 89.1, "barrel": 8.0, "hh": 40.8, "vfa": 95.6}, {"name": "Jeffrey Springs", "team": "ATH", "mlbamid": "605488", "ip": 66.1, "era": 4.07, "xera": 3.86, "era_xera": 0.21, "fip": 4.69, "xfip": 4.2, "siera": 4.15, "k9": 7.73, "bb9": 2.71, "whip": 1.19, "babip": 0.253, "swstr": 10.4, "csw": 28.4, "ev": 87.3, "barrel": 9.1, "hh": 34.3, "vfa": 91.4}, {"name": "Shane Baz", "team": "BAL", "mlbamid": "669358", "ip": 64.1, "era": 4.48, "xera": 4.42, "era_xera": 0.06, "fip": 4.06, "xfip": 4.3, "siera": 4.4, "k9": 7.97, "bb9": 3.78, "whip": 1.43, "babip": 0.312, "swstr": 8.4, "csw": 24.9, "ev": 90.4, "barrel": 9.3, "hh": 39.9, "vfa": 96.2}, {"name": "Connelly Early", "team": "BOS", "mlbamid": "813349", "ip": 61.0, "era": 2.95, "xera": 4.63, "era_xera": -1.68, "fip": 4.44, "xfip": 4.15, "siera": 4.03, "k9": 8.41, "bb9": 3.25, "whip": 1.16, "babip": 0.248, "swstr": 9.2, "csw": 27.4, "ev": 90.9, "barrel": 12.4, "hh": 42.9, "vfa": 93.3}, {"name": "Drew Rasmussen", "team": "TBR", "mlbamid": "656876", "ip": 59.0, "era": 3.36, "xera": 3.17, "era_xera": 0.19, "fip": 3.62, "xfip": 3.16, "siera": 3.32, "k9": 8.39, "bb9": 1.83, "whip": 1.02, "babip": 0.25, "swstr": 10.4, "csw": 27.0, "ev": 87.1, "barrel": 7.1, "hh": 33.3, "vfa": 95.9}, {"name": "Tanner Bibee", "team": "CLE", "mlbamid": "676440", "ip": 63.0, "era": 4.57, "xera": 4.41, "era_xera": 0.16, "fip": 4.84, "xfip": 4.14, "siera": 4.18, "k9": 7.86, "bb9": 3.0, "whip": 1.32, "babip": 0.282, "swstr": 12.0, "csw": 28.6, "ev": 90.8, "barrel": 10.1, "hh": 46.0, "vfa": 94.1}, {"name": "Framber Valdez", "team": "DET", "mlbamid": "664285", "ip": 67.2, "era": 4.39, "xera": 4.45, "era_xera": -0.06, "fip": 4.14, "xfip": 4.29, "siera": 4.35, "k9": 7.18, "bb9": 3.33, "whip": 1.32, "babip": 0.279, "swstr": 9.2, "csw": 27.5, "ev": 90.2, "barrel": 6.2, "hh": 43.6, "vfa": 94.0}, {"name": "Mike Burrows", "team": "HOU", "mlbamid": "681347", "ip": 63.1, "era": 5.4, "xera": 4.06, "era_xera": 1.34, "fip": 5.16, "xfip": 4.35, "siera": 4.26, "k9": 7.67, "bb9": 2.98, "whip": 1.45, "babip": 0.315, "swstr": 10.9, "csw": 26.9, "ev": 87.7, "barrel": 8.6, "hh": 36.0, "vfa": 94.8}, {"name": "Robbie Ray", "team": "SFG", "mlbamid": "592662", "ip": 58.2, "era": 4.6, "xera": 5.35, "era_xera": -0.75, "fip": 5.62, "xfip": 4.67, "siera": 4.68, "k9": 8.13, "bb9": 4.45, "whip": 1.38, "babip": 0.252, "swstr": 10.9, "csw": 24.3, "ev": 89.2, "barrel": 11.9, "hh": 37.5, "vfa": 93.3}, {"name": "Matthew Liberatore", "team": "STL", "mlbamid": "669461", "ip": 56.2, "era": 4.76, "xera": 5.45, "era_xera": -0.69, "fip": 4.65, "xfip": 3.93, "siera": 4.15, "k9": 8.42, "bb9": 3.49, "whip": 1.57, "babip": 0.35, "swstr": 10.4, "csw": 26.7, "ev": 91.5, "barrel": 9.8, "hh": 43.9, "vfa": 94.5}, {"name": "Sandy Alcantara", "team": "MIA", "mlbamid": "645261", "ip": 75.1, "era": 4.66, "xera": 3.8, "era_xera": 0.86, "fip": 4.27, "xfip": 4.36, "siera": 4.43, "k9": 6.21, "bb9": 2.51, "whip": 1.33, "babip": 0.297, "swstr": 10.0, "csw": 26.7, "ev": 88.6, "barrel": 6.5, "hh": 37.1, "vfa": 97.3}, {"name": "Ryne Nelson", "team": "ARI", "mlbamid": "669194", "ip": 65.1, "era": 4.82, "xera": 4.49, "era_xera": 0.33, "fip": 5.42, "xfip": 4.84, "siera": 4.59, "k9": 7.16, "bb9": 2.62, "whip": 1.19, "babip": 0.232, "swstr": 9.2, "csw": 22.4, "ev": 90.6, "barrel": 9.3, "hh": 42.9, "vfa": 96.3}, {"name": "Jameson Taillon", "team": "CHC", "mlbamid": "592791", "ip": 60.1, "era": 5.37, "xera": 5.27, "era_xera": 0.1, "fip": 6.56, "xfip": 4.65, "siera": 4.39, "k9": 7.61, "bb9": 2.98, "whip": 1.28, "babip": 0.235, "swstr": 11.0, "csw": 28.0, "ev": 88.0, "barrel": 14.9, "hh": 38.1, "vfa": 91.8}, {"name": "Mitch Keller", "team": "PIT", "mlbamid": "656605", "ip": 68.1, "era": 4.35, "xera": 4.22, "era_xera": 0.13, "fip": 3.34, "xfip": 3.99, "siera": 4.29, "k9": 6.72, "bb9": 2.63, "whip": 1.17, "babip": 0.277, "swstr": 8.9, "csw": 25.0, "ev": 87.9, "barrel": 4.9, "hh": 38.8, "vfa": 93.1}, {"name": "Dustin May", "team": "STL", "mlbamid": "669160", "ip": 61.0, "era": 4.57, "xera": 3.84, "era_xera": 0.73, "fip": 3.54, "xfip": 4.05, "siera": 4.03, "k9": 7.52, "bb9": 2.51, "whip": 1.3, "babip": 0.322, "swstr": 9.3, "csw": 26.9, "ev": 90.0, "barrel": 6.6, "hh": 48.4, "vfa": 96.8}, {"name": "Max Fried", "team": "NYY", "mlbamid": "608331", "ip": 61.2, "era": 3.21, "xera": 2.51, "era_xera": 0.7, "fip": 2.67, "xfip": 3.77, "siera": 3.98, "k9": 7.3, "bb9": 2.77, "whip": 1.01, "babip": 0.25, "swstr": 10.0, "csw": 27.5, "ev": 86.1, "barrel": 1.8, "hh": 30.8, "vfa": 93.8}, {"name": "Slade Cecconi", "team": "CLE", "mlbamid": "677944", "ip": 61.2, "era": 5.25, "xera": 4.59, "era_xera": 0.66, "fip": 4.46, "xfip": 4.26, "siera": 4.28, "k9": 7.3, "bb9": 2.92, "whip": 1.49, "babip": 0.332, "swstr": 8.3, "csw": 25.4, "ev": 87.8, "barrel": 8.5, "hh": 34.7, "vfa": 93.3}, {"name": "Eduardo Rodriguez", "team": "ARI", "mlbamid": "593958", "ip": 66.1, "era": 2.31, "xera": 4.44, "era_xera": -2.13, "fip": 3.7, "xfip": 4.19, "siera": 4.56, "k9": 6.65, "bb9": 3.39, "whip": 1.21, "babip": 0.259, "swstr": 7.6, "csw": 24.7, "ev": 88.8, "barrel": 7.6, "hh": 35.9, "vfa": 91.9}, {"name": "Randy V\u00e1squez", "team": "SDP", "mlbamid": "681190", "ip": 60.1, "era": 3.28, "xera": 6.21, "era_xera": -2.93, "fip": 4.22, "xfip": 4.38, "siera": 4.29, "k9": 7.01, "bb9": 2.54, "whip": 1.23, "babip": 0.282, "swstr": 10.2, "csw": 25.2, "ev": 90.7, "barrel": 13.2, "hh": 45.6, "vfa": 94.8}, {"name": "Bailey Ober", "team": "MIN", "mlbamid": "641927", "ip": 66.2, "era": 4.59, "xera": 3.76, "era_xera": 0.83, "fip": 4.92, "xfip": 4.77, "siera": 4.68, "k9": 6.21, "bb9": 2.43, "whip": 1.22, "babip": 0.251, "swstr": 9.1, "csw": 25.7, "ev": 87.9, "barrel": 8.4, "hh": 32.6, "vfa": 88.5}, {"name": "Andre Pallante", "team": "STL", "mlbamid": "669467", "ip": 58.0, "era": 4.19, "xera": 3.85, "era_xera": 0.34, "fip": 4.51, "xfip": 4.16, "siera": 4.25, "k9": 7.14, "bb9": 3.26, "whip": 1.34, "babip": 0.283, "swstr": 9.3, "csw": 27.8, "ev": 87.9, "barrel": 7.2, "hh": 36.5, "vfa": 95.1}, {"name": "Jack Kochanowicz", "team": "LAA", "mlbamid": "686799", "ip": 61.1, "era": 4.99, "xera": 4.94, "era_xera": 0.05, "fip": 4.42, "xfip": 4.65, "siera": 4.75, "k9": 6.6, "bb9": 4.55, "whip": 1.39, "babip": 0.263, "swstr": 10.3, "csw": 25.9, "ev": 90.0, "barrel": 6.8, "hh": 42.9, "vfa": 95.8}, {"name": "Janson Junk", "team": "MIA", "mlbamid": "676083", "ip": 60.0, "era": 4.8, "xera": 3.87, "era_xera": 0.93, "fip": 4.06, "xfip": 4.1, "siera": 4.26, "k9": 6.45, "bb9": 1.95, "whip": 1.3, "babip": 0.3, "swstr": 7.1, "csw": 23.7, "ev": 89.8, "barrel": 6.6, "hh": 41.4, "vfa": 94.3}, {"name": "Michael McGreevy", "team": "STL", "mlbamid": "700241", "ip": 60.1, "era": 2.98, "xera": 5.65, "era_xera": -2.67, "fip": 4.11, "xfip": 3.84, "siera": 4.15, "k9": 6.41, "bb9": 2.24, "whip": 1.09, "babip": 0.249, "swstr": 8.3, "csw": 24.7, "ev": 89.1, "barrel": 11.0, "hh": 41.4, "vfa": 90.9}, {"name": "Zac Gallen", "team": "ARI", "mlbamid": "668678", "ip": 59.1, "era": 5.16, "xera": 5.18, "era_xera": -0.02, "fip": 4.85, "xfip": 4.33, "siera": 4.42, "k9": 6.37, "bb9": 2.73, "whip": 1.47, "babip": 0.312, "swstr": 8.6, "csw": 25.1, "ev": 90.8, "barrel": 10.6, "hh": 45.2, "vfa": 93.5}, {"name": "Andrew Abbott", "team": "CIN", "mlbamid": "671096", "ip": 62.2, "era": 3.88, "xera": 4.96, "era_xera": -1.08, "fip": 4.88, "xfip": 4.87, "siera": 5.05, "k9": 6.03, "bb9": 3.88, "whip": 1.42, "babip": 0.275, "swstr": 8.7, "csw": 25.1, "ev": 89.5, "barrel": 6.9, "hh": 38.1, "vfa": 92.8}, {"name": "Nick Martinez", "team": "TBR", "mlbamid": "607259", "ip": 66.2, "era": 1.62, "xera": 4.14, "era_xera": -2.52, "fip": 3.24, "xfip": 4.21, "siera": 4.41, "k9": 5.54, "bb9": 1.62, "whip": 1.11, "babip": 0.276, "swstr": 8.4, "csw": 26.4, "ev": 86.6, "barrel": 6.5, "hh": 31.3, "vfa": 92.6}, {"name": "Justin Wrobleski", "team": "LAD", "mlbamid": "680736", "ip": 58.2, "era": 2.61, "xera": 3.87, "era_xera": -1.26, "fip": 3.42, "xfip": 4.49, "siera": 4.49, "k9": 5.83, "bb9": 1.99, "whip": 0.99, "babip": 0.233, "swstr": 8.0, "csw": 25.4, "ev": 89.2, "barrel": 7.8, "hh": 42.8, "vfa": 93.8}];
+
+const ALL_ROWS = [{"name": "Jacob Misiorowski", "team": "MIL", "mlbamid": "694819", "ip": 64.0, "era": 1.83, "xera": 2.15, "era_xera": -0.32, "fip": 1.88, "xfip": 2.02, "siera": 2.09, "k9": 14.06, "bb9": 2.67, "whip": 0.83, "swstr": 17.5, "csw": 36.0, "ev": 86.7, "barrel": 2.4, "hh": 32.3, "vfa": 99.9, "re24_ip": 0.291, "kbb": 0.3266129, "barrel_raw": 0.02419355, "league": "NL", "z_re24": 1.792, "z_kbb": 3.113, "z_bar": 2.104, "csr": 2.3363}, {"name": "Cristopher S\u00e1nchez", "team": "PHI", "mlbamid": "650911", "ip": 79.1, "era": 1.47, "xera": 2.9, "era_xera": -1.43, "fip": 1.8, "xfip": 2.29, "siera": 2.52, "k9": 10.78, "bb9": 1.82, "whip": 1.12, "swstr": 15.1, "csw": 32.4, "ev": 89.1, "barrel": 8.5, "hh": 44.1, "vfa": 95.0, "re24_ip": 0.2899, "kbb": 0.24458204, "barrel_raw": 0.08530806, "league": "NL", "z_re24": 1.783, "z_kbb": 1.584, "z_bar": -0.164, "csr": 1.0677}, {"name": "Dylan Cease", "team": "TOR", "mlbamid": "656302", "ip": 62.0, "era": 3.05, "xera": 3.09, "era_xera": -0.04, "fip": 2.55, "xfip": 2.51, "siera": 2.76, "k9": 13.35, "bb9": 3.77, "whip": 1.21, "swstr": 15.3, "csw": 31.1, "ev": 87.1, "barrel": 5.8, "hh": 37.2, "vfa": 97.6, "re24_ip": 0.0774, "kbb": 0.25581395, "barrel_raw": 0.05839416, "league": "AL", "z_re24": 0.041, "z_kbb": 1.794, "z_bar": 0.835, "csr": 0.89}, {"name": "Gavin Williams", "team": "CLE", "mlbamid": "668909", "ip": 76.1, "era": 3.07, "xera": 4.2, "era_xera": -1.13, "fip": 3.31, "xfip": 3.02, "siera": 3.14, "k9": 10.38, "bb9": 2.83, "whip": 1.09, "swstr": 13.6, "csw": 32.0, "ev": 91.5, "barrel": 12.2, "hh": 47.1, "vfa": 96.3, "re24_ip": 0.1336, "kbb": 0.21122112, "barrel_raw": 0.12169312, "league": "AL", "z_re24": 0.502, "z_kbb": 0.963, "z_bar": -1.514, "csr": -0.0163}, {"name": "Reid Detmers", "team": "LAA", "mlbamid": "672282", "ip": 68.0, "era": 4.63, "xera": 2.89, "era_xera": 1.74, "fip": 2.95, "xfip": 3.49, "siera": 3.26, "k9": 10.85, "bb9": 2.91, "whip": 1.18, "swstr": 12.8, "csw": 28.5, "ev": 89.3, "barrel": 6.1, "hh": 36.7, "vfa": 94.0, "re24_ip": -0.0349, "kbb": 0.20833333, "barrel_raw": 0.06111111, "league": "AL", "z_re24": -0.879, "z_kbb": 0.909, "z_bar": 0.734, "csr": 0.2547}, {"name": "Cam Schlittler", "team": "NYY", "mlbamid": "693645", "ip": 72.0, "era": 1.5, "xera": 2.56, "era_xera": -1.06, "fip": 1.9, "xfip": 2.6, "siera": 2.75, "k9": 10.12, "bb9": 1.62, "whip": 0.85, "swstr": 14.1, "csw": 28.0, "ev": 87.8, "barrel": 6.6, "hh": 39.2, "vfa": 97.7, "re24_ip": 0.2629, "kbb": 0.24727273, "barrel_raw": 0.06629834, "league": "AL", "z_re24": 1.562, "z_kbb": 1.635, "z_bar": 0.542, "csr": 1.2463}, {"name": "Chris Sale", "team": "ATL", "mlbamid": "519242", "ip": 67.0, "era": 2.01, "xera": 3.17, "era_xera": -1.16, "fip": 2.87, "xfip": 2.91, "siera": 2.87, "k9": 10.75, "bb9": 2.28, "whip": 0.94, "swstr": 14.1, "csw": 31.4, "ev": 86.8, "barrel": 6.8, "hh": 29.6, "vfa": 95.5, "re24_ip": 0.2713, "kbb": 0.23773585, "barrel_raw": 0.06790123, "league": "NL", "z_re24": 1.631, "z_kbb": 1.457, "z_bar": 0.482, "csr": 1.19}, {"name": "Jes\u00fas Luzardo", "team": "PHI", "mlbamid": "666200", "ip": 67.0, "era": 4.3, "xera": 3.14, "era_xera": 1.16, "fip": 2.74, "xfip": 2.78, "siera": 3.05, "k9": 10.48, "bb9": 2.55, "whip": 1.31, "swstr": 13.8, "csw": 31.0, "ev": 85.6, "barrel": 4.9, "hh": 27.2, "vfa": 96.8, "re24_ip": 0.0086, "kbb": 0.20701754, "barrel_raw": 0.04891304, "league": "NL", "z_re24": -0.522, "z_kbb": 0.885, "z_bar": 1.187, "csr": 0.5167}, {"name": "Jos\u00e9 Soriano", "team": "LAA", "mlbamid": "667755", "ip": 71.1, "era": 2.65, "xera": 3.78, "era_xera": -1.13, "fip": 3.32, "xfip": 3.42, "siera": 3.65, "k9": 9.84, "bb9": 3.91, "whip": 1.15, "swstr": 13.6, "csw": 29.4, "ev": 88.4, "barrel": 8.9, "hh": 36.3, "vfa": 97.2, "re24_ip": 0.224, "kbb": 0.16262976, "barrel_raw": 0.08938547, "league": "AL", "z_re24": 1.243, "z_kbb": 0.058, "z_bar": -0.315, "csr": 0.3287}, {"name": "Ryan Weathers", "team": "NYY", "mlbamid": "677960", "ip": 64.0, "era": 3.52, "xera": 3.82, "era_xera": -0.3, "fip": 3.85, "xfip": 3.03, "siera": 3.13, "k9": 10.55, "bb9": 2.67, "whip": 1.14, "swstr": 11.4, "csw": 31.2, "ev": 89.2, "barrel": 9.1, "hh": 41.2, "vfa": 95.0, "re24_ip": 0.085, "kbb": 0.21621622, "barrel_raw": 0.09090909, "league": "AL", "z_re24": 0.104, "z_kbb": 1.056, "z_bar": -0.371, "csr": 0.263}, {"name": "Paul Skenes", "team": "PIT", "mlbamid": "694973", "ip": 65.1, "era": 2.89, "xera": 2.28, "era_xera": 0.61, "fip": 2.7, "xfip": 2.93, "siera": 2.8, "k9": 10.33, "bb9": 1.65, "whip": 0.86, "swstr": 12.1, "csw": 26.1, "ev": 87.0, "barrel": 4.3, "hh": 32.9, "vfa": 97.1, "re24_ip": 0.1365, "kbb": 0.24705882, "barrel_raw": 0.04268293, "league": "NL", "z_re24": 0.526, "z_kbb": 1.631, "z_bar": 1.418, "csr": 1.1917}, {"name": "Nolan McLean", "team": "NYM", "mlbamid": "690997", "ip": 61.1, "era": 4.4, "xera": 3.18, "era_xera": 1.22, "fip": 3.59, "xfip": 3.05, "siera": 3.03, "k9": 11.01, "bb9": 2.79, "whip": 1.09, "swstr": 9.7, "csw": 29.7, "ev": 87.0, "barrel": 7.2, "hh": 38.2, "vfa": 95.3, "re24_ip": -0.0855, "kbb": 0.22134387, "barrel_raw": 0.07236842, "league": "NL", "z_re24": -1.294, "z_kbb": 1.152, "z_bar": 0.317, "csr": 0.0583}, {"name": "Max Meyer", "team": "MIA", "mlbamid": "676974", "ip": 66.2, "era": 2.97, "xera": 3.87, "era_xera": -0.9, "fip": 3.12, "xfip": 3.57, "siera": 3.56, "k9": 9.99, "bb9": 3.38, "whip": 1.1, "swstr": 13.4, "csw": 29.8, "ev": 90.0, "barrel": 9.2, "hh": 42.0, "vfa": 94.6, "re24_ip": 0.1585, "kbb": 0.17689531, "barrel_raw": 0.09195402, "league": "NL", "z_re24": 0.706, "z_kbb": 0.323, "z_bar": -0.41, "csr": 0.2063}, {"name": "Parker Messick", "team": "CLE", "mlbamid": "800048", "ip": 69.1, "era": 2.21, "xera": 3.18, "era_xera": -0.97, "fip": 3.01, "xfip": 3.19, "siera": 3.34, "k9": 9.61, "bb9": 2.73, "whip": 1.07, "swstr": 11.9, "csw": 26.5, "ev": 87.5, "barrel": 4.5, "hh": 34.1, "vfa": 93.2, "re24_ip": 0.2384, "kbb": 0.19485294, "barrel_raw": 0.04545455, "league": "AL", "z_re24": 1.361, "z_kbb": 0.658, "z_bar": 1.315, "csr": 1.1113}, {"name": "Eury P\u00e9rez", "team": "MIA", "mlbamid": "691587", "ip": 62.2, "era": 4.6, "xera": 4.87, "era_xera": -0.27, "fip": 4.63, "xfip": 4.09, "siera": 3.79, "k9": 10.34, "bb9": 4.02, "whip": 1.26, "swstr": 13.5, "csw": 26.5, "ev": 89.1, "barrel": 15.0, "hh": 42.5, "vfa": 98.2, "re24_ip": -0.0701, "kbb": 0.16603774, "barrel_raw": 0.15, "league": "NL", "z_re24": -1.168, "z_kbb": 0.121, "z_bar": -2.564, "csr": -1.2037}, {"name": "Chase Burns", "team": "CIN", "mlbamid": "695505", "ip": 64.1, "era": 1.96, "xera": 2.89, "era_xera": -0.93, "fip": 3.37, "xfip": 3.15, "siera": 3.21, "k9": 10.07, "bb9": 2.8, "whip": 0.96, "swstr": 15.2, "csw": 28.9, "ev": 88.9, "barrel": 8.3, "hh": 37.6, "vfa": 98.1, "re24_ip": 0.2945, "kbb": 0.20883534, "barrel_raw": 0.08280255, "league": "NL", "z_re24": 1.821, "z_kbb": 0.918, "z_bar": -0.071, "csr": 0.8893}, {"name": "Davis Martin", "team": "CHW", "mlbamid": "663436", "ip": 67.2, "era": 2.0, "xera": 3.37, "era_xera": -1.37, "fip": 2.3, "xfip": 2.89, "siera": 3.02, "k9": 9.44, "bb9": 1.86, "whip": 0.99, "swstr": 13.1, "csw": 30.0, "ev": 90.0, "barrel": 6.9, "hh": 45.1, "vfa": 93.7, "re24_ip": 0.2822, "kbb": 0.21673004, "barrel_raw": 0.06857143, "league": "AL", "z_re24": 1.72, "z_kbb": 1.066, "z_bar": 0.457, "csr": 1.081}, {"name": "Jacob deGrom", "team": "TEX", "mlbamid": "594798", "ip": 59.2, "era": 3.77, "xera": 3.87, "era_xera": -0.1, "fip": 4.15, "xfip": 3.27, "siera": 3.07, "k9": 10.56, "bb9": 1.81, "whip": 1.01, "swstr": 17.3, "csw": 30.3, "ev": 91.4, "barrel": 11.5, "hh": 46.2, "vfa": 97.2, "re24_ip": 0.0852, "kbb": 0.24369748, "barrel_raw": 0.11538462, "league": "AL", "z_re24": 0.105, "z_kbb": 1.568, "z_bar": -1.28, "csr": 0.131}, {"name": "Joe Ryan", "team": "MIN", "mlbamid": "657746", "ip": 64.1, "era": 2.94, "xera": 2.83, "era_xera": 0.11, "fip": 2.58, "xfip": 3.45, "siera": 3.14, "k9": 9.79, "bb9": 1.96, "whip": 0.93, "swstr": 11.9, "csw": 29.2, "ev": 89.7, "barrel": 9.6, "hh": 41.0, "vfa": 93.0, "re24_ip": 0.0986, "kbb": 0.21960784, "barrel_raw": 0.09638554, "league": "AL", "z_re24": 0.215, "z_kbb": 1.119, "z_bar": -0.575, "csr": 0.253}, {"name": "Braxton Ashcraft", "team": "PIT", "mlbamid": "677952", "ip": 68.2, "era": 2.75, "xera": 2.94, "era_xera": -0.19, "fip": 3.12, "xfip": 3.31, "siera": 3.29, "k9": 9.17, "bb9": 2.23, "whip": 1.05, "swstr": 12.5, "csw": 30.3, "ev": 89.6, "barrel": 5.5, "hh": 37.2, "vfa": 96.9, "re24_ip": 0.1801, "kbb": 0.19272727, "barrel_raw": 0.05464481, "league": "NL", "z_re24": 0.883, "z_kbb": 0.618, "z_bar": 0.974, "csr": 0.825}, {"name": "Logan Gilbert", "team": "SEA", "mlbamid": "669302", "ip": 68.1, "era": 3.69, "xera": 3.97, "era_xera": -0.28, "fip": 3.97, "xfip": 3.58, "siera": 3.46, "k9": 9.09, "bb9": 2.11, "whip": 1.11, "swstr": 12.3, "csw": 28.7, "ev": 90.7, "barrel": 10.6, "hh": 45.7, "vfa": 95.5, "re24_ip": 0.0482, "kbb": 0.19202899, "barrel_raw": 0.10638298, "league": "AL", "z_re24": -0.198, "z_kbb": 0.605, "z_bar": -0.946, "csr": -0.1797}, {"name": "Shota Imanaga", "team": "CHC", "mlbamid": "684007", "ip": 70.0, "era": 4.37, "xera": 3.72, "era_xera": 0.65, "fip": 4.41, "xfip": 3.77, "siera": 3.59, "k9": 8.87, "bb9": 2.31, "whip": 1.07, "swstr": 14.0, "csw": 27.9, "ev": 89.4, "barrel": 10.8, "hh": 40.7, "vfa": 91.9, "re24_ip": 0.0173, "kbb": 0.17957747, "barrel_raw": 0.10824742, "league": "NL", "z_re24": -0.451, "z_kbb": 0.373, "z_bar": -1.015, "csr": -0.3643}, {"name": "Freddy Peralta", "team": "NYM", "mlbamid": "642547", "ip": 66.0, "era": 3.55, "xera": 3.67, "era_xera": -0.12, "fip": 3.94, "xfip": 3.81, "siera": 3.97, "k9": 9.27, "bb9": 3.82, "whip": 1.3, "swstr": 11.6, "csw": 26.3, "ev": 88.0, "barrel": 5.3, "hh": 39.6, "vfa": 94.0, "re24_ip": 0.1111, "kbb": 0.14035088, "barrel_raw": 0.05347594, "league": "NL", "z_re24": 0.318, "z_kbb": -0.357, "z_bar": 1.018, "csr": 0.3263}, {"name": "Cade Cavalli", "team": "WSN", "mlbamid": "676917", "ip": 59.2, "era": 3.62, "xera": 3.96, "era_xera": -0.34, "fip": 3.0, "xfip": 3.75, "siera": 3.51, "k9": 10.26, "bb9": 3.17, "whip": 1.41, "swstr": 11.0, "csw": 30.2, "ev": 89.5, "barrel": 7.7, "hh": 40.8, "vfa": 96.4, "re24_ip": -0.0309, "kbb": 0.17537314, "barrel_raw": 0.07692308, "league": "NL", "z_re24": -0.846, "z_kbb": 0.295, "z_bar": 0.148, "csr": -0.1343}, {"name": "Landen Roupp", "team": "SFG", "mlbamid": "694738", "ip": 60.0, "era": 3.3, "xera": 3.03, "era_xera": 0.27, "fip": 2.65, "xfip": 2.99, "siera": 3.3, "k9": 10.2, "bb9": 3.3, "whip": 1.18, "swstr": 10.4, "csw": 29.1, "ev": 86.8, "barrel": 2.6, "hh": 26.3, "vfa": 93.3, "re24_ip": 0.0793, "kbb": 0.18548387, "barrel_raw": 0.02564103, "league": "NL", "z_re24": 0.057, "z_kbb": 0.483, "z_bar": 2.051, "csr": 0.8637}, {"name": "Bryan Woo", "team": "SEA", "mlbamid": "693433", "ip": 70.2, "era": 3.44, "xera": 3.12, "era_xera": 0.32, "fip": 2.92, "xfip": 3.7, "siera": 3.5, "k9": 8.66, "bb9": 1.78, "whip": 0.96, "swstr": 11.6, "csw": 25.6, "ev": 89.2, "barrel": 6.7, "hh": 43.6, "vfa": 95.6, "re24_ip": 0.0474, "kbb": 0.19354839, "barrel_raw": 0.06666667, "league": "AL", "z_re24": -0.204, "z_kbb": 0.634, "z_bar": 0.528, "csr": 0.3193}, {"name": "Nathan Eovaldi", "team": "TEX", "mlbamid": "543135", "ip": 68.2, "era": 3.93, "xera": 4.19, "era_xera": -0.26, "fip": 4.49, "xfip": 3.35, "siera": 3.36, "k9": 8.78, "bb9": 2.1, "whip": 1.11, "swstr": 15.1, "csw": 29.4, "ev": 89.0, "barrel": 8.7, "hh": 40.5, "vfa": 94.1, "re24_ip": 0.0292, "kbb": 0.18021201, "barrel_raw": 0.08717949, "league": "AL", "z_re24": -0.354, "z_kbb": 0.385, "z_bar": -0.233, "csr": -0.0673}, {"name": "Kevin Gausman", "team": "TOR", "mlbamid": "592332", "ip": 69.0, "era": 3.13, "xera": 3.44, "era_xera": -0.31, "fip": 2.85, "xfip": 3.36, "siera": 3.41, "k9": 8.61, "bb9": 1.57, "whip": 1.09, "swstr": 11.8, "csw": 26.9, "ev": 87.3, "barrel": 8.0, "hh": 35.3, "vfa": 93.9, "re24_ip": 0.0986, "kbb": 0.19285714, "barrel_raw": 0.07960199, "league": "AL", "z_re24": 0.215, "z_kbb": 0.621, "z_bar": 0.048, "csr": 0.2947}, {"name": "Luis Severino", "team": "ATH", "mlbamid": "622663", "ip": 62.2, "era": 4.16, "xera": 4.06, "era_xera": 0.1, "fip": 4.44, "xfip": 4.02, "siera": 4.15, "k9": 9.34, "bb9": 4.45, "whip": 1.47, "swstr": 9.3, "csw": 25.2, "ev": 88.8, "barrel": 8.7, "hh": 38.7, "vfa": 96.6, "re24_ip": -0.0288, "kbb": 0.12546126, "barrel_raw": 0.0867052, "league": "AL", "z_re24": -0.829, "z_kbb": -0.635, "z_bar": -0.215, "csr": -0.5597}, {"name": "Foster Griffin", "team": "WSN", "mlbamid": "656492", "ip": 67.0, "era": 3.76, "xera": 4.19, "era_xera": -0.43, "fip": 4.86, "xfip": 3.86, "siera": 3.77, "k9": 8.73, "bb9": 2.82, "whip": 1.15, "swstr": 9.8, "csw": 28.5, "ev": 88.4, "barrel": 11.2, "hh": 37.8, "vfa": 91.3, "re24_ip": 0.0251, "kbb": 0.15714286, "barrel_raw": 0.11170213, "league": "NL", "z_re24": -0.387, "z_kbb": -0.045, "z_bar": -1.143, "csr": -0.525}, {"name": "Michael King", "team": "SDP", "mlbamid": "650633", "ip": 68.0, "era": 3.04, "xera": 3.64, "era_xera": -0.6, "fip": 3.8, "xfip": 3.97, "siera": 4.04, "k9": 8.6, "bb9": 3.84, "whip": 1.13, "swstr": 11.2, "csw": 28.3, "ev": 86.9, "barrel": 8.0, "hh": 33.3, "vfa": 93.3, "re24_ip": 0.152, "kbb": 0.13186813, "barrel_raw": 0.08045977, "league": "NL", "z_re24": 0.653, "z_kbb": -0.515, "z_bar": 0.016, "csr": 0.0513}, {"name": "MacKenzie Gore", "team": "TEX", "mlbamid": "669022", "ip": 61.1, "era": 3.96, "xera": 3.96, "era_xera": 0.0, "fip": 3.63, "xfip": 4.03, "siera": 3.96, "k9": 9.54, "bb9": 3.96, "whip": 1.19, "swstr": 10.6, "csw": 25.2, "ev": 89.4, "barrel": 9.2, "hh": 44.2, "vfa": 95.3, "re24_ip": 0.0385, "kbb": 0.14785992, "barrel_raw": 0.09202454, "league": "AL", "z_re24": -0.277, "z_kbb": -0.218, "z_bar": -0.413, "csr": -0.3027}, {"name": "Will Warren", "team": "NYY", "mlbamid": "701542", "ip": 58.1, "era": 3.55, "xera": 3.19, "era_xera": 0.36, "fip": 3.27, "xfip": 3.34, "siera": 3.3, "k9": 10.03, "bb9": 2.47, "whip": 1.17, "swstr": 10.0, "csw": 29.1, "ev": 90.3, "barrel": 6.2, "hh": 40.1, "vfa": 93.7, "re24_ip": 0.0059, "kbb": 0.20081967, "barrel_raw": 0.0617284, "league": "AL", "z_re24": -0.545, "z_kbb": 0.769, "z_bar": 0.711, "csr": 0.3117}, {"name": "Jack Leiter", "team": "TEX", "mlbamid": "683004", "ip": 60.2, "era": 4.75, "xera": 4.66, "era_xera": 0.09, "fip": 4.37, "xfip": 3.89, "siera": 3.93, "k9": 9.49, "bb9": 3.86, "whip": 1.37, "swstr": 12.1, "csw": 28.4, "ev": 87.8, "barrel": 11.2, "hh": 40.6, "vfa": 96.5, "re24_ip": -0.0303, "kbb": 0.14393939, "barrel_raw": 0.11176471, "league": "AL", "z_re24": -0.841, "z_kbb": -0.291, "z_bar": -1.145, "csr": -0.759}, {"name": "Emerson Hancock", "team": "SEA", "mlbamid": "676106", "ip": 64.2, "era": 2.78, "xera": 4.08, "era_xera": -1.3, "fip": 3.56, "xfip": 3.4, "siera": 3.37, "k9": 8.77, "bb9": 2.09, "whip": 1.01, "swstr": 10.9, "csw": 23.0, "ev": 89.8, "barrel": 9.4, "hh": 42.9, "vfa": 95.0, "re24_ip": 0.1529, "kbb": 0.19123506, "barrel_raw": 0.09411765, "league": "AL", "z_re24": 0.66, "z_kbb": 0.591, "z_bar": -0.49, "csr": 0.2537}, {"name": "Bryce Elder", "team": "ATL", "mlbamid": "693821", "ip": 72.0, "era": 2.5, "xera": 3.19, "era_xera": -0.69, "fip": 3.27, "xfip": 3.81, "siera": 4.0, "k9": 7.62, "bb9": 2.75, "whip": 1.08, "swstr": 9.6, "csw": 25.7, "ev": 89.8, "barrel": 3.4, "hh": 38.9, "vfa": 92.1, "re24_ip": 0.1674, "kbb": 0.1331058, "barrel_raw": 0.03365385, "league": "NL", "z_re24": 0.779, "z_kbb": -0.492, "z_bar": 1.753, "csr": 0.68}, {"name": "Seth Lugo", "team": "KCR", "mlbamid": "607625", "ip": 71.0, "era": 3.55, "xera": 5.2, "era_xera": -1.65, "fip": 3.12, "xfip": 4.05, "siera": 4.2, "k9": 7.61, "bb9": 2.92, "whip": 1.35, "swstr": 7.6, "csw": 25.2, "ev": 90.0, "barrel": 9.8, "hh": 41.4, "vfa": 91.5, "re24_ip": 0.0773, "kbb": 0.12374582, "barrel_raw": 0.09767442, "league": "AL", "z_re24": 0.041, "z_kbb": -0.667, "z_bar": -0.622, "csr": -0.416}, {"name": "Michael Wacha", "team": "KCR", "mlbamid": "608379", "ip": 70.1, "era": 2.69, "xera": 3.95, "era_xera": -1.26, "fip": 3.9, "xfip": 4.08, "siera": 4.06, "k9": 7.68, "bb9": 2.82, "whip": 1.02, "swstr": 9.7, "csw": 26.7, "ev": 88.9, "barrel": 7.9, "hh": 38.7, "vfa": 93.0, "re24_ip": 0.2132, "kbb": 0.13768116, "barrel_raw": 0.07853403, "league": "AL", "z_re24": 1.155, "z_kbb": -0.407, "z_bar": 0.088, "csr": 0.2787}, {"name": "Michael Soroka", "team": "ARI", "mlbamid": "647336", "ip": 61.0, "era": 3.25, "xera": 4.06, "era_xera": -0.81, "fip": 2.83, "xfip": 3.4, "siera": 3.5, "k9": 8.85, "bb9": 2.07, "whip": 1.2, "swstr": 9.8, "csw": 26.7, "ev": 87.9, "barrel": 8.5, "hh": 33.9, "vfa": 93.6, "re24_ip": 0.1284, "kbb": 0.18039216, "barrel_raw": 0.08474576, "league": "NL", "z_re24": 0.459, "z_kbb": 0.389, "z_bar": -0.143, "csr": 0.235}, {"name": "George Kirby", "team": "SEA", "mlbamid": "669923", "ip": 74.0, "era": 3.77, "xera": 3.42, "era_xera": 0.35, "fip": 3.47, "xfip": 3.58, "siera": 3.72, "k9": 7.18, "bb9": 2.07, "whip": 1.22, "swstr": 10.1, "csw": 25.7, "ev": 89.3, "barrel": 5.4, "hh": 41.9, "vfa": 96.8, "re24_ip": 0.0202, "kbb": 0.14, "barrel_raw": 0.05405405, "league": "AL", "z_re24": -0.427, "z_kbb": -0.364, "z_bar": 0.996, "csr": 0.0683}, {"name": "Yoshinobu Yamamoto", "team": "LAD", "mlbamid": "808967", "ip": 64.0, "era": 3.09, "xera": 3.82, "era_xera": -0.73, "fip": 3.75, "xfip": 3.25, "siera": 3.37, "k9": 8.3, "bb9": 1.83, "whip": 0.98, "swstr": 12.3, "csw": 28.3, "ev": 89.1, "barrel": 8.0, "hh": 40.8, "vfa": 95.6, "re24_ip": 0.1229, "kbb": 0.18548387, "barrel_raw": 0.08045977, "league": "NL", "z_re24": 0.414, "z_kbb": 0.483, "z_bar": 0.016, "csr": 0.3043}, {"name": "Jeffrey Springs", "team": "ATH", "mlbamid": "605488", "ip": 66.1, "era": 4.07, "xera": 3.86, "era_xera": 0.21, "fip": 4.69, "xfip": 4.2, "siera": 4.15, "k9": 7.73, "bb9": 2.71, "whip": 1.19, "swstr": 10.4, "csw": 28.4, "ev": 87.3, "barrel": 9.1, "hh": 34.3, "vfa": 91.4, "re24_ip": 0.0069, "kbb": 0.13357401, "barrel_raw": 0.09090909, "league": "AL", "z_re24": -0.536, "z_kbb": -0.484, "z_bar": -0.371, "csr": -0.4637}, {"name": "Shane Baz", "team": "BAL", "mlbamid": "669358", "ip": 64.1, "era": 4.48, "xera": 4.42, "era_xera": 0.06, "fip": 4.06, "xfip": 4.3, "siera": 4.4, "k9": 7.97, "bb9": 3.78, "whip": 1.43, "swstr": 8.4, "csw": 24.9, "ev": 90.4, "barrel": 9.3, "hh": 39.9, "vfa": 96.2, "re24_ip": -0.017, "kbb": 0.10752688, "barrel_raw": 0.09326425, "league": "AL", "z_re24": -0.732, "z_kbb": -0.969, "z_bar": -0.459, "csr": -0.72}, {"name": "Connelly Early", "team": "BOS", "mlbamid": "813349", "ip": 61.0, "era": 2.95, "xera": 4.63, "era_xera": -1.68, "fip": 4.44, "xfip": 4.15, "siera": 4.03, "k9": 8.41, "bb9": 3.25, "whip": 1.16, "swstr": 9.2, "csw": 27.4, "ev": 90.9, "barrel": 12.4, "hh": 42.9, "vfa": 93.3, "re24_ip": 0.1967, "kbb": 0.13779528, "barrel_raw": 0.12352941, "league": "AL", "z_re24": 1.019, "z_kbb": -0.405, "z_bar": -1.582, "csr": -0.3227}, {"name": "Drew Rasmussen", "team": "TBR", "mlbamid": "656876", "ip": 59.0, "era": 3.36, "xera": 3.17, "era_xera": 0.19, "fip": 3.62, "xfip": 3.16, "siera": 3.32, "k9": 8.39, "bb9": 1.83, "whip": 1.02, "swstr": 10.4, "csw": 27.0, "ev": 87.1, "barrel": 7.1, "hh": 33.3, "vfa": 95.9, "re24_ip": 0.0829, "kbb": 0.18220339, "barrel_raw": 0.07142857, "league": "AL", "z_re24": 0.087, "z_kbb": 0.422, "z_bar": 0.351, "csr": 0.2867}, {"name": "Tanner Bibee", "team": "CLE", "mlbamid": "676440", "ip": 63.0, "era": 4.57, "xera": 4.41, "era_xera": 0.16, "fip": 4.84, "xfip": 4.14, "siera": 4.18, "k9": 7.86, "bb9": 3.0, "whip": 1.32, "swstr": 12.0, "csw": 28.6, "ev": 90.8, "barrel": 10.1, "hh": 46.0, "vfa": 94.1, "re24_ip": -0.0032, "kbb": 0.12781955, "barrel_raw": 0.1005291, "league": "AL", "z_re24": -0.619, "z_kbb": -0.591, "z_bar": -0.728, "csr": -0.646}, {"name": "Framber Valdez", "team": "DET", "mlbamid": "664285", "ip": 67.2, "era": 4.39, "xera": 4.45, "era_xera": -0.06, "fip": 4.14, "xfip": 4.29, "siera": 4.35, "k9": 7.18, "bb9": 3.33, "whip": 1.32, "swstr": 9.2, "csw": 27.5, "ev": 90.2, "barrel": 6.2, "hh": 43.6, "vfa": 94.0, "re24_ip": -0.0514, "kbb": 0.09830509, "barrel_raw": 0.06161137, "league": "AL", "z_re24": -1.014, "z_kbb": -1.141, "z_bar": 0.716, "csr": -0.4797}, {"name": "Mike Burrows", "team": "HOU", "mlbamid": "681347", "ip": 63.1, "era": 5.4, "xera": 4.06, "era_xera": 1.34, "fip": 5.16, "xfip": 4.35, "siera": 4.26, "k9": 7.67, "bb9": 2.98, "whip": 1.45, "swstr": 10.9, "csw": 26.9, "ev": 87.7, "barrel": 8.6, "hh": 36.0, "vfa": 94.8, "re24_ip": -0.0876, "kbb": 0.12, "barrel_raw": 0.08629442, "league": "AL", "z_re24": -1.311, "z_kbb": -0.737, "z_bar": -0.2, "csr": -0.7493}, {"name": "Robbie Ray", "team": "SFG", "mlbamid": "592662", "ip": 58.2, "era": 4.6, "xera": 5.35, "era_xera": -0.75, "fip": 5.62, "xfip": 4.67, "siera": 4.68, "k9": 8.13, "bb9": 4.45, "whip": 1.38, "swstr": 10.9, "csw": 24.3, "ev": 89.2, "barrel": 11.9, "hh": 37.5, "vfa": 93.3, "re24_ip": -0.0291, "kbb": 0.096, "barrel_raw": 0.11904762, "league": "NL", "z_re24": -0.831, "z_kbb": -1.184, "z_bar": -1.416, "csr": -1.1437}, {"name": "Matthew Liberatore", "team": "STL", "mlbamid": "669461", "ip": 56.2, "era": 4.76, "xera": 5.45, "era_xera": -0.69, "fip": 4.65, "xfip": 3.93, "siera": 4.15, "k9": 8.42, "bb9": 3.49, "whip": 1.57, "swstr": 10.4, "csw": 26.7, "ev": 91.5, "barrel": 9.8, "hh": 43.9, "vfa": 94.5, "re24_ip": -0.0549, "kbb": 0.125, "barrel_raw": 0.0982659, "league": "NL", "z_re24": -1.043, "z_kbb": -0.643, "z_bar": -0.644, "csr": -0.7767}, {"name": "Sandy Alcantara", "team": "MIA", "mlbamid": "645261", "ip": 75.1, "era": 4.66, "xera": 3.8, "era_xera": 0.86, "fip": 4.27, "xfip": 4.36, "siera": 4.43, "k9": 6.21, "bb9": 2.51, "whip": 1.33, "swstr": 10.0, "csw": 26.7, "ev": 88.6, "barrel": 6.5, "hh": 37.1, "vfa": 97.3, "re24_ip": -0.034, "kbb": 0.09597523, "barrel_raw": 0.06530612, "league": "NL", "z_re24": -0.872, "z_kbb": -1.184, "z_bar": 0.579, "csr": -0.4923}, {"name": "Ryne Nelson", "team": "ARI", "mlbamid": "669194", "ip": 65.1, "era": 4.82, "xera": 4.49, "era_xera": 0.33, "fip": 5.42, "xfip": 4.84, "siera": 4.59, "k9": 7.16, "bb9": 2.62, "whip": 1.19, "swstr": 9.2, "csw": 22.4, "ev": 90.6, "barrel": 9.3, "hh": 42.9, "vfa": 96.3, "re24_ip": -0.131, "kbb": 0.11870504, "barrel_raw": 0.09268293, "league": "NL", "z_re24": -1.667, "z_kbb": -0.761, "z_bar": -0.437, "csr": -0.955}, {"name": "Jameson Taillon", "team": "CHC", "mlbamid": "592791", "ip": 60.1, "era": 5.37, "xera": 5.27, "era_xera": 0.1, "fip": 6.56, "xfip": 4.65, "siera": 4.39, "k9": 7.61, "bb9": 2.98, "whip": 1.28, "swstr": 11.0, "csw": 28.0, "ev": 88.0, "barrel": 14.9, "hh": 38.1, "vfa": 91.8, "re24_ip": -0.1251, "kbb": 0.12204724, "barrel_raw": 0.14917127, "league": "NL", "z_re24": -1.618, "z_kbb": -0.698, "z_bar": -2.533, "csr": -1.6163}, {"name": "Mitch Keller", "team": "PIT", "mlbamid": "656605", "ip": 68.1, "era": 4.35, "xera": 4.22, "era_xera": 0.13, "fip": 3.34, "xfip": 3.99, "siera": 4.29, "k9": 6.72, "bb9": 2.63, "whip": 1.17, "swstr": 8.9, "csw": 25.0, "ev": 87.9, "barrel": 4.9, "hh": 38.8, "vfa": 93.1, "re24_ip": 0.033, "kbb": 0.11071429, "barrel_raw": 0.04854369, "league": "NL", "z_re24": -0.322, "z_kbb": -0.91, "z_bar": 1.201, "csr": -0.0103}, {"name": "Dustin May", "team": "STL", "mlbamid": "669160", "ip": 61.0, "era": 4.57, "xera": 3.84, "era_xera": 0.73, "fip": 3.54, "xfip": 4.05, "siera": 4.03, "k9": 7.52, "bb9": 2.51, "whip": 1.3, "swstr": 9.3, "csw": 26.9, "ev": 90.0, "barrel": 6.6, "hh": 48.4, "vfa": 96.8, "re24_ip": -0.0664, "kbb": 0.13333333, "barrel_raw": 0.06593407, "league": "NL", "z_re24": -1.137, "z_kbb": -0.488, "z_bar": 0.555, "csr": -0.3567}, {"name": "Max Fried", "team": "NYY", "mlbamid": "608331", "ip": 61.2, "era": 3.21, "xera": 2.51, "era_xera": 0.7, "fip": 2.67, "xfip": 3.77, "siera": 3.98, "k9": 7.3, "bb9": 2.77, "whip": 1.01, "swstr": 10.0, "csw": 27.5, "ev": 86.1, "barrel": 1.8, "hh": 30.8, "vfa": 93.8, "re24_ip": 0.1413, "kbb": 0.12916667, "barrel_raw": 0.01775148, "league": "AL", "z_re24": 0.565, "z_kbb": -0.566, "z_bar": 2.343, "csr": 0.7807}, {"name": "Slade Cecconi", "team": "CLE", "mlbamid": "677944", "ip": 61.2, "era": 5.25, "xera": 4.59, "era_xera": 0.66, "fip": 4.46, "xfip": 4.26, "siera": 4.28, "k9": 7.3, "bb9": 2.92, "whip": 1.49, "swstr": 8.3, "csw": 25.4, "ev": 87.8, "barrel": 8.5, "hh": 34.7, "vfa": 93.3, "re24_ip": -0.115, "kbb": 0.11029412, "barrel_raw": 0.08542714, "league": "AL", "z_re24": -1.536, "z_kbb": -0.917, "z_bar": -0.168, "csr": -0.8737}, {"name": "Eduardo Rodriguez", "team": "ARI", "mlbamid": "593958", "ip": 66.1, "era": 2.31, "xera": 4.44, "era_xera": -2.13, "fip": 3.7, "xfip": 4.19, "siera": 4.56, "k9": 6.65, "bb9": 3.39, "whip": 1.21, "swstr": 7.6, "csw": 24.7, "ev": 88.8, "barrel": 7.6, "hh": 35.9, "vfa": 91.9, "re24_ip": 0.2472, "kbb": 0.08823529, "barrel_raw": 0.07575758, "league": "NL", "z_re24": 1.433, "z_kbb": -1.328, "z_bar": 0.191, "csr": 0.0987}, {"name": "Randy V\u00e1squez", "team": "SDP", "mlbamid": "681190", "ip": 60.1, "era": 3.28, "xera": 6.21, "era_xera": -2.93, "fip": 4.22, "xfip": 4.38, "siera": 4.29, "k9": 7.01, "bb9": 2.54, "whip": 1.23, "swstr": 10.2, "csw": 25.2, "ev": 90.7, "barrel": 13.2, "hh": 45.6, "vfa": 94.8, "re24_ip": 0.1258, "kbb": 0.12048193, "barrel_raw": 0.13186813, "league": "NL", "z_re24": 0.438, "z_kbb": -0.728, "z_bar": -1.891, "csr": -0.727}, {"name": "Bailey Ober", "team": "MIN", "mlbamid": "641927", "ip": 66.2, "era": 4.59, "xera": 3.76, "era_xera": 0.83, "fip": 4.92, "xfip": 4.77, "siera": 4.68, "k9": 6.21, "bb9": 2.43, "whip": 1.22, "swstr": 9.1, "csw": 25.7, "ev": 87.9, "barrel": 8.4, "hh": 32.6, "vfa": 88.5, "re24_ip": -0.0576, "kbb": 0.09964413, "barrel_raw": 0.08372093, "league": "AL", "z_re24": -1.065, "z_kbb": -1.116, "z_bar": -0.105, "csr": -0.762}, {"name": "Andre Pallante", "team": "STL", "mlbamid": "669467", "ip": 58.0, "era": 4.19, "xera": 3.85, "era_xera": 0.34, "fip": 4.51, "xfip": 4.16, "siera": 4.25, "k9": 7.14, "bb9": 3.26, "whip": 1.34, "swstr": 9.3, "csw": 27.8, "ev": 87.9, "barrel": 7.2, "hh": 36.5, "vfa": 95.1, "re24_ip": -0.0182, "kbb": 0.09960159, "barrel_raw": 0.0718232, "league": "NL", "z_re24": -0.742, "z_kbb": -1.117, "z_bar": 0.337, "csr": -0.5073}, {"name": "Jack Kochanowicz", "team": "LAA", "mlbamid": "686799", "ip": 61.1, "era": 4.99, "xera": 4.94, "era_xera": 0.05, "fip": 4.42, "xfip": 4.65, "siera": 4.75, "k9": 6.6, "bb9": 4.55, "whip": 1.39, "swstr": 10.3, "csw": 25.9, "ev": 90.0, "barrel": 6.8, "hh": 42.9, "vfa": 95.8, "re24_ip": -0.0662, "kbb": 0.05147059, "barrel_raw": 0.06806283, "league": "AL", "z_re24": -1.136, "z_kbb": -2.013, "z_bar": 0.476, "csr": -0.891}, {"name": "Janson Junk", "team": "MIA", "mlbamid": "676083", "ip": 60.0, "era": 4.8, "xera": 3.87, "era_xera": 0.93, "fip": 4.06, "xfip": 4.1, "siera": 4.26, "k9": 6.45, "bb9": 1.95, "whip": 1.3, "swstr": 7.1, "csw": 23.7, "ev": 89.8, "barrel": 6.6, "hh": 41.4, "vfa": 94.3, "re24_ip": -0.0735, "kbb": 0.11764706, "barrel_raw": 0.06565657, "league": "NL", "z_re24": -1.195, "z_kbb": -0.78, "z_bar": 0.566, "csr": -0.4697}, {"name": "Michael McGreevy", "team": "STL", "mlbamid": "700241", "ip": 60.1, "era": 2.98, "xera": 5.65, "era_xera": -2.67, "fip": 4.11, "xfip": 3.84, "siera": 4.15, "k9": 6.41, "bb9": 2.24, "whip": 1.09, "swstr": 8.3, "csw": 24.7, "ev": 89.1, "barrel": 11.0, "hh": 41.4, "vfa": 90.9, "re24_ip": 0.1679, "kbb": 0.11715481, "barrel_raw": 0.11049724, "league": "NL", "z_re24": 0.783, "z_kbb": -0.79, "z_bar": -1.098, "csr": -0.3683}, {"name": "Zac Gallen", "team": "ARI", "mlbamid": "668678", "ip": 59.1, "era": 5.16, "xera": 5.18, "era_xera": -0.02, "fip": 4.85, "xfip": 4.33, "siera": 4.42, "k9": 6.37, "bb9": 2.73, "whip": 1.47, "swstr": 8.6, "csw": 25.1, "ev": 90.8, "barrel": 10.6, "hh": 45.2, "vfa": 93.5, "re24_ip": -0.1363, "kbb": 0.09195402, "barrel_raw": 0.10552764, "league": "NL", "z_re24": -1.71, "z_kbb": -1.259, "z_bar": -0.914, "csr": -1.2943}, {"name": "Andrew Abbott", "team": "CIN", "mlbamid": "671096", "ip": 62.2, "era": 3.88, "xera": 4.96, "era_xera": -1.08, "fip": 4.88, "xfip": 4.87, "siera": 5.05, "k9": 6.03, "bb9": 3.88, "whip": 1.42, "swstr": 8.7, "csw": 25.1, "ev": 89.5, "barrel": 6.9, "hh": 38.1, "vfa": 92.8, "re24_ip": 0.0495, "kbb": 0.05535055, "barrel_raw": 0.06930693, "league": "NL", "z_re24": -0.187, "z_kbb": -1.941, "z_bar": 0.43, "csr": -0.566}, {"name": "Nick Martinez", "team": "TBR", "mlbamid": "607259", "ip": 66.2, "era": 1.62, "xera": 4.14, "era_xera": -2.52, "fip": 3.24, "xfip": 4.21, "siera": 4.41, "k9": 5.54, "bb9": 1.62, "whip": 1.11, "swstr": 8.4, "csw": 26.4, "ev": 86.6, "barrel": 6.5, "hh": 31.3, "vfa": 92.6, "re24_ip": 0.3214, "kbb": 0.10780669, "barrel_raw": 0.06542056, "league": "AL", "z_re24": 2.041, "z_kbb": -0.964, "z_bar": 0.574, "csr": 0.5503}, {"name": "Justin Wrobleski", "team": "LAD", "mlbamid": "680736", "ip": 58.2, "era": 2.61, "xera": 3.87, "era_xera": -1.26, "fip": 3.42, "xfip": 4.49, "siera": 4.49, "k9": 5.83, "bb9": 1.99, "whip": 0.99, "swstr": 8.0, "csw": 25.4, "ev": 89.2, "barrel": 7.8, "hh": 42.8, "vfa": 93.8, "re24_ip": 0.2411, "kbb": 0.10729614, "barrel_raw": 0.07777778, "league": "NL", "z_re24": 1.383, "z_kbb": -0.973, "z_bar": 0.116, "csr": 0.1753}];
+
+const AL_TEAMS = new Set(['BAL','BOS','CHW','CLE','DET','HOU','KCR','LAA','MIN','NYY','ATH','SEA','TBR','TEX','TOR']);
+const NL_TEAMS = new Set(['ARI','ATL','CHC','CIN','COL','LAD','MIA','MIL','NYM','PHI','PIT','SDP','SFG','STL','WSN']);
 
 const HHS = mid => `https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/${mid}/headshot/67/current`;
 const HH_ERR = `this.src='https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_60,q_auto:best/v1/people/0/headshot/67/current'`;
@@ -1600,29 +1630,88 @@ function d2(v) { return v != null ? v.toFixed(2) : '--'; }
 function d1(v) { return v != null ? v.toFixed(1) : '--'; }
 function d3(v) { return v != null ? v.toFixed(3) : '--'; }
 function pct(v) { return v != null ? v.toFixed(1) + '%' : '--'; }
-function ef(v) {
-  if (v == null) return '--';
-  return (v > 0 ? '+' : '') + v.toFixed(2);
+function ef(v) { return v == null ? '--' : (v > 0 ? '+' : '') + v.toFixed(2); }
+function zClass(v) { if (v == null) return 'neu'; if (v >= 0.5) return 'pos'; if (v <= -0.5) return 'neg'; return 'neu'; }
+function zLabel(v) { if (v == null) return '--'; return (v > 0 ? '+' : '') + v.toFixed(2); }
+
+function computeCSR(pool) {
+  const valid = pool.filter(r => r.re24_ip != null && r.kbb != null && r.barrel_raw != null);
+  if (valid.length < 3) return valid.map(r => ({...r, z_re24:null, z_kbb:null, z_bar:null, csr:null}));
+  const mean = arr => arr.reduce((a,b)=>a+b,0)/arr.length;
+  const sd = arr => { const m=mean(arr); return Math.sqrt(arr.reduce((a,b)=>a+(b-m)**2,0)/arr.length) || 1; };
+  const rm=mean(valid.map(r=>r.re24_ip)), rs=sd(valid.map(r=>r.re24_ip));
+  const km=mean(valid.map(r=>r.kbb)),    ks=sd(valid.map(r=>r.kbb));
+  const bm=mean(valid.map(r=>r.barrel_raw)), bs=sd(valid.map(r=>r.barrel_raw));
+  return valid.map(r => {
+    const z_re24 = (r.re24_ip - rm)/rs;
+    const z_kbb  = (r.kbb - km)/ks;
+    const z_bar  = -((r.barrel_raw - bm)/bs);
+    return {...r, z_re24, z_kbb, z_bar, csr:(z_re24+z_kbb+z_bar)/3};
+  });
+}
+
+function buildCyWatch(teamFilter) {
+  const pool = teamFilter ? ALL_ROWS.filter(r => r.team === teamFilter) : ALL_ROWS;
+  const withCSR = computeCSR(pool);
+  const alPool = withCSR.filter(r => AL_TEAMS.has(r.team)).sort((a,b)=>b.csr-a.csr).slice(0,5);
+  const nlPool = withCSR.filter(r => NL_TEAMS.has(r.team)).sort((a,b)=>b.csr-a.csr).slice(0,5);
+
+  function leagueRows(players) {
+    if (players.length === 0) return `<div class="no-data">No qualifying pitchers</div>`;
+    return players.map((r,i) => `
+      <div class="cy-row">
+        <div class="cy-rank ${i===0?'r1':''}">${i+1}</div>
+        <img class="headshot" src="${HHS(r.mlbamid)}" alt="${r.name}" onerror="${HH_ERR}">
+        <div class="cy-info">
+          <div class="cy-name">${r.name}</div>
+          <div class="cy-meta">
+            <span>${r.team}</span>
+            <span>${d1(r.ip)} IP</span>
+            <span>ERA ${d2(r.era)}</span>
+            <span>SIERA ${d2(r.siera)}</span>
+          </div>
+          <div class="z-bars">
+            <div class="z-bar-wrap"><div class="z-bar-label">RE24/IP</div><div class="z-bar-val ${zClass(r.z_re24)}">${zLabel(r.z_re24)}</div></div>
+            <div class="z-bar-wrap"><div class="z-bar-label">K-BB%</div><div class="z-bar-val ${zClass(r.z_kbb)}">${zLabel(r.z_kbb)}</div></div>
+            <div class="z-bar-wrap"><div class="z-bar-label">Barrel%</div><div class="z-bar-val ${zClass(r.z_bar)}">${zLabel(r.z_bar)}</div></div>
+          </div>
+        </div>
+        <div class="cy-csr">${r.csr != null ? r.csr.toFixed(3) : '--'}<small>CSR</small></div>
+      </div>`).join('');
+  }
+
+  return `<div class="cy-watch">
+    <div class="cy-header">
+      <div class="cy-badge">NEW</div>
+      <div class="cy-title">Cy Young Watch</div>
+      <div class="cy-subtitle">CSR &mdash; Contact Suppression Rate</div>
+      <div class="cy-method"><strong>CSR</strong> = avg of three z-scores<br>RE24/IP &middot; K-BB% &middot; Barrel% (inverted)</div>
+    </div>
+    <div class="cy-leagues">
+      <div class="cy-league"><div class="cy-league-hdr">American League</div>${leagueRows(alPool)}</div>
+      <div class="cy-league"><div class="cy-league-hdr">National League</div>${leagueRows(nlPool)}</div>
+    </div>
+  </div>`;
 }
 
 const CARDS = [
-  { key:'era',   label:'ERA',     fmt:d2,  asc:true,  title:'ERA Leaders',      sub:'lowest ERA',               desc:'' },
-  { key:'xera',  label:'xERA',    fmt:d2,  asc:true,  title:'xERA Leaders',     sub:'lowest xERA',              desc:'Statcast ERA estimator' },
-  { key:'fip',   label:'FIP',     fmt:d2,  asc:true,  title:'FIP Leaders',      sub:'lowest FIP',               desc:'' },
-  { key:'siera', label:'SIERA',   fmt:d2,  asc:true,  title:'SIERA Leaders',    sub:'lowest SIERA',             desc:'' },
-  { key:'k9',    label:'K/9',     fmt:d1,  asc:false, title:'Strikeout Rate',   sub:'highest K/9',              desc:'' },
-  { key:'bb9',   label:'BB/9',    fmt:d1,  asc:true,  title:'Walk Rate',        sub:'lowest BB/9',              desc:'' },
-  { key:'whip',  label:'WHIP',    fmt:d2,  asc:true,  title:'WHIP Leaders',     sub:'lowest WHIP',              desc:'' },
-  { key:'swstr', label:'SwStr%',  fmt:pct, asc:false, title:'Swinging Strike%', sub:'highest SwStr%',           desc:'' },
-  { key:'csw',   label:'CSW%',    fmt:pct, asc:false, title:'CSW% Leaders',     sub:'called strike + whiff%',   desc:'' },
-  { key:'barrel',label:'Barrel%', fmt:pct, asc:true,  title:'Barrel% Leaders',  sub:'lowest allowed Barrel%',   desc:'' },
-  { key:'hh',    label:'HH%',     fmt:pct, asc:true,  title:'Hard Hit% Leaders',sub:'lowest allowed HH%',       desc:'' },
+  { key:'era',   label:'ERA',     fmt:d2,  asc:true,  title:'ERA Leaders',       sub:'lowest ERA',             desc:'' },
+  { key:'xera',  label:'xERA',    fmt:d2,  asc:true,  title:'xERA Leaders',      sub:'lowest xERA',            desc:'Statcast ERA estimator' },
+  { key:'fip',   label:'FIP',     fmt:d2,  asc:true,  title:'FIP Leaders',       sub:'lowest FIP',             desc:'' },
+  { key:'siera', label:'SIERA',   fmt:d2,  asc:true,  title:'SIERA Leaders',     sub:'lowest SIERA',           desc:'' },
+  { key:'k9',    label:'K/9',     fmt:d1,  asc:false, title:'Strikeout Rate',    sub:'highest K/9',            desc:'' },
+  { key:'bb9',   label:'BB/9',    fmt:d1,  asc:true,  title:'Walk Rate',         sub:'lowest BB/9',            desc:'' },
+  { key:'whip',  label:'WHIP',    fmt:d2,  asc:true,  title:'WHIP Leaders',      sub:'lowest WHIP',            desc:'' },
+  { key:'swstr', label:'SwStr%',  fmt:pct, asc:false, title:'Swinging Strike%',  sub:'highest SwStr%',         desc:'' },
+  { key:'csw',   label:'CSW%',    fmt:pct, asc:false, title:'CSW% Leaders',      sub:'called strike + whiff%', desc:'' },
+  { key:'barrel',label:'Barrel%', fmt:pct, asc:true,  title:'Barrel% Leaders',   sub:'lowest allowed Barrel%', desc:'' },
+  { key:'hh',    label:'HH%',     fmt:pct, asc:true,  title:'Hard Hit% Leaders', sub:'lowest allowed HH%',     desc:'' },
 ];
 
 function buildLeaderboards(teamFilter) {
   const pool = teamFilter ? ALL_ROWS.filter(r => r.team === teamFilter) : ALL_ROWS;
   const lbEl = document.getElementById('leaderboardView');
-  let html = '';
+  let html = buildCyWatch(teamFilter);
 
   CARDS.forEach(card => {
     const valid = pool.filter(r => r[card.key] != null);
@@ -1653,48 +1742,35 @@ function buildLeaderboards(teamFilter) {
     html += `</div></div>`;
   });
 
-  // ERA vs xERA split
+  // ERA vs xERA split card
   const validDiff = pool.filter(r => r.era_xera != null);
   const outperf = [...validDiff].sort((a,b) => a.era_xera - b.era_xera).slice(0,5);
   const regress = [...validDiff].sort((a,b) => b.era_xera - a.era_xera).slice(0,5);
-
   html += `<div class="split-card">
     <div class="card-header"><div class="card-title">ERA vs xERA</div><div class="card-subtitle">luck indicators</div></div>
     <div class="split-half"><div class="card-body">`;
-  if (outperf.length === 0) {
-    html += `<div class="no-data">No data</div>`;
-  } else {
-    outperf.forEach((r,i) => {
-      html += `<div class="card-row">
-        <span class="card-rank">${i+1}</span>
-        <img class="headshot" src="${HHS(r.mlbamid)}" alt="${r.name}" onerror="${HH_ERR}">
-        <div class="card-info"><div class="card-name">${r.name}</div><div class="card-sub">${r.team} &middot; ERA ${d2(r.era)} / xERA ${d2(r.xera)}</div></div>
-        <div class="card-val green"><span>${ef(r.era_xera)}</span><span class="card-label">ERA-xERA</span></div>
-      </div>`;
-    });
-  }
+  outperf.forEach((r,i) => {
+    html += `<div class="card-row">
+      <span class="card-rank">${i+1}</span>
+      <img class="headshot" src="${HHS(r.mlbamid)}" alt="${r.name}" onerror="${HH_ERR}">
+      <div class="card-info"><div class="card-name">${r.name}</div><div class="card-sub">${r.team} &middot; ERA ${d2(r.era)} / xERA ${d2(r.xera)}</div></div>
+      <div class="card-val green"><span>${ef(r.era_xera)}</span><span class="card-label">ERA-xERA</span></div>
+    </div>`;
+  });
   html += `</div></div><div class="split-half"><div class="card-body">`;
-  if (regress.length === 0) {
-    html += `<div class="no-data">No data</div>`;
-  } else {
-    regress.forEach((r,i) => {
-      html += `<div class="card-row">
-        <span class="card-rank">${i+1}</span>
-        <img class="headshot" src="${HHS(r.mlbamid)}" alt="${r.name}" onerror="${HH_ERR}">
-        <div class="card-info"><div class="card-name">${r.name}</div><div class="card-sub">${r.team} &middot; ERA ${d2(r.era)} / xERA ${d2(r.xera)}</div></div>
-        <div class="card-val red"><span>${ef(r.era_xera)}</span><span class="card-label">ERA-xERA</span></div>
-      </div>`;
-    });
-  }
+  regress.forEach((r,i) => {
+    html += `<div class="card-row">
+      <span class="card-rank">${i+1}</span>
+      <img class="headshot" src="${HHS(r.mlbamid)}" alt="${r.name}" onerror="${HH_ERR}">
+      <div class="card-info"><div class="card-name">${r.name}</div><div class="card-sub">${r.team} &middot; ERA ${d2(r.era)} / xERA ${d2(r.xera)}</div></div>
+      <div class="card-val red"><span>${ef(r.era_xera)}</span><span class="card-label">ERA-xERA</span></div>
+    </div>`;
+  });
   html += `</div></div></div>`;
-
   lbEl.innerHTML = html;
 }
 
-let currentView = 'leaderboards';
-
 function setView(v) {
-  currentView = v;
   document.getElementById('leaderboardView').style.display = v === 'leaderboards' ? 'grid' : 'none';
   document.getElementById('tableView').style.display = v === 'table' ? 'block' : 'none';
   document.getElementById('btnLeaderboards').classList.toggle('active', v === 'leaderboards');
@@ -1704,8 +1780,6 @@ function setView(v) {
 function applyFilters() {
   const search = document.getElementById('searchBox').value.toLowerCase();
   const team = document.getElementById('teamFilter').value;
-
-  // Update table
   let count = 0;
   document.querySelectorAll('#tableBody tr').forEach(row => {
     const name = row.cells[1].textContent.toLowerCase();
@@ -1716,21 +1790,16 @@ function applyFilters() {
     else { row.classList.add('hidden'); }
   });
   document.getElementById('countPill').textContent = count + ' pitcher' + (count !== 1 ? 's' : '');
-
-  // Update leaderboard cards
   buildLeaderboards(team);
-
-  // Update header sub text
   const sub = document.getElementById('headerSub');
   if (team) {
-    const teamCount = ALL_ROWS.filter(r => r.team === team).length;
-    sub.innerHTML = `FanGraphs leaderboards &middot; <span>${teamCount} qualified starter${teamCount !== 1 ? 's' : ''}</span> &middot; ${team} &middot; Through May 30`;
+    const tc = ALL_ROWS.filter(r => r.team === team).length;
+    sub.innerHTML = `FanGraphs leaderboards &middot; <span>${tc} qualified starter${tc!==1?'s':''}</span> &middot; ${team} &middot; Through May 30`;
   } else {
     sub.innerHTML = `FanGraphs leaderboards &middot; <span>68 qualified starters</span> &middot; FanGraphs qualified threshold &middot; Through May 30`;
   }
 }
 
-// Table sorting
 let sortCol = null, sortDir = 1;
 document.querySelectorAll('th[data-col]').forEach(th => {
   th.addEventListener('click', () => {
@@ -1750,8 +1819,8 @@ document.querySelectorAll('th[data-col]').forEach(th => {
   });
 });
 
-// Init
 buildLeaderboards(null);
+
 </script>
 </body>
 </html>
