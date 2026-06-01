@@ -105,10 +105,16 @@ function render(){
     return;
   }
 
-  // Build matchup strings — use focusTeam if present, fall back to Texas Rangers for legacy recaps
-  var focusTeam  = recap.focusTeam || 'Texas Rangers';
-  var away       = recap.home ? recap.opponent : focusTeam;
-  var home       = recap.home ? focusTeam : recap.opponent;
+  // Build matchup strings — support both old Rangers-only and new all-team format
+  var away, home;
+  if(recap.awayTeam && recap.homeTeam){
+    away = recap.awayTeam;
+    home = recap.homeTeam;
+  } else {
+    var focusTeam = recap.focusTeam || 'Texas Rangers';
+    away = recap.home ? recap.opponent : focusTeam;
+    home = recap.home ? focusTeam : recap.opponent;
+  }
   var matchup    = away + ' at ' + home;
   var awayShort  = away.split(' ').pop();
   var homeShort  = home.split(' ').pop();
@@ -153,9 +159,9 @@ function render(){
   var next = RECAPS[idx - 1];
 
   function navLabel(r){
-    var ft = r.focusTeam || 'Texas Rangers';
-    var a  = r.home ? r.opponent : ft;
-    var h  = r.home ? ft : r.opponent;
+    var a, h;
+    if(r.awayTeam && r.homeTeam){ a = r.awayTeam; h = r.homeTeam; }
+    else { var ft = r.focusTeam || 'Texas Rangers'; a = r.home ? r.opponent : ft; h = r.home ? ft : r.opponent; }
     return a.split(' ').pop() + ' at ' + h.split(' ').pop() + ' (' + r.date + ')';
   }
 
