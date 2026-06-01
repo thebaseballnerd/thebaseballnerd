@@ -13,7 +13,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>What Is wOBA in Baseball? Weighted On-Base Average Explained | The Baseball Nerd</title>
-  <meta name="description" content="wOBA (Weighted On-Base Average) measures a hitter's offensive value by assigning real run values to every way of reaching base. Here's what it means, how it's calculated, and what a good wOBA looks like." />
+  <meta name="description" content="wOBA (Weighted On-Base Average) assigns real run values to every way of reaching base. League average is around .320. Here's the formula, the weights, what a good wOBA looks like, and how it compares to OPS and wRC+." />
   <link rel="canonical" href="https://thebaseballnerd.com/articles/what-is-woba-in-baseball" />
 
   <!-- Open Graph -->
@@ -55,8 +55,8 @@
       "@id": "https://thebaseballnerd.com/articles/what-is-woba-in-baseball"
     },
     "datePublished": "2026-04-09",
-    "dateModified": "2026-04-09",
-    "keywords": ["wOBA", "weighted on-base average", "what is wOBA", "wOBA baseball", "baseball stats", "sabermetrics"],
+    "dateModified": "2026-06-01",
+    "keywords": ["wOBA", "wOBA meaning", "weighted on-base average", "what is wOBA", "wOBA baseball", "wOBA formula", "wOBA weights", "what is a good wOBA", "league average wOBA", "wOBA vs OPS", "wOBA vs wRC+", "wOBA calculation", "baseball stats", "sabermetrics"],
     "articleSection": "Stats Explained"
   }
   </script>
@@ -72,7 +72,7 @@
         "name": "What is wOBA in baseball?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "wOBA (Weighted On-Base Average) is a baseball offensive statistic that measures a hitter's overall offensive value by assigning empirically derived run values to every way of reaching base. Unlike batting average or OBP, wOBA recognizes that a home run is worth more than a single, and that a walk and a hit-by-pitch have different run values. It's scaled to look like on-base percentage, so league average typically sits around .320."
+          "text": "wOBA (Weighted On-Base Average) is a baseball offensive statistic that measures a hitter's overall offensive value by assigning empirically derived run values to every way of reaching base. Unlike batting average or OBP, wOBA recognizes that a home run is worth more than a single, and that a walk and a hit-by-pitch have different run values. It is scaled to look like on-base percentage, so league average typically sits around .320."
         }
       },
       {
@@ -85,10 +85,34 @@
       },
       {
         "@type": "Question",
-        "name": "How is wOBA calculated?",
+        "name": "What is the wOBA formula?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "wOBA is calculated by multiplying each offensive event by its linear weight (derived from historical run expectancy data) and dividing by plate appearances. The formula is approximately: (0.69 × uBB + 0.72 × HBP + 0.89 × 1B + 1.27 × 2B + 1.62 × 3B + 2.10 × HR) divided by (AB + BB - IBB + SF + HBP). The weights are recalibrated every season to reflect the current run-scoring environment."
+          "text": "The wOBA formula is: (0.69 × uBB + 0.72 × HBP + 0.89 × 1B + 1.27 × 2B + 1.62 × 3B + 2.10 × HR) divided by (AB + BB - IBB + SF + HBP). These weights are approximate and recalibrated every season from historical run expectancy data. Intentional walks are excluded because they reflect a defensive decision rather than hitter performance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the wOBA weights?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Approximate wOBA weights in a typical MLB season: unintentional walk (~0.69), hit by pitch (~0.72), single (~0.89), double (~1.27), triple (~1.62), home run (~2.10). These weights come from historical run expectancy data and are recalibrated annually by FanGraphs. The key insight is that a home run is not worth four singles — the real multiplier is closer to 2.4x."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is league average wOBA?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "League average wOBA typically sits around .315 to .325 depending on the run environment of a given season. In recent MLB seasons it has generally landed near .318 to .322. A hitter at exactly .320 wOBA is performing right at league average offensively."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between wOBA and OPS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "OPS adds on-base percentage and slugging percentage directly, treating them as equal despite OBP being worth roughly twice as much in run-production terms. It also uses total bases for slugging, which implies a double is worth exactly twice a single — that is not what run-scoring data shows. wOBA uses empirically derived run weights for every event, making it more precisely constructed. The two stats correlate highly for most players, but wOBA handles high-walk hitters and contact hitters more accurately."
         }
       },
       {
@@ -96,7 +120,15 @@
         "name": "What is the difference between wOBA and wRC+?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "wOBA is the raw input: it measures offensive value at the plate without adjusting for ballpark or era. wRC+ takes wOBA, converts it into runs, then adjusts for park factor and league context and scales the result so 100 is always league average. Use wOBA when you want a clean measure of plate performance. Use wRC+ when you want to compare players across different environments or eras."
+          "text": "wOBA is the raw input: it measures offensive value at the plate without adjusting for ballpark or era. wRC+ takes wOBA, converts it into runs, adjusts for park factor and league context, then scales the result so 100 is always league average. Use wOBA when you want a clean measure of plate performance. Use wRC+ when you want to compare players across different environments or eras."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is wOBA a good stat?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. wOBA is widely considered one of the best single-number measures of a hitter's offensive value at the plate. It outperforms batting average, OBP, slugging, and OPS in predictive accuracy because it uses real run weights rather than assumptions. Its main limitation is that it does not adjust for park or era — that is what wRC+ is for."
         }
       },
       {
@@ -175,7 +207,14 @@
     .tier-avg { color: var(--text-muted); }
     .tier-below { color: #e07b6b; }
 
-    /* FORMULA BOX */
+    /* LEAGUE AVG CALLOUT */
+    .league-avg-box { display: flex; gap: 1.5rem; flex-wrap: wrap; background: var(--cream-dim); border: 1px solid var(--border); padding: 1.4rem 1.6rem; margin: 1.5rem 0; align-items: center; }
+    .la-stat { font-family: 'IBM Plex Mono', monospace; text-align: center; flex-shrink: 0; }
+    .la-val { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; color: var(--gold); line-height: 1; }
+    .la-label { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.2rem; }
+    .la-divider { width: 1px; background: var(--border); align-self: stretch; flex-shrink: 0; }
+    .la-text { font-size: 0.9rem; color: var(--text); line-height: 1.7; }
+    .la-text strong { color: var(--cream); }
     .formula-box { background: rgba(0,0,0,0.35); border: 1px solid var(--border); border-radius: 6px; padding: 1.4rem 1.6rem; margin: 1.5rem 0; font-family: 'IBM Plex Mono', monospace; font-size: 0.82rem; line-height: 2; color: var(--cream); }
     .formula-box .formula-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.6rem; }
     .fl { color: var(--gold); }
@@ -246,7 +285,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h1 class="article-title">What Is wOBA in Baseball? Weighted On-Base Average Explained.</h1>
       <p class="article-dek">Batting average treats all hits the same. On-base percentage treats all ways of reaching base the same. wOBA fixes both problems at once and it's the foundation that the rest of modern offensive analysis is built on.</p>
       <div class="article-meta">
-        By <span>Pete Dwyer</span> &nbsp;|&nbsp; Updated <span>April 2026</span> &nbsp;|&nbsp; 8 min read
+        By <span>Pete Dwyer</span> &nbsp;|&nbsp; Updated <span>June 2026</span> &nbsp;|&nbsp; 8 min read
       </div>
     </header>
 
@@ -292,7 +331,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Look at those numbers and a few things jump out. A walk is worth 0.69, not zero. A double is worth 1.27, not 2.00. A home run is worth 2.10, not 4.00. The whole idea that extra-base hits are worth a clean multiple of singles is wrong, and wOBA corrects it.</p>
       <p>These weights are recalibrated every season. In a high-offense year, home runs are more common, so each individual one is slightly less scarce and worth a little less. In a pitching-dominated year, the home run weight goes up. FanGraphs publishes the exact coefficients for every season going back to 1871.</p>
 
-      <h2>The Formula</h2>
+      <h2>The wOBA Formula and Weights Explained</h2>
       <p>Once you understand what the weights represent, the formula is just arithmetic:</p>
 
       <div class="formula-box">
@@ -323,7 +362,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="ex-result">298.4 ÷ 705 PA = .423 wOBA</div>
       </div>
 
-      <h2>What Is a Good wOBA?</h2>
+      <h2>What Is a Good wOBA in Baseball?</h2>
       <p>wOBA is deliberately scaled to look like on-base percentage. That means the numbers sit in a familiar range and are immediately readable without conversion.</p>
 
       <table class="scale-table">
@@ -342,7 +381,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <p>League average floats slightly year to year, some seasons it runs a touch above or below .320, but the scale above holds across most modern eras. If you know what a good OBP looks like, you already know how to read wOBA.</p>
 
-      <h2>wOBA vs. wRC+: Which One Should You Use?</h2>
+      <div class="league-avg-box">
+        <div class="la-stat">
+          <div class="la-val">.320</div>
+          <div class="la-label">League Avg wOBA</div>
+        </div>
+        <div class="la-divider"></div>
+        <div class="la-text">League average wOBA has floated between <strong>.315 and .325</strong> across most recent MLB seasons. A hitter sitting at exactly .320 is performing at the league median offensively. Every point above is a real, measurable edge over the average big-league hitter. The scale doesn't shift dramatically year to year, but FanGraphs updates the exact figure on their Guts! page each season.</div>
+      </div>
+
+      <h2>wOBA vs. OPS: Which Stat Is More Accurate?</h2>
+      <p>This is the comparison that comes up most in practical use. OPS is everywhere — on broadcasts, on scoreboards, in casual conversation. wOBA is what the analysts actually use. Here is why.</p>
+      <p>OPS adds on-base percentage and slugging percentage directly. The structural problem: a point of OBP is worth roughly twice as much in run-production terms as a point of SLG. OPS treats them as equal. That means every OPS calculation is slightly distorted in favor of slugging and against plate discipline.</p>
+      <p>OPS also uses total bases for its slugging component, which implies a double is worth exactly twice a single and a home run exactly four times a single. The run-scoring data says otherwise. The real multiplier for a home run over a single is closer to 2.4x, not 4x. Doubles are closer to 1.4x singles, not 2x. wOBA uses those real numbers.</p>
+      <p>For most players, the two stats tell similar stories. But for high-walk hitters, OPS systematically undervalues them. For contact hitters with high batting averages but modest power and few walks, OPS can overrate them. wOBA gets both right more often.</p>
       <p>This comes up constantly, and the answer is that they're not competing. wOBA is an input into <a href="/articles/what-is-wrc-plus-in-baseball.html">wRC+</a>. They answer slightly different questions.</p>
 
       <div class="stat-compare">
@@ -402,18 +454,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <div class="faq-item">
+          <p class="faq-q">What is league average wOBA?</p>
+          <p class="faq-a">League average wOBA typically sits between .315 and .325 depending on the run environment of a given season. In most recent MLB seasons it has landed near .318 to .322. A hitter at exactly .320 is performing right at the league median offensively. FanGraphs publishes the exact figure for every season on their Guts! page.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">What are the wOBA weights?</p>
+          <p class="faq-a">Approximate wOBA weights in a typical MLB season: unintentional walk (~0.69), hit by pitch (~0.72), single (~0.89), double (~1.27), triple (~1.62), home run (~2.10). These are derived from historical run expectancy data and recalibrated annually. The key insight is that a home run is not worth four singles — the real multiplier is roughly 2.4x.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Is wOBA better than OPS?</p>
+          <p class="faq-a">More precisely constructed, yes. OPS adds on-base percentage and slugging as equals, but OBP is roughly twice as valuable in run-production terms. wOBA uses actual run weights derived from play-by-play data. The two stats agree most of the time, but wOBA handles high-walk hitters and contact hitters more accurately. It's the more rigorous number.</p>
+        </div>
+
+        <div class="faq-item">
           <p class="faq-q">Why do the wOBA weights change every year?</p>
           <p class="faq-a">The weights are derived from historical run expectancy data and recalibrated annually to reflect the current run-scoring environment. In a high-offense season, home runs are more common and slightly less scarce, so each one carries a marginally lower weight. In a low-offense season, the weights shift accordingly. FanGraphs publishes the exact coefficients for every season on their Guts! page.</p>
         </div>
 
         <div class="faq-item">
-          <p class="faq-q">Is wOBA better than OPS?</p>
-          <p class="faq-a">More precisely constructed, yes. OPS adds on-base percentage and slugging as equals, but OBP is roughly twice as valuable in run-production terms. wOBA uses actual run weights derived from play-by-play data. The two stats agree most of the time, with a correlation is very high, but wOBA handles edge cases more accurately, particularly for high-walk low-power hitters who tend to be undervalued by OPS.</p>
-        </div>
-
-        <div class="faq-item">
           <p class="faq-q">Does wOBA include stolen bases?</p>
-          <p class="faq-a">No. wOBA measures only events that occur during a plate appearance. Stolen bases and caught stealing happen between plate appearances and aren't part of the formula. This is one of wOBA's acknowledged limitations, elite baserunners are slightly undervalued. Baserunning runs are added separately when calculating WAR.</p>
+          <p class="faq-a">No. wOBA measures only events that occur during a plate appearance. Stolen bases and caught stealing happen between plate appearances and aren't part of the formula. This is one of wOBA's acknowledged limitations — elite baserunners are slightly undervalued. Baserunning runs are added separately when calculating WAR.</p>
         </div>
 
         <div class="faq-item">
