@@ -12,21 +12,21 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>wRC+ vs OPS+: Which Stat Should You Trust? | The Baseball Nerd</title>
-  <meta name="description" content="wRC+ and OPS+ both measure offensive value scaled to 100. But one starts from real run-probability weights and one doesn't. Here's the difference, when it matters, and which to use." />
+  <title>OPS+ vs wRC+: What's the Difference and Which Stat Is Better? | The Baseball Nerd</title>
+  <meta name="description" content="OPS+ and wRC+ are both park-adjusted and scaled to 100 as league average. But they're built differently, and that gap matters. Here's exactly what separates them, when it shows up, and which one to trust." />
   <link rel="canonical" href="https://thebaseballnerd.com/articles/ops-plus-vs-wrc-plus" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="wRC+ vs OPS+: Which Stat Should You Trust?" />
-  <meta property="og:description" content="Both are park-adjusted and scaled to 100. But wRC+ starts from real run weights and OPS+ doesn't. Here's when the difference matters." />
+  <meta property="og:title" content="OPS+ vs wRC+: What's the Difference and Which Stat Is Better?" />
+  <meta property="og:description" content="Both are park-adjusted and scaled to 100. But wRC+ starts from real run weights and OPS+ doesn't. Here's when the difference matters and which one to trust." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://thebaseballnerd.com/articles/ops-plus-vs-wrc-plus" />
   <meta property="og:site_name" content="The Baseball Nerd" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="wRC+ vs OPS+: Which Stat Should You Trust?" />
-  <meta name="twitter:description" content="Both scaled to 100. Both park-adjusted. But only one starts from real run-probability weights." />
+  <meta name="twitter:title" content="OPS+ vs wRC+: What's the Difference and Which Stat Is Better?" />
+  <meta name="twitter:description" content="Both scaled to 100. Both park-adjusted. But only one starts from real run-probability weights. Here's which one wins." />
   <meta name="twitter:site" content="@thebaseballnerd" />
 
   <!-- Schema: Article -->
@@ -34,8 +34,8 @@
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "wRC+ vs OPS+: Which Stat Should You Trust?",
-    "description": "wRC+ and OPS+ both measure offensive value scaled to 100. But one starts from real run-probability weights and one doesn't. Here's the difference, when it matters, and which to use.",
+    "headline": "OPS+ vs wRC+: What's the Difference and Which Stat Is Better?",
+    "description": "OPS+ and wRC+ are both park-adjusted offensive stats scaled to 100 as league average. But they're built from different foundations, and that gap matters at the edges. Here's exactly what separates them and which one to use.",
     "author": {
       "@type": "Person",
       "name": "Pete Dwyer",
@@ -55,8 +55,8 @@
       "@id": "https://thebaseballnerd.com/articles/ops-plus-vs-wrc-plus"
     },
     "datePublished": "2026-04-03",
-    "dateModified": "2026-04-09",
-    "keywords": ["wRC+ vs OPS+", "wRC+", "OPS+", "baseball stats", "sabermetrics", "offensive metrics"],
+    "dateModified": "2026-06-01",
+    "keywords": ["OPS+ vs wRC+", "wRC+ vs OPS+", "difference between OPS+ and wRC+", "wRC+", "OPS+", "baseball stats", "sabermetrics", "offensive metrics", "wOBA", "park-adjusted stats"],
     "articleSection": "Stats Explained"
   }
   </script>
@@ -69,10 +69,10 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is the difference between wRC+ and OPS+?",
+        "name": "What is the difference between OPS+ and wRC+?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Both wRC+ and OPS+ are park-adjusted offensive stats scaled so that 100 equals league average. The difference is in what they start from. OPS+ starts from OPS (on-base plus slugging), which treats OBP and SLG as equal despite OBP being worth more in run-production terms. wRC+ starts from wOBA, which uses empirically derived linear weights, meaning each offensive event is valued by how many runs it actually produces. wRC+ is more precisely constructed."
+          "text": "Both OPS+ and wRC+ are park-adjusted offensive stats scaled so that 100 equals league average. The difference is in what they start from. OPS+ starts from OPS (on-base plus slugging), which treats OBP and SLG as equal despite OBP being worth more in run-production terms. wRC+ starts from wOBA, which uses empirically derived linear weights, meaning each offensive event is valued by how many runs it actually produces. wRC+ is more precisely constructed."
         }
       },
       {
@@ -80,7 +80,15 @@
         "name": "Is wRC+ better than OPS+?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "For most players most of the time, they tell the same story, with a correlation between the two stats is 0.992. But wRC+ is more accurately constructed because it starts from linear run weights rather than adding OBP and SLG as equals. The gap matters most for high-walk low-power hitters (who look better under wRC+) and heavy ground-ball high-average hitters with few walks (who can look better under OPS+)."
+          "text": "For most players most of the time, they tell the same story. The correlation between the two stats is 0.992. But wRC+ is more accurately constructed because it starts from linear run weights rather than adding OBP and SLG as equals. The gap matters most for high-walk low-power hitters (who look better under wRC+) and heavy ground-ball high-average hitters with few walks (who can look better under OPS+). When they disagree, wRC+ is right more often."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does OPS+ overvalue slugging compared to wRC+?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "OPS adds on-base percentage and slugging percentage directly as equals, but a point of OBP generates more runs than a point of SLG. OPS also uses total bases in its slugging component, which treats a double as worth exactly twice a single. The run-scoring data shows that's not accurate — the real gaps between hit types are more nuanced. wRC+ uses linear weights from actual play-by-play data instead, which captures those real differences."
         }
       },
       {
@@ -96,7 +104,7 @@
         "name": "What is the difference between wRC and wRC+?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "wRC (no plus sign) is a counting stat, it estimates the total number of runs a hitter contributed. More plate appearances mean more wRC regardless of rate. wRC+ converts that into a rate stat, normalizes it against league average, and applies a park adjustment. The plus sign signals that the number has been placed on a 100-equals-average scale. wRC+ is the version you use for player evaluation."
+          "text": "wRC (no plus sign) is a counting stat that estimates the total number of runs a hitter contributed. More plate appearances mean more wRC regardless of rate. wRC+ converts that into a rate stat, normalizes it against league average, and applies a park adjustment. The plus sign signals that the number has been placed on a 100-equals-average scale. wRC+ is the version used for player evaluation."
         }
       },
       {
@@ -105,6 +113,22 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes. wRC+ applies a park factor adjustment that accounts for the run-scoring environment of a player's home ballpark. A .380 wOBA at Coors Field is a different achievement than a .380 wOBA at Petco Park, and wRC+ reflects that difference. This is one of the key advantages wRC+ has over raw wOBA."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a good OPS+ in baseball?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "OPS+ uses the same 100-equals-league-average scale as wRC+. An OPS+ of 120 means the hitter is 20% better than league average offensively. Elite seasons run 140 and above. An OPS+ of 80 or below is below average. The tiers are the same as wRC+ because both stats are designed to put league average at 100."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When does the difference between OPS+ and wRC+ actually matter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The two stats correlate at 0.992 across qualifying hitters, so they agree the vast majority of the time. The gap opens up most for high-walk, low-power hitters — OPS undervalues walks relative to wRC+, so those players look better under wRC+. Heavy ground-ball hitters with high batting averages and few walks can look better under OPS+. For average players in the middle of the distribution, you'll rarely see meaningful disagreement."
         }
       }
     ]
@@ -269,7 +293,28 @@
     .cta-btn { display: inline-block; background: var(--gold); color: var(--navy); font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.12em; padding: 0.65rem 2rem; border-radius: 3px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
     .cta-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
 
-    /* RELATED */
+    /* VERDICT TABLE */
+    .verdict-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-size: 0.9rem; }
+    .verdict-table thead tr { border-bottom: 2px solid var(--gold); }
+    .verdict-table th { padding: 0.6rem 1rem; text-align: left; color: var(--gold); font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.68rem; }
+    .verdict-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; line-height: 1.5; }
+    .verdict-table tr:last-child td { border-bottom: none; }
+    .verdict-table tr:hover td { background: var(--cream-dim); }
+    .verdict-table .winner { color: #90be6d; font-weight: 600; }
+    .verdict-table .loser { color: var(--text-muted); }
+    .verdict-table .tie { color: var(--text-muted); font-style: italic; }
+
+    /* PLAYER EXAMPLE */
+    .player-example { background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 6px; padding: 1.4rem 1.6rem; margin: 1.5rem 0; }
+    .player-example .ex-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.63rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.75rem; }
+    .player-example .ex-name { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--cream); margin-bottom: 0.5rem; }
+    .player-example .ex-stats { display: flex; gap: 2rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+    .player-example .ex-stat { font-family: 'IBM Plex Mono', monospace; }
+    .player-example .ex-stat-val { font-size: 1.4rem; color: var(--gold); line-height: 1; }
+    .player-example .ex-stat-label { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-top: 2px; }
+    .player-example .ex-note { font-size: 0.88rem; color: var(--text); line-height: 1.6; border-top: 1px solid var(--border); padding-top: 0.75rem; margin-top: 0.25rem; }
+
+    /* VERDICT SECTION */
     .related-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
     .related-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
     .related-links { list-style: none; }
@@ -293,10 +338,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <header class="article-header">
       <div class="article-label">Stats Explained</div>
-      <h1 class="article-title">wRC+ vs. OPS+: Which Stat Should You Trust?</h1>
-      <p class="article-dek">Both are park-adjusted and scaled to 100. Both are trying to answer the same question. The difference is in what they start from and that difference matters more than most people realize.</p>
+      <h1 class="article-title">OPS+ vs. wRC+: What's the Difference and Which One Should You Use?</h1>
+      <p class="article-dek">Both are park-adjusted and scaled to 100. Both are trying to answer the same question about offensive value. The difference is in what they start from, and that difference matters more than most people realize.</p>
       <div class="article-meta">
-        By <span>Pete Dwyer</span> &nbsp;|&nbsp; Updated <span>April 2026</span> &nbsp;|&nbsp; 9 min read
+        By <span>Pete Dwyer</span> &nbsp;|&nbsp; Updated <span>June 2026</span> &nbsp;|&nbsp; 9 min read
       </div>
     </header>
 
@@ -310,6 +355,64 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2>The Honest Version of This Comparison</h2>
       <p>There is a version of this article that hedges. One that says "every stat has its place" and wraps everything in so many qualifications that you walk away having learned nothing useful. That is not this article.</p>
       <p>wRC+ is the best single-number snapshot of a hitter's offensive value available to the public. Not perfect. Not the end of the conversation. But the best place to start one. Here is why, built from the math up.</p>
+
+      <h2>OPS+ vs. wRC+: Side-by-Side Verdict</h2>
+      <p>Before going into the mechanics, here is the direct comparison across every dimension that matters.</p>
+
+      <table class="verdict-table">
+        <thead>
+          <tr><th>Category</th><th>OPS+</th><th>wRC+</th><th>Edge</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Scaled to 100 as league average</td>
+            <td class="winner">Yes</td>
+            <td class="winner">Yes</td>
+            <td class="tie">Tie</td>
+          </tr>
+          <tr>
+            <td>Park-adjusted</td>
+            <td class="winner">Yes</td>
+            <td class="winner">Yes</td>
+            <td class="tie">Tie</td>
+          </tr>
+          <tr>
+            <td>Era-neutral</td>
+            <td class="winner">Yes</td>
+            <td class="winner">Yes</td>
+            <td class="tie">Tie</td>
+          </tr>
+          <tr>
+            <td>Weights OBP accurately vs. SLG</td>
+            <td class="loser">No — treats them as equal</td>
+            <td class="winner">Yes — uses linear run weights</td>
+            <td class="winner">wRC+</td>
+          </tr>
+          <tr>
+            <td>Accurately values doubles, triples, HR</td>
+            <td class="loser">No — uses total base ratios</td>
+            <td class="winner">Yes — empirical run values</td>
+            <td class="winner">wRC+</td>
+          </tr>
+          <tr>
+            <td>Walk valuation</td>
+            <td class="loser">Undervalued vs. SLG</td>
+            <td class="winner">~0.69 run value, correctly weighted</td>
+            <td class="winner">wRC+</td>
+          </tr>
+          <tr>
+            <td>Correlation with each other</td>
+            <td colspan="2" style="text-align:center; color: var(--text-muted); font-style:italic;">0.992 — they agree almost always</td>
+            <td class="tie">Tie</td>
+          </tr>
+          <tr>
+            <td>Preferred by analysts</td>
+            <td class="loser">Legacy use, historical context</td>
+            <td class="winner">Modern standard</td>
+            <td class="winner">wRC+</td>
+          </tr>
+        </tbody>
+      </table>
 
       <h2>wOBA: The Foundation Under wRC+</h2>
       <p>To trust wRC+, you need to understand what it is built on. <strong>wOBA (Weighted On-Base Average)</strong> assigns empirically derived run values to every way of reaching base. Not total bases. Not a simple on-base or slugging split. Actual historical run-probability weights, recalibrated every season from play-by-play data.</p>
@@ -400,7 +503,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <cite>The Baseball Nerd</cite>
       </div>
 
-      <h2>How Often Do They Actually Disagree?</h2>
+      <h2>Real Examples: When OPS+ and wRC+ Tell Different Stories</h2>
+      <p>The 0.992 correlation is real, but that last 0.008 is where the argument lives. High-walk hitters and contact-first ground ball hitters are where the two stats diverge most. Here are the types of seasons where it shows up.</p>
+
+      <div class="player-example">
+        <div class="ex-label">Case 1: The High-Walk, Moderate-Power Hitter</div>
+        <div class="ex-name">A hitter posting .265 AVG / .390 OBP / .430 SLG</div>
+        <div class="ex-stats">
+          <div class="ex-stat"><div class="ex-stat-val">118</div><div class="ex-stat-label">OPS+</div></div>
+          <div class="ex-stat"><div class="ex-stat-val">124</div><div class="ex-stat-label">wRC+</div></div>
+          <div class="ex-stat"><div class="ex-stat-val">.390</div><div class="ex-stat-label">OBP</div></div>
+        </div>
+        <div class="ex-note">OPS treats that .390 OBP as equal weight to the .430 SLG. wRC+ recognizes a .390 OBP is generating significant run value through walks and on-base skill that OPS's structure underweights. The 6-point gap here is meaningful in a close evaluation.</div>
+      </div>
+
+      <div class="player-example">
+        <div class="ex-label">Case 2: The High-Average, Low-Walk Contact Hitter</div>
+        <div class="ex-name">A hitter posting .305 AVG / .335 OBP / .470 SLG</div>
+        <div class="ex-stats">
+          <div class="ex-stat"><div class="ex-stat-val">122</div><div class="ex-stat-label">OPS+</div></div>
+          <div class="ex-stat"><div class="ex-stat-val">117</div><div class="ex-stat-label">wRC+</div></div>
+          <div class="ex-stat"><div class="ex-stat-val">.335</div><div class="ex-stat-label">OBP</div></div>
+        </div>
+        <div class="ex-note">Here OPS+ actually flatters the hitter. The high slugging carries OPS, but the below-average walk rate means the run-creation is less efficient than it looks. wRC+ applies the real run values and arrives at a lower, more accurate number.</div>
+      </div>
+
+      <p>Neither 5-point gap changes the roster conversation for most players. But in close arbitration cases, trade evaluations, or MVP debates at the margin, they do. And wRC+ is the one with the more rigorous foundation.</p>
       <p>Here is the honest part: in practice, they agree most of the time.</p>
 
       <div class="stat-callout">
@@ -427,7 +555,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h2>Frequently Asked Questions</h2>
 
         <div class="faq-item">
-          <p class="faq-q">What is the difference between wRC+ and OPS+?</p>
+          <p class="faq-q">What is the difference between OPS+ and wRC+?</p>
           <p class="faq-a">Both are park-adjusted and scaled to 100 as league average. wRC+ starts from wOBA, which uses empirically derived linear run weights. OPS+ starts from OPS, which adds on-base percentage and slugging as equals despite OBP being worth more in run-production terms. wRC+ is more precisely built.</p>
         </div>
 
@@ -449,6 +577,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="faq-item">
           <p class="faq-q">Is wRC+ available for minor league players?</p>
           <p class="faq-a">Yes, FanGraphs publishes wRC+ for MiLB players. Minor league wRC+ requires extra caution because park factors are less reliable with smaller sample sizes and run environments vary more across levels. Age-relative wRC+ is particularly useful in prospect evaluation. A 22-year-old posting 130 wRC+ in Double-A is a very different signal than a 27-year-old doing the same.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">What is a good OPS+ in baseball?</p>
+          <p class="faq-a">OPS+ uses the same 100-equals-league-average scale as wRC+. An OPS+ of 120 means 20% better than league average. Elite seasons run 140 and above. An OPS+ of 80 or below is below average. The tiers align closely with wRC+ because both stats are designed around the same 100-average baseline.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">When does the difference between OPS+ and wRC+ actually matter?</p>
+          <p class="faq-a">The two stats correlate at 0.992, so they agree the vast majority of the time. The gap opens up most for high-walk, low-power hitters — OPS undervalues walks relative to wRC+. Heavy ground-ball hitters with high batting averages and few walks can look better under OPS+. For average players in the middle of the distribution, you'll rarely see meaningful disagreement.</p>
         </div>
       </section>
 
