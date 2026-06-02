@@ -99,11 +99,7 @@ footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;j
 <div id="static-recap-index" style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true"></div>
 
 <div class="wrap">
-  <div class="filter-row">
-    <button class="filter-btn active" onclick="filterRecaps('all',this)">All Games</button>
-    <button class="filter-btn" onclick="filterRecaps('win',this)">Wins</button>
-    <button class="filter-btn" onclick="filterRecaps('loss',this)">Losses</button>
-  </div>
+
   <div class="recaps-grid" id="recaps-grid"></div>
 </div>
 
@@ -183,8 +179,6 @@ function buildStaticIndex(){
   }).join('') + '</ul>';
 }
 
-let activeFilter = 'all';
-
 function filterRecaps(f, btn){
   activeFilter = f;
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -213,10 +207,10 @@ function renderRecaps(){
     const scoreDisplay = r.score || r.away_runs + '-' + r.home_runs;
     const recordDisplay = r.record || '';
     return `<a class="recap-card" href="recap.html?id=${r.id}" aria-label="${fullMatchup} recap, ${r.date}, ${scoreDisplay}">
-      <div class="result-badge ${r.result}">${r.result === 'win' ? 'W' : 'L'}</div>
+
       <div class="recap-date"><time datetime="${r.date}">${r.date}</time></div>
       <h2 class="recap-matchup">${awayShort} at ${homeShort}</h2>
-      <div class="recap-score"><span class="${r.result === 'win' ? 'rw' : 'rl'}">${r.result === 'win' ? 'W' : 'L'}</span>&nbsp;${scoreDisplay}${recordDisplay ? '&nbsp;·&nbsp;' + recordDisplay : ''}</div>
+      <div class="recap-score">${scoreDisplay}</div>
       <p class="recap-preview">${r.preview}</p>
       <div class="recap-read">Read recap →</div>
     </a>`;
