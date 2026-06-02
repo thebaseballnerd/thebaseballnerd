@@ -23,6 +23,170 @@
  */
 
 const RECAPS = [
+// AUTO-GENERATED: 2026-06-01
+{
+  id:"2026-06-01-rangers-at-cardinals",
+  date:"2026-06-01",
+  awayTeam:"Texas Rangers",
+  homeTeam:"St. Louis Cardinals",
+  away_runs:2,
+  home_runs:1,
+  result:"loss",
+  score:"Texas Rangers 2, St. Louis Cardinals 1",
+  winner:"Jacob deGrom",
+  loser:"Michael McGreevy",
+  save:"Jacob Latz",
+  gamePk:823050,
+  preview:"Jacob deGrom dominated through five innings at Busch Stadium, striking out eight Cardinals while allowing just four hits. The Rangers ace looked sharp in his return to form, workin",
+  body:`Jacob deGrom dominated through five innings at Busch Stadium, striking out eight Cardinals while allowing just four hits. The Rangers ace looked sharp in his return to form, working efficiently through a St. Louis lineup that managed only scattered singles against him. Michael McGreevy matched zeros early for the Cardinals, but the Rangers broke through in the fourth when Brandon Nimmo reached base and scored on Ezequiel Duran's line drive double to left field. Duran, who finished 3-4 on the night, provided the spark Texas needed to crack McGreevy's solid effort.
+
+The Rangers extended their lead in the fifth when Danny Jansen reached base and eventually scored on Joc Pederson's ground ball single to center field, pushing Nicky Lopez to third in the process. McGreevy settled in after allowing those two runs, finishing six innings with five hits allowed and two walks, but the early damage proved costly. The Cardinals finally answered in the sixth when Masyn Winn took Peyton Gray deep to left field for his second homer of the season, cutting the deficit to 2-1. That lone run represented St. Louis's only breakthrough against a Rangers bullpen that shut the door completely. Tyler Alexander, Jakob Junis, and Jacob Latz each contributed scoreless innings, with Latz earning the save by striking out two in a clean ninth inning to secure the 2-1 victory.`
+},
+{
+  id:"2026-06-01-sox-at-twins",
+  date:"2026-06-01",
+  awayTeam:"Chicago White Sox",
+  homeTeam:"Minnesota Twins",
+  away_runs:6,
+  home_runs:9,
+  result:"win",
+  score:"Chicago White Sox 6, Minnesota Twins 9",
+  winner:"Joe Ryan",
+  loser:"David Sandlin",
+  save:"",
+  gamePk:823702,
+  preview:"The fifth inning turned into a bloodbath that decided everything. What started as a tight 5-4 game became a rout when Tyler Davis couldn't find the strike zone or get anybody out.",
+  body:`The fifth inning turned into a bloodbath that decided everything. What started as a tight 5-4 game became a rout when Tyler Davis couldn't find the strike zone or get anybody out. Austin Martin singled home Kody Clemens. Victor Caratini drove in Josh Bell with another single. Luke Keaschall lifted a sacrifice fly to score Trevor Larnach. Tristan Gray added a sacrifice fly in foul territory to bring home Austin Martin. Four runs crossed the plate, and suddenly the Twins led 9-4 in a game that had been close all afternoon.
+
+The White Sox had fought back from early trouble to make it interesting. David Sandlin gave up Tristan Gray's grand slam in the fourth inning after Trevor Larnach's RBI single in the first, but Chicago answered with power. Miguel Vargas launched a two-run homer in the fifth, his 14th of the year. Andrew Benintendi followed with a solo shot for his fifth. When the ninth inning arrived, Vargas tried one more time with a two-run blast off Travis Adams, his 15th of the season, but the hole was too deep. Joe Ryan earned the win despite allowing four earned runs in six innings, striking out nine White Sox hitters while walking none. The Twins took this one 9-6 at Target Field.`
+},
+{
+  id:"2026-06-01-rockies-at-angels",
+  date:"2026-06-01",
+  awayTeam:"Colorado Rockies",
+  homeTeam:"Los Angeles Angels",
+  away_runs:9,
+  home_runs:8,
+  result:"loss",
+  score:"Colorado Rockies 9, Los Angeles Angels 8",
+  winner:"Antonio Senzatela",
+  loser:"Kirby Yates",
+  save:"",
+  gamePk:824027,
+  preview:"The eighth inning belonged to Colorado. Down 6-3 entering the frame, the Rockies erupted for five runs against Angels reliever José Fermin, turning a comfortable Los Angeles lead i",
+  body:`The eighth inning belonged to Colorado. Down 6-3 entering the frame, the Rockies erupted for five runs against Angels reliever José Fermin, turning a comfortable Los Angeles lead into an 8-6 advantage. Kyle Karros started the rally with a double that scored Sterlin Thompson, then Tyler Freeman singled home Karros to cut the deficit to one. Hunter Goodman delivered the knockout punch, launching his 14th home run to left field that brought home Jake McCarthy and Freeman for a three-run blast that stunned the 27,165 fans at Angel Stadium.
+
+The Angels had controlled this game after Jose Siri's grand slam in the third inning gave them a 5-2 lead, erasing an early Colorado advantage built on Troy Johnston's RBI single and McCarthy's solo homer. But Colorado's eighth-inning explosion proved too much to overcome, even after Jorge Soler's clutch triple in the bottom half scored Adam Frazier and Donovan Walton to tie the game at eight. TJ Rumfield provided the final blow in the ninth with a sacrifice fly off Kirby Yates that scored Kyle Karros for the decisive run. Antonio Senzatela earned the win despite allowing two runs in the eighth, while Kyle Freeland had struggled earlier for Colorado, surrendering five earned runs including Siri's grand slam. The victory capped a wild back-and-forth affair that saw both teams collect 10 hits but with Colorado capitalizing when it mattered most.`
+},
+{
+  id:"2026-06-01-tigers-at-rays",
+  date:"2026-06-01",
+  awayTeam:"Detroit Tigers",
+  homeTeam:"Tampa Bay Rays",
+  away_runs:10,
+  home_runs:9,
+  result:"loss",
+  score:"Detroit Tigers 10, Tampa Bay Rays 9",
+  winner:"Tyler Holton",
+  loser:"Griffin Jax",
+  save:"Will Vest",
+  gamePk:822974,
+  preview:"The Tigers turned Tropicana Field into their personal launch pad, smashing six home runs in a wild 10-9 victory that saw 19 runs fly around the dome. Dillon Dingler demolished Tamp",
+  body:`The Tigers turned Tropicana Field into their personal launch pad, smashing six home runs in a wild 10-9 victory that saw 19 runs fly around the dome. Dillon Dingler demolished Tampa Bay pitching with two home runs and four RBI, going 4-for-5 in a performance that anchored Detroit's 14-hit attack. Riley Greene and Kerry Carpenter each added solo shots in a brutal third inning that chased Griffin Jax after he surrendered six runs on seven hits through four innings. The Tigers scored in five different innings, building leads only to watch Tampa Bay claw back each time.
+
+What looked like a Detroit runaway became a genuine thriller when the Rays exploded for four runs in the eighth inning to make it 10-9. Junior Caminero's two-run homer off Ty Madden in the fourth started Tampa Bay's comeback, followed by Ryan Vilade's three-run blast off Brenan Hanifee in the sixth. The decisive eighth saw Nick Fortes drive in two with a double off Will Vest, then Ben Williamson plate two more on a single that deflected off Spencer Torkelson. But Vest settled down to strand the tying run, earning the save after Tyler Holton picked up the win in relief. The 13,695 fans witnessed a slugfest where Detroit's power barrage barely held off Tampa Bay's late surge.`
+},
+{
+  id:"2026-06-01-royals-at-reds",
+  date:"2026-06-01",
+  awayTeam:"Kansas City Royals",
+  homeTeam:"Cincinnati Reds",
+  away_runs:9,
+  home_runs:2,
+  result:"loss",
+  score:"Kansas City Royals 9, Cincinnati Reds 2",
+  winner:"Luinder Avila",
+  loser:"Lyon Richardson",
+  save:"",
+  gamePk:824510,
+  preview:"Lane Thomas demolished the Cincinnati Reds before most fans had settled into their seats at Great American Ball Park. With runners on every base in the first inning, Thomas launche",
+  body:`Lane Thomas demolished the Cincinnati Reds before most fans had settled into their seats at Great American Ball Park. With runners on every base in the first inning, Thomas launched a grand slam off Lyon Richardson to left center field, scoring Carter Jensen, Bobby Witt Jr., and Jac Caglianone for an instant 4-0 Kansas City lead. JJ Bleday answered immediately with a solo homer off Luinder Avila in the bottom half, but that would be all the fight Cincinnati could muster against a relentless Royals offense that collected 13 hits in a 9-2 rout.
+
+The Reds turned to Brandon Leibrandt after Richardson's disastrous opening frame, but he absorbed the brunt of Kansas City's continued assault over six innings of work. Caglianone crushed a two-run homer in the fifth, Vinnie Pasquantino drove in Nick Loftin with a single in the sixth, and Michael Massey added a solo blast in the seventh, all off Leibrandt's offerings. Nick Loftin capped Thomas's four-RBI night with a sacrifice fly that scored Thomas in the ninth before Matt McLain provided Cincinnati's only other bright spot with an RBI double that scored Edwin Arroyo. Avila earned the victory despite allowing Bleday's early homer, working five innings while striking out five, as the Royals cruised to victory in front of 19,409 fans on a pleasant 74-degree evening.`
+},
+{
+  id:"2026-06-01-dodgers-at-diamondbacks",
+  date:"2026-06-01",
+  awayTeam:"Los Angeles Dodgers",
+  homeTeam:"Arizona Diamondbacks",
+  away_runs:1,
+  home_runs:4,
+  result:"win",
+  score:"Los Angeles Dodgers 1, Arizona Diamondbacks 4",
+  winner:"Taylor Clarke",
+  loser:"Emmet Sheehan",
+  save:"Paul Sewald",
+  gamePk:825078,
+  preview:"The Dodgers carried a 1-0 lead into the sixth inning at Chase Field, built on Shohei Ohtani's scoring run in the third when Freddie Freeman grounded out to drive him home against E",
+  body:`The Dodgers carried a 1-0 lead into the sixth inning at Chase Field, built on Shohei Ohtani's scoring run in the third when Freddie Freeman grounded out to drive him home against Eduardo Rodriguez. Ohtani had collected three hits in four at-bats, providing the offensive spark Los Angeles needed. Emmet Sheehan cruised through the early innings, allowing just three hits through six-plus frames while striking out three without issuing a walk. The young pitcher looked poised to carry the Dodgers to victory until the Diamondbacks found their power stroke.
+
+Tommy Troy changed everything with one swing in the sixth, launching his first career home run to left field off Sheehan to tie the game 1-1. An inning later, Nolan Arenado followed with his eighth homer of the season, a fly ball to left center that gave Arizona a 2-1 advantage. Sheehan's night ended after 6.1 innings, having surrendered both runs on solo shots. The Diamondbacks delivered the knockout blow in the eighth against Jack Dreyer when Ketel Marte lined his tenth home run of the year to left field, scoring Tommy Troy ahead of him for a 4-1 lead. Taylor Clarke earned the win with a perfect inning, striking out two, while Paul Sewald locked down the save in the ninth to complete Arizona's comeback victory before 31,410 fans under the closed roof.`
+},
+{
+  id:"2026-06-01-marlins-at-nationals",
+  date:"2026-06-01",
+  awayTeam:"Miami Marlins",
+  homeTeam:"Washington Nationals",
+  away_runs:7,
+  home_runs:3,
+  result:"loss",
+  score:"Miami Marlins 7, Washington Nationals 3",
+  winner:"Sandy Alcantara",
+  loser:"Richard Lovelady",
+  save:"",
+  gamePk:822730,
+  preview:"The Nationals held a 3-1 lead through five innings at Nationals Park, but their bullpen collapsed in spectacular fashion as the Marlins stormed back for a 7-3 victory. Cade Cavalli",
+  body:`The Nationals held a 3-1 lead through five innings at Nationals Park, but their bullpen collapsed in spectacular fashion as the Marlins stormed back for a 7-3 victory. Cade Cavalli had worked through five innings despite some early trouble, surrendering just one run on five hits while striking out six. The home team looked positioned to steal a win after Jacob Young's two-run homer in the second and Curtis Mead's RBI single in the third had given them the advantage. But Richard Lovelady entered in the sixth and immediately unraveled, allowing two runs while recording just two outs as Miami flipped the script.
+
+Lovelady's brief but disastrous outing proved the turning point. Heriberto Hernández launched a two-run homer to tie the game at 3-3, then Connor Norby followed with an RBI double that put the Marlins ahead for good. Sandy Alcantara had steadied after his early struggles, working seven strong innings and keeping Washington's offense quiet after the third inning. The ninth inning became a rout when Cole Henry took the mound and surrendered three more runs. Liam Hicks opened the frame with a solo homer, then Kyle Stowers capped the scoring with a two-run blast to right center that made it 7-3. Otto Lopez reached base four times for Miami, going 3-for-4 with a walk, as the Marlins collected 10 hits and turned a two-run deficit into a four-run victory.`
+},
+{
+  id:"2026-06-01-mets-at-mariners",
+  date:"2026-06-01",
+  awayTeam:"New York Mets",
+  homeTeam:"Seattle Mariners",
+  away_runs:2,
+  home_runs:3,
+  result:"win",
+  score:"New York Mets 2, Seattle Mariners 3",
+  winner:"Gabe Speier",
+  loser:"A.J. Minter",
+  save:"",
+  gamePk:823131,
+  preview:"Home runs decided everything in a pitchers' duel that stretched to extra innings at T-Mobile Park. The Mariners walked off with a 3-2 victory on Cole Young's soft line drive single",
+  body:`Home runs decided everything in a pitchers' duel that stretched to extra innings at T-Mobile Park. The Mariners walked off with a 3-2 victory on Cole Young's soft line drive single to left field in the 10th inning, scoring Randy Arozarena and capping a game where both teams managed just six hits combined. Four of the five runs came via the long ball, with lead changes in the fifth, sixth, and seventh innings before Seattle finally broke through against A.J. Minter.
+
+Colt Emerson's third-inning homer off Sean Manaea gave the Mariners the early advantage, but the Mets answered with back-to-back solo shots from Jared Young and Marcus Semien in the fifth and sixth innings off Emerson Hancock. Josh Naylor's sixth home run of the season tied it at 2-2 in the seventh, taking Brooks Raley deep to right field. From there, both bullpens locked down, with Seattle's Gabe Speier working a perfect 10th inning with two strikeouts to earn the win after Minter couldn't escape the bottom of the frame. The 23,037 fans witnessed a classic pitcher-friendly affair where Hancock struck out seven over six innings and Manaea allowed just one hit through five frames before the late-inning fireworks.`
+},
+{
+  id:"2026-06-01-giants-at-brewers",
+  date:"2026-06-01",
+  awayTeam:"San Francisco Giants",
+  homeTeam:"Milwaukee Brewers",
+  away_runs:2,
+  home_runs:16,
+  result:"win",
+  score:"San Francisco Giants 2, Milwaukee Brewers 16",
+  winner:"Chad Patrick",
+  loser:"Landen Roupp",
+  save:"",
+  gamePk:823781,
+  preview:"Matt Chapman's two-run homer in the second inning gave the Giants a brief 2-0 lead, but what followed was a complete meltdown that turned American Family Field into a launching pad",
+  body:`Matt Chapman's two-run homer in the second inning gave the Giants a brief 2-0 lead, but what followed was a complete meltdown that turned American Family Field into a launching pad for Milwaukee offense. Landen Roupp surrendered seven runs in that same second inning, watching helplessly as the Brewers sent 10 batters to the plate. Sal Frelick doubled home Jake Bauers to start the rally, Luis Rengifo singled home the tying run, then Jackson Chourio doubled home two more to give Milwaukee the lead for good. Brice Turang capped the explosion with a triple that scored two, and William Contreras added a sacrifice fly to make it 7-2 after two innings.
+
+The Giants never recovered from that second-inning disaster, managing just three more hits over the final seven innings while Milwaukee poured on 9 more runs. Roupp allowed one more run in the fourth before departing, but the parade of Giants relievers offered no relief. Wilkin Ramos gave up two runs in the sixth on an Andrew Vaughn single that scored two thanks to a Jung Hoo Lee error. Matt Gage surrendered two more in the seventh, and Buddy Kennedy was tagged for four runs in the eighth as the Brewers reached 16 runs. Christian Yelich collected three hits and two RBI to lead Milwaukee's 18-hit attack, while the Giants managed just five hits in the 16-2 demolition that saw Chad Patrick earn the win and Roupp take the loss.`
+},
+
 // AUTO-GENERATED: 2026-05-31
 {
   id:"2026-05-31-royals-at-rangers",
