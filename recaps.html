@@ -198,7 +198,7 @@ function getMatchup(r){
 }
 
 function renderRecaps(){
-  const list = activeFilter === 'all' ? RECAPS : RECAPS.filter(r => r.result === activeFilter);
+  const list = RECAPS;
   document.getElementById('recaps-grid').innerHTML = list.map(r => {
     const m = getMatchup(r);
     const awayShort = m.away.split(' ').pop();
