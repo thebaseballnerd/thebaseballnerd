@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y0H5FZ8RP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2Y0H5FZ8RP');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/favicon.png">
+<title>The Complete Baseball Analytics Glossary — OPS to WAR | The Baseball Nerd</title>
+<meta name="description" content="A free, tiered baseball analytics glossary. OPS, Total Bases, wOBA, wRC+, WAR, Bases Gained, and the 2026 ABS Challenge explained from the ground up across four skill tiers.">
+<meta name="author" content="Pete Dwyer">
+<link rel="canonical" href="https://thebaseballnerd.com/glossary.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Complete Baseball Analytics Glossary">
+<meta property="og:description" content="Every stat you need to understand the game, from OPS to WAR to Bases Gained. Four skill tiers, free for all subscribers.">
+<meta property="og:url" content="https://thebaseballnerd.com/glossary.html">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "The Complete Baseball Analytics Glossary",
+  "description": "A free, tiered baseball analytics glossary covering OPS, Total Bases, wOBA, wRC+, WAR, Bases Gained, and the 2026 ABS Challenge system.",
+  "url": "https://thebaseballnerd.com/glossary.html",
+  "author": {"@type": "Person", "name": "Pete Dwyer"},
+  "publisher": {"@type": "Organization", "name": "The Baseball Nerd", "url": "https://thebaseballnerd.com"},
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": 11,
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "What is OPS in Baseball?", "url": "https://thebaseballnerd.com/articles/what-is-ops-in-baseball.html"},
+      {"@type": "ListItem", "position": 2, "name": "What Are Total Bases in Baseball?", "url": "https://thebaseballnerd.substack.com/p/what-are-total-bases-in-baseball"},
+      {"@type": "ListItem", "position": 3, "name": "What is wOBA in Baseball?", "url": "https://thebaseballnerd.com/articles/what-is-woba-in-baseball.html"},
+      {"@type": "ListItem", "position": 4, "name": "What is wRC+ in Baseball?", "url": "https://thebaseballnerd.com/articles/what-is-wrc-plus-in-baseball.html"},
+      {"@type": "ListItem", "position": 5, "name": "wRC+ vs OPS+", "url": "https://thebaseballnerd.com/articles/ops-plus-vs-wrc-plus.html"},
+      {"@type": "ListItem", "position": 6, "name": "The wRC+ Quick Reference Sheet", "url": "https://thebaseballnerd.substack.com/p/the-wrc-quick-reference-sheet-every"},
+      {"@type": "ListItem", "position": 7, "name": "What is WAR in Baseball?", "url": "https://thebaseballnerd.com/articles/what-is-war-in-baseball.html"},
+      {"@type": "ListItem", "position": 8, "name": "Understanding WAR: The Casual Fan's Complete Guide", "url": "https://thebaseballnerd.substack.com/p/understanding-war-the-casual-fans"},
+      {"@type": "ListItem", "position": 9, "name": "Introducing Bases Gained", "url": "https://thebaseballnerd.com/articles/bases-gained.html"},
+      {"@type": "ListItem", "position": 10, "name": "Bases Gained: The Full Formula and 2026 Leaderboard", "url": "https://thebaseballnerd.substack.com/p/what-a-hitter-actually-did"},
+      {"@type": "ListItem", "position": 11, "name": "MLB ABS Challenge Rules 2026", "url": "https://thebaseballnerd.substack.com/p/mlb-abs-challenge-rules-2026-the"}
+    ]
+  }
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--navy:#0a1628;--navy-mid:#112040;--navy-light:#1a2f50;--gold:#c9a84c;--gold-light:#e8c97a;--cream:#f5f0e8;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--cream);min-height:100vh;line-height:1.7;}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 2rem;background:rgba(10,22,40,0.97);border-bottom:1px solid rgba(201,168,76,0.15);position:sticky;top:0;z-index:100;}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.08em;color:var(--gold);text-decoration:none;}
+.nav-logo span{color:var(--cream);opacity:0.45;}
+.nav-links{display:flex;gap:0;list-style:none;}
+.nav-links a{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.45;text-decoration:none;padding:0.4rem 0.9rem;display:block;transition:opacity 0.15s,color 0.15s;}
+.nav-links a:hover{opacity:1;color:var(--gold);}
+.nav-links a.active{opacity:1;color:var(--gold);border-bottom:1px solid var(--gold);}
+.nav-cta{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1rem;background:var(--gold);color:var(--navy);border:none;cursor:pointer;font-weight:500;text-decoration:none;transition:background 0.2s;}
+.nav-cta:hover{background:var(--gold-light);}
+
+/* HERO */
+.gl-hero-wrap{border-bottom:1px solid rgba(201,168,76,0.08);background:linear-gradient(135deg,var(--navy) 0%,#0f1e38 100%);}
+.gl-hero{max-width:820px;margin:0 auto;padding:3rem 2rem 2.5rem;}
+.gl-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;display:flex;align-items:center;gap:0.5rem;}
+.gl-eyebrow::before{content:'';display:inline-block;width:1.4rem;height:1px;background:var(--gold);}
+.gl-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,7vw,4.6rem);letter-spacing:0.03em;color:var(--cream);line-height:0.95;}
+.gl-title .gold{color:var(--gold);}
+.gl-sub{font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(1.05rem,2.4vw,1.45rem);color:var(--cream);opacity:0.85;margin-top:0.6rem;max-width:560px;}
+.gl-meta{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.4;margin-top:1rem;}
+
+.wrap{max-width:820px;margin:0 auto;padding:2.5rem 2rem 5rem;}
+
+/* HOW TO USE */
+.howto{background:rgba(201,168,76,0.06);border-left:3px solid var(--gold);padding:1.1rem 1.4rem;margin-bottom:2.5rem;}
+.howto .lab{font-family:'IBM Plex Mono',monospace;font-size:0.56rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:0.45rem;}
+.howto p{font-size:0.9rem;color:var(--cream);opacity:0.8;margin:0;}
+
+/* TIERS */
+.tier{margin-bottom:2.8rem;}
+.tier-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);opacity:0.6;margin-bottom:0.3rem;}
+.tier-name{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.03em;color:var(--cream);line-height:1;}
+.tier-intro{font-size:0.92rem;color:var(--cream);opacity:0.6;margin:0.6rem 0 1.3rem;line-height:1.7;}
+
+/* ENTRY CARDS */
+.entry{display:block;background:var(--navy-mid);border:1px solid rgba(201,168,76,0.1);padding:1.2rem 1.4rem;margin-bottom:0.8rem;text-decoration:none;color:inherit;position:relative;transition:border-color 0.2s,transform 0.15s;overflow:hidden;}
+.entry::after{content:'';position:absolute;top:0;left:0;width:2px;height:0;background:var(--gold);transition:height 0.3s;}
+.entry:hover{border-color:rgba(201,168,76,0.4);transform:translateY(-2px);}
+.entry:hover::after{height:100%;}
+.entry-top{display:flex;align-items:flex-start;gap:0.9rem;}
+.entry-num{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--gold);opacity:0.55;line-height:1;flex-shrink:0;min-width:1.9rem;}
+.entry-main{flex:1;}
+.entry-head{display:flex;align-items:baseline;justify-content:space-between;gap:0.8rem;flex-wrap:wrap;}
+.entry-title{font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--cream);line-height:1.3;margin-bottom:0.35rem;}
+.entry-src{font-family:'IBM Plex Mono',monospace;font-size:0.5rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.18rem 0.5rem;border:1px solid rgba(201,168,76,0.25);color:var(--gold);opacity:0.7;white-space:nowrap;flex-shrink:0;}
+.entry-desc{font-size:0.83rem;color:var(--cream);opacity:0.5;line-height:1.65;margin-bottom:0.6rem;}
+.entry-read{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.75;}
+
+/* CTA */
+.gl-cta{background:linear-gradient(135deg,var(--navy-mid) 0%,#0f1e38 100%);border:1px solid rgba(201,168,76,0.25);padding:2.2rem 2rem;text-align:center;margin-top:1.5rem;}
+.gl-cta .lab{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);opacity:0.7;margin-bottom:0.5rem;}
+.gl-cta h3{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:var(--cream);margin:0 0 0.5rem;letter-spacing:0.02em;}
+.gl-cta .ctap{font-size:0.9rem;opacity:0.65;max-width:500px;margin:0 auto 1.4rem;color:var(--cream);}
+.suite-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.12);margin:0 auto 1.5rem;max-width:520px;}
+.suite-cell{background:var(--navy);padding:1.1rem;}
+.suite-name{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--gold);letter-spacing:0.04em;}
+.suite-desc{font-size:0.78rem;color:var(--cream);opacity:0.55;margin-top:0.3rem;line-height:1.55;}
+.btn-primary{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.8rem 1.8rem;background:var(--gold);color:var(--navy);border:none;cursor:pointer;text-decoration:none;font-weight:600;transition:background 0.2s;display:inline-block;}
+.btn-primary:hover{background:var(--gold-light);}
+@media(max-width:560px){.suite-row{grid-template-columns:1fr;}}
+
+/* FOOTER */
+footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(201,168,76,0.06);}
+.foot-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--gold);}
+.foot-logo span{color:var(--cream);opacity:0.3;}
+.foot-copy{font-family:'IBM Plex Mono',monospace;font-size:0.57rem;letter-spacing:0.08em;color:var(--cream);opacity:0.18;text-transform:uppercase;}
+.foot-links{display:flex;gap:1.25rem;list-style:none;}
+.foot-links a{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.28;text-decoration:none;transition:opacity 0.2s;}
+.foot-links a:hover{opacity:0.75;}
+@media(max-width:700px){.nav-links{display:none;}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">The Baseball <span>Nerd</span></a>
+  <ul class="nav-links">
+    <li><a href="news.html">News</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="recaps.html">Recaps</a></li>
+    <li><a href="rosters.html">Rosters</a></li>
+    <li><a href="podcasts.html">Podcasts</a></li>
+    <li><a href="vault.html" class="active">Vault</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a class="nav-cta" href="https://thebaseballnerd.substack.com/" target="_blank">Subscribe →</a>
+</nav>
+
+<div class="gl-hero-wrap">
+  <div class="gl-hero">
+    <div class="gl-eyebrow">The Spreadsheet Library · Free Guide</div>
+    <div class="gl-title">The Complete Baseball <span class="gold">Analytics Glossary</span></div>
+    <div class="gl-sub">From OPS to WAR to Bases Gained, every stat you need to understand the game.</div>
+    <div class="gl-meta">11 Articles · 4 Skill Tiers · Free for All Subscribers</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="howto">
+    <div class="lab">How to use this guide</div>
+    <p>Read straight through for a complete analytics education, or jump to the tier that matches where you are. Each article links to the full piece, on The Baseball Nerd or on Substack.</p>
+  </div>
+
+  <!-- TIER 1 -->
+  <section class="tier">
+    <div class="tier-eyebrow">Tier 1 of 4</div>
+    <div class="tier-name">The Counting Stats</div>
+    <p class="tier-intro">These are the numbers on every scoreboard. Before you can understand why the advanced metrics exist, you need to know exactly what the traditional ones count, and where they stop.</p>
+
+    <a class="entry" href="https://thebaseballnerd.com/articles/what-is-ops-in-baseball.html">
+      <div class="entry-top">
+        <div class="entry-num">01</div>
+        <div class="entry-main">
+          <div class="entry-head"><div class="entry-title">What is OPS in Baseball? The Complete Explanation</div><span class="entry-src">On TBN</span></div>
+          <div class="entry-desc">OPS stands for On-base Plus Slugging. It is the most widely used advanced hitting stat in mainstream coverage, and it has a structural flaw that matters more the closer you look. Covers the formula, the benchmarks, and exactly where OPS stops telling the truth.</div>
+          <div class="entry-read">Read the full article →</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="entry" href="https://thebaseballnerd.substack.com/p/what-are-total-bases-in-baseball" target="_blank" rel="noopener">
+      <div class="entry-top">
+        <div class="entry-num">02</div>
+        <div class="entry-main">
+          <div class="entry-head"><div class="entry-title">What Are Total Bases in Baseball? The Complete Explanation</div><span class="entry-src">On Substack</span></div>
+          <div class="entry-desc">One of the oldest power metrics in baseball. Total Bases counts what happened at the plate. It does not count what happened after. A double that scores two runs and a double that leaves a runner stranded are worth exactly the same thing here.</div>
+          <div class="entry-read">Read the full article →</div>
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <!-- TIER 2 -->
+  <section class="tier">
+    <div class="tier-eyebrow">Tier 2 of 4</div>
+    <div class="tier-name">The Context Stats</div>
+    <p class="tier-intro">OPS tells you what happened. These stats tell you what it meant, adjusted for ballpark, league era, and run environment. wOBA and wRC+ see through conditions that fool the traditional numbers.</p>
+
+    <a class="entry" href="https://thebaseballnerd.com/articles/what-is-woba-in-baseball.html">
+      <div class="entry-top">
+        <div class="entry-num">03</div>
+        <div class="entry-main">
+          <div class="entry-head"><div class="entry-title">What is wOBA in Baseball?</div><span class="entry-src">On TBN</span></div>
+          <div class="entry-desc">Weighted On-Base Average assigns empirically derived run values to every way of reaching base. wOBA is the foundation under wRC+. Understanding it first makes everything else in Tier 2 click faster.</div>
+          <div class="entry-read">Read the full article →</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="entry" href="https://thebaseballnerd.com/articles/what-is-wrc-plus-in-baseball.html">
+      <div class="entry-top">
+        <div class="entry-num">04</div>
+        <div class="entry-main">
+          <div class="entry-head"><div class="entry-title">What is wRC+ in Baseball? The Stat That Actually Tells You Who Can Hit</div><span class="entry-src">On TBN</span></div>
+          <div class="entry-desc">wRC+ normalizes to 100. Every point above or below is a percentage point better or worse than league average. Park-adjusted, era-adjusted, context-adjusted. This is the piece that makes everything else make sense.</div>
+          <div class="entry-read">Read the full article →</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="entry" href="https://thebaseballnerd.com/articles/ops-plus-vs-wrc-plus.html">
+      <div class="entry-top">
+        <div class="entry-num">05</div>
+        <div class="entry-main">
+          <div class="entry-head"><div class="entry-title">wRC+ vs OPS+: Why One Stat Actually Tells You How Good a Hitter Is</div><span class="entry-src">On TBN</span></div>
+          <div class="entry-desc">They look similar. They measure similar things. One of them is better. This piece does not hedge. It walks through exactly where OPS+ falls short and why wRC+ wins the argument.</div>
+          <div class="entry-read">Read the full article →</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="entry" href="https://thebaseballnerd.substack.com/p/the-wrc-quick-reference-sheet-every" target="_blank" rel="noopener">
+      <div class="entry-top">
+        <div class="entry-num">06</div>
+        <div class="entry-main">
+          <div class="entry-head"><div class="entry-title">The wRC+ Quick Reference Sheet: Every Benchmark You Need</div><span class="entry-src">On Substack</span></div>
+          <div class="entry-desc">Understanding wRC+ conceptually and using it efficiently are two different skills. The benchmarks: what is elite, what is average, what is replacement-level, and what every tier of the scale looks like.</div>
+          <div class="entry-read">Read the full article →</div>
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <!-- TIER 3 -->
+  <section class="tier">
+    <div class="tier-eyebrow">Tier 3 of 4</div>
+    <div class="tier-name">The Valuation Stats</div>
+    <p class="tier-intro">How do you put one number on a player's complete value? WAR is the most cited player value metric in baseball. Bases Gained is an original stat built at The Baseball Nerd that expands the ledger further.</p>
+
+    <a class="entry" href="https://thebaseballnerd.com/articles/what-is-war-in-baseball.html">
+      <div class="entry-top">
+        <div class="entry-num">07</div>
+        <div class="entry-main">
+          <div class="entry-head"><div class="entry-title">What is WAR in Baseball?</div><span class="entry-src">On TBN</span></div>
+          <div class="entry-desc">WAR stands for Wins Above Replacement. The premise is simple. The components are not. Covers what goes into the number, why the positional adjustment matters more than most fans realize, and how to actually use it.</div>
+          <div class="entry-read">Read the full article →</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="entry" href="https://thebaseballnerd.substack.com/p/understanding-war-the-casual-fans" target="_blank" rel="noopener">
+      <div class="entry-top">
+        <div class="entry-num">08</div>
+        <div class="entry-main">
+          <div class="entry-head"><div class="entry-title">Understanding WAR: The Casual Fan's Complete Guide</div><span class="entry-src">On Substack</span></div>
+          <div class="entry-desc">Covers fWAR vs bWAR, why the two versions sometimes disagree, how replacement level is defined, and real-world context for what a 5-WAR season actually looks like across different positions and eras.</div>
+          <div class="entry-read">Read the full article →</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="entry" href="https://thebaseballnerd.com/articles/bases-gained.html">
+      <div class="entry-top">
+        <div class="entry-num">09</div>
+        <div class="entry-main">
+          <div class="entry-head"><div class="entry-title">What a Hitter Actually Did: Introducing Bases Gained</div><span class="entry-src">On TBN</span></div>
+          <div class="entry-desc">Aaron Judge hit 58 home runs in 2025 with a wRC+ of 204. By every conventional measure he was the best hitter in baseball. Except Cal Raleigh did more for his team's run production that season. This is the argument Bases Gained makes.</div>
+          <div class="entry-read">Read the full article →</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="entry" href="https://thebaseballnerd.substack.com/p/what-a-hitter-actually-did" target="_blank" rel="noopener">
+      <div class="entry-top">
+        <div class="entry-num">10</div>
+        <div class="entry-main">
+          <div class="entry-head"><div class="entry-title">Bases Gained: The Full Formula and 2026 Leaderboard</div><span class="entry-src">On Substack</span></div>
+          <div class="entry-desc">Every component of the Bases Gained formula, why each was included or excluded, what the stat cannot do, and how to read the full 2026 season leaderboard updated weekly at The Baseball Nerd.</div>
+          <div class="entry-read">Read the full article →</div>
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <!-- TIER 4 -->
+  <section class="tier">
+    <div class="tier-eyebrow">Tier 4 of 4</div>
+    <div class="tier-name">The New Rules</div>
+    <p class="tier-intro">The 2026 season introduced the Automated Ball-Strike system. If you have seen a hitter tap the top of his helmet and a 3D graphic flash on the scoreboard, this is what is actually happening.</p>
+
+    <a class="entry" href="https://thebaseballnerd.substack.com/p/mlb-abs-challenge-rules-2026-the" target="_blank" rel="noopener">
+      <div class="entry-top">
+        <div class="entry-num">11</div>
+        <div class="entry-main">
+          <div class="entry-head"><div class="entry-title">MLB ABS Challenge Rules 2026: The Definitive Guide to the Head-Tap Replay</div><span class="entry-src">On Substack</span></div>
+          <div class="entry-desc">Every plate appearance in 2026 is affected by the Automated Ball-Strike challenge system. How the head-tap works, who is winning challenges, how the 3D strike zone model is defined, and what it means for how you watch every at-bat.</div>
+          <div class="entry-read">Read the full article →</div>
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <!-- CTA -->
+  <div class="gl-cta">
+    <div class="lab">You now have the vocabulary</div>
+    <h3>The Baseball Nerd Analytics Suite</h3>
+    <p class="ctap">The Suite is where the vocabulary becomes a weapon. Two proprietary frameworks built and maintained at The Baseball Nerd, updated throughout the 2026 season.</p>
+    <div class="suite-row">
+      <div class="suite-cell">
+        <div class="suite-name">SPARK Score</div>
+        <div class="suite-desc">Breakout prediction for players aged 20-27. Every qualified prospect ranked by trajectory. Updated weekly.</div>
+      </div>
+      <div class="suite-cell">
+        <div class="suite-name">FADE Score</div>
+        <div class="suite-desc">Regression risk for players 28 and older. Who to sell before the market figures it out.</div>
+      </div>
+    </div>
+    <a href="https://thebaseballnerd.substack.com/" target="_blank" class="btn-primary">Explore the Suite →</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="foot-logo">The Baseball <span>Nerd</span></div>
+  <div class="foot-copy">© 2026 The Baseball Nerd · Numbers Not Feelings</div>
+  <ul class="foot-links">
+    <li><a href="news.html">News</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="recaps.html">Recaps</a></li>
+    <li><a href="rosters.html">Rosters</a></li>
+    <li><a href="podcasts.html">Podcasts</a></li>
+    <li><a href="vault.html">Vault</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+</footer>
+</body>
+</html>
