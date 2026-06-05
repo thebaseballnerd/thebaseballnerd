@@ -23,6 +23,170 @@
  */
 
 const RECAPS = [
+// AUTO-GENERATED: 2026-06-04
+{
+  id:"2026-06-04-athletics-at-cubs",
+  date:"2026-06-04",
+  awayTeam:"Athletics",
+  homeTeam:"Chicago Cubs",
+  away_runs:6,
+  home_runs:7,
+  result:"win",
+  score:"Athletics 6, Chicago Cubs 7",
+  winner:"Ryan Rolison",
+  loser:"Joel Kuhnel",
+  save:"",
+  gamePk:824672,
+  preview:"The Cubs pulled off one of the most dramatic comebacks of the season, scoring four runs in the bottom of the ninth to stun the Athletics 7-6 at Wrigley Field. What looked like a co",
+  body:`The Cubs pulled off one of the most dramatic comebacks of the season, scoring four runs in the bottom of the ninth to stun the Athletics 7-6 at Wrigley Field. What looked like a comfortable Athletics lead quickly evaporated as Joel Kuhnel allowed three straight hits to start the inning. Ian Happ drove home Michael Busch with a double, then Moisés Ballesteros knocked in Happ with an infield single that deflected off shortstop Alika Williams. The Athletics brought in Luis Medina, but the damage continued. Dansby Swanson tied it with an RBI single, and Pete Crow-Armstrong completed the stunning rally with a walk-off single to right field that scored Seiya Suzuki.
+
+The Athletics had built their 6-1 lead through a power display against Shota Imanaga, who surrendered all six runs. Shea Langeliers provided the early spark with a reviewed home run in the fourth, then delivered the highlight of the night in the sixth with an inside-the-park home run that scored Henry Bolte. Tyler Soderstrom and Jonah Heim followed with back-to-back homers in the seventh to seemingly put the game away. J.T. Ginn kept the Cubs quiet through six innings with just two hits and eight strikeouts, but the Athletics bullpen couldn't hold the lead when it mattered most. Ian Happ led the Cubs comeback with three RBIs, including a two-run homer in the seventh, while Crow-Armstrong drove in two runs in the winning effort.`
+},
+{
+  id:"2026-06-04-orioles-at-sox",
+  date:"2026-06-04",
+  awayTeam:"Baltimore Orioles",
+  homeTeam:"Boston Red Sox",
+  away_runs:8,
+  home_runs:2,
+  result:"loss",
+  score:"Baltimore Orioles 8, Boston Red Sox 2",
+  winner:"Trevor Rogers",
+  loser:"Brayan Bello",
+  save:"",
+  gamePk:824753,
+  preview:"The Orioles turned Fenway Park into their personal batting practice facility, scoring six runs in the first inning off Brayan Bello and never looking back in an 8-2 rout. The carna",
+  body:`The Orioles turned Fenway Park into their personal batting practice facility, scoring six runs in the first inning off Brayan Bello and never looking back in an 8-2 rout. The carnage began when Adley Rutschman drove in Taylor Ward with a single to center, followed by Leody Taveras plating Gunnar Henderson with a ground ball single to right. Coby Mayo delivered the knockout blow with a three-run double to left that scored Samuel Basallo, Taveras, and Colton Cowser. Ward capped the six-run barrage by singling home Mayo, leaving Bello shell-shocked and the Red Sox staring at a mountain they could never climb.
+
+Bello's misery continued into the fifth inning when Samuel Basallo ripped a double to right field that scored Pete Alonso, then came home himself on Cowser's sacrifice fly to make it 8-0. Trevor Rogers cruised through 5.2 innings for the win, allowing just one run when Willson Contreras singled home Ceddanne Rafaela in the sixth. The Red Sox managed only token resistance, with Contreras adding a solo home run in the ninth off Andrew Kittredge, but by then the Orioles had already secured their dominant road victory. Ward finished 3-for-5 to pace Baltimore's 10-hit attack, while Bello absorbed all eight runs in his five-inning outing at Fenway.`
+},
+{
+  id:"2026-06-04-guardians-at-yankees",
+  date:"2026-06-04",
+  awayTeam:"Cleveland Guardians",
+  homeTeam:"New York Yankees",
+  away_runs:1,
+  home_runs:2,
+  result:"win",
+  score:"Cleveland Guardians 1, New York Yankees 2",
+  winner:"Brent Headrick",
+  loser:"Codi Heuer",
+  save:"David Bednar",
+  gamePk:823542,
+  preview:"The Guardians and Yankees turned a sunny 87-degree afternoon at Yankee Stadium into a pitcher's duel that came down to one swing in the seventh inning. Carlos Rodón and Slade Cecco",
+  body:`The Guardians and Yankees turned a sunny 87-degree afternoon at Yankee Stadium into a pitcher's duel that came down to one swing in the seventh inning. Carlos Rodón and Slade Cecconi locked horns through six innings, with Cleveland managing just two hits against Rodón's seven strikeouts and New York collecting four hits off Cecconi. The breakthrough came in the fourth when Stuart Fairchild grounded a single to left field, scoring José Ramírez to put the Guardians ahead 1-0. The Yankees answered immediately in the bottom half when Jazz Chisholm Jr. flew into a sacrifice double play that scored Paul Goldschmidt but also erased Cody Bellinger at third base.
+
+The game stayed knotted at 1-1 until the seventh, when Codi Heuer entered for Cleveland and promptly surrendered the decisive run. Ryan McMahon grounded a single to right field, bringing home Jazz Chisholm Jr. to give the Yankees a 2-1 lead they would not relinquish. Brent Headrick, Fernando Cruz, and David Bednar shut down the Guardians over the final three innings, with Bednar earning the save and Headrick picking up the win. The loss fell to Heuer, whose one inning of work undid Cecconi's solid six-inning effort that had kept Cleveland within striking distance before 39,504 at Yankee Stadium.`
+},
+{
+  id:"2026-06-04-royals-at-twins",
+  date:"2026-06-04",
+  awayTeam:"Kansas City Royals",
+  homeTeam:"Minnesota Twins",
+  away_runs:8,
+  home_runs:6,
+  result:"loss",
+  score:"Kansas City Royals 8, Minnesota Twins 6",
+  winner:"Matt Strahm",
+  loser:"Taylor Rogers",
+  save:"Alex Lange",
+  gamePk:823698,
+  preview:"The Royals and Twins traded punches for eight innings at Target Field, neither team able to land the knockout blow in a game that saw multiple lead changes. Kody Clemens provided t",
+  body:`The Royals and Twins traded punches for eight innings at Target Field, neither team able to land the knockout blow in a game that saw multiple lead changes. Kody Clemens provided the heaviest hits for Minnesota, launching two home runs off Seth Lugo to give the Twins a 5-3 advantage through five innings. But the Royals answered in the sixth when Carter Jensen ripped a two-run double off Anthony Banda to tie the game, then scored the go-ahead run on a Bobby Witt Jr. reach that came when Ryan Kreidler committed a fielding error. Victor Caratini's solo shot off John Schreiber in the bottom half knotted things at six runs apiece, setting up a tense final frame.
+
+The ninth inning belonged to Kansas City's depth. With the Twins turning to Taylor Rogers in relief, the Royals loaded the bases and Josh Rojas delivered the decisive blow, a two-run single to center field that scored Tyler Tolbert and Lane Thomas. Matt Strahm had already thrown a clean eighth inning to earn the win, and Alex Lange closed out the victory despite allowing a hit and a walk in the ninth. The 12-hit attack overcame Seth Lugo's early struggles, as the Royals starter surrendered five earned runs in five innings but watched his teammates rally for an 8-6 victory in front of 17,802 fans under cloudy skies.`
+},
+{
+  id:"2026-06-04-dodgers-at-diamondbacks",
+  date:"2026-06-04",
+  awayTeam:"Los Angeles Dodgers",
+  homeTeam:"Arizona Diamondbacks",
+  away_runs:2,
+  home_runs:3,
+  result:"win",
+  score:"Los Angeles Dodgers 2, Arizona Diamondbacks 3",
+  winner:"Paul Sewald",
+  loser:"Tanner Scott",
+  save:"",
+  gamePk:825076,
+  preview:"Four scoreless innings stretched into a fifth, then Ryan Ward cracked the silence with a line drive double to center field that brought Santiago Espinal home. Dalton Rushing follow",
+  body:`Four scoreless innings stretched into a fifth, then Ryan Ward cracked the silence with a line drive double to center field that brought Santiago Espinal home. Dalton Rushing followed with a fly ball single to left field, scoring Ward, and suddenly the Dodgers had grabbed a 2-0 lead off Ryne Nelson. Justin Wrobleski had been dealing through six innings, allowing just six hits while striking out four, and the Diamondbacks looked flat against the left-hander on a 74-degree night at Chase Field.
+
+The eighth inning unraveled everything. Corbin Carroll launched his ninth home run to right field off Will Klein, cutting the deficit in half. Two batters later, Alex Vesia inherited trouble and watched Geraldo Perdomo slice a line drive single to center field that scored Gabriel Moreno and sent Ryan Waldschmidt to second base. The game was tied, the crowd of 41,999 was alive, and the Dodgers' lead had vanished. Ketel Marte stepped to the plate in the ninth inning against Tanner Scott and ended it with one swing, his 11th home run of the season flying over the left field wall to give Arizona a 3-2 walk-off victory. Paul Sewald earned the win after a scoreless ninth inning, while Scott took the loss.`
+},
+{
+  id:"2026-06-04-pirates-at-astros",
+  date:"2026-06-04",
+  awayTeam:"Pittsburgh Pirates",
+  homeTeam:"Houston Astros",
+  away_runs:5,
+  home_runs:1,
+  result:"loss",
+  score:"Pittsburgh Pirates 5, Houston Astros 1",
+  winner:"Jared Jones",
+  loser:"Kai-Wei Teng",
+  save:"Carmen Mlodzinski",
+  gamePk:824185,
+  preview:"The Pirates turned a quiet pitcher's duel into a sixth-inning explosion, scoring four runs to blow open what had been a 1-0 game and cruise to a 5-1 victory over the Astros at Daik",
+  body:`The Pirates turned a quiet pitcher's duel into a sixth-inning explosion, scoring four runs to blow open what had been a 1-0 game and cruise to a 5-1 victory over the Astros at Daikin Park. After Ryan O'Hearn's first-inning RBI single gave Pittsburgh an early lead, both teams managed just scattered hits through five innings before the Pirates broke through against Kai-Wei Teng in decisive fashion.
+
+The dam burst when Bryan Reynolds drove home Brandon Lowe with a single to center field, then O'Hearn followed immediately with a two-run homer to right field for his ninth of the season. Jared Triolo reached on a fielding error by Jeremy Peña that allowed Nick Gonzales to score, giving Pittsburgh a commanding 5-0 advantage. Isaac Paredes answered with a solo homer off Carmen Mlodzinski in the bottom half, but it was far too little against a Pirates team that collected nine hits and controlled the game from start to finish. Jared Jones earned the win with five shutout innings, allowing four hits while striking out four, and Mlodzinski closed it out despite allowing the lone Astros run to secure his save.`
+},
+{
+  id:"2026-06-04-padres-at-phillies",
+  date:"2026-06-04",
+  awayTeam:"San Diego Padres",
+  homeTeam:"Philadelphia Phillies",
+  away_runs:4,
+  home_runs:6,
+  result:"win",
+  score:"San Diego Padres 4, Philadelphia Phillies 6",
+  winner:"Zack Wheeler",
+  loser:"Lucas Giolito",
+  save:"",
+  gamePk:823457,
+  preview:"The Padres came to Citizens Bank Park and watched Lucas Giolito's struggles cost them dearly in a 6-4 loss to the Phillies. Giolito allowed two runs through four and a third inning",
+  body:`The Padres came to Citizens Bank Park and watched Lucas Giolito's struggles cost them dearly in a 6-4 loss to the Phillies. Giolito allowed two runs through four and a third innings, surrendering a fourth-inning RBI single to Bryson Stott that scored Bryce Harper and a fifth-inning homer to Adolis García that sailed to left center field. The right-hander managed five strikeouts but lasted just long enough to face two batters in the fifth before giving way to Yuki Matsui, who allowed another run charged to Giolito when Brandon Marsh was called out on strikes but a runner crossed home plate.
+
+The seventh inning turned into a nightmare for San Diego despite Manny Machado's two-run homer off Zack Wheeler that briefly pulled them within 3-2. Adrian Morejon entered and promptly imploded, lasting just one-third of an inning while allowing three runs on three hits. Trea Turner singled home Justin Crawford, Brandon Marsh reached on a fielder's choice that scored Turner, and Alec Bohm capped the rally with an RBI single to center field that plated Harper. Jackson Merrill's ninth-inning two-run homer off José Alvarado provided a final spark, but Wheeler's dominant seven-inning performance had already sealed the Phillies' victory. The Phillies collected 10 hits while the Padres managed just four, their offense stymied for most of the afternoon under sunny 87-degree skies before 37,812 fans.`
+},
+{
+  id:"2026-06-04-giants-at-brewers",
+  date:"2026-06-04",
+  awayTeam:"San Francisco Giants",
+  homeTeam:"Milwaukee Brewers",
+  away_runs:12,
+  home_runs:9,
+  result:"loss",
+  score:"San Francisco Giants 12, Milwaukee Brewers 9",
+  winner:"Sam Hentges",
+  loser:"Coleman Crow",
+  save:"Caleb Kilian",
+  gamePk:823779,
+  preview:"The Giants turned American Family Field into their personal batting practice facility, collecting 20 hits in a 12-9 victory that felt more like a home run derby than a baseball gam",
+  body:`The Giants turned American Family Field into their personal batting practice facility, collecting 20 hits in a 12-9 victory that felt more like a home run derby than a baseball game. Casey Schmitt started the carnage with a homer in the first inning, and the Giants never looked back, building a 6-1 lead through three innings as Coleman Crow and the Brewers pitching staff got shelled early and often. Jung Hoo Lee went 4-for-5 while Matt Chapman and Bryce Eldridge each collected three hits in an offensive explosion that saw San Francisco score in four different innings.
+
+The seventh inning belonged entirely to Eric Haase, who launched a grand slam to center field off Jake Woodford that broke the game wide open and pushed the Giants' lead to 10-3. The Giants weren't finished, adding two more runs in the same frame on a sacrifice fly and single to make it 12-3. Milwaukee mounted a spirited comeback attempt behind Jackson Chourio's two home runs, including a two-run shot in the seventh, but the deficit proved too large. The Brewers managed three runs in the ninth inning against Wilkin Ramos and Caleb Kilian, but Kilian closed out the victory for his save while Sam Hentges earned the win despite throwing just two-thirds of an inning.`
+},
+{
+  id:"2026-06-04-jays-at-braves",
+  date:"2026-06-04",
+  awayTeam:"Toronto Blue Jays",
+  homeTeam:"Atlanta Braves",
+  away_runs:7,
+  home_runs:2,
+  result:"loss",
+  score:"Toronto Blue Jays 7, Atlanta Braves 2",
+  winner:"Chad Dallas",
+  loser:"Chris Sale",
+  save:"Louis Varland",
+  gamePk:824919,
+  preview:"The Blue Jays turned what looked like a tight pitching duel into a rout with a devastating ninth-inning explosion, scoring four times off Reynaldo López to blow past the Braves 7-2",
+  body:`The Blue Jays turned what looked like a tight pitching duel into a rout with a devastating ninth-inning explosion, scoring four times off Reynaldo López to blow past the Braves 7-2 at Truist Park. Toronto had managed just 11 hits through eight innings after Chris Sale surrendered three early runs, but they collected five hits in the final frame to erase any doubt about the outcome. Nathan Lukes drove home Ernie Clement with a sharp single to right, Myles Straw followed with another RBI single, and Tyler Heineman capped the rally with a two-run double that sent 30,598 fans home disappointed.
+
+The game's early rhythm belonged to a third-inning flurry that saw both teams break through. Charles McAdoo delivered an RBI single off Sale, and Myles Straw followed with another RBI single to center that plated two runs to stake Toronto to a 3-0 advantage. Atlanta answered immediately when Matt Olson lifted a sacrifice fly to score Ronald Acuña Jr., but the Braves managed just three more hits the rest of the way. Chad Dallas earned the victory despite allowing that third-inning run, and the Blue Jays finished with 16 hits against four for Atlanta. Mauricio Dubón's solo homer in the eighth had pulled the Braves within 3-2, but López's meltdown in the ninth turned a one-run game into a Blue Jays blowout.`
+},
+
 // AUTO-GENERATED: 2026-06-03
 {
   id:"2026-06-03-rangers-at-cardinals",
