@@ -23,6 +23,278 @@
  */
 
 const RECAPS = [
+// AUTO-GENERATED: 2026-06-05
+{
+  id:"2026-06-05-guardians-at-rangers",
+  date:"2026-06-05",
+  awayTeam:"Cleveland Guardians",
+  homeTeam:"Texas Rangers",
+  away_runs:2,
+  home_runs:3,
+  result:"win",
+  score:"Cleveland Guardians 2, Texas Rangers 3",
+  winner:"Peyton Gray",
+  loser:"Parker Messick",
+  save:"Jacob Latz",
+  gamePk:822892,
+  preview:"Travis Bazzana's leadoff home run in the first inning set the tone for what looked like Cleveland's night at Globe Life Field. The rookie went 3-for-4 with a stolen base, giving th",
+  body:`Travis Bazzana's leadoff home run in the first inning set the tone for what looked like Cleveland's night at Globe Life Field. The rookie went 3-for-4 with a stolen base, giving the Guardians early momentum against Kumar Rocker. Austin Hedges added to the lead in the fourth with an RBI single that scored Steven Kwan, putting Cleveland ahead 2-0 as Parker Messick worked through five and two-thirds innings.
+
+The sixth inning flipped everything. Kyle Higashioka cut the deficit in half with a solo shot to left field off Messick, then Corey Seager delivered the knockout punch. His two-run homer to left center scored Wyatt Langford and put Texas ahead 3-2, completing a three-run rally that would stand as the final margin. The Rangers managed just five hits all night but made them count when it mattered. Peyton Gray earned the win with 1.2 scoreless innings of relief, and Jacob Latz locked down the save with two scoreless innings to close it out, striking out three batters as 27,738 fans celebrated a comeback victory.`
+},
+{
+  id:"2026-06-05-athletics-at-astros",
+  date:"2026-06-05",
+  awayTeam:"Athletics",
+  homeTeam:"Houston Astros",
+  away_runs:1,
+  home_runs:5,
+  result:"win",
+  score:"Athletics 1, Houston Astros 5",
+  winner:"Peter Lambert",
+  loser:"Jack Perkins",
+  save:"",
+  gamePk:824186,
+  preview:"The Athletics never recovered from Jack Perkins' disastrous start at Daikin Park, falling 5-1 to Houston in front of 32,420 fans. Isaac Paredes destroyed the A's right-hander with",
+  body:`The Athletics never recovered from Jack Perkins' disastrous start at Daikin Park, falling 5-1 to Houston in front of 32,420 fans. Isaac Paredes destroyed the A's right-hander with a three-run homer in the first inning that scored Jeremy Peña and Yordan Alvarez, then added a sacrifice fly in the third after Christian Walker's RBI triple made it 4-0. Perkins surrendered all five runs on five hits through four innings, walking two and striking out six before giving way to Mason Barnett, who pitched admirably in relief with seven strikeouts over four scoreless frames.
+
+The Athletics managed just five hits against Peter Lambert and three Houston relievers, with Henry Bolte providing the lone bright spot by going 3-for-4. Brent Rooker's solo homer in the sixth inning off Lambert prevented the shutout, but the A's offense sputtered otherwise, stranding multiple runners as Nick Kurtz and Tyler Soderstrom each drew two walks but couldn't come around to score. Lambert earned the win despite allowing four walks over 5.1 innings, while Josh Hader capped the victory with three strikeouts in a perfect ninth inning under the closed roof on a pleasant 73-degree evening.`
+},
+{
+  id:"2026-06-05-orioles-at-jays",
+  date:"2026-06-05",
+  awayTeam:"Baltimore Orioles",
+  homeTeam:"Toronto Blue Jays",
+  away_runs:13,
+  home_runs:3,
+  result:"loss",
+  score:"Baltimore Orioles 13, Toronto Blue Jays 3",
+  winner:"Brandon Young",
+  loser:"Trey Yesavage",
+  save:"",
+  gamePk:822810,
+  preview:"The Orioles arrived at Rogers Centre and found themselves in a slugfest that would reshape entirely over nine innings. After Adley Rutschman launched his 8th homer of the season to",
+  body:`The Orioles arrived at Rogers Centre and found themselves in a slugfest that would reshape entirely over nine innings. After Adley Rutschman launched his 8th homer of the season to center field in the first inning, the Blue Jays answered immediately when Vladimir Guerrero Jr. drove home George Springer with a sacrifice fly. The game settled into a pitcher's duel through the middle innings until Brandon Valenzuela connected on a two-run blast to right center in the fifth, scoring Kazuma Okamoto and giving Toronto a 3-1 lead that felt significant in the quiet Rogers Centre.
+
+Everything changed in the sixth inning when Baltimore unleashed five runs against Trey Yesavage. Rutschman doubled home Jackson Holliday and Gunnar Henderson to tie the game, then Jeremiah Jackson singled him home for the lead. Coby Mayo capped the rally with his 8th home run, a two-run shot to left field that suddenly put the Orioles ahead 6-3. The avalanche continued in the eighth when Jackson and Colton Cowser delivered RBI singles before Leody Taveras drove in another run with a groundout, stretching the margin to 9-3. Baltimore saved the cruelest blow for the ninth, when Rutschman doubled home two more runs and a throwing error by Okamoto allowed two additional runs to score, completing a 13-3 rout. Rutschman finished 4-for-4 with 5 RBI while Brandon Young earned the victory, working 6.1 innings and allowing three runs before the bullpen closed out the demolition.`
+},
+{
+  id:"2026-06-05-sox-at-yankees",
+  date:"2026-06-05",
+  awayTeam:"Boston Red Sox",
+  homeTeam:"New York Yankees",
+  away_runs:5,
+  home_runs:3,
+  result:"loss",
+  score:"Boston Red Sox 5, New York Yankees 3",
+  winner:"Sonny Gray",
+  loser:"Ryan Weathers",
+  save:"Aroldis Chapman",
+  gamePk:823538,
+  preview:"Ryan Weathers got hammered, and the Red Sox made him pay for every mistake. The Yankees starter surrendered all five Boston runs across six innings, watching his team fall behind e",
+  body:`Ryan Weathers got hammered, and the Red Sox made him pay for every mistake. The Yankees starter surrendered all five Boston runs across six innings, watching his team fall behind early and never recover in a 5-3 loss at Yankee Stadium. Weathers allowed seven hits and couldn't find his way out of trouble, giving up a two-run homer to Willson Contreras in the fifth inning that put the game away. The Red Sox offense came alive after falling behind 1-0, scoring two in the third, one in the fourth, and two more in the fifth to build a comfortable lead.
+
+Ben Rice gave the Yankees hope with a solo homer in the first inning off Sonny Gray, but that early advantage evaporated quickly. The Red Sox answered in the third when Wilyer Abreu drove in Connor Wong with a groundout, then Contreras followed with an RBI single to give Boston the lead. Andruw Monasterio added a solo shot in the fourth before Contreras delivered the knockout blow with his two-run blast in the fifth. Spencer Jones and Trent Grisham provided the Yankees' only other offense with RBI hits, but it wasn't nearly enough. Gray earned the win despite allowing three runs over 6.1 innings, while Aroldis Chapman worked a ninth with two walks but secured the save. The 43,750 fans at Yankee Stadium watched their team manage eight hits but strand too many runners in a frustrating defeat.`
+},
+{
+  id:"2026-06-05-sox-at-phillies",
+  date:"2026-06-05",
+  awayTeam:"Chicago White Sox",
+  homeTeam:"Philadelphia Phillies",
+  away_runs:6,
+  home_runs:8,
+  result:"win",
+  score:"Chicago White Sox 6, Philadelphia Phillies 8",
+  winner:"Jonathan Bowlan",
+  loser:"Bryan Hudson",
+  save:"Jhoan Duran",
+  gamePk:823455,
+  preview:"The White Sox fought back from a three-run deficit only to watch the Phillies pull away for good in the seventh inning at Citizens Bank Park. What started as a promising night for",
+  body:`The White Sox fought back from a three-run deficit only to watch the Phillies pull away for good in the seventh inning at Citizens Bank Park. What started as a promising night for Chicago turned into a slugfest that saw Randal Grichuk launch two home runs and Derek Hill add another, but it wasn't enough to overcome Philadelphia's balanced offensive attack. The Phillies took control early with a five-run second inning explosion off Anthony Kay, highlighted by Brandon Marsh's two-run homer and Alec Bohm's two-run double that capped the rally.
+
+Chicago chipped away methodically against Jesús Luzardo, with Grichuk's solo shots in the third and fifth innings and Hill's homer in the sixth pulling the White Sox within one. Colson Montgomery delivered the tying run in the seventh with an RBI single off Jonathan Bowlan, knotting the game at 6-6 and setting up a dramatic finish. The Phillies answered immediately in the bottom half when Edmundo Sosa lifted a sacrifice fly to score Kyle Schwarber, who had reached base in all five plate appearances. Bryan Hudson, who had entered to protect the tie, surrendered one of the decisive runs and took the loss as Philadelphia escaped with an 8-6 victory. Jhoan Duran locked down the ninth inning for the save, striking out two in a clean frame to preserve the win for Bowlan.`
+},
+{
+  id:"2026-06-05-reds-at-cardinals",
+  date:"2026-06-05",
+  awayTeam:"Cincinnati Reds",
+  homeTeam:"St. Louis Cardinals",
+  away_runs:3,
+  home_runs:10,
+  result:"win",
+  score:"Cincinnati Reds 3, St. Louis Cardinals 10",
+  winner:"Hunter Dobbins",
+  loser:"Brady Singer",
+  save:"",
+  gamePk:823049,
+  preview:"The Reds grabbed a three-run first inning at Busch Stadium, then watched it all slip away in the most painful fashion possible. Sal Stewart doubled home Blake Dunn and Spencer Stee",
+  body:`The Reds grabbed a three-run first inning at Busch Stadium, then watched it all slip away in the most painful fashion possible. Sal Stewart doubled home Blake Dunn and Spencer Steer, then Eugenio Suárez singled Stewart across for what felt like a commanding early lead. The Cardinals answered with two runs of their own in the bottom half, setting the tone for Cincinnati's defensive struggles that would plague them all night. Brady Singer looked sharp through four innings with 6 strikeouts, but Alec Burleson's solo homer in the third tied the game at 3-3, and everything unraveled from there.
+
+The sixth inning destroyed Cincinnati's hopes and exposed every weakness in their bullpen depth. After Jordan Walker's RBI double in the fifth gave St. Louis a 4-3 lead, the Cardinals exploded for six runs in the sixth against three different Reds relievers. Lars Nootbaar and Iván Herrera delivered RBI hits, then Luis Mey entered and completely lost the strike zone, allowing four runs. A hit by pitch scored one run, an infield single brought home another, then two walks forced in the final two runs of the inning as the Cardinals took a commanding 10-3 lead. Hunter Dobbins shut down Cincinnati over the final five innings, striking out 6 batters while allowing just 4 hits to seal a dominant 10-3 Cardinals victory in front of 30,058 fans.`
+},
+{
+  id:"2026-06-05-royals-at-twins",
+  date:"2026-06-05",
+  awayTeam:"Kansas City Royals",
+  homeTeam:"Minnesota Twins",
+  away_runs:3,
+  home_runs:5,
+  result:"win",
+  score:"Kansas City Royals 3, Minnesota Twins 5",
+  winner:"Zebby Matthews",
+  loser:"Michael Wacha",
+  save:"Travis Adams",
+  gamePk:823699,
+  preview:"The Royals looked like they'd found their groove early at Target Field, jumping on Zebby Matthews for two runs in the first inning on back-to-back doubles from Vinnie Pasquantino a",
+  body:`The Royals looked like they'd found their groove early at Target Field, jumping on Zebby Matthews for two runs in the first inning on back-to-back doubles from Vinnie Pasquantino and Jac Caglianone. Bobby Witt Jr. scored on the first hit, Pasquantino came home on the second, and Kansas City held that 2-0 lead through five innings behind Michael Wacha's steady work. The Minnesota crowd of 19,805 had little to cheer about as their young starter walked four batters but kept the damage minimal after that rocky start.
+
+Everything unraveled for the Royals in the sixth inning. Brooks Lee tied it with a solo homer off Wacha, then the Twins broke through with three more runs in the same frame. Josh Bell doubled home Kody Clemens, Orlando Arcia singled home Bell, and Orlando Arcia scored when Jac Caglianone's throwing error from right field allowed Arcia to reach second base. Four runs crossed the plate for Minnesota in that decisive sixth, turning a two-run deficit into a three-run lead. Maikel Garcia managed a consolation RBI groundout in the ninth off closer Travis Adams, but the Royals' comeback fell short. Matthews earned the win with seven innings of work, walking four but limiting Kansas City to just five hits and two earned runs.`
+},
+{
+  id:"2026-06-05-angels-at-dodgers",
+  date:"2026-06-05",
+  awayTeam:"Los Angeles Angels",
+  homeTeam:"Los Angeles Dodgers",
+  away_runs:0,
+  home_runs:1,
+  result:"win",
+  score:"Los Angeles Angels 0, Los Angeles Dodgers 1",
+  winner:"Blake Treinen",
+  loser:"Kirby Yates",
+  save:"",
+  gamePk:823943,
+  preview:"Eight innings of zeros. Two pitching staffs locked in combat under clear skies at Dodger Stadium, each side managing just three hits through regulation. Reid Detmers matched Roki S",
+  body:`Eight innings of zeros. Two pitching staffs locked in combat under clear skies at Dodger Stadium, each side managing just three hits through regulation. Reid Detmers matched Roki Sasaki pitch for pitch, both starters departing with shutouts intact. The Angels managed three hits total. The Dodgers managed three hits total. Mike Trout struck out three times. Shohei Ohtani went hitless in four trips to the plate against his former team. This felt destined for extra innings.
+
+Kirby Yates took the mound for the Angels in the ninth inning, needing three outs to send this crosstown battle to the tenth. He faced one batter. Freddie Freeman turned on the first pitch he saw and sent it over the center field wall for his tenth home run of the season. Blake Treinen recorded the final out for the win. A pitcher's duel between two Los Angeles clubs ended with one swing, 46,850 fans finally able to exhale after nine innings of tension that broke in an instant.`
+},
+{
+  id:"2026-06-05-brewers-at-rockies",
+  date:"2026-06-05",
+  awayTeam:"Milwaukee Brewers",
+  homeTeam:"Colorado Rockies",
+  away_runs:9,
+  home_runs:7,
+  result:"loss",
+  score:"Milwaukee Brewers 9, Colorado Rockies 7",
+  winner:"Trevor Megill",
+  loser:"Juan Mejia",
+  save:"",
+  gamePk:824350,
+  preview:"For eight innings at Coors Field, this looked like a classic pitchers' duel destined to disappoint the 31,349 fans who came expecting Coors Field fireworks. The Brewers trailed 3-1",
+  body:`For eight innings at Coors Field, this looked like a classic pitchers' duel destined to disappoint the 31,349 fans who came expecting Coors Field fireworks. The Brewers trailed 3-1 after Hunter Goodman's third-inning homer off Brandon Sproat, then both teams went silent. Ryan Feltner cruised through six innings allowing just one hit after the second inning. The scoreboards stayed frozen through the fourth, fifth, sixth, seventh and eighth innings as both bullpens took over and the game crawled toward what seemed like a quiet Colorado victory.
+
+Then the ninth inning exploded everything wide open. The Brewers stormed back against Antonio Senzatela with four runs, capped by Andrew Vaughn's two-run single that turned a 3-1 deficit into a 5-3 lead. But Trevor Megill couldn't close it out in the bottom half, surrendering two runs as Hunter Goodman's sacrifice fly tied it 5-5 and sent this game to extras. The tenth inning became a slugfest. Jake Bauers doubled home two runs, Garrett Mitchell and Sal Frelick added RBI singles, and suddenly Milwaukee led 9-5. The Rockies got two back in the bottom of the tenth when Sterlin Thompson singled home Troy Johnston and Willi Castro off Aaron Ashby, but it wasn't enough. Eight scoreless innings gave way to eleven runs in the final two frames, with the Brewers' four-run tenth inning surge proving the difference in a 9-7 victory that looked nothing like the game it had been for most of the night.`
+},
+{
+  id:"2026-06-05-mets-at-padres",
+  date:"2026-06-05",
+  awayTeam:"New York Mets",
+  homeTeam:"San Diego Padres",
+  away_runs:5,
+  home_runs:0,
+  result:"loss",
+  score:"New York Mets 5, San Diego Padres 0",
+  winner:"Christian Scott",
+  loser:"Michael King",
+  save:"",
+  gamePk:823293,
+  preview:"Christian Scott carved through the Padres lineup like they were seeing him for the first time, allowing just three hits across 5.2 innings as the Mets blanked San Diego 5-0 at Petc",
+  body:`Christian Scott carved through the Padres lineup like they were seeing him for the first time, allowing just three hits across 5.2 innings as the Mets blanked San Diego 5-0 at Petco Park. The right-hander struck out three and walked two, getting consistent outs from a Padres offense that managed only scattered singles from Fernando Tatis Jr., Manny Machado, and Ty France. Michael King took the loss after surrendering four runs through six innings, watching his night unravel in chunks as the Mets built their lead methodically.
+
+The damage came in waves against King, starting with Jared Young's solo homer to right center in the second inning. Bo Bichette drove in Luis Torrens with a sharp triple to right field in the third, then Torrens returned the favor in the fifth with a two-run blast to center that scored Brett Baty and stretched the lead to 4-0. The Mets tacked on one more in the ninth when Baty singled home A.J. Ewing off Mason Miller, capping a night where they collected nine hits while holding the Padres to three. Huascar Brazobán, Luke Weaver, and A.J. Minter combined for 3.1 scoreless innings to preserve the shutout before 42,159 fans under cloudy skies.`
+},
+{
+  id:"2026-06-05-pirates-at-braves",
+  date:"2026-06-05",
+  awayTeam:"Pittsburgh Pirates",
+  homeTeam:"Atlanta Braves",
+  away_runs:3,
+  home_runs:6,
+  result:"win",
+  score:"Pittsburgh Pirates 3, Atlanta Braves 6",
+  winner:"Martín Pérez",
+  loser:"Mitch Keller",
+  save:"Raisel Iglesias",
+  gamePk:824914,
+  preview:"Mauricio Dubón turned a quiet Tuesday night at Truist Park into his personal showcase, driving in three runs to power the Braves past Pittsburgh 6-3. The utility man homered in the",
+  body:`Mauricio Dubón turned a quiet Tuesday night at Truist Park into his personal showcase, driving in three runs to power the Braves past Pittsburgh 6-3. The utility man homered in the third inning to tie the game, then doubled home Michael Harris II in the fifth to give Atlanta the lead for good. Austin Riley capped the decisive fifth-inning rally with an RBI double that stretched the advantage to 6-3, all the damage coming against Pirates starter Mitch Keller.
+
+The Pirates had seized control early with a three-run third inning off Martín Pérez. Henry Davis plated Spencer Horwitz with a sacrifice fly, Nick Gonzales followed with an RBI single, and Marcell Ozuna added another run-scoring single to put Pittsburgh ahead 3-1. But Keller couldn't hold the lead, surrendering six earned runs on seven hits across 4.2 innings. Dubón's two-run homer in the bottom of the third tied it at 3-3, setting up Atlanta's three-run fifth that put the game away. The Braves bullpen locked down the final four innings, with Raisel Iglesias earning the save despite allowing a walk and a hit in the ninth.`
+},
+{
+  id:"2026-06-05-giants-at-cubs",
+  date:"2026-06-05",
+  awayTeam:"San Francisco Giants",
+  homeTeam:"Chicago Cubs",
+  away_runs:18,
+  home_runs:3,
+  result:"loss",
+  score:"San Francisco Giants 18, Chicago Cubs 3",
+  winner:"Robbie Ray",
+  loser:"Edward Cabrera",
+  save:"",
+  gamePk:824673,
+  preview:"The Giants turned Wrigley Field into their personal batting practice facility, demolishing the Cubs 18-3 in a offensive explosion that featured 19 hits and seven home runs. Matt Ch",
+  body:`The Giants turned Wrigley Field into their personal batting practice facility, demolishing the Cubs 18-3 in a offensive explosion that featured 19 hits and seven home runs. Matt Chapman drove in eight runs with two home runs, including a fourth-inning grand slam that broke the game open. Willy Adames added two homers and four RBIs, while Casey Schmitt went 4-for-6 with two home runs and three RBIs in the rout.
+
+Edward Cabrera never found his footing for Chicago, surrendering eight earned runs on eight hits through just 3.2 innings. The Giants scored twice in the first on Adames' two-run homer, then exploded for six runs in the fourth highlighted by Chapman's grand slam and Schmitt's two-run shot. The sixth inning brought seven more Giants runs, with Adames launching his second homer and Chapman adding another three-run blast. Hoby Milner absorbed the worst of the damage, allowing six runs while recording just one out. Robbie Ray earned the victory despite walking five batters, holding the Cubs scoreless through five innings. The Cubs managed just three runs total, with two coming in the eighth inning including Seiya Suzuki's solo homer, as 39,060 fans at Wrigley Field witnessed one of the season's most lopsided affairs.`
+},
+{
+  id:"2026-06-05-mariners-at-tigers",
+  date:"2026-06-05",
+  awayTeam:"Seattle Mariners",
+  homeTeam:"Detroit Tigers",
+  away_runs:3,
+  home_runs:7,
+  result:"win",
+  score:"Seattle Mariners 3, Detroit Tigers 7",
+  winner:"Framber Valdez",
+  loser:"Bryan Woo",
+  save:"",
+  gamePk:824271,
+  preview:"The Mariners grabbed the early lead when Rob Refsnyder drove in J.P. Crawford with a line drive single in the first inning, but their 11-hit attack couldn't overcome a Tigers lineu",
+  body:`The Mariners grabbed the early lead when Rob Refsnyder drove in J.P. Crawford with a line drive single in the first inning, but their 11-hit attack couldn't overcome a Tigers lineup that found timely power when it mattered most. Bryan Woo kept Detroit quiet through two innings before the third inning unraveled. Dillon Dingler tied it with a force out that brought home Gleyber Torres, then Kerry Carpenter launched his eighth home run of the season to right field, scoring Dingler and giving the Tigers a 3-1 lead they would never surrender.
+
+The Mariners chipped away with Colt Emerson's fourth homer in the seventh inning, but every time Seattle threatened, Detroit had an answer. Gleyber Torres delivered the damage with a two-run double that scored Colt Keith and Zach McKinstry, pushing the lead to 5-2. The Tigers added insurance in the eighth when Spencer Torkelson crushed his ninth home run, a two-run shot that scored Riley Greene and capped a 7-3 victory. Framber Valdez earned the win with five solid innings, while Woo took the loss despite striking out seven batters in 6.1 innings of work.`
+},
+{
+  id:"2026-06-05-rays-at-marlins",
+  date:"2026-06-05",
+  awayTeam:"Tampa Bay Rays",
+  homeTeam:"Miami Marlins",
+  away_runs:6,
+  home_runs:0,
+  result:"loss",
+  score:"Tampa Bay Rays 6, Miami Marlins 0",
+  winner:"Drew Rasmussen",
+  loser:"Ryan Gusto",
+  save:"",
+  gamePk:823860,
+  preview:"The Rays buried Miami in the first inning and never looked back, rolling to a 6-0 shutout victory at loanDepot park. Ryan Gusto lasted just two innings as Tampa Bay jumped on him f",
+  body:`The Rays buried Miami in the first inning and never looked back, rolling to a 6-0 shutout victory at loanDepot park. Ryan Gusto lasted just two innings as Tampa Bay jumped on him for three runs in the opening frame. Richie Palacios delivered the knockout blow with a two-run triple to center field that Jakob Marsee couldn't handle, with the ball deflecting off right fielder Owen Caissie as Junior Caminero and Yandy Díaz raced home. Ryan Vilade followed immediately with an RBI single to right field, pushing Palacios across for a 3-0 lead before most of the 10,312 fans had settled into their seats.
+
+Drew Rasmussen made those three runs stand up with a dominant seven-inning performance that suffocated Miami's offense completely. The Rays right-hander allowed just one hit while striking out nine Marlins without issuing a single walk. Miami managed only two hits total against Tampa Bay pitching, with Javier Sanoja and Esteury Ruiz collecting the lone singles in a futile effort. The Rays added insurance runs in the fifth, sixth, and seventh innings, with Tyler Phillips surrendering all three after replacing Gusto. Jonathan Aranda drove in Caminero with a fifth-inning single, Cedric Mullins launched his fifth home run of the year in the sixth, and Vilade capped the scoring with another RBI single in the seventh. Junior Caminero had the game's best individual performance, reaching base in all five plate appearances with three hits and two walks while scoring three runs.`
+},
+{
+  id:"2026-06-05-nationals-at-diamondbacks",
+  date:"2026-06-05",
+  awayTeam:"Washington Nationals",
+  homeTeam:"Arizona Diamondbacks",
+  away_runs:14,
+  home_runs:1,
+  result:"loss",
+  score:"Washington Nationals 14, Arizona Diamondbacks 1",
+  winner:"Foster Griffin",
+  loser:"Merrill Kelly",
+  save:"",
+  gamePk:825073,
+  preview:"The Nationals turned Chase Field into their personal launching pad, crushing five home runs in a 14-1 demolition of the Diamondbacks. Luis García Jr. delivered the knockout punch w",
+  body:`The Nationals turned Chase Field into their personal launching pad, crushing five home runs in a 14-1 demolition of the Diamondbacks. Luis García Jr. delivered the knockout punch with a sixth-inning grand slam, his second homer of the night, capping a relentless offensive assault that produced 16 hits. The carnage began early when García's two-run blast in the first inning scored James Wood, setting the tone for what would become a complete dismantling of Arizona's pitching staff.
+
+Merrill Kelly absorbed the worst of the damage, surrendering seven runs through five innings as Washington's lineup circled the bases with ruthless efficiency. The third inning proved particularly brutal for the Diamondbacks starter, who allowed four runs including Wood's solo shot and a two-run double by Jorbit Vivas that scored CJ Abrams and Daylen Lile. Lile added his own solo homer in the fifth before the Nationals exploded for five runs in the sixth, highlighted by García's grand slam and Abrams' back-to-back homer. Foster Griffin cruised to the victory, allowing just two hits and one run over five innings, with Aramis Garcia's solo homer providing Arizona's lone bright spot in an otherwise forgettable evening at Chase Field.`
+},
+
 // AUTO-GENERATED: 2026-06-04
 {
   id:"2026-06-04-athletics-at-cubs",
