@@ -1,0 +1,52 @@
+// netlify/functions/tbn-knowledge.js
+// Distilled reference content from The Baseball Nerd's explainer articles.
+// This is the ONLY material the chat bot is allowed to answer from.
+// When something is not covered here, the bot says so and routes to Substack.
+//
+// To update: edit the relevant section, or add a new one, then redeploy.
+// Live leaderboard numbers (current rankings) are intentionally NOT here,
+// because they change. Those questions get routed to the Suite on Substack.
+
+export const KNOWLEDGE = `
+=== SPARK SCORE ===
+SPARK stands for Statistical Performance Acceleration and Rising Kinetics. It is a proprietary 0-100 model from The Baseball Nerd that predicts MLB breakouts for players aged 20 to 27. Higher score is better (breakout more likely).
+Four components: (1) Skill Trajectory, year-over-year improvement, rewarding rapid rise from a low baseline over maintaining an already-elite level. (2) Performance Indicators, sticky Statcast metrics like barrel rate, exit velocity, hard-hit rate, contact quality. (3) Access and Opportunity, regular playing time and organizational commitment. (4) Age-Based Development Windows, weighting the 22-25 rapid-improvement range higher because the runway is longer.
+Tiers: 90-100 Breakout Imminent (76-87% historical probability of All-Star/MVP caliber within 1-2 seasons). 75-89 Rising Star (~42%). 60-74 Emerging Talent (~16%). Below 60 Developing.
+Targets players 20-27 who have not yet made an All-Star team. Historical validation: 89% accuracy across nine test cases (eight hits, one miss). Validation examples include Aaron Judge (90+ in 2017 pre-breakout), Mookie Betts (85 pre-MVP), Julio Rodriguez (88 as 2022 rookie), Elly De La Cruz (89 pre-2024). The instructive case is Pete Crow-Armstrong, who scored 71.3 after 2024 (developmental tier) but whose component breakdown flagged exceptional improvement trajectory before his 2025 surge.
+SPARK is currently for offensive players only. A pitching breakout framework is in development. Scores update monthly during the season. SPARK is referred to as "the model," never "the framework."
+
+=== FADE SCORE ===
+FADE stands for Forecasting Athletic Decline and Erosion. It is a proprietary 0-100 model for players aged 28 and older measuring regression risk. Higher score means HIGHER risk (this is the opposite of SPARK). A high FADE score is a warning, not a good thing.
+Four pillars: (1) Stuff Erosion, velocity trends, pitch movement, Stuff+ over a rolling 60-day window; for hitters, bat speed and hard-hit rate by month. (2) Command Decay, walk rate trends, first-pitch strike %, zone contact, called-strike-above-average. Command usually erodes before velocity. (3) Durability Trends, cumulative innings, IL days over a three-year window, workload. (4) Efficiency Collapse, BABIP vs career norm, strand rate sustainability, HR/FB, xFIP-to-ERA divergence, barrel rate allowed.
+Tiers: 72+ High Risk / Sell High (second-half ERA historically above 4.50). 55-71 Elevated Risk / Watch Closely. Below 55 Stable / Hold or Buy.
+Applies to both pitchers and hitters; the pillar names are pitcher-centric but the metrics adjust by position. Validation: 84% accuracy across twelve test cases (ten hits, two misses, both involving mid-season mechanical intervention). Examples: Justin Verlander (78 in early 2019 pre-Tommy John), David Price (74 entering 2019), Juan Soto (69 in April 2026, elevated), Luis Severino (79 in April 2026). Starts at age 28 because aging-curve decline most reliably begins in the 28-32 range. Not a penalty for being old; it scores risk factors, not birthdays. FADE is "the model," never "the framework." Note: FADE Score is unrelated to "fading" in sports betting.
+
+=== BASES GAINED (BG) ===
+A proprietary offensive contribution counting metric. It counts every direct action a player takes to advance himself and teammates, penalizes the two most damaging actions (caught stealing and grounding into double plays), and adjusts for defensive position using 10 years of qualified-season data.
+Formula: BG = TB + (BB + HBP) + SB + (RBI − HR) + RE24 + CS Penalty + GIDP Penalty + Positional Adjustment.
+Components: Total Bases (contact foundation). Walks + HBP (+1 each). Stolen Bases (+1 each). RBI minus HR (team advancement beyond the batter's own homers). RE24 (situational run-expectancy context). CS Penalty (tiered by career attempt volume: CS x -2 x (1 - Career SB%) for active/elite base stealers, flat CS x -2 for small samples). GIDP Penalty (GIDP x -2, the explicit rally-killing charge; mean season penalty about -23.3). Positional Adjustment (catchers and middle infielders get positive adjustments because they produce the least raw offense; DH and corner outfielders get negative adjustments; left field is the near-zero baseline).
+BG correlates 0.785 with wRC+, related but measuring something distinct. It is NOT park-adjusted, NOT predictive, and does NOT measure defense (the positional adjustment is population-level offensive demand only).
+Notable result: in 2025, Cal Raleigh (613.45 BG, catcher) outscored Aaron Judge (586.10 BG, RF) even though Judge had the higher wRC+ (204 vs 161) and won MVP. The swing comes from the catcher positional bonus (~68 points) and the GIDP gap (Judge grounded into 16 double plays vs Raleigh's 6). In raw production before adjustments, Judge led. BG measures total run contribution, not who was the better pure hitter. All-time single-season leader: Aaron Judge 2024 at 653.04.
+
+=== ABS IQ+ ===
+A proprietary composite scoring how intelligently MLB teams and players use the 2026 Automated Ball-Strike challenge system. Scaled so 100 equals league average (like wRC+ and ERA+); one standard deviation above average is about 115.
+The ABS system debuted Opening Day 2026, uses Hawk-Eye tracking, gives each team two challenges per game, and only the batter, pitcher, or catcher can initiate (tap the helmet within two seconds). Successful challenge is retained, failed one is lost.
+Four components: Raw Accuracy (30%, won % on challenges). Skill Accuracy (20%, won % above Statcast expected overturn rate). Discipline (30%, actual challenge rate vs the Statcast expected model; over-challenging is penalized). Net Value (20%, net challenges gained above expectation).
+Core finding: discipline is a skill. As leverage rises, batters challenge far more and convert less (full count: batters challenge ~24%, win ~33%; catchers challenge ~6.5%, win ~41%). The best ABS teams are the ones who know when to say no. (Current 2026 team and player leaderboard standings live in the Suite and update weekly; do not state specific current rankings as fixed fact, route to the Suite.)
+
+=== wRC+ ===
+Weighted Runs Created Plus. Measures a hitter's total offensive value in one number, park-adjusted and league-adjusted, scaled so 100 is always league average. A 120 wRC+ means 20% better than average; 80 means 20% worse. The "plus" means park-adjusted and scaled to 100, which makes it era-neutral and comparable across years.
+Built on wOBA (which assigns empirical run values to each offensive event). Rough tiers: 160+ MVP-caliber, 140-159 elite/All-Star, 120-139 above average quality starter, 110-119 above average, 95-109 average, 80-94 below average, under 80 poor. Does not adjust for defensive position, so a 95 from a shortstop differs from a 95 from a first baseman. More precisely built than OPS+. Babe Ruth holds the career record (~197+); Mike Trout tops active leaderboards.
+
+=== OPS+ vs wRC+ ===
+Both are park-adjusted and scaled to 100. wRC+ starts from wOBA (empirical linear run weights for each event). OPS+ starts from OPS (on-base plus slugging), which treats a point of OBP as equal to a point of SLG even though OBP is worth more in run terms, and uses total bases so a double counts as exactly 2x a single (the real run-value ratio is smaller). They agree about 99% of the time (0.992 correlation across 1998-2018 qualifiers). The gap matters most at the edges: high-walk low-power hitters look better under wRC+; heavy ground-ball high-average low-walk hitters can look better under OPS+. wRC+ is more precisely constructed and right more often when they diverge. wOBA is the input; wRC+ is the adjusted, portable, cross-era number.
+
+=== WAR ===
+Wins Above Replacement. Measures how many wins a player added versus a freely available replacement-level player (Triple-A callup / waiver-wire / league-minimum type). Roughly 10 runs equals 1 win. Replacement level is below average, which is why WAR totals look larger than "compared to average" would.
+Position-player WAR sums batting runs, baserunning runs, fielding runs, a positional adjustment, and replacement credit. The positional adjustment rewards premium defensive positions (a shortstop and first baseman with identical offense will not have identical WAR; the shortstop's is higher).
+Single-season tiers: 8+ historic MVP level, 7-8 superstar, 5-6 All-Star caliber, 3-4 solid regular, 2 average starter, 0-1 replacement level. Career: ~60 WAR is where Hall of Fame talk gets serious. Reliever scale compresses (1.5 is excellent).
+Three versions: fWAR (FanGraphs, uses FIP for pitching and UZR for fielding), bWAR/rWAR (Baseball-Reference, RA9 and DRS), WARP (Baseball Prospectus, DRA and FRAA). They diverge most on pitchers because of FIP vs RA9. The Baseball Nerd defaults to fWAR because SPARK and FADE are process-over-results models and FIP isolates what a pitcher controls. When WAR is cited on the site, it is fWAR unless stated otherwise.
+
+=== THE SUITE / WHERE LIVE DATA LIVES ===
+Current rankings (who is #1 on SPARK right now, current FADE risk leaders, current Bases Gained leaders, current ABS IQ+ team standings, fantasy database rankings) are published in the Baseball Nerd Analytics Suite and the live leaderboard apps, updated weekly/monthly. The bot does NOT have current standings loaded and must not invent them. For any "who currently leads / who is the top / current ranking" question, give the framework-level answer and direct the person to subscribe.
+`;
