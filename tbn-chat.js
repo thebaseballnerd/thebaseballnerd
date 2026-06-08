@@ -1,25 +1,17 @@
-/* The Baseball Nerd — chat capture bubble
+/* The Baseball Nerd — chat bubble (knowledge-grounded + Substack CTA)
    Drop-in: add <script src="/tbn-chat.js" defer></script> before </body>.
    Talks to /.netlify/functions/chat. No dependencies. */
 (function () {
   "use strict";
 
-  // ---- config ----------------------------------------------------------
   var ENDPOINT = "/.netlify/functions/chat";
   var GREETING =
-    "Ask me anything about a player, a stat, or where a guy's headed this season. First answer's on the house.";
-  var FREE_ANSWERS = 1; // answers before the email gate
+    "Ask me about how the models work. SPARK, FADE, Bases Gained, ABS IQ+, or any stat like wRC+ or WAR. I answer from The Baseball Nerd's own work.";
 
-  // ---- state ------------------------------------------------------------
-  var open = false;
-  var answersGiven = 0;
-  var gated = false;            // currently showing the email gate
-  var captured = false;         // email already collected
+  var captured = false;
   var email = "";
-  var history = [];             // [{role, content}] sent to the function
-  var pendingQuestion = null;   // question held while we ask for email
+  var history = [];
 
-  // ---- styles -----------------------------------------------------------
   var css = `
   .tbn-c-fab{position:fixed;bottom:22px;right:22px;width:60px;height:60px;border-radius:50%;
     background:#0a1628;border:2px solid #c9a84c;color:#c9a84c;cursor:pointer;z-index:99998;
@@ -55,8 +47,11 @@
     word-wrap:break-word;white-space:pre-wrap}
   .tbn-c-bot{align-self:flex-start;background:#1d2e47;color:#f5f0e8;border-bottom-left-radius:4px}
   .tbn-c-user{align-self:flex-end;background:#c9a84c;color:#0a1628;border-bottom-right-radius:4px;font-weight:500}
-  .tbn-c-msg a{color:#c9a84c}
-  .tbn-c-bot a{color:#e2c570;text-decoration:underline}
+
+  .tbn-c-cta{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;margin-top:-2px;
+    background:#c9a84c;color:#0a1628;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:.04em;
+    text-decoration:none;padding:9px 16px;border-radius:9px;transition:background .15s}
+  .tbn-c-cta:hover{background:#d4b060}
 
   .tbn-c-typing{align-self:flex-start;display:flex;gap:4px;padding:11px 14px;background:#1d2e47;border-radius:12px}
   .tbn-c-typing span{width:6px;height:6px;border-radius:50%;background:#8a9bb5;animation:tbnbounce 1.2s infinite}
@@ -77,7 +72,6 @@
   .tbn-c-err{color:#e24b4a;font-size:11px;text-align:center;margin-top:6px;display:none}
   `;
 
-  // ---- build DOM --------------------------------------------------------
   function el(tag, cls, html) {
     var e = document.createElement(tag);
     if (cls) e.className = cls;
@@ -105,7 +99,7 @@
     '<div class="tbn-c-log"></div>' +
     '<div class="tbn-c-foot">' +
       '<div class="tbn-c-row">' +
-        '<input class="tbn-c-input" type="text" placeholder="Ask about a player or stat...">' +
+        '<input class="tbn-c-input" type="text" placeholder="Ask about a metric or stat...">' +
         '<button class="tbn-c-send">Send</button>' +
       '</div>' +
       '<div class="tbn-c-err"></div>' +
@@ -120,16 +114,15 @@
   var sendBtn = panel.querySelector(".tbn-c-send");
   var errBox = panel.querySelector(".tbn-c-err");
   var closeBtn = panel.querySelector(".tbn-c-x");
+  var open = false;
 
-  // ---- helpers ----------------------------------------------------------
   function scrollDown() { log.scrollTop = log.scrollHeight; }
 
   function linkify(t) {
-    // escape, then turn bare URLs into links
     var d = document.createElement("div");
     d.textContent = t;
     var safe = d.innerHTML;
-    return safe.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+    return safe.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener" style="color:#e2c570">$1</a>');
   }
 
   function addMsg(role, text) {
@@ -138,6 +131,17 @@
     log.appendChild(m);
     scrollDown();
     return m;
+  }
+
+  function addCta(cta) {
+    var a = document.createElement("a");
+    a.className = "tbn-c-cta";
+    a.href = cta.url;
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.textContent = cta.label + "  \u2192";
+    log.appendChild(a);
+    scrollDown();
   }
 
   function showTyping() {
@@ -158,10 +162,6 @@
     input.disabled = b;
   }
 
-  function isEmail(s) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.trim());
-  }
-
   function toggle(force) {
     open = force != null ? force : !open;
     panel.classList.toggle("tbn-show", open);
@@ -172,47 +172,16 @@
     }
   }
 
-  // ---- send flow --------------------------------------------------------
   function handleSend() {
     var val = input.value.trim();
     if (!val) return;
     setErr("");
-
-    // collecting the email
-    if (gated && !captured) {
-      if (!isEmail(val)) { setErr("That doesn't look like an email. Try again?"); return; }
-      email = val.trim();
-      captured = true;
-      gated = false;
-      addMsg("user", email);
-      input.value = "";
-      input.placeholder = "Ask about a player or stat...";
-      addMsg("bot", "Got it. You're on the list. Here's that answer:");
-      var held = pendingQuestion;
-      pendingQuestion = null;
-      ask(held, true);
-      return;
-    }
-
-    // normal question
     addMsg("user", val);
     input.value = "";
-
-    if (!captured && answersGiven >= FREE_ANSWERS) {
-      // gate before answering
-      pendingQuestion = val;
-      gated = true;
-      input.placeholder = "Enter your email to continue...";
-      addMsg("bot",
-        "Good one. To keep going, drop your email below. You'll get the answer plus the weekly breakdowns I send subscribers. No spam, just baseball.");
-      input.focus();
-      return;
-    }
-
-    ask(val, false);
+    ask(val);
   }
 
-  function ask(question, isGatedFollowup) {
+  function ask(question) {
     history.push({ role: "user", content: question });
     setBusy(true);
     var typing = showTyping();
@@ -223,7 +192,7 @@
       body: JSON.stringify({
         messages: history,
         email: captured ? email : null,
-        capturedNow: isGatedFollowup === true,
+        capturedNow: false,
         page: location.pathname,
         url: location.href
       })
@@ -239,7 +208,7 @@
         }
         history.push({ role: "assistant", content: res.j.reply });
         addMsg("bot", res.j.reply);
-        if (!isGatedFollowup) answersGiven++;
+        if (res.j.cta) addCta(res.j.cta);
         input.focus();
       })
       .catch(function () {
@@ -250,7 +219,6 @@
       });
   }
 
-  // ---- events -----------------------------------------------------------
   fab.addEventListener("click", function () { toggle(); });
   closeBtn.addEventListener("click", function () { toggle(false); });
   sendBtn.addEventListener("click", handleSend);
