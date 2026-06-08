@@ -1,33 +1,43 @@
 // netlify/functions/chat.js
-// Chat + lead capture for The Baseball Nerd.
-// - Answers baseball questions, steering toward the Analytics Suite.
-// - On capture, appends a lead to the "chat-leads" Netlify Blobs store,
-//   shaped as the CRM row array so it imports cleanly later.
+// Chat for The Baseball Nerd, grounded ONLY in the knowledge base.
+// - Answers definitional/methodology questions from tbn-knowledge.js.
+// - Classifies each question easy vs deep. Deep questions get a short
+//   teaser then a Substack subscribe CTA (shown as a button by the widget).
+// - Logs every question anonymously (text + timestamp) to "chat-questions".
+// - Still captures email leads to "chat-leads" when one is given.
 //
-// Requires env var: ANTHROPIC_API_KEY  (set in Netlify dashboard).
-// Uses @netlify/blobs (available in the Netlify Functions runtime).
+// Requires env var: ANTHROPIC_API_KEY
+// Uses @netlify/blobs.
 
 import { getStore } from "@netlify/blobs";
+import { KNOWLEDGE } from "./tbn-knowledge.js";
 
 const MODEL = "claude-sonnet-4-20250514";
-const MAX_TOKENS = 600;
+const MAX_TOKENS = 700;
+const SUBSTACK_URL = "https://thebaseballnerd.substack.com/";
 
-const SYSTEM = `You are the chat assistant for The Baseball Nerd (thebaseballnerd.com), a baseball analytics brand built by Pete Dwyer. Voice: confident, data-first, conversational, "numbers not feelings." Never use em dashes. Use commas, periods, or restructure. Vary sentence length. No bullet lists in answers, write in prose.
+const SYSTEM = `You are the chat assistant for The Baseball Nerd (thebaseballnerd.com), the baseball analytics brand built by Pete Dwyer. Voice: confident, data-first, conversational, "numbers not feelings." Never use em dashes; use commas, periods, or restructure. Vary sentence length. Write in prose, no bullet lists. The Athletics are always "the Athletics" or "the A's," never Oakland. Refer to SPARK and FADE only as "the model," never "the framework."
 
-You answer questions about players, stats, projections, and where guys are headed. When relevant, you point readers toward The Baseball Nerd's own work and proprietary models rather than generic stats:
-- SPARK Score: breakout potential for players aged 20 to 27.
-- FADE Score: regression risk for players 28 and older.
-- Bases Gained (BG): a comprehensive offensive counting metric.
-- CSR (Contact Suppression Rate): the pitching metric.
-- ABS IQ+: challenge system intelligence.
-These together are the Baseball Nerd Analytics Suite, the paid subscriber product. Refer to SPARK/FADE only as "the model," never "the framework."
+You answer ONLY using the REFERENCE MATERIAL provided below. This material is the brand's own published explainers on its proprietary models (SPARK, FADE, Bases Gained, ABS IQ+) and on public stats it has explained (wRC+, OPS+, WAR). Rules:
 
-Keep answers tight, two to four sentences. Give a real, useful take, then naturally suggest the deeper numbers live in the Analytics Suite or a relevant article on the site. Do not invent precise stat lines you are unsure of. The Athletics are always "the Athletics" or "the A's," never Oakland.`;
+1. If the question can be answered from the reference material, answer it accurately and concisely (two to four sentences) in the brand voice.
+
+2. If the question asks for CURRENT or LIVE standings (who leads right now, current top scores, this week's rankings, a specific player's current score, current team ABS IQ+ standings, fantasy rankings), you DO NOT have that data. Do not invent numbers. Give the framework-level context you do have, then say the current rankings live in the Baseball Nerd Analytics Suite.
+
+3. If the question is outside the reference material entirely (general MLB trivia, other stats, opinions on players you have no data on), give at most a brief honest framing and steer back to what the models do. Do not fabricate.
+
+4. Never invent specific stat lines, player scores, or rankings that are not explicitly in the reference material. The validation examples in the material (e.g. historical SPARK/FADE cases) may be cited because they are published. Current-season specifics may not.
+
+You must respond with a JSON object and nothing else, no markdown, no backticks:
+{"reply": "your answer text", "deep": true or false}
+
+Set "deep" to true when the question is the kind that deserves Pete's full subscriber-level treatment: questions about a specific current player's outlook, buy/sell/trade decisions, current rankings or leaders, "who should I" fantasy advice, or anything where the real answer is in the live Suite data. Set "deep" to false for straightforward definitional/methodology questions that the reference material fully answers (what is X, how does X work, what do the tiers mean, X vs Y).
+
+REFERENCE MATERIAL:
+${KNOWLEDGE}`;
 
 export default async (req) => {
-  if (req.method !== "POST") {
-    return json({ error: "Method not allowed" }, 405);
-  }
+  if (req.method !== "POST") return json({ error: "Method not allowed" }, 405);
 
   let body;
   try {
@@ -41,23 +51,28 @@ export default async (req) => {
     return json({ error: "No messages" }, 400);
   }
 
-  // Fire-and-forget lead capture the moment an email arrives.
+  // Anonymous engagement logging: the latest user question only, no identifiers.
+  const lastUser = [...messages].reverse().find((m) => m && m.role === "user" && m.content);
+  if (lastUser) {
+    try {
+      await logQuestion(String(lastUser.content).slice(0, 500), page);
+    } catch (e) {
+      console.error("question log failed:", e);
+    }
+  }
+
+  // Email lead capture (unchanged behavior).
   if (capturedNow && email && isEmail(email)) {
     try {
       await saveLead({ email, messages, page, url });
     } catch (e) {
-      // Never let a capture failure break the chat reply.
       console.error("lead save failed:", e);
     }
   }
 
-  // Call Anthropic.
   const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) {
-    return json({ error: "Server not configured" }, 500);
-  }
+  if (!apiKey) return json({ error: "Server not configured" }, 500);
 
-  // Only send role/content, trim to last ~10 turns to keep it cheap.
   const trimmed = messages
     .filter((m) => m && (m.role === "user" || m.role === "assistant") && m.content)
     .slice(-10)
@@ -85,48 +100,55 @@ export default async (req) => {
       return json({ error: "Upstream error" }, 502);
     }
 
-    const reply = (data.content || [])
+    const raw = (data.content || [])
       .filter((b) => b.type === "text")
       .map((b) => b.text)
       .join("\n")
       .trim();
 
-    return json({ reply: reply || "Let me get back to you on that one." });
+    // The model returns JSON. Parse defensively.
+    let reply = raw;
+    let deep = false;
+    try {
+      const clean = raw.replace(/```json|```/g, "").trim();
+      const parsed = JSON.parse(clean);
+      if (parsed && typeof parsed.reply === "string") {
+        reply = parsed.reply;
+        deep = parsed.deep === true;
+      }
+    } catch {
+      reply = raw;
+    }
+
+    return json({
+      reply: reply || "Let me point you to the Suite for that one.",
+      deep,
+      cta: deep ? { label: "Subscribe on Substack", url: SUBSTACK_URL } : null,
+    });
   } catch (e) {
     console.error("fetch failed:", e);
     return json({ error: "Request failed" }, 500);
   }
 };
 
-// --- lead storage ---------------------------------------------------------
-// CRM row shape (from the CRM frontend):
-// [email, name, segment, open_rate, opens_7d, opens_6mo, received,
-//  clicks, post_views, comments, state, source, plan, type]
+// --- anonymous question log -----------------------------------------------
+async function logQuestion(text, page) {
+  const store = getStore("chat-questions");
+  const id = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+  await store.setJSON(id, {
+    question: text,
+    page: page || "",
+    at: new Date().toISOString(),
+  });
+}
+
+// --- email lead capture (CRM row shape) -----------------------------------
 async function saveLead({ email, messages, page, url }) {
   const store = getStore("chat-leads");
   const id = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
   const name = email.split("@")[0];
-
-  const firstQuestion =
-    (messages.find((m) => m.role === "user") || {}).content || "";
-
-  const row = [
-    email,        // 0 email
-    name,         // 1 name
-    "hot",        // 2 segment  (chat lead = engaged = hot)
-    0,            // 3 open_rate
-    0,            // 4 opens_7d
-    0,            // 5 opens_6mo
-    0,            // 6 received
-    0,            // 7 clicks
-    0,            // 8 post_views
-    0,            // 9 comments
-    "",           // 10 state
-    "chat",       // 11 source
-    "free",       // 12 plan
-    "lead",       // 13 type
-  ];
-
+  const firstQuestion = (messages.find((m) => m.role === "user") || {}).content || "";
+  const row = [email, name, "hot", 0, 0, 0, 0, 0, 0, 0, "", "chat", "free", "lead"];
   await store.setJSON(id, {
     row,
     capturedAt: new Date().toISOString(),
