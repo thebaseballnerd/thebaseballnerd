@@ -23,6 +23,152 @@
  */
 
 const RECAPS = [
+// AUTO-GENERATED: 2026-06-08
+{
+  id:"2026-06-08-sox-at-rays",
+  date:"2026-06-08",
+  awayTeam:"Boston Red Sox",
+  homeTeam:"Tampa Bay Rays",
+  away_runs:1,
+  home_runs:3,
+  result:"win",
+  score:"Boston Red Sox 1, Tampa Bay Rays 3",
+  winner:"Casey Legumina",
+  loser:"Connelly Early",
+  save:"Bryan Baker",
+  gamePk:822972,
+  preview:"The Red Sox walked into Tropicana Field and quickly found themselves in a hole they couldn't climb out of. Yandy Díaz jumped on Connelly Early's offering in the first inning, launc",
+  body:`The Red Sox walked into Tropicana Field and quickly found themselves in a hole they couldn't climb out of. Yandy Díaz jumped on Connelly Early's offering in the first inning, launching his 12th home run to left field for an immediate 1-0 Rays lead. Early struggled with his command all night, walking four batters over 4.2 innings while surrendering five hits and two earned runs. The Red Sox managed just four hits against a parade of Tampa Bay arms, with Marcelo Mayer providing their lone bright spot by answering back in the third inning with a solo shot to right center off Ian Seymour.
+
+The Rays methodically pulled away with small-ball execution that frustrated Boston's pitching staff. Jonathan Aranda drove home Austin Slater with a fifth-inning single to left off Early, giving Tampa Bay a 2-1 advantage they wouldn't relinquish. Díaz delivered the dagger in the eighth, lifting a sacrifice fly to center that scored Taylor Walls and capped a 3-1 victory. Casey Legumina earned the win with 1.1 scoreless innings of relief, while Bryan Baker locked down the save despite allowing a hit in the ninth. The Red Sox managed just one extra-base hit in a forgettable offensive showing at the dome.`
+},
+{
+  id:"2026-06-08-reds-at-padres",
+  date:"2026-06-08",
+  awayTeam:"Cincinnati Reds",
+  homeTeam:"San Diego Padres",
+  away_runs:2,
+  home_runs:6,
+  result:"win",
+  score:"Cincinnati Reds 2, San Diego Padres 6",
+  winner:"Adrian Morejon",
+  loser:"Andrew Abbott",
+  save:"",
+  gamePk:823289,
+  preview:"The Reds grabbed their first lead of the night on Edwin Arroyo's sacrifice fly in the sixth inning, but their advantage was short-lived. Andrew Abbott, who had allowed just four hi",
+  body:`The Reds grabbed their first lead of the night on Edwin Arroyo's sacrifice fly in the sixth inning, but their advantage was short-lived. Andrew Abbott, who had allowed just four hits through six innings, gave up a sharp double to Gavin Sheets that scored Xander Bogaerts and knotted the game at 2-2 in the seventh. Abbott faced just two batters in the seventh before departing, and Tejay Antone surrendered the go-ahead run on Samad Taylor's soft bunt single that brought home Sheets. The Reds had managed nine hits against Padres pitching but could never string together the big inning they needed.
+
+San Diego broke the game open in the eighth against Zach McCambley, who allowed four hits in his one inning of work. Taylor delivered the crushing blow with a line drive single to left that scored both Bogaerts and Jase Bowen, extending the Padres lead to 5-2. Freddy Fermin, who had given San Diego the early lead with a solo home run in the third, capped the scoring with an RBI single that plated Taylor. The Padres turned a tight contest into a comfortable 6-2 victory, with Adrian Morejon earning the win after holding Cincinnati hitless over 1.2 innings of relief work.`
+},
+{
+  id:"2026-06-08-astros-at-angels",
+  date:"2026-06-08",
+  awayTeam:"Houston Astros",
+  homeTeam:"Los Angeles Angels",
+  away_runs:5,
+  home_runs:4,
+  result:"loss",
+  score:"Houston Astros 5, Los Angeles Angels 4",
+  winner:"Josh Hader",
+  loser:"Sam Aldegheri",
+  save:"Bryan Abreu",
+  gamePk:824025,
+  preview:"The Angels built a perfect setup for heartbreak on a pleasant 72-degree evening at Angel Stadium. Logan O'Hoppe's two-run double in the second inning, following Trey Mancini's RBI",
+  body:`The Angels built a perfect setup for heartbreak on a pleasant 72-degree evening at Angel Stadium. Logan O'Hoppe's two-run double in the second inning, following Trey Mancini's RBI single, staked Los Angeles to a 3-0 lead against Spencer Arrighetti. The Astros chipped away methodically, getting Christian Walker's RBI double in the third before mounting their sixth-inning rally. LaMonte Wade Jr. and Cam Smith delivered back-to-back RBI doubles to tie the game at 3-3, both hits coming off Grayson Rodriguez. Zach Neto's solo homer in the seventh gave the Angels what seemed like a crucial 4-3 lead, but Christian Walker's clutch RBI single off Kirby Yates in the ninth tied it again at 4-4.
+
+Extra innings brought disaster for the Angels in the cruelest fashion possible. With Jose Altuve on base in the tenth, Jake Meyers popped out to second baseman Nick Madrigal, a routine play that should have been the first out. Instead, catcher Logan O'Hoppe committed a fielding error that allowed Altuve to score the winning run. The same player who had driven in two runs to give the Angels their early advantage became the goat in the 5-4 loss. Josh Hader earned the win, while Sam Aldegheri took the loss despite allowing just one hit in his inning of work. Bryan Abreu secured the save, and the Astros escaped with a victory built more on Angels mistakes than their own offensive prowess.`
+},
+{
+  id:"2026-06-08-brewers-at-athletics",
+  date:"2026-06-08",
+  awayTeam:"Milwaukee Brewers",
+  homeTeam:"Athletics",
+  away_runs:15,
+  home_runs:14,
+  result:"loss",
+  score:"Milwaukee Brewers 15, Athletics 14",
+  winner:"Abner Uribe",
+  loser:"José Suarez",
+  save:"Chad Patrick",
+  gamePk:824998,
+  preview:"The scoreboard at Las Vegas Ballpark told a ridiculous story. Thirty-four hits. Twenty-nine runs. Twelve innings of pure chaos that ended with the Brewers beating the Athletics 15-",
+  body:`The scoreboard at Las Vegas Ballpark told a ridiculous story. Thirty-four hits. Twenty-nine runs. Twelve innings of pure chaos that ended with the Brewers beating the Athletics 15-14 on a fielder's choice grounder that somehow decided a game where Tyler Soderstrom hit two home runs and drove in four, where Nick Kurtz launched a pair including a two-run shot in the tenth, where William Contreras crushed a three-run homer to give Milwaukee what looked like a commanding 14-10 lead. But commanding leads don't exist when both teams are swinging like this. The Athletics clawed back with three straight homers in the bottom of the tenth, Shea Langeliers and Kurtz and Jonah Heim sending rockets into the desert air to tie it 14-14 and send 8,519 fans into delirium.
+
+Kyle Harrison got torched for eight runs in just 2.1 innings, watching the A's explode for six runs in the third on a Max Muncy two-run single, Soderstrom's three-run blast, and Zack Gelof's solo shot. Jeffrey Springs wasn't much better, surrendering five runs including homers to Brice Turang and Andrew Vaughn in that same wild third inning. The madness never stopped. Jake Bauers homered in the seventh. Vaughn doubled home two in the ninth to tie it 10-10. The tenth inning alone featured seven runs and four home runs, Aaron Ashby melting down for Milwaukee while Scott Barlow imploded for the A's. When the dust finally settled in the twelfth, it was Brice Turang reaching on a fielder's choice off José Suarez that scored Christian Yelich with the winner, a quiet ending to the loudest possible game.`
+},
+{
+  id:"2026-06-08-yankees-at-guardians",
+  date:"2026-06-08",
+  awayTeam:"New York Yankees",
+  homeTeam:"Cleveland Guardians",
+  away_runs:7,
+  home_runs:5,
+  result:"loss",
+  score:"New York Yankees 7, Cleveland Guardians 5",
+  winner:"David Bednar",
+  loser:"Shawn Armstrong",
+  save:"",
+  gamePk:824427,
+  preview:"The Yankees and Guardians traded blows through nine innings at Progressive Field, matching each other mistake for mistake in a 5-5 deadlock that felt inevitable from the moment Pau",
+  body:`The Yankees and Guardians traded blows through nine innings at Progressive Field, matching each other mistake for mistake in a 5-5 deadlock that felt inevitable from the moment Paul Goldschmidt launched a two-run homer in the first inning. Both teams committed two errors. Both teams left runners stranded. The Guardians erased an early 3-0 deficit with three runs in the third, then grabbed a 5-4 lead when Angel Martínez crushed a two-run homer off Paul Blackburn in the sixth. Paul Goldschmidt answered in the eighth with a grinding RBI groundout that sent this thing to extras, where the real drama waited.
+
+Extra innings stripped away the pretense. With runners on second and third in the tenth, Cody Bellinger did what clutch hitters do. He found a hole. His ground ball single to left field scored Ali Sánchez and Ben Rice, giving the Yankees a 7-5 lead that David Bednar would protect in the bottom half. Bednar earned the win with 1.2 scoreless innings, striking out three and walking one. Shawn Armstrong took the loss after allowing that decisive two-run single. The 29,517 fans at Progressive Field watched the Yankees win 7-5 in a game that showcased why baseball's beauty lies in its refusal to end quietly.`
+},
+{
+  id:"2026-06-08-phillies-at-jays",
+  date:"2026-06-08",
+  awayTeam:"Philadelphia Phillies",
+  homeTeam:"Toronto Blue Jays",
+  away_runs:5,
+  home_runs:2,
+  result:"loss",
+  score:"Philadelphia Phillies 5, Toronto Blue Jays 2",
+  winner:"Cristopher Sánchez",
+  loser:"Patrick Corbin",
+  save:"Jhoan Duran",
+  gamePk:822806,
+  preview:"The Phillies turned the first three innings into a demolition of Patrick Corbin and never looked back in a 5-2 victory over the Blue Jays at Rogers Centre. Corbin lasted just three",
+  body:`The Phillies turned the first three innings into a demolition of Patrick Corbin and never looked back in a 5-2 victory over the Blue Jays at Rogers Centre. Corbin lasted just three innings, surrendering all five Philadelphia runs on four hits and four walks as the visitors seized complete control early. Adolis García provided the opening blow with a two-run homer in the second inning that scored Bryson Stott, then the Phillies poured on three more runs in the third. Alec Bohm drove in Trea Turner with a single to left, J.T. Realmuto followed with another RBI single to center that scored Bryce Harper, and Stott capped the outburst by drawing a bases-loaded walk that brought home Brandon Marsh.
+
+Cristopher Sánchez took that five-run cushion and made it stand up with seven strong innings, allowing just four hits and two earned runs while striking out 10 batters. The Blue Jays managed only token resistance against the Phillies left-hander, getting on the board in the third when Yohendrick Piñango grounded out to score Myles Straw, then adding their final run on Ernie Clement's solo homer in the fifth. Toronto managed just six hits total and struck out 13 times against Philadelphia pitching. Brad Keller and Jhoan Duran finished the job with two scoreless innings, Duran earning the save as the Phillies cruised to victory in front of 37,178 fans on a clear 68-degree evening.`
+},
+{
+  id:"2026-06-08-mariners-at-orioles",
+  date:"2026-06-08",
+  awayTeam:"Seattle Mariners",
+  homeTeam:"Baltimore Orioles",
+  away_runs:6,
+  home_runs:3,
+  result:"loss",
+  score:"Seattle Mariners 6, Baltimore Orioles 3",
+  winner:"Emerson Hancock",
+  loser:"Trey Gibson",
+  save:"Andrés Muñoz",
+  gamePk:824829,
+  preview:"The Baltimore Orioles carried a 1-0 lead into the fifth inning at Camden Yards, built on Pete Alonso's sacrifice fly that scored Blaze Alexander in the third. Emerson Hancock had s",
+  body:`The Baltimore Orioles carried a 1-0 lead into the fifth inning at Camden Yards, built on Pete Alonso's sacrifice fly that scored Blaze Alexander in the third. Emerson Hancock had surrendered just three hits through five innings, but Trey Gibson looked equally sharp for Baltimore through four and two-thirds. Then the fifth inning arrived like a thunderclap. Ryan Bliss tied the game with a sacrifice fly that brought home Dominic Canzone, chasing Gibson from the mound. Anthony Nunez entered and promptly served up a grand slam to Josh Naylor, a towering shot to right field that turned a tie game into a 5-1 Seattle advantage.
+
+The Mariners never relinquished that lead, though Baltimore made things interesting late. The Orioles scratched across single runs in the seventh and eighth innings, with Taylor Ward scoring on a hit by pitch and Blaze Alexander driving home Leody Taveras with a single to left. Randy Arozarena provided an insurance run for Seattle in the eighth, singling home Josh Naylor to make it 6-3. Andrés Muñoz locked down the ninth inning with two strikeouts to secure the save, capping a game where one explosive inning made all the difference. Hancock earned the victory despite allowing the early run, while Gibson took the loss after watching his solid start unravel in that fateful fifth.`
+},
+{
+  id:"2026-06-08-nationals-at-giants",
+  date:"2026-06-08",
+  awayTeam:"Washington Nationals",
+  homeTeam:"San Francisco Giants",
+  away_runs:4,
+  home_runs:3,
+  result:"loss",
+  score:"Washington Nationals 4, San Francisco Giants 3",
+  winner:"Clayton Beeter",
+  loser:"Keaton Winn",
+  save:"Gus Varland",
+  gamePk:823218,
+  preview:"For eight innings, Logan Webb was nearly untouchable. The Giants ace carved through Washington's lineup with surgical precision, allowing just five hits and striking out seven with",
+  body:`For eight innings, Logan Webb was nearly untouchable. The Giants ace carved through Washington's lineup with surgical precision, allowing just five hits and striking out seven without issuing a walk. When the Nationals finally broke through in the sixth on Luis García Jr.'s RBI single, it felt like a minor inconvenience rather than a real threat. The Giants answered immediately in their half of the inning when Matt Chapman drove home Jung Hoo Lee, who torched Washington pitching all night with four hits in five at-bats. Two more runs in the eighth, including Bryce Eldridge's RBI double and Jonah Cox's sacrifice bunt, gave San Francisco a 3-1 lead that seemed insurmountable given Webb's dominance.
+
+But ninth innings have a way of unraveling even the most carefully constructed victories. Keaton Winn entered to close it out and immediately surrendered a two-run single to CJ Abrams that knotted the game at three. Before the 35,432 at Oracle Park could process what had happened, Daylen Lile lined another single to center field, scoring Abrams with the go-ahead run. Clayton Beeter, who had allowed both Giants runs in the eighth, instead picked up the victory when Gus Varland shut down San Francisco in the bottom of the ninth. Washington's 4-3 win transformed Webb's masterpiece into a footnote, leaving the Giants to wonder how 13 hits and eight dominant innings could still add up to heartbreak.`
+},
+
 // AUTO-GENERATED: 2026-06-07
 {
   id:"2026-06-07-guardians-at-rangers",
