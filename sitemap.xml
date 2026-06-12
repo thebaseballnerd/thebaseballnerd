@@ -1199,4 +1199,48 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!-- RECAPS: 2026-06-11 -->
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=2026-06-11-rangers-at-royals</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=2026-06-11-diamondbacks-at-marlins</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=2026-06-11-cubs-at-rockies</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=2026-06-11-dodgers-at-pirates</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=2026-06-11-twins-at-tigers</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=2026-06-11-mariners-at-orioles</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=2026-06-11-cardinals-at-mets</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
