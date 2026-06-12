@@ -23,6 +23,134 @@
  */
 
 const RECAPS = [
+// AUTO-GENERATED: 2026-06-11
+{
+  id:"2026-06-11-rangers-at-royals",
+  date:"2026-06-11",
+  awayTeam:"Texas Rangers",
+  homeTeam:"Kansas City Royals",
+  away_runs:4,
+  home_runs:2,
+  result:"loss",
+  score:"Texas Rangers 4, Kansas City Royals 2",
+  winner:"Jacob Latz",
+  loser:"Michael Wacha",
+  save:"",
+  gamePk:824101,
+  preview:"Corey Seager carved up Michael Wacha like he was reading his diary. The Rangers shortstop collected two hits including a third-inning homer, driving in a run and scoring another as",
+  body:`Corey Seager carved up Michael Wacha like he was reading his diary. The Rangers shortstop collected two hits including a third-inning homer, driving in a run and scoring another as Texas built an early 3-0 lead against the Royals starter. Brandon Nimmo delivered the first blow with an RBI double in the opening frame, though he got caught trying to stretch it into a triple. Elias Díaz followed with a perfectly placed bunt single in the second inning that scored Ezequiel Duran, then Evan Carter capped the offensive outburst with a sixth-inning RBI single that provided the eventual winning margin.
+
+Kumar Rocker kept Kansas City quiet through the early innings before running into trouble in the fourth. The Royals scratched across two runs when Vinnie Pasquantino scored on a Michael Massey double play grounder and Jac Caglianone came home on a Kameron Misner RBI single. That would be all the damage Rocker allowed across 4.2 innings of work before the Rangers bullpen took over. Jacob Latz earned the victory with two scoreless innings to close out the game, striking out three Royals hitters and allowing no hits. The win gave Texas an 11-6 advantage in hits while both teams played error-free baseball under partly cloudy skies at Kauffman Stadium.`
+},
+{
+  id:"2026-06-11-diamondbacks-at-marlins",
+  date:"2026-06-11",
+  awayTeam:"Arizona Diamondbacks",
+  homeTeam:"Miami Marlins",
+  away_runs:0,
+  home_runs:2,
+  result:"win",
+  score:"Arizona Diamondbacks 0, Miami Marlins 2",
+  winner:"Tyler Phillips",
+  loser:"Merrill Kelly",
+  save:"Pete Fairbanks",
+  gamePk:823855,
+  preview:"The Diamondbacks managed just three hits and never scored in a frustrating 2-0 loss to the Marlins at loanDepot park. Arizona's offense struck out 13 times and left runners strande",
+  body:`The Diamondbacks managed just three hits and never scored in a frustrating 2-0 loss to the Marlins at loanDepot park. Arizona's offense struck out 13 times and left runners stranded in the few chances they created. Ketel Marte, LuJames Groover, and Jorge Barrosa each collected singles, but the Diamondbacks could not string together the timely hitting needed against Miami's five-pitcher effort.
+
+The Marlins scored early and added insurance, building their winning margin through small ball execution. Otto Lopez reached base in the first inning and came around to score on Xavier Edwards' sacrifice fly to right fielder Corbin Carroll. In the fourth inning, Kyle Stowers walked and eventually scored on Jakob Marsee's line drive single to center field, with Owen Caissie advancing to third base in the process. Merrill Kelly absorbed both runs over six innings of work, allowing four hits while striking out just one batter. Tyler Phillips earned the victory for Miami, having held Arizona to two hits over five scoreless frames with five strikeouts. Pete Fairbanks closed out the ninth with two strikeouts to secure his save in front of 8,580 fans under the closed roof.`
+},
+{
+  id:"2026-06-11-cubs-at-rockies",
+  date:"2026-06-11",
+  awayTeam:"Chicago Cubs",
+  homeTeam:"Colorado Rockies",
+  away_runs:9,
+  home_runs:3,
+  result:"loss",
+  score:"Chicago Cubs 9, Colorado Rockies 3",
+  winner:"Edward Cabrera",
+  loser:"Ryan Feltner",
+  save:"",
+  gamePk:824346,
+  preview:"The Rockies grabbed the early lead when Brett Sullivan launched his second homer of the season to right field in the third inning off Edward Cabrera. That advantage lasted exactly",
+  body:`The Rockies grabbed the early lead when Brett Sullivan launched his second homer of the season to right field in the third inning off Edward Cabrera. That advantage lasted exactly one inning. With the bases loaded in the fourth, Seiya Suzuki crushed a grand slam to left field off Ryan Feltner, sending Pete Crow-Armstrong, Michael Busch, and Ian Happ home to flip a 1-0 deficit into a 4-1 Cubs lead. Cole Carrigg answered immediately in the bottom half with his first career homer to right field, but the Cubs had found their rhythm.
+
+The Cubs pulled away with methodical precision over the next four innings. Michael Busch drove in Dansby Swanson with a sharp single to right in the fifth, then Ian Happ lifted a sacrifice fly to score Alex Bregman and make it 6-2. Alex Bregman provided the knockout punch in the seventh with a two-run homer to left that scored Pete Crow-Armstrong, extending the lead to 8-2. Carson Kelly added a solo shot in the eighth off Sammy Peralta. Sullivan managed one final homer in the ninth against Tyler Ferguson, his third of the season, but the outcome had been decided long before. The Cubs collected 10 hits and scored in four different innings, turning what started as a pitcher's duel into a comfortable 9-3 victory at Coors Field.`
+},
+{
+  id:"2026-06-11-dodgers-at-pirates",
+  date:"2026-06-11",
+  awayTeam:"Los Angeles Dodgers",
+  homeTeam:"Pittsburgh Pirates",
+  away_runs:8,
+  home_runs:6,
+  result:"loss",
+  score:"Los Angeles Dodgers 8, Pittsburgh Pirates 6",
+  winner:"Jack Dreyer",
+  loser:"Mitch Keller",
+  save:"Tanner Scott",
+  gamePk:823371,
+  preview:"The Dodgers built what looked like a comfortable lead early, then watched the Pirates claw their way back into striking distance before holding on for an 8-6 victory at PNC Park. S",
+  body:`The Dodgers built what looked like a comfortable lead early, then watched the Pirates claw their way back into striking distance before holding on for an 8-6 victory at PNC Park. Shohei Ohtani started the fireworks with a line drive homer to right center in the third inning, his 13th of the season. Kyle Tucker followed with a two-run single that scored Andy Pages and Freddie Freeman, giving Los Angeles a 3-0 advantage. The Dodgers kept pouring it on in the fourth when Freeman singled home Ohtani and Max Muncy drew a bases-loaded walk, stretching the lead to 5-0 against Mitch Keller.
+
+Pittsburgh refused to fold quietly in the fifth inning, mounting a fierce comeback against Justin Wrobleski. Rafael Flores Jr. launched his first homer of the season to center field, then Brandon Lowe crushed a two-run shot to right that scored Nick Gonzales and made it 5-3. Spencer Horwitz capped the rally with an RBI single off Will Klein that brought home Bryan Reynolds, suddenly making it a one-run game at 5-4. The Dodgers answered with two runs in the seventh off Evan Sisk on a Miguel Rojas fielder's choice that scored Alex Call and a run that scored during an Andy Pages pop out, then added another in the eighth on a Rojas sacrifice fly that brought home Kyle Tucker. The Pirates made one last push in the eighth when Jake Mangum doubled home Tyler Callihan and Rafael Flores Jr. followed with another RBI double off Edgardo Henriquez, but Tanner Scott shut the door with 1.1 innings of scoreless relief to preserve the win for Jack Dreyer.`
+},
+{
+  id:"2026-06-11-twins-at-tigers",
+  date:"2026-06-11",
+  awayTeam:"Minnesota Twins",
+  homeTeam:"Detroit Tigers",
+  away_runs:0,
+  home_runs:11,
+  result:"win",
+  score:"Minnesota Twins 0, Detroit Tigers 11",
+  winner:"Keider Montero",
+  loser:"Zebby Matthews",
+  save:"",
+  gamePk:824265,
+  preview:"The Tigers turned Comerica Park into a launching pad, blasting five home runs in an 11-0 demolition of the Twins that felt more like batting practice than a baseball game. Zebby Ma",
+  body:`The Tigers turned Comerica Park into a launching pad, blasting five home runs in an 11-0 demolition of the Twins that felt more like batting practice than a baseball game. Zebby Matthews absorbed the brunt of Detroit's offensive explosion, surrendering seven runs across six innings as the Tigers found their power stroke early and never let up. The carnage began in the fourth inning when Colt Keith delivered an RBI single before Spencer Torkelson launched a two-run homer to left field, transforming a quiet 1-0 game into a 4-0 rout.
+
+What followed was a relentless parade of long balls that left Matthews and the Twins' bullpen shell-shocked. Gleyber Torres connected for a solo shot in the fifth, then Keith added his first homer of the season in the sixth, a two-run blast that scored Kerry Carpenter and pushed the lead to 7-0. Even after Matthews finally departed, the damage continued as Riley Greene, Zach McKinstry, and Wenceel Pérez each went deep against the Twins' relievers, with Pérez capping the scoring with a two-run homer in the eighth. Meanwhile, Keider Montero carved up Minnesota's lineup with surgical precision, allowing just four hits across 6.1 shutout innings to earn the victory. The Twins managed only five hits total and never seriously threatened to score, completing one of their most lopsided defeats of the season in front of 30,714 fans who witnessed Detroit's offensive fireworks show.`
+},
+{
+  id:"2026-06-11-mariners-at-orioles",
+  date:"2026-06-11",
+  awayTeam:"Seattle Mariners",
+  homeTeam:"Baltimore Orioles",
+  away_runs:5,
+  home_runs:7,
+  result:"win",
+  score:"Seattle Mariners 5, Baltimore Orioles 7",
+  winner:"Tyler Wells",
+  loser:"Bryan Woo",
+  save:"Andrew Kittredge",
+  gamePk:824827,
+  preview:"Cole Young staked Seattle to an early lead with a line drive homer to right center field in the first inning, but Bryan Woo couldn't hold it. The third inning turned into a nightma",
+  body:`Cole Young staked Seattle to an early lead with a line drive homer to right center field in the first inning, but Bryan Woo couldn't hold it. The third inning turned into a nightmare for the Mariners starter. Colton Cowser tied it with a fly ball homer to left center field. Then Adley Rutschman doubled home Taylor Ward and Gunnar Henderson to put Baltimore ahead 4-1. Pete Alonso capped the rally with a two-run homer to left center field, scoring Rutschman and giving the Orioles a commanding 6-1 advantage.
+
+Seattle refused to fold. The Mariners erupted for four runs in the fourth inning against Kyle Bradish, turning a blowout into a genuine contest. Luke Raley launched a two-run homer to right field, scoring Randy Arozarena. Dominic Canzone followed with his own solo shot to right center field. Julio Rodríguez capped the rally with an RBI single to right field, plating Colt Emerson and pulling Seattle within 6-5. But Rutschman wasn't finished. The Baltimore catcher delivered the decisive blow in the fifth inning, grounding a single to left field that scored Ward and gave the Orioles a 7-5 lead they would never surrender. Tyler Wells earned the win with three scoreless innings of relief, and Andrew Kittredge closed it out for the save.`
+},
+{
+  id:"2026-06-11-cardinals-at-mets",
+  date:"2026-06-11",
+  awayTeam:"St. Louis Cardinals",
+  homeTeam:"New York Mets",
+  away_runs:4,
+  home_runs:5,
+  result:"win",
+  score:"St. Louis Cardinals 4, New York Mets 5",
+  winner:"Brooks Raley",
+  loser:"JoJo Romero",
+  save:"Devin Williams",
+  gamePk:823619,
+  preview:"The home runs flew out of Citi Field like batting practice on a sweltering September night. Six balls left the yard in the first seven innings, turning what should have been a pitc",
+  body:`The home runs flew out of Citi Field like batting practice on a sweltering September night. Six balls left the yard in the first seven innings, turning what should have been a pitcher's duel into a slugfest that swung back and forth until Juan Soto's seventh-inning blast finally settled it. The Cardinals struck first when Alec Burleson took Christian Scott deep in the opening frame, but the Mets answered immediately with back-to-back homers from Bo Bichette and Jared Young off Hunter Dobbins. St. Louis refused to fold, storming back in the second inning as Lars Nootbaar and Jimmy Crooks went yard to give the Cardinals a 4-3 lead that held for three innings.
+
+The Mets chipped away methodically after that explosive start. Jared Young's fifth-inning single tied the game at four, scoring Juan Soto and setting up the dramatic finish. Soto delivered the knockout punch two innings later, crushing his 14th homer of the season off JoJo Romero to put the Mets ahead for good. Brooks Raley earned the win with a scoreless inning, while Devin Williams locked down the save with two strikeouts in the ninth. The Cardinals managed just seven hits against five Mets pitchers, their offense going silent after that second-inning eruption as 37,019 fans at Citi Field witnessed a wild finish to a wild night.`
+},
+
 // AUTO-GENERATED: 2026-06-10
 {
   id:"2026-06-10-rangers-at-royals",
