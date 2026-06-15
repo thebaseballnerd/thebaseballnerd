@@ -1884,7 +1884,7 @@ fetchStarters().then(() => { buildLeaderboards(null); applyFilters(); });
 </div>
 <div class="page-footer">
   <a href="https://thebaseballnerd.com/vault">&larr; Back to Vault</a>
-  <div class="source-note">FanGraphs &middot; Statcast / Hawk-Eye &middot; Updated June 15, 2026</div>
+  <div class="source-note">Baseball Nerd &middot; Statcast / Hawk-Eye &middot; Updated June 15, 2026</div>
 </div>
 <script>
 
@@ -2122,9 +2122,9 @@ function applyFilters() {
   const sub = document.getElementById('headerSub');
   if (team) {
     const tc = ALL_ROWS.filter(r => r.team === team).length;
-    sub.innerHTML = `FanGraphs leaderboards &middot; <span>${tc} qualified starter${tc!==1?'s':''}</span> &middot; ${team} &middot; Through June 14`;
+    sub.innerHTML = `Baseball Nerd leaderboards &middot; <span>${tc} qualified starter${tc!==1?'s':''}</span> &middot; ${team} &middot; Through June 14`;
   } else {
-    sub.innerHTML = `FanGraphs leaderboards &middot; <span>79 qualified starters</span> &middot; FanGraphs qualified threshold &middot; Through June 14`;
+    sub.innerHTML = `Baseball Nerd leaderboards &middot; <span>79 qualified starters</span> &middot; MLB qualified threshold &middot; Through June 14`;
   }
 }
 
