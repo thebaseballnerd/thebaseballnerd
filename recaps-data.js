@@ -23,6 +23,166 @@
  */
 
 const RECAPS = [
+// AUTO-GENERATED: 2026-06-18
+{
+  id:"2026-06-18-twins-at-rangers",
+  date:"2026-06-18",
+  awayTeam:"Minnesota Twins",
+  homeTeam:"Texas Rangers",
+  away_runs:9,
+  home_runs:3,
+  result:"loss",
+  score:"Minnesota Twins 9, Texas Rangers 3",
+  winner:"Joe Ryan",
+  loser:"Jack Leiter",
+  save:"",
+  gamePk:822889,
+  preview:"Jack Leiter gave up six runs in four innings, and the game was essentially over before Texas had a chance to breathe. Brooks Lee put the dagger in early, a three-run homer in the f",
+  body:`Jack Leiter gave up six runs in four innings, and the game was essentially over before Texas had a chance to breathe. Brooks Lee put the dagger in early, a three-run homer in the first that made it 4-0 before the Rangers had recorded a single out against Joe Ryan. That kind of start, in front of 30,606 at Globe Life Field with the roof closed and the temperature a comfortable 74 degrees, has a way of changing everything about how a game feels. The Rangers never felt it.
+
+Ryan was the story on the other side of the ball. Five innings, three hits, zero earned runs, seven strikeouts, and a win. That line does most of the talking. He handed a six-run lead to a bullpen that kept things mostly tidy, outside of a Justin Lawrence hiccup in the sixth when Wyatt Langford and Ezequiel Duran hit back-to-back home runs to make it 7-2. It was not interesting for long. Trevor Larnach had already done his damage by then, finishing 3-for-5 with a homer and three RBI, and Luke Keaschall reached base four times without recording an official at-bat, working two walks and going 2-for-2 with a stolen base.
+
+Ryan Kreidler added a two-run shot off Cal Quantrill in the eighth to push the lead to 9-2, and Justin Foscue's solo homer off Cody Laweryson in the ninth set the final at 9-3. Minnesota's 13-hit effort left little doubt. Royce Lewis went 0-for-5 with four strikeouts and Byron Buxton went hitless, and the Twins still won by six. That is what a 4-0 first inning against a struggling starter will do for you.`
+},
+{
+  id:"2026-06-18-orioles-at-mariners",
+  date:"2026-06-18",
+  awayTeam:"Baltimore Orioles",
+  homeTeam:"Seattle Mariners",
+  away_runs:0,
+  home_runs:3,
+  result:"win",
+  score:"Baltimore Orioles 0, Seattle Mariners 3",
+  winner:"Bryan Woo",
+  loser:"Shane Baz",
+  save:"Andrés Muñoz",
+  gamePk:823125,
+  preview:"The game was decided before anyone had a chance to settle in. Seattle sent batters to the plate in the first inning and needed only two swings to do all the damage it would require",
+  body:`The game was decided before anyone had a chance to settle in. Seattle sent batters to the plate in the first inning and needed only two swings to do all the damage it would require. Cole Young doubled to left field, scoring Josh Naylor and sending Dominic Canzone to third. Then Colt Emerson singled to right field, and just like that it was 3-0 before Baltimore had even come back to bat. Shane Baz gave up all three runs on five hits, and then something strange happened. He stopped. Not a single run crossed the plate for the next six innings, with Baz finishing at 7.0 innings pitched, 5 hits, 3 earned runs, and 9 strikeouts. The damage was real, but so was the recovery. It just came too late to matter.
+
+Bryan Woo made sure of that. The Mariners right-hander was simply not going to let Baltimore back in. He went 7.0 innings, scattered 3 hits, walked one, and struck out 9. The Orioles lineup, featuring Gunnar Henderson, Adley Rutschman, and Pete Alonso, went a combined 0-for-11 with 6 strikeouts between them. The whole club managed 3 hits on the night. Leody Taveras singled and stole a base. Colton Cowser and Jackson Holliday each added a hit. That was the entirety of Baltimore's offensive contribution in front of 43,053 fans at T-Mobile Park on a sunny 72-degree afternoon. Eduard Bazardo and Andrés Muñoz closed it out cleanly, and the Mariners walked away with a 3-0 win that was never seriously in doubt after the first inning.`
+},
+{
+  id:"2026-06-18-sox-at-yankees",
+  date:"2026-06-18",
+  awayTeam:"Chicago White Sox",
+  homeTeam:"New York Yankees",
+  away_runs:5,
+  home_runs:1,
+  result:"loss",
+  score:"Chicago White Sox 5, New York Yankees 1",
+  winner:"Sean Burke",
+  loser:"Fernando Cruz",
+  save:"",
+  gamePk:823533,
+  preview:"Andrew Benintendi came to the plate in the eighth inning with the game tied, the bases loaded, and Yankee Stadium holding its breath. What happened next settled everything. Beninte",
+  body:`Andrew Benintendi came to the plate in the eighth inning with the game tied, the bases loaded, and Yankee Stadium holding its breath. What happened next settled everything. Benintendi crushed a grand slam to right center field, his ninth of the year, scoring Sam Antonacci, Jacob Gonzalez, and Tristan Peters and turning a 1-1 game into a 5-1 final. Camilo Doval allowed it, and just like that, the White Sox had their answer.
+
+The game had been a genuine pitching duel before that eighth inning blew it open. Sean Burke was excellent, going 7.1 innings and allowing just one run on five hits while striking out eight. That run came in the third, when Ryan McMahon took him deep to left center for a solo shot, his eighth of the season, knotting the game at one. The White Sox had drawn first blood in the second, when Colson Montgomery took Ryan Weathers deep to center for a solo shot, his twentieth of the year. For six innings after that, both teams traded zeroes and the game felt like it could go anywhere. Burke kept it there long enough for his offense to do something about it.
+
+Weathers was sharp in a losing effort, striking out eight of his own across 6.1 innings and holding the White Sox to three hits. But the bullpen behind him couldn't protect the tie. Fernando Cruz got one batter before giving way, Tim Hill allowed two runs in a third of an inning without surrendering a hit, and then Doval ran into Benintendi with the bases full. The White Sox finished with six hits total, but they needed only a handful of the right ones. On a warm night at Yankee Stadium, in front of 44,809 fans, that was plenty.`
+},
+{
+  id:"2026-06-18-guardians-at-brewers",
+  date:"2026-06-18",
+  awayTeam:"Cleveland Guardians",
+  homeTeam:"Milwaukee Brewers",
+  away_runs:4,
+  home_runs:2,
+  result:"loss",
+  score:"Cleveland Guardians 4, Milwaukee Brewers 2",
+  winner:"Parker Messick",
+  loser:"Grant Anderson",
+  save:"Cade Smith",
+  gamePk:823772,
+  preview:"Parker Messick gave up both Milwaukee runs and still walked away with the win. That tells you something about how Tuesday night unfolded at American Family Field. Messick worked si",
+  body:`Parker Messick gave up both Milwaukee runs and still walked away with the win. That tells you something about how Tuesday night unfolded at American Family Field. Messick worked six full innings, allowing a Gary Sánchez ground ball single in the second that plated Andrew Vaughn, then a Cooper Pratt sacrifice fly in the fourth that scored Sánchez again. Two runs, four hits, nine strikeouts, and a decision that swung his way because Cleveland's bats kept finding answers. The Guardians trailed after four innings and won by two. The margin was built in the middle innings, piece by piece.
+
+David Fry got Cleveland even in the third, taking Shane Drohan deep to left center for his fourth home run of the year. Kyle Manzardo erased a 2-1 deficit with a solo shot to right off Joel Kuhnel in the sixth, his eighth of the season. Then the seventh cracked things open. Travis Bazzana led off against Grant Anderson and drove one to right for his fifth home run, and before the inning was over, Gabriel Arias struck out swinging against Drew Rom, but a run had already crossed. Anderson took the loss, having allowed two earned runs in just two-thirds of an inning. Three home runs total for Cleveland, seven hits, zero errors. Clean and efficient.
+
+Cade Smith closed it out with 1.1 scoreless innings, striking out two and earning the save. Milwaukee managed only five hits on the night, and their lineup went a combined seven for thirty-five at the plate. Brice Turang struck out three times. Jackson Chourio went 0 for 4 with two strikeouts. The Brewers drew eight walks as a team and still couldn't push anything across after the fourth inning. The crowd of 36,386 at American Family Field watched the home team strand opportunities all night while Cleveland's three-homer punch did exactly enough damage to matter.`
+},
+{
+  id:"2026-06-18-angels-at-athletics",
+  date:"2026-06-18",
+  awayTeam:"Los Angeles Angels",
+  homeTeam:"Athletics",
+  away_runs:0,
+  home_runs:5,
+  result:"win",
+  score:"Los Angeles Angels 0, Athletics 5",
+  winner:"Gage Jump",
+  loser:"Ryan Johnson",
+  save:"",
+  gamePk:824989,
+  preview:"Gage Jump did not need much help, but the Athletics made sure he had plenty of it before he even threw his first pitch. All five runs came in the bottom of the first inning, a brut",
+  body:`Gage Jump did not need much help, but the Athletics made sure he had plenty of it before he even threw his first pitch. All five runs came in the bottom of the first inning, a brutal opening frame that effectively ended Ryan Johnson's night before it really started. Shea Langeliers did the most damage, lifting a three-run homer to center on a fly ball that scored Zack Gelof and Nick Kurtz. Tyler Soderstrom followed with his own shot to left center, and Henry Bolte added a sacrifice fly to center, scoring Jacob Wilson. Five runs, one inning, and Johnson never recovered, finishing with 8 hits and 5 earned runs across 5 innings of work.
+
+From there, Jump turned it into a clinic. Seven innings, 1 hit, 0 earned runs, 7 strikeouts. The Angels managed just 4 hits in the entire game, and their lineup looked lost against a pitcher who simply located and let his defense do the rest. Denzer Guzman drew two walks but also struck out twice. Christian Moore struck out three times. Zach Neto went 0-for-4. The Angels had baserunners in spots but never anything resembling a threat. Brent Suter and Ryan Zeferjahn combined to throw 3 innings in relief, which at that point was academic.
+
+The final at Sutter Health Park was 5-0 in front of 9,245 fans who saw exactly the kind of game the A's needed. Mason Barnett and Hogan Harris finished things off for the Athletics, with Harris striking out 3 in the ninth. The Angels finished with an error, 4 hits, and no answers for what Jump was doing on the mound. Short, decisive, and over before most people had settled into their seats.`
+},
+{
+  id:"2026-06-18-mets-at-phillies",
+  date:"2026-06-18",
+  awayTeam:"New York Mets",
+  homeTeam:"Philadelphia Phillies",
+  away_runs:6,
+  home_runs:4,
+  result:"loss",
+  score:"New York Mets 6, Philadelphia Phillies 4",
+  winner:"Huascar Brazobán",
+  loser:"José Alvarado",
+  save:"Devin Williams",
+  gamePk:823448,
+  preview:"Juan Soto hit a homer in the first inning. Then he hit another one in the third. That was the foundation, and the Mets built everything else on top of it. Soto went 2-for-4 with tw",
+  body:`Juan Soto hit a homer in the first inning. Then he hit another one in the third. That was the foundation, and the Mets built everything else on top of it. Soto went 2-for-4 with two home runs and two RBI, his 16th and 17th of the year, both surrendered by Aaron Nola on fly balls to the right side. Nola worked five innings and allowed seven hits, and while the Phillies kept clawing back to make it 3-3 by the fourth, the early damage Soto did set the tone for everything that followed.
+
+The game felt like it was drifting toward a coin flip after the Phillies tied it in the fourth. Alec Bohm had a strong night, going 2-for-4 with two RBI, and a throwing error by center fielder A.J. Ewing on a Derek Hill single handed the Phillies the equalizer. Sean Manaea labored through 5.1 innings, giving up three earned runs while striking out five, and the bullpen had to carry the weight. Then the seventh happened. José Alvarado faced the Mets and none of them went quietly. Eric Wagaman singled home Carson Benge to break the tie, and then Marcus Semien, who finished 2-for-4 on the night, tripled to left to score both Mark Vientos and Zack Short. Three runs, one inning, game essentially over.
+
+Huascar Brazobán earned the win with a clean seventh, and Luke Weaver struck out all three batters he faced in the eighth. Devin Williams got a bit of a scare in the ninth, allowing a Justin Crawford single that scored J.T. Realmuto and closed the gap to 6-4, but he finished it off from there to record the save. The Mets left Philadelphia with an 11-hit effort and a final of 6-4, the kind of win that starts with one big swing and ends with a bullpen doing exactly what it needs to do.`
+},
+{
+  id:"2026-06-18-cardinals-at-royals",
+  date:"2026-06-18",
+  awayTeam:"St. Louis Cardinals",
+  homeTeam:"Kansas City Royals",
+  away_runs:6,
+  home_runs:14,
+  result:"win",
+  score:"St. Louis Cardinals 6, Kansas City Royals 14",
+  winner:"Noah Cameron",
+  loser:"Matthew Liberatore",
+  save:"",
+  gamePk:824098,
+  preview:"The second inning is where this game died for St. Louis. The Cardinals came out swinging in the first, taking a 2-0 lead on an Iván Herrera score off a fielder's choice by Jordan W",
+  body:`The second inning is where this game died for St. Louis. The Cardinals came out swinging in the first, taking a 2-0 lead on an Iván Herrera score off a fielder's choice by Jordan Walker and a sacrifice fly from Alec Burleson. It felt like a game early. Then Matthew Liberatore walked back to the mound in the second, and Kansas City sent eleven men to the plate and scored six times without breaking a sweat. Carter Jensen doubled, Isaac Collins doubled, Nelson Velázquez botched a ball in left field to let another run in, Lane Thomas doubled, Bobby Witt Jr. singled, and Starling Marte doubled. Six runs, all on Liberatore, all in a single inning. He was pulled having recorded just five outs across his 1.2 innings, allowing seven hits and five earned runs. The Royals had a 7-2 lead before St. Louis could blink.
+
+Gordon Graceffo and Max Rajcic tried to stop the bleeding and couldn't. Graceffo gave up a Jac Caglianone two-run homer in the fourth, his ninth of the year, pushing Kansas City to 9-3. Rajcic then surrendered a Nick Loftin double that plated two more, and a Salvador Perez solo shot in the sixth made it 12-4. Perez finished 3-for-5 with the home run. Loftin went 2-for-5 with two RBI. Marte added three hits. The Royals collected 17 hits on the afternoon at Kauffman Stadium and spread the damage across nearly every inning, keeping any Cardinals comeback fantasy safely out of reach.
+
+Noah Cameron picked up the win, going five innings and allowing three earned runs while striking out six. It was a serviceable outing made to look better by the offensive cushion behind him. The Cardinals did scratch together six runs total, with José Fermín going 2-for-5 with two RBI and Masyn Winn reaching base three times, but 13 hits and only 6 runs tell a quiet story about stranded opportunities. Kansas City won 14-6, and the scoreboard was honest about which team showed up ready to play.`
+},
+{
+  id:"2026-06-18-jays-at-sox",
+  date:"2026-06-18",
+  awayTeam:"Toronto Blue Jays",
+  homeTeam:"Boston Red Sox",
+  away_runs:4,
+  home_runs:3,
+  result:"loss",
+  score:"Toronto Blue Jays 4, Boston Red Sox 3",
+  winner:"Tommy Nance",
+  loser:"Aroldis Chapman",
+  save:"Mason Fluharty",
+  gamePk:824748,
+  preview:"Aroldis Chapman couldn't hold it. That's what the final line says, and it's the only thing Red Sox fans will remember. Boston had clawed all the way back from a 3-0 hole, tying the",
+  body:`Aroldis Chapman couldn't hold it. That's what the final line says, and it's the only thing Red Sox fans will remember. Boston had clawed all the way back from a 3-0 hole, tying the game in the eighth on back-to-back home runs from Isiah Kiner-Falefa and Caleb Durbin, and then handed the ball to Chapman to protect that tie in the ninth. Ernie Clement reached, and Brandon Valenzuela doubled him home on a fly ball to left fielder Jarren Duran. Blue Jays 4, Red Sox 3. Tommy Nance got the win, Mason Fluharty closed it out, and Chapman took the loss on a night when Boston did everything right for two innings and everything wrong for seven.
+
+Trey Yesavage gave Toronto all the pitching it could have asked for, and then nearly gave it all back himself. He worked 7.1 innings, striking out six, and kept the Red Sox off the board entirely until Ceddanne Rafaela scored on a groundout in the seventh. That was when things got interesting. Kiner-Falefa and Durbin both went deep to left in the eighth, turning a 3-1 deficit into a tie in the span of a few batters. All of a sudden, seven innings of careful, efficient work by Yesavage felt very fragile. It took Valenzuela and Chapman to settle the question.
+
+Sonny Gray was the other half of the story. He threw seven full innings and held Toronto to three runs, all of them earned. Vladimir Guerrero Jr. hit a home run in the first to put Toronto on the board immediately. A Kazuma Okamoto run on an Andrés Giménez sacrifice fly made it 2-0 in the second. Gray escaped further damage inning after inning, but Nathan Lukes connected in the seventh for his second homer of the year, and suddenly the cushion was three again. Gray struck out four and walked one across those seven innings on an overcast evening in front of 32,027 at Fenway. He deserved better than a loss. He just didn't get one.`
+},
+
 // AUTO-GENERATED: 2026-06-17
 {
   id:"2026-06-17-orioles-at-mariners",
