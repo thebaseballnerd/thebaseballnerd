@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y0H5FZ8RP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2Y0H5FZ8RP');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- Primary SEO -->
+  <title>Reliever CSR (rCSR): The Best MLB Reliever Metric | White Paper | The Baseball Nerd</title>
+  <meta name="description" content="Reliever CSR (rCSR) gates on game-entry leverage (gmLI 1.50) and ranks relievers on command, contact suppression, and SIERA. Backtested 2021-2025, it forecasts next-season ERA better than reliever WAR, saves, holds, and WPA.">
+  <meta name="keywords" content="Reliever CSR, rCSR, best reliever metric, reliever stat, gmLI, Leverage Index, reliever WAR, WPA reliever, shutdowns meltdowns, bullpen analytics, SIERA, K-BB%, Barrel%, best reliever 2026">
+  <link rel="canonical" href="https://thebaseballnerd.com/articles/reliever-csr-white-paper.html">
+  <meta name="author" content="Pete Dwyer">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Reliever CSR (rCSR): A Trusted-Leverage, Skill-Anchored Framework for Relief Pitching">
+  <meta property="og:description" content="A relief-pitching rating that gates on leverage and ranks on skill. Backtested across five seasons, it forecasts next-season ERA better than reliever WAR.">
+  <meta property="og:url" content="https://thebaseballnerd.com/articles/reliever-csr-white-paper.html">
+  <meta property="og:site_name" content="The Baseball Nerd">
+  <meta property="og:image" content="https://thebaseballnerd.com/images/reliever-csr-white-paper-og.png">
+  <meta property="article:published_time" content="2026-06-24T00:00:00Z">
+  <meta property="article:modified_time" content="2026-06-24T00:00:00Z">
+  <meta property="article:author" content="Pete Dwyer">
+  <meta property="article:section" content="Analytics">
+  <meta property="article:tag" content="Reliever CSR">
+  <meta property="article:tag" content="Bullpen Analytics">
+  <meta property="article:tag" content="Leverage Index">
+  <meta property="article:tag" content="MLB Metrics">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@thebaseballnerd">
+  <meta name="twitter:title" content="Reliever CSR (rCSR): The Best MLB Reliever Metric White Paper">
+  <meta name="twitter:description" content="Gates on leverage, ranks on skill. Beats reliever WAR at forecasting next-season ERA across five seasons. Full methodology, backtest, and 2026 board.">
+  <meta name="twitter:image" content="https://thebaseballnerd.com/images/reliever-csr-white-paper-og.png">
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "Reliever CSR (rCSR): A Trusted-Leverage, Skill-Anchored Framework for Evaluating Relief Pitching",
+  "alternativeHeadline": "Reliever CSR White Paper — The Baseball Nerd Analytics Vault",
+  "description": "Reliever CSR (rCSR) is a proprietary relief-pitching metric that gates on game-entry leverage (gmLI >= 1.50) and ranks on a z-score skill composite of K-BB%, inverted Barrel%, and inverted SIERA. Backtested 2021-2025, it forecasts next-season ERA better than reliever WAR.",
+  "author": {
+    "@type": "Person",
+    "name": "Pete Dwyer",
+    "url": "https://thebaseballnerd.com/about.html",
+    "email": "pete@thebaseballnerd.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Baseball Nerd",
+    "url": "https://thebaseballnerd.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thebaseballnerd.com/favicon.png"
+    }
+  },
+  "datePublished": "2026-06-24",
+  "dateModified": "2026-06-24",
+  "url": "https://thebaseballnerd.com/articles/reliever-csr-white-paper.html",
+  "mainEntityOfPage": "https://thebaseballnerd.com/articles/reliever-csr-white-paper.html",
+  "keywords": [
+    "Reliever CSR",
+    "rCSR",
+    "reliever metric",
+    "best reliever stat",
+    "gmLI",
+    "Leverage Index",
+    "reliever WAR",
+    "WPA",
+    "shutdowns",
+    "meltdowns",
+    "bullpen analytics",
+    "SIERA",
+    "K-BB%",
+    "Barrel%"
+  ],
+  "articleSection": "Analytics",
+  "about": {
+    "@type": "Thing",
+    "name": "Reliever CSR",
+    "description": "A relief-pitching rating that gates on game-entry leverage and ranks on command, contact suppression, and a defense-light run estimator"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "The Baseball Nerd",
+    "url": "https://thebaseballnerd.com"
+  }
+}
+  </script>
+
+  <!-- JSON-LD: FAQ -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Reliever CSR (rCSR)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reliever CSR (rCSR) is a proprietary relief-pitching metric developed by The Baseball Nerd. It rates relievers a manager trusts in high leverage, defined as a game-entry Leverage Index (gmLI) of at least 1.50, using a z-score composite of three skills: K-BB% for command, inverted Barrel% for contact suppression, and inverted SIERA as a defense-light run estimator. The formula is rCSR = (z(K-BB%) + z(Barrel%, inverted) + z(SIERA, inverted)) / 3. A score of 0.000 is a league-average reliever and higher is better. Win probability added is shown as the value a reliever delivered, but it is deliberately kept out of the rating."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is Reliever CSR calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "First restrict the pool to relievers with a game-entry Leverage Index (gmLI) of at least 1.50. For each pitcher, take K-BB%, Barrel%, and SIERA, and convert each to a z-score against the full reliever pool for the season. Invert the Barrel% and SIERA z-scores so that lower values score positively, since for both, lower is better. Average the three. The result is rCSR = (z(K-BB%) + z(Barrel%, inverted) + z(SIERA, inverted)) / 3, a single composite where 0.000 is the league-average reliever and positive scores indicate above-average skill."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does a gmLI of 1.50 mean, and why is it the cutoff?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "gmLI, game-entry Leverage Index, is the average importance of the situations a reliever enters, where 1.00 is league average. A gmLI of 1.50 means a pitcher enters games in spots fifty percent more critical than average, the signature of a trusted high-leverage arm. Reliever CSR uses 1.50 as an eligibility gate rather than an innings cutoff, because game-entry leverage is one of the most stable reliever signals there is, correlating with itself at roughly 0.51 from one season to the next across 2021 through 2025. That stability means the gate identifies a real, durable role rather than a one-week accident."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why doesn't Reliever CSR rank relievers by saves, holds, or WPA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Saves and holds are role labels assigned by a manager's bullpen chart, not measures of pitching skill, and they cannot fairly compare a closer to the setup man who escaped the harder inning two innings earlier. Win probability added is leverage-aware but barely repeats: a reliever's WPA self-correlates only about 0.13 from one season to the next, the least stable signal in the data. Ranking on it would sort a single year of sequencing and timing luck. Reliever CSR shows WPA as value delivered and ranks instead on command and contact, the skills that carry forward."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is WPA a good stat for evaluating relievers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Win probability added is excellent for describing the value a reliever delivered in a given season, because it weights every out by how much it shifted the chance of winning. It is poor for predicting future value. Across 2021 through 2025, a reliever's WPA predicted his next-season WPA at roughly 0.13 and his next-season ERA at under 0.10, worse than his command, his contact quality, or even his saves and holds. WPA answers what happened, not what will continue, which is why Reliever CSR displays it but never ranks on it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Reliever CSR predict future performance better than reliever WAR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, on next-season earned run average. Backtested across 2021 through 2025 on relievers with at least thirty innings in consecutive seasons, the Reliever CSR skill rating forecast next-year ERA at a Spearman rank correlation of -0.247, ahead of reliever WAR at -0.204, K-BB% alone at -0.222, saves plus holds at -0.166, and far ahead of raw WPA at -0.086. On next-year reliever WAR it finished in the top tier, essentially tied with command and ahead of reliever WAR. The leverage statistics the sport leans on to rank relievers finished last."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who is the best reliever in MLB in 2026 by Reliever CSR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As of June 24, 2026, Mason Miller (SDP) leads all trusted relievers with a Reliever CSR of 2.959, built on a 41.1 percent K-BB%, a 2.0 percent barrel rate, and a 1.35 SIERA, the best skill profile in the pool. Jhoan Duran (PHI) ranks second at 2.238, and the setup man Adrian Morejon (SDP) ranks third at 1.903 despite a single save, because the rating measures skill rather than role. The live board updates weekly on Monday mornings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is Reliever CSR different from CSR, the starter metric?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSR rates qualified starting pitchers for Cy Young evaluation using RE24/IP, K-BB%, and Barrel%, and it ranks partly on contextual run prevention because that term validated against actual Cy Young outcomes. Reliever CSR carries the same contact-suppression DNA to relief pitching, adds a trust gate at a gmLI of 1.50, and swaps the third input to SIERA. The defining difference is that for relievers the contextual value term, win probability added, did not survive to the following season, so it is displayed rather than ranked. Both metrics follow the same philosophy, pairing what happened with the skills that make it repeatable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are setup men undervalued, and does Reliever CSR fix it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The highest-leverage moment of a game is frequently not the ninth inning. A bases-loaded jam in the eighth carries a higher Leverage Index than a clean ninth with a lead, yet the setup man who escapes it earns only a hold while the closer who finishes earns the save and the credit. Earned run average compounds the problem by charging inherited runners to the pitcher who allowed them, hiding the firefighter's most valuable work entirely. Reliever CSR gates on the leverage a pitcher actually faces and ranks on his skill, so a setup man like Adrian Morejon can rank among the best relievers in baseball with no save total at all."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are shutdowns and meltdowns, and does Reliever CSR use them?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A shutdown is a relief appearance that raised the team's win probability by at least six percent, and a meltdown is one that lowered it by at least six percent. They are role-neutral and leverage-aware, a more honest ledger than saves and holds because they count both the helping and the hurting regardless of inning. Reliever CSR displays shutdowns and meltdowns as a reliability readout on each pitcher's card, but keeps them out of the rating, because they are derived from win probability added and inherit its low year-to-year stability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a regression candidate in Reliever CSR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A regression candidate is a reliever who cleared the trust gate and delivered real win probability value but carries a weak skill rating, meaning his results outran his command and contact quality. In 2026, Kevin Kelly and Riley O'Brien are clear examples: both posted strong leverage value while running earned run averages well below what their contact quality supports, and both sit in the bottom half of the trusted board. The skill anchor flags them as likely to fall back, the same way the starter version of CSR flagged regression candidates among Cy Young contenders."
+      }
+    }
+  ]
+}
+  </script>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "The Baseball Nerd",
+      "item": "https://thebaseballnerd.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Data Vault",
+      "item": "https://thebaseballnerd.com/vault.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Reliever CSR White Paper",
+      "item": "https://thebaseballnerd.com/articles/reliever-csr-white-paper.html"
+    }
+  ]
+}
+  </script>
+
+  <!-- JSON-LD: HowTo -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Calculate Reliever CSR (rCSR)",
+  "description": "Step-by-step method for computing the Reliever CSR relief-pitching rating.",
+  "totalTime": "PT5M",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Apply the trust gate",
+      "text": "Restrict the pool to relievers with a game-entry Leverage Index (gmLI) of at least 1.50, the trusted high-leverage population."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Gather the three skill inputs",
+      "text": "Collect K-BB% (FanGraphs Advanced), Barrel% (FanGraphs Statcast / Baseball Savant), and SIERA (FanGraphs Advanced) for every reliever in the season pool."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Z-score and invert",
+      "text": "Convert each input to a z-score against the full reliever pool. Multiply the Barrel% and SIERA z-scores by negative one so that lower values score positively."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Average the three z-scores",
+      "text": "rCSR = (z(K-BB%) + z(Barrel%, inverted) + z(SIERA, inverted)) / 3. A result of 0.000 is a league-average reliever; higher is better. Display WPA alongside the rating but do not include it."
+    }
+  ]
+}
+  </script>
+
+  <!-- JSON-LD: Dataset -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "2026 MLB Reliever CSR Board",
+  "description": "Reliever CSR (rCSR) ratings for trusted MLB relievers (gmLI >= 1.50) through June 24, 2026, with K-BB%, Barrel%, SIERA, WPA, shutdowns, and meltdowns.",
+  "url": "https://thebaseballnerd.com/reliever-analysis-2026.html",
+  "creator": {
+    "@type": "Person",
+    "name": "Pete Dwyer"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Baseball Nerd"
+  },
+  "temporalCoverage": "2026",
+  "variableMeasured": [
+    "rCSR",
+    "gmLI",
+    "K-BB%",
+    "Barrel%",
+    "SIERA",
+    "WPA",
+    "SD",
+    "MD",
+    "ERA"
+  ],
+  "license": "https://thebaseballnerd.com/about.html"
+}
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --navy:#0a1628;--navy-mid:#112040;--navy-light:#1a2f50;--navy-card:#0d1a30;
+      --gold:#c9a84c;--gold-light:#e8c97a;--cream:#f5f0e8;--cream-dim:rgba(245,240,232,0.45);
+      --green:#4caf85;--red:#e05c5c;--mono:'IBM Plex Mono',monospace;
+    }
+    body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--cream);font-size:16px;line-height:1.7;}
+    /* NAV */
+    nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 2rem;background:rgba(10,22,40,0.97);border-bottom:1px solid rgba(201,168,76,0.15);position:sticky;top:0;z-index:100;}
+    .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.08em;color:var(--gold);text-decoration:none;}
+    .nav-logo span{color:var(--cream);opacity:0.45;}
+    .nav-links{display:flex;gap:0;list-style:none;}
+    .nav-links a{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.45;text-decoration:none;padding:0.4rem 0.9rem;transition:opacity 0.15s,color 0.15s;}
+    .nav-links a:hover,.nav-links a.active{opacity:1;color:var(--gold);}
+    .nav-cta{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1rem;background:var(--gold);color:var(--navy);border:none;cursor:pointer;font-weight:500;text-decoration:none;transition:background 0.2s;}
+    .nav-cta:hover{background:var(--gold-light);}
+    /* HERO */
+    .article-hero{background:linear-gradient(135deg,var(--navy-mid) 0%,#0a1628 100%);border-bottom:2px solid var(--gold);padding:3rem 2rem 2.5rem;}
+    .hero-inner{max-width:860px;margin:0 auto;}
+    .breadcrumb{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);opacity:0.7;margin-bottom:1rem;}
+    .breadcrumb a{color:inherit;text-decoration:none;}
+    .breadcrumb a:hover{opacity:1;}
+    .breadcrumb span{opacity:0.4;margin:0 0.4rem;}
+    .article-eyebrow{display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;}
+    .eyebrow-tag{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;padding:3px 10px;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);color:var(--gold);}
+    .eyebrow-date{font-family:var(--mono);font-size:0.58rem;color:var(--cream-dim);letter-spacing:0.1em;}
+    .article-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,5vw,4rem);letter-spacing:0.04em;line-height:1;color:var(--cream);margin-bottom:0.75rem;}
+    .article-title em{color:var(--gold);font-style:normal;}
+    .article-subtitle{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--cream);opacity:0.6;line-height:1.5;margin-bottom:1.5rem;max-width:680px;}
+    .article-meta{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;padding-top:1.25rem;border-top:1px solid rgba(201,168,76,0.12);}
+    .meta-author{font-family:var(--mono);font-size:0.62rem;color:var(--cream-dim);letter-spacing:0.1em;}
+    .meta-author strong{color:var(--cream);}
+    .meta-pill{font-family:var(--mono);font-size:0.58rem;padding:2px 10px;border:1px solid rgba(201,168,76,0.2);color:var(--gold);letter-spacing:0.1em;}
+    /* BODY LAYOUT */
+    .article-body{max-width:860px;margin:0 auto;padding:3rem 2rem 5rem;}
+    /* ABSTRACT BOX */
+    .abstract-box{background:var(--navy-card);border-left:3px solid var(--gold);padding:1.5rem 1.75rem;margin-bottom:2.5rem;}
+    .abstract-label{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;}
+    .abstract-box p{font-size:0.92rem;color:var(--cream);opacity:0.8;line-height:1.75;}
+    /* TABLE OF CONTENTS */
+    .toc{background:var(--navy-card);border:1px solid rgba(201,168,76,0.15);padding:1.5rem 1.75rem;margin-bottom:3rem;}
+    .toc-title{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+    .toc ol{padding-left:1.25rem;}
+    .toc li{font-family:var(--mono);font-size:0.72rem;line-height:2;letter-spacing:0.03em;}
+    .toc a{color:var(--cream);opacity:0.55;text-decoration:none;transition:opacity 0.15s,color 0.15s;}
+    .toc a:hover{opacity:1;color:var(--gold);}
+    /* SECTIONS */
+    .section{margin-bottom:3rem;}
+    h2.section-head{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.06em;color:var(--gold);margin-bottom:0.35rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(201,168,76,0.2);}
+    h3.sub-head{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--cream);margin:1.5rem 0 0.6rem;font-style:italic;}
+    h3.sub-head-mono{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--cream);opacity:0.65;margin:1.5rem 0 0.5rem;}
+    p{margin-bottom:1rem;font-size:0.95rem;color:var(--cream);opacity:0.85;line-height:1.8;}
+    /* FORMULA BOX */
+    .formula-box{background:#060e1a;border:1px solid rgba(201,168,76,0.2);padding:1.25rem 1.5rem;margin:1.25rem 0;font-family:var(--mono);font-size:0.88rem;color:var(--gold);letter-spacing:0.05em;overflow-x:auto;}
+    .formula-note{font-family:var(--mono);font-size:0.7rem;color:var(--cream);opacity:0.4;margin-top:0.5rem;line-height:1.5;}
+    /* DATA TABLES */
+    .tbl-wrap{overflow-x:auto;margin:1.5rem 0;}
+    table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:0.72rem;}
+    thead th{background:var(--navy-mid);color:var(--cream);padding:8px 12px;text-align:left;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;border-bottom:2px solid rgba(201,168,76,0.4);white-space:nowrap;}
+    thead th.r{text-align:right;}
+    tbody tr{border-bottom:1px solid rgba(255,255,255,0.04);}
+    tbody tr:nth-child(even){background:rgba(255,255,255,0.02);}
+    tbody tr:hover{background:rgba(201,168,76,0.05);}
+    td{padding:8px 12px;color:var(--cream);opacity:0.8;white-space:nowrap;}
+    td.r{text-align:right;}
+    td.bold{font-weight:600;opacity:1;}
+    td.gold{color:var(--gold);opacity:1;font-weight:600;}
+    td.green{color:var(--green);opacity:1;}
+    td.red{color:var(--red);opacity:1;}
+    td.dim{opacity:0.4;}
+    /* STAT CARDS — worked example */
+    .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.25rem 0;}
+    .stat-card{background:var(--navy-card);border:1px solid rgba(255,255,255,0.06);padding:1rem 1.25rem;}
+    .stat-label{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--cream);opacity:0.4;margin-bottom:0.3rem;}
+    .stat-value{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold);line-height:1;}
+    .stat-sub{font-family:var(--mono);font-size:0.6rem;color:var(--cream);opacity:0.35;margin-top:0.2rem;}
+    /* RESULT BADGES */
+    .badge{display:inline-block;font-family:var(--mono);font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:1px;}
+    .badge-green{background:rgba(76,175,133,0.15);border:1px solid rgba(76,175,133,0.4);color:var(--green);}
+    .badge-red{background:rgba(224,92,92,0.12);border:1px solid rgba(224,92,92,0.3);color:var(--red);}
+    .badge-gold{background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);color:var(--gold);}
+    .badge-dim{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:var(--cream);opacity:0.5;}
+    /* VALIDATION SUMMARY BOXES */
+    .validation-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1.5rem 0;}
+    .val-box{background:var(--navy-card);border:1px solid rgba(255,255,255,0.06);padding:1.25rem;}
+    .val-box.highlight{border-color:rgba(201,168,76,0.35);}
+    .val-num{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--gold);line-height:1;}
+    .val-desc{font-family:var(--mono);font-size:0.65rem;color:var(--cream);opacity:0.5;margin-top:0.3rem;line-height:1.5;}
+    /* FAQ */
+    .faq-item{border-bottom:1px solid rgba(255,255,255,0.06);padding:1.25rem 0;}
+    .faq-item:last-child{border-bottom:none;}
+    .faq-q{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--cream);cursor:pointer;display:flex;justify-content:space-between;align-items:start;gap:1rem;line-height:1.4;}
+    .faq-q::after{content:'+';font-family:var(--mono);font-size:1rem;color:var(--gold);flex-shrink:0;margin-top:1px;transition:transform 0.2s;}
+    .faq-item.open .faq-q::after{transform:rotate(45deg);}
+    .faq-a{font-size:0.88rem;color:var(--cream);opacity:0.7;line-height:1.8;max-height:0;overflow:hidden;transition:max-height 0.3s ease,padding 0.2s;}
+    .faq-item.open .faq-a{max-height:500px;padding-top:0.75rem;}
+    /* CALLOUT */
+    .callout{background:linear-gradient(135deg,rgba(201,168,76,0.06),rgba(201,168,76,0.02));border:1px solid rgba(201,168,76,0.2);padding:1.25rem 1.5rem;margin:1.5rem 0;}
+    .callout-label{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
+    .callout p{font-size:0.9rem;margin:0;opacity:0.8;}
+    /* SECTION NUMBERS */
+    .sec-num{font-family:var(--mono);font-size:0.65rem;color:var(--gold);opacity:0.4;letter-spacing:0.15em;display:block;margin-bottom:0.2rem;}
+    /* LIMITATION LIST */
+    .limit-list{list-style:none;padding:0;}
+    .limit-list li{padding:0.75rem 0 0.75rem 1.25rem;border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.9rem;opacity:0.8;position:relative;line-height:1.7;}
+    .limit-list li::before{content:'—';position:absolute;left:0;color:var(--gold);opacity:0.5;}
+    /* CTA */
+    .cta-block{background:var(--navy-card);border:1px solid rgba(201,168,76,0.2);padding:2rem;text-align:center;margin-top:3rem;}
+    .cta-block h3{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:0.06em;color:var(--gold);margin-bottom:0.5rem;}
+    .cta-block p{font-size:0.88rem;opacity:0.6;margin-bottom:1.25rem;}
+    .cta-btn{display:inline-block;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.6rem 1.5rem;background:var(--gold);color:var(--navy);text-decoration:none;font-weight:600;transition:background 0.2s;margin:0 0.4rem 0.5rem;}
+    .cta-btn:hover{background:var(--gold-light);}
+    .cta-btn.outline{background:transparent;color:var(--gold);border:1px solid rgba(201,168,76,0.4);}
+    .cta-btn.outline:hover{background:rgba(201,168,76,0.08);}
+    /* FOOTER */
+    footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(201,168,76,0.06);}
+    .foot-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--gold);}
+    .foot-logo span{color:var(--cream);opacity:0.3;}
+    .foot-copy{font-family:var(--mono);font-size:0.57rem;letter-spacing:0.08em;color:var(--cream);opacity:0.18;text-transform:uppercase;}
+    .foot-links{display:flex;gap:1.25rem;list-style:none;}
+    .foot-links a{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.28;text-decoration:none;transition:opacity 0.2s;}
+    .foot-links a:hover{opacity:0.75;}
+    @media(max-width:700px){
+      .nav-links{display:none;}
+      .stat-grid{grid-template-columns:1fr 1fr;}
+      .validation-grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/index.html">The Baseball <span>Nerd</span></a>
+  <ul class="nav-links">
+    <li><a href="/news.html">News</a></li>
+    <li><a href="/articles.html">Articles</a></li>
+    <li><a href="/recaps.html">Recaps</a></li>
+    <li><a href="/rosters.html">Rosters</a></li>
+    <li><a href="/podcasts.html">Podcasts</a></li>
+    <li><a href="/vault.html" class="active">Vault</a></li>
+    <li><a href="/about.html">About</a></li>
+  </ul>
+  <a class="nav-cta" href="https://thebaseballnerd.substack.com" target="_blank">Subscribe &#8594;</a>
+</nav>
+
+<!-- HERO -->
+<div class="article-hero">
+  <div class="hero-inner">
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="/index.html">Home</a><span>&#8250;</span>
+      <a href="/vault.html">Data Vault</a><span>&#8250;</span>
+      Reliever CSR White Paper
+    </nav>
+    <div class="article-eyebrow">
+      <span class="eyebrow-tag">White Paper</span>
+      <span class="eyebrow-tag">Analytics Vault</span>
+      <span class="eyebrow-date">Published June 24, 2026</span>
+    </div>
+    <h1 class="article-title">Reliever <em>CSR</em></h1>
+    <p class="article-subtitle">A Trusted-Leverage, Skill-Anchored Framework for Evaluating Relief Pitching</p>
+    <div class="article-meta">
+      <div class="meta-author">By <strong>Pete Dwyer</strong> &#183; The Baseball Nerd Analytics Vault</div>
+      <div class="meta-pill">10 Sections</div>
+      <div class="meta-pill">5-Year Backtest</div>
+      <div class="meta-pill">Beats Reliever WAR on Next-Year ERA</div>
+      <div class="meta-pill">gmLI &#8805; 1.50 Gate</div>
+    </div>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <!-- ABSTRACT -->
+  <div class="abstract-box">
+    <div class="abstract-label">Abstract</div>
+    <p>Reliever CSR extends the Contact Suppression Rate framework to relief pitching. The numbers the sport uses to rank relievers are either role labels or single-season noise. Saves and holds describe where a manager slots a pitcher, not how well he throws. Win probability added is leverage-aware but barely survives to the following season, and none of these tools can fairly compare a ninth-inning closer to the setup man who escaped the jam that made the save possible. Reliever CSR separates two questions the conventional tools blur together: how much leverage-weighted value a reliever delivered this season, shown through win probability, and how much of it is real skill likely to last, captured by the rating itself. Leverage decides who is eligible. Skill decides who ranks. Backtested across 2021 through 2025, the rating forecasts next-season earned run average better than reliever WAR, better than any single input it is built from, and far better than the leverage statistics it is designed to replace.</p>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">Table of Contents</div>
+    <ol>
+      <li><a href="#motivation">Motivation: Why Relievers Break Every Tool</a></li>
+      <li><a href="#methodology">Methodology: The Gate and the Three Skills</a></li>
+      <li><a href="#formula">Formula and Z-Score Standardization</a></li>
+      <li><a href="#worked-example">Worked Example: Mason Miller</a></li>
+      <li><a href="#board">The 2026 Reliever CSR Board</a></li>
+      <li><a href="#case-studies">Case Studies: Where rCSR Diverges from the Eye Test</a></li>
+      <li><a href="#validation">Validation: The Backtest, 2021&#8211;2025</a></li>
+      <li><a href="#benchmarks">Reading the Numbers</a></li>
+      <li><a href="#limitations">Limitations and Known Constraints</a></li>
+      <li><a href="#faq">Frequently Asked Questions</a></li>
+    </ol>
+  </div>
+
+  <!-- 1 MOTIVATION -->
+  <div class="section" id="motivation">
+    <span class="sec-num">01</span>
+    <h2 class="section-head">Motivation</h2>
+    <h3 class="sub-head">Why Relievers Break Every Standard Tool</h3>
+    <p>Watch a one-run game end. The closer gets the final three outs, the save goes in the book, and the broadcast calls him the best arm in the bullpen. Two innings earlier, a different pitcher walked into a tie game with the bases loaded and one out, the genuinely harder assignment, escaped it without a run, and got a hold for his trouble, a statistic most fans cannot define. The save and the hold are bullpen-chart labels. They record the inning a manager chose, not the difficulty of the work or the quality of the pitching. Built on them, the entire popular understanding of relief value is sorting by job title.</p>
+    <p>Earned run average does no better, and in one specific way it does worse. ERA charges inherited runners to the pitcher who put them on base. When a reliever enters with two on and strands them both, the escape that defines his value leaves no trace on his ERA, and when he lets them score, the damage lands on someone else's line. The single most important thing a high-leverage reliever does, cleaning up the mess he was handed, is invisible to the number every casual evaluation leans on. The reliever conversation runs on statistics that cannot see the most valuable work being done.</p>
+    <h3 class="sub-head">Leverage Is the Point, and Leverage Is a Trap</h3>
+    <p>Leverage Index already knows that a bases-loaded eighth in a tie game matters more than a clean ninth with a three-run lead. Any honest reliever framework has to put leverage at its center. The obvious move is to rank relievers on leverage-weighted value, win probability added, which credits the firefighter's escape and the closer's finish on a single scale. That move is a trap, for two reasons. First, leverage value does not repeat. A reliever's win probability added correlates with his own the following season at roughly one tenth, the noisiest signal in the entire dataset. Second, crediting a pitcher for the leverage he was handed credits the manager who handed it to him. Leverage is necessary, and leverage cannot be the rank.</p>
+    <h3 class="sub-head">The Orienting Question</h3>
+    <p>How do you credit high-leverage relief work without rewarding mere deployment, and without ranking on a number that does not survive to next season? The framework answers by splitting leverage into its two honest jobs. Leverage sets eligibility: a reliever has to be trusted in high leverage to appear at all. Skill sets the rank: among the trusted, the order is decided by command and contact, the things that carry forward. The value a pitcher delivered is shown beside his name, credited and visible, but it does not move him up or down.</p>
+  </div>
+
+  <!-- 2 METHODOLOGY -->
+  <div class="section" id="methodology">
+    <span class="sec-num">02</span>
+    <h2 class="section-head">Methodology</h2>
+    <h3 class="sub-head-mono">The Trust Gate: gmLI &#8805; 1.50</h3>
+    <p>Reliever CSR is computed only for relievers whose average game-entry leverage, gmLI on FanGraphs, is at least 1.50, meaning they enter games in situations fifty percent more critical than league average. That threshold is the trust gate, and it does the work an innings cutoff does for starters. A mop-up arm who pitches in decided games is not failing the metric, he is outside its question. The gate is not arbitrary. Game-entry leverage is one of the most stable reliever signals there is, correlating with itself year over year at better than one half, so it selects a real and durable role rather than a one-week accident.</p>
+    <h3 class="sub-head-mono">Component 1: K-BB%</h3>
+    <p>K-BB% is strikeout rate minus walk rate, the cleanest public measure of command and stuff. A strikeout and a walk are settled between the pitcher and the hitter with no fielder involved, and the gap between them is among the most stable skills a pitcher owns. In the backtest it is the single most predictive reliever input, and it anchors the rating.</p>
+    <h3 class="sub-head-mono">Component 2: Barrel% (Inverted)</h3>
+    <p>Barrel% is the share of batted balls struck at the launch angle and exit velocity that produces extra-base damage, inverted so that suppressing hard contact scores positive. This is the contact-suppression core that gives the framework its name. It catches the arm who limits damage through weak contact rather than through swing-and-miss, a profile that command alone would miss.</p>
+    <h3 class="sub-head-mono">Component 3: SIERA (Inverted)</h3>
+    <p>SIERA is an earned run estimator that folds batted-ball regression into its calculation while staying defense-light, inverted so that a lower estimator scores higher. It adds a stable, run-prevention-oriented signal that neither command nor contact fully captures, and in the backtest the three-component rating forecasts next-year ERA better than any single input alone.</p>
+    <h3 class="sub-head-mono">Why Win Probability Added Is Shown, Not Ranked</h3>
+    <p>Every arm on the board carries its win probability added, displayed as the value it delivered, because that value is real and worth seeing. It simply does not forecast. A reliever's win probability added predicts his next-season value worse than his command does, worse than his contact quality does, worse even than his saves and holds. Putting it into the rating made the rating a worse predictor, so it stays beside the rating rather than inside it. Value delivered and value sustained are different questions, and the framework refuses to let the noisier one set the order. This is the one place Reliever CSR departs from the starter version of CSR, which does rank partly on contextual value, and the departure is principled: for starters that contextual term validated, and for relievers it did not.</p>
+    <h3 class="sub-head-mono">Z-Score Standardization</h3>
+    <p>Each component is converted to a z-score against the full reliever pool for the season, with Barrel% and SIERA negated so that lower is better. Standardizing puts command, contact, and the estimator on one scale, so a one-standard-deviation edge in any of them counts the same. Because the baseline is the full reliever pool, a Reliever CSR of 0.000 is an exactly average reliever, and the trusted arms that clear the gate tend to sit above it.</p>
+  </div>
+
+  <!-- 3 FORMULA -->
+  <div class="section" id="formula">
+    <span class="sec-num">03</span>
+    <h2 class="section-head">Formula</h2>
+    <div class="formula-box">
+      rCSR = ( z(K-BB%) + z(Barrel%, inverted) + z(SIERA, inverted) ) / 3
+      <div class="formula-note">Evaluated over relievers with gmLI &#8805; 1.50. Each z-score is computed against the full reliever pool for the current season. Barrel% and SIERA are inverted so that lower values score positively.</div>
+    </div>
+    <div class="callout">
+      <div class="callout-label">Interpretive Scale</div>
+      <p>A Reliever CSR of 0.000 is a league-average reliever. Roughly +1.000 is a top-ten-percent arm and +2.000 is a top-one-percent, generational season. Because z-scores are recomputed against each season's pool, ratings are comparable in rank within a season but should not be read across seasons without recomputation.</p>
+    </div>
+  </div>
+
+  <!-- 4 WORKED EXAMPLE -->
+  <div class="section" id="worked-example">
+    <span class="sec-num">04</span>
+    <h2 class="section-head">Worked Example: Mason Miller</h2>
+    <p>Mason Miller leads all trusted relievers in 2026, and he passes every test at once. The computation runs against the 2026 reliever pool, which carries a mean K-BB% of 14.6 percent, a mean Barrel% of 6.6 percent, and a mean SIERA of 3.69.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Component</th><th class="r">Raw</th><th class="r">Pool Mean</th><th class="r">Pool SD</th><th class="r">Z-Score</th><th>Direction</th></tr></thead>
+        <tbody>
+          <tr><td>K-BB%</td><td class="r">41.1%</td><td class="r">14.6%</td><td class="r">6.4%</td><td class="r gold">+4.14</td><td>Higher is better</td></tr>
+          <tr><td>Barrel%</td><td class="r">2.0%</td><td class="r">6.6%</td><td class="r">2.9%</td><td class="r gold">+1.62</td><td>Lower is better (inverted)</td></tr>
+          <tr><td>SIERA</td><td class="r">1.35</td><td class="r">3.69</td><td class="r">0.75</td><td class="r gold">+3.12</td><td>Lower is better (inverted)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-label">rCSR</div><div class="stat-value">2.959</div><div class="stat-sub">No. 1 of all trusted arms</div></div>
+      <div class="stat-card"><div class="stat-label">WPA delivered</div><div class="stat-value">+2.91</div><div class="stat-sub">shown, not ranked</div></div>
+      <div class="stat-card"><div class="stat-label">SD / MD</div><div class="stat-value">20 / 1</div><div class="stat-sub">one meltdown all year</div></div>
+    </div>
+    <div class="formula-box">rCSR = ( 4.14 + 1.62 + 3.12 ) / 3 = 2.959</div>
+    <p>Miller's command score is the most extreme value in the pool, a strikeout-minus-walk rate nearly three times the league average. His contact suppression is elite and his estimator is the best among trusted arms. No single component carries him, and the value is matched by the skill underneath it, which is exactly the case where every framework should agree.</p>
+  </div>
+
+  <!-- 5 BOARD -->
+  <div class="section" id="board">
+    <span class="sec-num">05</span>
+    <h2 class="section-head">The 2026 Reliever CSR Board</h2>
+    <p>The twelve highest-rated trusted relievers through June 24, 2026. The rating column orders the board; the WPA column is the value each arm delivered, shown but not ranked. The order tracks skill rather than saves: a setup man with one save ranks third, while several closers with gaudy save totals sit lower because the skill underneath does not support the results.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Pitcher</th><th>Tm</th><th class="r">gmLI</th><th class="r">K-BB%</th><th class="r">Barrel%</th><th class="r">SIERA</th><th class="r">rCSR</th><th class="r">WPA</th><th class="r">ERA</th></tr></thead>
+        <tbody>
+<tr><td class="dim">1</td><td class="bold">Mason Miller</td><td>SDP</td><td class="r">1.80</td><td class="r">41.1%</td><td class="r">2.0%</td><td class="r">1.35</td><td class="r gold">2.959</td><td class="r green">+2.91</td><td class="r">0.79</td></tr>
+<tr><td class="dim">2</td><td class="bold">Jhoan Duran</td><td>PHI</td><td class="r">1.98</td><td class="r">35.4%</td><td class="r">5.6%</td><td class="r">1.37</td><td class="r gold">2.238</td><td class="r green">+1.28</td><td class="r">1.75</td></tr>
+<tr><td class="dim">3</td><td class="bold">Adrian Morejon</td><td>SDP</td><td class="r">1.84</td><td class="r">25.6%</td><td class="r">1.9%</td><td class="r">1.94</td><td class="r gold">1.903</td><td class="r green">+1.31</td><td class="r">3.51</td></tr>
+<tr><td class="dim">4</td><td class="bold">Louis Varland</td><td>TOR</td><td class="r">1.90</td><td class="r">28.0%</td><td class="r">3.2%</td><td class="r">2.05</td><td class="r gold">1.831</td><td class="r green">+2.92</td><td class="r">0.84</td></tr>
+<tr><td class="dim">5</td><td class="bold">Cade Smith</td><td>CLE</td><td class="r">1.83</td><td class="r">31.5%</td><td class="r">7.5%</td><td class="r">1.94</td><td class="r gold">1.557</td><td class="r green">+1.71</td><td class="r">2.78</td></tr>
+<tr><td class="dim">6</td><td class="bold">Trevor Megill</td><td>MIL</td><td class="r">1.64</td><td class="r">25.4%</td><td class="r">4.2%</td><td class="r">2.55</td><td class="r gold">1.352</td><td class="r green">+0.40</td><td class="r">3.72</td></tr>
+<tr><td class="dim">7</td><td class="bold">Raisel Iglesias</td><td>ATL</td><td class="r">1.55</td><td class="r">23.2%</td><td class="r">4.7%</td><td class="r">2.78</td><td class="r gold">1.081</td><td class="r green">+1.27</td><td class="r">1.42</td></tr>
+<tr><td class="dim">8</td><td class="bold">Jacob Latz</td><td>TEX</td><td class="r">1.86</td><td class="r">23.3%</td><td class="r">5.1%</td><td class="r">2.72</td><td class="r gold">1.061</td><td class="r green">+1.01</td><td class="r">1.64</td></tr>
+<tr><td class="dim">9</td><td class="bold">Juan Morillo</td><td>ARI</td><td class="r">1.54</td><td class="r">21.1%</td><td class="r">5.3%</td><td class="r">2.87</td><td class="r gold">0.854</td><td class="r red">-0.73</td><td class="r">2.97</td></tr>
+<tr><td class="dim">10</td><td class="bold">Abner Uribe</td><td>MIL</td><td class="r">1.67</td><td class="r">16.7%</td><td class="r">2.6%</td><td class="r">3.37</td><td class="r gold">0.726</td><td class="r green">+0.93</td><td class="r">3.38</td></tr>
+<tr><td class="dim">11</td><td class="bold">Gregory Soto</td><td>PIT</td><td class="r">1.80</td><td class="r">19.2%</td><td class="r">5.2%</td><td class="r">3.18</td><td class="r gold">0.637</td><td class="r green">+1.56</td><td class="r">3.34</td></tr>
+<tr><td class="dim">12</td><td class="bold">Devin Williams</td><td>NYM</td><td class="r">1.73</td><td class="r">21.1%</td><td class="r">7.1%</td><td class="r">3.12</td><td class="r gold">0.531</td><td class="r green">+1.06</td><td class="r">4.81</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">
+      <div class="callout-label">How to read it</div>
+      <p>rCSR is the skill rating that holds up in the backtest, the column that sets the rank. WPA is the leverage win value a pitcher actually banked this season, displayed for context and never allowed to set the order. The full board and weekly updates live on the Reliever CSR leaderboard.</p>
+    </div>
+  </div>
+
+  <!-- 6 CASE STUDIES -->
+  <div class="section" id="case-studies">
+    <span class="sec-num">06</span>
+    <h2 class="section-head">Case Studies</h2>
+    <h3 class="sub-head">The Firefighter Surfaces: Adrian Morejon</h3>
+    <p>Adrian Morejon has one save. By the popular ledger he is a middle reliever, a name most fans outside San Diego would not place. Reliever CSR ranks him third among every trusted arm in baseball, ahead of established closers, because the skill is plainly there: a 25.6 percent command rate, a 1.9 percent barrel rate among the lowest in the sport, and a sub-2.00 estimator. He enters at a 1.84 average leverage, deep in the firefighting band, and holds thirteen leads doing it. The save column cannot see him. The rating can, because it never asked what inning he pitched, only how well.</p>
+    <h3 class="sub-head">The Regression Catch: Kevin Kelly and Riley O'Brien</h3>
+    <p>The skill anchor protects the board from the arms a leverage-only metric would crown. Kevin Kelly entered games at higher average leverage this season than Mason Miller did, and on a leverage-weighted board he would rank near the top. His command sits at 15.9 percent, his estimator at 2.92, and his earned run average has run more than a run below what his contact quality supports. He ranks twentieth, flagged. Riley O'Brien carries nineteen saves and a 4.05 earned run average on a 15.4 percent command rate, and lands fourteenth. Both delivered real win probability value, which the board shows, and both carry profiles that say the results are on loan.</p>
+    <h3 class="sub-head">The Honest Down Year: Andres Munoz</h3>
+    <p>The gate admits a struggling arm when the trust is real, and the rating does not hide the struggle. Andres Munoz enters at a 1.91 average leverage with a closer's pedigree and a 24.6 percent command rate, but a barrel rate above ten percent and a 5.08 earned run average drag his contact score down. He sits in the middle of the board with negative win probability value displayed beside his name. The framework neither buries him on one bad stretch nor pretends it did not happen.</p>
+  </div>
+
+  <!-- 7 VALIDATION -->
+  <div class="section" id="validation">
+    <span class="sec-num">07</span>
+    <h2 class="section-head">Validation: The Backtest</h2>
+    <p>Reliever CSR was tested against five complete seasons, 2021 through 2025. For each pair of consecutive seasons, the question was simple: how well does a number from year one predict results in year two, across every reliever who threw at least thirty innings in both seasons. The four transitions were pooled, roughly three hundred player-pairs, and association was measured with the Spearman rank correlation.</p>
+    <div class="validation-grid">
+      <div class="val-box highlight"><div class="val-num">&#8722;0.247</div><div class="val-desc">rCSR vs next-year ERA. Best forecaster in the test, ahead of reliever WAR.</div></div>
+      <div class="val-box highlight"><div class="val-num">0.512</div><div class="val-desc">gmLI year-to-year stability. Leverage role persists, so it earns the gate.</div></div>
+      <div class="val-box"><div class="val-num">0.131</div><div class="val-desc">WPA year-to-year stability. Leverage value evaporates, so it is never ranked.</div></div>
+      <div class="val-box"><div class="val-num">5</div><div class="val-desc">seasons of out-of-sample backtest, 2021&#8211;2025, roughly 309 player-pairs.</div></div>
+    </div>
+    <h3 class="sub-head-mono">The Predictive Horse Race</h3>
+    <p>The skill rating forecasts next-season earned run average better than every alternative tested, including the sophisticated incumbent, reliever WAR. The leverage statistics the sport actually uses finish last. For ERA a more negative number is better, since a stronger year-one number should mean a lower year-two ERA.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Year-Y predictor</th><th class="r">&#8594; next-yr WAR</th><th class="r">&#8594; next-yr ERA</th><th>Read</th></tr></thead>
+        <tbody>
+          <tr><td class="bold">Reliever CSR (ours)</td><td class="r">+0.304</td><td class="r gold">&#8722;0.247</td><td>best ERA forecaster</td></tr>
+          <tr><td>Reliever WAR (incumbent)</td><td class="r">+0.250</td><td class="r">&#8722;0.204</td><td>beaten on both</td></tr>
+          <tr><td>K-BB% alone</td><td class="r">+0.317</td><td class="r">&#8722;0.222</td><td>strong, single-axis</td></tr>
+          <tr><td>Saves + Holds</td><td class="r">+0.222</td><td class="r">&#8722;0.166</td><td>role, not skill</td></tr>
+          <tr><td>Raw WPA</td><td class="r red">+0.119</td><td class="r red">&#8722;0.086</td><td>noise</td></tr>
+          <tr><td>ERA</td><td class="r red">&#8722;0.089</td><td class="r red">+0.084</td><td>anti-predictive</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>On next-season WAR, command alone edges the composite by a hair, and this paper states that plainly rather than hiding it. The composite earns its place anyway, because it wins outright on earned run average, the cleaner measure of run prevention, and because it is more robust across both outcomes than any single statistic, folding in contact and estimator signal that command by itself cannot see.</p>
+    <h3 class="sub-head-mono">Does Each Signal Even Repeat?</h3>
+    <p>Before asking whether a number predicts results, ask whether it predicts itself. A signal that does not survive to next season cannot anchor a rating.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Signal</th><th class="r">Stability (Y &#8594; Y+1)</th><th>Role in the metric</th></tr></thead>
+        <tbody>
+          <tr><td class="bold">gmLI (leverage role)</td><td class="r gold">0.512</td><td>The gate. Stable, so it is real.</td></tr>
+          <tr><td>K-BB% (command)</td><td class="r">0.502</td><td>Rating input</td></tr>
+          <tr><td>Skill core (rCSR)</td><td class="r">0.284</td><td>The rank</td></tr>
+          <tr><td>Barrel% (contact)</td><td class="r">0.243</td><td>Rating input</td></tr>
+          <tr><td class="bold">WPA (leverage value)</td><td class="r red">0.131</td><td>Displayed, never ranked</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">
+      <div class="callout-label">Key Finding</div>
+      <p>Leverage role is among the most stable things a reliever owns, half a correlation year to year, which is why it earns the gate. Leverage value is the least stable thing in the data, barely above one tenth, which is why it can never be the rank. That gap, between a leverage role that persists and a leverage value that evaporates, is the entire design. Leverage decides who is in the room. Skill decides who wins it.</p>
+    </div>
+  </div>
+
+  <!-- 8 BENCHMARKS -->
+  <div class="section" id="benchmarks">
+    <span class="sec-num">08</span>
+    <h2 class="section-head">Reading the Numbers</h2>
+    <p>Because every z-score is measured against the full reliever pool, a Reliever CSR of 0.000 is a dead-average reliever, and the scale reads in plain tiers.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>rCSR</th><th>Percentile</th><th>Tier</th><th>What it is</th></tr></thead>
+        <tbody>
+          <tr><td class="gold">+2.000 and up</td><td>top 1%</td><td class="bold">Generational</td><td>best in the sport (Miller, 2.959)</td></tr>
+          <tr><td>+1.250 to +1.999</td><td>top 5%</td><td class="bold">Elite</td><td>build a bullpen around him</td></tr>
+          <tr><td>+0.900 to +1.249</td><td>top 10%</td><td class="bold">Excellent</td><td>clear high-leverage weapon</td></tr>
+          <tr><td>+0.450 to +0.899</td><td>top 25%</td><td class="bold">Above average</td><td>trustworthy late-inning arm</td></tr>
+          <tr><td>&#8722;0.450 to +0.449</td><td>middle 50%</td><td class="bold">Average</td><td>replaceable</td></tr>
+          <tr><td>&#8722;0.900 to &#8722;0.451</td><td>bottom 25%</td><td class="bold">Below average</td><td>leaking value on skill</td></tr>
+          <tr><td class="dim">below &#8722;0.900</td><td>bottom 10%</td><td class="bold">Poor</td><td>results, if any, are not real</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>And the translation that gives each z-score a face. A plus-one is not an abstraction once you know it means a twenty-one percent command rate.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Z-Score</th><th class="r">K-BB%</th><th class="r">Barrel%</th><th class="r">SIERA</th><th>Read</th></tr></thead>
+        <tbody>
+          <tr><td class="gold">+2.0</td><td class="r">27.4%</td><td class="r">0.9%</td><td class="r">2.19</td><td>elite</td></tr>
+          <tr><td>+1.0</td><td class="r">21.0%</td><td class="r">3.8%</td><td class="r">2.94</td><td>very good</td></tr>
+          <tr><td>+0.5</td><td class="r">17.8%</td><td class="r">5.2%</td><td class="r">3.31</td><td>above average</td></tr>
+          <tr><td class="bold">0.0</td><td class="r bold">14.6%</td><td class="r bold">6.6%</td><td class="r bold">3.69</td><td class="bold">league average</td></tr>
+          <tr><td>&#8722;0.5</td><td class="r">11.4%</td><td class="r">8.1%</td><td class="r">4.06</td><td>below average</td></tr>
+          <tr><td>&#8722;1.0</td><td class="r">8.2%</td><td class="r">9.5%</td><td class="r">4.44</td><td>poor</td></tr>
+          <tr><td class="dim">&#8722;2.0</td><td class="r">1.8%</td><td class="r">12.4%</td><td class="r">5.19</td><td>bottom of pool</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>One detail keeps the reader honest. The 0.000 baseline is the average of all relievers, but the arms that clear the trust gate average roughly plus four tenths, because trust is earned before a pitcher ever reaches the board. A mid-pack rating on the board is still an above-average reliever across the league.</p>
+  </div>
+
+  <!-- 9 LIMITATIONS -->
+  <div class="section" id="limitations">
+    <span class="sec-num">09</span>
+    <h2 class="section-head">Limitations</h2>
+    <ul class="limit-list">
+      <li>Reliever samples are small and volatile. Through late June these are thirty-inning seasons of the highest-variance arms in the sport, and the board will move week to week.</li>
+      <li>There is no prestige award to validate against. Relief pitching has no honor with a leverage backbone, and the popular reliever awards reward saves, which would make any such test circular. The validation rests entirely on the out-of-sample predictive backtest.</li>
+      <li>This is a value-and-sustainability tool, not a one-number oracle. The rating says who is good and likely to stay good; the displayed win probability says what a pitcher delivered. The framework does not claim the value figure forecasts, because the data says it does not.</li>
+      <li>The gate depends on deployment. A genuinely excellent arm buried in low-leverage innings will not appear, by design. Reliever CSR measures trusted relievers, and a manager who misuses a good pitcher can keep him off the board.</li>
+      <li>The components are park-light, not park-neutral. Command and contact travel well and the estimator folds in batted-ball context, but no public reliever framework fully removes environment.</li>
+    </ul>
+  </div>
+
+  <!-- DATA SOURCES -->
+  <div class="section">
+    <span class="sec-num">&#8212;</span>
+    <h2 class="section-head">Data Sources</h2>
+    <ul class="limit-list">
+      <li>K-BB% and SIERA: FanGraphs Advanced Pitching leaderboard</li>
+      <li>Barrel%: FanGraphs Statcast Pitching leaderboard (sourced from Baseball Savant / Hawk-Eye)</li>
+      <li>WPA, gmLI, Shutdowns, Meltdowns: FanGraphs Win Probability leaderboard</li>
+      <li>Reliever WAR (validation reference): FanGraphs reliever WAR</li>
+      <li>Eligibility: FanGraphs reliever pool per season, with the gmLI &#8805; 1.50 gate applied</li>
+    </ul>
+  </div>
+
+  <!-- 10 FAQ -->
+  <div class="section" id="faq">
+    <span class="sec-num">10</span>
+    <h2 class="section-head">Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What is Reliever CSR (rCSR)?</div>
+      <div class="faq-a">Reliever CSR (rCSR) is a proprietary relief-pitching metric developed by The Baseball Nerd. It rates relievers a manager trusts in high leverage, defined as a game-entry Leverage Index (gmLI) of at least 1.50, using a z-score composite of three skills: K-BB% for command, inverted Barrel% for contact suppression, and inverted SIERA as a defense-light run estimator. The formula is rCSR = (z(K-BB%) + z(Barrel%, inverted) + z(SIERA, inverted)) / 3. A score of 0.000 is a league-average reliever and higher is better. Win probability added is shown as the value a reliever delivered, but it is deliberately kept out of the rating.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How is Reliever CSR calculated?</div>
+      <div class="faq-a">First restrict the pool to relievers with a game-entry Leverage Index (gmLI) of at least 1.50. For each pitcher, take K-BB%, Barrel%, and SIERA, and convert each to a z-score against the full reliever pool for the season. Invert the Barrel% and SIERA z-scores so that lower values score positively, since for both, lower is better. Average the three. The result is rCSR = (z(K-BB%) + z(Barrel%, inverted) + z(SIERA, inverted)) / 3, a single composite where 0.000 is the league-average reliever and positive scores indicate above-average skill.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What does a gmLI of 1.50 mean, and why is it the cutoff?</div>
+      <div class="faq-a">gmLI, game-entry Leverage Index, is the average importance of the situations a reliever enters, where 1.00 is league average. A gmLI of 1.50 means a pitcher enters games in spots fifty percent more critical than average, the signature of a trusted high-leverage arm. Reliever CSR uses 1.50 as an eligibility gate rather than an innings cutoff, because game-entry leverage is one of the most stable reliever signals there is, correlating with itself at roughly 0.51 from one season to the next across 2021 through 2025. That stability means the gate identifies a real, durable role rather than a one-week accident.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Why doesn't Reliever CSR rank relievers by saves, holds, or WPA?</div>
+      <div class="faq-a">Saves and holds are role labels assigned by a manager's bullpen chart, not measures of pitching skill, and they cannot fairly compare a closer to the setup man who escaped the harder inning two innings earlier. Win probability added is leverage-aware but barely repeats: a reliever's WPA self-correlates only about 0.13 from one season to the next, the least stable signal in the data. Ranking on it would sort a single year of sequencing and timing luck. Reliever CSR shows WPA as value delivered and ranks instead on command and contact, the skills that carry forward.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is WPA a good stat for evaluating relievers?</div>
+      <div class="faq-a">Win probability added is excellent for describing the value a reliever delivered in a given season, because it weights every out by how much it shifted the chance of winning. It is poor for predicting future value. Across 2021 through 2025, a reliever's WPA predicted his next-season WPA at roughly 0.13 and his next-season ERA at under 0.10, worse than his command, his contact quality, or even his saves and holds. WPA answers what happened, not what will continue, which is why Reliever CSR displays it but never ranks on it.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Does Reliever CSR predict future performance better than reliever WAR?</div>
+      <div class="faq-a">Yes, on next-season earned run average. Backtested across 2021 through 2025 on relievers with at least thirty innings in consecutive seasons, the Reliever CSR skill rating forecast next-year ERA at a Spearman rank correlation of -0.247, ahead of reliever WAR at -0.204, K-BB% alone at -0.222, saves plus holds at -0.166, and far ahead of raw WPA at -0.086. On next-year reliever WAR it finished in the top tier, essentially tied with command and ahead of reliever WAR. The leverage statistics the sport leans on to rank relievers finished last.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Who is the best reliever in MLB in 2026 by Reliever CSR?</div>
+      <div class="faq-a">As of June 24, 2026, Mason Miller (SDP) leads all trusted relievers with a Reliever CSR of 2.959, built on a 41.1 percent K-BB%, a 2.0 percent barrel rate, and a 1.35 SIERA, the best skill profile in the pool. Jhoan Duran (PHI) ranks second at 2.238, and the setup man Adrian Morejon (SDP) ranks third at 1.903 despite a single save, because the rating measures skill rather than role. The live board updates weekly on Monday mornings.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How is Reliever CSR different from CSR, the starter metric?</div>
+      <div class="faq-a">CSR rates qualified starting pitchers for Cy Young evaluation using RE24/IP, K-BB%, and Barrel%, and it ranks partly on contextual run prevention because that term validated against actual Cy Young outcomes. Reliever CSR carries the same contact-suppression DNA to relief pitching, adds a trust gate at a gmLI of 1.50, and swaps the third input to SIERA. The defining difference is that for relievers the contextual value term, win probability added, did not survive to the following season, so it is displayed rather than ranked. Both metrics follow the same philosophy, pairing what happened with the skills that make it repeatable.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Why are setup men undervalued, and does Reliever CSR fix it?</div>
+      <div class="faq-a">The highest-leverage moment of a game is frequently not the ninth inning. A bases-loaded jam in the eighth carries a higher Leverage Index than a clean ninth with a lead, yet the setup man who escapes it earns only a hold while the closer who finishes earns the save and the credit. Earned run average compounds the problem by charging inherited runners to the pitcher who allowed them, hiding the firefighter's most valuable work entirely. Reliever CSR gates on the leverage a pitcher actually faces and ranks on his skill, so a setup man like Adrian Morejon can rank among the best relievers in baseball with no save total at all.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What are shutdowns and meltdowns, and does Reliever CSR use them?</div>
+      <div class="faq-a">A shutdown is a relief appearance that raised the team's win probability by at least six percent, and a meltdown is one that lowered it by at least six percent. They are role-neutral and leverage-aware, a more honest ledger than saves and holds because they count both the helping and the hurting regardless of inning. Reliever CSR displays shutdowns and meltdowns as a reliability readout on each pitcher's card, but keeps them out of the rating, because they are derived from win probability added and inherit its low year-to-year stability.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What is a regression candidate in Reliever CSR?</div>
+      <div class="faq-a">A regression candidate is a reliever who cleared the trust gate and delivered real win probability value but carries a weak skill rating, meaning his results outran his command and contact quality. In 2026, Kevin Kelly and Riley O'Brien are clear examples: both posted strong leverage value while running earned run averages well below what their contact quality supports, and both sit in the bottom half of the trusted board. The skill anchor flags them as likely to fall back, the same way the starter version of CSR flagged regression candidates among Cy Young contenders.</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h3>Reliever CSR: Live Board</h3>
+    <p>The trusted-reliever board updates every Monday, ranked by skill with win probability value and meltdowns shown beside each name.</p>
+    <a class="cta-btn" href="/reliever-analysis-2026.html">View Live Board &#8594;</a>
+    <a class="cta-btn outline" href="/vault.html">Back to Data Vault</a>
+    <a class="cta-btn outline" href="https://thebaseballnerd.substack.com" target="_blank">Subscribe to TBN &#8594;</a>
+  </div>
+
+</div><!-- /article-body -->
+
+<footer>
+  <div class="foot-logo">The Baseball <span>Nerd</span></div>
+  <div class="foot-copy">&#169; 2026 The Baseball Nerd &#183; Numbers Not Feelings</div>
+  <ul class="foot-links">
+    <li><a href="/news.html">News</a></li>
+    <li><a href="/articles.html">Articles</a></li>
+    <li><a href="/vault.html">Vault</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="https://thebaseballnerd.substack.com" target="_blank">Subscribe</a></li>
+  </ul>
+</footer>
+
+<script>
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+</script>
+
+</body>
+</html>
