@@ -37,8 +37,8 @@ const RECAPS = [
   loser:"Kevin Gausman",
   save:"Jacob Latz",
   gamePk:822797,
-  preview:"Texas took a 6-0 lead into the fifth inning and nearly gave it all back. That's the honest summary of what happened at Rogers Centre on Sunday, where the Rangers survived a late To",
-  body:`Texas took a 6-0 lead into the fifth inning and nearly gave it all back. That's the honest summary of what happened at Rogers Centre on Sunday, where the Rangers survived a late Toronto push to win 6-5 behind a big day from their offense and a grinding performance from MacKenzie Gore.
+  preview:"Texas took a 6-0 lead into the fifth inning and nearly gave it all back. That's the honest summary of what happened at Rogers Centre on Thursday, where the Rangers survived a late To",
+  body:`Texas took a 6-0 lead into the fifth inning and nearly gave it all back. That's the honest summary of what happened at Rogers Centre on Thursday night, where the Rangers survived a late Toronto push to win 6-5 behind a big day from their offense and a grinding performance from MacKenzie Gore.
 
 Kevin Gausman had nothing. Joc Pederson put Texas on the board in the first with his 12th homer of the year, a fly ball to right field, and the Rangers came back in the third and broke the game open. Wyatt Langford lifted a three-run shot to left center, scoring Nicky Lopez and Pederson to make it 4-0. Then Jake Burger followed with his 14th homer, a two-run shot to left that plated Corey Seager and pushed the lead to six. Gausman was charged with all six runs across six innings, giving up all ten Rangers hits on the day. Texas did its damage early and put the ball in Gore's hands.
 
@@ -57,7 +57,7 @@ Gore was excellent for most of the afternoon, going seven innings and striking o
   loser:"Caleb Kilian",
   save:"Mason Barnett",
   gamePk:823209,
-  preview:"The ninth inning at Oracle Park told you everything you needed to know about this game. The Athletics came to bat tied 6-6, and Caleb Kilian could not get three outs. Jonah Heim si",
+  preview:"The ninth inning at Oracle Park told you everything you needed to know about this game. The Athletics came to bat tied 6-6, and Caleb Kilian could not get three outs.",
   body:`The ninth inning at Oracle Park told you everything you needed to know about this game. The Athletics came to bat tied 6-6, and Caleb Kilian could not get three outs. Jonah Heim singled to tie it, Lawrence Butler singled to put the A's ahead, and then Max Muncy dropped a two-run single into left field to make it 9-6. Four hits, four runs, a lead flipped, and a ballgame decided in under an inning of work from a Giants bullpen that had no answers. Athletics win, 9-6.
 
 Getting there required some surviving. Jeffrey Springs held San Francisco to one run through five-plus innings, a Willy Adames homer to left center in the fourth. The A's clawed back in the fifth on an Alika Williams double that scored Jeff McNeil, then a Nick Kurtz groundout that pushed Williams home. But the sixth inning cracked things open the wrong way. Matt Krook came in and allowed a Jung Hoo Lee triple that cleared the bases and put three Giants across, then Justin Sterner gave up a Victor Bericoto two-run homer to center. Suddenly it was 6-2, and Oracle Park had a pulse again. Geoff Hartlieb steadied things with two scoreless innings and earned the win, but the game was really settled by what the A's lineup did after falling behind.
@@ -95,8 +95,8 @@ From there, both sides traded zeroes. Austin Warren, Luke Weaver, and Devin Will
   loser:"Troy Melton",
   save:"Enyel De Los Santos",
   gamePk:824258,
-  preview:"Tatsuya Imai was the story at Comerica Park on Sunday, and the final score of 2-1 only hints at how completely he controlled things. Imai threw six innings, allowed two hits, walke",
-  body:`Tatsuya Imai was the story at Comerica Park on Sunday, and the final score of 2-1 only hints at how completely he controlled things. Imai threw six innings, allowed two hits, walked one, and struck out ten Detroit batters in a performance that kept Houston in a tight, quiet game for most of the afternoon. The Tigers managed nothing against him, and 25,066 fans sat through five scoreless innings before Taylor Trammell broke the silence in the sixth with a homer to right field off Troy Melton, his second of the year. That was the only run either team could manage for the better part of the game, which made Imai's ten-strikeout effort feel even more decisive in shaping what this game became.
+  preview:"Tatsuya Imai was the story at Comerica Park on Thursday, and the final score of 2-1 only hints at how completely he controlled things. Imai threw six innings, allowed two hits, walke",
+  body:`Tatsuya Imai was the story at Comerica Park on Thursday, and the final score of 2-1 only hints at how completely he controlled things. Imai threw six innings, allowed two hits, walked one, and struck out ten Detroit batters in a performance that kept Houston in a tight, quiet game for most of the afternoon. The Tigers managed nothing against him, and 25,066 fans sat through five scoreless innings before Taylor Trammell broke the silence in the sixth with a homer to right field off Troy Melton, his second of the year. That was the only run either team could manage for the better part of the game, which made Imai's ten-strikeout effort feel even more decisive in shaping what this game became.
 
 Melton matched Imai punch for punch for the most part. He went six innings himself, gave up just two hits, struck out six, and didn't walk a single batter. The problem was Trammell's solo shot, which turned out to be enough to cost him the loss. AJ Blubaugh then came out of the Houston bullpen and was genuinely impressive, handling two innings with three strikeouts, though he did allow one hit. The ninth got complicated on both sides. Kenley Jansen allowed Jeremy Peña to score on an Isaac Paredes sacrifice fly, pushing Houston to 2-0, and then Enyel De Los Santos gave up a Dillon Dingler solo homer, his nineteenth, to make it 2-1. De Los Santos held from there to earn the save, but it wasn't comfortable.
 
@@ -115,7 +115,7 @@ Riley Greene went 2-for-4 and was really the only Tiger who put together any kin
   loser:"Seth Lugo",
   save:"",
   gamePk:822961,
-  preview:"Junior Caminero hit three home runs. That is the whole story in Tampa Bay, where the Rays put up 13 on the Royals in a game that was effectively over before Kansas City ever got a",
+  preview:"Junior Caminero hit three home runs. That is the whole story in Tampa Bay, where the Rays put up 13 on the Royals in a game that was effectively over before Kansas City ever got a hit",
   body:`Junior Caminero hit three home runs. That is the whole story in Tampa Bay, where the Rays put up 13 on the Royals in a game that was effectively over before Kansas City ever got a hit. Caminero went 3-for-5, drove in 6, and did his damage across three different innings: a two-run shot in the first, a solo homer in the fifth, and a three-run blast in the eighth that stretched a manageable deficit into a rout. His 19th home run of the season came off Tyler Tolbert in the eighth, scoring Nick Fortes and Jonathan Aranda and capping a five-run inning that put the final score at 13-2.
 
 Seth Lugo took the loss after allowing 7 earned runs across five innings. Victor Mesa Jr. added a three-run homer in the fourth, and Chandler Simpson doubled in a run in the fifth to keep the pressure building. Lugo allowed 7 hits and walked 2 while striking out 3. The Royals managed exactly one hit all game, a two-run homer from Carter Jensen in the ninth off Craig Kimbrel that briefly made the scoreboard look slightly less catastrophic.
@@ -135,7 +135,7 @@ Ian Seymour made sure the game never had any suspense attached to it. He went 6.
   loser:"Cam Schlittler",
   save:"Aroldis Chapman",
   gamePk:824747,
-  preview:"Connelly Early had the Red Sox up through four innings, and it looked like the Yankees might hold on. Then the fifth inning happened, and it swallowed the whole game whole.",
+  preview:"Connelly Early had the Red Sox up through four innings, and it looked like the Yankees might hold on. Then the fifth inning happened, and it swallowed the game whole.",
   body:`Connelly Early had the Red Sox up through four innings, and it looked like the Yankees might hold on. Then the fifth inning happened, and it swallowed the whole game whole.
 
 Early had been the story through four, limiting New York to five hits while striking out nine and allowing just two runs, one on a Jasson Dominguez single that scored Paul Goldschmidt in the first, and one on a Jose Caballero home run to left center in the fourth. But Cam Schlittler came apart in the fifth, and he came apart badly. Amed Rosario's fielding error opened the door, letting Masataka Yoshida score on a fielder's choice. Then Ceddanne Rafaela scored on a Jarren Duran sacrifice fly to tie it. Then Caleb Durbin hit a two-run homer to left, his sixth of the year, and just like that it was 4-2 Boston. All four runs in the inning came on Schlittler's ledger. He had struck out nine across five innings and did not allow an earned run, which is the kind of line that makes you want to look away, because the damage was real regardless of how the book records it.
@@ -155,7 +155,7 @@ The Yankees clawed one back in the seventh when Jazz Chisholm Jr. scored on a Pa
   loser:"Gus Varland",
   save:"",
   gamePk:822717,
-  preview:"Washington jumped on Cristopher Sánchez immediately and brutally. Curtis Mead led off the first with a home run to left center, and the Nationals kept coming. Andrés Chaparro score",
+  preview:"Washington jumped on Cristopher Sánchez immediately and brutally. Curtis Mead led off the first with a home run to left center, and the Nationals kept coming.",
   body:`Washington jumped on Cristopher Sánchez immediately and brutally. Curtis Mead led off the first with a home run to left center, and the Nationals kept coming. Andrés Chaparro scored on a Daylen Lile single, Dylan Crews scored on a Jacob Young groundout, and Nasim Nuñez knocked in Lile to cap a four-run first inning. Sánchez allowed a fifth run in the third when Crews scored on another Young single, this one deflected off Bryson Stott into center field. The Phillies had done nothing offensively through five innings, and at 86 degrees in Washington, a five-run deficit against a pitcher throwing as well as Cade Cavalli was starting to feel like a closed case.
 
 Cavalli went six innings, allowed just two earned runs, and struck out seven. The crack in Washington's armor finally came in the sixth, when Brandon Marsh hit a two-run homer to right center to make it 5-2. The seventh is when things unraveled completely for the Nationals bullpen. Mitchell Parker got one out and surrendered a walk to Bryce Harper that scored Justin Crawford. Clayton Beeter came in, walked Marsh to score Trea Turner, then watched Alec Bohm grind into a forceout that still plated Kyle Schwarber. Just like that, five innings of patient Nationals baseball had been erased. Tied at five.
@@ -175,7 +175,7 @@ The ninth finished it. Gus Varland allowed six hits and five runs across two inn
   loser:"Bryce Miller",
   save:"",
   gamePk:823366,
-  preview:"Bryce Miller was brilliant and it didn't matter. That's the cruelest kind of loss. He struck out 11 batters across 5.2 innings, walked nobody, and still left PNC Park on the wrong",
+  preview:"Bryce Miller was brilliant and it didn't matter. That's the cruelest kind of loss. He struck out 11 batters across 5.2 innings and walked nobody.",
   body:`Bryce Miller was brilliant and it didn't matter. That's the cruelest kind of loss. He struck out 11 batters across 5.2 innings, walked nobody, and still left PNC Park on the wrong side of a 5-1 final because two swings in the first three innings put Pittsburgh ahead in a hole Seattle never came close to digging out of. Brandon Lowe got things started immediately, hitting a solo home run to right center in the first. Henry Davis followed in the third with a two-run shot to the same part of the park, plating Jared Triolo and making it 3-0. Eleven strikeouts, zero walks, three earned runs. Miller did his job. The offense didn't.
 
 Seattle's only run came in the fifth, when Mitch Garver came around to score on a J.P. Crawford ground ball single to right, with Colt Emerson moving to third. That made it 3-1 and briefly suggested something might be stirring. It wasn't. Bubba Chandler held things together long enough to earn the win, and the Pittsburgh bullpen finished the job cleanly. The damage in the eighth came off Alex Hoppe, who allowed three hits and two runs. Lowe singled home Henry Davis, then Ryan O'Hearn singled home Bryan Reynolds to push the final margin to 5-1.
@@ -197,8 +197,8 @@ Six hits scattered across nine innings for Seattle, a lineup that couldn't strin
   loser:"Jacob deGrom",
   save:"Pete Fairbanks",
   gamePk:823850,
-  preview:"Jacob deGrom pitched six innings, struck out eight, and lost. That's the whole story of Tuesday night at loanDepot park, where the Rangers fell to the Marlins 4-2 before 13,710 fan",
-  body:`Jacob deGrom pitched six innings, struck out eight, and lost. That's the whole story of Tuesday night at loanDepot park, where the Rangers fell to the Marlins 4-2 before 13,710 fans with the roof closed and the air conditioned to a tidy 72 degrees. deGrom gave up two earned runs, walked two, and got nothing for it because the offense behind him went quiet at exactly the wrong moments.
+  preview:"Jacob deGrom pitched six innings, struck out eight, and lost. That's the whole story of Wednesday night at loanDepot park, where the Rangers fell to the Marlins 4-2 before 13,710 fan",
+  body:`Jacob deGrom pitched six innings, struck out eight, and lost. That's the whole story of Wednesday night at loanDepot park, where the Rangers fell to the Marlins 4-2 before 13,710 fans with the roof closed and the air conditioned to a tidy 72 degrees. deGrom gave up two earned runs, walked two, and got nothing for it because the offense behind him went quiet at exactly the wrong moments.
 
 The game turned in two separate innings, both of them belonging to Miami. Wyatt Langford had put the Rangers ahead with a solo homer to center in the fourth, his seventh, and for a moment it looked like deGrom's stuff was going to be enough. Then Griffin Conine doubled on a sharp line drive to right to score Otto Lopez and tie it, and in the fifth Xavier Edwards singled to right to score Owen Caissie and give Miami the lead for good. Both runs were on deGrom. He scattered four hits over six innings and came away with the loss, with John King picking up the win after throwing a clean inning of relief.
 
@@ -217,7 +217,7 @@ Cole Winn inherited the game in the eighth and couldn't hold it. Otto Lopez hit 
   loser:"Matthew Liberatore",
   save:"",
   gamePk:823041,
-  preview:"Matthew Liberatore came into the fourth inning with a 1-0 lead and left it having allowed six runs on eight hits in five-plus innings. That fourth inning was the whole game. Corbin",
+  preview:"Matthew Liberatore came into the fourth inning with a 1-0 lead and left it having allowed six runs on eight hits in five-plus innings. That fourth inning was the whole game.",
   body:`Matthew Liberatore came into the fourth inning with a 1-0 lead and left it having allowed six runs on eight hits in five-plus innings. That fourth inning was the whole game. Corbin Carroll got things started, eventually scoring on a Tommy Troy single that was deflected by Jordan Walker in right field. Then Ildemaro Vargas lined a double to left that scored both Nolan Arenado and Troy, and suddenly Arizona had the lead. LuJames Groover followed with his first career home run, a two-run shot to left, and before Cardinals fans at Busch Stadium could fully process what had happened, Ketel Marte stepped up and hit his 13th homer of the year to left-center. Six runs, one inning, one Cardinals starter cooked. Liberatore finished with 6 earned runs allowed and took the loss.
 
 Ryan Thompson came on in relief and got the win despite allowing a Blaze Jordan sacrifice fly in the fourth that kept St. Louis within reach at 6-2. The Diamondbacks made sure it stayed comfortable. Tommy Troy hit a ground-rule double in the seventh off Gordon Graceffo to score Gabriel Moreno, and Lourdes Gurriel Jr. followed with a double of her own to plate Troy. Arizona finished with 12 hits total, with Vargas, Troy, and Groover each driving in multiple runs. Mitch Bratt took the first three innings for Arizona, allowing just the one early run on a Blaze Jordan double that scored José Fermín in the second.
@@ -237,7 +237,7 @@ Fermín had the best night for St. Louis, going 2-for-3 with a solo homer in the
   loser:"Elvis Alvarado",
   save:"",
   gamePk:823208,
-  preview:"For eight innings, Oracle Park was a pitchers' ballpark in every sense. Gage Jump gave the A's exactly what they needed, going five innings and striking out nine while allowing jus",
+  preview:"For eight innings, Oracle Park was a pitchers' ballpark in every sense. Gage Jump gave the A's exactly what they needed.",
   body:`For eight innings, Oracle Park was a pitchers' ballpark in every sense. Gage Jump gave the A's exactly what they needed, going five innings and striking out nine while allowing just three hits. Tyler Mahle matched him for the Giants, keeping the A's lineup to two hits through five and two-thirds. Bullpen arms on both sides held the line, and the game crept toward the late innings still knotted at zero in front of 37,526 on a cloudy, 59-degree night by the Bay.
 
 Max Muncy broke the silence in the eighth. He took a Dylan Smith offering and drove it to center field for his fifth home run, giving the A's a 1-0 lead and suddenly making all those quiet innings feel like they meant something. Luis Medina followed with a clean ninth, striking out two and walking two but keeping the Giants off the board. That brought Elvis Alvarado to the mound with the lead and the game on the line, and it came apart fast. Rafael Devers led off with a home run to center, his twelfth of the year, to tie it immediately. Victor Bericoto then put one out to center as well, his second homer of the season, and just like that the Giants had a 2-1 lead they would not surrender. Alvarado recorded two outs but the damage was already done, both runs charged to him in two-thirds of an inning.
@@ -257,7 +257,7 @@ Erik Miller closed it for San Francisco, earning the win after throwing a scorel
   loser:"Martín Pérez",
   save:"Jason Adam",
   gamePk:823284,
-  preview:"Ty France beat the Braves mostly by himself. He homered in the third, a solo shot to left off Martín Pérez. Then in the fourth, with Manny Machado on base, he lifted a sacrifice fl",
+  preview:"Ty France beat the Braves mostly by himself. He homered in the third, a solo shot to left off Martín Pérez.",
   body:`Ty France beat the Braves mostly by himself. He homered in the third, a solo shot to left off Martín Pérez. Then in the fourth, with Manny Machado on base, he lifted a sacrifice fly to right to make it 2-0. Two at-bats, two runs, and Atlanta had no answer for any of it. Pérez walked four and struck out four across his four innings, but the damage he allowed was real and it was enough. When James Karinchak came on in the fifth, Xander Bogaerts singled to center to score Fernando Tatis Jr. and push the Padres to three.
 
 The Braves finally cracked the scoreboard in the sixth. Joey Bart hit a two-run homer to left off JP Sears, scoring Austin Riley, and suddenly it was 3-2 and Petco Park had a game. Sears had been sharp enough to that point, five strikeouts, working through Atlanta's lineup with some difficulty but mostly keeping the deficit exactly where San Diego needed it. Bart's homer was real. The threat, though, evaporated almost immediately. Tyler Kinley came on in the bottom of the sixth and Samad Taylor, who had been everywhere all night, singled softly to right. Ty France scored. Jase Bowen scored. Just like that it was 5-2, and the Braves spent the final three innings going quietly against David Morgan, Wandy Peralta, and Jason Adam, who closed it out with a clean ninth.
@@ -277,7 +277,7 @@ San Diego got seven hits total but moved runners relentlessly, collecting four s
   loser:"Keegan Akin",
   save:"",
   gamePk:824018,
-  preview:"Samuel Basallo put Baltimore in front and nearly made it stick. The catcher went deep twice off José Soriano, a two-run shot in the second and another in the third, and for a few i",
+  preview:"Samuel Basallo put Baltimore in front and nearly made it stick. The catcher went deep twice off José Soriano.",
   body:`Samuel Basallo put Baltimore in front and nearly made it stick. The catcher went deep twice off José Soriano, a two-run shot in the second and another in the third, and for a few innings it looked like those two swings had decided this game at Angel Stadium. Soriano didn't make it out of the third, surrendering all five Baltimore runs in just three innings of work. Pete Alonso chipped in a double that scored Leody Taveras, and with a 5-2 lead heading to the late innings, the Orioles had plenty of cushion to work with. Then they stopped working.
 
 The Angels chipped away in the eighth. Rico Garcia gave up a Vaughn Grissom single that got Los Angeles on the board, and then Andrew Kittredge came in and surrendered a Wade Meckler single that brought in two more, tying the game at five. Just like that, Basallo's four RBIs were buried under an avalanche of Baltimore bullpen trouble. Ryan Helsley came in and shut the door, giving the Orioles clean innings to work with, and in the tenth Pete Alonso singled home Taylor Ward to give Baltimore a one-run lead. It felt like a steal. It wasn't.
@@ -297,7 +297,7 @@ Keegan Akin took the mound in the bottom of the tenth with a lead and couldn't h
   loser:"Justin Slaten",
   save:"Jimmy Herget",
   gamePk:824341,
-  preview:"Coors Field did what Coors Field does. Boston came in swinging, built a 6-3 lead through five innings, and looked every bit like a team ready to fly home with a win. Kyle Freeland",
+  preview:"Coors Field did what Coors Field does. Boston came in swinging, built a 6-3 lead through five innings, and looked every bit like a team ready to fly home with a win.",
   body:`Coors Field did what Coors Field does. Boston came in swinging, built a 6-3 lead through five innings, and looked every bit like a team ready to fly home with a win. Kyle Freeland gave up 11 hits and all 6 runs in his 6 innings of work, and the Red Sox made him pay early and often. Willson Contreras doubled home Ceddanne Rafaela in the first to get Boston on the board. Connor Wong homered in the second to push the lead to 3-0. Andruw Monasterio added a solo shot in the fourth. Ceddanne Rafaela singled home Connor Wong later that same inning, and Anthony Seigler doubled home Marcelo Mayer in the fifth to make it 6-3. Boston was rolling, Ranger Suarez was cruising with 9 strikeouts across 6 innings, and then the seventh inning arrived and rearranged everything.
 
 Suarez was gone, and the bullpen walked into a fire. Tyron Guerrero allowed singles to Cole Carrigg and Jake McCarthy that made it 6-5, and Danny Coulombe came on to get one out but gave up a Troy Johnston single that tied the game at 6. Three pitchers, three runs, and a lead evaporated. Then Justin Slaten got the ball in the eighth and the Rockies were not finished. Mickey Moniak scored on a Tyler Freeman sacrifice bunt, and Cole Carrigg followed with a sharp double to right that scored Willi Castro and gave Colorado an 8-6 advantage. Slaten took the loss. Antonio Senzatela threw two scoreless innings to steady things, and Jimmy Herget closed it out without allowing a hit, striking out two to earn the save.
@@ -317,7 +317,7 @@ Carrigg finished with 3 RBI. Freeman drove in 2. The Rockies collected 14 hits a
   loser:"Nolan McLean",
   save:"",
   gamePk:823613,
-  preview:"Dansby Swanson came to Citi Field and reminded everyone what a two-homer, seven-RBI afternoon looks like. The Cubs trailed 3-0 after four innings, looking flat against Nolan McLean",
+  preview:"Dansby Swanson came to Citi Field and reminded everyone what a two-homer, seven-RBI afternoon looks like. The Cubs trailed 3-0 after four innings.",
   body:`Dansby Swanson came to Citi Field and reminded everyone what a two-homer, seven-RBI afternoon looks like. The Cubs trailed 3-0 after four innings, looking flat against Nolan McLean, and then the game turned completely. Swanson was at the center of both explosions, first hitting a three-run homer in the sixth to put Chicago ahead for good, then capping the whole thing with a grand slam in the eighth that made the final 10-3 and made it feel like a rout that was never really in doubt once it got going.
 
 The early innings belonged to the Mets. Javier Assad worked through the first three cleanly enough, then gave up back-to-back home runs in the fourth. Jared Young drove a fly ball to left center, scoring Bo Bichette on his way to a two-run shot, and Francisco Alvarez followed with a solo blast to center. Just like that it was 3-0, and Assad had to find a way to hold it there. He did, finishing five innings, allowing all three of his earned runs in that one frame and striking out five. McLean, meanwhile, was dealing, but the Cubs chipped away in the fifth. Pete Crow-Armstrong crossed on a Michael Conforto double, then Michael Busch lined one to right for a two-run homer that tied the game at three. McLean struck out nine batters in six innings, but he also gave up six earned runs, and that line tells the real story.
@@ -337,7 +337,7 @@ Swanson's sixth-inning homer, a three-run shot to center that scored Nico Hoerne
   loser:"Brooks Raley",
   save:"",
   gamePk:823611,
-  preview:"Dansby Swanson had himself a night. Four RBI on three hits, including a triple, and a stolen base. He was the engine of a Cubs offense that never stopped grinding, and by the time",
+  preview:"Dansby Swanson had himself a night. Four RBI on three hits, including a triple, and a stolen base.",
   body:`Dansby Swanson had himself a night. Four RBI on three hits, including a triple, and a stolen base. He was the engine of a Cubs offense that never stopped grinding, and by the time he singled home two runs in the ninth to push the final to 10-5, the game had long since turned into a referendum on Mets defense. New York committed six errors, and those miscues bled into runs. In the eighth, Pete Crow-Armstrong reached on a throwing error by first baseman Mark Vientos, and Pedro Ramírez scored on the play. That was the kind of night it was at Citi Field.
 
 The early drama made it feel like something else entirely. The Mets jumped in front 3-1 after two innings, Francisco Alvarez hitting a solo home run and A.J. Ewing following with a two-run shot to right center. But Sean Manaea could not hold the lead. The Cubs came right back in the fourth, scoring three times against him before he was pulled, with Swanson and Crow-Armstrong both driving in runs during the rally. Mark Vientos tied it immediately with his tenth home run of the year, but Shota Imanaga steadied. He went 5.1 innings, allowed four runs, and picked up the win. The Cubs went ahead for good on Swanson's sixth-inning triple, scoring Ramírez, and they never looked back.
@@ -357,7 +357,7 @@ Nico Hoerner and Pedro Ramírez each went 3-for-5 and scored multiple runs, givi
   loser:"Grant Taylor",
   save:"",
   gamePk:824583,
-  preview:"Kahlil Watson won this game twice. Once in the sixth, once in the tenth. The first time, he lined a single to left that scored Brayan Rocchio and Petey Halpin, and then Sam Antonac",
+  preview:"Kahlil Watson won this game twice. Once in the sixth, once in the tenth.",
   body:`Kahlil Watson won this game twice. Once in the sixth, once in the tenth. The first time, he lined a single to left that scored Brayan Rocchio and Petey Halpin, and then Sam Antonacci's throwing error turned a two-run hit into a three-base situation with Kyle Manzardo standing on third. That was enough to build on. The second time, with the game tied and the Guardians needing one run in extras, Watson grounded a single to left again, and Halpin scored the winner. Two hits, three RBI, and a cool 65-degree night in Chicago. Watson was the whole story.
 
 The middle of this game belonged to Tanner Bibee. He went six innings, allowed three hits, walked one, and struck out three without giving up a run. The White Sox had ten hits on the night and still lost, which tells you something about when those hits came. Cade Smith is the harder story to tell. He entered in the ninth with a two-run lead and gave up back-to-back home runs to Braden Montgomery and Randal Grichuk to tie it. Montgomery's was his second of the year. Grichuk's was his ninth. Just like that, a 3-1 game was 3-3, and everything had to start over.
@@ -377,7 +377,7 @@ Shawn Armstrong got the win, throwing 1.1 scoreless innings after Smith's rough 
   loser:"Jeff Hoffman",
   save:"Josh Hader",
   gamePk:822798,
-  preview:"Houston took the lead in the first and spent the next seven innings waiting. That's the story. Nathan Lukes answered Isaac Paredes's RBI double in the opening frame with a home run",
+  preview:"Houston took the lead in the first and spent the next seven innings waiting. That's the story.",
   body:`Houston took the lead in the first and spent the next seven innings waiting. That's the story. Nathan Lukes answered Isaac Paredes's RBI double in the opening frame with a home run to right, reviewed and upheld, and Rogers Centre had reason to breathe. Then Trey Yesavage and Mike Burrows traded zeroes, inning after inning, Yesavage surviving five walks across 5.2 innings by piling up five strikeouts, Burrows even sharper, holding Toronto to two hits over six full frames. The scoreboard sat frozen at 1-1 from the first inning all the way through the seventh.
 
 Jeff Hoffman entered in the eighth with Houston threatening, and the Astros broke through. The run scored on a called third strike against Yainer Diaz, which means there was enough chaos on the bases to force Toronto's hand without a hit to show for it. Hoffman allowed the run but did not take the loss immediately, and that shifted everything. Mason Fluharty came on in the ninth and could not finish the job. Jeremy Peña, who had reached base twice on walks already, singled on a ground ball to shortstop Ernie Clement, scoring Brice Matthews and pushing the Astros to 3-1. Yordan Alvarez, who walked twice without recording a hit all game, moved to second on the play, an embodiment of how Houston manufactured this entire win without much to show in the hit column. Four hits total.
@@ -397,7 +397,7 @@ Steven Okert earned the win and Josh Hader closed it cleanly, two strikeouts and
   loser:"Noah Cameron",
   save:"Bryan Baker",
   gamePk:822965,
-  preview:"Tampa Bay did its damage early and did enough to hold on. The Rays put up three in the third and two more in the fourth, building a 5-0 lead that Kansas City never fully recovered",
+  preview:"Tampa Bay did its damage early and did enough to hold on. The Rays put up three in the third and two more in the fourth.",
   body:`Tampa Bay did its damage early and did enough to hold on. The Rays put up three in the third and two more in the fourth, building a 5-0 lead that Kansas City never fully recovered from. Noah Cameron absorbed all five of those runs across five innings, surrendering 8 hits and walking 3. The third inning was the turning point. A groundout by Ryan Vilade scored Nick Fortes and Yandy Díaz, aided by a throwing error from first baseman Jac Caglianone that allowed the play to do more harm than it should have. Jonathan Aranda followed with a single to left that plated Junior Caminero and pushed the lead to three before Kansas City had even threatened. The fourth inning finished the job. A Yandy Díaz single scored Taylor Walls, and a Jonny DeLuca double brought home Nick Fortes to make it 5-0. Díaz went 4-for-5 on the night and was the constant thorn.
 
 Griffin Jax was the reason Tampa Bay could afford that kind of cushion. He threw five innings, scattered five hits, walked two, and struck out seven. Kansas City could not string anything together against him, and by the time the Royals finally got to the scoreboard in the fifth, it was against him. Salvador Perez reached on a fielding error by left fielder Chandler Simpson, scoring Carter Jensen and Jac Caglianone to cut the deficit to 5-2. Two runs, no hits. It was the most Kansas City could manage in a single inning all night.
