@@ -23,6 +23,308 @@
  */
 
 const RECAPS = [
+// AUTO-GENERATED: 2026-06-26
+{
+  id:"2026-06-26-rangers-at-jays",
+  date:"2026-06-26",
+  awayTeam:"Texas Rangers",
+  homeTeam:"Toronto Blue Jays",
+  away_runs:5,
+  home_runs:4,
+  result:"loss",
+  score:"Texas Rangers 5, Toronto Blue Jays 4",
+  winner:"Nathan Eovaldi",
+  loser:"Patrick Corbin",
+  save:"Jacob Latz",
+  gamePk:822796,
+  preview:"The Rangers did their damage early and spent the rest of the night holding on.",
+  body:`The Rangers did their damage early and spent the rest of the night holding on. Three runs in the first inning, two more in the third, and then seven scoreless frames from Nathan Eovaldi. That was the whole game, more or less. Patrick Corbin gave it away with singles and doubles in the first, Wyatt Langford getting things started when he came around to score on Brandon Nimmo's double to right. Josh Jung scored next on a Justin Foscue single, and then Ezequiel Duran lined one to right to bring Nimmo home. Texas was up 3-0 before Toronto could breathe. The Blue Jays looked like they might settle in after that, but Foscue put the game away in the third with a two-run homer, his fifth, scoring Jake Burger and pushing it to 5-0. Corbin was done at 4.1 innings, having allowed all five runs on seven hits.
+
+Eovaldi was the story on Friday night at Rogers Centre. Seven innings, five hits, zero earned runs, and nine strikeouts. He threw a gem in front of 41,689 fans and left with a five-run cushion. The Rangers needed every bit of it. Robby Ahlstrom and Jakob Junis combined to allow all four Toronto runs in the eighth, and it got uncomfortable fast. Vladimir Guerrero Jr. singled to center to score both Andrés Giménez and George Springer, and then Kazuma Okamoto launched his 19th homer to left center, a two-run shot that brought Toronto within one. Suddenly a blowout felt like a ballgame.
+
+Jacob Latz came on and shut the door in the ninth, tossing a scoreless inning to earn the save. Foscue finished 2-for-4 with three RBI and was the clear offensive catalyst. Duran added two hits and a stolen base. Langford went 3-for-5 with a stolen base of his own. The Rangers left Toronto with a 5-4 win and no errors, which felt appropriate for a game they controlled for eight innings before briefly making things interesting in the worst possible way.`
+},
+{
+  id:"2026-06-26-diamondbacks-at-rays",
+  date:"2026-06-26",
+  awayTeam:"Arizona Diamondbacks",
+  homeTeam:"Tampa Bay Rays",
+  away_runs:1,
+  home_runs:6,
+  result:"win",
+  score:"Arizona Diamondbacks 1, Tampa Bay Rays 6",
+  winner:"Nick Martinez",
+  loser:"Zac Gallen",
+  save:"",
+  gamePk:822962,
+  preview:"Geraldo Perdomo gave Arizona something to believe in before the first inning was even over.",
+  body:`Geraldo Perdomo gave Arizona something to believe in before the first inning was even over. His fifth home run of the season, a fly ball to right center, put the Diamondbacks ahead on the road and looked, briefly, like the start of something. It wasn't. Junior Caminero answered in the bottom of the first with a three-run shot to center, his 20th of the year, and just like that Tampa Bay had flipped a 1-0 deficit into a 3-1 lead. Zac Gallen had allowed runs to Yandy Díaz and Jonathan Aranda before the ball ever left Caminero's bat. The game was essentially settled before the second inning began.
+
+Gallen ground through six more outs after that, but the damage was already done and the seventh inning finished him off. Cedric Mullins led it off with a home run to right center, Gallen's fifth earned run allowed on the night, and the Diamondbacks went to Juan Burgos. Burgos couldn't stop the bleeding. A Díaz single scored Hunter Feduccia, and then Aranda doubled to center to score Díaz, making it 6-1. Three runs in the inning, two pitchers responsible for pieces of the collapse. Gallen finished with 6.2 innings, 4 hits, and 5 earned runs. The loss is his.
+
+Arizona actually out-hit Tampa Bay, eight to six, which is the kind of number that tells you everything about the shape of this game. The Diamondbacks had eight hits and one run. Ketel Marte went 0-for-4. Pavin Smith went 0-for-4. Lourdes Gurriel Jr. went 0-for-4. Nick Martinez allowed six of those hits in 5.2 innings and gave up only the one earned run, which was plenty. Before 12,972 fans at Tropicana Field on Friday, Tampa Bay was simply more efficient with what they had, and that was the whole story.`
+},
+{
+  id:"2026-06-26-athletics-at-angels",
+  date:"2026-06-26",
+  awayTeam:"Athletics",
+  homeTeam:"Los Angeles Angels",
+  away_runs:9,
+  home_runs:3,
+  result:"loss",
+  score:"Athletics 9, Los Angeles Angels 3",
+  winner:"J.T. Ginn",
+  loser:"Walbert Ureña",
+  save:"",
+  gamePk:824014,
+  preview:"For three and a half innings on Friday night at Angel Stadium, Walbert Ureña had a one-run lead and a manageable situation.",
+  body:`For three and a half innings on Friday night at Angel Stadium, Walbert Ureña had a one-run lead and a manageable situation. Then the fifth inning happened, and nothing was manageable anymore. The Athletics sent their lineup through and scored seven runs without hitting anything that required a highlight reel. Jeff McNeil started it with a single to right, scoring Jonah Heim and Lawrence Butler to flip the lead. Alika Williams followed with a ground ball to center, scoring Max Muncy, and then Josh Lowe's throwing error pushed Williams to second and kept the inning alive. Henry Bolte singled to left, scoring both Jeff McNeil and Williams. Nick Kurtz added another with a sharp ground ball to center. Shea Langeliers capped it with a line drive to left that scored Kurtz. Seven runs, six singles, one error, and Ureña was done having allowed all of it across 4.1 innings.
+
+J.T. Ginn had already surrendered the Angels' first run in the fourth, a Donovan Walton single that scored Wade Meckler, and he gave up a two-run homer to Jo Adell in the bottom of the fifth that briefly made the score look a little closer. But Ginn held together for six full innings, allowing three earned runs on eight hits with five strikeouts, and that was more than enough given what the offense had just done behind him. The win went to Ginn. The loss went to Ureña.
+
+The Athletics weren't done. Nick Kurtz singled in the seventh to score Henry Bolte, and Jonah Heim followed with a ground-rule double that scored Kurtz and pushed the final to 9-3. Kurtz finished 2-for-5 with two RBI. Bolte drove in two and stole a base. The A's finished with ten hits, no errors, and attendance at Angel Stadium was 29,089 on a clear 72-degree night. Most of them watched the game turn on a single inning they'll probably want to forget.`
+},
+{
+  id:"2026-06-26-braves-at-giants",
+  date:"2026-06-26",
+  awayTeam:"Atlanta Braves",
+  homeTeam:"San Francisco Giants",
+  away_runs:3,
+  home_runs:1,
+  result:"loss",
+  score:"Atlanta Braves 3, San Francisco Giants 1",
+  winner:"Dylan Lee",
+  loser:"Trevor McDonald",
+  save:"Raisel Iglesias",
+  gamePk:823206,
+  preview:"Ozzie Albies did the quiet damage on Friday night at Oracle Park, and Trevor McDonald never could get out of his own way.",
+  body:`Ozzie Albies did the quiet damage on Friday night at Oracle Park, and Trevor McDonald never could get out of his own way. The Giants starter had everything working in glimpses, but Atlanta kept finding ways to put runners in position and Albies kept finding ways to drive them home. His RBI single in the third gave the Braves the lead for good, and his sacrifice fly in the fifth stretched it to 3-1. Three runs allowed on seven hits in 5.1 innings, and McDonald took the loss. The Braves were patient, specific, and just good enough.
+
+San Francisco actually drew first blood, and in the most organic way possible. Rafael Devers doubled to right in the first, scoring Casey Schmitt, and for a moment the Giants looked like a team ready to make something happen at home in front of 39,051 fans under heavy overcast skies. But Reynaldo López settled in and held them there, and the Giants offense never got another runner home. Jung Hoo Lee went 0-for-4. Matt Chapman struck out three times. Willy Adames went 2-for-3 with a walk and was stranded every time.
+
+The Braves bullpen finished the job cleanly. Hurston Waldrep was wild, four walks in two innings, but he gave up nothing. Dylan Lee earned the win with 1.2 innings of one-hit ball, and Raisel Iglesias closed it out with a clean ninth to lock down the save. Atlanta committed zero errors. San Francisco committed two. The Braves didn't need to be brilliant. They just needed to be steadier than the Giants, and on this night, that was more than enough.`
+},
+{
+  id:"2026-06-26-cubs-at-brewers",
+  date:"2026-06-26",
+  awayTeam:"Chicago Cubs",
+  homeTeam:"Milwaukee Brewers",
+  away_runs:2,
+  home_runs:6,
+  result:"win",
+  score:"Chicago Cubs 2, Milwaukee Brewers 6",
+  winner:"Jacob Misiorowski",
+  loser:"Ethan Roberts",
+  save:"",
+  gamePk:823773,
+  preview:"For four innings on Friday night at American Family Field, it looked like something interesting might be brewing.",
+  body:`For four innings on Friday night at American Family Field, it looked like something interesting might be brewing. Colin Rea had kept Milwaukee off the board, and Seiya Suzuki broke the silence in the fifth with his 11th home run of the year, a fly ball to center that gave Chicago a 1-0 lead. Jacob Misiorowski had been sharp too, limiting the Cubs to just two hits through six innings, but that Suzuki shot was the one blemish. The roof was closed, 41,021 fans were in their seats, and the game had the tight, quiet feeling of something that could go either way.
+
+Then the sixth inning happened, and the Brewers made it very clear which way it was going. Ethan Roberts came on for Rea and did not survive the frame. Garrett Mitchell lifted a fly ball to right center that scored Jake Bauers and put Milwaukee ahead 2-1. Cooper Pratt scored next on a David Hamilton triple that Ian Happ could not hold in left field. Three runs, just like that, and the Cubs were chasing. Jayden Murray came in for the seventh and ran into more trouble. William Contreras sent a ball to left center with Jackson Chourio aboard, and suddenly it was 5-1. Murray allowed one more in the eighth when a Christian Yelich double, deflected off Pete Crow-Armstrong, scored Cooper Pratt to make it 6-2.
+
+Misiorowski got the win with six innings, one run allowed, and eight strikeouts. The Cubs finished with three hits. Suzuki accounted for two of Chicago's runs and both RBI, adding a sacrifice fly in the eighth to account for the final margin. Chicago fell 6-2, outworked and outpitched on a night where three hits was simply never going to be enough.`
+},
+{
+  id:"2026-06-26-reds-at-pirates",
+  date:"2026-06-26",
+  awayTeam:"Cincinnati Reds",
+  homeTeam:"Pittsburgh Pirates",
+  away_runs:6,
+  home_runs:4,
+  result:"loss",
+  score:"Cincinnati Reds 6, Pittsburgh Pirates 4",
+  winner:"Brock Burke",
+  loser:"Mason Montgomery",
+  save:"Caleb Ferguson",
+  gamePk:823363,
+  preview:"Andrew Abbott did not have his best night. Konnor Griffin took him deep in the first, a solo shot to left center, and Pittsburgh kept chipping away. A Brandon Lowe sacrifice fly in the fifth made it 4-2, then the sixth",
+  body:`Andrew Abbott did not have his best night. Konnor Griffin took him deep in the first, a solo shot to left center, and Pittsburgh kept chipping away. A Brandon Lowe sacrifice fly in the fifth made it 4-2, then the sixth inning got ugly fast. Marcell Ozuna crushed one to center to pull the Pirates within one, and Esmerlyn Valdez followed with a homer to left that tied it at four. Just like that, Abbott's four-run cushion was gone, and he was done, having allowed all four Pittsburgh runs across 5.1 innings.
+
+The cushion itself had been built in a single chaotic second inning against Paul Skenes. Cincinnati sent eight men to the plate and didn't stop until they had four runs. Nathaniel Lowe scored on a Spencer Steer single. Eugenio Suárez scored on a Tyler Stephenson single. Then Blake Dunn and Elly De La Cruz each drove in a run on sacrifice flies, the latter coming with Stephenson crossing the plate. Four runs, four different hitters, all off Skenes, who struck out seven across five innings but left trailing 4-1.
+
+So the game went to the eighth still knotted at four, and Noelvi Marte settled it quickly. He caught a Mason Montgomery pitch and drove it to left center, a two-run homer, his fourth of the year, with Sal Stewart aboard. That was enough. Brock Burke held the line in the eighth with two strikeouts and no hits allowed, earning the win, and Caleb Ferguson closed it out in the ninth. Cincinnati takes the Friday night game at PNC Park, 6-4, in front of 25,186.`
+},
+{
+  id:"2026-06-26-rockies-at-twins",
+  date:"2026-06-26",
+  awayTeam:"Colorado Rockies",
+  homeTeam:"Minnesota Twins",
+  away_runs:8,
+  home_runs:9,
+  result:"win",
+  score:"Colorado Rockies 8, Minnesota Twins 9",
+  winner:"Andrew Morris",
+  loser:"Jimmy Herget",
+  save:"",
+  gamePk:823688,
+  preview:"For seven innings on Friday night at Target Field, Taj Bradley made the Colorado Rockies look helpless.",
+  body:`For seven innings on Friday night at Target Field, Taj Bradley made the Colorado Rockies look helpless. Three hits, seven strikeouts, and a 7-0 deficit that felt like a closed case. Tomoyuki Sugano had given up everything early, surrendering a two-run homer to Kody Clemens in the first, another two-run shot to Brooks Lee in the second, and then a pair of doubles from Byron Buxton and Josh Bell that blew the game open in the fifth. Seven earned runs in five innings. Minnesota was cruising.
+
+Then the Rockies remembered they had a game to play. Kody Funderburk took over for Bradley in the eighth and gave up three runs, the last of which came on a TJ Rumfield single that plated Jake McCarthy and made it 7-3. That was noise. The ninth was something else entirely. Edouard Julien doubled off Eric Orze to score Cole Carrigg, then Jake McCarthy hit a two-run homer to tie it at seven. Orze exited, Anthony Banda entered, and Hunter Goodman crushed his 22nd homer of the year to put Colorado on top 8-7. Three pitchers, five runs, a lead that had been seven runs and was suddenly gone. The 27,317 at Target Field had to be sick about it.
+
+But Minnesota had Byron Buxton in the ninth. His single, deflected off Willi Castro at third, tied the game at eight and sent it to extras. Antonio Senzatela allowed that run and took the loss on it. In the tenth, with Jimmy Herget on for Colorado, Royce Lewis singled home Kyler Fedko to end it 9-8. Andrew Morris, who threw a clean tenth for Minnesota, picked up the win. The Twins survived, but barely, and only because they held on long enough for the bullpen to stop bleeding.`
+},
+{
+  id:"2026-06-26-astros-at-tigers",
+  date:"2026-06-26",
+  awayTeam:"Houston Astros",
+  homeTeam:"Detroit Tigers",
+  away_runs:0,
+  home_runs:8,
+  result:"win",
+  score:"Houston Astros 0, Detroit Tigers 8",
+  winner:"Keider Montero",
+  loser:"Spencer Arrighetti",
+  save:"",
+  gamePk:824255,
+  preview:"Keider Montero did not allow a run Friday night. That sentence tells most of the story. The right-hander went seven innings at Comerica Park, holding the Astros to five hits and one walk while striking out three, and",
+  body:`Keider Montero did not allow a run Friday night. That sentence tells most of the story. The right-hander went seven innings at Comerica Park, holding the Astros to five hits and one walk while striking out three, and Detroit handled the rest with an eight-run outburst that made the final score 8-0 look almost gentle.
+
+The game turned in the third and fourth innings, and Spencer Arrighetti was the one standing in the middle of it. Detroit loaded up the damage early. In the third, a stolen base by Kevin McGonigle and a throwing error by catcher Yainer Diaz opened the door, putting the Tigers on the board before Kerry Carpenter slammed it shut with an 11th home run of the year, a two-run shot to right that pushed Detroit to 3-0. Then came the fourth. Colt Keith hit his fifth home run of the season to right, and before Arrighetti could escape the inning, James Outman added a three-run homer of his own, his second of the year, scoring Zach McKinstry and Matt Vierling. Arrighetti faced five batters in that fourth inning and never finished it. He left having allowed seven of those runs, charged with 5 hits, 5 walks, and 8 earned runs across just 3 innings. Nate Pearson came on to close the fourth and yielded one more when Dillon Dingler singled to score McGonigle and make it 8-0.
+
+Houston never answered. The Astros went quietly through seven innings against Montero, and Enmanuel De Jesus handled the final two without allowing a hit. Jose Altuve finished 2-for-3 to lead the lineup, and Jeremy Peña and Yainer Diaz each added a hit, but the offense produced nothing that resembled a threat. Thirty thousand fans at Comerica Park watched Detroit do exactly what a good team does at home on a 73-degree Friday night: score early, throw strikes, and make the other guys feel every bit of it.`
+},
+{
+  id:"2026-06-26-royals-at-sox",
+  date:"2026-06-26",
+  awayTeam:"Kansas City Royals",
+  homeTeam:"Chicago White Sox",
+  away_runs:1,
+  home_runs:22,
+  result:"win",
+  score:"Kansas City Royals 1, Chicago White Sox 22",
+  winner:"David Sandlin",
+  loser:"Mitch Spence",
+  save:"",
+  gamePk:824582,
+  preview:"The third inning on Friday night at Rate Field was not a bad inning.",
+  body:`The third inning on Friday night at Rate Field was not a bad inning. It was a demolition. The Chicago White Sox sent ten runs across against Mitch Spence in 1.1 innings of work, a stretch that included a three-run homer from Miguel Vargas, a two-run shot from Jacob Gonzalez, and a parade of singles that kept the line moving long after the damage should have stopped. Vargas finished the night 3-for-6 with five RBI. Gonzalez went 3-for-4 with five RBI of his own. Chase Meidroth added four hits and two RBI. By the time the third inning was over, Kansas City was already down 10-0 and the game was functionally finished.
+
+It did not get better. Tristan Peters hit a grand slam in the sixth off John Schreiber to push the lead to 17. Alex Lange allowed five runs in a third of an inning in the seventh. Peters ended the night 2-for-5 with six RBI. The White Sox finished with 23 hits and made no errors. Through all of it, David Sandlin went six innings, allowed one earned run, scattered three hits, and struck out six. Kansas City's lone run came in the fourth when Bobby Witt Jr. scored on a groundball double play, which is the kind of footnote that belongs in a game like this.
+
+Final score: Chicago 22, Kansas City 1. The Royals finished with four hits as a team. The weather was 66 degrees and cloudy, which felt about right.`
+},
+{
+  id:"2026-06-26-dodgers-at-padres",
+  date:"2026-06-26",
+  awayTeam:"Los Angeles Dodgers",
+  homeTeam:"San Diego Padres",
+  away_runs:1,
+  home_runs:7,
+  result:"win",
+  score:"Los Angeles Dodgers 1, San Diego Padres 7",
+  winner:"Walker Buehler",
+  loser:"Roki Sasaki",
+  save:"",
+  gamePk:823285,
+  preview:"Mookie Betts gave the Dodgers an early lead and it turned out to be the only run Los Angeles would score all night.",
+  body:`Mookie Betts gave the Dodgers an early lead and it turned out to be the only run Los Angeles would score all night. His solo shot in the second inning, his tenth of the year, put the Dodgers ahead 1-0, and for a brief moment Petco Park was quiet on a Friday night in front of 43,153 fans. That quiet did not last. Ty France answered immediately, crushing a three-run homer of his own to left field in the bottom of the second, scoring Manny Machado and Gavin Sheets and flipping the scoreboard to 3-1. Roki Sasaki never recovered from that inning. He walked five batters across four innings, allowed three earned runs, and was pulled having faced just two batters into the fifth. Walker Buehler, meanwhile, went 5.1 innings and held a lineup featuring Shohei Ohtani, Freddie Freeman, and Betts to a single run.
+
+The Padres put the game away in the eighth. Jonathan Hernandez entered and did not get out of the inning cleanly, to put it gently. A Sung-Mun Song single scored Jase Bowen and Xander Bogaerts to push the lead to 5-1, then Rodolfo Duran doubled home Song to make it 6-1, and Fernando Tatis Jr. capped it with an RBI single to center. Hernandez allowed four earned runs on four hits in his one inning of work. The Dodgers finished with seven hits but could string nothing together after the second, going scoreless through seven innings before the Padres buried them completely.
+
+Los Angeles committed no errors and Freddie Freeman went 2-for-3 with a walk, so the offense was not entirely lifeless. But the gap between what Buehler did and what Sasaki did told the whole story. The Padres needed three runs in the second and four in the eighth. The Dodgers needed more than Mookie Betts hitting a solo homer in the second, and they never got it.`
+},
+{
+  id:"2026-06-26-marlins-at-cardinals",
+  date:"2026-06-26",
+  awayTeam:"Miami Marlins",
+  homeTeam:"St. Louis Cardinals",
+  away_runs:4,
+  home_runs:0,
+  result:"loss",
+  score:"Miami Marlins 4, St. Louis Cardinals 0",
+  winner:"Max Meyer",
+  loser:"George Soriano",
+  save:"",
+  gamePk:823039,
+  preview:"Max Meyer threw seven innings of two-hit ball on Friday at Busch Stadium, and for seven innings, it looked like nobody was going to score.",
+  body:`Max Meyer threw seven innings of two-hit ball on Friday at Busch Stadium, and for seven innings, it looked like nobody was going to score. That kind of game has a way of making everything feel fragile, like it might slip away at any moment. It didn't slip away. The Miami Marlins found their opening in the eighth and buried the St. Louis Cardinals 4-0 in front of 27,584 fans under overcast skies in St. Louis.
+
+The Cardinals kept it close through six innings because Michael McGreevy was matching Meyer pitch for pitch, holding Miami to five hits over six scoreless frames. Then George Soriano came on and made it exist for the Marlins instead. Esteury Ruiz, who finished the night 2-for-3 with two stolen bases, got on base and scored when Graham Pauley doubled to right fielder Jordan Walker in the eighth. One batter later, Kyle Stowers grounded out to first, but a successful Marlins challenge overturned the call on the tag play, and Pauley crossed the plate to make it 2-0. Two runs on two hits, all the margin the Marlins needed built in a single inning.
+
+The ninth finished it off cleanly. Max Rajcic replaced Soriano and couldn't stop the bleeding. Joe Mack and Ruiz both reached, and Jakob Marsee lined a sharp single to center fielder Nathan Church to score them both, pushing the final to 4-0. Meyer picked up the win, Michael Petersen and Calvin Faucher each threw a scoreless inning behind him, and the Marlins walked out of Busch with a shutout that was quieter than the score suggests for most of the night.`
+},
+{
+  id:"2026-06-26-yankees-at-sox",
+  date:"2026-06-26",
+  awayTeam:"New York Yankees",
+  homeTeam:"Boston Red Sox",
+  away_runs:1,
+  home_runs:6,
+  result:"win",
+  score:"New York Yankees 1, Boston Red Sox 6",
+  winner:"Payton Tolle",
+  loser:"Will Warren",
+  save:"",
+  gamePk:824743,
+  preview:"Payton Tolle didn't just beat the Yankees on Friday night at Fenway Park.",
+  body:`Payton Tolle didn't just beat the Yankees on Friday night at Fenway Park. He suffocated them. Seven innings, one hit, zero runs, seven strikeouts. The Yankees managed three hits total against the entire Boston staff, and two of those came after the game was already decided. Will Warren couldn't get through the sixth, allowing all five of his runs before Connor Wong added a sacrifice fly in the sixth to make it 5-0. The Red Sox won 6-1, and it wasn't that close.
+
+Warren was the problem from the jump. Wilyer Abreu scored in the first on a Willson Contreras single. Boston pushed two more across in the second on a pair of ground ball force outs, the kind of runs that feel almost insulting because they don't require anything spectacular. Then Contreras put it away for good in the third, turning on one and sending his 17th homer of the year into the left field seats. Warren finished with 5.2 innings pitched, seven hits allowed, five earned runs, and zero strikeouts. The Yankees offense gave him absolutely nothing to work with, going hitless through seven frames against Tolle, who located his stuff and let the lineup beat itself.
+
+Anthony Volpe scored New York's lone run in the eighth on an Austin Wells groundout, a meaningless tally against a 5-1 deficit. Yerry De los Santos allowed a Connor Wong single that scored Jarren Duran in the bottom half, making it 6-1 and officially closing the book. The Yankees finished 3-for-27 at the plate. Tolle earned the win. Warren took the loss. At 78 degrees and a packed Fenway crowd of 33,353, this one never felt like a game.`
+},
+{
+  id:"2026-06-26-phillies-at-mets",
+  date:"2026-06-26",
+  awayTeam:"Philadelphia Phillies",
+  homeTeam:"New York Mets",
+  away_runs:2,
+  home_runs:1,
+  result:"loss",
+  score:"Philadelphia Phillies 2, New York Mets 1",
+  winner:"Zack Wheeler",
+  loser:"Huascar Brazobán",
+  save:"Jhoan Duran",
+  gamePk:823610,
+  preview:"Zack Wheeler did what Wheeler does on Friday night at Citi Field.",
+  body:`Zack Wheeler did what Wheeler does on Friday night at Citi Field. Seven innings, four hits, one run, five strikeouts. The Phillies ace held a lead, absorbed a tie, and handed the ball to his bullpen with Philadelphia still in front. That seventh-inning run was the whole game, and it came off Huascar Brazobán in the kind of moment that decides close ones: Trea Turner, who had already scored the first Philadelphia run back in the first, laced a sharp line drive to left to score Derek Hill and make it 2-1. Bryson Stott moved to second. The Mets never got even.
+
+The Phillies struck first in the top of the first when Turner came around on a Bryce Harper ground ball single to center, with Kyle Schwarber moving up to second. Harper finished 3-for-4 on the night, the only Phillie who looked comfortable at the plate against Zach Thornton. Thornton was sharp, going six innings and striking out seven, holding Philadelphia to one run on five hits. The Mets answered in the fourth when Bo Bichette scored on a Jared Young single to right, the ball finding Brandon Marsh and tying the game at one. That was Wheeler's lone blemish, and it stood as the answer for exactly three innings before Turner erased it.
+
+Orion Kerkering threw a clean eighth, and Jhoan Duran closed it out in the ninth, earning the save. The Mets finished with five hits and left Citi Field in front of 39,077 fans having lost a game that was never fully out of reach. Philadelphia wins on the strength of a starter who gave them everything they needed and a shortstop who did the damage twice.`
+},
+{
+  id:"2026-06-26-mariners-at-guardians",
+  date:"2026-06-26",
+  awayTeam:"Seattle Mariners",
+  homeTeam:"Cleveland Guardians",
+  away_runs:3,
+  home_runs:1,
+  result:"loss",
+  score:"Seattle Mariners 3, Cleveland Guardians 1",
+  winner:"Luis Castillo",
+  loser:"Tim Herrin",
+  save:"Andrés Muñoz",
+  gamePk:824423,
+  preview:"Luis Castillo gave up a run in the first inning and spent the next five innings making sure it didn't matter.",
+  body:`Luis Castillo gave up a run in the first inning and spent the next five innings making sure it didn't matter. Kahlil Watson's double scored Kyle Manzardo in the bottom of the first to put Cleveland up early, and for two innings it looked like Joey Cantillo might make it hold. Cantillo was sharp, striking out nine in six innings, and the Guardians had the kind of quiet confidence that comes from a lead and a locked-in starter. Then Colt Emerson hit a solo home run to right field in the third, his seventh of the year, and just like that the game was tied.
+
+Castillo steadied. He went six full innings, allowing just four hits and that one early run, finishing with four strikeouts. The Mariners bullpen did the rest. José Ferrer, Gabe Speier, and Andrés Muñoz combined to throw three scoreless innings without allowing a single hit. The lead came in the seventh, when J.P. Crawford singled on a ground ball to second baseman Travis Bazzana, scoring Cal Raleigh. Tim Herrin took the loss on that play, and the Guardians never recovered. Emerson crossed the plate again in the eighth, coming home on a Julio Rodríguez single to left, and the margin was two. Muñoz closed it out with two strikeouts in the ninth, a clean ending to a game the Mariners built slowly and then held comfortably at Progressive Field on Friday night.
+
+Seattle's final line was three runs on six hits. Cleveland managed just four. The Guardians got a strong outing from Cantillo and still lost, which is the kind of night that stings. Emerson drove in one and scored one. Castillo earned the win. There was nothing flashy about any of it, just a methodical road win from a team that clawed back, went ahead late, and refused to budge.`
+},
+{
+  id:"2026-06-26-nationals-at-orioles",
+  date:"2026-06-26",
+  awayTeam:"Washington Nationals",
+  homeTeam:"Baltimore Orioles",
+  away_runs:1,
+  home_runs:3,
+  result:"win",
+  score:"Washington Nationals 1, Baltimore Orioles 3",
+  winner:"Trevor Rogers",
+  loser:"Andrew Alvarez",
+  save:"Ryan Helsley",
+  gamePk:824824,
+  preview:"Trevor Rogers made this one simple. Six and a third innings, five hits, zero walks, seven strikeouts. The Nationals never mounted anything real against him, and on a cloudy Friday night at Oriole Park at Camden Yards,",
+  body:`Trevor Rogers made this one simple. Six and a third innings, five hits, zero walks, seven strikeouts. The Nationals never mounted anything real against him, and on a cloudy Friday night at Oriole Park at Camden Yards, that was more than enough to hand Baltimore a 3-1 win.
+
+The damage came early and in bunches. Andrew Alvarez held the Orioles quiet through three innings, but the fourth unraveled fast. With Baltimore batting, Blaze Alexander singled on a sharp line drive to left fielder Dylan Crews, and two runs scored. Coby Mayo crossed the plate. Tyler O'Neill crossed the plate. Just like that, the Nationals were down two and running out of Rogers. Washington did answer in the fifth, when Keibert Ruiz singled to center and Jacob Young came home to make it 2-1, but that was as close as they would get. CJ Abrams went 0-for-4 with three strikeouts. The top of the order could not get anything going.
+
+Brad Lord came on in relief and kept it interesting for a while, but Mayo doubled in the seventh, a sharp line drive to left fielder José Tena, and Taylor Ward scored to push it to 3-1. That was the ballgame. Ryan Helsley handled the ninth without giving up a hit, sealing the save. Baltimore collected eight hits on the night. Washington had five, and one run to show for them.`
+},
+
 // AUTO-GENERATED: 2026-06-25
 {
   id:"2026-06-25-rangers-at-jays",
