@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <title>nSCORE Fantasy Database White Paper | The Baseball Nerd</title>
+  <meta name="description" content="nSCORE is a multi-year percentile-ranking fantasy baseball system combining Statcast quality metrics, confidence weighting, and ADP gap analysis to surface buy-low targets and regression risks before the market catches up.">
+  <link rel="canonical" href="https://thebaseballnerd.com/articles/nscore-white-paper.html">
+  <meta name="author" content="Pete Dwyer">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="nSCORE Fantasy Database White Paper | The Baseball Nerd">
+  <meta property="og:description" content="A multi-year percentile-ranking system for fantasy baseball built on Statcast quality metrics, confidence weighting, and ADP integration.">
+  <meta property="og:site_name" content="The Baseball Nerd">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@thebaseballnerd">
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --navy:#0a1628;--navy-mid:#112040;--navy-light:#1a2f50;--navy-card:#0d1a30;
+      --gold:#c9a84c;--gold-light:#e8c97a;--cream:#f5f0e8;--cream-dim:rgba(245,240,232,0.45);
+      --green:#4caf85;--red:#e05c5c;--mono:'IBM Plex Mono',monospace;
+    }
+    body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--cream);font-size:16px;line-height:1.7;}
+    a{color:var(--gold);text-decoration:none;}
+    a:hover{text-decoration:underline;opacity:0.85;}
+
+    /* NAV */
+    nav.sitenav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 2rem;background:rgba(10,22,40,0.97);border-bottom:1px solid rgba(201,168,76,0.15);position:sticky;top:0;z-index:100;}
+    .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.08em;color:var(--gold);text-decoration:none;}
+    .nav-logo span{color:var(--cream);opacity:0.45;}
+    .nav-links{display:flex;gap:0;list-style:none;}
+    .nav-links a{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.45;text-decoration:none;padding:0.4rem 0.9rem;transition:opacity 0.15s,color 0.15s;}
+    .nav-links a:hover,.nav-links a.active{opacity:1;color:var(--gold);}
+    .nav-cta{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1rem;background:var(--gold);color:var(--navy);border:none;cursor:pointer;font-weight:500;text-decoration:none;transition:background 0.2s;}
+    .nav-cta:hover{background:var(--gold-light);}
+
+    /* HERO */
+    .article-hero{background:linear-gradient(135deg,var(--navy-mid) 0%,#0a1628 100%);border-bottom:2px solid var(--gold);padding:3rem 2rem 2.5rem;}
+    .hero-inner{max-width:860px;margin:0 auto;}
+    .breadcrumb{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);opacity:0.7;margin-bottom:1rem;}
+    .breadcrumb a{color:inherit;text-decoration:none;}
+    .breadcrumb a:hover{opacity:1;}
+    .breadcrumb span{opacity:0.4;margin:0 0.4rem;}
+    .article-eyebrow{display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;flex-wrap:wrap;}
+    .eyebrow-tag{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;padding:3px 10px;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);color:var(--gold);}
+    .eyebrow-date{font-family:var(--mono);font-size:0.58rem;color:var(--cream-dim);letter-spacing:0.1em;}
+    .article-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,5vw,4rem);letter-spacing:0.04em;line-height:1;color:var(--cream);margin-bottom:0.75rem;}
+    .article-title em{color:var(--gold);font-style:normal;}
+    .article-subtitle{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--cream);opacity:0.6;line-height:1.5;margin-bottom:1.5rem;max-width:680px;}
+    .article-meta{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;padding-top:1.25rem;border-top:1px solid rgba(201,168,76,0.12);}
+    .meta-author{font-family:var(--mono);font-size:0.62rem;color:var(--cream-dim);letter-spacing:0.1em;}
+    .meta-author strong{color:var(--cream);}
+    .meta-pill{font-family:var(--mono);font-size:0.58rem;padding:2px 10px;border:1px solid rgba(201,168,76,0.2);color:var(--gold);letter-spacing:0.1em;}
+
+    /* BODY LAYOUT */
+    .article-body{max-width:860px;margin:0 auto;padding:3rem 2rem 5rem;}
+
+    /* ABSTRACT BOX */
+    .abstract-box{background:var(--navy-card);border-left:3px solid var(--gold);padding:1.5rem 1.75rem;margin-bottom:2.5rem;}
+    .abstract-label{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;}
+    .abstract-box p{font-size:0.92rem;color:var(--cream);opacity:0.8;line-height:1.75;}
+
+    /* TABLE OF CONTENTS */
+    .toc{background:var(--navy-card);border:1px solid rgba(201,168,76,0.15);padding:1.5rem 1.75rem;margin-bottom:3rem;}
+    .toc-title{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+    .toc ol{padding-left:1.25rem;}
+    .toc li{font-family:var(--mono);font-size:0.72rem;line-height:2;letter-spacing:0.03em;}
+    .toc a{color:var(--cream);opacity:0.55;text-decoration:none;transition:opacity 0.15s,color 0.15s;}
+    .toc a:hover{opacity:1;color:var(--gold);}
+
+    /* SECTIONS */
+    .section{margin-bottom:3rem;}
+    .sec-num{font-family:var(--mono);font-size:0.65rem;color:var(--gold);opacity:0.4;letter-spacing:0.15em;display:block;margin-bottom:0.2rem;}
+    h2.section-head{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.06em;color:var(--gold);margin-bottom:0.35rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(201,168,76,0.2);}
+    h3.sub-head{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--cream);margin:1.5rem 0 0.6rem;font-style:italic;}
+    h3.sub-head-mono{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--cream);opacity:0.65;margin:1.5rem 0 0.5rem;}
+    p{margin-bottom:1rem;font-size:0.95rem;color:var(--cream);opacity:0.85;line-height:1.8;}
+
+    /* FORMULA BOX */
+    .formula-box{background:#060e1a;border:1px solid rgba(201,168,76,0.2);padding:1.25rem 1.5rem;margin:1.25rem 0;font-family:var(--mono);font-size:0.88rem;color:var(--gold);letter-spacing:0.05em;overflow-x:auto;}
+    .formula-note{font-family:var(--mono);font-size:0.7rem;color:var(--cream);opacity:0.4;margin-top:0.5rem;line-height:1.5;}
+
+    /* DATA TABLES */
+    .tbl-wrap{overflow-x:auto;margin:1.5rem 0;}
+    table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:0.72rem;}
+    thead th{background:var(--navy-mid);color:var(--cream);padding:8px 12px;text-align:left;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;border-bottom:2px solid rgba(201,168,76,0.4);white-space:nowrap;}
+    thead th.r{text-align:right;}
+    tbody tr{border-bottom:1px solid rgba(255,255,255,0.04);}
+    tbody tr:nth-child(even){background:rgba(255,255,255,0.02);}
+    tbody tr:hover{background:rgba(201,168,76,0.05);}
+    td{padding:8px 12px;color:var(--cream);opacity:0.8;vertical-align:top;}
+    td.r{text-align:right;}
+    td.bold{font-weight:600;opacity:1;}
+    td.gold{color:var(--gold);opacity:1;font-weight:600;}
+    td.green{color:var(--green);opacity:1;}
+    td.red{color:var(--red);opacity:1;}
+    td.dim{opacity:0.4;}
+
+    /* STAT CARDS */
+    .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.25rem 0;}
+    .stat-grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin:1.25rem 0;}
+    .stat-card{background:var(--navy-card);border:1px solid rgba(255,255,255,0.06);padding:1rem 1.25rem;}
+    .stat-label{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--cream);opacity:0.4;margin-bottom:0.3rem;}
+    .stat-value{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold);line-height:1;}
+    .stat-value.green{color:var(--green);}
+    .stat-value.red{color:var(--red);}
+    .stat-sub{font-family:var(--mono);font-size:0.6rem;color:var(--cream);opacity:0.35;margin-top:0.2rem;}
+
+    /* VALIDATION BOXES */
+    .validation-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1.5rem 0;}
+    .val-box{background:var(--navy-card);border:1px solid rgba(255,255,255,0.06);padding:1.25rem;}
+    .val-box.highlight{border-color:rgba(201,168,76,0.35);}
+    .val-num{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--gold);line-height:1;}
+    .val-desc{font-family:var(--mono);font-size:0.65rem;color:var(--cream);opacity:0.5;margin-top:0.3rem;line-height:1.5;}
+
+    /* BADGES */
+    .badge{display:inline-block;font-family:var(--mono);font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:1px;}
+    .badge-green{background:rgba(76,175,133,0.15);border:1px solid rgba(76,175,133,0.4);color:var(--green);}
+    .badge-red{background:rgba(224,92,92,0.12);border:1px solid rgba(224,92,92,0.3);color:var(--red);}
+    .badge-gold{background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);color:var(--gold);}
+    .badge-dim{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:var(--cream);opacity:0.5;}
+
+    /* CALLOUT */
+    .callout{background:linear-gradient(135deg,rgba(201,168,76,0.06),rgba(201,168,76,0.02));border:1px solid rgba(201,168,76,0.2);padding:1.25rem 1.5rem;margin:1.5rem 0;}
+    .callout-label{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
+    .callout p{font-size:0.9rem;margin:0;opacity:0.8;}
+
+    /* BAND CALLOUTS */
+    .band-callout{padding:1.25rem 1.5rem;margin:1rem 0;border-left:3px solid;}
+    .band-callout.spark{background:rgba(76,175,133,0.06);border-color:var(--green);}
+    .band-callout.fade{background:rgba(224,92,92,0.06);border-color:var(--red);}
+    .band-callout.value{background:rgba(201,168,76,0.06);border-color:var(--gold);}
+    .band-callout-label{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;font-weight:500;}
+    .band-callout.spark .band-callout-label{color:var(--green);}
+    .band-callout.fade .band-callout-label{color:var(--red);}
+    .band-callout.value .band-callout-label{color:var(--gold);}
+    .band-callout p{font-size:0.88rem;margin:0;opacity:0.8;}
+
+    /* LIMITATION LIST */
+    .limit-list{list-style:none;padding:0;}
+    .limit-list li{padding:0.75rem 0 0.75rem 1.25rem;border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.9rem;opacity:0.8;position:relative;line-height:1.7;}
+    .limit-list li:last-child{border-bottom:none;}
+    .limit-list li::before{content:'—';position:absolute;left:0;color:var(--gold);opacity:0.5;}
+
+    /* FAQ */
+    .faq-item{border-bottom:1px solid rgba(255,255,255,0.06);padding:1.25rem 0;}
+    .faq-item:last-child{border-bottom:none;}
+    .faq-q{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--cream);cursor:pointer;display:flex;justify-content:space-between;align-items:start;gap:1rem;line-height:1.4;}
+    .faq-q::after{content:'+';font-family:var(--mono);font-size:1rem;color:var(--gold);flex-shrink:0;margin-top:1px;transition:transform 0.2s;}
+    .faq-item.open .faq-q::after{transform:rotate(45deg);}
+    .faq-a{font-size:0.88rem;color:var(--cream);opacity:0.7;line-height:1.8;max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.2s;}
+    .faq-item.open .faq-a{max-height:600px;padding-top:0.75rem;}
+
+    /* CTA */
+    .cta-block{background:var(--navy-card);border:1px solid rgba(201,168,76,0.2);padding:2rem;text-align:center;margin-top:3rem;}
+    .cta-block h3{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:0.06em;color:var(--gold);margin-bottom:0.5rem;}
+    .cta-block p{font-size:0.88rem;opacity:0.6;margin-bottom:1.25rem;}
+    .cta-btn{display:inline-block;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.6rem 1.5rem;background:var(--gold);color:var(--navy);text-decoration:none;font-weight:600;transition:background 0.2s;margin:0 0.4rem 0.5rem;}
+    .cta-btn:hover{background:var(--gold-light);}
+    .cta-btn.outline{background:transparent;color:var(--gold);border:1px solid rgba(201,168,76,0.4);}
+    .cta-btn.outline:hover{background:rgba(201,168,76,0.08);}
+
+    /* RELATED */
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.75rem;margin-top:1rem;}
+    .related-card{background:var(--navy-card);border:1px solid rgba(255,255,255,0.06);padding:1rem 1.1rem;text-decoration:none;display:block;transition:border-color 0.15s;}
+    .related-card:hover{border-color:rgba(201,168,76,0.3);text-decoration:none;}
+    .rc-tag{font-family:var(--mono);font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);opacity:0.6;margin-bottom:5px;}
+    .rc-title{font-family:'DM Serif Display',serif;font-size:0.88rem;color:var(--cream);line-height:1.35;}
+
+    /* DATA SOURCES */
+    .sources-list{list-style:none;padding:0;margin-top:0.75rem;}
+    .sources-list li{padding:0.5rem 0 0.5rem 1.25rem;border-bottom:1px solid rgba(255,255,255,0.05);font-family:var(--mono);font-size:0.72rem;color:var(--cream);opacity:0.45;position:relative;line-height:1.6;}
+    .sources-list li:last-child{border-bottom:none;}
+    .sources-list li::before{content:'—';position:absolute;left:0;color:var(--gold);opacity:0.4;}
+
+    /* FOOTER */
+    footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(201,168,76,0.06);}
+    .foot-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--gold);}
+    .foot-logo span{color:var(--cream);opacity:0.3;}
+    .foot-copy{font-family:var(--mono);font-size:0.57rem;letter-spacing:0.08em;color:var(--cream);opacity:0.18;text-transform:uppercase;}
+    .foot-links{display:flex;gap:1.25rem;list-style:none;}
+    .foot-links a{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.28;text-decoration:none;transition:opacity 0.2s;}
+    .foot-links a:hover{opacity:0.75;}
+
+    @media(max-width:700px){
+      .nav-links{display:none;}
+      .stat-grid,.stat-grid-5{grid-template-columns:1fr 1fr;}
+      .validation-grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="sitenav">
+  <a class="nav-logo" href="/index.html">The Baseball <span>Nerd</span></a>
+  <ul class="nav-links">
+    <li><a href="/news.html">News</a></li>
+    <li><a href="/articles.html">Articles</a></li>
+    <li><a href="/recaps.html">Recaps</a></li>
+    <li><a href="/rosters.html">Rosters</a></li>
+    <li><a href="/podcasts.html">Podcasts</a></li>
+    <li><a href="/vault.html" class="active">Vault</a></li>
+    <li><a href="/about.html">About</a></li>
+  </ul>
+  <a class="nav-cta" href="https://thebaseballnerd.substack.com" target="_blank">Subscribe →</a>
+</nav>
+
+<!-- HERO -->
+<div class="article-hero">
+  <div class="hero-inner">
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="/index.html">Home</a><span>›</span>
+      <a href="/vault.html">Data Vault</a><span>›</span>
+      nSCORE Fantasy Database White Paper
+    </nav>
+    <div class="article-eyebrow">
+      <span class="eyebrow-tag">White Paper</span>
+      <span class="eyebrow-tag">Analytics Vault</span>
+      <span class="eyebrow-tag">Fantasy Baseball</span>
+      <span class="eyebrow-date">Published June 2026</span>
+    </div>
+    <h1 class="article-title">nSCORE Fantasy<br><em>Database</em></h1>
+    <p class="article-subtitle">A Multi-Year Percentile Ranking System for Fantasy Baseball</p>
+    <div class="article-meta">
+      <div class="meta-author">By <strong>Pete Dwyer</strong> · The Baseball Nerd Analytics Vault</div>
+      <div class="meta-pill">10 Sections</div>
+      <div class="meta-pill">578 Ranked Players</div>
+      <div class="meta-pill">3 Bands · 5 Signals</div>
+      <div class="meta-pill">3-Year Confidence Window</div>
+    </div>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <!-- ABSTRACT -->
+  <div class="abstract-box">
+    <div class="abstract-label">Abstract</div>
+    <p>The nSCORE Fantasy Database is a proprietary ranking system developed by The Baseball Nerd that evaluates hitters, starting pitchers, and relief pitchers through a unified percentile framework built on Statcast quality metrics, multi-year confidence weighting, and ADP gap analysis. Traditional fantasy rankings sort on counting stats — home runs, strikeouts, saves — which are deployment-dependent, context-sensitive, and highly variable from year to year. The nSCORE system replaces counting-stat ranking with skill-first ranking: each player is scored on the contact quality, command, and process metrics that research consistently shows to be more repeatable than the surface numbers that move draft boards and waiver wire decisions. Scores are expressed as 0–100 percentile ranks within each player pool, so a direct comparison between a 90-score hitter and a 90-score starter is meaningful: both are at the 90th percentile of their respective groups. Three bands — <strong>nSPARK</strong>, <strong>nFADE</strong>, and <strong>nVALUE</strong> — classify each player's trajectory. A confidence multiplier discounts thin samples without hiding them. ADP integration surfaces value gaps the market has missed. Together, these produce a database that tells you not just who is good, but who is good <em>for reasons that are likely to persist</em> — and who is overvalued by a market still sorting on last season's counting stats.</p>
+  </div>
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc">
+    <div class="toc-title">Table of Contents</div>
+    <ol>
+      <li><a href="#motivation">Motivation: Why Fantasy Rankings Break the Same Way Every Year</a></li>
+      <li><a href="#bands">The Three Bands: nSPARK, nFADE, and nVALUE</a></li>
+      <li><a href="#hitters">Methodology: The Hitter Profile</a></li>
+      <li><a href="#starters">Methodology: The Starter Profile</a></li>
+      <li><a href="#relievers">Methodology: The Reliever Profile</a></li>
+      <li><a href="#confidence">The Confidence Multiplier</a></li>
+      <li><a href="#adp">ADP Integration and the Value Gap</a></li>
+      <li><a href="#signals">The Buy/Sell Signal Framework</a></li>
+      <li><a href="#reading">Reading the Database</a></li>
+      <li><a href="#faq">Frequently Asked Questions</a></li>
+    </ol>
+  </div>
+
+  <!-- 01 MOTIVATION -->
+  <div class="section" id="motivation">
+    <span class="sec-num">01</span>
+    <h2 class="section-head">Motivation</h2>
+
+    <h3 class="sub-head">Why Fantasy Rankings Break the Same Way Every Year</h3>
+    <p>The most widely used fantasy baseball rankings share a structural flaw that no amount of refinement has fixed: they sort on counting stats derived from last season's playing time. A first baseman who hit 32 home runs ranks ahead of one who hit 22, regardless of whether the first baseman's barrel rate fell four points, his exit velocity dropped a tick and a half, and his roster spot is being contested in spring training. The 32 home runs already happened. They cannot happen again. What can happen again is the underlying skill — or its absence.</p>
+
+    <p>Counting stats compound two problems. First, they are deployment-dependent. A reliever's save total reflects his manager's decision about which inning he pitches, not how well he pitches it. A hitter's RBI total reflects where he hits in the lineup and how often his teammates get on base. Neither number is a clean signal about the player himself. Second, counting stats are highly sample-sensitive. A 150-game season of home run data has a year-to-year correlation in the 0.50 range. Exit velocity and barrel rate correlate with themselves at better than 0.70. The surface stat looks like the player. The Statcast signature <em>is</em> the player.</p>
+
+    <h3 class="sub-head">The Fantasy Market's Specific Blind Spot</h3>
+    <p>ADP — the average position at which players are drafted across thousands of real-money and competitive leagues — is the market's collective opinion. It incorporates recency bias heavily. A player who finished strong last August is overvalued in March. A player who battled a hamstring injury for six weeks and finished with a disappointing counting-stat line is undervalued even if his Statcast profile never changed. The market prices the narrative. The nSCORE system prices the skill.</p>
+    <p>The Value Gap — the difference between where ADP ranks a player and where nSCORE ranks him — is where the exploitable edges live. The market hasn't priced the Statcast layer because the market is sorting on last year's counting stats and this spring's injury storylines. The nSCORE database makes the gap visible and rankable.</p>
+
+    <h3 class="sub-head">The Orienting Question</h3>
+    <p>nSCORE began as an answer to a simple challenge: how do you build a fantasy ranking system that evaluates a player's <em>repeatable skill</em> rather than last season's <em>context-dependent output</em>, while remaining usable by any fantasy player who wants the data without the spreadsheet? The answer uses the publicly available Statcast layer — contact quality, command, and movement metrics available on FanGraphs and Baseball Savant — weighted toward the signals that research shows to be most stable, and expressed as a percentile rank that translates naturally to draft room thinking.</p>
+  </div>
+
+  <!-- 02 THREE BANDS -->
+  <div class="section" id="bands">
+    <span class="sec-num">02</span>
+    <h2 class="section-head">The Three Bands</h2>
+
+    <p>Every player in the nSCORE database is assigned to one of three bands. The band is not a rating of current performance — that is what the nSCORE percentile captures. The band is a statement about trajectory: which direction is this player's profile moving, and what does the age curve say about where it is headed?</p>
+
+    <div class="band-callout spark">
+      <div class="band-callout-label">nSPARK — Ascending Trajectory</div>
+      <p>Players on a rising trajectory. Typically ages 20–27, though measurable skill acceleration at any age qualifies. Year-over-year improvement in Statcast quality metrics is the primary signal. These are the players the market is still pricing at last year's counting-stat output while the underlying skill has already moved past it. The full breakout prediction framework behind nSPARK is documented in the <a href="https://thebaseballnerd.com/articles/spark-score-explained">SPARK Score white paper →</a></p>
+    </div>
+
+    <div class="band-callout fade">
+      <div class="band-callout-label">nFADE — Deteriorating Signal</div>
+      <p>Players showing measurable deterioration in the metrics that historically predict decline. Primarily ages 28 and older, though contact quality erosion at any age qualifies. The nFADE signal is not a verdict on current performance — it is a warning about the gap between what the surface stat is showing and what the underlying trajectory is saying. The regression risk framework behind nFADE is documented in the <a href="https://thebaseballnerd.com/articles/fade-score-explained">FADE Score white paper →</a></p>
+    </div>
+
+    <div class="band-callout value">
+      <div class="band-callout-label">nVALUE — Established and Steady</div>
+      <p>Players whose Statcast profile is holding steady without a strong directional trend in either direction. These are the dependable core assets of a fantasy roster — not necessarily undervalued, but accurately priced and unlikely to collapse. The TREND arrow (↑ / ↓ / →) within this band shows small year-over-year movements that have not yet crossed into reclassification territory.</p>
+    </div>
+
+    <p>The bands are reassigned at the start of each season and reviewed mid-season. A player who opens a season in nVALUE and puts up a historically aberrant Statcast line through 200 plate appearances will not be reclassified until the sample earns it. The confidence multiplier handles the thin-sample problem in the interim.</p>
+  </div>
+
+  <!-- 03 HITTERS -->
+  <div class="section" id="hitters">
+    <span class="sec-num">03</span>
+    <h2 class="section-head">Methodology: The Hitter Profile</h2>
+
+    <p>The hitter nSCORE is computed for all players meeting a 502 plate appearance minimum — the batting title qualification threshold. Below that line, single-season samples are too volatile to support reliable percentile ranking. Players with 300–501 PA appear in the database with a reduced confidence multiplier.</p>
+
+    <h3 class="sub-head-mono">Quality Metrics — Contact and Process</h3>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Description</th>
+            <th>Why It's In</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="bold">Exit Velocity (EV)</td>
+            <td>Average exit velocity on all batted balls</td>
+            <td>Year-to-year correlation above 0.70. The most stable raw contact quality signal.</td>
+          </tr>
+          <tr>
+            <td class="bold">Barrel%</td>
+            <td>% of batted balls at 98+ mph at optimal launch angle</td>
+            <td>Highest-leverage contact outcome. Predicts extra-base damage better than any single batted-ball metric.</td>
+          </tr>
+          <tr>
+            <td class="bold">HardHit%</td>
+            <td>% of batted balls at 95+ mph exit velocity</td>
+            <td>Broader contact quality signal. Catches hitters who suppress soft contact without barreling at elite rates.</td>
+          </tr>
+          <tr>
+            <td class="bold">xwOBA</td>
+            <td>Expected weighted on-base average based on contact quality</td>
+            <td>Best single-number surface for true offensive talent. Removes defense and BABIP luck.</td>
+          </tr>
+          <tr>
+            <td class="bold">wRC+</td>
+            <td>Weighted runs created, park and league adjusted (100 = avg)</td>
+            <td>The contextual production anchor. Keeps the score grounded in actual run creation.</td>
+          </tr>
+          <tr>
+            <td class="bold">BB%</td>
+            <td>Walk rate</td>
+            <td>Among the most stable offensive skills. High walkers survive slumps and protect ratios.</td>
+          </tr>
+          <tr>
+            <td class="bold">K%</td>
+            <td>Strikeout rate (inverted — lower is better)</td>
+            <td>Contact rate anchor. Informative at extremes; inverted so lower strikeout rates score positively.</td>
+          </tr>
+          <tr>
+            <td class="bold">ISO</td>
+            <td>Isolated power (slugging minus batting average)</td>
+            <td>Pure power signal without contact quality contamination.</td>
+          </tr>
+          <tr>
+            <td class="bold">SwStr%</td>
+            <td>Swinging strike rate (inverted for hitters)</td>
+            <td>Zone recognition proxy. Low SwStr% hitters are disciplined at the zone edge; they don't chase pitches they can't drive.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="formula-box">
+      Hitter nSCORE = percentile_rank( composite(EV, Barrel%, HardHit%, xwOBA, wRC+, BB%, K%&#8315;¹, ISO, SwStr%&#8315;¹) ) × confidence
+      <div class="formula-note">Each metric is z-score standardized within the qualified hitter pool. Inverted metrics (K%, SwStr%) are negated so lower values score positively. The composite is then converted to a 0–100 percentile rank and multiplied by the confidence multiplier.</div>
+    </div>
+
+    <p>Counting stats — home runs, RBI, steals — appear in the database as supplemental context columns but do not enter the nSCORE calculation. They describe what happened given the opportunities available. The quality metrics describe what the hitter did with every individual contact event, which is what determines whether the surface production is likely to repeat.</p>
+  </div>
+
+  <!-- 04 STARTERS -->
+  <div class="section" id="starters">
+    <span class="sec-num">04</span>
+    <h2 class="section-head">Methodology: The Starter Profile</h2>
+
+    <p>The starter nSCORE is computed for pitchers meeting a 162-inning minimum — one inning per team game, the standard qualified-pitcher threshold. The starter pool is evaluated entirely separately from hitters and relievers. A starter nSCORE of 80 means the pitcher is at the 80th percentile of all qualified starters, not across all players.</p>
+
+    <p>The starter profile builds on the same philosophy as the <a href="https://thebaseballnerd.com/articles/csr-white-paper.html">Contact Suppression Rate (CSR) framework</a> developed for Cy Young evaluation — but adapted for the fantasy context, where cumulative production, workload, and per-start efficiency matter in ways a Cy Young metric does not need to address.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Description</th>
+            <th>Why It's In</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="bold">K%</td>
+            <td>Strikeout rate</td>
+            <td>Most reliable individual starter skill. Defense-independent and highly repeatable year to year.</td>
+          </tr>
+          <tr>
+            <td class="bold">BB%</td>
+            <td>Walk rate (inverted)</td>
+            <td>Command anchor. Walks are costly across all fantasy formats and among the most repeatable pitcher stats.</td>
+          </tr>
+          <tr>
+            <td class="bold">K-BB%</td>
+            <td>Strikeout rate minus walk rate</td>
+            <td>The cleanest single-axis command-and-stuff composite. Forecasts ERA, WHIP, and fantasy totals better than either component alone.</td>
+          </tr>
+          <tr>
+            <td class="bold">SwStr%</td>
+            <td>Swinging strike rate</td>
+            <td>Upstream driver of strikeout rate. Stable and largely defense-independent. Signals that a K rate is real rather than count-sequence dependent.</td>
+          </tr>
+          <tr>
+            <td class="bold">xFIP</td>
+            <td>Expected FIP with HR rate regressed to league average</td>
+            <td>Cleanest run-prevention estimator for single-season samples. Removes HR luck and defense.</td>
+          </tr>
+          <tr>
+            <td class="bold">xERA</td>
+            <td>Expected ERA based on contact quality allowed</td>
+            <td>Bridges Statcast contact quality to run prevention. Better predictor of next-year ERA than actual ERA.</td>
+          </tr>
+          <tr>
+            <td class="bold">WHIP</td>
+            <td>Walks plus hits per inning pitched</td>
+            <td>Primary fantasy ratio anchor. High WHIP destroys ratio categories regardless of ERA estimator quality.</td>
+          </tr>
+          <tr>
+            <td class="bold">Stuff+</td>
+            <td>Pitch quality composite, 100 = league average</td>
+            <td>The upstream driver of everything else. A rising Stuff+ is building the pitch mix that will translate to future strikeout and contact gains before they show up in rate stats.</td>
+          </tr>
+          <tr>
+            <td class="bold">IP/GS</td>
+            <td>Innings pitched per start</td>
+            <td>Workload efficiency. In deep leagues and points formats, a starter averaging 6+ innings per start is worth significantly more than one who throws five and exits.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="formula-box">
+      Starter nSCORE = percentile_rank( composite(K%, BB%&#8315;¹, K-BB%, SwStr%, xFIP&#8315;¹, xERA&#8315;¹, WHIP&#8315;¹, Stuff+, IP/GS) ) × confidence
+      <div class="formula-note">Inverted metrics are negated before z-scoring so that lower values (better for pitchers) score positively. Percentile rank computed within the qualified starter pool for the current season.</div>
+    </div>
+  </div>
+
+  <!-- 05 RELIEVERS -->
+  <div class="section" id="relievers">
+    <span class="sec-num">05</span>
+    <h2 class="section-head">Methodology: The Reliever Profile</h2>
+
+    <p>The reliever nSCORE is computed for all relief pitchers meeting a 50-inning minimum. Relievers require a lower innings threshold because a qualified reliever season is structurally shorter than a starter season, and because the fantasy value of a high-leverage reliever accumulates faster per inning. The 50-inning threshold captures every arm pitching in a meaningful role while excluding mop-up usage and emergency appearances.</p>
+
+    <p>The reliever profile is informed by the <a href="https://thebaseballnerd.com/articles/reliever-csr-white-paper.html">Reliever CSR (rCSR) framework</a>, which demonstrated that K-BB% and contact suppression metrics forecast next-season reliever ERA better than saves, holds, or win probability added across five seasons of backtesting. The nSCORE reliever profile adopts the same philosophy — skill over role — while incorporating save and hold context as fantasy-relevant supplemental columns rather than ranking inputs.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Description</th>
+            <th>Why It's In</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="bold">K%</td>
+            <td>Strikeout rate</td>
+            <td>Reliever K rate is more stable than ERA and more predictive of future saves and holds. The elite relievers miss bats; the saves follow.</td>
+          </tr>
+          <tr>
+            <td class="bold">BB%</td>
+            <td>Walk rate (inverted)</td>
+            <td>In short-sample reliever work, walks are disproportionately costly. The fastest signal that an arm will blow leads before the ERA confirms it.</td>
+          </tr>
+          <tr>
+            <td class="bold">K-BB%</td>
+            <td>Strikeout minus walk rate</td>
+            <td>The most stable reliever skill signal in the rCSR backtest. Anchors the reliever nSCORE the same way it anchors rCSR.</td>
+          </tr>
+          <tr>
+            <td class="bold">SwStr%</td>
+            <td>Swinging strike rate</td>
+            <td>For relievers operating in 1–2 inning bursts, SwStr% is the real-time stuff indicator. A rising SwStr% signals a closer role change before the fantasy market reacts.</td>
+          </tr>
+          <tr>
+            <td class="bold">xFIP</td>
+            <td>Expected FIP with regressed HR rate</td>
+            <td>Cleanest single ERA estimator for small-sample reliever work. Removes HR variance that makes short-stint ERA nearly uninformative.</td>
+          </tr>
+          <tr>
+            <td class="bold">xERA</td>
+            <td>Expected ERA based on contact quality</td>
+            <td>Bridges Statcast contact to run prevention. Predicts next-season ERA better than actual ERA across multi-year samples.</td>
+          </tr>
+          <tr>
+            <td class="bold">FBv</td>
+            <td>Fastball velocity</td>
+            <td>For relievers, velocity is a leading indicator of stuff. A reliever gaining ticks is often gaining a role. A reliever losing ticks is often about to lose the closer job before it's announced.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="formula-box">
+      Reliever nSCORE = percentile_rank( composite(K%, BB%&#8315;¹, K-BB%, SwStr%, xFIP&#8315;¹, xERA&#8315;¹, FBv) ) × confidence
+      <div class="formula-note">Saves (SV) and holds (HLD) appear in the database as context columns. They inform fantasy roster decisions but do not enter the nSCORE calculation. A reliever's role should follow his skill rating — not the other way around.</div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">Key Principle</div>
+      <p>The nSCORE system deliberately does not rank relievers by saves. The <a href="https://thebaseballnerd.com/articles/reliever-csr-white-paper.html">rCSR backtest</a> showed that K-BB% forecasts next-year ERA better than saves, holds, or win probability added across five seasons of data. The nSCORE reliever ranking is built on that finding. Saves describe which inning a manager chose. K-BB% describes how well the pitcher threw.</p>
+    </div>
+  </div>
+
+  <!-- 06 CONFIDENCE -->
+  <div class="section" id="confidence">
+    <span class="sec-num">06</span>
+    <h2 class="section-head">The Confidence Multiplier</h2>
+
+    <p>A single season of Statcast data is informative. Two seasons are substantially more reliable. Three or more seasons allow the signal to separate from the noise with genuine confidence. The nSCORE confidence multiplier scales each player's percentile rank by how many qualifying seasons of data underlie the computation.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Seasons of Data</th><th>Multiplier</th><th>Season Display</th><th>Interpretation</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="bold">1 Year</td>
+            <td class="red bold">0.60×</td>
+            <td><span class="badge badge-red">1yr</span></td>
+            <td>Score is real but treat with skepticism. Single qualifying seasons contain substantial variance. The profile is a signal, not a verdict.</td>
+          </tr>
+          <tr>
+            <td class="bold">2 Years</td>
+            <td class="gold bold">0.80×</td>
+            <td><span class="badge badge-gold">2yr</span></td>
+            <td>Score is meaningfully reliable. Two qualifying seasons filter most year-to-year variance in quality contact metrics.</td>
+          </tr>
+          <tr>
+            <td class="bold">3+ Years</td>
+            <td class="green bold">1.00×</td>
+            <td><span class="badge badge-green">3yr+</span></td>
+            <td>Full confidence. Three or more qualifying seasons establish a genuine Statcast baseline. This is the player's true profile.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>The multiplier is applied to the raw percentile score before display. A player who would rank at the 85th percentile on raw metrics but has only one qualifying season displays a score of 51.0 (85 × 0.60). This does not mean he is a 51st-percentile player — it means the database is crediting 60 percent of what the one-season data suggests, because one season is 60 percent of what it would take to establish full confidence.</p>
+
+    <h3 class="sub-head">Why Not Just Exclude Thin Samples?</h3>
+    <p>Excluding one-season players would remove some of the most fantasy-relevant names in the database: a breakout player in his age-24 season, a newly converted reliever in his first full year in the bullpen, a starter returning from Tommy John surgery. These are exactly the players fantasy leagues are won on. Hiding them from the ranking entirely would defeat the purpose. The confidence multiplier keeps them visible while signaling honestly that the data behind their score is thinner than a three-year veteran's.</p>
+
+    <div class="callout">
+      <div class="callout-label">TREND Arrow</div>
+      <p>The TREND arrow (↑ / ↓ / →) beside each player's name shows the year-over-year direction of the key quality metrics, independent of the confidence level. A 1yr player with an upward trend arrow is telling you something specific: the signal is young, but it is pointing the right way.</p>
+    </div>
+  </div>
+
+  <!-- 07 ADP -->
+  <div class="section" id="adp">
+    <span class="sec-num">07</span>
+    <h2 class="section-head">ADP Integration and the Value Gap</h2>
+
+    <p>The nSCORE database integrates Average Draft Position data from both head-to-head and rotisserie formats, cross-referenced against each player's nSCORE percentile rank. The resulting Value Gap is the most actionable single number in the database for draft preparation.</p>
+
+    <div class="formula-box">
+      VALUE_GAP = ADP_rank − nSCORE_rank
+      <div class="formula-note">A positive gap means the market is drafting the player later than his skill rank warrants — undervalued. A negative gap means the market is drafting him earlier — overvalued. The larger the absolute gap, the larger the market mispricing.</div>
+    </div>
+
+    <h3 class="sub-head">Reading the Gap</h3>
+    <p>A player with an ADP rank of 120 and an nSCORE rank of 40 has a Value Gap of +80. The market thinks he is the 120th-best player available. The skill data says he is the 40th. The gap can close two ways: the market discovers him and his ADP rises, or the underlying metrics prove themselves and his counting stats catch up. Either way, the fantasy player who drafted him at 120 wins.</p>
+    <p>A player with an ADP rank of 15 and an nSCORE rank of 55 has a Value Gap of −40. The market is paying a top-20 price for a player the skill data ranks outside the top 50. This does not mean he is bad. It means the market is paying a premium — for a big name, a recent hot stretch, or a narrative — that the underlying metrics do not support.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>VALUE_GAP</th><th>Signal</th><th>Market Read</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="green bold">+20 or more</td>
+            <td><span class="badge badge-green">BUY</span></td>
+            <td>Significant undervaluation. Market pricing the narrative; skill data says otherwise. Target aggressively on nSPARK players.</td>
+          </tr>
+          <tr>
+            <td class="green">+1 to +19</td>
+            <td><span class="badge badge-gold">HOLD</span></td>
+            <td>Mild undervaluation. Worth targeting at ADP. The edge is real but not extreme.</td>
+          </tr>
+          <tr>
+            <td class="dim">Near zero</td>
+            <td><span class="badge badge-dim">NEUTRAL</span></td>
+            <td>Market is pricing the player roughly where the skill data puts him. No exploitable gap in either direction.</td>
+          </tr>
+          <tr>
+            <td class="red">−1 to −19</td>
+            <td><span class="badge badge-red">FADE</span></td>
+            <td>Mild overvaluation on nFADE players. Let other teams overpay at ADP.</td>
+          </tr>
+          <tr>
+            <td class="red bold">−20 or less</td>
+            <td><span class="badge badge-red">SELL</span></td>
+            <td>Significant overvaluation. Market paying a top-X price for a player the metrics rank substantially lower. Avoid at ADP.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>ADP data is sourced from H2H and rotisserie formats separately and averaged into a composite rank. Players who appear in ADP rankings but fall outside the nSCORE qualified pool are tagged <strong>UNRANKED</strong> — the market has a view on them, but the database does not yet have sufficient data to generate a reliable skill percentile.</p>
+  </div>
+
+  <!-- 08 SIGNALS -->
+  <div class="section" id="signals">
+    <span class="sec-num">08</span>
+    <h2 class="section-head">The Buy/Sell Signal Framework</h2>
+
+    <p>The Buy/Sell signal combines the player's band (nSPARK, nFADE, or nVALUE) with the magnitude of the Value Gap to produce a single actionable recommendation. Band alone is not enough — an nSPARK player already drafted at his skill rank is not a buy. Value Gap alone is not enough — a massive gap on an nFADE player means the market is catching up, not lagging. The signal requires both.</p>
+
+    <div class="stat-grid-5">
+      <div class="stat-card">
+        <div class="stat-label">BUY</div>
+        <div class="stat-value green">+20</div>
+        <div class="stat-sub">nSPARK + gap ≥ +20</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">HOLD</div>
+        <div class="stat-value" style="color:var(--gold);font-size:1.4rem">0–19</div>
+        <div class="stat-sub">nSPARK + gap 0 to +19</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">NEUTRAL</div>
+        <div class="stat-value" style="color:var(--cream);opacity:0.3">—</div>
+        <div class="stat-sub">nVALUE or no clear gap</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">FADE</div>
+        <div class="stat-value" style="color:#f97316;font-size:1.4rem">−19</div>
+        <div class="stat-sub">nFADE + gap −1 to −19</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">SELL</div>
+        <div class="stat-value red">−20</div>
+        <div class="stat-sub">nFADE + gap ≤ −20</div>
+      </div>
+    </div>
+
+    <h3 class="sub-head">BUY — The Market Is Still Asleep</h3>
+    <p>A BUY signal means two things are true simultaneously: the player is on an ascending trajectory (nSPARK) and the market is drafting him at least 20 spots later than his skill rank warrants. This is the profile of a player whose Statcast line has already moved but whose counting stats or narrative hasn't given the broader market a reason to reprice him yet. Draft-day value, waiver-wire targets, and trade acquisition candidates all begin here.</p>
+
+    <h3 class="sub-head">SELL — The Market Is Still Dreaming</h3>
+    <p>A SELL signal means the player is on a declining trajectory (nFADE) and the market is still drafting him at least 20 spots earlier than his skill rank warrants. This is the profile of a player whose underlying metrics have already deteriorated but whose name, last season's counting stats, or offseason narrative is keeping his ADP elevated. The counting stats will catch up to the skill data. They always do.</p>
+
+    <h3 class="sub-head-mono">Why the Threshold Is 20 Spots</h3>
+    <p>Draft position noise — variance in ADP from sample to sample and format to format — runs roughly ±10 to ±15 spots for most players. A gap smaller than 20 is within the range of natural ADP variance and does not represent a reliable edge. The 20-spot threshold ensures that a BUY or SELL signal reflects a genuine market mispricing, not random noise in how different platforms aggregate draft results.</p>
+  </div>
+
+  <!-- 09 READING -->
+  <div class="section" id="reading">
+    <span class="sec-num">09</span>
+    <h2 class="section-head">Reading the Database</h2>
+
+    <p>The nSCORE Fantasy Database presents hitters, starters, and relievers in separate tabs, each sorted by nSCORE by default. Every row shows the player's band, signal, trend arrow, confidence season count, and core quality metrics alongside the percentile score. Here is how to read the key columns quickly.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Column</th><th>What It Tells You</th></tr></thead>
+        <tbody>
+          <tr><td class="bold">BAND</td><td>nSPARK (ascending) · nFADE (declining) · nVALUE (steady). Sets the signal logic alongside the Value Gap.</td></tr>
+          <tr><td class="bold">SIGNAL</td><td>BUY / HOLD / NEUTRAL / FADE / SELL. Combined band + ADP gap recommendation. Hover to see ADP rank, average draft position, and gap value.</td></tr>
+          <tr><td class="bold">TREND</td><td>↑ metrics improving year-over-year · ↓ declining · → stable within band classification.</td></tr>
+          <tr><td class="bold">Seasons</td><td>Years of qualifying data behind the score. Green = 3yr+ (full confidence) · Yellow = 2yr (0.80×) · Red = 1yr (0.60×).</td></tr>
+          <tr><td class="bold">SCORE</td><td>The nSCORE percentile (0–100), confidence-adjusted. The primary sort column. 90+ is elite. 50 is pool average.</td></tr>
+          <tr><td class="bold">IL badge</td><td>Red IL badge on any player currently on the MLB 10-day or 60-day injured list, updated from MLB's 40-man roster API.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-head-mono">Interpretive Scale</h3>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>nSCORE</th><th>Percentile</th><th>Tier</th><th>Fantasy Read</th></tr></thead>
+        <tbody>
+          <tr><td class="gold bold">90–100</td><td>Top 10%</td><td>Elite</td><td>Draft-day anchor. First-round value in any format.</td></tr>
+          <tr><td class="green bold">75–89</td><td>Top 25%</td><td>Very Good</td><td>Core starter. Target in rounds 2–5 depending on format.</td></tr>
+          <tr><td class="green">60–74</td><td>Top 40%</td><td>Above Average</td><td>Solid contributor. Watch for BUY signal at undervalued ADP.</td></tr>
+          <tr><td>45–59</td><td>Near Average</td><td>Average</td><td>Serviceable depth or streaming; rarely a league-winner.</td></tr>
+          <tr><td class="red">30–44</td><td>Bottom 40%</td><td>Below Average</td><td>Avoid at any price above a late-round flier. SELL if nFADE.</td></tr>
+          <tr><td class="red bold">Below 30</td><td>Bottom 30%</td><td>Poor</td><td>Results, if any, are not supported by the underlying data. Do not hold on name alone.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-head">The Waiver Wire Radar</h3>
+    <p>The Waiver Wire Radar tab surfaces players with an nSCORE of 40 or higher whose ADP is above 150 or who are completely unranked in ADP. The market hasn't priced them, but the skill data says they belong in lineups. These are the waiver-wire and late-round targets that win fantasy leagues: players whose Statcast profiles have already moved, but whose narrative hasn't caught up yet.</p>
+
+    <h3 class="sub-head">The Draft Board</h3>
+    <p>The Draft Board tab shows every ADP-ranked player with their nSCORE rank, ADP rank, and Value Gap in a single sortable table. Sorted by Value Gap descending by default — the biggest positive gaps at the top. This is the pre-draft cheat sheet: every exploitable mispricing in one view, ranked by the size of the edge.</p>
+  </div>
+
+  <!-- 10 FAQ -->
+  <div class="section" id="faq">
+    <span class="sec-num">10</span>
+    <h2 class="section-head">Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">What is nSCORE?</div>
+      <div class="faq-a">nSCORE is a proprietary 0–100 percentile ranking developed by The Baseball Nerd for fantasy baseball player evaluation. It combines Statcast quality metrics — contact quality, command, pitch quality, and run prevention estimators — through z-score standardization and multi-year confidence weighting. A score of 50 is exactly pool average. A score of 90 means the player is at the 90th percentile of his player group (hitters, starters, or relievers) on the underlying skill metrics.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How is nSCORE different from standard fantasy rankings?</div>
+      <div class="faq-a">Standard fantasy rankings sort on counting stats — home runs, strikeouts, wins, saves — which are context-dependent, deployment-dependent, and highly variable year to year. nSCORE sorts on the underlying quality metrics that research shows to be more repeatable: exit velocity, barrel rate, K-BB%, and ERA estimators built on contact quality. A player ranked 40th in counting stats but 15th in nSCORE is systematically underpriced by the market.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What do nSPARK, nFADE, and nVALUE mean?</div>
+      <div class="faq-a">nSPARK identifies players on an ascending trajectory — typically ages 20–27 showing year-over-year improvement in quality metrics. nFADE identifies players showing measurable deterioration in signals that historically predict decline. nVALUE covers established players whose profiles are holding steady. The bands inform the BUY/SELL signal logic but do not directly set the percentile score. Full methodology for the SPARK and FADE frameworks is at <a href="https://thebaseballnerd.com/articles/spark-score-explained">spark-score-explained</a> and <a href="https://thebaseballnerd.com/articles/fade-score-explained">fade-score-explained</a>.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What is the confidence multiplier?</div>
+      <div class="faq-a">The confidence multiplier scales nSCORE by how many qualifying seasons of data underlie the computation: 1 year = 0.60×, 2 years = 0.80×, 3+ years = 1.00×. A player with one qualifying season is visible in the database but his score reflects 60% of what the single-year data would imply at full confidence. The Seasons column is color-coded — green (3yr+), yellow (2yr), red (1yr) — so the confidence level is always visible alongside the score.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What is the Value Gap and how do I use it?</div>
+      <div class="faq-a">The Value Gap is ADP rank minus nSCORE rank. A positive gap means the market is drafting the player later than his skill rank warrants — he is undervalued. A negative gap means the market is drafting him earlier — he is overvalued. The Draft Board tab sorts by Value Gap descending by default, putting the biggest buy-low targets at the top. For waiver-wire decisions, the SIGNAL column on any tab shows BUY signals for the largest positive gaps on ascending players.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Why don't saves and wins appear in the nSCORE calculation?</div>
+      <div class="faq-a">Saves and wins are deployment stats. They describe which inning a manager chose, or which team happened to have the lead when a starter exited. The <a href="https://thebaseballnerd.com/articles/reliever-csr-white-paper.html">rCSR backtest</a> showed that K-BB% forecasts next-year ERA better than saves plus holds across 2021–2025. Both appear in the database as context columns — visible, but not ranked on.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What are the qualification thresholds?</div>
+      <div class="faq-a">Hitters require 502 plate appearances (batting title standard). Starters require 162 innings (one inning per team game). Relievers require 50 innings. Players below these thresholds are not scored but may appear with UNRANKED status if they have ADP data. The thresholds ensure nSCORE is computed on samples large enough to be meaningful.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How often is the database updated?</div>
+      <div class="faq-a">The nSCORE database is updated weekly during the regular season as new Statcast and ADP data become available. IL status is updated from MLB's 40-man roster API data, filtered by D10 and D60 status codes. Band assignments and TREND arrows are reviewed monthly and updated when a sufficient sample has accumulated to support reclassification.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How does the nSCORE system relate to SPARK Score, FADE Score, CSR, and rCSR?</div>
+      <div class="faq-a">The <a href="https://thebaseballnerd.com/articles/spark-score-explained">SPARK Score</a> and <a href="https://thebaseballnerd.com/articles/fade-score-explained">FADE Score</a> are The Baseball Nerd's primary breakout prediction and regression risk frameworks. The nSPARK and nFADE bands are informed by the same philosophy — ascending trajectory for SPARK-profile players, deteriorating signal for FADE-profile players — adapted for the fantasy context. The <a href="https://thebaseballnerd.com/articles/csr-white-paper.html">CSR</a> and <a href="https://thebaseballnerd.com/articles/reliever-csr-white-paper.html">rCSR</a> frameworks inform the metric selection for starters and relievers respectively. Together these form the full Baseball Nerd analytics suite, each answering a different question about a player's current level, future trajectory, and market value. The <a href="https://thebaseballnerd.com/articles/what-is-abs-iq-plus-in-baseball">ABS IQ+ framework</a> extends this approach to the 2026 Automated Ball-Strike challenge system.</div>
+    </div>
+  </div>
+
+  <!-- DATA SOURCES -->
+  <div class="section">
+    <h3 class="sub-head-mono">Data Sources</h3>
+    <ul class="sources-list">
+      <li>Exit Velocity, Barrel%, HardHit%, xwOBA, SwStr%, FBv, Stuff+: FanGraphs Statcast leaderboards (sourced from Baseball Savant / Hawk-Eye)</li>
+      <li>wRC+, K%, BB%, K-BB%, ISO, WHIP, xFIP, xERA, IP/GS: FanGraphs Advanced Pitching and Hitting leaderboards</li>
+      <li>ADP (H2H and Rotisserie): Aggregated from competitive league draft data</li>
+      <li>IL / Injured List status: MLB Stats API 40-man roster data, filtered by D10 / D60 status codes</li>
+      <li>Qualification thresholds: 502 PA (hitters) · 162 IP (starters) · 50 IP (relievers)</li>
+    </ul>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h3>nSCORE Fantasy Database — Live</h3>
+    <p>578 ranked players · Weekly updates · Subscriber-gated access</p>
+    <a href="https://baseballnerdfantasydb.netlify.app" class="cta-btn">Open the Database →</a>
+    <a href="/vault.html" class="cta-btn outline">Back to Data Vault</a>
+    <a href="https://thebaseballnerd.substack.com" class="cta-btn outline">Subscribe to TBN →</a>
+  </div>
+
+  <!-- RELATED -->
+  <div class="section" style="margin-top:3rem;">
+    <h3 class="sub-head-mono">Related Analytics</h3>
+    <div class="related-grid">
+      <a href="https://thebaseballnerd.com/articles/spark-score-explained" class="related-card">
+        <div class="rc-tag">Breakout Prediction</div>
+        <div class="rc-title">The SPARK Score: How We Find Tomorrow's Stars</div>
+      </a>
+      <a href="https://thebaseballnerd.com/articles/fade-score-explained" class="related-card">
+        <div class="rc-tag">Regression Risk</div>
+        <div class="rc-title">The FADE Score: Spotting Decline Before the Box Score Does</div>
+      </a>
+      <a href="https://thebaseballnerd.com/articles/csr-white-paper.html" class="related-card">
+        <div class="rc-tag">Starter Metric · White Paper</div>
+        <div class="rc-title">Contact Suppression Rate (CSR): Cy Young Framework</div>
+      </a>
+      <a href="https://thebaseballnerd.com/articles/reliever-csr-white-paper.html" class="related-card">
+        <div class="rc-tag">Reliever Metric · White Paper</div>
+        <div class="rc-title">Reliever CSR (rCSR): Trusted-Leverage Framework</div>
+      </a>
+      <a href="https://thebaseballnerd.com/articles/what-is-abs-iq-plus-in-baseball" class="related-card">
+        <div class="rc-tag">Challenge Intelligence</div>
+        <div class="rc-title">ABS IQ+: The Challenge System Intelligence Metric</div>
+      </a>
+    </div>
+  </div>
+
+</div><!-- /article-body -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">The Baseball <span>Nerd</span></div>
+  <ul class="foot-links">
+    <li><a href="/news.html">News</a></li>
+    <li><a href="/articles.html">Articles</a></li>
+    <li><a href="/vault.html">Vault</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="https://thebaseballnerd.substack.com">Subscribe</a></li>
+  </ul>
+  <div class="foot-copy">© 2026 The Baseball Nerd · Numbers Not Feelings</div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
