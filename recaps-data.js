@@ -23,6 +23,188 @@
  */
 
 const RECAPS = [
+// AUTO-GENERATED: 2026-07-02
+{
+  id:"2026-07-02-tigers-at-rangers",
+  date:"2026-07-02",
+  awayTeam:"Detroit Tigers",
+  homeTeam:"Texas Rangers",
+  away_runs:4,
+  home_runs:10,
+  result:"win",
+  score:"Detroit Tigers 4, Texas Rangers 10",
+  winner:"Nathan Eovaldi",
+  loser:"Framber Valdez",
+  save:"",
+  gamePk:822884,
+  preview:"Framber Valdez was supposed to be the answer. Instead, he was the problem. The Detroit left-hander gave up 9 hits and 5 earned runs across 5 innings on Thursday at Globe Life Field, getting roughed up early and often by",
+  body:`Framber Valdez was supposed to be the answer. Instead, he was the problem. The Detroit left-hander gave up 9 hits and 5 earned runs across 5 innings on Thursday at Globe Life Field, getting roughed up early and often by a Rangers lineup that never really let him settle in. Elias Díaz got Texas rolling in the second with a solo home run to left center, and the inning only got worse from there. Alejandro Osuna scored on a Josh Jung walk, then Nicky Lopez crossed on an Ezequiel Duran sacrifice fly, and suddenly the Rangers had a 3-0 lead before Detroit could blink. Valdez came back out for the fourth and gave up two more, a Jung double that scored Lopez and a Duran single that plated Jung. Five runs on 9 hits, and Valdez had nothing left to show for it.
+
+Detroit did make things interesting in the fifth. Colt Keith hit a solo shot to right center, then Hao-Yu Lee followed with a two-run homer to left center that scored Zach McKinstry and cut the deficit to 5-3. Nathan Eovaldi had struck out 9 in his five innings, so the Tigers were fighting uphill the whole way, but those back-to-back home runs at least made it a game. It did not stay that way. Beau Brieske allowed a Josh Smith homer in the sixth, and then Drew Sommers walked into a disaster in the seventh. Three straight singles, all of them run-scoring, pushed the Rangers to 9-3. Sommers was charged with all three of those runs, and the last one was particularly cruel, a Josh Smith single that deflected off Sommers himself on its way to shortstop.
+
+Evan Carter added an exclamation point in the eighth, a solo home run to center off Kyle Finnegan that made it 10-4 and closed the book on any remaining suspense. The Rangers finished with 17 hits. Alejandro Osuna went 3-for-5, Nicky Lopez went 3-for-5 with a stolen base and an RBI, and Josh Jung walked twice and drove in two more. Ben Malgeri did drive in a consolation run for Detroit in the eighth with a single that scored McKinstry, but the damage was already far too deep by then. The 33,450 fans at Globe Life Field, with the roof closed and the air cool at 74 degrees, had plenty to cheer about. Detroit heads home with nothing from this one.`
+},
+{
+  id:"2026-07-02-sox-at-guardians",
+  date:"2026-07-02",
+  awayTeam:"Chicago White Sox",
+  homeTeam:"Cleveland Guardians",
+  away_runs:5,
+  home_runs:6,
+  result:"win",
+  score:"Chicago White Sox 5, Cleveland Guardians 6",
+  winner:"Tim Herrin",
+  loser:"Grant Taylor",
+  save:"",
+  gamePk:824416,
+  preview:"Brayan Rocchio ended it the hard way. With the White Sox holding a 5-4 lead heading into the bottom of the ninth, Rocchio put a two-run homer into right field off Grant Taylor, scoring Daniel Schneemann and flipping the",
+  body:`Brayan Rocchio ended it the hard way. With the White Sox holding a 5-4 lead heading into the bottom of the ninth, Rocchio put a two-run homer into right field off Grant Taylor, scoring Daniel Schneemann and flipping the game on its head. Cleveland 6, Chicago 5. That was it. The Guardians won at Progressive Field on Thursday, and the White Sox had nobody to blame but a bullpen that couldn't hold a three-run cushion for three innings.
+
+Chicago had built that cushion with a genuine burst of life in the fifth and sixth. Slade Cecconi had held the Sox scoreless through four while Cleveland nursed a 2-0 lead built on a Travis Bazzana double and a walk in the third. Then the White Sox woke up. Sam Antonacci doubled to score Tristan Peters, Kyle Teel followed with a two-run double to right, and suddenly Chicago led 3-2. The sixth brought Chase Meidroth's seventh homer of the year, a two-run shot to right that made it 5-2 and seemed to put the game away. Cecconi allowed all five runs across his five innings of work, surrendering nine hits. The offense had done its job.
+
+The bullpen then spent three innings giving it all back. Sean Newcomb allowed a run in the sixth, Brandon Eisert gave up David Fry's solo homer in the seventh, and Taylor came on in the ninth and couldn't escape. He walked two, struck out two, and Rocchio's homer did the rest. Tim Herrin threw a clean inning for Cleveland and picked up the win. Grant Taylor took the loss. The Guardians improved on the strength of a closer finish than they deserved, and the White Sox made ten hits count for nothing.`
+},
+{
+  id:"2026-07-02-reds-at-brewers",
+  date:"2026-07-02",
+  awayTeam:"Cincinnati Reds",
+  homeTeam:"Milwaukee Brewers",
+  away_runs:7,
+  home_runs:2,
+  result:"loss",
+  score:"Cincinnati Reds 7, Milwaukee Brewers 2",
+  winner:"Chase Burns",
+  loser:"Jacob Misiorowski",
+  save:"",
+  gamePk:823765,
+  preview:"Chase Burns went to American Family Field on Thursday and did exactly what an ace is supposed to do.",
+  body:`Chase Burns went to American Family Field on Thursday and did exactly what an ace is supposed to do. Six innings, four hits, two earned runs, four strikeouts. The Brewers scratched across a Garrett Mitchell solo shot in the fifth and a Brice Turang RBI double in the sixth, but Burns never let them threaten anything bigger than that. Cincinnati's bullpen handled the final three innings without allowing a run, and the Reds walked away with a 7-2 win in front of 41,390 fans in the 88-degree Milwaukee heat.
+
+The story on offense started with Sal Stewart. He hit a solo home run, his 17th, to right center in the first inning, and the Reds carried that 1-0 lead into the fourth. That's when Jacob Misiorowski, who had struck out 10 Reds batters in five innings and genuinely looked like the better pitcher for much of the game, ran into the wall all at once. JJ Bleday came around to score on a Noelvi Marte ground ball single, and then Jose Trevino, who finished 3-for-4 on the day, hit a three-run homer to left to make it 5-0. Misiorowski's ERA took the hit, but his strikeout total told a different story. Ten punchouts and no walks in five innings is a quality start by almost any measure. The Reds just happened to find three runs in one swing.
+
+TJ Friedl closed the night with a little punctuation. He hit a solo shot to center in the seventh off Grant Anderson, then singled home Matt McLain in the eighth off Joel Kuhnel to make it 7-2. Friedl finished 2-for-3 with a homer and two RBI. The Reds finished with 11 hits, spread across the lineup, with Trevino and Friedl doing the most damage. Cincinnati got what they needed from Burns, a couple of timely swings from the bottom of the order, and clean late-inning work from Sam Moll, Tejay Antone, and Brock Burke. Clean, thorough, professional.`
+},
+{
+  id:"2026-07-02-angels-at-mariners",
+  date:"2026-07-02",
+  awayTeam:"Los Angeles Angels",
+  homeTeam:"Seattle Mariners",
+  away_runs:0,
+  home_runs:1,
+  result:"win",
+  score:"Los Angeles Angels 0, Seattle Mariners 1",
+  winner:"Bryce Miller",
+  loser:"Walbert Ureña",
+  save:"Andrés Muñoz",
+  gamePk:823119,
+  preview:"Bryce Miller was the story on Thursday at T-Mobile Park, and it wasn't close.",
+  body:`Bryce Miller was the story on Thursday at T-Mobile Park, and it wasn't close. He threw seven innings, allowed two hits, walked nobody, and struck out eight Angels in a 1-0 Mariners win. Los Angeles managed just four hits total against the Seattle staff, and the Angels never put together anything resembling a threat. Miller handed a clean game over, and Eduard Bazardo and Andrés Muñoz closed it out without surrendering a run.
+
+The only run of the game came in the sixth inning and it came cheaply. Walbert Ureña had been decent, striking out six through five-plus innings, but the sixth unraveled on him. Cal Raleigh drew a walk, and J.P. Crawford scored. That was it. One run, one walk, one loss. Ureña allowed just one hit in 5.2 innings, but four walks will catch up with a pitcher eventually, and this time they did in the one inning that mattered.
+
+Nolan Schanuel went 2-for-4 and accounted for two of the Angels' four hits. Jorge Soler went 1-for-4 but struck out three times. Oswald Peraza went hitless with two strikeouts, and Josh Lowe went hitless with one. The Angels left 36,019 fans at T-Mobile Park with nothing to talk about, while Miller gave Seattle exactly the kind of start that makes a one-run offense feel like plenty. Muñoz earned the save despite allowing two hits in the ninth, keeping things just uncomfortable enough to remind everyone a 1-0 game is always one swing away from a different story.`
+},
+{
+  id:"2026-07-02-marlins-at-rockies",
+  date:"2026-07-02",
+  awayTeam:"Miami Marlins",
+  homeTeam:"Colorado Rockies",
+  away_runs:4,
+  home_runs:14,
+  result:"win",
+  score:"Miami Marlins 4, Colorado Rockies 14",
+  winner:"Brennan Bernardino",
+  loser:"John King",
+  save:"",
+  gamePk:824335,
+  preview:"The Marlins came to Coors Field on Thursday and built a 4-3 lead through four innings.",
+  body:`The Marlins came to Coors Field on Thursday and built a 4-3 lead through four innings. That felt like something. It wasn't. Colorado put up seven runs in the sixth and never looked back, turning what had been a competitive game into a 14-4 blowout that wasn't particularly close by the time the final out was recorded.
+
+The early innings told a different story. Miami touched Michael Lorenzen for all four of its runs, with Xavier Edwards driving in two on sacrifice flies and Otto Lopez doing the heavy lifting on the bases, going 3-for-5 and scoring twice. But Lorenzen also issued six walks across 4.1 innings, meaning Miami left enough runners stranded to keep the game from ever getting fully out of hand on their end. The Rockies, meanwhile, got a Mickey Moniak home run in the first and a Willi Castro single in the third that scored two to pull even. Then Jake McCarthy put Colorado ahead for good with a two-run homer off John King in the fourth, and that was really the last meaningful drama of the afternoon.
+
+The sixth inning was carnage. Calvin Faucher got one out and surrendered four earned runs. Cade Gibson came in and gave up three more, with McCarthy, Moniak, TJ Rumfield, Troy Johnston, and Cole Carrigg all contributing RBI hits in a seven-run frame that emptied the bases multiple times. McCarthy finished 2-for-4 with a homer and four RBI. Moniak went 3-for-5 with two RBI of his own. The 86-degree afternoon at Coors did what Coors does, and the Marlins had no answers for any of it.`
+},
+{
+  id:"2026-07-02-pirates-at-phillies",
+  date:"2026-07-02",
+  awayTeam:"Pittsburgh Pirates",
+  homeTeam:"Philadelphia Phillies",
+  away_runs:6,
+  home_runs:1,
+  result:"loss",
+  score:"Pittsburgh Pirates 6, Philadelphia Phillies 1",
+  winner:"Carmen Mlodzinski",
+  loser:"José Alvarado",
+  save:"",
+  gamePk:823442,
+  preview:"Ninety-eight degrees at Citizens Bank Park on Thursday, and the heat belonged entirely to Pittsburgh.",
+  body:`Ninety-eight degrees at Citizens Bank Park on Thursday, and the heat belonged entirely to Pittsburgh. The Pirates came in as the road team and left with a 6-1 win built on 14 hits, a quietly dominant bullpen effort, and a breakout performance from Esmerlyn Valdez that the Phillies simply had no answer for.
+
+Valdez was the name of the night. He finished 2-for-4 with 3 RBI, driving in runs in multiple innings and providing the spine of Pittsburgh's offensive push. His fifth-inning single off Tim Mayza tied the game at one, and then, in the seventh, he ripped a triple to center off José Alvarado to put the Pirates ahead for good. Nick Gonzales followed with a single to score Valdez and make it 3-1, and the game felt over right there. Gonzales was everywhere, going 3-for-5 with his fourth home run of the season in the ninth off Kyle Backhus. Endy Rodríguez added a solo shot in the eighth, his fifth, off Lou Trivino. Jake Mangum scored twice. Brandon Lowe got on base three times and stole a bag. Pittsburgh did damage up and down the lineup and never let the Phillies breathe after the seventh-inning burst.
+
+Jared Jones allowed the game's only Phillies run in the third, a Bryce Harper double that scored Rafael Marchán, and he finished his four innings with six strikeouts. But the story on the mound was Carmen Mlodzinski, who earned the win by throwing three scoreless innings on two hits, no walks, and no strikeouts, just clean, efficient baseball when the Pirates needed it most. Gregory Soto and Mason Montgomery locked the door behind him. Philadelphia's Bryce Harper went 1-for-4, Alec Bohm, Bryson Stott, and Trea Turner each managed a hit, and that was the extent of it. Four hits total for the Phillies, against a Pittsburgh staff that surrendered nothing after the third inning.`
+},
+{
+  id:"2026-07-02-padres-at-dodgers",
+  date:"2026-07-02",
+  awayTeam:"San Diego Padres",
+  homeTeam:"Los Angeles Dodgers",
+  away_runs:7,
+  home_runs:12,
+  result:"win",
+  score:"San Diego Padres 7, Los Angeles Dodgers 12",
+  winner:"Will Klein",
+  loser:"Wandy Peralta",
+  save:"",
+  gamePk:823935,
+  preview:"The Padres came out swinging Thursday at UNIQLO Field at Dodger Stadium, and for two innings it looked like they might embarrass the home team in front of 54,081.",
+  body:`The Padres came out swinging Thursday at UNIQLO Field at Dodger Stadium, and for two innings it looked like they might embarrass the home team in front of 54,081. Manny Machado led things off with his 17th home run of the year, a fly ball to center that brought Fernando Tatis Jr. home and staked San Diego to an early 2-0 lead. The Padres kept pressing in the second. Jackson Merrill added a solo shot, his 9th, and then Jake Cronenworth put the exclamation point on the inning with a three-run homer to right center, his 2nd, scoring Xander Bogaerts and Tatis Jr. Just like that it was 6-0, and Roki Sasaki was getting shelled, having surrendered all six runs on 7 hits through three innings of work.
+
+The problem was Randy Vásquez and what came after him. Vásquez gave back two runs in the second on a Dalton Rushing two-run homer, then coughed up two more in the third as Max Muncy and Kyle Tucker each drove in runs to make it a 6-4 game. That was enough for Wandy Peralta, who walked into the fourth and immediately imploded. Andy Pages doubled to score two and tie it, Mookie Betts doubled to put Los Angeles ahead, and Max Muncy singled home another. Four runs on six hits in one inning of work for Peralta, and the Dodgers had turned a 6-0 deficit into an 8-6 lead without much drama at all. Yuki Matsui surrendered two more runs in the fifth, and the lead kept growing from there.
+
+Dalton Rushing was the story of the game for Los Angeles. He finished 4-for-4 with a home run and 4 RBI, a performance that anchored the Dodgers' 17-hit offensive night. Kyle Tucker was equally relentless, going 4-for-4 with a walk. The Dodgers tacked on runs in the sixth and eighth, both charged to Germán Márquez, to reach the final of 12-7. San Diego's lone bright spot late was Miguel Andujar singling home Samad Taylor in the ninth against Tanner Scott, a cosmetic run that did nothing to change what had been a complete reversal of fortune. Will Klein earned the win with two scoreless innings. Wandy Peralta, as the data makes clear, was the hinge point where this game broke open and did not recover.`
+},
+{
+  id:"2026-07-02-cardinals-at-braves",
+  date:"2026-07-02",
+  awayTeam:"St. Louis Cardinals",
+  homeTeam:"Atlanta Braves",
+  away_runs:11,
+  home_runs:5,
+  result:"loss",
+  score:"St. Louis Cardinals 11, Atlanta Braves 5",
+  winner:"Gordon Graceffo",
+  loser:"Tyler Kinley",
+  save:"",
+  gamePk:824906,
+  preview:"For five and a half innings on Thursday at Truist Park, the Cardinals looked like a team that had already spent its best punch.",
+  body:`For five and a half innings on Thursday at Truist Park, the Cardinals looked like a team that had already spent its best punch. Atlanta had built a 5-3 lead in the first inning and Hurston Waldrep kept St. Louis quiet from there, running through the lineup with confidence in 93-degree heat. The Braves had reason to feel comfortable. Then the seventh inning arrived, and everything fell apart at once.
+
+Nathan Church started it. His seventh home run of the year, a two-run shot to right center, tied the game at five and gave the Cardinals a breath of life. Tyler Kinley allowed that one before exiting, and what came next was a full collapse. Dylan Lee gave up a single to JJ Wetherholt that scored Bryan Torres, then Iván Herrera singled to plate José Fermín, and Ian Hamilton inherited a mess that only got worse. Jordan Walker singled home JJ Wetherholt, Lars Nootbaar doubled to score Alec Burleson, and then Masyn Winn reached on a fielder's choice that scored Walker after the Braves challenged the tag play and lost. Seven runs total in the inning. The Cardinals had scored three of their eleven runs before the second inning and seven more in one chaotic seventh, with Alec Burleson adding a solo home run in the ninth for good measure.
+
+Walker was the engine all night. His first-inning homer to left center scored JJ Wetherholt and Iván Herrera to put St. Louis up early, and he finished 2-for-4 with four RBI. Masyn Winn went 3-for-4. The Cardinals finished with 15 hits against a Braves bullpen that had no answers once the seventh began. Gordon Graceffo earned the win with a clean inning of relief. The final at Truist Park: Cardinals 11, Braves 5.`
+},
+{
+  id:"2026-07-02-rays-at-royals",
+  date:"2026-07-02",
+  awayTeam:"Tampa Bay Rays",
+  homeTeam:"Kansas City Royals",
+  away_runs:5,
+  home_runs:2,
+  result:"loss",
+  score:"Tampa Bay Rays 5, Kansas City Royals 2",
+  winner:"Ian Seymour",
+  loser:"Stephen Kolek",
+  save:"Bryan Baker",
+  gamePk:824093,
+  preview:"Carter Jensen gave Kauffman Stadium something to cheer about in the first inning, sending a fly ball to center for his 13th home run and handing Kansas City an early lead.",
+  body:`Carter Jensen gave Kauffman Stadium something to cheer about in the first inning, sending a fly ball to center for his 13th home run and handing Kansas City an early lead. It did not last. Ian Seymour absorbed that punch and kept throwing, and the Rays answered in the second with three runs off Stephen Kolek that changed the entire shape of the game. Chandler Simpson got things started, scoring on a Taylor Walls double. Walls then came home on a Richie Palacios single. Hunter Feduccia finished it, tripling to right to plate Palacios and put Tampa Bay up 3-1. Kolek was done after two innings, charged with all three runs on four hits.
+
+Seymour settled in after the Jensen homer and was simply dominant. Six innings, three hits, one earned run, eight strikeouts. He gave this game to Tampa Bay and walked away with the win. The Rays added two more in the fifth when Cedric Mullins drove a fly ball to right for his 10th home run, scoring Chandler Simpson ahead of him and pushing the lead to 5-1. Randy Dobnak allowed both of those runs in four innings of work, but by then the damage was already done.
+
+Kansas City got one back in the seventh on an Isaac Collins homer to center off Cam Booser, his fourth of the year, but that was all the Royals could manage on a 92-degree Thursday at Kauffman. The Rays finished with 11 hits. Chandler Simpson went 3-for-4 with a stolen base. Hunter Feduccia also went 3-for-4. Bryan Baker closed it out in the ninth, striking out one in a hitless inning to secure the save and the 5-2 final.`
+},
+
 // AUTO-GENERATED: 2026-07-01
 {
   id:"2026-07-01-rangers-at-guardians",
