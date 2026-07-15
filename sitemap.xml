@@ -3807,4 +3807,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!-- RECAPS: 2026-07-14 -->
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=2026-07-14-all-stars-at-all-stars</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
