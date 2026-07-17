@@ -18,7 +18,7 @@
   <title>Draft SPARK: A College Baseball Draft Prospect Model White Paper | The Baseball Nerd</title>
   <meta name="description" content="Draft SPARK is a college baseball prospect scoring model extending The Baseball Nerd's SPARK framework to NCAA Division I players using public FanGraphs data. Validated against 2021-2026 MLB Draft outcomes: a 4-5x lift over random chance at identifying early-round talent.">
   <meta name="keywords" content="Draft SPARK, MLB Draft model, college baseball analytics, NCAA prospect ranking, FanGraphs college leaderboard, draft prospect scoring, 2027 MLB Draft, wRC+ college, FIP college pitching">
-  <link rel="canonical" href="https://thebaseballnerd.com/articles/draft-spark-white-paper.html">
+  <link rel="canonical" href="https://thebaseballnerd.com/articles/draft_SPARK">
   <meta name="author" content="Pete Dwyer">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
@@ -26,7 +26,7 @@
   <meta property="og:type" content="article">
   <meta property="og:title" content="Draft SPARK: A College Baseball Draft Prospect Scoring Model">
   <meta property="og:description" content="Extending The Baseball Nerd's SPARK framework to NCAA college baseball. Validated against five years of actual MLB Draft outcomes plus a genuine 2026 out-of-sample holdout.">
-  <meta property="og:url" content="https://thebaseballnerd.com/articles/draft-spark-white-paper.html">
+  <meta property="og:url" content="https://thebaseballnerd.com/articles/draft_SPARK">
   <meta property="og:site_name" content="The Baseball Nerd">
   <meta property="og:image" content="https://thebaseballnerd.com/images/draft-spark-white-paper-og.png">
   <meta property="article:published_time" content="2026-07-17T00:00:00Z">
@@ -67,8 +67,8 @@
     },
     "datePublished": "2026-07-17",
     "dateModified": "2026-07-17",
-    "url": "https://thebaseballnerd.com/articles/draft-spark-white-paper.html",
-    "mainEntityOfPage": "https://thebaseballnerd.com/articles/draft-spark-white-paper.html",
+    "url": "https://thebaseballnerd.com/articles/draft_SPARK",
+    "mainEntityOfPage": "https://thebaseballnerd.com/articles/draft_SPARK",
     "keywords": ["Draft SPARK", "MLB Draft model", "college baseball analytics", "NCAA prospect ranking", "wRC+", "FIP", "K-BB%", "prospect scoring"],
     "articleSection": "Analytics",
     "about": {
@@ -154,7 +154,7 @@
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "The Baseball Nerd", "item": "https://thebaseballnerd.com" },
       { "@type": "ListItem", "position": 2, "name": "Data Vault", "item": "https://thebaseballnerd.com/vault.html" },
-      { "@type": "ListItem", "position": 3, "name": "Draft SPARK White Paper", "item": "https://thebaseballnerd.com/articles/draft-spark-white-paper.html" }
+      { "@type": "ListItem", "position": 3, "name": "Draft SPARK White Paper", "item": "https://thebaseballnerd.com/articles/draft_SPARK" }
     ]
   }
   </script>
