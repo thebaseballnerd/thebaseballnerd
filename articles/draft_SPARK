@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y0H5FZ8RP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2Y0H5FZ8RP');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- Primary SEO -->
+  <title>Draft SPARK: A College Baseball Draft Prospect Model White Paper | The Baseball Nerd</title>
+  <meta name="description" content="Draft SPARK is a college baseball prospect scoring model extending The Baseball Nerd's SPARK framework to NCAA Division I players using public FanGraphs data. Validated against 2021-2026 MLB Draft outcomes: a 4-5x lift over random chance at identifying early-round talent.">
+  <meta name="keywords" content="Draft SPARK, MLB Draft model, college baseball analytics, NCAA prospect ranking, FanGraphs college leaderboard, draft prospect scoring, 2027 MLB Draft, wRC+ college, FIP college pitching">
+  <link rel="canonical" href="https://thebaseballnerd.com/articles/draft-spark-white-paper.html">
+  <meta name="author" content="Pete Dwyer">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Draft SPARK: A College Baseball Draft Prospect Scoring Model">
+  <meta property="og:description" content="Extending The Baseball Nerd's SPARK framework to NCAA college baseball. Validated against five years of actual MLB Draft outcomes plus a genuine 2026 out-of-sample holdout.">
+  <meta property="og:url" content="https://thebaseballnerd.com/articles/draft-spark-white-paper.html">
+  <meta property="og:site_name" content="The Baseball Nerd">
+  <meta property="og:image" content="https://thebaseballnerd.com/images/draft-spark-white-paper-og.png">
+  <meta property="article:published_time" content="2026-07-17T00:00:00Z">
+  <meta property="article:modified_time" content="2026-07-17T00:00:00Z">
+  <meta property="article:author" content="Pete Dwyer">
+  <meta property="article:section" content="Analytics">
+  <meta property="article:tag" content="Draft SPARK">
+  <meta property="article:tag" content="MLB Draft">
+  <meta property="article:tag" content="College Baseball">
+  <meta property="article:tag" content="Prospect Analytics">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@thebaseballnerd">
+  <meta name="twitter:title" content="Draft SPARK: A College Baseball Draft Prospect Scoring Model">
+  <meta name="twitter:description" content="A 4-5x lift over random chance at identifying early-round MLB Draft talent, built entirely on public college stats. Full methodology and backtest inside.">
+  <meta name="twitter:image" content="https://thebaseballnerd.com/images/draft-spark-white-paper-og.png">
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Draft SPARK: A College Baseball Draft Prospect Scoring Model",
+    "alternativeHeadline": "Draft SPARK White Paper: The Baseball Nerd Analytics Vault",
+    "description": "Draft SPARK is a proprietary college baseball prospect scoring model developed by The Baseball Nerd, extending the SPARK framework to NCAA Division I players using public FanGraphs data. Validated against MLB Draft outcomes from 2021 to 2026, including a genuine out-of-sample holdout on the 2026 draft class.",
+    "author": {
+      "@type": "Person",
+      "name": "Pete Dwyer",
+      "url": "https://thebaseballnerd.com/about.html",
+      "email": "pete@thebaseballnerd.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Baseball Nerd",
+      "url": "https://thebaseballnerd.com",
+      "logo": { "@type": "ImageObject", "url": "https://thebaseballnerd.com/favicon.png" }
+    },
+    "datePublished": "2026-07-17",
+    "dateModified": "2026-07-17",
+    "url": "https://thebaseballnerd.com/articles/draft-spark-white-paper.html",
+    "mainEntityOfPage": "https://thebaseballnerd.com/articles/draft-spark-white-paper.html",
+    "keywords": ["Draft SPARK", "MLB Draft model", "college baseball analytics", "NCAA prospect ranking", "wRC+", "FIP", "K-BB%", "prospect scoring"],
+    "articleSection": "Analytics",
+    "about": {
+      "@type": "Thing",
+      "name": "Draft SPARK",
+      "description": "A percentile-based scoring model for NCAA Division I baseball prospects ahead of the MLB Draft"
+    },
+    "isPartOf": { "@type": "WebSite", "name": "The Baseball Nerd", "url": "https://thebaseballnerd.com" }
+  }
+  </script>
+
+  <!-- JSON-LD: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Draft SPARK?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Draft SPARK is a percentile-based scoring model for NCAA Division I college baseball players, built by The Baseball Nerd to project MLB Draft outcomes using only public performance data. It extends the evaluation philosophy of the original SPARK model, built for MiLB and MLB Statcast data, downward to the college level, where Statcast is not publicly available."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How accurate is Draft SPARK at predicting draft outcomes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Draft SPARK is not designed or marketed as a near-certain predictor. Validated against the 2021-2025 MLB Draft classes, its top-scoring position players land in Round 1 at roughly a 4-5x higher rate than random selection from the same player pool, and its pitcher model shows a comparable lift. Both models' correlation with actual draft position held up, and in the pitcher model's case improved, on the 2026 draft class, which was held out entirely during development as a genuine out-of-sample test."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What data does Draft SPARK use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Draft SPARK is built entirely on FanGraphs' College Leaderboards, pulled under the No Minimum qualification setting for the 2021 through 2026 seasons, covering over 32,000 batting player-seasons and 31,000 pitching player-seasons. Draft outcome data for backtesting comes from Baseball Almanac's historical MLB Draft archive."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Draft SPARK adjust for conference strength or strength of schedule?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, by deliberate design. Testing found that Power Four conference membership predicts a real draft-position advantage independent of on-field performance, but this reflects scouting visibility a player does not control rather than the player's own quality. Draft SPARK scores are conference-blind: two players with identical scores from a major and a mid-major conference are read as equally strong statistical performers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why doesn't Draft SPARK show a raw numeric score?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To avoid confusion with the traditional 20-80 scouting grade scale used throughout baseball, where the same numbers carry entirely different meaning. Draft SPARK's public output is always a round-outcome tier (such as Day 1 Priority or Day 2-3 Follow) with within-tier rank, never a raw 0-100 score."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a two-way player in Draft SPARK?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A player-season qualifies as legitimately two-way only when both the Position Player and Pitcher models' independent reliability floors are cleared in the same season. Draft SPARK further distinguishes an Established two-way player, requiring three or more such qualifying seasons, from incidental single-season dual usage, which the data shows is far more common and not a reliable signal of a genuine dual-threat profile."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Draft SPARK relate to the original SPARK Score?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The original SPARK Score evaluates professional players using MiLB and MLB Statcast data. Draft SPARK adapts the same underlying evaluation questions -- skill, trajectory, opportunity, and adjustability -- to NCAA college players, using only publicly available box-score-derived statistics since Statcast data is not public at the college level. Full methodology for the original model is documented in the SPARK Score white paper."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "The Baseball Nerd", "item": "https://thebaseballnerd.com" },
+      { "@type": "ListItem", "position": 2, "name": "Data Vault", "item": "https://thebaseballnerd.com/vault.html" },
+      { "@type": "ListItem", "position": 3, "name": "Draft SPARK White Paper", "item": "https://thebaseballnerd.com/articles/draft-spark-white-paper.html" }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: HowTo -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How Draft SPARK Scores a College Baseball Prospect",
+    "description": "Step-by-step method for how the Draft SPARK model scores NCAA Division I position players and pitchers.",
+    "totalTime": "PT5M",
+    "step": [
+      { "@type": "HowToStep", "position": 1, "name": "Gather season stats", "text": "Pull the player's current-season and prior-season batting or pitching line from FanGraphs' College Leaderboards (No Minimum setting)." },
+      { "@type": "HowToStep", "position": 2, "name": "Check reliability floors", "text": "Confirm the player has at least 50 plate appearances (position players) or 15 innings pitched (pitchers) in the season being scored." },
+      { "@type": "HowToStep", "position": 3, "name": "Percentile-rank each component", "text": "Convert each input (wRC+, BB%, K%, ISO, age, trend, etc. for position players; FIP, K-BB%, K%, BB%, age, trend, IP/start, and closer-role flag for pitchers) to a percentile rank against every other qualifying player in that same season." },
+      { "@type": "HowToStep", "position": 4, "name": "Apply validated component weights", "text": "Combine the percentiles using Draft SPARK's bounded-tested weights: for position players, 30% skill, 15% walk rate, 15% strikeout rate, 15% power, 10% age-for-class, 10% trend, 5% Trust Signal; for pitchers, 25% skill, 20% K-BB%, 10% strikeout rate, 10% walk rate, 10% age-for-class, 5% trend, 10% depth-of-trust, 10% closer-role penalty." },
+      { "@type": "HowToStep", "position": 5, "name": "Assign a round-outcome tier", "text": "Convert the composite score into a public-facing tier (Day 1 Priority through Org Depth / Priority Follow) rather than displaying the raw number." }
+    ]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --navy:#0a1628;--navy-mid:#112040;--navy-light:#1a2f50;--navy-card:#0d1a30;
+      --gold:#c9a84c;--gold-light:#e8c97a;--cream:#f5f0e8;--cream-dim:rgba(245,240,232,0.45);
+      --green:#4caf85;--red:#e05c5c;--mono:'IBM Plex Mono',monospace;
+    }
+    body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--cream);font-size:16px;line-height:1.7;}
+    a{color:var(--gold);text-decoration:none;}
+    a:hover{text-decoration:underline;opacity:0.85;}
+
+    nav.sitenav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 2rem;background:rgba(10,22,40,0.97);border-bottom:1px solid rgba(201,168,76,0.15);position:sticky;top:0;z-index:100;}
+    .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.08em;color:var(--gold);text-decoration:none;}
+    .nav-logo span{color:var(--cream);opacity:0.45;}
+    .nav-links{display:flex;gap:0;list-style:none;}
+    .nav-links a{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.45;text-decoration:none;padding:0.4rem 0.9rem;transition:opacity 0.15s,color 0.15s;}
+    .nav-links a:hover,.nav-links a.active{opacity:1;color:var(--gold);}
+    .nav-cta{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.45rem 1rem;background:var(--gold);color:var(--navy);border:none;cursor:pointer;font-weight:500;text-decoration:none;transition:background 0.2s;}
+    .nav-cta:hover{background:var(--gold-light);}
+
+    .article-hero{background:linear-gradient(135deg,var(--navy-mid) 0%,#0a1628 100%);border-bottom:2px solid var(--gold);padding:3rem 2rem 2.5rem;}
+    .hero-inner{max-width:860px;margin:0 auto;}
+    .breadcrumb{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);opacity:0.7;margin-bottom:1rem;}
+    .breadcrumb a{color:inherit;text-decoration:none;}
+    .breadcrumb a:hover{opacity:1;}
+    .breadcrumb span{opacity:0.4;margin:0 0.4rem;}
+    .article-eyebrow{display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;flex-wrap:wrap;}
+    .eyebrow-tag{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;padding:3px 10px;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);color:var(--gold);}
+    .eyebrow-date{font-family:var(--mono);font-size:0.58rem;color:var(--cream-dim);letter-spacing:0.1em;}
+    .article-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,5vw,4rem);letter-spacing:0.04em;line-height:1;color:var(--cream);margin-bottom:0.75rem;}
+    .article-title em{color:var(--gold);font-style:normal;}
+    .article-subtitle{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--cream);opacity:0.6;line-height:1.5;margin-bottom:1.5rem;max-width:680px;}
+    .article-meta{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;padding-top:1.25rem;border-top:1px solid rgba(201,168,76,0.12);}
+    .meta-author{font-family:var(--mono);font-size:0.62rem;color:var(--cream-dim);letter-spacing:0.1em;}
+    .meta-author strong{color:var(--cream);}
+    .meta-pill{font-family:var(--mono);font-size:0.58rem;padding:2px 10px;border:1px solid rgba(201,168,76,0.2);color:var(--gold);letter-spacing:0.1em;}
+
+    .article-body{max-width:860px;margin:0 auto;padding:3rem 2rem 5rem;}
+
+    .abstract-box{background:var(--navy-card);border-left:3px solid var(--gold);padding:1.5rem 1.75rem;margin-bottom:2.5rem;}
+    .abstract-label{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;}
+    .abstract-box p{font-size:0.92rem;color:var(--cream);opacity:0.8;line-height:1.75;}
+
+    .toc{background:var(--navy-card);border:1px solid rgba(201,168,76,0.15);padding:1.5rem 1.75rem;margin-bottom:3rem;}
+    .toc-title{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+    .toc ol{padding-left:1.25rem;}
+    .toc li{font-family:var(--mono);font-size:0.72rem;line-height:2;letter-spacing:0.03em;}
+    .toc a{color:var(--cream);opacity:0.55;text-decoration:none;transition:opacity 0.15s,color 0.15s;}
+    .toc a:hover{opacity:1;color:var(--gold);}
+
+    .section{margin-bottom:3rem;}
+    .sec-num{font-family:var(--mono);font-size:0.65rem;color:var(--gold);opacity:0.4;letter-spacing:0.15em;display:block;margin-bottom:0.2rem;}
+    h2.section-head{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.06em;color:var(--gold);margin-bottom:0.35rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(201,168,76,0.2);}
+    h3.sub-head{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--cream);margin:1.5rem 0 0.6rem;font-style:italic;}
+    h3.sub-head-mono{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--cream);opacity:0.65;margin:1.5rem 0 0.5rem;}
+    p{margin-bottom:1rem;font-size:0.95rem;color:var(--cream);opacity:0.85;line-height:1.8;}
+
+    .formula-box{background:#060e1a;border:1px solid rgba(201,168,76,0.2);padding:1.25rem 1.5rem;margin:1.25rem 0;font-family:var(--mono);font-size:0.88rem;color:var(--gold);letter-spacing:0.05em;overflow-x:auto;}
+    .formula-note{font-family:var(--mono);font-size:0.7rem;color:var(--cream);opacity:0.4;margin-top:0.5rem;line-height:1.5;}
+
+    .tbl-wrap{overflow-x:auto;margin:1.5rem 0;}
+    table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:0.72rem;}
+    thead th{background:var(--navy-mid);color:var(--cream);padding:8px 12px;text-align:left;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;border-bottom:2px solid rgba(201,168,76,0.4);white-space:nowrap;}
+    thead th.r{text-align:right;}
+    tbody tr{border-bottom:1px solid rgba(255,255,255,0.04);}
+    tbody tr:nth-child(even){background:rgba(255,255,255,0.02);}
+    tbody tr:hover{background:rgba(201,168,76,0.05);}
+    td{padding:8px 12px;color:var(--cream);opacity:0.8;vertical-align:top;}
+    td.r{text-align:right;}
+    td.bold{font-weight:600;opacity:1;}
+    td.gold{color:var(--gold);opacity:1;font-weight:600;}
+    td.green{color:var(--green);opacity:1;}
+    td.red{color:var(--red);opacity:1;}
+    td.dim{opacity:0.4;}
+
+    .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.25rem 0;}
+    .stat-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1.25rem 0;}
+    .stat-card{background:var(--navy-card);border:1px solid rgba(255,255,255,0.06);padding:1rem 1.25rem;}
+    .stat-label{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--cream);opacity:0.4;margin-bottom:0.3rem;}
+    .stat-value{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold);line-height:1;}
+    .stat-value.green{color:var(--green);}
+    .stat-value.red{color:var(--red);}
+    .stat-sub{font-family:var(--mono);font-size:0.6rem;color:var(--cream);opacity:0.35;margin-top:0.2rem;}
+
+    .validation-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1.5rem 0;}
+    .val-box{background:var(--navy-card);border:1px solid rgba(255,255,255,0.06);padding:1.25rem;}
+    .val-box.highlight{border-color:rgba(201,168,76,0.35);}
+    .val-num{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--gold);line-height:1;}
+    .val-desc{font-family:var(--mono);font-size:0.65rem;color:var(--cream);opacity:0.5;margin-top:0.3rem;line-height:1.5;}
+
+    .badge{display:inline-block;font-family:var(--mono);font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:1px;}
+    .badge-green{background:rgba(76,175,133,0.15);border:1px solid rgba(76,175,133,0.4);color:var(--green);}
+    .badge-red{background:rgba(224,92,92,0.12);border:1px solid rgba(224,92,92,0.3);color:var(--red);}
+    .badge-gold{background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);color:var(--gold);}
+    .badge-dim{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:var(--cream);opacity:0.5;}
+
+    .callout{background:linear-gradient(135deg,rgba(201,168,76,0.06),rgba(201,168,76,0.02));border:1px solid rgba(201,168,76,0.2);padding:1.25rem 1.5rem;margin:1.5rem 0;}
+    .callout-label{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
+    .callout p{font-size:0.9rem;margin:0;opacity:0.8;}
+
+    .band-callout{padding:1.25rem 1.5rem;margin:1rem 0;border-left:3px solid;}
+    .band-callout.spark{background:rgba(76,175,133,0.06);border-color:var(--green);}
+    .band-callout.fade{background:rgba(224,92,92,0.06);border-color:var(--red);}
+    .band-callout.value{background:rgba(201,168,76,0.06);border-color:var(--gold);}
+    .band-callout-label{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;font-weight:500;}
+    .band-callout.spark .band-callout-label{color:var(--green);}
+    .band-callout.fade .band-callout-label{color:var(--red);}
+    .band-callout.value .band-callout-label{color:var(--gold);}
+    .band-callout p{font-size:0.88rem;margin:0;opacity:0.8;}
+
+    .limit-list{list-style:none;padding:0;}
+    .limit-list li{padding:0.75rem 0 0.75rem 1.25rem;border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.9rem;opacity:0.8;position:relative;line-height:1.7;}
+    .limit-list li:last-child{border-bottom:none;}
+    .limit-list li::before{content:'•';position:absolute;left:0;color:var(--gold);opacity:0.5;}
+
+    .faq-item{border-bottom:1px solid rgba(255,255,255,0.06);padding:1.25rem 0;}
+    .faq-item:last-child{border-bottom:none;}
+    .faq-q{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--cream);cursor:pointer;display:flex;justify-content:space-between;align-items:start;gap:1rem;line-height:1.4;}
+    .faq-q::after{content:'+';font-family:var(--mono);font-size:1rem;color:var(--gold);flex-shrink:0;margin-top:1px;transition:transform 0.2s;}
+    .faq-item.open .faq-q::after{transform:rotate(45deg);}
+    .faq-a{font-size:0.88rem;color:var(--cream);opacity:0.7;line-height:1.8;max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.2s;}
+    .faq-item.open .faq-a{max-height:600px;padding-top:0.75rem;}
+
+    .cta-block{background:var(--navy-card);border:1px solid rgba(201,168,76,0.2);padding:2rem;text-align:center;margin-top:3rem;}
+    .cta-block h3{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:0.06em;color:var(--gold);margin-bottom:0.5rem;}
+    .cta-block p{font-size:0.88rem;opacity:0.6;margin-bottom:1.25rem;}
+    .cta-btn{display:inline-block;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.6rem 1.5rem;background:var(--gold);color:var(--navy);text-decoration:none;font-weight:600;transition:background 0.2s;margin:0 0.4rem 0.5rem;}
+    .cta-btn:hover{background:var(--gold-light);}
+    .cta-btn.outline{background:transparent;color:var(--gold);border:1px solid rgba(201,168,76,0.4);}
+    .cta-btn.outline:hover{background:rgba(201,168,76,0.08);}
+
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.75rem;margin-top:1rem;}
+    .related-card{background:var(--navy-card);border:1px solid rgba(255,255,255,0.06);padding:1rem 1.1rem;text-decoration:none;display:block;transition:border-color 0.15s;}
+    .related-card:hover{border-color:rgba(201,168,76,0.3);text-decoration:none;}
+    .rc-tag{font-family:var(--mono);font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);opacity:0.6;margin-bottom:5px;}
+    .rc-title{font-family:'DM Serif Display',serif;font-size:0.88rem;color:var(--cream);line-height:1.35;}
+
+    .sources-list{list-style:none;padding:0;margin-top:0.75rem;}
+    .sources-list li{padding:0.5rem 0 0.5rem 1.25rem;border-bottom:1px solid rgba(255,255,255,0.05);font-family:var(--mono);font-size:0.72rem;color:var(--cream);opacity:0.45;position:relative;line-height:1.6;}
+    .sources-list li:last-child{border-bottom:none;}
+    .sources-list li::before{content:'•';position:absolute;left:0;color:var(--gold);opacity:0.4;}
+
+    footer{background:#060e1a;padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(201,168,76,0.06);}
+    .foot-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.08em;color:var(--gold);}
+    .foot-logo span{color:var(--cream);opacity:0.3;}
+    .foot-copy{font-family:var(--mono);font-size:0.57rem;letter-spacing:0.08em;color:var(--cream);opacity:0.18;text-transform:uppercase;}
+    .foot-links{display:flex;gap:1.25rem;list-style:none;}
+    .foot-links a{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream);opacity:0.28;text-decoration:none;transition:opacity 0.2s;}
+    .foot-links a:hover{opacity:0.75;}
+
+    @media(max-width:700px){
+      .nav-links{display:none;}
+      .stat-grid,.stat-grid-4{grid-template-columns:1fr 1fr;}
+      .validation-grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="sitenav">
+  <a class="nav-logo" href="/index.html">The Baseball <span>Nerd</span></a>
+  <ul class="nav-links">
+    <li><a href="/news.html">News</a></li>
+    <li><a href="/articles.html">Articles</a></li>
+    <li><a href="/recaps.html">Recaps</a></li>
+    <li><a href="/rosters.html">Rosters</a></li>
+    <li><a href="/podcasts.html">Podcasts</a></li>
+    <li><a href="/vault.html" class="active">Vault</a></li>
+    <li><a href="/about.html">About</a></li>
+  </ul>
+  <a class="nav-cta" href="https://thebaseballnerd.substack.com" target="_blank">Subscribe →</a>
+</nav>
+
+<!-- HERO -->
+<div class="article-hero">
+  <div class="hero-inner">
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="/index.html">Home</a><span>›</span>
+      <a href="/vault.html">Data Vault</a><span>›</span>
+      Draft SPARK White Paper
+    </nav>
+    <div class="article-eyebrow">
+      <span class="eyebrow-tag">White Paper</span>
+      <span class="eyebrow-tag">Analytics Vault</span>
+      <span class="eyebrow-tag">MLB Draft</span>
+      <span class="eyebrow-date">Published July 2026</span>
+    </div>
+    <h1 class="article-title">Draft <em>SPARK</em></h1>
+    <p class="article-subtitle">A College Baseball Prospect Scoring Model for the MLB Draft</p>
+    <div class="article-meta">
+      <div class="meta-author">By <strong>Pete Dwyer</strong> · The Baseball Nerd Analytics Vault</div>
+      <div class="meta-pill">11 Sections</div>
+      <div class="meta-pill">22,446 Position-Player Seasons Scored</div>
+      <div class="meta-pill">19,349 Pitcher Seasons Scored</div>
+      <div class="meta-pill">2021–2026 Validated</div>
+    </div>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <!-- ABSTRACT -->
+  <div class="abstract-box">
+    <div class="abstract-label">Abstract</div>
+    <p>Draft SPARK is a percentile-based scoring model for NCAA Division I college baseball prospects, extending The Baseball Nerd's SPARK framework, originally built to evaluate professional players using MiLB and MLB Statcast data, to the college level, where Statcast is not publicly available. The model produces two independently validated outputs, a Position Player score and a Pitcher score, each built from a small set of components weighted through a disciplined, bounded-testing process against five years of actual MLB Draft outcomes (2021–2025), with the 2026 draft class held out entirely during development and used only afterward as a genuine out-of-sample check. The top-scoring position players in the validation sample land in Round 1 at roughly a 4–5x higher rate than random selection from the same player pool, and the pitcher model shows a comparable lift; both models held or improved on the 2026 holdout. Several counterintuitive findings from the development process are documented in detail, including a hidden home-run-rate bias in an early version of the pitcher trend component, a validated market discount on pure closer profiles, and a deliberate decision to leave conference strength out of the model entirely despite measurable predictive power.</p>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">Table of Contents</div>
+    <ol>
+      <li><a href="#motivation">Motivation: Where Draft SPARK Came From</a></li>
+      <li><a href="#data">Data Sources and Methodology</a></li>
+      <li><a href="#position-players">Methodology: The Position Player Profile</a></li>
+      <li><a href="#pitchers">Methodology: The Pitcher Profile</a></li>
+      <li><a href="#findings">Key Findings: What the Data Disagreed With</a></li>
+      <li><a href="#validation">Validation: 2021–2026</a></li>
+      <li><a href="#two-way">Two-Way Players</a></li>
+      <li><a href="#tiers">Reading the Tiers</a></li>
+      <li><a href="#limitations">Known Limitations</a></li>
+      <li><a href="#faq">Frequently Asked Questions</a></li>
+      <li><a href="#sources">Data Sources</a></li>
+    </ol>
+  </div>
+
+  <!-- 01 MOTIVATION -->
+  <div class="section" id="motivation">
+    <span class="sec-num">01</span>
+    <h2 class="section-head">Motivation</h2>
+    <h3 class="sub-head">Where Draft SPARK Came From</h3>
+    <p>The original SPARK Score was built to evaluate professional players using MiLB and MLB Statcast data, organized around four questions: is the player improving or stalling; what do the underlying skills say independent of results; does context help or hurt; and where do age and adjustability put the ceiling? A review of the Chicago White Sox's actual 2026 draft-room deliberations over Roch Cholowsky and Grady Emerson, published by ESPN the morning of the draft, found the organization's internal reasoning tracking that exact four-question structure almost line for line, despite SPARK having been built entirely from public data with no knowledge of how any front office actually operates.</p>
+    <p>That convergence raised an obvious next question: could the same evaluation logic be pushed downward, to college players, before they generate the professional data SPARK depends on? Draft SPARK is the answer: not a simple re-application of SPARK's weights to different data, but a from-scratch build using only what is publicly available for NCAA Division I players, developed and validated over the course of a single extended research effort and documented here in full, including the places the data pushed back on the initial assumptions.</p>
+
+    <div class="callout">
+      <div class="callout-label">A Note on What "Validated" Means Here</div>
+      <p>Draft SPARK is explicitly not designed, and should never be marketed, as a near-certain predictor. Predicting amateur draft outcomes from public performance data alone, without medical information, private workouts, biomechanical data, or makeup evaluation, has a real, honest ceiling. That ceiling is a meaningful, defensible lift over random chance, not proximity to certainty. Every number in this document should be read against that standard.</p>
+    </div>
+  </div>
+
+  <!-- 02 DATA -->
+  <div class="section" id="data">
+    <span class="sec-num">02</span>
+    <h2 class="section-head">Data Sources and Methodology</h2>
+
+    <h3 class="sub-head-mono">Performance Data</h3>
+    <p>Position player and pitcher statistics were sourced from FanGraphs' College Leaderboards under the <strong>No Minimum</strong> qualification setting, deliberately looser than FanGraphs' default Qualified threshold, for every season from 2021 through 2026, in Single-Season export mode. A meaningful share of future high-round picks, particularly freshmen in part-time roles or players recovering a starting job after injury, would be invisible under a standard qualification cutoff at exactly the career stage where an improving trajectory is most informative.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Season</th><th class="r">Position-Player Seasons</th><th class="r">Pitcher Seasons</th></tr></thead>
+        <tbody>
+          <tr><td>2021</td><td class="r">5,327</td><td class="r">4,956</td></tr>
+          <tr><td>2022</td><td class="r">5,405</td><td class="r">5,072</td></tr>
+          <tr><td>2023</td><td class="r">5,328</td><td class="r">5,147</td></tr>
+          <tr><td>2024</td><td class="r">5,390</td><td class="r">5,318</td></tr>
+          <tr><td>2025</td><td class="r">5,376</td><td class="r">5,471</td></tr>
+          <tr><td>2026</td><td class="r">5,330</td><td class="r">5,404</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="formula-note" style="margin-bottom:1.5rem;">Raw player-seasons before reliability floors are applied: 32,156 batting player-seasons and 31,368 pitching player-seasons across all six years.</p>
+
+    <h3 class="sub-head-mono">Draft Outcome Data</h3>
+    <p>Historical MLB Draft results for the 2021–2025 classes came from Baseball Almanac's draft archive: round, pick number, team, position, and school of origin for every selection. High school and junior college picks were excluded via school-name classification, isolating four-year college draftees. The 2026 draft class (conducted July 11–12, 2026) was deliberately held out of all model development and used only once, after every weighting decision below had already been finalized, as a genuine out-of-sample test.</p>
+
+    <h3 class="sub-head-mono">Reliability Floors</h3>
+    <p>Rather than inherit FanGraphs' own qualification cutoffs, Draft SPARK applies its own minimums before a player-season is scored at all: <strong>50 plate appearances</strong> for position players, <strong>15 innings pitched</strong> for pitchers. Trend components additionally require both the current and prior season to independently clear this floor; players without a qualifying prior season, typically freshmen, receive a neutral trend value rather than a penalty for lacking history.</p>
+  </div>
+
+  <!-- 03 POSITION PLAYERS -->
+  <div class="section" id="position-players">
+    <span class="sec-num">03</span>
+    <h2 class="section-head">Methodology: The Position Player Profile</h2>
+    <p>Every component is computed as a percentile rank against the full qualifying population <em>within the same season</em>, never across seasons, and never against a raw threshold, so a player is always evaluated relative to his actual contemporaries.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Component</th><th class="r">Weight</th><th>Basis</th></tr></thead>
+        <tbody>
+          <tr><td class="bold">Skill</td><td class="r gold">30%</td><td>wRC+: park- and era-adjusted overall offensive production</td></tr>
+          <tr><td class="bold">Walk Rate (BB%)</td><td class="r gold">15%</td><td>Plate discipline</td></tr>
+          <tr><td class="bold">Strikeout Rate (K%)</td><td class="r gold">15%</td><td>Contact / bat-to-ball skill</td></tr>
+          <tr><td class="bold">Power (ISO)</td><td class="r gold">15%</td><td>Isolated power</td></tr>
+          <tr><td class="bold">Age-for-Class</td><td class="r gold">10%</td><td>Age percentile within the same-season qualifying pool</td></tr>
+          <tr><td class="bold">Trend</td><td class="r gold">10%</td><td>Year-over-year change in wRC+</td></tr>
+          <tr><td class="bold">Trust Signal</td><td class="r gold">5%</td><td>Playing time held or declined despite steady/improving production (see Section 5)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="formula-note" style="margin-top:-1rem;margin-bottom:1.5rem;">Terminology note: "Position Players," not "batters." NCAA baseball mostly uses the DH, but genuine two-way players are a real population (see Section 7), and "batters vs. pitchers" incorrectly implies the two groups are mutually exclusive.</p>
+  </div>
+
+  <!-- 04 PITCHERS -->
+  <div class="section" id="pitchers">
+    <span class="sec-num">04</span>
+    <h2 class="section-head">Methodology: The Pitcher Profile</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Component</th><th class="r">Weight</th><th>Basis</th></tr></thead>
+        <tbody>
+          <tr><td class="bold">Skill</td><td class="r gold">25%</td><td>FIP: fielding-independent pitching</td></tr>
+          <tr><td class="bold">K-BB%</td><td class="r gold">20%</td><td>Strikeout rate minus walk rate</td></tr>
+          <tr><td class="bold">Strikeout Rate (K%)</td><td class="r gold">10%</td><td></td></tr>
+          <tr><td class="bold">Walk Rate (BB%)</td><td class="r gold">10%</td><td></td></tr>
+          <tr><td class="bold">Age-for-Class</td><td class="r gold">10%</td><td>Age percentile within the same-season qualifying pool</td></tr>
+          <tr><td class="bold">Trend</td><td class="r gold">5%</td><td>Year-over-year change in K-BB%, not FIP. See Section 5.</td></tr>
+          <tr><td class="bold">Depth-of-Trust</td><td class="r gold">10%</td><td>Innings per start (3+ starts required; see Section 5)</td></tr>
+          <tr><td class="bold">Closer-Role Penalty</td><td class="r gold">10%</td><td>Career cumulative saves exceeding starts (see Section 5)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 05 KEY FINDINGS -->
+  <div class="section" id="findings">
+    <span class="sec-num">05</span>
+    <h2 class="section-head">Key Findings</h2>
+    <p>Every deviation from a naive first-pass model was arrived at the same way: a specific hypothesis, a bounded set of alternative weightings (never an unconstrained optimizer, to avoid overfitting a five-season sample), and a measured change in backtest correlation and Round 1 precision. Several were counterintuitive and are documented here specifically because the data disagreed with the initial, reasonable-sounding assumption.</p>
+
+    <h3 class="sub-head">Finding 1: Trend Was Measuring the Wrong Thing</h3>
+    <p>The single most important correction in this model's development was discovering that "trend," on both sides of the model, was not measuring what it appeared to measure. For pitchers, FIP-based year-over-year trend correlated with HR/9 change at <strong>−0.798</strong>, nearly a 1-to-1 relationship, versus only 0.47 for K% change and −0.43 for BB% change. "Pitcher trend" was, in effect, mostly a home-run-rate trend in disguise, and HR/9 is a small-sample, luck-volatile statistic in college ball (consistent with DIPS theory: a pitcher controls strikeouts and walks far more than what happens on batted balls).</p>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-label">Batter Fix</div><div class="stat-value">−.303 → −.335</div><div class="stat-sub">Backtest ρ, discipline-weighted trend</div></div>
+      <div class="stat-card"><div class="stat-label">Pitcher Fix</div><div class="stat-value">−.374 → −.388</div><div class="stat-sub">Backtest ρ, K-BB%-based trend</div></div>
+      <div class="stat-card"><div class="stat-label">Root Cause</div><div class="stat-value red">−.798</div><div class="stat-sub">FIP-trend correlation with HR/9 change alone</div></div>
+    </div>
+
+    <h3 class="sub-head">Finding 2: Deliberately Excluding Conference Strength and RPI</h3>
+    <p>An empirical test found Power Four conference membership predicts a real draft-position advantage of roughly <strong>40–75 picks</strong> for marginal-to-middling prospects, though the effect vanishes and slightly reverses for genuine standouts. Team RPI was considered and rejected as an adjustment input: RPI is a scheduling-outcome metric vulnerable to the same non-competitive incentives (athletic-department scheduling choices, TV contracts, booster influence) that shape which games a program plays and against whom.</p>
+    <div class="callout">
+      <div class="callout-label">Design Principle</div>
+      <p>Draft SPARK deliberately does not adjust for conference or schedule strength. Conference reputation reflects scouting visibility a player does not control: which stadiums scouts happen to sit in, which conferences get national broadcast exposure, rather than the player's own quality. Two players with identical Draft SPARK scores from a major and a mid-major conference are read as equally strong statistical performers.</p>
+    </div>
+
+    <h3 class="sub-head">Finding 3: The Trust Signal (Position Players)</h3>
+    <p>A raw playing-time-growth signal was tested and rejected: it hurt the backtest in every configuration, most likely because playing time changes for many reasons unrelated to a coach's trust (transfer-portal competition, injury, a graduating senior finally vacating a job). A narrower signature was tested instead: <strong>performance holding steady or improving while playing time still declined</strong>, the pattern consistent with a coaching staff's private, unstated read on a player. This signature, neutral for every other case, improved backtest correlation from −0.335 to −0.342 and Round 1 precision from 34.8% to 36.4%.</p>
+
+    <h3 class="sub-head">Finding 4: Depth-of-Trust (Pitchers)</h3>
+    <p>College pitching staffs are organized around a weekly rotation: a Friday "ace," with midweek and Sunday starts more often filled by depth arms, freshmen, or position players, meaning Games Started alone doesn't reliably signal a coach's trust the way it more consistently would in professional baseball. Innings per start (3+ starts required) was tested as an available proxy for how deep a staff lets an arm pitch, and validated: correlation improved from −0.388 to −0.391, and Round 1 precision from 22.9% to <strong>28.6%</strong>.</p>
+
+    <h3 class="sub-head">Finding 5: The Closer-Role Penalty</h3>
+    <p>Pitchers with a career pattern of accumulating saves faster than starts were found to post <em>better</em> average FIP than the pitcher population overall, but to be drafted substantially later, and to reach Round 1 at less than half the rate of the pitcher pool as a whole.</p>
+    <div class="validation-grid">
+      <div class="val-box highlight"><div class="val-num">4.14</div><div class="val-desc">Avg FIP, career-trusted relievers (vs. 4.57 pool average, better skill numbers)</div></div>
+      <div class="val-box highlight"><div class="val-num">347 vs 289</div><div class="val-desc">Avg draft pick, trusted relievers vs. all matched pitchers (later, despite better FIP)</div></div>
+      <div class="val-box"><div class="val-num">7.1%</div><div class="val-desc">Trusted relievers reaching Round 1 (vs. 14.1% for the pitcher pool overall)</div></div>
+      <div class="val-box"><div class="val-num">−.391 → −.426</div><div class="val-desc">Backtest ρ after applying the penalty (Round 1 precision: 28.6% → 34.3%)</div></div>
+    </div>
+    <p>This was tested first as a bonus and rejected: rewarding dominant relief performance pushed rankings away from what actually happens on draft day. Re-tested as an explicit penalty, it substantially improved the model. This decision was made in deliberate contrast to Finding 2: conference reputation reflects visibility a player does not control, while a pure relief-role profile is closer to a legitimate scouting conclusion about the player's own arsenal (plus stuff without a starter's third-pitch feel) that happens to be legible in the box score (the saves-vs-starts split) without requiring a scout's eyes.</p>
+  </div>
+
+  <!-- 06 VALIDATION -->
+  <div class="section" id="validation">
+    <span class="sec-num">06</span>
+    <h2 class="section-head">Validation: 2021–2026</h2>
+    <p>Spearman rank correlation (ρ) between Draft SPARK score and actual draft pick number: negative means a higher score associates with an earlier, better pick. Round 1 precision measures, for each draft year, whether the players Draft SPARK rated most highly (matching the actual number of Round 1 selections that year) were in fact selected in Round 1.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Model</th><th class="r">Backtest ρ (2021–2025)</th><th class="r">Round 1 Precision</th><th class="r">Baseline (Random)</th><th class="r">2026 Holdout ρ</th></tr></thead>
+        <tbody>
+          <tr><td class="bold">Position Players</td><td class="r gold">−0.341</td><td class="r gold">36.4%</td><td class="r dim">7.7%</td><td class="r gold">−0.341</td></tr>
+          <tr><td class="bold">Pitchers</td><td class="r gold">−0.426</td><td class="r gold">34.3%</td><td class="r dim">3.5%</td><td class="r gold">−0.461</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Both models' 2026 holdout correlations match or exceed their in-sample result, the strongest available evidence the weighting reflects real signal rather than an artifact of the five seasons used to build it. The 2026 class was conducted July 11–12, 2026 and was never touched during any weight-tuning decision documented in Section 5.</p>
+
+    <div class="callout">
+      <div class="callout-label">Reading the Lift</div>
+      <p>Round 1 precision of 34–36% against a random baseline of 4–8% represents roughly a <strong>4–5x lift</strong> over chance, the honest, sellable claim this model supports. It is not 95% or even 80% accuracy, and it should never be represented as such. Even a stats-only model built with full rigor cannot approach that ceiling: not even the collective judgment of all 30 MLB front offices, with medical evaluations, biomechanical data, and in-person workouts this model does not have access to, gets it right that often.</p>
+    </div>
+  </div>
+
+  <!-- 07 TWO-WAY -->
+  <div class="section" id="two-way">
+    <span class="sec-num">07</span>
+    <h2 class="section-head">Two-Way Players</h2>
+    <p>A player-season qualifies as legitimately two-way only when both models' independent reliability floors are cleared in the same season: 50+ PA and 15+ IP. Of 257 unique players who cleared this bar at least once across the six-year window, the large majority (<strong>193 players, 75%</strong>) did so in exactly one season, consistent with incidental usage: a coaching staff experimenting, a roster gap, or a transitional phase. Only 64 players (25%) show two or more qualifying seasons, and just 18 (7%) show three or more.</p>
+
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-label">One Season Only</div><div class="stat-value">193</div><div class="stat-sub">75%, incidental, not surfaced</div></div>
+      <div class="stat-card"><div class="stat-label">2+ Seasons</div><div class="stat-value">64</div><div class="stat-sub">25%, a real, sustained pattern</div></div>
+      <div class="stat-card"><div class="stat-label green">3+ Seasons: Established</div><div class="stat-value green">18</div><div class="stat-sub">7%, the only tier surfaced publicly</div></div>
+    </div>
+
+    <p><strong>Design decision:</strong> only players with three or more qualifying two-way seasons are treated as "Established" two-way prospects. One- and two-season cases are treated as noise, not because either season's performance is unreal, but because a single season doesn't distinguish a genuine dual-threat profile from an incidental one.</p>
+
+    <h3 class="sub-head">A Real Example: Paul Skenes</h3>
+    <p>Skenes' 2021 season at Air Force shows 220 plate appearances against just 26.2 innings pitched, a legitimate everyday hitting role, not a token appearance. His two-way profile continued in 2022 before a clean conversion to a pure, dominant pitcher following his transfer to LSU in 2023. A pitcher-only model would have significantly undervalued who Skenes actually was during his Air Force seasons.</p>
+  </div>
+
+  <!-- 08 TIERS -->
+  <div class="section" id="tiers">
+    <span class="sec-num">08</span>
+    <h2 class="section-head">Reading the Tiers</h2>
+    <p>Draft SPARK's public output is always a round-outcome tier with within-tier rank: <strong>never a raw numeric score.</strong> This is a deliberate decision to avoid confusion with the traditional 20-80 scouting grade scale used throughout baseball, where the same numbers carry entirely different meaning: a "55" on the 20-80 scale is a strong, above-average grade, while a Draft SPARK "55" is closer to average. Displaying both systems' numbers side by side invites a false, direct comparison.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Tier</th><th>Historical Read (2021–2025 matched sample)</th></tr></thead>
+        <tbody>
+          <tr><td class="bold gold">Day 1 Priority</td><td>Most common single-round outcome is Round 1 (20.6% land exactly Round 1); 42% land Rounds 1–3; median settles around Round 5</td></tr>
+          <tr><td class="bold">Day 1–2 Border</td><td>29% land Rounds 1–3; median around Round 6</td></tr>
+          <tr><td class="bold">Day 2–3 Follow</td><td>20% land Rounds 1–3; median around Round 8</td></tr>
+          <tr><td class="bold">Priority Senior Sign Range</td><td>11% land Rounds 1–3; median around Round 10</td></tr>
+          <tr><td class="bold dim">Org Depth / Priority Follow</td><td>6% land Rounds 1–3; median around Round 13; over a third land Rounds 16–20</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="formula-note">Within a tier, players are differentiated by simple rank order only; no score is displayed at any level of detail.</p>
+  </div>
+
+  <!-- 09 LIMITATIONS -->
+  <div class="section" id="limitations">
+    <span class="sec-num">09</span>
+    <h2 class="section-head">Known Limitations</h2>
+    <ul class="limit-list">
+      <li><strong>No high school data.</strong> Draft SPARK is a college-only tool by design.</li>
+      <li><strong>No schedule-strength or conference adjustment</strong> (see Finding 2), by deliberate design choice, not oversight.</li>
+      <li><strong>No qualitative or makeup input.</strong> This mirrors the original SPARK model's discipline in scoping character evaluation out of a stats-only tool to avoid scorer bias, though it means Draft SPARK will systematically miss cases where makeup materially changes a front office's evaluation.</li>
+      <li><strong>Draft outcome matching</strong> (Baseball Almanac to FanGraphs) achieves roughly 75–91% match rates depending on season and position group; unmatched players are most often name-formatting mismatches, junior college transfers, or players whose final college season fell outside the No Minimum panel's coverage.</li>
+      <li><strong>Never approaching certainty.</strong> Even the model's own highest-scoring players show real dispersion in actual outcomes. In the top score band, the single highest-scoring player in a given draft class has, in at least one documented instance (2022), been outdrafted by a player scoring several points lower in the same class.</li>
+    </ul>
+  </div>
+
+  <!-- 10 FAQ -->
+  <div class="section" id="faq">
+    <span class="sec-num">10</span>
+    <h2 class="section-head">Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">What is Draft SPARK?</div>
+      <div class="faq-a">A percentile-based scoring model for NCAA Division I college baseball players, built by The Baseball Nerd to project MLB Draft outcomes using only public performance data. It extends the evaluation philosophy of the original SPARK Score, built for MiLB and MLB Statcast data, downward to the college level.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How accurate is Draft SPARK?</div>
+      <div class="faq-a">Not near-certain, and never marketed as such. Its top-scoring position players land in Round 1 at roughly a 4–5x higher rate than random selection from the same pool, and the pitcher model shows a comparable lift. Both correlations held or improved on the 2026 holdout class, which was never used during weight-tuning.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What data does Draft SPARK use?</div>
+      <div class="faq-a">FanGraphs' College Leaderboards under the No Minimum setting, 2021-2026: over 32,000 batting player-seasons and 31,000 pitching player-seasons. Draft outcome data for backtesting comes from Baseball Almanac's historical MLB Draft archive.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does Draft SPARK adjust for conference strength or RPI?</div>
+      <div class="faq-a">No, by deliberate design. Power Four conference membership predicts a real draft-position advantage independent of performance, but it reflects scouting visibility a player doesn't control rather than the player's own quality. Draft SPARK scores are conference-blind.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Why doesn't Draft SPARK show a raw score?</div>
+      <div class="faq-a">To avoid confusion with the traditional 20-80 scouting grade scale, where identical numbers carry entirely different meaning. Output is always a round-outcome tier with within-tier rank, never a visible 0-100 score.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What counts as a two-way player in Draft SPARK?</div>
+      <div class="faq-a">A player-season qualifying on both the Position Player and Pitcher reliability floors in the same year. "Established" two-way status requires three or more such seasons; one or two seasons is treated as incidental, not a reliable dual-threat signal.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How does Draft SPARK relate to the original SPARK Score, CSR, and nSCORE?</div>
+      <div class="faq-a">The <a href="https://thebaseballnerd.com/articles/spark-score-explained">SPARK Score</a> is The Baseball Nerd's professional-level breakout prediction framework; Draft SPARK adapts its core evaluation questions (skill, trajectory, opportunity, adjustability) to the college level using entirely public data. The <a href="https://thebaseballnerd.com/articles/csr-white-paper.html">CSR</a> and <a href="https://thebaseballnerd.com/articles/reliever-csr-white-paper.html">rCSR</a> frameworks apply a related percentile philosophy to current-season Cy Young evaluation, and <a href="https://thebaseballnerd.com/articles/nscore-white-paper.html">nSCORE</a> applies it to fantasy baseball. Together they form the full Baseball Nerd analytics suite.</div>
+    </div>
+  </div>
+
+  <!-- DATA SOURCES -->
+  <div class="section" id="sources">
+    <h3 class="sub-head-mono">Data Sources</h3>
+    <ul class="sources-list">
+      <li>wRC+, BB%, K%, ISO, Age, PA: FanGraphs College Batting Leaderboards (No Minimum), 2021–2026</li>
+      <li>FIP, K-BB%, K%, BB%, Age, IP, GS, SV: FanGraphs College Pitching Leaderboards (No Minimum), 2021–2026</li>
+      <li>MLB Draft results, 2021–2025: Baseball Almanac historical draft archive</li>
+      <li>MLB Draft results, 2026: Baseball Almanac (held out entirely during development; used only for final holdout validation)</li>
+      <li>Reliability floors: 50 PA (position players) · 15 IP (pitchers) · 3+ starts (depth-of-trust component)</li>
+    </ul>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h3>Draft SPARK: In Development</h3>
+    <p>Model validated · Live weekly leaderboard targeted ahead of the 2027 MLB Draft</p>
+    <a href="https://thebaseballnerd.substack.com" class="cta-btn">Subscribe for Updates →</a>
+    <a href="/vault.html" class="cta-btn outline">Back to Data Vault</a>
+  </div>
+
+  <!-- RELATED -->
+  <div class="section" style="margin-top:3rem;">
+    <h3 class="sub-head-mono">Related Analytics</h3>
+    <div class="related-grid">
+      <a href="https://thebaseballnerd.com/articles/spark-score-explained" class="related-card">
+        <div class="rc-tag">Breakout Prediction</div>
+        <div class="rc-title">The SPARK Score: How We Find Tomorrow's Stars</div>
+      </a>
+      <a href="https://thebaseballnerd.com/articles/csr-white-paper.html" class="related-card">
+        <div class="rc-tag">Starter Metric · White Paper</div>
+        <div class="rc-title">Contact Suppression Rate (CSR): Cy Young Framework</div>
+      </a>
+      <a href="https://thebaseballnerd.com/articles/reliever-csr-white-paper.html" class="related-card">
+        <div class="rc-tag">Reliever Metric · White Paper</div>
+        <div class="rc-title">Reliever CSR (rCSR): Trusted-Leverage Framework</div>
+      </a>
+      <a href="https://thebaseballnerd.com/articles/nscore-white-paper.html" class="related-card">
+        <div class="rc-tag">Fantasy Database</div>
+        <div class="rc-title">nSCORE: A Percentile Ranking System for Fantasy Baseball</div>
+      </a>
+      <a href="https://thebaseballnerd.com/articles/what-is-abs-iq-plus-in-baseball" class="related-card">
+        <div class="rc-tag">Challenge Intelligence</div>
+        <div class="rc-title">ABS IQ+: The Challenge System Intelligence Metric</div>
+      </a>
+    </div>
+  </div>
+
+</div><!-- /article-body -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">The Baseball <span>Nerd</span></div>
+  <ul class="foot-links">
+    <li><a href="/news.html">News</a></li>
+    <li><a href="/articles.html">Articles</a></li>
+    <li><a href="/vault.html">Vault</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="https://thebaseballnerd.substack.com">Subscribe</a></li>
+  </ul>
+  <div class="foot-copy">© 2026 The Baseball Nerd · Numbers Not Feelings</div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
