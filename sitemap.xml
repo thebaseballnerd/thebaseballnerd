@@ -4671,4 +4671,72 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!-- RECAPS: 2026-07-27 -->
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=2026-07-27-mariners-at-rangers</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=2026-07-27-diamondbacks-at-pirates</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=2026-07-27-braves-at-mets</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=2026-07-27-orioles-at-tigers</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=2026-07-27-sox-at-athletics</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=2026-07-27-cubs-at-cardinals</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=2026-07-27-astros-at-angels</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=2026-07-27-brewers-at-giants</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=2026-07-27-yankees-at-sox</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=2026-07-27-phillies-at-marlins</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thebaseballnerd.com/recap.html?id=2026-07-27-jays-at-nationals</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
